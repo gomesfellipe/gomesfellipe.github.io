@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Relatorios on Fellipe Gomes</title>
+    <link>/tags/relatorios/</link>
+    <description>Recent content in Relatorios on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/relatorios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Carnaval e mapas interativos com R</title>
+      <link>/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/</guid>
+      <description>Onde estão os blocos?Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.
+Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes ggmap e leaflet para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar</description>
+    </item>
+    
+    <item>
+      <title>Tabelas incriveis com R</title>
+      <link>/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/</guid>
+      <description>Importâcia da apresentação dos dadosO trabalho do estatístico vai muito além do planejamento, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. O processo de analises deve ser tratado na etapa final de todo projeto ou pesquisa que envolva apresentação dos resultados, não é atoa que já até existem áreas dentro da ciência de dados focada nesta tarefa, recebendo o título de “Data Artist”.</description>
+    </item>
+    
+    <item>
+      <title>Criando relatórios com template tufle </title>
+      <link>/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/</guid>
+      <description>Focando no conteúdo Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico.
+como disse Gibran em algum momento; precisamos transformar em palavras aquilo que já conhecemos em pensamentos. Ninguém quer perder tempo precioso de análises em formatações de documentos.
+Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos.</description>
+    </item>
+    
+  </channel>
+</rss>

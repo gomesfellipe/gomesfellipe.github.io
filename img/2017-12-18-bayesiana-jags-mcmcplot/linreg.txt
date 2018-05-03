@@ -1,0 +1,19 @@
+
+    model {
+    
+    # Prioris
+    for(j in 1:p)
+    {
+    beta[j] ~ dnorm(mu.beta, tau.beta)       
+    }
+    sigma ~ dunif(0, 100)            
+    tau <- 1/ (sigma * sigma)
+    
+    # Verossimilhança
+    for (i in 1:n) {
+    y[i] ~ dnorm(mu[i], tau)
+    mu[i] <- inprod(X[i,], beta)
+    }
+
+    }
+    

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Macro on Fellipe Gomes</title>
+    <link>/tags/macro/</link>
+    <description>Recent content in Macro on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/macro/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Produzindo e formatando um documento Word direto em R</title>
+      <link>/post/2018-03-07-word-e-r-2/word-e-r-2/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-03-07-word-e-r-2/word-e-r-2/</guid>
+      <description>Relatórios de alta qualidade só com \(\LaTeX\)?Como já mencionei no post sobre tabelas incríveis com R, a tarefa de um estatístico (ou Data Scient, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem \(\LaTeX\), mas será que ela é realmente a única opção?</description>
+    </item>
+    
+  </channel>
+</rss>

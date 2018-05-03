@@ -1,0 +1,2411 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105500464-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-105500464-2');
+</script>
+
+        
+            
+                <title>Manipulação de Strings e Text Mining</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.31.1" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            <meta name="description" content="Algumas dicas e truques úteis de pacotes especiais para a manipulação e tratamento de strings">
+        
+
+        <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Manipulação de Strings e Text Mining"/>
+<meta name="twitter:description" content="Algumas dicas e truques úteis de pacotes especiais para a manipulação e tratamento de strings"/>
+
+        <meta property="og:title" content="Manipulação de Strings e Text Mining" />
+<meta property="og:description" content="Algumas dicas e truques úteis de pacotes especiais para a manipulação e tratamento de strings" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2017-12-17-string/string/" />
+
+
+
+<meta property="article:published_time" content="2017-12-17T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-12-17T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Manipulação de Strings e Text Mining">
+<meta itemprop="description" content="Algumas dicas e truques úteis de pacotes especiais para a manipulação e tratamento de strings">
+
+
+<meta itemprop="datePublished" content="2017-12-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-12-17T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2093">
+
+
+
+<meta itemprop="keywords" content="gomesfellipe,Aprendendo,R,RStudio,data mining,dplyr,Estatistica,manipulacao de dados,pdf," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+        
+
+        
+            
+                
+            
+        
+
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105500464-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+      
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+        
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>cv
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/">
+                            <i class="fa fa-coffee">&nbsp;</i>Posts
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-reorder">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>cv
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/">
+                            <h3>
+                                <i class="fa fa-coffee">&nbsp;</i>Posts
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-reorder">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-17'>
+                                    February 17, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-01'>
+                                    February 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-18'>
+                                    December 18, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-17'>
+                                    December 17, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">Criando relatórios com template tufle </a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-14'>
+                                    December 14, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
+                            </header>
+                            
+    
+
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-04'>
+                                    December 4, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/">Gerenciando arquivos do Dropbox com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-04'>
+                                    December 4, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/" class="image featured">
+            <img src="/img/2017/12/dropbox-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-02'>
+                                    December 2, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2017-12-17-string%2fstring%2f&text=Manipula%c3%a7%c3%a3o%20de%20Strings%20e%20Text%20Mining&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2017-12-17-string%2fstring%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2017-12-17-string%2fstring%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2017-12-17-string%2fstring%2f&title=Manipula%c3%a7%c3%a3o%20de%20Strings%20e%20Text%20Mining" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2017-12-17-string%2fstring%2f&title=Manipula%c3%a7%c3%a3o%20de%20Strings%20e%20Text%20Mining" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2017-12-17-string%2fstring%2f&title=Manipula%c3%a7%c3%a3o%20de%20Strings%20e%20Text%20Mining" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2017-12-17-string%2fstring%2f&description=Manipula%c3%a7%c3%a3o%20de%20Strings%20e%20Text%20Mining" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&body=%2fpost%2f2017-12-17-string%2fstring%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></h1>
+            
+        
+        
+            <p>Algumas dicas e truques úteis de pacotes especiais para a manipulação e tratamento de strings</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2017-12-17'>
+            December 17, 2017</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>10 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2017-12-17-string%2fstring%2f&text=Manipula%c3%a7%c3%a3o%20de%20Strings%20e%20Text%20Mining&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2017-12-17-string%2fstring%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2017-12-17-string%2fstring%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2017-12-17-string%2fstring%2f&title=Manipula%c3%a7%c3%a3o%20de%20Strings%20e%20Text%20Mining" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2017-12-17-string%2fstring%2f&title=Manipula%c3%a7%c3%a3o%20de%20Strings%20e%20Text%20Mining" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2017-12-17-string%2fstring%2f&title=Manipula%c3%a7%c3%a3o%20de%20Strings%20e%20Text%20Mining" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2017-12-17-string%2fstring%2f&description=Manipula%c3%a7%c3%a3o%20de%20Strings%20e%20Text%20Mining" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&body=%2fpost%2f2017-12-17-string%2fstring%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    <div id="manipulacao-de-strings-e-text-mining" class="section level1">
+<h1>Manipulação de strings e Text mining</h1>
+
+<p>Estudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo <em>string</em>.</p>
+<p>Uma variável do tipo <em>string</em> é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.</p>
+<p>Desde modificações em nomes de colunas em data.frames até as mais espertas aplicações de text mining com corpus, a limpeza e manipulação de strings é quase sempre necessária</p>
+</div>
+<div id="criando-funcoes" class="section level1">
+<h1>Criando funções</h1>
+<p>Antes de apresentar alguns pacotes com funções úteis para manipular strings, gostaria de comentar que pode ser bem útil desenvolvermos funções para nosso próprio uso, não é raro realizarmos o mesmo procedimento em diferentes etapas das análises, o que pode tornar o código desorganizado ou poluído com tantas linhas repetidas.</p>
+<p>Trago aqui de exemplo uma função que encontrei recentemente para remover acentos no <a href="https://pt.stackoverflow.com/questions/46473/remover-acentos">stackoverflow</a> que já me ajudou bastante, veja a função:</p>
+<pre class="r"><code>rm_accent &lt;- function(str,pattern=&quot;all&quot;) {
+  # Rotinas e funções úteis V 1.0
+  # rm.accent - REMOVE ACENTOS DE PALAVRAS
+  # Função que tira todos os acentos e pontuações de um vetor de strings.
+  # Parâmetros:
+  # str - vetor de strings que terão seus acentos retirados.
+  # patterns - vetor de strings com um ou mais elementos indicando quais acentos deverão ser retirados.
+  #            Para indicar quais acentos deverão ser retirados, um vetor com os símbolos deverão ser passados.
+  #            Exemplo: pattern = c(&quot;´&quot;, &quot;^&quot;) retirará os acentos agudos e circunflexos apenas.
+  #            Outras palavras aceitas: &quot;all&quot; (retira todos os acentos, que são &quot;´&quot;, &quot;`&quot;, &quot;^&quot;, &quot;~&quot;, &quot;¨&quot;, &quot;ç&quot;)
+  if(!is.character(str))
+    str &lt;- as.character(str)
+
+  pattern &lt;- unique(pattern)
+
+  if(any(pattern==&quot;Ç&quot;))
+    pattern[pattern==&quot;Ç&quot;] &lt;- &quot;ç&quot;
+
+  symbols &lt;- c(
+    acute = &quot;áéíóúÁÉÍÓÚýÝ&quot;,
+    grave = &quot;àèìòùÀÈÌÒÙ&quot;,
+    circunflex = &quot;âêîôûÂÊÎÔÛ&quot;,
+    tilde = &quot;ãõÃÕñÑ&quot;,
+    umlaut = &quot;äëïöüÄËÏÖÜÿ&quot;,
+    cedil = &quot;çÇ&quot;
+  )
+
+  nudeSymbols &lt;- c(
+    acute = &quot;aeiouAEIOUyY&quot;,
+    grave = &quot;aeiouAEIOU&quot;,
+    circunflex = &quot;aeiouAEIOU&quot;,
+    tilde = &quot;aoAOnN&quot;,
+    umlaut = &quot;aeiouAEIOUy&quot;,
+    cedil = &quot;cC&quot;
+  )
+
+  accentTypes &lt;- c(&quot;´&quot;,&quot;`&quot;,&quot;^&quot;,&quot;~&quot;,&quot;¨&quot;,&quot;ç&quot;)
+
+  if(any(c(&quot;all&quot;,&quot;al&quot;,&quot;a&quot;,&quot;todos&quot;,&quot;t&quot;,&quot;to&quot;,&quot;tod&quot;,&quot;todo&quot;)%in%pattern)) # opcao retirar todos
+    return(chartr(paste(symbols, collapse=&quot;&quot;), paste(nudeSymbols, collapse=&quot;&quot;), str))
+
+  for(i in which(accentTypes%in%pattern))
+    str &lt;- chartr(symbols[i],nudeSymbols[i], str)
+
+  return(str)
+}</code></pre>
+<p>Criar nossas próprias funções é muito simples em R e eu encorajo a todos a começarem a trabalhar com funções próprias também (além das nativas do R), pois o programa fica muito mais dinâmico e limpo.</p>
+</div>
+<div id="o-pacote-stringr" class="section level1">
+<h1>O pacote <code>stringr</code></h1>
+<p>Além do pacote <code>dplyr</code>, mais uma vez <a href="https://github.com/hadley">Hadley Wickham</a> trás uma solução bastante útil para facilitar nossa vida de programador estatístico (ou cientista de dados se preferir, seguindo as “tendências da moda” de “data scientist”) com o pacote <code>stringr</code>, que possui uma sintaxe consistente, permitindo a manipulação de textos com muito mais facilidade.</p>
+<p>Seu uso consiste em uma variedade de utilidades que podem ser consultadas diretamente de dentro do R ao escrever <code>str_</code> (após carregar o pacote) e aguardar um instante que a seguinte lista de funções será exibida:</p>
+<div class="figure">
+<img src="/img/2017-12-17-string/imagem1.png" alt="Note que essa aplicação funciona para qualquer pacote do R" />
+<p class="caption">Note que essa aplicação funciona para qualquer pacote do R</p>
+</div>
+<p>Portanto, inicialmente vamos carregar o pacote:</p>
+<pre class="r"><code>library(stringr)</code></pre>
+<p>Com o pacote carregado já podemos fazer o uso de algumas das funções que são bem úteis.</p>
+<div id="arrumando-titulos-de-base-de-dados" class="section level2">
+<h2>Arrumando titulos de base de dados</h2>
+<p>É muito comum que os cabeçalhos de uma base de dados venha repleta de caracteres especiais como este exemplo:</p>
+<pre class="r"><code>nomes=c(&#39;Aniversário&#39;, &#39;Situação&#39;, &#39;Raça&#39;, &#39;IMC&#39;, &#39;Tipo físico&#39;, &#39;tabaco por dia (cig/dia)&#39;, &#39;Alcool (dose/semana)&#39;, &#39;Drogas/g&#39;, &#39;Café/dia&#39;, &#39;Suco/dia&#39;);nomes</code></pre>
+<pre><code>##  [1] &quot;Aniversário&quot;              &quot;Situação&quot;                
+##  [3] &quot;Raça&quot;                     &quot;IMC&quot;                     
+##  [5] &quot;Tipo físico&quot;              &quot;tabaco por dia (cig/dia)&quot;
+##  [7] &quot;Alcool (dose/semana)&quot;     &quot;Drogas/g&quot;                
+##  [9] &quot;Café/dia&quot;                 &quot;Suco/dia&quot;</code></pre>
+<p>Unindo as funções deste pacote com a sintaxe do pacote <code>dplyr</code> podemos elaborar uma função que irá facilitar bastante nas chamadas das colunas do data.frame na hora da análise, veja:</p>
+<pre class="r"><code>ajustar_nomes=function(x){
+ x%&gt;%
+  stringr::str_trim() %&gt;%                        #Remove espaços em branco sobrando
+  stringr::str_to_lower() %&gt;%                    #Converte todas as strings para minusculo
+  rm_accent() %&gt;%                                #Remove os acentos com a funcao criada acima
+  stringr::str_replace_all(&quot;[/&#39; &#39;.()]&quot;, &quot;_&quot;) %&gt;% #Substitui os caracteres especiais por &quot;_&quot;
+  stringr::str_replace_all(&quot;_+&quot;, &quot;_&quot;) %&gt;%        #Substitui os caracteres especiais por &quot;_&quot;   
+  stringr::str_replace(&quot;_$&quot;, &quot;&quot;)                 #Substitui o caracter especiais por &quot;_&quot;
+}
+nomes=ajustar_nomes(nomes)
+nomes</code></pre>
+<pre><code>##  [1] &quot;aniversario&quot;            &quot;situacao&quot;              
+##  [3] &quot;raca&quot;                   &quot;imc&quot;                   
+##  [5] &quot;tipo_fisico&quot;            &quot;tabaco_por_dia_cig_dia&quot;
+##  [7] &quot;alcool_dose_semana&quot;     &quot;drogas_g&quot;              
+##  [9] &quot;cafe_dia&quot;               &quot;suco_dia&quot;</code></pre>
+<div id="funcao-str_replace-e-str_replace_all" class="section level3">
+<h3>Função str_replace() e str_replace_all()</h3>
+<p>Esse é o tipo de função que é utilizada com frequência. Utilizada para substituir ou remover uma (ou todas) as ocorrências de determinado carácter no objeto, suponha a seguinte situação:</p>
+<pre class="r"><code>exemplo &lt;- c(&quot;o esperto&quot;, &quot;o doido&quot;, &quot;o normal&quot;)</code></pre>
+<p>Para remover a primeira vogal de cada string:</p>
+<pre class="r"><code>str_replace(exemplo, &quot;[aeiou]&quot;, &quot;&quot;) </code></pre>
+<pre><code>## [1] &quot; esperto&quot; &quot; doido&quot;   &quot; normal&quot;</code></pre>
+<p>Para substitui todas as vogais por “_&quot;</p>
+<pre class="r"><code>str_replace_all(exemplo, &quot;[aeiou]&quot;, &quot;_&quot;) </code></pre>
+<pre><code>## [1] &quot;_ _sp_rt_&quot; &quot;_ d__d_&quot;   &quot;_ n_rm_l&quot;</code></pre>
+<p>Considere este novo exemplo:</p>
+<pre class="r"><code>exemplo2 &lt;- &quot;O-    ffffzx2, faifavuvuifoovvv fovvo&quot;</code></pre>
+<p>Para substitui o primeiro f (ou f’s) por “v”:</p>
+<pre class="r"><code>exemplo2 &lt;- str_replace(exemplo2, &quot;f+&quot;, &quot;v&quot;)
+exemplo2</code></pre>
+<pre><code>## [1] &quot;O-    vzx2, faifavuvuifoovvv fovvo&quot;</code></pre>
+<p>Para substituir todos os v’s (em sequência ou não) por “c”:</p>
+<pre class="r"><code>exemplo2 &lt;- str_replace_all(exemplo2, &quot;v+&quot;, &quot;c&quot;) 
+exemplo2</code></pre>
+<pre><code>## [1] &quot;O-    czx2, faifacucuifooc foco&quot;</code></pre>
+</div>
+<div id="funcao-str_split-e-str_split_fixed" class="section level3">
+<h3>Função str_split() e str_split_fixed()</h3>
+<p>Essas funções separam uma string em várias de acordo com um separador.</p>
+<pre class="r"><code>frase &lt;- &#39;Analisar palavras é muito legal. Apesar de todos os desafios as informações que podemos extrair podem revelar informações incrívelmente úteis. Esse exemplo esta sendo escrito pois vamos retirar cada frase desse paragrafo separadamente.&#39;
+
+str_split(frase, fixed(&#39;.&#39;))</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;Analisar palavras é muito legal&quot;                                                                              
+## [2] &quot; Apesar de todos os desafios as informações que podemos extrair podem revelar informações incrívelmente úteis&quot;
+## [3] &quot; Esse exemplo esta sendo escrito pois vamos retirar cada frase desse paragrafo separadamente&quot;                 
+## [4] &quot;&quot;</code></pre>
+</div>
+<div id="funcao-str_sub" class="section level3">
+<h3>Função <code>str_sub()</code></h3>
+<p>Para obter uma parte fixa de uma string podemos utilizar o comando <code>str_sub()</code> da seguinte maneira:</p>
+<pre class="r"><code>#Suponha as seguintes palavras:
+words=c(&quot;00-casados&quot;, &quot;01-casamento&quot;, &quot;02-emprego&quot;, &quot;03-empregado&quot;)</code></pre>
+<p>Selecionado apenas do quarto até o último caracteres da string:</p>
+<pre class="r"><code>str_sub(words, start = 4) # começa no 4 caractere</code></pre>
+<pre><code>## [1] &quot;casados&quot;   &quot;casamento&quot; &quot;emprego&quot;   &quot;empregado&quot;</code></pre>
+<p>Selecionando apenas os dois primeiros caracteres da string:</p>
+<pre class="r"><code>str_sub(words, end = 2) # termina no 2 caractere</code></pre>
+<pre><code>## [1] &quot;00&quot; &quot;01&quot; &quot;02&quot; &quot;03&quot;</code></pre>
+<p>Para obter caracteres utilizando o sinal de negação <code>-</code></p>
+<pre class="r"><code>#Suponha:
+words &lt;- c(&quot;casamento-01&quot;, &quot;emprego-02&quot;, &quot;empregado-03&quot;)
+str_sub(words, end = -4)   #Seleciona todos os valores menos os últimos 3</code></pre>
+<pre><code>## [1] &quot;casamento&quot; &quot;emprego&quot;   &quot;empregado&quot;</code></pre>
+<pre class="r"><code>str_sub(words, start = -2) #Seleciona todos os valores até o segundo valor</code></pre>
+<pre><code>## [1] &quot;01&quot; &quot;02&quot; &quot;03&quot;</code></pre>
+<p>Também é possível utilizar os argumentos <code>end</code> e <code>start</code> conjuntamente, veja</p>
+<pre class="r"><code>#É possível usar os argumentos start e end conjuntamente.
+words &lt;- c(&quot;__casamento__&quot;, &quot;__emprego__&quot;, &quot;__empregado__&quot;)
+str_sub(words, start=3, end=-3)</code></pre>
+<pre><code>## [1] &quot;casamento&quot; &quot;emprego&quot;   &quot;empregado&quot;</code></pre>
+<p>A manipulação de strings é uma tarefa bem trabalhosa e algumas vezes até complexa porém cada desafio que surge ajuda bastante a entender esse mecanismo para manipulação de strings.</p>
+</div>
+</div>
+</div>
+<div id="pacote-tm" class="section level1">
+<h1>Pacote <code>tm</code></h1>
+<p>O pacote <code>tm</code> é um clássico para o text mining em R, quando os dados se apresentam de forma não estrutura, necessitam de uma preparação prévia que pode ser considerada um tipo de pré-processamento.</p>
+<p>Inicialmente, carregando o pacote:</p>
+<pre class="r"><code>suppressMessages( library(tm))</code></pre>
+<p>Em bases de dados textuais, conhecidos como <em>corpus</em> ou <em>corpora</em> são tratado como “documentos” e cada “documento” em um <em>corpus</em> pode assumir diferentes características em relação ao tamanho do texto (sequências de caracteres), tipo de conteúdo (assunto abordado), língua na qual é escrito ou tipo de linguagem adotada dentro outros exemplos.</p>
+<p>A transformação de um <em>corpus</em> em um conjunto de dados que possa ser submetido à procedimentos de análise consiste em um processo que gera uma representação capaz de descrever cada documento em termos de suas características.</p>
+<p>Para criar um <em>corpus</em> a partir de um <code>data.frame</code> basta utilizar o seguinte comando:</p>
+<pre class="r"><code>#Criando o corpus para o tratamento das variaveis com pacote library(tm): 
+corpus &lt;- Corpus(DataframeSource(x))</code></pre>
+<p>A seguir veremos algumas dos possíveis procedimentos para a manipulação de dados em um <em>corpus</em>.</p>
+<div id="limpeza-de-um-corpus" class="section level2">
+<h2>Limpeza de um corpus</h2>
+<p>Uma sequência de comando interessantes para a limpeza de um <em>corpus</em> que já utilizei bastante é a seguinte:</p>
+<pre class="r"><code>#Realizando a limpeza da base de dados:
+#Acrescentar mais stopwords para retirada;
+#novas=c()
+
+#Tratamento do corpus
+tratar_corpus=function(x){
+x%&gt;% 
+  tm_map(stripWhitespace)%&gt;%                                #remover excessos de espaços em branco
+  tm_map(removePunctuation)%&gt;%                              #remover pontuacao
+  tm_map(removeNumbers)%&gt;%                                  #remover numeros
+  tm_map(removeWords, c(stopwords(&quot;portuguese&quot;),novas))%&gt;%  #remmover as stopwords,crie um vetor chamado &quot;novas&quot; para incluir novas stopwords 
+  tm_map(stripWhitespace)%&gt;%                                #remover excessos de espaços em branco novamente
+  tm_map(removeNumbers)                                 #remover numeros novamente
+ # tm_map(content_transformer(tolower))%&gt;%                   #colocar todos caracteres como minusculo
+  #tm_map(stemDocument)                                      #Extraindo os radicais
+}                                   
+corpus=tratar_corpus(corpus)
+#inspect(corpus[[3]]) #Leitura de algum documento específico</code></pre>
+<p>Para criar a matriz de termos podemos utilizar o comando:</p>
+<pre class="r"><code>#Criando a matrix de termos:
+corpus_tf=TermDocumentMatrix(corpus, control = list(minWordLength=2,minDocFreq=5))</code></pre>
+<p>Caso precise trabalhar com a transformação <code>tf-idf</code> basta utilizar:</p>
+<pre class="r"><code>#Caso precise utilizar a medida tf-idf em um corpus:
+corpus_tf_idf=weightTfIdf(corpus_tf,normalize=T)</code></pre>
+</div>
+<div id="obtendo-uma-matriz-de-frequencias-a-partir-de-um-corpos" class="section level2">
+<h2>Obtendo uma matriz de frequências a partir de um corpos</h2>
+<p>Criando uma matriz para facilitar a manipulação dos dados</p>
+<pre class="r"><code>#Transformando em matrix para permitir a manipulação:
+matriz = as.matrix(corpus_tf)
+
+#organizar os dados de forma decrescente
+matriz = sort(rowSums(matriz), decreasing=T)
+
+#criando um data.frame para a matriz
+matriz = data.frame(word=names(matriz), freq = matriz)</code></pre>
+<p>Caso seja necessário conferir visualmente as palavras mais mencionadas, também podemos utilizar gráficos, como por exemplo:</p>
+<pre class="r"><code>#Vejamos os primeiros 10 registros:
+head(matriz, n=10)</code></pre>
+<pre><code>##                  word freq
+## anos             anos  242
+## pra               pra  226
+## site             site  156
+## ncia             ncia  146
+## contribuiÃ contribuiÃ  138
+## rio               rio  134
+## cadastro     cadastro  134
+## faz               faz  124
+## fazer           fazer  124
+## ver               ver  114</code></pre>
+<pre class="r"><code>#Vejamos visualmente:
+head(matriz, n=10) %&gt;%
+  ggplot(aes(word, freq)) +
+  geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, fill = &quot;#87CEFA&quot;) +
+  geom_text(aes(hjust = 1.3, label = freq)) + 
+  coord_flip() + 
+  labs(title = &quot;20 Palavras mais mensionadas&quot;,  x = &quot;Palavras&quot;, y = &quot;Número de usos&quot;)</code></pre>
+<p><img src="/post/2017-12-17-string/2017-12-17-string_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+</div>
+</div>
+<div id="n-gram-dictionary-com-rweka" class="section level1">
+<h1>N-gram Dictionary com <code>RWeka</code></h1>
+<p>Embora a análise de palavras realizada neste documento seja útil para a exploração inicial, o cientista de dados precisará construir um dicionário de bigrams, trigrams e quatro grams, coletivamente chamados de n-grams, que são frases de n palavras.</p>
+<p>“O <a href="https://www.cs.waikato.ac.nz/ml/weka/">Weka</a> tem como objectivo agregar algoritmos provenientes de diferentes abordagens/paradigmas na sub-área da inteligência artificial dedicada ao estudo de aprendizagem de máquina.”-<a href="https://pt.wikipedia.org/wiki/Weka">Wikipedia</a></p>
+<p>Carregando o pacote <code>RWeka</code>:</p>
+<pre class="r"><code>library(rJava)
+suppressMessages(library(RWeka)) 
+BigramTokenizer &lt;- function(x) NGramTokenizer(x, Weka_control(min = 2, max = 2))
+TrigramTokenizer &lt;- function(x) NGramTokenizer(x, Weka_control(min = 3, max = 3))
+FourgramTokenizer &lt;- function(x) NGramTokenizer(x, Weka_control(min = 4, max = 4))</code></pre>
+<p>Como exemplo, criaremos um dicionário de trigrams (frases de três palavras) e a função para construir um dicionário de n-gramas utilizando o pacote <code>tm</code> e o <code>RWeka</code> é:</p>
+<pre class="r"><code># tokenize into tri-grams
+trigram.Tdm &lt;- tm::TermDocumentMatrix(corpus, control = list(tokenize = TrigramTokenizer))</code></pre>
+<p>Criando uma matriz para facilitar a manipulação dos dados</p>
+<pre class="r"><code>#Transformando em matrix para permitir a manipulação:
+matriz = as.matrix(trigram.Tdm)
+
+#organizar os dados de forma decrescente
+matriz = sort(rowSums(matriz), decreasing=T)
+
+#criando um data.frame para a matriz
+matriz = data.frame(word=names(matriz), freq = matriz)</code></pre>
+<pre class="r"><code>#Vejamos os primeiros 20 registros:
+head(matriz, n=10)
+
+#Vejamos visualmente:
+head(matriz, n=10) %&gt;%
+  ggplot(aes(word, freq)) +
+  geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, fill = &quot;#87CEFA&quot;) +
+  geom_text(aes(hjust = 1.3, label = freq)) + 
+  coord_flip() + 
+  labs(title = &quot;20 frases mais mensionadas&quot;,  x = &quot;Palavras&quot;, y = &quot;Número de usos&quot;)</code></pre>
+<p>Parece que este pacote parou de funcionar temporariamente, uma alternativa a este pacote pode ser o <code>ngram</code> e seu uso pode ser da seguinte forma:</p>
+<pre class="r"><code>library(ngram)
+ngrams=3
+temp=ngram::ngram(ngram::concatenate(corpus),ngrams)      # Objeto temporario recebe objeto que guarda sequencias
+    temp=get.phrasetable(temp)                                  # Obtendo tabela de sequencias do objeto acima
+    
+    temp$ngrams=temp$ngrams%&gt;%                                  # Limpeza das sequencias obtidas:
+      str_replace_all(pattern = &quot;^([A-Za-z] [A-Za-z])+&quot;,&quot;&quot;)%&gt;%  # Remover sequencias de apenas 1 letras 
+      str_replace_all(pattern = &quot;[:punct:]&quot;,&quot;&quot;)%&gt;%              # Remover caracteres especiais
+      str_replace_all(pattern = &quot;\n&quot;,&quot;&quot;)%&gt;%                     # Remover o marcador de &quot;nova linha&quot;
+      str_trim()                                                # Remover espaços em branco sobrando
+    
+    #Apos a limpeza..
+    
+    temp=temp[temp$ngrams!=&quot;&quot;,]                                 # Selecionando apenas as linhas que contenham informacao
+    
+    temp=temp%&gt;%                                                # Novamente manipulando o objeto que contem a tabela de sequencias
+      group_by(ngrams) %&gt;%                                      # Agrupando por &quot;ngrams&quot; (sequencias obtidas)
+      summarise(freq=sum(freq))%&gt;%                              # Resumir as linhas repetidas pela soma das frequencias
+      arrange(desc(freq))%&gt;%                                    # Organizando da maior para a menos frequencia
+      as.matrix()                                               # Alterando o tipo de objeto para matrix
+    
+    rownames(temp)=str_c(temp[,1])                              # O nome das linhas passa a ser a sequencia correspondente
+    v=sort(temp[,2],decreasing = T)                               # Retorna um objeto com as frequencias em ordem decrescente e linhas nomeadas
+data.frame(words = names(v),freq=v)%&gt;%
+  head(n=25)%&gt;%
+      ggplot(aes(words, freq)) +
+  geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, fill = &quot;#87CEFA&quot;) +
+  geom_text(aes(hjust = 1.3, label = freq)) + 
+  coord_flip() + 
+  labs(title = &quot;25 frases mais mensionadas&quot;,  x = &quot;Palavras&quot;, y = &quot;Número de usos&quot;)</code></pre>
+<p><img src="/post/2017-12-17-string/2017-12-17-string_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div id="package-snowballc" class="section level2">
+<h2>Package ‘SnowballC’</h2>
+<p>Caso seja necessário retirar o radical de um vetor de strings podemos utilizar a função ´wordStem´ do pacote <code>SnowballC</code>, caso queria conferir, existe o <a href="https://cran.r-project.org/web/packages/SnowballC/SnowballC.pdf">manual do pacote</a> no <a href="https://cran.r-project.org/web/packages/SnowballC">CRAN</a></p>
+<pre class="r"><code>words=c(&quot;casados&quot;, &quot;casamento&quot;, &quot;emprego&quot;, &quot;empregado&quot;)
+SnowballC::getStemLanguages()</code></pre>
+<pre><code>##  [1] &quot;danish&quot;     &quot;dutch&quot;      &quot;english&quot;    &quot;finnish&quot;    &quot;french&quot;    
+##  [6] &quot;german&quot;     &quot;hungarian&quot;  &quot;italian&quot;    &quot;norwegian&quot;  &quot;porter&quot;    
+## [11] &quot;portuguese&quot; &quot;romanian&quot;   &quot;russian&quot;    &quot;spanish&quot;    &quot;swedish&quot;   
+## [16] &quot;turkish&quot;</code></pre>
+<pre class="r"><code>SnowballC::wordStem(words, language = &quot;portuguese&quot;)</code></pre>
+<pre><code>## [1] &quot;cas&quot;      &quot;casament&quot; &quot;empreg&quot;   &quot;empreg&quot;</code></pre>
+</div>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+                        Categories
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='/categories/r'>R</a></li>
+    
+        <li><a href='/categories/package'>package</a></li>
+    
+        <li><a href='/categories/utilidades'>utilidades</a></li>
+    
+        <li><a href='/categories/pr%C3%A1tica'>Prática</a></li>
+    
+        <li><a href='/categories/text-mining'>text mining</a></li>
+    
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/"
+                class="button big previous">Criando relatórios com template tufle </a></li>
+    
+
+    
+        <li><a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/"
+                class="button big next">Ajustando Modelos Bayesianos com JAGS</a></li>
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          <li>
+            <a href="" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a>
+          </li>
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+
+      </ul>
+    
+  </section>
+  
+
+  
+  <section id="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-17'>
+                February 17, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-01'>
+                February 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-18'>
+                December 18, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-17'>
+                December 17, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">Criando relatórios com template tufle </a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-14'>
+                December 14, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
+              </time>
+            </header>
+            
+    
+
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-04'>
+                December 4, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/">Gerenciando arquivos do Dropbox com R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-04'>
+                December 4, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+        
+        
+        
+
+        <a href="/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/" class="image featured">
+            <img src="/img/2017/12/dropbox-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-02'>
+                December 2, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/r/">R</a>
+                <span style="float:right;">14</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/utilidades/">utilidades</a>
+                <span style="float:right;">11</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/estatistica/">Estatistica</a>
+                <span style="float:right;">9</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/pr%C3%A1tica/">Prática</a>
+                <span style="float:right;">8</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/teoria/">Teoria</a>
+                <span style="float:right;">7</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/package/">package</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/modelos/">Modelos</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/ggplot/">ggplot</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/multivariada/">multivariada</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/tabelas/">tabelas</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/text-mining/">text mining</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                Uncategorized
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/google/">Google</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/bayesiana/">bayesiana</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/bitcoin/">bitcoin</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/cheatsheets/">cheatsheets</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/componentes-principais/">componentes principais</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/datacamp/">datacamp</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/dplyr/">dplyr</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/estat%C3%ADstica/">estatística</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/filosofia/">filosofia</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/gamificacao/">gamificacao</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/jags/">jags</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/kaggle/">kaggle</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/leaflet/">leaflet</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/mapa/">mapa</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/pca/">pca</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/probabilidade/">probabilidade</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/simulacao/">simulacao</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h1>
+      <p>Meu nome é Fellipe Gomes e sou um entusiasta pela ciência de dados. Percebi que um dos muitos desafios na carreira de um cientista de dados é passar para as pessoas o que podemos fazer em diversas áreas de estudo, diante disso resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          <li>
+            <a href="" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a>
+          </li>
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js//highlight.min.js"></script>
+    
+    <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    });
+    </script>
+    <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105500464-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+  </body>
+</html>
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://gomesfellipe.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            

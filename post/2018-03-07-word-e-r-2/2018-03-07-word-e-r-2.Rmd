@@ -1,0 +1,248 @@
+---
+title: Produzindo e formatando um documento Word direto em R
+author: Fellipe Gomes
+date: '2018-03-07'
+slug: word-e-r-2
+categories:
+  - Estatistica
+  - utilidades
+  - tabelas
+  - R
+  - Prática
+  - word
+  - rmarkdown
+  - latex
+  - macro
+  - R Sweave
+tags:
+  - Aprendendo
+  - Estatistica
+  - gomesfellipe
+  - package
+  - R
+  - RStudio
+  - tabelas
+  - word
+  - latex
+  - macro
+  - rmarkdown
+  - R sweave
+
+description: 'As análises foram feitas em R e agora? Geralmente um bom PDF ou HTML são suficientes mas e se o destino da análise tiver que ser um documento Word?' 
+
+featured: 'Word-R.png'
+featuredalt: 'Pic 14'
+featuredpath: 'date'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+suppressMessages(library(dplyr))
+suppressMessages(library(knitr))
+suppressMessages(library(kableExtra))
+```
+
+
+# Relatórios de alta qualidade só com $\LaTeX$?
+
+
+Como já mencionei no [post sobre tabelas incríveis com R](https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/), a tarefa de um estatístico (ou Data Scient, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem $\LaTeX$, mas será que ela é realmente a única opção?
+
+A escrita para a produção de documentação técnica e científica de alta qualidade é tão importante que até o [Facebook permite usar a linguagem $\LaTeX$ no messenger](https://www.prof-edigleyalexandre.com/2017/10/agora-facebook-messenger-permite-que-voce-escreva-formulas-matematicas-basicas-laTex.html). Normalmente para gerar arquivos em $\LaTeX$ existem muitas opções de softwares ou mesmo opções online como o [overleaf](https://www.overleaf.com/) ou o [sharelatex](https://pt.sharelatex.com/) que permitem escrever os documentos online com compilação em tempo real e armazenamento automático na nuvem. Para esse tipo de relatório escrito puramente em $\LaTeX$, as funções dos pacotes [stargazer](https://cran.r-project.org/web/packages/stargazer/), [xtable](https://cran.r-project.org/web/packages/xtable/index.html), [pander](https://cran.r-project.org/web/packages/pander/index.html) dentre outros, podem ser muito úteis na tarefa de produzir as tabelas dos resultados obtidos das análises em R para o formato $\LaTeX$. 
+
+Além desses softwares a linguagem $\LaTeX$ pode ser utilizada diretamente de dentro do R em duas opções: O documento R Sweave e o documento Rmarkdown. Se for em Rmarkdown será necessária algumas configurações, como por exemplo algumas vezes a opção `results = "asis"` deve ser incluída nos chunks que deseja-se renderizar as tabelas $\LaTeX$, caso seja R Sweave, pode ser que [essa documentação](https://stat.epfl.ch/webdav/site/stat/shared/Regression/EPFL-Sweave-powerdot.pdf) ajude, pois as configurações dos chunks podem ser diferentes das configurações utilizadas em R markdown).
+
+
+Porém, não basta obter informação através dos dados e com técnicas específicas transformá-los em conhecimento, geralmente tal conhecimento será destinado para alguma finalidade e não necessariamente a pessoa que irá receber nossos resultados vai desejar um documento em PDF ou html, além de não trabalhar com [$\LaTeX$](https://www.latex-project.org/) nem conhecer as linguagens de programação muito utilizadas por nós, como [R](https://www.r-project.org/) ou [Markdown](https://pt.wikipedia.org/wiki/Markdown). Na verdade isso nem é mesmo uma obrigação para quem contrata serviços de analytics.
+
+# Relatórios em Word
+
+A partir do momento que é assumida a responsabilidade do entendimento da informação que passamos, acaba sendo necessário sair da nossa zona de conforto e aprender a falar na língua de quem nos ouve, para que a informação seja passada da maneira mais clara possível.
+
+É muito comum criarmos nossas figuras e tabelas super elegantes e rechear nossos relatórios com as mais espertas interpretações a cerca dos resultados e compilar tudo em um arquivo .PDF (geralmente ao se utilizar $\LaTeX$) ou mesmo em .html (muito comum ao se utilizar Rmarkdown), porém muitas vezes nossos resultados serão reaproveitados em documentos escritos em outros formatos e uma das escolhas optadas em escala mundial é escrever documentos em Word.
+
+Geralmente quem trabalha com programação está sempre atento a otimizar seus processos, portanto integrar nossos resultados do R com um documento em Word é uma tarefa que pode ser muito útil dependendo da finalidade dos nossos dados.
+
+Existem extensões para escrever $\LaTeX$ diretamente no word, como por exemplo o [TexPoint](http://texpoint.necula.org/) que permite escrever invocações e definições de macro $\LaTeX$ junto com seu texto normal ou o [Aurora](http://aurora.pt.downloadastro.com/) que é um programa de edição de texto que permite introduzir funções matemáticas complexas em texto de modo a esboçar relatórios e outras mensagens com caracteres únicos e equações. Particularmente nunca usei nenhuma das duas opções mas elas estão aí para quem quiser testar.
+
+A extensão para word chamada [GrindEQ™ Math Utilities](http://www.grindeq.com/index.php?p=latex2word) que permite fazer a conversão do documento $\LaTeX$ para word já foi muito útil para mim, porém muitas vezes ocorriam bugs na formatação e com a finalidade de focar os esforços nas análises e não na formatação, uma busca por alguma maneira de que a isso pudesse ser feito totalmente em R e o arquivo final ser um documento word já formatado pareceu interessante.
+
+<center>
+
+
+
+![](http://www.grindeq.com/img/ribbon.jpg)
+
+
+
+</center>
+
+
+Em algumas pesquisas descobri que existem diversas outras maneiras de se produzir um documento Word através do R, vou apresentar aqui duas maneiras com alguns truques, mas sintam-se a vontade para dar sugestões de outras maneiras de se fazer isso nos comentários, será de grande ajuda!
+
+## 1º método: Rmd to docx
+
+O primeiro método envolve o uso da opção nativa do R de produzir esse tipo de documento. Segundo este [guia disponível pela RStudio](https://rmarkdown.rstudio.com/articles_docx.html) basta selecionar o tipo de arquivo Rmarkdown da seguinte maneira:
+
+<center>
+![](https://d33wubrfki0l68.cloudfront.net/a419c1c8f567e88f1ed51ade70752254d630de49/fc1b2/articles/images/new-file-screenshot.png)
+</center>
+
+Então selecione o formato Word para o documento, e se desejar já pode alterar o nome do título e autor do documento (não é obrigado a fazer isso nesse momento)
+
+<center>
+![](https://d33wubrfki0l68.cloudfront.net/66a92ebda97ab32fc7b4dc3a919fcc688a15482c/32107/articles/images/new-r-markdown-box.png)
+</center>
+
+Um novo documento será exibido com o preâmbulo default para esse tipo de arquivo. O interessante aqui é que você pode compilar seu documento, alterar o estilo e salvar na mesma pasta do arquivo que você está trabalhando, de forma que as alterações no estilo sejam salvas e utilizadas como referência ao incluir no preâmbulo o nome deste documento como no exemplo a seguir:
+
+```{}
+---
+title: "Título do trabalho"
+author: "Fellipe"
+date: " 06 de março de 2018"
+output:
+  word_document:
+    reference_docx: word-styles-reference-01.docx
+---
+```
+
+Outros recursos interessantes são os de formatar tabelas e figuras. Para formatar as tabelas podemos utilizar os pacotes que já usávamos em documentos $\LaTeX$ para PDF ou Rmd para html. como por exemplo veja uma tabela simples produzida por códigos em R gerando uma tabela em Word usando a função `kable`:
+
+
+<center>
+![](/img/2018-03-07-word-e-r-2/img4.png)
+</center>
+
+
+
+Muitas outras opções podem ser utilizadas, mais informações podem ser conferidas na [documentação no site da RStudio](https://rmarkdown.rstudio.com/articles_docx.html) ou então conferir as opções de formatação utilizando a função `knitr::kable()` e o pacote `kableExtra` no [manual do pacote kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html).
+
+Para alterar as dimensões de todas as figuras do documento ou mesmo incluir um sumário também basta alterar as especificações do preâmbulo, como por exemplo:
+
+```{}
+---
+title: "Título do trabalho"
+author: "Fellipe"
+date: " 06 de março de 2018"
+output: word_document
+    reference_docx: word-styles-reference-01.docx
+    fig_width: 7
+    fig_height: 4
+    fig_caption: true
+    toc: true
+---
+```
+
+Muito simples gerar o arquivo diretamente em Word!
+
+## 2º método: Grmd::docx_document
+
+Mesmo com a simplicidade oferecida pelo recurso nativo do R, não parece ser possível formatar as tabelas da maneira mais elaborara utilizando essas funções, fiz um post falando sobre [como criar tabelas incríveis com R](https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/) porém a maioria das opções dos pacotes apresentados lá servem apenas para documentos no formato html.
+
+Pesquisando se havia algum jeito de criar o documento em html que pudesse ser aberto no Word encontrei um pacote disponível no github chamado [`Grmd`](https://github.com/gforge/Grmd). Sua finalidade é trabalhar com a publicação rápida, escrevendo o documento como normalmente em RMarkdown e permitindo que o documento html gerado possa ser aberto em Word sem problemas de formatação!
+
+Por exemplo, uma formatação da tabela e elaborção de imagem que é bem tranquilo de se fazer em html com o `knitr::kable()` e com `ggplot::ggplot()`:
+
+
+```{r,warning=F,fig.align='center'}
+dt <- mtcars[1:5, 1:6]
+#Tabela gerada:
+kable(dt,
+      "html",
+      caption= "Título",
+      align = c("l","r","l","r","l","r","l"))%>%
+  kable_styling(full_width = F) %>%
+  add_header_above(c(" " = 1, "Group 1" = 2, "Group 2" = 2, "Group 3" = 2))%>%
+  group_rows("Grupo A",1,3)%>%
+  group_rows("Grupo B",4,5)
+
+suppressMessages(library(tidyr))
+suppressMessages(library(ggplot2))
+n=nrow(mtcars)
+
+rbind(
+cbind(gather(mtcars[,1:2]*10),Grupo=rep("Grupo1",n)),
+cbind(gather(mtcars[,3:4]),Grupo=rep("Grupo2",n)),
+cbind(gather(mtcars[,5:6]*100),Grupo=rep("Grupo3",n))
+)%>%
+  ggplot(aes( fill=key, x=value))+  geom_bar(position="dodge")+
+  coord_flip()+ facet_wrap(~Grupo,ncol = 1)+ 
+  xlab("Banco mtcars adaptado para exemplo")+theme(axis.text.x = element_text(size=18)) +
+  theme_set(theme_gray(base_size = 13))+theme(axis.title.y = element_text(size = rel(1.2)))+theme_bw()
+```
+
+
+Pode ser muito útil utilizar da mesma praticidade de construir as tabelas em html nos documentos words. Utilizando o pacote [`Grmd`](https://github.com/gforge/Grmd), ao abrir o documento no Word a tabela e figura acima serão exibidas da seguinte maneira:
+
+<center>
+![](/img/2018-03-07-word-e-r-2/img2.png)
+</center>
+
+
+
+Para utilizar o pacote basta instala-lo através da função `devtools::install_github("gforge/Grmd")`, após o pacote instalado é só modificar onde estiver escrito `output:word_document` no preâmbulo por `Grmd::docx_document` e ficar tranquilo, porque todas as funcionalidades apresentadas acima continuam funcionando! Veja o exemplo acima alterado:
+
+```{}
+---
+title: "Título do trabalho"
+author: "Fellipe"
+date: " 06 de março de 2018"
+output: word_document
+    reference_docx: word-styles-reference-01.docx
+    fig_width: 7
+    fig_height: 4
+    fig_caption: true
+    toc: true
+---
+```
+
+Portanto ao deixar o preâmbulo dessa nova maneira, seu documento será renderizado em html e poderá ser aberto e editado como documento Word tranquilamente! Assim a pessoa que receber o relatório final estará em contato direto com suas análises em um formato que seja amigável para ela e ela se sinta confortável em editar, copiar, colar ou fazer o que bem entender!
+
+Atenção! Pois no github do desenvolvedor possui um aviso de que o pacote "provavelmente será fundido com o pacote Gmisc", portanto é bom ficar atento a possíveis alterações!
+
+
+# Dica para casos extremos
+
+A principal dica quando não sabemos resolver um problema é: MANTENHA A CALMA! Mesmo com todas essas opções, ainda existem casos que nenhum esses artifícios será o bastante! Para isso muitas vezes é preciso explorar o desconhecido e usar a criatividade!
+
+Um problema prático que eu tive e precisava solucionar em um tempo razoavelmente curto era que de as margens das tabelas que eu criei não cabiam de maneira satisfatória na página. Diante disso pesquisei bastante e me lembrei que assim como o Excel, o Word também possui Macros! Portanto pesquisando mais um pouco na internet encontrei [este artigo](https://datascienceplus.com/r-markdown-how-to-format-tables-and-figures-in-docx-files/) que ensina como formatar tabelas e figuras em documentos .docx!
+
+
+<center>
+![](https://lh6.googleusercontent.com/-pgLFnuWFV7E/UDVVoRcvmrI/AAAAAAAAAxU/1qTUIIrvxpA/s347/Bot%25C3%25A3o%2520Macro.png)
+</center>
+
+
+[No artigo](https://datascienceplus.com/r-markdown-how-to-format-tables-and-figures-in-docx-files/) é apresentada uma Macro para formatar as tabelas então depois de pesquisar um pouco e fazer algumas alterações foi bem útil para resolver meu problema com o tamanho da letra e a posição das tabelas! A Macro adaptada foi a seguinte:
+
+```{}
+Sub FormatTables()
+
+ Dim tbl As Table
+    For Each tbl In ActiveDocument.Tables
+         tbl.AutoFormat wdTableFormatList6
+         tbl.Range.Font.Name = "Arial"
+         tbl.Range.Font.Size = 6
+         tbl.Range.ParagraphFormat.SpaceBefore = 1
+         tbl.Range.ParagraphFormat.SpaceAfter = 2
+         tbl.Range.Cells.SetHeight RowHeight:=18, HeightRule:=wdRowHeightExactly
+
+    Next
+
+End Sub
+```
+
+Esta macro formata todas as tabelas o documento, selecionando o estilo `TableFormatList6`, a fonte `Arial` com o tamanho `6` e altera os espaçamentos de parágrafos, resumindo todo esse processo em um único botão
+
+
+# Foco nas análises
+
+<center>
+![](/img/2018-03-07-word-e-r-2/img3.jpg)
+</center>
+
+Após usar o o recurso `Grmd::docx_document` em conjunto com a Macro `FormatTables` foi possível focar nas análises dos resultados e deixar a tarefa de formatação muito mais ágil, porém este método não é definitivo e a busca por novas maneiras de fazer e otimizar esse e outros tipos de tarefas integradas com R continua!
+
+
+

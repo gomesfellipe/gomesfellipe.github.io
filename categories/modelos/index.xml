@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Modelos on Fellipe Gomes</title>
+    <link>/categories/modelos/</link>
+    <description>Recent content in Modelos on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/modelos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>O paradoxo dos aniversários com simulação e probabilidade</title>
+      <link>/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/</guid>
+      <description>Curiosidades sobre a teoria das probabilidadesO uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.
+Os conceitos de chances e de incertezas são tão antigos quando a própria civilização. Pessoas sempre tiveram que lidar com incertezas sobre o clima, suprimento de alimentos, suprimentos de água, risco de vida e tantas outras ameaças ao ser humano que o esforço para reduzir essas incertezas e seus efeitos passou a ser muito importante.</description>
+    </item>
+    
+    <item>
+      <title>Pacotes do R para avaliar o ajuste de modelos</title>
+      <link>/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/</link>
+      <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/</guid>
+      <description>Funções do R para avaliar o ajuste de modelosImagem da internet
+Traduzindo:
+“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
+Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
+Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
+    </item>
+    
+    <item>
+      <title>Pacotes do R para avaliar o ajuste de modelos</title>
+      <link>/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</link>
+      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</guid>
+      <description>Funções do R para avaliar o ajuste de modelosTraduzindo:
+“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
+Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
+Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
+    </item>
+    
+    <item>
+      <title>Ajustando Modelos Bayesianos com JAGS</title>
+      <link>/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</link>
+      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</guid>
+      <description>Inferência bayesianaImagem da Internet
+Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.
+Para isso devemos utilizar toda informação disponível, seja ela objetiva ou subjetiva (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)
+Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao teorema de bayes.
+Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa “crença” será representada por uma distribuição de probabilidade (ou modelo probabilístico)</description>
+    </item>
+    
+    <item>
+      <title>Pacotes do R para avaliar o ajuste de modelos</title>
+      <link>/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/</link>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/</guid>
+      <description>Funções do R para avaliar o ajuste de modelosTraduzindo:
+“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
+Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
+Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
+    </item>
+    
+  </channel>
+</rss>

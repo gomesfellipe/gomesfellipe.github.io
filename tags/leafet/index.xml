@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leafet on Fellipe Gomes</title>
+    <link>/tags/leafet/</link>
+    <description>Recent content in Leafet on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/leafet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Carnaval e mapas interativos com R</title>
+      <link>/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/</guid>
+      <description>Onde estão os blocos?Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.
+Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes ggmap e leaflet para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar</description>
+    </item>
+    
+  </channel>
+</rss>

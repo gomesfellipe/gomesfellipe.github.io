@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Itemized on Fellipe Gomes</title>
+    <link>/itemized/</link>
+    <description>Recent content in Itemized on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/itemized/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bancos de dados públicos</title>
+      <link>/itemized/item2/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/item2/</guid>
+      <description>Esses são alguns sites que podem ser utilizados como fontes de dados públicos:
+Brasileiros:
+ IPEA DATA
+ IBGE
+ Banco de Informações Econômicas e Financeiras do Banco Central
+ Datasus
+ Portal da transparência
+ Polícia federal - Ministério da justiça e segurança pública
+ Ministério da Cultura
+ Portal brasileiro de dados abertos
+  Estrangeiros:
+ U.S. Government’s open data
+ OECD - Organization for Economic Co-operation and Development</description>
+    </item>
+    
+    <item>
+      <title>Sobre ombros de gigantes</title>
+      <link>/itemized/item1/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/item1/</guid>
+      <description>Essas são algumas das frases que me impactaram de alguma forma e que eu carrego para a minha vida:
+ &amp;ldquo;Com organização e tempo, acha-se o segredo de fazer tudo e bem feito.&amp;rdquo; - Pitágoras
+ &amp;ldquo;A imaginação é mais importante que o conhecimento.&amp;rdquo; - Albert Einstein
+ &amp;ldquo;Na vida, não existe nada a temer, mas a entender.&amp;rdquo; - Marie Curie
+ &amp;ldquo;A matemática foi o alfabeto com o qual Deus escreveu o universo.</description>
+    </item>
+    
+    <item>
+      <title>blogroll</title>
+      <link>/itemized/item3/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/item3/</guid>
+      <description>Blogroll:
+ https://www.r-bloggers.com/ https://brbloggers.com.br/  </description>
+    </item>
+    
+  </channel>
+</rss>

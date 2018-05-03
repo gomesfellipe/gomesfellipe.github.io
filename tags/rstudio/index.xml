@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RStudio on Fellipe Gomes</title>
+    <link>/tags/rstudio/</link>
+    <description>Recent content in RStudio on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/rstudio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Séries temporais com Google Trends e R</title>
+      <link>/post/2018-04-12-google-trends-e-r/google-trends-e-r/</link>
+      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-04-12-google-trends-e-r/google-trends-e-r/</guid>
+      <description>Google TrendsO Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
+Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
+Através de suas séries temporais podemos avaliar a presença de padrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
+    </item>
+    
+    <item>
+      <title>Produzindo e formatando um documento Word direto em R</title>
+      <link>/post/2018-03-07-word-e-r-2/word-e-r-2/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-03-07-word-e-r-2/word-e-r-2/</guid>
+      <description>Relatórios de alta qualidade só com \(\LaTeX\)?Como já mencionei no post sobre tabelas incríveis com R, a tarefa de um estatístico (ou Data Scient, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem \(\LaTeX\), mas será que ela é realmente a única opção?</description>
+    </item>
+    
+    <item>
+      <title>O que são CheatSheets, gamificação e por que aprender R é tão divertido?</title>
+      <link>/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/</link>
+      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/</guid>
+      <description>.col2 {columns: 2 200px; /* number of columns and width in pixels*/-webkit-columns: 2 200px; /* chrome, safari */-moz-columns: 2 200px; /* firefox */}.col3 {columns: 3 100px;-webkit-columns: 3 100px;-moz-columns: 3 100px;}Você costuma ler o manual?Quando eramos crianças geralmente não tinhamos o costume de ler o manual das coisas não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois.</description>
+    </item>
+    
+    <item>
+      <title>Carnaval e mapas interativos com R</title>
+      <link>/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/</guid>
+      <description>Onde estão os blocos?Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.
+Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes ggmap e leaflet para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar</description>
+    </item>
+    
+    <item>
+      <title>Ajustando Modelos Bayesianos com JAGS</title>
+      <link>/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</link>
+      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</guid>
+      <description>Inferência bayesianaImagem da Internet
+Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.
+Para isso devemos utilizar toda informação disponível, seja ela objetiva ou subjetiva (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)
+Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao teorema de bayes.
+Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa “crença” será representada por uma distribuição de probabilidade (ou modelo probabilístico)</description>
+    </item>
+    
+    <item>
+      <title>Manipulação de Strings e Text Mining</title>
+      <link>/post/2017-12-17-string/string/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-12-17-string/string/</guid>
+      <description>Manipulação de strings e Text miningEstudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo string.
+Uma variável do tipo string é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.</description>
+    </item>
+    
+    <item>
+      <title>Séries temporais com Google Trends e R</title>
+      <link>/post/2017-12-12-google-trends-e-r/google-trends-e-r/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-12-12-google-trends-e-r/google-trends-e-r/</guid>
+      <description>Google TrendsO Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
+Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
+Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
+    </item>
+    
+    <item>
+      <title>Manipulando dados com dplyr</title>
+      <link>/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
+      <description>o pacote dplyr:A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
+Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
+    </item>
+    
+    <item>
+      <title>Pacotes do R para avaliar o ajuste de modelos</title>
+      <link>/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/</link>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/</guid>
+      <description>Funções do R para avaliar o ajuste de modelosTraduzindo:
+“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
+Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
+Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
+    </item>
+    
+    <item>
+      <title>Analisando o mercado de cryptomoedas com R</title>
+      <link>/post/analisando-o-mercado-de-cryptomoedas-com-r/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
+      <description>As cryptomoedasQuem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
+Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
+Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
+    </item>
+    
+    <item>
+      <title>Gerenciando arquivos do Dropbox com R</title>
+      <link>/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/</guid>
+      <description>O DropboxArmazenar arquivos na nuvem é uma prática muito comum nos dias de hoje. O Dropbox é um dos muitos exemplos de repositórios baseados no conceito de “computação em nuvem”, que oferece o serviço para compartilhar e armazenar arquivos.
+Não é novidade que a “computação em nuvem” tem impulsionado muitos projetos, em especial projetos de Big Data ocorrendo em diversos setores e existe um volume absurdo de dados sendo gerados.</description>
+    </item>
+    
+  </channel>
+</rss>
