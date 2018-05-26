@@ -117,7 +117,7 @@ O pacote SmartEDA ajuda a obter a análise completa dos dados exploratórios ape
 suppressMessages(library("SmartEDA"))
 ```
 
-outros pactes que serão utilizados no post (incluindo um script com algumas funções, que estará disponível no meu github neste link).
+outros pactes que serão utilizados no post (incluindo um script com algumas funções, que estará disponível no meu github [neste link](https://github.com/gomesfellipe/gomesfellipe.github.io/blob/master/post/2018-05-26-smarteademachinelearning/functions.R)).
 
 ```{r,eval=T}
 library(knitr)        # Para tabelas interativas
