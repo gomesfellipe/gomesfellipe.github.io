@@ -165,15 +165,15 @@ values <- list(c("<b>affairs</b>", "gender", "age","yearsmarried","children","re
     "Nível de educação",
     "Ocupação",
     "Como classifica o casamento"),
-  c("  0 = nenhum, 1 = uma vez, 2 = extraconjugal duas vezes, 3 = 3 vezes, 7 = 4-10 vezes de relações sexuais, 12 = mensalmente, 12 = durante o passado semanalmente, 12 = diariamente",
-    c("0 = feminino, 1 = masculino"),
-    c("17,5 = menos de 20, 22,0 = 20-24, 27,0 = 25-29, 32,0 = 30-34, 37,0 = 35-39, 42,0 = 40-44, 47,0 = 45-49, 52,0 = 50-54, 57,0 = 55 ou mais"),
-    c(".125 = 3 meses ou menos, casado .417 = 4-6 meses, 0,75 = 6 meses-i ano, 1,5 = 1-2 , 4,0 = 3-5 anos, 7,0 = 6-8 anos, 10,0 = 9-11 anos, 15,0 = 12 ou mais anos"),
-    c("0 = não, 1 = sim"),
-    c("5 = muito, 4 = um pouco, 3 = um pouco, 2 = nada, 1 = anti"),
-    c("9,0 = ensino fundamental, 12,0 = ensino médio, 14,0 = alguma faculdade, 16,0 = colégio graduação, 17,0 = algum trabalho de pós-graduação, 18,0 = mestrado, 20,0 = doutorado, mestrado ou outro grau avançado"),
+  c("  0 = nenhum, \n1 = uma vez, \n2 = extraconjugal duas vezes, \n3 = 3 vezes, <7 = 4-10 vezes de relações sexuais, \n12 = mensalmente, \n12 = durante o passado semanalmente, \n12 = diariamente",
+    c("0 = feminino, \n1 = masculino"),
+    c("17,5 = menos de 20, \n22,0 = 20-24, \n27,0 = 25-29, \n32,0 = 30-34, \n37,0 = 35-39, \n42,0 = 40-44, \n47,0 = 45-49, \n52,0 = 50-54, \n57,0 = 55 ou mais"),
+    c(".125 = 3 meses ou menos, \ncasado .417 = 4-6 meses, \n0,75 = 6 meses-i ano, \n1,5 = 1-2 , \n4,0 = 3-5 anos, \n7,0 = 6-8 anos, \n10,0 = 9-11 anos, \n15,0 = 12 ou mais anos"),
+    c("0 = não, \n1 = sim"),
+    c("5 = muito, \n4 = um pouco, \n3 = um pouco, \n2 = nada, \n1 = anti"),
+    c("9,0 = ensino fundamental, \n12,0 = ensino médio, \n14,0 = alguma faculdade, \n16,0 = colégio graduação, \n17,0 = algum trabalho de pós-graduação, \n18,0 = mestrado, \n20,0 = doutorado, mestrado ou outro grau avançado"),
     c("1-7, de acordo com a classificação Hollingshead (numeração reversa)"),
-    c("5 = muito feliz, 4 = mais feliz que a média, 3 = mediano, 2 = pouco infeliz, 1 = muito infeliz")
+    c("5 = muito feliz, \n4 = mais feliz que a média, \n3 = mediano, \n2 = pouco infeliz, \n1 = muito infeliz")
     ))
 
 p <- plot_ly(
@@ -196,8 +196,10 @@ p <- plot_ly(
     align = c('left', 'center'),
     font = list(color = c('#506784'), size = 12)
     ))
-p
+
 ```
+
+![](tab.png)
 
 Obs.: Essa tabela foi feita com o pacote [`plotly`](https://plot.ly/r/), o código pode ser conferido [aqui](https://gist.github.com/gomesfellipe/4d1d17ca97ac6dadfabad6baef3c5539).
 
