@@ -199,7 +199,7 @@ p <- plot_ly(
 
 ```
 
-![](tab.png)
+![](/img/2018-05-26-smarteademachinelearning/tab.png)
 
 Obs.: Essa tabela foi feita com o pacote [`plotly`](https://plot.ly/r/), o código pode ser conferido [aqui](https://gist.github.com/gomesfellipe/4d1d17ca97ac6dadfabad6baef3c5539).
 
