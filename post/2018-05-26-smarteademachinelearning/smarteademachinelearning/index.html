@@ -1,0 +1,2930 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "post",
+        "name" : "AED de forma rápida e um pouco de Machine Learning",
+        "headline" : "AED de forma rápida e um pouco de Machine Learning",
+        "description" : "Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-05-26 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-05-26 00:00:00 &#43;0000 UTC",
+        "url" : "/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/",
+        "wordCount" : "7343",
+        "keywords" : [ "Aprendendo","dplyr","Estatistica","GGally","kaggle","modelagem","Modelos","Modelos lineares","package","pca","gomesfellipe","manipulacao de dados","Prática","probabilidade","R","R Markdown","regression","Relações entre variáveis","rmarkdown","relatorios","RStudio","tabelas","teoria","Blog" ]
+    }
+    </script>
+        
+            
+                <title>AED de forma rápida e um pouco de Machine Learning</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.37" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            <meta name="description" content="Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AED de forma rápida e um pouco de Machine Learning"/>
+<meta name="twitter:description" content="Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados"/>
+
+        <meta property="og:title" content="AED de forma rápida e um pouco de Machine Learning" />
+<meta property="og:description" content="Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" />
+
+
+
+<meta property="article:published_time" content="2018-05-26T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-05-26T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="AED de forma rápida e um pouco de Machine Learning">
+<meta itemprop="description" content="Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados">
+
+
+<meta itemprop="datePublished" content="2018-05-26T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-05-26T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="7343">
+
+
+
+<meta itemprop="keywords" content="Aprendendo,dplyr,Estatistica,GGally,kaggle,modelagem,Modelos,Modelos lineares,package,pca,gomesfellipe,manipulacao de dados,Prática,probabilidade,R,R Markdown,regression,Relações entre variáveis,rmarkdown,relatorios,RStudio,tabelas,teoria," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+
+
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105500464-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>cv
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/">
+                            <i class="fa fa-coffee">&nbsp;</i>Posts
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-reorder">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>cv
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/">
+                            <h3>
+                                <i class="fa fa-coffee">&nbsp;</i>Posts
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-reorder">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-05-26'>
+                                    May 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/052018/052018/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-04-12'>
+                                    April 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/04/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-03-07'>
+                                    March 7, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-17'>
+                                    February 17, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/022018/022018/02/img2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-01'>
+                                    February 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img//carnaval2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/012018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-26'>
+                                    December 26, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-18'>
+                                    December 18, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-17'>
+                                    December 17, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">Criando relatórios com template tufle </a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-14'>
+                                    December 14, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
+                            </header>
+                            
+    
+
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-05'>
+                                    December 5, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-04'>
+                                    December 4, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;text=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;title=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;title=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;title=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;description=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h1>
+            
+        
+        
+            <p>Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-05-26'>
+            May 26, 2018</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>35 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;text=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;title=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;title=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;title=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;description=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<link href="/rmarkdown-libs/plotlyjs/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotlyjs/plotly-latest.min.js"></script>
+
+
+<style>
+  .col2 {
+    columns: 2 200px;         /* number of columns and width in pixels*/
+    -webkit-columns: 2 200px; /* chrome, safari */
+    -moz-columns: 2 200px;    /* firefox */
+  }
+  .col3 {
+    columns: 3 100px;
+    -webkit-columns: 3 100px;
+    -moz-columns: 3 100px;
+  }
+</style>
+<!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários-->
+<div id="a-analise-exploratoria-dos-dados" class="section level1">
+<h1>A análise exploratória dos dados</h1>
+<div class="col2">
+<p>A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações</p>
+<p>Ao iniciar uma análise de dados, começamos pela AED para a partir dai decidir como buscar qual solução para o problema. É importante frisar que a AED e a construção de gráficos <strong>não</strong> são a mesma coisa, mesmo a AED sendo altamente baseada em produção de gráficos como de dispersão, histogramas, boxplots etc.</p>
+<p>Por vezes a AED no R pode envolver a produção de longos scripts utilizando funções como as do pacote <code>ggplot2</code> e mesmo sabendo que desejamos sempre criar o gráfico de maneira mais informativa e atraente possível, as vezes precisamos ter uma noção geral dos dados de forma rápida, não necessariamente tão detalhada e customizada de cara.</p>
+<p>A vezes queremos apenas ter uma primeira impressão dos dados e em seguida pensar em quais os gráficos mais se adequariam para a entrega dos resultados que mesmo as funções base do R dependendo do caso também envolvem a confecção de longos scripts.</p>
+<p>Existem pacotes que auxiliam na hora de se fazer uma rápida análise exploratória, como o <a href="https://github.com/ropenscilabs/skimr">skimr</a> e o <a href="https://github.com/boxuancui/DataExplorer">DataExplorer</a>. Porém estava pesquisando de existiam mais opções para uma rápida abordagem de AED e me deparei com esta <a href="https://cran.r-project.org/web/packages/SmartEDA/vignettes/Report_r1.html">vinheta</a>, por Dayanand, Kiran, Ravi.</p>
+<p>Essa vinheta apresenta o pacote <a href="https://cran.r-project.org/web/packages/SmartEDA"><code>SmartEAD</code></a> que trás uma série de funções que auxiliam na AED de forma bem prática. O pacote está disponível no CRAN.</p>
+<p>Para testar o pacote foi utilizada uma base de dados do artigo <a href="http://people.stern.nyu.edu/wgreene/Lugano2013/Fair-ExtramaritalAffairs.pdf">A Theory of Extramarital Affairs</a>, publicado pela <a href="http://www.jstor.org/publisher/ucpress">The University of Chicago Press</a>.</p>
+<p>Gostei tanto da proposta do pacote que resolvi preparar este post que conta com a explanação de alguns tópicos apresentados pelo autor, algumas explicações da teoria estatística apresentada na análise descritiva e exploratória dos dados e além da aplicação de algumas técnicas estatísticas e de machine learning para o entendimento da base de dados.</p>
+</div>
+</div>
+<div id="smarteda" class="section level1">
+<h1>SmartEDA</h1>
+<p>Como ele pode ajudá-lo a criar uma análise de dados exploratória? O <code>SmartEDA</code> inclui várias funções personalizadas para executar uma análise exploratória inicial em qualquer dado de entrada. A saída gerada pode ser obtida em formato resumido e gráfico e os resultados também podem ser exportados como relatórios.</p>
+<p>O pacote SmartEDA ajuda a construir uma boa base de compreensão de dados, algumas de suas funcionalidades são:</p>
+<ul>
+<li>O pacote SmartEDA fará com que você seja capaz de aplicar diferentes tipos de EDA sem ter que lembre-se dos diferentes nomes dos pacotes R e escrever longos scripts R com esforço manual para preparar o relatório da EDA, permitindo o entendimento dos dados de maneira mais rápida</li>
+<li>Não há necessidade de categorizar as variáveis em caractere, numérico, fator etc. As funções do SmartEDA categorizam automaticamente todos os recursos no tipo de dados correto (caractere, numérico, fator etc.) com base nos dados de entrada.</li>
+</ul>
+<p>O pacote SmartEDA ajuda a obter a análise completa dos dados exploratórios apenas executando a função em vez de escrever um longo código r.</p>
+<div id="carregando-o-pacote" class="section level2">
+<h2>Carregando o pacote:</h2>
+<pre class="r"><code># install.packages(&quot;SmartEDA&quot;)
+suppressMessages(library(&quot;SmartEDA&quot;))</code></pre>
+<p>outros pactes que serão utilizados no post (incluindo um script com algumas funções, que estará disponível no meu github neste link).</p>
+<pre class="r"><code>library(knitr)        # Para tabelas interativas
+library(DT)           # Para tabelas interativas
+library(dplyr)        # Para manipulacao de dados
+library(plotly)       # Para gerar uma tabela
+library(psych)        # para análise fatorial
+source(&quot;functions.R&quot;) # script com funcoes customizadas</code></pre>
+<div id="base-de-dados-utilizada" class="section level3">
+<h3>Base de dados utilizada:</h3>
+<div class="col2">
+<p>Estava à procura de uma base de dados para testar as funcionalidades do pacote <code>SmartEAD</code> quando um colega de trabalho me mostrou um artigo chamado <a href="http://people.stern.nyu.edu/wgreene/Lugano2013/Fair-ExtramaritalAffairs.pdf">A Theory of Extramarital Affairs</a>, publicado pela <a href="http://www.jstor.org/publisher/ucpress">The University of Chicago Press</a>. Neste artigo é desenvolvido um <a href="https://en.wikipedia.org/wiki/Tobit_model">modelo pelo estimador de Tobit</a> que explica a alocação de um tempo do indivíduo entre o trabalho e dois tipos de atividades de lazer: tempo passou com o cônjuge e tempo gasto com o amante.</p>
+<p>Não conhecia o modelo proposto e em uma rápida pesquisa no Google notei que alguns dos dados utilizados nesse artigo estão disponíveis no pacote <a href="ftp://cran.r-project.org/pub/R/web/packages/AER">AER</a> de Econometria Aplicada com R, que contém funções, conjuntos de dados, exemplos, demonstrações e vinhetas para o livro <a href="http://jrsyzx.njau.edu.cn/__local/C/94/F1/35C7CC5EDA214D4AAE7FE2BA0FD_0D3DFF32_3CDD40.pdf?e=.pdf">Applied Econometrics with R</a> e como esses dados já foram tratados e estão “prontos para análise”, resolvi usar essa amostra pela conveniência.</p>
+<p>Portanto farei aqui uma análise exploratória e ao final de cada caso (<em>sem variável reposta</em>, <em>com variável resposta numérica</em> e <em>com variável resposta binária</em>), para ter uma breve intuição de como se comportam os dados irei primeiro utilizar um <em>algorítimo de machine learning não supervisionado</em> para o agrupamento das observações (sem considerar q já conhecemos a variável resposta), depois ajustar um* modelo de regressão linear simples* considerando a variável resposta como numérica e por fim o ajuste de um <em>algorítimo de machine learning supervisonado de classificação</em> após discretizar a variável resposta.</p>
+<p>A base de dados pode ser conferida a seguir:</p>
+</div>
+<pre class="r"><code>suppressMessages(library(AER))
+data(Affairs)
+Affairs%&gt;%
+  datatable()</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","data":[["4","5","11","16","23","29","44","45","47","49","50","55","64","80","86","93","108","114","115","116","123","127","129","134","137","139","147","151","153","155","162","163","165","168","170","172","184","187","192","194","210","217","220","224","227","228","239","241","245","249","262","265","267","269","271","277","290","292","293","295","299","320","321","324","334","351","355","361","362","366","370","374","378","381","382","383","384","400","403","409","412","413","416","418","422","435","439","445","447","448","449","478","482","486","489","490","491","492","503","508","509","512","515","517","532","533","535","537","538","543","547","550","558","571","578","583","586","594","597","602","603","604","612","613","621","627","630","631","632","639","645","647","648","651","655","667","670","671","673","701","705","706","709","717","719","723","724","726","734","735","736","737","739","743","745","747","751","752","754","760","763","774","776","779","784","788","794","795","798","800","803","807","812","820","823","830","843","848","851","854","856","857","859","863","865","867","870","873","875","876","877","880","903","904","905","908","909","910","912","914","915","916","920","921","925","926","929","931","945","947","949","950","961","965","966","967","987","990","992","995","1009","1021","1026","1027","1030","1031","1034","1037","1038","1039","1045","1046","1054","1059","1063","1068","1070","1072","1073","1077","1081","1083","1084","1086","1087","1089","1096","1102","1103","1107","1109","1115","1119","1124","1126","1128","1129","1130","1133","1140","1143","1146","1153","1156","1157","1158","1160","1161","1166","1177","1178","1180","1187","1191","1195","1207","1208","1209","1211","1215","1221","1226","1229","1231","1234","1235","1242","1245","1260","1266","1271","1273","1276","1280","1282","1285","1295","1298","1299","1304","1305","1311","1314","1319","1322","1324","1327","1328","1330","1332","1333","1336","1341","1344","1352","1358","1359","1361","1364","1368","1384","1390","1393","1394","1402","1407","1408","1412","1413","1416","1417","1418","1419","1420","1423","1424","1432","1433","1437","1438","1439","1446","1450","1451","1452","1453","1456","1464","1469","1473","1481","1482","1496","1497","1504","1513","1515","1534","1535","1536","1540","1551","1555","1557","1566","1567","1576","1584","1585","1590","1594","1595","1603","1608","1609","1615","1616","1617","1620","1621","1637","1638","1650","1654","1665","1670","1671","1675","1688","1691","1695","1698","1704","1705","1711","1719","1723","1726","1749","1752","1754","1758","1761","1773","1775","1786","1793","1799","1803","1806","1807","1808","1814","1815","1818","1827","1834","1835","1843","1846","1850","1851","1854","1859","1861","1866","1873","1875","1885","1892","1895","1896","1897","1899","1904","1905","1908","1916","1918","1920","1930","1940","1947","1949","1951","1952","1960","9001","9012","9023","9029","6","12","43","53","67","79","122","126","133","138","154","159","174","176","181","182","186","189","204","215","232","233","252","253","274","275","287","288","325","328","344","353","354","367","369","390","392","423","432","436","483","513","516","518","520","526","528","553","576","611","625","635","646","657","659","666","679","729","755","758","770","786","797","811","834","858","885","893","927","928","933","951","968","972","975","977","981","986","1002","1007","1011","1035","1050","1056","1057","1075","1080","1125","1131","1138","1150","1163","1169","1198","1204","1218","1230","1236","1247","1259","1294","1353","1370","1427","1445","1460","1480","1505","1543","1548","1550","1561","1564","1573","1575","1599","1622","1629","1664","1669","1674","1682","1685","1697","1716","1730","1731","1732","1743","1751","1757","1763","1766","1772","1776","1782","1784","1791","1831","1840","1844","1856","1876","1929","1935","1938","1941","1954","1959","9010"],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,7,12,1,1,12,7,2,3,1,7,12,12,12,3,7,7,1,1,7,1,12,12,3,7,1,1,1,3,3,1,1,7,7,7,12,7,7,1,2,12,12,1,12,12,7,7,1,3,12,7,1,7,1,1,1,7,3,7,7,2,7,1,7,2,7,7,3,1,2,12,1,3,12,7,7,1,1,12,7,7,1,12,1,12,12,3,3,12,12,2,1,7,1,12,12,7,12,12,7,12,2,12,12,7,2,12,7,2,7,3,12,12,2,1,12,2,7,2,12,7,7,2,1,3,1,12,1,1,2,7,3,3,2,12,12,3,7,7,12,7,12,3,7,1,7,2,2,1],["male","female","female","male","male","female","female","male","female","male","male","male","male","female","female","female","female","female","female","female","female","female","female","female","male","female","female","male","male","female","male","female","male","female","male","female","female","female","male","female","male","male","female","female","female","male","female","female","male","male","female","male","male","male","male","female","male","female","female","male","female","male","female","male","male","male","male","female","female","female","female","female","female","male","male","male","female","male","female","male","male","male","female","male","female","female","female","female","female","female","female","male","male","male","male","female","male","male","male","male","female","male","female","male","female","male","male","male","male","female","female","female","female","male","female","male","male","male","female","female","female","female","male","female","female","male","female","male","male","male","female","male","female","male","female","female","female","female","male","male","female","female","male","male","male","male","male","female","female","male","male","male","male","male","male","male","female","female","male","male","female","female","male","female","female","female","female","female","male","male","male","female","female","female","female","male","female","female","female","female","female","male","female","female","female","female","male","male","male","male","male","female","male","male","female","male","male","female","male","female","male","male","female","male","female","female","female","female","female","female","female","male","male","male","female","male","male","male","female","male","female","male","female","male","female","female","female","male","male","male","female","female","female","male","male","male","female","female","male","female","male","female","male","male","female","male","female","female","female","male","female","male","male","female","male","female","female","male","male","female","female","male","male","female","female","male","female","female","male","female","male","male","female","male","female","female","male","female","male","male","male","female","female","female","female","male","male","male","female","female","female","male","male","female","female","male","female","female","male","male","female","male","male","male","female","female","male","female","male","male","female","female","male","male","female","male","female","male","female","male","female","female","male","female","female","male","male","female","female","male","male","female","female","female","male","female","female","female","female","female","male","female","male","female","male","male","male","male","female","male","female","female","male","female","female","female","female","male","male","male","male","female","female","female","male","male","female","female","female","female","female","male","male","female","male","female","female","female","female","female","female","male","male","male","female","female","female","female","female","female","female","male","female","male","female","male","female","female","female","male","male","female","male","male","male","male","male","male","female","female","female","male","male","male","female","female","female","male","female","female","male","female","female","female","male","male","male","female","female","male","female","female","male","female","female","female","female","female","male","male","female","male","female","female","female","female","female","male","male","male","female","male","female","male","female","male","female","male","female","male","female","female","female","female","male","female","male","male","female","male","female","female","female","male","female","female","female","male","male","female","female","male","female","female","female","male","female","female","male","female","male","male","female","male","male","male","female","male","female","male","male","male","male","male","female","male","female","male","male","male","male","male","female","female","male","male","male","female","male","male","female","female","male","male","male","female","female","female","female","male","female","male","male","female","female","male","male","female","female","male","female","female","female","male","male","female","female","female","male","male","female","male","male","female","male","male","male","male","female","male","male","female","female","male","female","female","female","male","female","female","female","female","female","female","male","female","female","male","male","male","male","male","male","male","male","male","female","male","female","female","female","male","female","male","male","male","male","female","male","male","female"],[37,27,32,57,22,32,22,57,32,22,37,27,47,22,27,37,37,22,22,27,22,22,27,32,37,22,27,42,27,27,42,22,27,42,32,22,42,22,22,22,32,52,22,27,32,22,27,42,27,42,22,32,27,27,22,37,22,37,27,32,47,37,22,27,32,42,37,47,22,27,27,32,22,47,32,27,22,27,22,57,17.5,57,22,42,22,22,32,27,22,37,32,37,37,57,27,42,57,37,37,37,27,37,22,57,37,22,27,57,32,22,32,37,32,42,27,37,37,32,22,27,27,42,42,27,22,37,22,27,32,27,27,42,27,27,32,32,22,37,27,27,27,32,27,52,27,37,27,52,57,27,37,22,32,37,22,42,52,37,27,32,27,27,37,47,32,27,57,22,42,57,57,22,32,42,27,32,27,27,32,37,42,32,32,37,22,27,27,27,32,32,22,27,27,37,37,22,37,22,52,22,32,32,22,27,22,27,37,22,37,37,42,22,52,27,27,42,22,22,22,37,37,42,47,22,32,22,32,27,37,42,37,32,42,27,22,27,22,52,32,37,32,42,32,27,32,22,22,42,52,37,47,57,32,27,22,22,22,42,57,27,22,37,32,22,22,52,37,32,42,27,37,27,22,32,27,27,32,37,47,27,37,32,32,42,27,27,22,27,27,37,37,22,37,22,32,27,22,27,37,37,27,32,32,22,22,17.5,32,32,37,32,27,22,47,27,37,42,32,52,22,52,22,22,27,32,27,32,37,32,32,37,32,32,47,27,27,37,27,37,32,27,27,37,27,22,22,42,27,27,52,27,27,27,22,27,27,47,32,42,22,27,32,22,47,32,57,27,32,37,32,22,27,57,32,27,22,22,32,47,22,22,27,52,32,47,27,22,32,22,22,42,27,42,57,42,32,22,22,22,32,22,27,27,42,32,57,37,52,47,27,27,22,37,27,42,22,22,57,37,27,17.5,22,27,37,22,27,27,22,27,32,32,32,22,27,52,27,27,42,42,27,27,42,27,27,22,27,22,22,47,37,37,27,27,27,37,32,22,22,37,22,37,32,37,42,42,37,32,27,37,27,42,47,27,27,27,27,42,27,27,32,27,32,27,17.5,32,32,37,37,32,52,42,52,37,22,27,27,47,42,27,32,32,47,37,22,27,52,27,27,32,32,22,22,42,57,32,27,32,57,42,37,42,52,27,32,22,27,37,32,27,32,32,42,32,37,27,42,27,37,27,27,32,17.5,32,22,32,27,22,32,42,42,32,32,57,47,42,37,37,27,37,32,32,37,27,47,37,27,27,22,52,27,37,27,17.5,32,22,32,22,42,32,37,42,27,37,37,22,32,32,52,47,32,32,27,42,42,27,32,47,22,32,32,22,32],[10,4,15,15,0.75,1.5,0.75,15,15,1.5,15,4,15,1.5,4,15,15,0.75,1.5,10,1.5,1.5,10,10,4,1.5,7,15,4,4,15,1.5,0.417,15,4,1.5,15,4,1.5,0.75,10,15,0.417,4,7,4,7,15,1.5,15,0.75,7,4,10,4,15,1.5,15,0.75,10,15,10,0.75,4,7,15,10,15,1.5,1.5,4,10,0.125,15,15,7,1.5,4,1.5,15,1.5,15,0.75,4,1.5,0.417,15,1.5,1.5,15,15,10,10,15,0.417,15,15,10,15,15,10,10,0.125,15,15,4,7,15,15,1.5,7,15,1.5,10,7,15,15,10,0.75,7,7,15,15,7,1.5,15,0.125,1.5,1.5,1.5,10,15,1.5,4,10,15,0.75,15,4,4,10,15,7,15,4,4,4,15,15,7,7,0.75,4,15,0.75,15,15,15,7,4,4,4,15,15,10,1.5,15,1.5,15,15,15,0.125,10,15,1.5,0.125,4,10,7,15,15,1.5,4,7,0.417,7,0.75,4,10,15,0.75,7,0.417,15,15,4,15,1.5,15,1.5,4,4,1.5,0.75,7,0.75,15,1.5,10,15,15,4,7,0.75,4,1.5,1.5,4,4,15,10,15,15,1.5,10,7,10,1.5,15,4,15,7,15,4,0.75,4,0.75,15,10,15,7,15,15,4,15,0.75,1.5,15,15,15,15,15,7,7,1.5,4,1.5,15,15,7,4,15,7,1.5,1.5,15,15,10,15,4,15,1.5,0.125,10,4,7,4,15,15,1.5,15,15,7,15,7,1.5,1.5,4,7,15,7,1.5,15,1.5,10,4,0.417,4,15,10,7,4,4,1.5,4,0.75,10,0.75,15,4,1.5,7,15,4,15,4,4,15,1.5,15,0.417,1.5,4,15,1.5,4,15,10,10,1.5,1.5,10,15,10,4,15,0.75,15,15,10,7,15,1.5,0.75,4,0.125,1.5,7,15,1.5,1.5,1.5,0.125,4,4,15,15,7,0.75,0.125,10,0.417,15,10,15,4,7,10,10,4,7,15,7,1.5,1.5,1.5,7,15,0.75,1.5,4,15,10,15,7,1.5,10,0.75,1.5,15,7,15,15,15,7,4,1.5,0.75,15,1.5,4,4,15,1.5,15,7,15,15,7,7,4,7,7,10,1.5,4,15,15,7,10,4,4,15,1.5,7,4,0.125,7,15,10,15,1.5,4,15,7,7,15,15,7,7,15,4,7,1.5,4,4,1.5,15,10,15,4,1.5,4,15,10,0.125,1.5,15,1.5,15,15,15,15,15,10,15,4,10,4,15,15,4,7,1.5,7,15,10,1.5,4,7,10,4,0.75,10,7,15,10,10,15,15,15,15,4,7,4,15,15,4,7,0.417,15,15,4,4,15,4,10,7,7,1.5,4,15,15,4,4,7,15,15,10,15,15,7,7,4,7,15,15,7,7,1.5,15,10,4,4,15,10,10,7,7,10,0.75,15,7,7,4,1.5,15,15,15,10,15,15,15,15,15,15,10,15,15,10,15,1.5,15,15,4,10,4,7,4,15,4,0.75,15,4,4,1.5,15,7,15,15,4,15,15,1.5,4,15,15,15,15,15,7,15,15,7,10,15,1.5,10,10,7,15],["no","no","yes","yes","no","no","no","yes","yes","no","yes","yes","yes","no","no","yes","yes","no","no","yes","no","no","yes","yes","yes","no","no","yes","yes","yes","yes","no","no","yes","yes","no","yes","no","yes","no","yes","yes","no","yes","yes","no","yes","yes","yes","yes","no","yes","yes","yes","no","yes","yes","yes","no","yes","yes","yes","no","no","no","yes","yes","yes","no","no","no","yes","no","yes","yes","yes","yes","yes","no","yes","yes","yes","no","no","yes","no","yes","no","yes","yes","yes","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","no","yes","yes","no","yes","no","no","yes","no","no","yes","yes","yes","yes","yes","no","yes","no","no","no","no","yes","yes","no","no","yes","yes","no","yes","yes","no","yes","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","no","yes","yes","yes","no","yes","yes","no","yes","no","yes","yes","yes","yes","yes","yes","no","yes","yes","no","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","no","yes","no","yes","yes","no","no","yes","no","yes","no","no","yes","yes","no","yes","no","no","no","no","no","yes","yes","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","yes","yes","no","no","yes","no","yes","yes","yes","yes","yes","yes","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","no","yes","no","yes","yes","yes","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","no","no","yes","no","yes","yes","yes","no","no","yes","yes","yes","yes","yes","no","no","yes","yes","yes","yes","no","yes","no","yes","no","no","no","yes","yes","yes","yes","yes","no","yes","no","yes","no","yes","no","no","yes","yes","yes","yes","yes","yes","yes","no","yes","no","no","yes","yes","no","no","yes","no","yes","yes","no","yes","yes","yes","yes","yes","no","yes","yes","yes","no","yes","yes","yes","yes","no","yes","yes","yes","no","no","no","no","yes","yes","yes","yes","yes","no","no","yes","no","yes","yes","yes","yes","yes","yes","yes","no","yes","yes","yes","no","no","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","no","yes","no","no","yes","yes","yes","yes","yes","yes","no","no","no","yes","no","yes","yes","yes","no","no","no","yes","yes","no","yes","no","yes","no","yes","no","yes","no","yes","yes","no","yes","yes","yes","no","yes","yes","no","yes","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","no","yes","no","no","no","yes","yes","yes","no","yes","yes","yes","no","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","no","yes","no","yes","yes","yes","yes","yes","yes","yes","yes","no","no","yes","yes","yes","no","yes","yes","yes","no","yes","yes","yes","yes","yes","no","yes","yes","yes","yes","no","yes","yes","yes","yes","yes","no","yes","no","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","no","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","no","yes","yes","yes","no","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","no","yes","yes","no","yes","yes","no","yes","yes","no","yes","yes","no","yes","yes","yes","yes","no","yes","yes","yes","yes","no","yes","yes","yes","no","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes"],[3,4,1,5,2,2,2,2,4,4,2,4,5,2,4,1,2,3,2,2,2,2,4,3,2,2,4,5,3,3,4,3,4,5,1,4,3,4,1,3,5,5,5,2,5,3,4,2,4,2,5,2,5,4,1,4,5,4,4,4,5,3,2,2,4,2,4,3,5,2,3,5,2,4,1,4,3,3,3,2,3,4,2,4,4,1,4,3,3,3,4,2,4,5,1,5,3,1,3,4,5,2,4,5,4,4,4,4,3,2,4,4,5,5,3,4,4,5,4,4,2,5,4,2,3,5,2,4,2,2,4,4,2,2,3,3,2,2,4,1,2,5,5,2,3,1,4,5,4,1,4,2,2,4,2,4,5,4,4,2,2,2,5,5,3,4,2,4,3,4,4,4,4,3,2,2,3,2,4,4,5,4,3,4,3,4,3,2,4,1,3,4,4,4,2,1,4,2,4,4,5,2,3,2,2,2,4,1,2,4,3,2,2,2,2,5,4,4,1,5,3,4,4,4,3,1,4,2,4,3,5,4,4,4,4,4,5,5,3,4,2,3,1,3,4,3,3,4,3,5,4,2,4,4,1,3,2,2,4,2,3,4,1,2,3,2,2,2,4,3,4,3,2,2,4,2,5,2,4,1,4,4,4,3,3,3,3,3,3,2,3,2,5,4,4,2,4,2,4,5,2,2,2,3,4,2,4,5,4,3,2,4,5,1,5,4,2,2,2,4,3,2,4,4,2,1,3,2,5,4,2,4,4,5,3,4,4,4,3,2,2,2,2,2,4,4,4,3,4,5,2,3,5,4,4,2,3,2,4,3,3,5,5,3,4,3,4,4,1,3,4,5,2,4,4,4,3,3,3,2,1,4,4,4,2,4,2,2,2,3,5,4,3,3,2,5,1,1,4,2,5,4,5,2,4,4,2,4,2,4,2,2,4,4,3,2,4,4,3,4,4,2,2,5,2,4,1,4,5,4,2,3,4,5,2,3,2,4,4,2,3,3,3,2,4,4,2,4,2,3,2,3,3,5,3,4,2,4,2,2,4,4,3,5,2,3,1,2,3,4,5,3,5,3,4,4,4,2,4,3,4,2,5,4,2,2,1,2,2,1,2,3,3,1,3,4,4,3,4,3,5,2,2,2,5,3,4,3,2,1,3,4,1,3,1,4,1,4,1,3,3,3,2,4,3,1,3,2,3,2,4,3,1,2,3,5,2,1,4,2,2,3,4,4,2,5,3,2,3,2,3,5,4,2,3,5,2,2,1,3,4,2,2,2,2,4,3,4,1,2,1,2,5,1,4,3,2,4,3,3,1,4,3,2,3,5,1,1,4,3,4,3,2,2,4,3,1,2,2,3,3],[18,14,12,18,17,17,12,14,16,14,20,18,17,17,14,17,18,16,16,14,16,16,16,14,20,18,16,20,16,17,20,16,17,14,18,16,12,17,14,16,20,18,14,18,17,16,18,18,16,20,14,20,20,20,18,14,16,17,17,20,14,20,16,18,20,17,20,17,16,16,17,14,12,14,14,16,16,17,16,14,18,20,16,17,12,17,17,18,14,14,14,14,16,20,16,14,16,16,17,20,14,18,12,20,18,14,18,20,14,14,17,17,18,20,16,20,14,18,16,12,16,18,17,16,16,20,14,16,18,17,16,18,16,18,14,18,18,16,20,20,12,18,12,18,20,18,14,12,16,16,20,14,18,20,14,20,17,14,14,16,18,18,18,12,17,17,18,14,14,9,20,14,14,18,18,18,16,16,16,14,17,14,17,18,14,14,16,20,16,14,17,17,20,20,14,18,17,14,14,17,14,14,16,18,14,17,12,14,12,18,12,18,20,17,17,20,17,17,14,20,16,17,17,16,12,14,17,16,14,14,14,17,18,18,18,14,18,9,14,16,20,18,16,18,12,14,16,14,16,20,12,20,17,17,18,9,14,20,9,18,14,14,18,14,12,14,14,14,20,18,20,18,16,20,18,12,18,17,20,18,20,18,17,14,16,16,16,16,12,18,14,16,20,16,16,17,14,18,18,20,14,16,16,18,14,18,20,14,17,14,17,14,14,16,14,18,14,14,16,12,17,16,20,14,16,20,20,16,14,18,18,14,18,12,16,12,16,16,16,16,20,14,17,14,14,17,18,16,14,20,16,17,16,16,12,14,14,16,16,20,20,14,14,14,17,20,17,16,18,14,14,18,18,17,14,14,16,16,16,14,16,16,20,16,14,14,16,16,16,18,14,16,18,18,14,12,16,14,12,18,17,12,18,20,9,18,17,17,17,14,14,20,12,18,14,14,20,14,18,14,16,16,14,14,20,14,16,14,16,18,14,17,17,14,12,12,14,14,14,20,12,16,14,14,14,14,16,14,18,17,16,18,17,18,17,16,14,14,14,18,12,14,17,9,20,14,18,18,17,16,14,18,14,17,14,16,12,18,20,14,14,18,14,18,17,20,20,16,20,12,20,18,12,18,18,17,12,14,18,12,16,20,17,14,16,14,16,14,18,14,18,20,18,18,16,16,17,14,18,17,14,17,12,14,18,18,17,17,17,14,14,14,20,16,14,20,20,14,12,14,12,18,14,20,18,14,17,12,20,18,9,20,20,17,17,17,20,16,14,17,18,17,17,17,14,14,16,16,16,17,17,12,18,16,18,18,17,16,14,16,18,20,20,12,20,20,18,18,16,14,16,18,14,17,14,16,12,18,17,18,14],[7,6,1,6,6,5,1,4,1,4,7,6,6,5,5,5,4,5,5,1,5,5,5,1,6,5,1,6,5,5,6,5,6,5,6,5,1,5,3,1,6,6,1,6,5,5,6,5,3,6,3,6,6,6,5,3,4,1,5,6,7,6,5,4,6,3,6,6,5,6,5,4,5,4,5,5,5,6,5,7,6,6,3,3,1,6,5,5,1,1,3,5,5,5,3,1,6,6,5,6,1,6,4,6,6,6,5,5,6,5,1,6,5,7,5,6,3,6,1,2,2,5,5,1,5,6,4,5,6,6,1,6,6,6,5,5,6,1,5,5,1,6,5,5,6,5,5,1,6,5,6,4,5,6,4,6,1,1,5,5,6,5,6,5,1,1,5,5,3,2,6,4,1,5,6,5,5,1,1,5,6,6,5,5,3,1,5,5,4,5,4,1,5,5,1,5,5,4,6,5,3,3,6,3,5,5,1,1,4,5,3,5,6,5,4,6,6,5,5,4,6,6,5,5,1,3,5,2,5,4,5,5,6,6,6,5,1,5,5,4,5,1,5,5,3,2,5,3,5,6,2,6,5,1,6,1,1,6,2,1,1,5,6,5,1,5,1,5,4,4,6,5,6,6,5,5,6,5,6,5,6,1,5,1,1,4,3,4,1,5,4,5,5,5,1,5,5,5,5,7,4,5,6,4,3,5,4,3,5,4,3,1,6,4,1,5,1,7,1,2,1,5,6,1,3,6,6,6,5,5,4,1,5,1,4,4,5,1,1,1,6,1,4,1,2,6,6,6,1,5,5,5,4,1,1,5,5,5,6,6,6,4,1,1,5,6,1,1,1,1,3,5,5,1,5,5,1,5,1,5,5,5,6,6,1,4,5,5,5,6,4,4,5,6,1,4,6,4,1,5,2,1,5,7,3,5,5,6,5,5,3,6,4,6,1,1,6,4,5,4,5,1,5,1,5,5,3,1,5,5,3,5,4,1,1,1,1,5,3,6,3,3,1,4,1,5,4,5,6,5,1,4,1,6,5,5,1,5,3,6,3,4,1,4,6,1,6,7,5,5,4,5,1,5,6,5,7,5,6,1,1,7,4,1,6,6,5,5,6,1,6,6,3,6,5,6,1,3,4,3,5,5,6,4,1,3,1,7,4,3,6,6,5,5,4,1,4,5,5,6,4,5,4,2,6,5,1,5,5,2,1,5,6,5,4,6,6,3,1,4,1,5,4,6,6,5,5,1,5,4,1,4,6,6,6,5,6,5,5,6,5,5,5,5,5,1,1,5,3,6,3,3,5,3,6,5,5,4,6,6,5,7,6,3,6,6,5,6,4,3,1,6,3,5,4,4,2,5,6,6,1],[4,4,4,5,3,5,3,4,2,5,2,4,4,4,4,5,3,4,5,5,5,5,4,5,4,5,5,4,5,4,3,5,4,4,4,3,4,5,5,5,5,3,4,1,3,5,5,4,5,4,5,4,5,4,5,1,4,5,4,4,2,4,5,5,4,5,4,5,5,4,5,5,5,3,5,5,5,5,5,2,5,5,4,3,5,4,5,2,5,4,4,3,4,3,4,5,1,4,5,5,5,4,5,5,4,4,4,4,3,4,5,5,5,4,4,5,2,4,5,4,5,4,3,2,5,5,5,5,5,5,3,5,5,3,3,4,5,4,5,4,4,4,3,4,3,4,4,3,4,4,3,3,3,3,3,3,1,2,3,5,5,5,5,4,4,2,2,4,4,2,5,5,5,4,5,2,4,4,3,4,2,5,3,5,5,5,5,5,5,5,5,4,4,4,3,4,3,5,2,5,5,5,5,3,2,3,2,5,4,3,3,5,2,5,5,5,5,3,4,5,3,5,5,4,4,5,4,4,5,5,4,5,5,4,5,3,5,5,5,4,4,4,5,5,4,4,3,5,4,4,3,4,5,4,5,4,5,4,4,5,5,3,4,5,3,5,1,5,5,5,5,5,3,3,4,1,3,5,4,5,4,4,4,3,4,2,5,2,2,4,4,5,4,3,5,3,5,5,3,4,2,5,4,5,4,4,5,3,3,5,2,5,5,4,3,5,5,4,4,4,5,5,4,5,5,5,4,5,5,3,4,4,4,5,5,2,5,5,5,5,5,3,4,5,4,4,5,3,3,2,5,5,4,5,5,5,3,5,4,5,5,5,4,5,5,5,5,5,4,4,2,2,5,3,5,4,5,4,5,5,5,5,5,4,2,5,4,4,5,4,5,4,2,2,2,5,5,5,5,3,5,5,4,3,1,5,4,5,4,5,3,5,3,4,5,3,5,3,5,5,5,4,1,4,4,5,5,4,3,4,4,5,4,5,2,4,4,4,3,2,3,5,4,5,4,5,5,4,2,4,4,4,5,2,2,5,5,2,4,4,2,2,4,1,2,2,5,3,5,5,5,4,4,4,2,4,3,2,4,3,4,2,5,5,4,4,3,5,4,3,3,5,4,2,5,5,1,4,5,4,4,4,4,5,3,3,4,4,1,2,4,4,4,2,4,4,4,2,3,1,4,3,2,5,4,5,3,5,3,4,2,4,3,3,3,5,2,3,2,4,3,4,3,5,2,3,1,2,4,2,1,5,4,3,3,2,4,4,2,3,1,5,2,4,5,5,3,5,5,4,1,5,4,5,4,2,4,4,2,3,4,3,4,3,2,5,5,5,4,2,2,2,2,4,3,2,5,4,5,2,5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>affairs<\/th>\n      <th>gender<\/th>\n      <th>age<\/th>\n      <th>yearsmarried<\/th>\n      <th>children<\/th>\n      <th>religiousness<\/th>\n      <th>education<\/th>\n      <th>occupation<\/th>\n      <th>rating<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,3,4,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Neste post, a análise de dados será feita considerando a variável <code>affairs</code> (Quantas vezes envolvido em caso extraconjugal no último ano (aparentemente em 1977)) e a base de dados conta com as variáveis gênero, idade, anos de casado, se tem crianças, religiosidade, educação, ocupação e como avalia o casamento.</p>
+<p>Informações detalhadas podem ser conferidas na tabela a seguir, retirada do artigo apresentado:</p>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"3e5051e02a84":["function () ","plotlyVisDat"]},"cur_data":"3e5051e02a84","attrs":{"3e5051e02a84":{"columnorder":[1,2,3],"columnwidth":[90,250,450],"header":{"values":[["<b>Variáveis<\/b><br>affairs~."],["<b>DESCRIÇÃO<\/b>"],["<b>DETALHES<\/b>"]],"line":{"color":"#9ca5a5"},"fill":{"color":"#9ca5a5"},"align":"left","font":{"color":"white","size":12}},"cells":{"values":[["<b>affairs<\/b>","gender","age","yearsmarried","children","religiousness","education","occupation","rating"],["Quantas vezes envolvido em caso extraconjugal no último ano","Sexo","Idade","Número de anos casado","Crianças","Como religioso","Nível de educação","Ocupação","Como classifica o casamento"],["  0 = nenhum, 1 = uma vez, 2 = extraconjugal duas vezes, 3 = 3 vezes, 7 = 4-10 vezes de relações sexuais, 12 = mensalmente, 12 = durante o passado semanalmente, 12 = diariamente","0 = feminino, 1 = masculino","17,5 = menos de 20, 22,0 = 20-24, 27,0 = 25-29, 32,0 = 30-34, 37,0 = 35-39, 42,0 = 40-44, 47,0 = 45-49, 52,0 = 50-54, 57,0 = 55 ou mais",".125 = 3 meses ou menos, casado .417 = 4-6 meses, 0,75 = 6 meses-i ano, 1,5 = 1-2 , 4,0 = 3-5 anos, 7,0 = 6-8 anos, 10,0 = 9-11 anos, 15,0 = 12 ou mais anos","0 = não, 1 = sim","5 = muito, 4 = um pouco, 3 = um pouco, 2 = nada, 1 = anti","9,0 = ensino fundamental, 12,0 = ensino médio, 14,0 = alguma faculdade, 16,0 = colégio graduação, 17,0 = algum trabalho de pós-graduação, 18,0 = mestrado, 20,0 = doutorado, mestrado ou outro grau avançado","1-7, de acordo com a classificação Hollingshead (numeração reversa)","5 = muito feliz, 4 = mais feliz que a média, 3 = mediano, 2 = pouco infeliz, 1 = muito infeliz"]],"line":{"color":"#9ca5a5"},"fill":{"color":["#f3f4f4","white"]},"align":["left","center"],"font":{"color":"#506784","size":12}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"table"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"data":[{"columnorder":[1,2,3],"columnwidth":[90,250,450],"header":{"values":[["<b>Variáveis<\/b><br>affairs~."],["<b>DESCRIÇÃO<\/b>"],["<b>DETALHES<\/b>"]],"line":{"color":"#9ca5a5"},"fill":{"color":"#9ca5a5"},"align":"left","font":{"color":"white","size":12}},"cells":{"values":[["<b>affairs<\/b>","gender","age","yearsmarried","children","religiousness","education","occupation","rating"],["Quantas vezes envolvido em caso extraconjugal no último ano","Sexo","Idade","Número de anos casado","Crianças","Como religioso","Nível de educação","Ocupação","Como classifica o casamento"],["  0 = nenhum, 1 = uma vez, 2 = extraconjugal duas vezes, 3 = 3 vezes, 7 = 4-10 vezes de relações sexuais, 12 = mensalmente, 12 = durante o passado semanalmente, 12 = diariamente","0 = feminino, 1 = masculino","17,5 = menos de 20, 22,0 = 20-24, 27,0 = 25-29, 32,0 = 30-34, 37,0 = 35-39, 42,0 = 40-44, 47,0 = 45-49, 52,0 = 50-54, 57,0 = 55 ou mais",".125 = 3 meses ou menos, casado .417 = 4-6 meses, 0,75 = 6 meses-i ano, 1,5 = 1-2 , 4,0 = 3-5 anos, 7,0 = 6-8 anos, 10,0 = 9-11 anos, 15,0 = 12 ou mais anos","0 = não, 1 = sim","5 = muito, 4 = um pouco, 3 = um pouco, 2 = nada, 1 = anti","9,0 = ensino fundamental, 12,0 = ensino médio, 14,0 = alguma faculdade, 16,0 = colégio graduação, 17,0 = algum trabalho de pós-graduação, 18,0 = mestrado, 20,0 = doutorado, mestrado ou outro grau avançado","1-7, de acordo com a classificação Hollingshead (numeração reversa)","5 = muito feliz, 4 = mais feliz que a média, 3 = mediano, 2 = pouco infeliz, 1 = muito infeliz"]],"line":{"color":"#9ca5a5"},"fill":{"color":["#f3f4f4","white"]},"align":["left","center"],"font":{"color":"#506784","size":12}},"type":"table","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1}},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":[]}</script>
+<p>Obs.: Essa tabela foi feita com o pacote <a href="https://plot.ly/r/"><code>plotly</code></a>, o código pode ser conferido <a href="https://gist.github.com/gomesfellipe/4d1d17ca97ac6dadfabad6baef3c5539">aqui</a>.</p>
+</div>
+</div>
+</div>
+<div id="visao-geral-dos-dados" class="section level1">
+<h1>Visão geral dos dados</h1>
+<p>Entendendo as dimensões do conjunto de dados, nomes de variáveis, resumo geral, variáveis ausentes e tipos de dados de cada variável com a função <code>ExpData()</code>, se o argumento Type = 1, visualização dos dados (os nomes das colunas são “Descrições”, “Obs.”), já se Type = 2, estrutura dos dados (os nomes das colunas são “S.no”, “VarName”, “VarClass”, “VarType”) :</p>
+<pre class="r"><code># Visao geral dos dados - Type = 1
+ExpData(data=Affairs,
+        type=1,  # O tipo 1 é uma visão geral dos dados
+        DV=NULL) # especifique o nome da variável de destino, se houver. isso não é obrigatório</code></pre>
+<pre><code>##                                 Descriptions  Obs
+## 1                               Total Sample  601
+## 2                           No. of Variables    9
+## 3                   No. of Numeric Variables    7
+## 4                    No. of Factor Variables    2
+## 5                      No. of Text Variables    0
+## 6                      No. of Date Variables    0
+## 7   No. of Zero variance Variables (Uniform)    0
+## 8      %. of Variables having complete cases 100%
+## 9  %. of Variables having &lt;50% missing cases   0%
+## 10 %. of Variables having &gt;50% missing cases   0%
+## 11 %. of Variables having &gt;90% missing cases   0%</code></pre>
+<p>Conferindo o nome das variáveis e os tipos de cada uma:</p>
+<pre class="r"><code># Estrutura dos dados - Type = 2
+ExpData(data=Affairs,
+        type=2,  # O tipo 2 é a estrutura dos dados
+        DV=NULL) # especifique o nome da variável de destino, se houver. isso não é obrigatório</code></pre>
+<pre><code>##   S.no        VarName VarClass             VarType
+## 1    1        affairs  numeric Independet variable
+## 2    2        gender*   factor Independet variable
+## 3    3            age  numeric Independet variable
+## 4    4   yearsmarried  numeric Independet variable
+## 5    5      children*   factor Independet variable
+## 6    6 religiousness*  integer Independet variable
+## 7    7      education  numeric Independet variable
+## 8    8    occupation*  integer Independet variable
+## 9    9        rating*  integer Independet variable</code></pre>
+<p>Esta função fornece visão geral e estrutura dos quadros de dados.</p>
+</div>
+<div id="analise-exploratoria-dos-dados" class="section level1">
+<h1>Análise exploratória dos dados</h1>
+<p>As funções a seguir apresentam a saída EDA para 3 casos diferentes de análise exploratória dos dados, são elas:</p>
+<ul>
+<li><p>A variável de destino não está definida</p></li>
+<li><p>A variável alvo é contínua</p></li>
+<li><p>A variável de destino é categórica</p></li>
+</ul>
+<p>Para fins ilustrativos, será feita inicialmente uma análise considerando que não existe variável resposta, em seguida será considerada a variável <code>affairs</code> como variável resposta e por fim, será feita uma transformação nesta variável resposta numérica de forma que ela seja discretizada da seguinte maneira:</p>
+<p><span class="math display">\[
+1 \text{ se já houve caso extraconjugal} \\
+0 \text{ se não houve caso extraconjugal}
+\]</span></p>
+</div>
+<div id="relatorio-em-uma-linha" class="section level1">
+<h1>Relatório em uma linha</h1>
+<p>Caso o interesse seja apenas ter uma noção geral dos dados de forma extremamente rápida, basta rodar a linha de código abaixo:</p>
+<pre class="r"><code>ExpReport(Affairs,op_file = &quot;teste.html&quot;)</code></pre>
+<p>Antes de começar a explanar cada um dos casos, achei que seria legal frisar que além de tudo que será apresentado, existe a opção de se obter um relatório extenso sobre a análise exploratória dos dados em apenas uma linha!</p>
+<div id="exemplo-para-o-caso-1-a-variavel-de-destino-nao-esta-definida" class="section level2">
+<h2>Exemplo para o caso 1: a variável de destino não está definida</h2>
+<p>Para ilustrar o primeiro caso, onde a variável destino não é definida, vamos supor que não existe uma variável alvo na nossa base de dados e estamos interessados em simplesmente obter uma visão geral enquanto pensamos em quais técnicas estatísticas serão utilizadas para avaliar nosso dataset.</p>
+<div id="resumo-das-variaveis-numericas" class="section level3">
+<h3>Resumo das variáveis numéricas</h3>
+<p>Resumo de de todas as variáveis numéricas:</p>
+<pre class="r"><code>ExpNumStat (Affairs, 
+            by = &quot;A&quot;,       # Agrupar por A (estatísticas resumidas por Todos), G (estatísticas resumidas por grupo), GA (estatísticas resumidas por grupo e Geral)
+            gp = NULL,      # variável de destino, se houver, padrão NULL
+            MesofShape = 2, # Medidas de formas (assimetria e curtose).
+            Outlier = TRUE, # Calcular o limite inferior, o limite superior e o número de outliers
+            round = 2)      # Arredondar</code></pre>
+<pre><code>##           Vname Group  TN nNeg nZero nPos NegInf PosInf NA_Value
+## 1       affairs   All 601    0   451  150      0      0        0
+## 2           age   All 601    0     0  601      0      0        0
+## 5     education   All 601    0     0  601      0      0        0
+## 6    occupation   All 601    0     0  601      0      0        0
+## 7        rating   All 601    0     0  601      0      0        0
+## 4 religiousness   All 601    0     0  601      0      0        0
+## 3  yearsmarried   All 601    0     0  601      0      0        0
+##   Per_of_Missing   min max  mean median   SD   CV IQR Skweness Kurtosis
+## 1              0  0.00  12  1.46      0 3.30 2.27   0     2.34     4.21
+## 2              0 17.50  57 32.49     32 9.29 0.29  10     0.89     0.22
+## 5              0  9.00  20 16.17     16 2.40 0.15   4    -0.25    -0.31
+## 6              0  1.00   7  4.19      5 1.82 0.43   3    -0.74    -0.78
+## 7              0  1.00   5  3.93      4 1.10 0.28   2    -0.83    -0.21
+## 4              0  1.00   5  3.12      3 1.17 0.37   2    -0.09    -1.01
+## 3              0  0.12  15  8.18      7 5.57 0.68  11     0.08    -1.57
+##   LB.25% UB.75% nOutliers
+## 1    0.0    0.0       150
+## 2   12.0   52.0        22
+## 5    8.0   24.0         0
+## 6   -1.5   10.5         0
+## 7    0.0    8.0         0
+## 4   -1.0    7.0         0
+## 3  -12.5   31.5         0</code></pre>
+<p>Podemos ver que não existem variáveis negativas e a única variável que apresentou “zero” foi a variável resposta. Nenhum registro como <code>Inf</code> ou como <code>NA</code> e além das medidas descritivas também podemos notar as medidas de <code>skweness</code> e <code>kurtosis</code>. Alguns comentários sobre essas medidas:</p>
+<p>Medidas de forma para dar uma avaliação detalhada dos dados. Explica a quantidade e a direção do desvio.</p>
+<ul>
+<li><strong>Kurotsis</strong> explica o quão alto e afiado é o pico central (Achatamento).</li>
+<li><strong>Skewness</strong> não tem unidades: mas um número, como um escore z (medida da assimetria)</li>
+</ul>
+<p>Onde:</p>
+<p><a href="https://pt.wikipedia.org/wiki/Curtose"><strong>Kurtose</strong></a>:</p>
+<p>A curtose é uma medida de forma que caracteriza o achatamento da curva da função de distribuição de probabilidade, Assim:</p>
+<ul>
+<li>Se o valor da curtose for = 0 (ou 3, pela segunda definição), então tem o mesmo achatamento que a distribuição normal. Chama-se a estas funções de mesocúrticas</li>
+<li>Se o valor é &gt; 0 (ou &gt; 3), então a distribuição em questão é mais alta (afunilada) e concentrada que a distribuição normal. Diz-se que esta função probabilidade é leptocúrtica, ou que a distribuição tem caudas pesadas (o significado é que é relativamente fácil obter valores que não se aproximam da média a vários múltiplos do desvio padrão)</li>
+<li>Se o valor é &lt; 0 (ou &lt; 3), então a função de distribuição é mais “achatada” que a distribuição normal. Chama-se-lhe platicúrtica</li>
+</ul>
+<p><a href="https://pt.wikipedia.org/wiki/Obliquidade"><strong>Skewness</strong></a>:</p>
+<p>O Skewness mede a assimetria das caudas da distribuição. Distribuições assimétricas que tem uma cauda mais “pesada” que a outra apresentam obliquidade. Distribuições simétricas tem obliquidade zero. Assim:</p>
+<ul>
+<li>Se v&gt;0, então a distribuição tem uma cauda direita (valores acima da média) mais pesada</li>
+<li>Se v&lt;0, então a distribuição tem uma cauda esquerda (valores abaixo da média) mais pesada</li>
+<li>Se v=0, então a distribuição é aproximadamente simétrica (na terceira potência do desvio em relação à média).</li>
+</ul>
+<div id="distribuicoes-de-variaveis-numericas" class="section level4">
+<h4>Distribuições de variáveis numéricas</h4>
+<p>Representação gráfica de todos os recursos numéricos com <strong>gráfico de densidade</strong> (uni variada):</p>
+<pre class="r"><code># Nota: Variável excluída (se o valor único da variável for menor ou igual a 10 [im = 10])
+
+ExpNumViz(Affairs,
+          gp=NULL, # Variaveel alvo
+          Page=c(2,2), # padrão de saída. 
+          sample=8) # seleção aleatória de plots</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-10-1.png" width="672" /><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<p>Exibidos os gráficos com as densidades das variáveis numéricas. Como podemos ver a maioria da amostra não registrou caso extraconjugal, a maioria tem de 12 ou mais anos de casado. A média amostral da idade dos indivíduos é de aproximadamente 32 anos apresentando leve assimetria com cauda a direita. As demais variáveis podem ser conferidas visualmente.</p>
+</div>
+</div>
+<div id="resumo-de-variaveis-categoricas" class="section level3">
+<h3>Resumo de variáveis categóricas</h3>
+<p>Essa função selecionará automaticamente variáveis categóricas e gerará frequência ou tabelas cruzadas com base nas entradas do usuário. A saída inclui contagens, porcentagens, total de linhas e total de colunas.</p>
+<p>Frequência para todas as variáveis independentes categóricas:</p>
+<pre class="r"><code>ExpCTable(Affairs,
+          Target=NULL, # Variavel alvo
+          margin=1, # margem de índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em coluna
+          clim=10,# quantidade de categorias máximas a serem consideradas para frequência / tabela personalizada, default 10.
+          nlim=NULL, # limites exclusivos de variável numérica. Os valores padrão &quot;nlim&quot; são 3, a tabela exclui as variáveis numéricas que têm valores únicos maiores que &quot;nlim&quot;
+          round=2, # Arredondar
+          bin=NULL, # número de cortes para variável alvo contínua
+          per=T) # valores percentuais. Tabela padrão dará contagens.</code></pre>
+<pre><code>##   Variable  Valid Frequency Percent CumPercent
+## 1   gender female       315   52.41      52.41
+## 2   gender   male       286   47.59     100.00
+## 3   gender  TOTAL       601      NA         NA
+## 4 children     no       171   28.45      28.45
+## 5 children    yes       430   71.55     100.00
+## 6 children  TOTAL       601      NA         NA</code></pre>
+<p>Obs.: <code>NA</code> significa <code>Not Applicable</code></p>
+</div>
+<div id="distribuicoes-de-variaveis-categoricas" class="section level3">
+<h3>Distribuições de variáveis categóricas</h3>
+<p>Essa função varre automaticamente cada variável e cria um gráfico de barras para variáveis categóricas.</p>
+<p>Gráficos de barra para todas as variáveis categóricas</p>
+<pre class="r"><code>ExpCatViz(Affairs,
+          gp=NULL, # Variavel target
+          fname=NULL, # Nome do arquivo de saida, default é pdf
+          clim=10,# categorias máximas a incluir nos gráficos de barras.
+          margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
+          Page = c(2,1), # padrao de saida
+          sample=4) # seleção aleatória de plot</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-12-1.png" width="672" /><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
+</div>
+<div id="machine-lerning-com-tarefa-de-agrupamento-usando-algoritimo-nao-supervisionado-de-agrupamento" class="section level3">
+<h3>Machine Lerning com tarefa de agrupamento usando algorítimo não supervisionado de agrupamento</h3>
+<p>Apenas para efeitos ilustrativos, como estamos supondo que não temos a variável resposta vou remover a coluna <code>affairs</code> do data set e considerarei apenas as variáveis numéricas para fazer uma análise multivariada com o algorítimo de machine learning <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/kmeans.html"><code>kmeans</code></a>.</p>
+<p>A função <a href="https://github.com/gomesfellipe/functions/blob/master/plot_kmeans.R"><code>plot_kmeans()</code></a> pode ser encontrada em <a href="github.com/gomesfellipe">meu github</a> no <a href="https://github.com/gomesfellipe/functions">repositório aberto de funções</a>.</p>
+<p>Vejamos os resultados:</p>
+<pre class="r"><code>plot_kmeans(Affairs[,-c(1)]%&gt;%
+              select_if(is.numeric)
+            , 2)</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Como podemos observar, foram detectados dois grupos no conjunto de dados. O ideal agora seria fazer uma AED desses clusters identificados e avaliar qual o comportamento dos grupos formados mas como essa variável foi omitida e a seguir discutiremos a avaliação da base diante de da variável resposta, deixo essas análises aos curiosos de plantão.</p>
+<p>Mais informações sobre análise multivariava podem ser encontrada no meu post sobre <a href="https://gomesfellipe.github.io/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com r</a> e também em um <a href="https://www.kaggle.com/gomes555/an-lise-multivariada-pca-e-kmeans">kernel que escrevi para a plataforma kaggle</a>.</p>
+<p>Além disso disponibilizo uma aplicação Shiny que criei a algum tempo para PCA (Análise de componentes Principais) e tarefa de machine learning com agrupamento <a href="https://gomesfellipe.shinyapps.io/appPCAkmeans/">nenste link</a>.</p>
+</div>
+</div>
+<div id="exemplo-para-o-caso-2-a-variavel-de-destino-e-continua" class="section level2">
+<h2>Exemplo para o caso 2: A variável de destino é contínua</h2>
+<p>Agora vamos considerar que estamos diante de um desfecho onde a variável alvo é contínua, para isso será considerada a variável <code>affairs</code> como variável alvo.</p>
+<div id="resumo-da-variavel-dependente-continua" class="section level3">
+<h3>Resumo da variável dependente contínua</h3>
+<p>Descrição da variável affairs:</p>
+<pre class="r"><code>summary(Affairs[,&quot;affairs&quot;])</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   0.000   1.456   0.000  12.000</code></pre>
+</div>
+<div id="resumo-das-variaveis-numericas-1" class="section level3">
+<h3>Resumo das variáveis numéricas</h3>
+<p>Estatísticas de resumo quando a variável dependente é contínua Preço.</p>
+<pre class="r"><code>ExpNumStat(Affairs,
+           by=&quot;A&quot;, # Agrupar por A (estatísticas resumidas por Todos), G (estatísticas resumidas por grupo), GA (estatísticas resumidas por grupo e Geral)
+           gp=&quot;affairs&quot;, # Variavel alvo
+           Qnt=seq(0,1,0.1), # padrão NULL. Quantis especificados [c (0,25,0,75) encontrarão os percentis 25 e 75]
+           MesofShape=1, # Medidas de formas (assimetria e curtose)
+           Outlier=TRUE, # Calcular limite superior , inferior e numero de outliers
+           round=2) # Arredondamento</code></pre>
+<pre><code>## Note: Target variable is continuous
+## Summary statistics excluded group by statement
+## Results generated with correlation value against target variable</code></pre>
+<pre><code>##           Vname            Note  TN nNeg nZero nPos NegInf PosInf NA_Value
+## 1       affairs Cor b/w affairs 601    0   451  150      0      0        0
+## 2           age Cor b/w affairs 601    0     0  601      0      0        0
+## 5     education Cor b/w affairs 601    0     0  601      0      0        0
+## 6    occupation Cor b/w affairs 601    0     0  601      0      0        0
+## 7        rating Cor b/w affairs 601    0     0  601      0      0        0
+## 4 religiousness Cor b/w affairs 601    0     0  601      0      0        0
+## 3  yearsmarried Cor b/w affairs 601    0     0  601      0      0        0
+##   Per_of_Missing   min max  mean median   SD   CV IQR    0%  10%  20% 30%
+## 1              0  0.00  12  1.46      0 3.30 2.27   0  0.00  0.0  0.0   0
+## 2              0 17.50  57 32.49     32 9.29 0.29  10 17.50 22.0 22.0  27
+## 5              0  9.00  20 16.17     16 2.40 0.15   4  9.00 14.0 14.0  14
+## 6              0  1.00   7  4.19      5 1.82 0.43   3  1.00  1.0  2.0   4
+## 7              0  1.00   5  3.93      4 1.10 0.28   2  1.00  2.0  3.0   4
+## 4              0  1.00   5  3.12      3 1.17 0.37   2  1.00  2.0  2.0   2
+## 3              0  0.12  15  8.18      7 5.57 0.68  11  0.12  1.5  1.5   4
+##   40% 50% 60% 70% 80% 90% 100% LB.25% UB.75% nOutliers   cor
+## 1   0   0   0   0   1   7   12    0.0    0.0       150  1.00
+## 2  27  32  32  37  42  47   57   12.0   52.0        22  0.10
+## 5  16  16  17  18  18  20   20    8.0   24.0         0  0.00
+## 6   4   5   5   5   6   6    7   -1.5   10.5         0  0.05
+## 7   4   4   4   5   5   5    5    0.0    8.0         0 -0.28
+## 4   3   3   4   4   4   5    5   -1.0    7.0         0 -0.14
+## 3   4   7  10  15  15  15   15  -12.5   31.5         0  0.19</code></pre>
+<pre class="r"><code>#Se a variável de destino for contínua, as estatísticas de resumo adicionarão a coluna de correlação (Correlação entre a variável de destino e todas as variáveis independentes)</code></pre>
+<div id="distribuicoes-de-variaveis-numericas-1" class="section level4">
+<h4>Distribuições de variáveis numéricas</h4>
+<p>Representação gráfica de todas as variáveis numéricas com gráficos de dispersão (bivariada)</p>
+<p>Gráfico de dispersão entre todas as variáveis numéricas e a variável de destino affairs. Esta trama ajuda a examinar quão bem uma variável alvo está correlacionada com variáveis dependentes.</p>
+<p>Variável dependente é affairs (contínuo).</p>
+<pre class="r"><code>ExpNumViz(Affairs,
+            gp=&quot;affairs&quot;, # Variavel alvo
+            nlim=4, # a variável numérica com valor exclusivo é maior que 4
+            Page=c(2,2), # formato de saida
+            sample=8) # selecionado aleatoriamente 8 gráficos de dispersão</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-16-1.png" width="672" /><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
+</div>
+</div>
+<div id="resumo-de-variaveis-categoricas-1" class="section level3">
+<h3>Resumo de variáveis categóricas</h3>
+<p>Resumo de variáveis categóricas de acordo com a frequência para todas as variáveis independentes categóricas por Affairs</p>
+<pre class="r"><code>##bin=4, descretized 4 categories based on quantiles
+
+
+ExpCTable(Affairs,
+          Target=&quot;affairs&quot;,
+          margin=1, # margem de índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em coluna
+          clim=10,# quantidade de categorias máximas a serem consideradas para frequência / tabela personalizada, default 10.
+          nlim=NULL, # limites exclusivos de variável numérica. Os valores padrão &quot;nlim&quot; são 3, a tabela exclui as variáveis numéricas que têm valores únicos maiores que &quot;nlim&quot;
+          round=0, # Arredondar
+          bin=NULL, # número de cortes para variável alvo contínua
+          per=T) # valores percentuais. Tabela padrão dará contagens.</code></pre>
+<pre><code>##    VARIABLE CATEGORY Number affairs:(-0.012,3] affairs:(3,6] affairs:(6,9]
+## 1    gender   female     nn                273             0            22
+## 2    gender     male     nn                248             0            20
+## 3    gender    TOTAL     nn                521             0            42
+## 4    gender   female      %                 52           NaN            52
+## 5    gender     male      %                 48           NaN            48
+## 6    gender    TOTAL      %                100           NaN           100
+## 7  children       no     nn                157             0             7
+## 8  children      yes     nn                364             0            35
+## 9  children    TOTAL     nn                521             0            42
+## 10 children       no      %                 30           NaN            17
+## 11 children      yes      %                 70           NaN            83
+## 12 children    TOTAL      %                100           NaN           100
+##    affairs:(9,12] TOTAL
+## 1              20   315
+## 2              18   286
+## 3              38   601
+## 4              53    52
+## 5              47    48
+## 6             100   100
+## 7               7   171
+## 8              31   430
+## 9              38   601
+## 10             18    28
+## 11             82    72
+## 12            100   100</code></pre>
+<div id="distribuicoes-de-variaveis-categoricas-1" class="section level4">
+<h4>Distribuições de variáveis categóricas</h4>
+<p>Essa função varre automaticamente cada variável e cria um gráfico de barras para variáveis categóricas.</p>
+<p>Gráficos de barra para todas as variáveis categóricas</p>
+<pre class="r"><code>ExpCatViz(Affairs,
+          gp=&quot;affairs&quot;, # Variavel target
+          fname=NULL, # Nome do arquivo de saida, default é pdf
+          clim=10,# categorias máximas a incluir nos gráficos de barras.
+          margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
+          Page = c(2,1), # padrao de saida
+          sample=4) # seleção aleatória de plot</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-18-1.png" width="672" /><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
+</div>
+</div>
+<div id="avaliando-a-correlacao-entre-as-variaveis" class="section level3">
+<h3>Avaliando a correlação entre as variáveis</h3>
+<pre class="r"><code>suppressMessages(library(ggplot2))
+suppressMessages(library(dplyr))
+suppressMessages(library(GGally))
+data(&quot;Affairs&quot;)
+#Correlaçoes cruzadas
+Affairs%&gt;%
+  select(age:rating,affairs)%&gt;%
+ggpairs(lower = list(continuous = my_fn,combo=wrap(&quot;facethist&quot;, binwidth=1), 
+                                       continuous=wrap(my_bin, binwidth=0.25)),aes(fill=affairs))+theme_bw()</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre class="r"><code>ggcorr(Affairs,label = T,nbreaks = 5,label_round = 4)</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+</div>
+<div id="modelo-de-regressao-linear-usando-stepwiseaic" class="section level3">
+<h3>Modelo de regressão linear usando stepwiseAIC</h3>
+<p>Por fim, vamos ajustar um modelo de regressão linear para entender quais são as variáveis significativas para explicar a variação da variável resposta e qual o efeito de cada uma dessas variáveis explicativas no nosso desfecho.</p>
+<p>Com o R base é possível ajustar um modelo de regressão linear simples utilizando a função <code>lm()</code> e em seguida usar a função <code>step()</code> para utilizar técnicas como <a href="https://en.wikipedia.org/wiki/Stepwise_regression">stepwise</a>, porém como quero utilizar também a técnica de <a href="https://pt.wikipedia.org/wiki/Valida%C3%A7%C3%A3o_cruzada">validação cruzada</a>. Para isso vou utilizar o pacote <a href="https://cran.r-project.org/web/packages/caret/caret.pdf"><code>caret</code></a>, muito famoso por facilitar o ajuste de modelos de machine learning (ou mesmo modelos estatísticos tradicionais).</p>
+<p>Além disso estou usando as transformações <a href="https://www.rdocumentation.org/packages/caret/versions/6.0-79/topics/preProcess"><code>center()</code></a>, que subtrai a média dos dados e <a href="https://www.rdocumentation.org/packages/caret/versions/6.0-79/topics/preProcess"><code>scale()</code></a> divide pelo desvio padrão.</p>
+<pre class="r"><code>data(&quot;Affairs&quot;)
+suppressMessages(library(caret))
+set.seed(123)
+index &lt;- sample(1:2,nrow(Affairs),replace=T,prob=c(0.8,0.2))
+train = Affairs[index==1,] %&gt;%as.data.frame()
+test = Affairs[index==2,] %&gt;%as.data.frame()
+
+# Setando os parâmetros para o controle do ajuste do modelo:
+fitControl &lt;- trainControl(method = &quot;repeatedcv&quot;,         # 10fold cross validation
+                     number = 10, repeats=5                         # do 5 repititições of cv
+                     )
+
+# Regressão Linear com Stepwise
+set.seed(825)
+lmFit &lt;- train(affairs ~ ., data = train,
+                method = &quot;lmStepAIC&quot;, 
+                trControl = fitControl,
+                preProc = c(&quot;center&quot;, &quot;scale&quot;),trace=F)
+summary(lmFit)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = .outcome ~ age + yearsmarried + religiousness + 
+##     occupation + rating, data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.1452 -1.7819 -0.7601  0.2719 11.3518 
+## 
+## Coefficients:
+##               Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)     1.4146     0.1401  10.096 &lt; 0.0000000000000002 ***
+## age            -0.6890     0.2291  -3.007             0.002779 ** 
+## yearsmarried    1.1058     0.2302   4.804          0.000002087 ***
+## religiousness  -0.5121     0.1455  -3.519             0.000475 ***
+## occupation      0.3858     0.1445   2.669             0.007858 ** 
+## rating         -0.7830     0.1470  -5.326          0.000000155 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.07 on 474 degrees of freedom
+## Multiple R-squared:  0.144,  Adjusted R-squared:  0.135 
+## F-statistic: 15.95 on 5 and 474 DF,  p-value: 0.00000000000001542</code></pre>
+<p>Como podemos ver as variáveis Idade, Anos de casado, religiosidade, ocupação e como avaliam o próprio relacionamento se apresentaram significantes</p>
+<p>Como o <span class="math inline">\(R^2=0,144\)</span>, conclui-se que <span class="math inline">\(14,4%\)</span> da variação da quantidade de vezes que foi envolvida em caso extraconjugal no último ano é explicada pelo modelo ajustado.</p>
+<p>Observando a coluna das estimativas, podemos notar o quanto varia a quantidade de vezes que foi envolvido em caso extraconjugal ao aumentar em 1 unidade cada uma das variáveis explicativas.</p>
+<p>Além disso o valor p obtido através da estatística F foi menor do que <span class="math inline">\(\alpha = 0.05\)</span>, o que implica que pelo menos uma das variáveis explicativas tem relação significativa com a variável resposta.</p>
+<p>Selecionando apenas as variáveis selecionadas com o ajuste do modelo:</p>
+<pre class="r"><code>train=as.data.frame(train[,c(1,3,4,6,8,9)])
+test=as.data.frame(test[,c(1,3,4,6,8,9)])</code></pre>
+<div id="diagnostico-do-modelo" class="section level4">
+<h4>Diagnóstico do modelo</h4>
+<p>Existem varias formas e técnicas de se avaliar o ajuste de um modelo e como o foco deste post é apresentar as utilidades do pacote <code>SmartEAD</code> irei fazer uma avaliação muito breve sobre os resíduos, apresento mais algumas maneiras no post sobre <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">pacotes do R para avaliar o ajuste de modelos</a>.</p>
+<div id="avaliando-residuos" class="section level5">
+<h5>Avaliando residuos</h5>
+<pre class="r"><code>library(GGally)
+# calculate all residuals prior to display
+residuals &lt;- lapply(train[2:ncol(train)], function(x) {
+  summary(lm(affairs ~ x, data = train))$residuals
+})
+
+# add a &#39;fake&#39; column
+train$Residual &lt;- seq_len(nrow(train))
+
+# calculate a consistent y range for all residuals
+y_range &lt;- range(unlist(residuals))
+
+# plot the data
+ggduo(
+  train,
+  2:6, c(1,7),
+  types = list(continuous = lm_or_resid)
+)+ theme_bw()</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<pre class="r"><code>train=train%&gt;%
+  select(-Residual)</code></pre>
+<p>Neste gráfico é possível observar como se comportam os ajustes de modelos lineares de cada variável explicativa em relação à variável resposta e além disso na segunda linha é possível notar o comportamento dos resíduos no modelo.</p>
+<p>Uma das suposições do ajuste de um modelo linear normal é de que <span class="math inline">\(\epsilon \sim N(0,\sigma^2)\)</span> e visualmente parece que essa condição não deve ser atendida, pois esperaríamos algo como uma “nuvem” aleatória de pontos em torno de zero.</p>
+</div>
+<div id="residuos-e-medidas-de-influencia" class="section level5">
+<h5>Residuos e medidas de influencia</h5>
+<p>Além da suposição da normalidade dos resíduos, existem ainda mais detalhes do comportamento desses erros, uma breve apresentação no gráfico a seguir:</p>
+<pre class="r"><code>suppressMessages(library(ggfortify))
+
+autoplot(lmFit$finalModel, which = 1:6, data = train,
+         colour = &#39;affairs&#39;, label.size = 3,
+         ncol = 3)+theme_classic()</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>Pelo que parece no gráfico com título “Normal Q-Q”, as variáveis associadas à variável resposta com valores acima de 6 se comportam de forma inesperadas quando comparadas com os quantis teóricos.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exemplo-para-o-caso-3-a-variavel-de-destino-e-categorica" class="section level2">
+<h2>Exemplo para o caso 3: a variável de destino é categórica</h2>
+<p>Para finalizar a avaliação da base de dados, a Variável alvo será discretizado de tal forma:</p>
+<p><span class="math display">\[
+1 = \text{se affairs} &gt; 0\\
+0 = c.c.
+\]</span></p>
+<p>Essa transformação será utilizada apenas com fins ilustrativos do algorítimo de árvore de decisões, que está ficando muito comum na ciência de dados como uma tarefa supervisionada de machine learning.</p>
+<pre class="r"><code>Affairs = Affairs %&gt;% 
+  mutate(daffairs = ifelse(Affairs$affairs!=0,1,0)) %&gt;% 
+  mutate(daffairs = as.factor(daffairs))%&gt;% 
+  select(-affairs)
+levels(Affairs$daffairs) = c(&quot;Não&quot;, &quot;Sim&quot;)</code></pre>
+<div id="resumo-das-variaveis-numericas-2" class="section level3">
+<h3>Resumo das variáveis numéricas</h3>
+<p>Resumo de todas as variáveis numéricas</p>
+<pre class="r"><code>ExpNumStat(Affairs,
+           by=&quot;A&quot;, # Agrupar por A (estatísticas resumidas por Todos), G (estatísticas resumidas por grupo), GA (estatísticas resumidas por grupo e Geral)
+           gp=&quot;daffairs&quot;, # Variavel alvo
+           Qnt=seq(0,1,0.1), # padrão NULL. Quantis especificados [c (0,25,0,75) encontrarão os percentis 25 e 75]
+           MesofShape=1, # Medidas de formas (assimetria e curtose)
+           Outlier=TRUE, # Calcular limite superior , inferior e numero de outliers
+           round=2) # Arredondamento</code></pre>
+<pre><code>##           Vname Group  TN nNeg nZero nPos NegInf PosInf NA_Value
+## 1           age   All 601    0     0  601      0      0        0
+## 4     education   All 601    0     0  601      0      0        0
+## 5    occupation   All 601    0     0  601      0      0        0
+## 6        rating   All 601    0     0  601      0      0        0
+## 3 religiousness   All 601    0     0  601      0      0        0
+## 2  yearsmarried   All 601    0     0  601      0      0        0
+##   Per_of_Missing   min max  mean median   SD   CV IQR    0%  10%  20% 30%
+## 1              0 17.50  57 32.49     32 9.29 0.29  10 17.50 22.0 22.0  27
+## 4              0  9.00  20 16.17     16 2.40 0.15   4  9.00 14.0 14.0  14
+## 5              0  1.00   7  4.19      5 1.82 0.43   3  1.00  1.0  2.0   4
+## 6              0  1.00   5  3.93      4 1.10 0.28   2  1.00  2.0  3.0   4
+## 3              0  1.00   5  3.12      3 1.17 0.37   2  1.00  2.0  2.0   2
+## 2              0  0.12  15  8.18      7 5.57 0.68  11  0.12  1.5  1.5   4
+##   40% 50% 60% 70% 80% 90% 100% LB.25% UB.75% nOutliers
+## 1  27  32  32  37  42  47   57   12.0   52.0        22
+## 4  16  16  17  18  18  20   20    8.0   24.0         0
+## 5   4   5   5   5   6   6    7   -1.5   10.5         0
+## 6   4   4   4   5   5   5    5    0.0    8.0         0
+## 3   3   3   4   4   4   5    5   -1.0    7.0         0
+## 2   4   7  10  15  15  15   15  -12.5   31.5         0</code></pre>
+<div id="distribuicoes-de-variaveis-numericas-2" class="section level4">
+<h4>Distribuições de variáveis numéricas</h4>
+<p>Box plots para todas as variáveis numéricas vs variável dependente categórica - Comparação bivariada apenas com categorias</p>
+<p>Boxplot para todos os atributos numéricos por cada categoria de affair</p>
+<pre class="r"><code>ExpNumViz(Affairs,
+          gp=&quot;daffairs&quot;, # Variaevl alvo
+          type=1, # 1 (boxplot por categoria e global), 2 (boxplot por categoria apenas), 3 (boxplot for overall)
+          nlim=NULL, # limite único da variável numérica. O padrão nlim é 3, o gráfico excluirá a variável numérica que está tendo um valor único menor que &#39;nlim&#39;
+          col=c(&quot;pink&quot;,&quot;yellow&quot;,&quot;orange&quot;), # Cor dos boxplots
+          Page=c(2,2),# formato de saida
+          sample=8) # amostra de variaveis para o resumo</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-27-1.png" width="672" /><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
+</div>
+</div>
+<div id="resumo-das-variaveis-categoricas" class="section level3">
+<h3>Resumo das variáveis categóricas</h3>
+<p>Tabulação cruzada com variável de destino com tabelas customizadas entre todas as variáveis independentes categóricas e a variável de destino <code>daffairs</code>:</p>
+<pre class="r"><code>ExpCTable(Affairs,
+          Target=&quot;daffairs&quot;, # variavel alvo
+          margin=1, # 1 para proporcoes por linha, 2 para colunas
+          clim=10, # maximo de categorias consideradas por frequencia/ custom table
+          round=2, # arredondar
+          per=F) # valores percentuais. Tabela padrão dará contagens.</code></pre>
+<pre><code>##   VARIABLE CATEGORY daffairs:Não daffairs:Sim TOTAL
+## 1   gender   female          243           72   315
+## 2   gender     male          208           78   286
+## 3   gender    TOTAL          451          150   601
+## 4 children       no          144           27   171
+## 5 children      yes          307          123   430
+## 6 children    TOTAL          451          150   601</code></pre>
+<div id="distribuicoes-de-variaveis-categoricas-2" class="section level4">
+<h4>Distribuições de variáveis categóricas</h4>
+<p>Gráfico de barras empilhadas com barras verticais ou horizontais para todas as variáveis categóricas</p>
+<pre class="r"><code>ExpCatViz(Affairs,
+          gp=&quot;daffairs&quot;,
+          fname=NULL, # Nome do arquivo de saida, default é pdf
+          clim=10,# categorias máximas a incluir nos gráficos de barras.
+          margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
+          Page = c(2,1), # padrao de saida
+          sample=4) # seleção aleatória de plot</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-29-1.png" width="672" /><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-29-2.png" width="672" /></p>
+</div>
+</div>
+<div id="valor-da-informacao" class="section level3">
+<h3>Valor da informação</h3>
+<p><code>IV</code> é o peso da evidência e valores da informação, <span class="math inline">\(ln(odss) \times(pct0 - pct1)\)</span> onde <span class="math inline">\(pct1 =\frac{\text{&quot;boas observações&quot;}}{\text{&quot;total boas observações&quot;}}\)</span>; <span class="math inline">\(pct0 = \frac{&quot;\text{observações ruins&quot;} }{ \text{&quot;total de observações ruins&quot;}}\)</span> e $odds =  $</p>
+<pre class="r"><code>ExpCatStat(Affairs %&gt;% mutate(daffairs = if_else(daffairs==&quot;Não&quot;, 0, 1)) ,
+           Target=&quot;daffairs&quot;,
+           result = &quot;IV&quot;) %&gt;% 
+  select(-c(Target,Ref_1,Ref_0))</code></pre>
+<pre><code>##         Variable  Class Out_1 Out_0 TOTAL Per_1 Per_0  Odds    WOE    IV
+## 1         gender female    72   243   315 0.480 0.539 0.891 -0.115 0.007
+## 2         gender   male    78   208   286 0.520 0.461 1.128  0.120 0.007
+## 3       children     no    27   144   171 0.180 0.319 0.564 -0.573 0.080
+## 4       children    yes   123   307   430 0.820 0.681 1.204  0.186 0.026
+## 5            age   17.5     3     3     6 0.020 0.007 2.857  1.050 0.014
+## 6            age     22    16   101   117 0.107 0.224 0.478 -0.738 0.086
+## 7            age     27    36   117   153 0.240 0.259 0.927 -0.076 0.001
+## 8            age     32    38    77   115 0.253 0.171 1.480  0.392 0.032
+## 9            age     37    23    65    88 0.153 0.144 1.062  0.060 0.001
+## 10           age     42    18    38    56 0.120 0.084 1.429  0.357 0.013
+## 11           age     47     7    16    23 0.047 0.035 1.343  0.295 0.004
+## 12           age     52     6    15    21 0.040 0.033 1.212  0.192 0.001
+## 13           age     57     3    19    22 0.020 0.042 0.476 -0.742 0.016
+## 14  yearsmarried  0.125     1    10    11 0.007 0.022 0.318 -1.146 0.017
+## 15  yearsmarried  0.417     1     9    10 0.007 0.020 0.350 -1.050 0.014
+## 16  yearsmarried   0.75     3    28    31 0.020 0.062 0.323 -1.130 0.047
+## 17  yearsmarried    1.5    12    76    88 0.080 0.169 0.473 -0.749 0.067
+## 18  yearsmarried     10    21    49    70 0.140 0.109 1.284  0.250 0.008
+## 19  yearsmarried     15    62   142   204 0.413 0.315 1.311  0.271 0.027
+## 20  yearsmarried      4    27    78   105 0.180 0.173 1.040  0.039 0.000
+## 21  yearsmarried      7    23    59    82 0.153 0.131 1.168  0.155 0.003
+## 22 religiousness      1    20    28    48 0.133 0.062 2.145  0.763 0.054
+## 23 religiousness      2    41   123   164 0.273 0.273 1.000  0.000 0.000
+## 24 religiousness      3    43    86   129 0.287 0.191 1.503  0.407 0.039
+## 25 religiousness      4    33   157   190 0.220 0.348 0.632 -0.459 0.059
+## 26 religiousness      5    13    57    70 0.087 0.126 0.690 -0.371 0.014
+## 27     education     12    13    31    44 0.087 0.069 1.261  0.232 0.004
+## 28     education     14    35   119   154 0.233 0.264 0.883 -0.124 0.004
+## 29     education     16    20    95   115 0.133 0.211 0.630 -0.462 0.036
+## 30     education     17    27    62    89 0.180 0.137 1.314  0.273 0.012
+## 31     education     18    33    79   112 0.220 0.175 1.257  0.229 0.010
+## 32     education     20    20    60    80 0.133 0.133 1.000  0.000 0.000
+## 33     education      9     2     5     7 0.013 0.011 1.182  0.167 0.000
+## 34    occupation      1    23    90   113 0.153 0.200 0.765 -0.268 0.013
+## 35    occupation      2     3    10    13 0.020 0.022 0.909 -0.095 0.000
+## 36    occupation      3    15    32    47 0.100 0.071 1.408  0.342 0.010
+## 37    occupation      4    21    47    68 0.140 0.104 1.346  0.297 0.011
+## 38    occupation      5    44   160   204 0.293 0.355 0.825 -0.192 0.012
+## 39    occupation      6    39   104   143 0.260 0.231 1.126  0.119 0.003
+## 40    occupation      7     5     8    13 0.033 0.018 1.833  0.606 0.009
+## 41        rating      1     8     8    16 0.053 0.018 2.944  1.080 0.038
+## 42        rating      2    33    33    66 0.220 0.073 3.014  1.103 0.162
+## 43        rating      3    27    66    93 0.180 0.146 1.233  0.209 0.007
+## 44        rating      4    48   146   194 0.320 0.324 0.988 -0.012 0.000
+## 45        rating      5    34   198   232 0.227 0.439 0.517 -0.660 0.140</code></pre>
+</div>
+<div id="testes-estatisticos" class="section level3">
+<h3>Testes estatísticos</h3>
+<p>Além de toda a informação visual e das estatísticas descritivas, ainda contamos com alguma função que fornece estatísticas resumidas para todas as colunas de caracteres ou categóricas no data frame</p>
+<pre class="r"><code>ExpCatStat(Affairs %&gt;% mutate(daffairs = if_else(daffairs==&quot;Não&quot;, 0, 1)),
+           Target=&quot;daffairs&quot;, # variavel alvo
+           result = &quot;Stat&quot;) # resumo de estatisticas</code></pre>
+<pre><code>##        Variable   Target Unique Chi-squared p-value df IV Value
+## 1        gender daffairs      2       1.334   0.248  1    0.014
+## 2      children daffairs      2      10.055   0.002  1    0.106
+## 3           age daffairs      9      17.771   0.023  8    0.168
+## 4  yearsmarried daffairs      8      17.177   0.016  7    0.183
+## 5 religiousness daffairs      5      19.354   0.001  4    0.166
+## 6     education daffairs      7       7.057   0.316  6    0.066
+## 7    occupation daffairs      7       6.718   0.348  6    0.058
+## 8        rating daffairs      5      41.433       0  4    0.347
+##            Pred Power
+## 1      Not Predictive
+## 2   Medium Predictive
+## 3   Medium Predictive
+## 4   Medium Predictive
+## 5   Medium Predictive
+## 6 Somewhat Predictive
+## 7 Somewhat Predictive
+## 8   Highly Predictive</code></pre>
+<p>Os critérios usados para classificação de poder preditivo variável categórico são</p>
+<ul>
+<li><p>Se o valor da informação for &lt;0,03, então, poder de previsão = “Não Preditivo”</p></li>
+<li><p>Se o valor da informação é de 0,3 a 0,1, então o poder preditivo = “um pouco preditivo”</p></li>
+<li><p>Se o valor da informação for de 0,1 a 0,3, então, poder preditivo = “Medium Predictive”</p></li>
+<li><p>Se o valor da informação for&gt; 0.3, então, poder preditivo = “Altamente Preditivo”</p></li>
+</ul>
+<p>Nota para a variável <code>rating</code> que segundo essas regras, demonstrou alto poder preditivo.</p>
+</div>
+<div id="machine-learning-com-random-forest" class="section level3">
+<h3>Machine Learning com Random Forest</h3>
+<p>O algorítimo supervisionado de machine learning conhecido como <a href="https://www.stat.berkeley.edu/~breiman/RandomForests/">Random Forest</a> é uma grande caixa preta. Apresenta resultados muito robustos pois combina o resultado de várias árvores de decisões e pode ser facilmente aplicada com o pacote <code>caret</code>.</p>
+<p><a href="https://topepo.github.io/caret/variable-importance.html">No livro do pacote caret</a> o algorítimo é apresentado da seguinte maneira: “segundo o pacote do R: Para cada árvore, a precisão da previsão na parte fora do saco dos dados é registrada. Então, o mesmo é feito após a permutação de cada variável preditora. A diferença entre as duas precisões é calculada pela média de todas as árvores e normalizada pelo erro padrão. Para a regressão, o MSE é calculado nos dados fora da bolsa para cada árvore e, em seguida, o mesmo é computado após a permutação de uma variável. As diferenças são calculadas e normalizadas pelo erro padrão. Se o erro padrão é igual a 0 para uma variável, a divisão não é feita.”</p>
+<p>Não entrarei em muitos detalhes sobre o algorítimo pois esta parte é apenas um demonstrativo dos diferentes cenários de análise exploratória dos dados. Seram comentadas apenas algumas métricas utilizadas.</p>
+<p>Ajuste com o algorítimo Random Forest:</p>
+<pre class="r"><code>suppressMessages(library(caret))
+set.seed(1)
+index &lt;- sample(1:2,nrow(Affairs),replace=T,prob=c(0.8,0.2))
+train = Affairs[index==1,] %&gt;%as.data.frame()
+test = Affairs[index==2,] %&gt;%as.data.frame()
+
+
+# Setando os parâmetros para o controle do ajuste do modelo:
+fitControl &lt;- trainControl(method = &quot;repeatedcv&quot;,         # 10fold cross validation
+                     number = 10
+                     )
+
+# Random Forest
+set.seed(825)
+antes = Sys.time()
+rfFit &lt;- train(daffairs ~ ., data = train,
+                method = &quot;rf&quot;, 
+                trControl = fitControl,
+                trace=F,
+                preProc = c(&quot;center&quot;, &quot;scale&quot;))
+
+antes - Sys.time() # Para saber quanto tempo durou o ajuste</code></pre>
+<pre><code>## Time difference of -8.551161 secs</code></pre>
+<p>Resultados do ajuste:</p>
+<pre class="r"><code>rfFit</code></pre>
+<pre><code>## Random Forest 
+## 
+## 484 samples
+##   8 predictor
+##   2 classes: &#39;Não&#39;, &#39;Sim&#39; 
+## 
+## Pre-processing: centered (8), scaled (8) 
+## Resampling: Cross-Validated (10 fold, repeated 1 times) 
+## Summary of sample sizes: 435, 436, 436, 436, 435, 435, ... 
+## Resampling results across tuning parameters:
+## 
+##   mtry  Accuracy   Kappa    
+##   2     0.7500000  0.1167424
+##   5     0.7232568  0.1432592
+##   8     0.7192177  0.1543523
+## 
+## Accuracy was used to select the optimal model using the largest value.
+## The final value used for the model was mtry = 2.</code></pre>
+<p><strong>Accurary e Kappa</strong></p>
+<p>Essas são as métricas padrão usadas para avaliar algoritmos em conjuntos de dados de classificação binária.</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Accuracy_and_precision"><strong>Accuray</strong></a>: é a porcentagem de classificar corretamente as instâncias fora de todas as instâncias. É mais útil em uma classificação binária do que problemas de classificação de várias classes, porque pode ser menos claro exatamente como a precisão é dividida entre essas classes (por exemplo, você precisa ir mais fundo com uma matriz de confusão).</li>
+<li><a href="https://en.wikipedia.org/wiki/Cohen%27s_kappa"><strong>Kappa ou Kappa de Cohen</strong></a> é como a precisão da classificação, exceto que é normalizado na linha de base da chance aleatória em seu conjunto de dados. É uma medida mais útil para usar em problemas que têm um desequilíbrio nas classes (por exemplo, divisão de 70 a 30 para as classes 0 e 1 e você pode atingir 70% de precisão prevendo que todas as instâncias são para a classe 0).</li>
+</ul>
+<p>A seguir a “Variable Importance” de cada variável:</p>
+<pre class="r"><code>rfImp = varImp(rfFit);rfImp</code></pre>
+<pre><code>## rf variable importance
+## 
+##               Overall
+## age           100.000
+## rating         98.882
+## religiousness  85.536
+## education      81.668
+## occupation     65.776
+## yearsmarried   65.106
+## gendermale      5.799
+## childrenyes     0.000</code></pre>
+<pre class="r"><code>plot(rfImp)</code></pre>
+<p><img src="/post/2018-05-26-smarteademachinelearning/2018-05-26-smarteademachinelearning_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p>A função dimensiona automaticamente as pontuações de importância entre 0 e 100, os escores de importância da variável em Random Forest são medidas agregadas. Eles apenas quantificam o impacto do preditor, não o efeito específico, para isso utilizamos o ajuste um modelo paramétrico onde conseguimos estimar termos estruturais.</p>
+<p>É claro que existem muitos adentos a serem feitos tanto na forma como os dados foram apresentados no ajuste do modelo linear e no Random Forest, mas como a finalidade do post continua sendo apresentar o pacote SmartEAD, encerrarei a avaliação por aqui.</p>
+<p>Caso alguém queira entender com mais detalhes a avaliação de modelos de machine learning, talvez <a href="https://topepo.github.io/caret/measuring-performance.html">o livro do pacote caret</a> seja uma alternativa interessante para ter uma noção geral.</p>
+</div>
+</div>
+</div>
+<div id="todos-os-modelos-estao-errados-alguns-sao-uteis---george-box" class="section level1">
+<h1>“<em>Todos os modelos estão errados, alguns são úteis - George Box</em>”</h1>
+<p>Não conseguimos nenhum modelo útil que quantificasse as incertezas nas modelagens deste post mas conseguimos executar praticamente todas as funções do pacote <code>SmartEAD</code> e foi muito útil para conhecer a base em poucas linhas, obrigado Dayanand Ubrangala, Kiran R. e Ravi Prasad Kondapalli!</p>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="/categories/teoria">Teoria</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/rstudio">rstudio</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/rmarkdown">rmarkdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/multivariada">multivariada</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/modelos">Modelos</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/dplyr">dplyr</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/machine-learning">machine learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/package">package</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/tabelas">tabelas</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/utilidades">utilidades</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/componentes-principais">componentes principais</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/probabilidade">probabilidade</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/aprendendo">Aprendendo</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/dplyr">dplyr</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/ggally">GGally</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/kaggle">kaggle</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelagem">modelagem</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelos">Modelos</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelos-lineares">Modelos lineares</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/package">package</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/pca">pca</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/manipulacao-de-dados">manipulacao de dados</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/probabilidade">probabilidade</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r-markdown">R Markdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/regression">regression</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/rela%C3%A7%C3%B5es-entre-vari%C3%A1veis">Relações entre variáveis</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/rmarkdown">rmarkdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/relatorios">relatorios</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/rstudio">RStudio</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/tabelas">tabelas</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/teoria">teoria</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/"
+                class="button big previous">Séries temporais com Google Trends e R</a></li>
+    
+
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-05-26'>
+                May 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-04-12'>
+                April 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-03-07'>
+                March 7, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-17'>
+                February 17, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-01'>
+                February 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-26'>
+                December 26, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-18'>
+                December 18, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-17'>
+                December 17, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">Criando relatórios com template tufle </a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-14'>
+                December 14, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
+              </time>
+            </header>
+            
+    
+
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-05'>
+                December 5, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-04'>
+                December 4, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes e sou um entusiasta pela ciência de dados. Percebi que um dos muitos desafios na carreira de um cientista de dados é passar para as pessoas o que podemos fazer em diversas áreas de estudo, diante disso resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+        
+        
+        
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+
