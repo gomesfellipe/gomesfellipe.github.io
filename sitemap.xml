@@ -193,13 +193,13 @@
   </url>
   
   <url>
-    <loc>/categories/bitcoin/</loc>
+    <loc>/tags/bitcoin/</loc>
     <lastmod>2017-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/bitcoin/</loc>
+    <loc>/categories/bitcoin/</loc>
     <lastmod>2017-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -211,13 +211,13 @@
   </url>
   
   <url>
-    <loc>/categories/cheatsheets/</loc>
+    <loc>/tags/cheatsheets/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/cheatsheets/</loc>
+    <loc>/categories/cheatsheets/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -263,25 +263,25 @@
   </url>
   
   <url>
-    <loc>/categories/datacamp/</loc>
-    <lastmod>2018-02-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/datacamp/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/dplyr/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <loc>/categories/datacamp/</loc>
+    <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/dplyr/</loc>
+    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/dplyr/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -293,13 +293,13 @@
   </url>
   
   <url>
-    <loc>/categories/estatistica/</loc>
+    <loc>/tags/estatistica/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/estatistica/</loc>
+    <loc>/categories/estatistica/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -335,13 +335,13 @@
   </url>
   
   <url>
-    <loc>/categories/gamificacao/</loc>
+    <loc>/tags/gamificacao/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/gamificacao/</loc>
+    <loc>/categories/gamificacao/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -371,13 +371,13 @@
   </url>
   
   <url>
-    <loc>/categories/google/</loc>
+    <loc>/tags/google/</loc>
     <lastmod>2018-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/google/</loc>
+    <loc>/categories/google/</loc>
     <lastmod>2018-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -407,20 +407,14 @@
   </url>
   
   <url>
-    <loc>/categories/jags/</loc>
-    <lastmod>2017-12-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/jags/</loc>
     <lastmod>2017-12-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/kaggle/</loc>
-    <lastmod>2018-02-17T00:00:00+00:00</lastmod>
+    <loc>/categories/jags/</loc>
+    <lastmod>2017-12-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -431,13 +425,19 @@
   </url>
   
   <url>
-    <loc>/categories/latex/</loc>
-    <lastmod>2018-03-07T00:00:00+00:00</lastmod>
+    <loc>/categories/kaggle/</loc>
+    <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/latex/</loc>
+    <lastmod>2018-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/latex/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -461,13 +461,13 @@
   </url>
   
   <url>
-    <loc>/categories/macro/</loc>
+    <loc>/tags/macro/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/macro/</loc>
+    <loc>/categories/macro/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -479,13 +479,13 @@
   </url>
   
   <url>
-    <loc>/categories/mapa/</loc>
+    <loc>/tags/mapa/</loc>
     <lastmod>2018-02-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/mapa/</loc>
+    <loc>/categories/mapa/</loc>
     <lastmod>2018-02-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -503,13 +503,13 @@
   </url>
   
   <url>
-    <loc>/categories/modelos/</loc>
+    <loc>/tags/modelos/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/modelos/</loc>
+    <loc>/categories/modelos/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -533,13 +533,19 @@
   </url>
   
   <url>
+    <loc>/tags/package/</loc>
+    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/package/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/package/</loc>
+    <loc>/tags/pca/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -547,12 +553,6 @@
   <url>
     <loc>/categories/pca/</loc>
     <lastmod>2018-01-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/pca/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -575,19 +575,13 @@
   </url>
   
   <url>
-    <loc>/categories/probabilidade/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/probabilidade/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/pr%C3%A1tica/</loc>
+    <loc>/categories/probabilidade/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -599,13 +593,19 @@
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
+    <loc>/categories/pr%C3%A1tica/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/r/</loc>
+    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -653,13 +653,13 @@
   </url>
   
   <url>
-    <loc>/categories/rmarkdown/</loc>
+    <loc>/tags/rmarkdown/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rmarkdown/</loc>
+    <loc>/categories/rmarkdown/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -695,25 +695,25 @@
   </url>
   
   <url>
-    <loc>/categories/s%C3%A9ries-temporais/</loc>
-    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/s%C3%A9ries-temporais/</loc>
     <lastmod>2018-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/tabelas/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <loc>/categories/s%C3%A9ries-temporais/</loc>
+    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/tabelas/</loc>
+    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/tabelas/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -731,13 +731,13 @@
   </url>
   
   <url>
-    <loc>/categories/teoria/</loc>
+    <loc>/tags/teoria/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/teoria/</loc>
+    <loc>/categories/teoria/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -767,13 +767,13 @@
   </url>
   
   <url>
-    <loc>/categories/word/</loc>
+    <loc>/tags/word/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/word/</loc>
+    <loc>/categories/word/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

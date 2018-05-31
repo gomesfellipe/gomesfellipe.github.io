@@ -692,7 +692,7 @@ O algorítimo supervisionado de machine learning conhecido como [Random Forest ]
 
 [No livro do pacote caret](https://topepo.github.io/caret/variable-importance.html) o algorítimo é apresentado da seguinte maneira: "segundo o pacote do R: Para cada árvore, a precisão da previsão na parte fora do saco dos dados é registrada. Então, o mesmo é feito após a permutação de cada variável preditora. A diferença entre as duas precisões é calculada pela média de todas as árvores e normalizada pelo erro padrão. Para a regressão, o MSE é calculado nos dados fora da bolsa para cada árvore e, em seguida, o mesmo é computado após a permutação de uma variável. As diferenças são calculadas e normalizadas pelo erro padrão. Se o erro padrão é igual a 0 para uma variável, a divisão não é feita."
 
-Não entrarei em muitos detalhes sobre o algorítimo pois esta parte é apenas um demonstrativo dos diferentes cenários de análise exploratória dos dados. Seram comentadas apenas algumas métricas utilizadas.
+Não entrarei em muitos detalhes sobre o algorítimo pois esta parte é apenas um demonstrativo dos diferentes cenários de análise exploratória dos dados. Serão comentadas apenas algumas métricas utilizadas.
 
 Ajuste com o algorítimo Random Forest:
 
