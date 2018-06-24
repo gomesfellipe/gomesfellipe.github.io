@@ -1,0 +1,3188 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "post",
+        "name" : "Brasil x Argentina, tidytext e Machine Learning",
+        "headline" : "Brasil x Argentina, tidytext e Machine Learning",
+        "description" : "Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-06-24 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-06-24 00:00:00 &#43;0000 UTC",
+        "url" : "/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/",
+        "wordCount" : "6333",
+        "keywords" : [ "dplyr","Estatistica","gomesfellipe","kaggle","modelagem","modelos generalizados","Modelos lineares","Modelos","Prática","R","R Markdown","RStudio","machine learning","tidytext","sentiment","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Brasil x Argentina, tidytext e Machine Learning</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.37" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            <meta name="description" content="Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Brasil x Argentina, tidytext e Machine Learning"/>
+<meta name="twitter:description" content="Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning"/>
+
+        <meta property="og:title" content="Brasil x Argentina, tidytext e Machine Learning" />
+<meta property="og:description" content="Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" />
+
+
+
+<meta property="article:published_time" content="2018-06-24T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-06-24T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="Brasil x Argentina, tidytext e Machine Learning">
+<meta itemprop="description" content="Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning">
+
+
+<meta itemprop="datePublished" content="2018-06-24T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-06-24T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="6333">
+
+
+
+<meta itemprop="keywords" content="dplyr,Estatistica,gomesfellipe,kaggle,modelagem,modelos generalizados,Modelos lineares,Modelos,Prática,R,R Markdown,RStudio,machine learning,tidytext,sentiment," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+
+
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105500464-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>cv
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/">
+                            <i class="fa fa-coffee">&nbsp;</i>Posts
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-reorder">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>cv
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/">
+                            <h3>
+                                <i class="fa fa-coffee">&nbsp;</i>Posts
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-reorder">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-06-24'>
+                                    June 24, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-05-26'>
+                                    May 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-04-12'>
+                                    April 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/04/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-03-07'>
+                                    March 7, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-17'>
+                                    February 17, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-01'>
+                                    February 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-26'>
+                                    December 26, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-18'>
+                                    December 18, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-17'>
+                                    December 17, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">Criando relatórios com template tufle </a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-14'>
+                                    December 14, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-05'>
+                                    December 5, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;text=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;title=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;title=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;title=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;description=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></h1>
+            
+        
+        
+            <p>Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-06-24'>
+            June 24, 2018</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>30 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;text=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;title=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;title=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;title=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;description=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    <div id="brasil-vs-argentina-e-text-mining" class="section level1">
+<h1>Brasil vs Argentina e Text Mining</h1>
+<p>A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos <a href="http://cio.com.br/noticias/2015/10/27/tome-nota-2-5-quintilhoes-de-bytes-sao-criados-todos-os-dias/">quintilhões de bytes todos os dias</a>, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.</p>
+<p>Dada a rivalidade histórica entre Brasil e Argentina achei que seria interessante avaliar como anda o comportamento das pessoas do Brasil nas mídias sociais em relação a esses dois países. Para o post não ficar muito longo, escolhi que iria recolher informações apenas do Twitter devido a praticidade, foram coletados os últimos 4.000 tweets com o termo “brasil” e os últimos “4.000” tweets com o termo “argentina” no Twitter através da sua API com o pacote os <code>twitteR</code> e <code>ROAuth</code>. O código pode ser conferido <a href="https://github.com/gomesfellipe/functions/blob/master/getting_twitter_data.R">neste link</a>.</p>
+<p>Análise de textos sempre foi um tema que me interessou muito, no final do ano de 2017 quando era estagiário me pediram para ajudar em uma pesquisa que envolvia a análise de palavras criando algumas nuvens de palavras. Pesquisando sobre técnicas de textmining descobri tantas abordagens diferentes que resolvi juntar tudo que tinha encontrado em uma única função (que será apresentada a seguir) para a confecção dessas nuvens, utilizarei esta função para ter uma primeira impressão dos dados.</p>
+<p>Além disso, como seria um problema a tarefa de criar as nuvens de palavras só poderia ser realizada por alguém com conhecimento em R, na época estava começando meus estudo sobre shiny e como treinamento desenvolvi um app que esta hospedado no link: <a href="https://gomesfellipe.shinyapps.io/appwordcloud/" class="uri">https://gomesfellipe.shinyapps.io/appwordcloud/</a> e o código esta aberto e disponível para quem se interessar no meu github <a href="https://github.com/gomesfellipe/appwordcloud/blob/master/appwordcloud.Rmd">neste link</a></p>
+<p>Porém, após ler e estudar o livro <a href="https://www.tidytextmining.com/">Text Mining with R - A Tidy Approach</a> por <span class="citation">Silge; Robinson (2018)</span> hoje em dia eu olho para trás e vejo que poderia ter feito tanto a função quanto o aplicativo de maneira muito mais eficiente portanto esse post trás alguns dos meus estudos sobre esse livro maravilhoso e também algum estudo sobre Machine Learning com o pacote <a href="https://cran.r-project.org/web/packages/caret"><code>caret</code></a></p>
+<div id="importando-a-dados" class="section level2">
+<h2>Importando a dados</h2>
+<p>Como já foi dito, a base de dados foi obtida através da API do twitter e o código pode ser obtido <a href="https://github.com/gomesfellipe/functions/blob/master/getting_twitter_data.R">neste link</a>.</p>
+<pre class="r"><code>suppressMessages(library(dplyr))
+suppressMessages(library(kableExtra))
+suppressMessages(library(magrittr))
+
+base &lt;- read.csv(&quot;original_books.csv&quot;) %&gt;% as_tibble()</code></pre>
+</div>
+<div id="nuvem-de-palavras-rapida-com-funcao-customizada" class="section level2">
+<h2>Nuvem de palavras rápida com função customizada</h2>
+<p>Para uma primeira impressão dos dados, vejamos o que retorna uma nuvem de palavras criada com a função <a href="https://github.com/gomesfellipe/functions/blob/master/wordcloud_sentiment.R"><code>wordcloud_sentiment()</code></a> que desenvolvi antes de conhecer a “A Tidy Approach” para Text Mining:</p>
+<pre class="r"><code>devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/wordcloud_sentiment.R&quot;)</code></pre>
+<pre><code>## SHA-1 hash of file is 10ac998534c5f9ea4c06b79183ab676a6bb5e1e2</code></pre>
+<pre class="r"><code># Obtendo nuvem e salvando tabela num objeto com nome teste:
+df &lt;- wordcloud_sentiment(base$text,
+                      type = &quot;text&quot;,
+                      sentiment = F,
+                      excludeWords = c(&quot;nao&quot;,letters,LETTERS),
+                      ngrams = 2,
+                      tf_idf = F,
+                      max = 100,
+                      freq = 10,
+                      horizontal = 0.9,
+                      textStemming = F,
+                      print=T)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-2-1.png" width="1056" /></p>
+<p>Não poderia esquecer, além da nuvem, a função também retorna um dataframe com a frequência das palavras:</p>
+<pre class="r"><code>df %&gt;% as_tibble()</code></pre>
+<pre><code>## # A tibble: 13,667 x 2
+##    words          freq  
+##  * &lt;fct&gt;          &lt;fct&gt; 
+##  1 brasil copa    2065  
+##  2 copa mundo     1959  
+##  3 hat trick      1327  
+##  4 hoje brasil    1215  
+##  5 messi          &quot; 929&quot;
+##  6 mundo          &quot; 914&quot;
+##  7 estreia brasil &quot; 874&quot;
+##  8 copa           &quot; 827&quot;
+##  9 pra copa       &quot; 813&quot;
+## 10 hoje           &quot; 740&quot;
+## # ... with 13,657 more rows</code></pre>
+<p>E outra função interessante é a de criar uma nuvem a partir de um webscraping muito (muito mesmo) introdutório, para isso foi pegar todo o texto da página sobre a copa do mundo no Wikipédia, veja:</p>
+<pre class="r"><code># Obtendo nuvem e salvando tabela num objeto com nome teste:
+df_html &lt;- wordcloud_sentiment(&quot;https://pt.wikipedia.org/wiki/Copa_do_Mundo_FIFA&quot;,
+                      type = &quot;url&quot;,
+                      sentiment = F,
+                      excludeWords = c(&quot;nao&quot;,letters,LETTERS),
+                      ngrams = 2,
+                      tf_idf = F,
+                      max = 100,
+                      freq = 6,
+                      horizontal = 0.9,
+                      textStemming = F,
+                      print=T)</code></pre>
+<pre><code>## Carregando pacotes exigidos: bitops</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Essa função é bem “prematura”, existem infinitas maneiras de melhorar ela e não alterei ela ainda por falta de tempo.</p>
+</div>
+<div id="a-tidy-approach" class="section level2">
+<h2>A Tidy Approach</h2>
+<p>O formato tidy, em que cada linha corresponde a uma observação e cada coluna à uma variável, veja:</p>
+<center>
+<img src="http://garrettgman.github.io/images/tidy-1.png" style="width:70.0%" />
+</center>
+<p>Agora a tarefa será simplificada com a abordagem tidy, além das funções do livro <a href="https://www.tidytextmining.com/">Text Mining with R</a> utilizarei a função <a href="https://github.com/gomesfellipe/functions/blob/master/clean_tweets.R"><code>clean_tweets</code></a> que adaptei inspirado nesse post dessa pagina: <a href="https://sites.google.com/site/miningtwitter/home">Quick guide to mining twitter with R</a> quando estudava sobre textmining.</p>
+<div id="arrumando-e-transformando-a-base-de-dados" class="section level3">
+<h3>Arrumando e transformando a base de dados</h3>
+<p>Utilizando as funções do pacote <code>tidytext</code> em conjunto com os pacotes <code>stringr</code> e <code>abjutils</code>, será possível limpar e arrumar a base de dados.</p>
+<p>Além disso serão removidas as stop words de nossa base, com a função <code>stopwords::stopwords(&quot;pt&quot;)</code> podemos obter as stopwords da nossa língua</p>
+<pre class="r"><code>suppressMessages(library(stringr))
+suppressMessages(library(tidytext))
+suppressMessages(library(abjutils))
+
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/clean_tweets.R&quot;)</code></pre>
+<pre><code>## SHA-1 hash of file is 1bc5c5a1e83e36c5535545a73c4f61cd49327e20</code></pre>
+<pre class="r"><code>original_books = base %&gt;% 
+  mutate(text = clean_tweets(text) %&gt;% enc2native() %&gt;% rm_accent())
+
+#Removendo stopwords:
+excludewords=c(&quot;[:alpha:]&quot;,&quot;[:alnum:]&quot;,&quot;[:digit:]&quot;,&quot;[:xdigit:]&quot;,&quot;[:space:]&quot;,&quot;[:word:]&quot;,
+               LETTERS,letters,1:10,
+               &quot;hat&quot;,&quot;trick&quot;,&quot;bc&quot;,&quot;de&quot;,&quot;tem&quot;,&quot;twitte&quot;,&quot;fez&quot;,
+               &#39;pra&#39;,&quot;vai&quot;,&quot;ta&quot;,&quot;so&quot;,&quot;ja&quot;,&quot;rt&quot;)
+
+stop_words = data_frame(word = c(stopwords::stopwords(&quot;pt&quot;), excludewords))
+
+tidy_books &lt;- original_books %&gt;%
+  unnest_tokens(word, text) %&gt;% 
+  anti_join(stop_words)</code></pre>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<p>Portando a base de dados após a limpeza e a remoção das stop words:</p>
+<pre class="r"><code>#Palavras mais faladas:
+tidy_books %&gt;%
+  count(word, sort = TRUE) </code></pre>
+<pre><code>## # A tibble: 3,943 x 2
+##    word          n
+##    &lt;chr&gt;     &lt;int&gt;
+##  1 copa       6993
+##  2 brasil     4164
+##  3 argentina  3487
+##  4 mundo      2030
+##  5 hoje       1825
+##  6 letras     1562
+##  7 nao        1517
+##  8 messi      1493
+##  9 estreia    1268
+## 10 penalti     933
+## # ... with 3,933 more rows</code></pre>
+<pre class="r"><code>#Apos a limpeza, caso precise voltar as frases:
+original_books = tidy_books%&gt;%
+  group_by(book,line)%&gt;%
+  summarise(text=paste(word,collapse = &quot; &quot;))</code></pre>
+<div id="palavras-mais-frequentes" class="section level4">
+<h4>Palavras mais frequentes</h4>
+<p>Vejamos as palavras mais faladas nessa pesquisa:</p>
+<pre class="r"><code>suppressMessages(library(ggplot2))
+
+tidy_books %&gt;%
+  count(word, sort = TRUE) %&gt;%
+  filter(n &gt; 400) %&gt;%
+  mutate(word = reorder(word, n)) %&gt;%
+  
+  ggplot(aes(word, n, fill = I(&quot;yellow&quot;), colour = I(&quot;green&quot;))) +
+  geom_col(position=&quot;dodge&quot;) +
+  xlab(NULL) +
+  labs(title = &quot;Frequencia total das palavras pesquisadas&quot;)+
+  coord_flip()+ theme(
+  panel.background = element_rect(fill = &quot;#74acdf&quot;,
+                                colour = &quot;lightblue&quot;,
+                                size = 0.5, linetype = &quot;solid&quot;),
+  panel.grid.major = element_line(size = 0.5, linetype = &#39;solid&#39;,
+                                colour = &quot;white&quot;), 
+  panel.grid.minor = element_line(size = 0.25, linetype = &#39;solid&#39;,
+                                colour = &quot;white&quot;)
+  )</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="palavras-mais-frequentes-para-cada-termo" class="section level4">
+<h4>Palavras mais frequentes para cada termo</h4>
+<p>Vejamos as nuvens de palavras mais frequentes de acordo com cada um dos termos pesquisados:</p>
+<pre class="r"><code>#Criando nuvem de palavra:
+library(wordcloud)
+
+par(mfrow=c(1,2))
+tidy_books %&gt;%
+  filter(book==&quot;br&quot;)%&gt;%
+  count(word) %&gt;%
+  with(wordcloud(word, n, max.words = 100,random.order = F,min.freq = 15,random.color = F,colors = c(&quot;#009b3a&quot;, &quot;#fedf00&quot;,&quot;#002776&quot;),scale = c(2,1),rot.per = 0.05))
+
+tidy_books %&gt;%
+  filter(book==&quot;arg&quot;)%&gt;%
+  count(word) %&gt;%
+  with(wordcloud(word, n, max.words = 100,min.freq = 15,random.order = F,random.color = F,colors = c(&quot;#75ade0&quot;, &quot;#ffffff&quot;,&quot;#f6b506&quot;),scale = c(2,1),rot.per = 0.05))</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-8-1.png" width="1056" /></p>
+<pre class="r"><code>par(mfrow=c(1,1))</code></pre>
+</div>
+</div>
+<div id="analise-de-sentimentos" class="section level3">
+<h3>Análise de sentimentos</h3>
+<p>A análise de sentimentos utilizando a abordagem tidy foi possível graças ao pacote <a href="https://cran.r-project.org/package=lexiconPT"><code>lexiconPT</code></a>, que esta disponível no CRAN e que conheci ao ler o <a href="https://sillasgonzaga.github.io/2017-09-23-sensacionalista-pt01/">post: “O Sensacionalista e Text Mining: Análise de sentimento usando o lexiconPT”</a> do blog <a href="https://sillasgonzaga.github.io/">Paixão por dados</a> que gosto tanto de acompanhar.</p>
+<pre class="r"><code># Analise de sentimentos:
+library(lexiconPT)
+
+sentiment = data.frame(word = sentiLex_lem_PT02$term ,
+                       polarity = sentiLex_lem_PT02$polarity) %&gt;% 
+  mutate(sentiment = if_else(polarity&gt;0,&quot;positive&quot;,if_else(polarity&lt;0,&quot;negative&quot;,&quot;neutro&quot;)),
+         word = as.character(word)) %&gt;% 
+  as_tibble()
+
+
+suppressMessages(library(tidyr))
+
+book_sentiment &lt;- tidy_books %&gt;%
+  inner_join(sentiment) %&gt;%
+  count(book,word, index = line , sentiment) %&gt;%
+  spread(sentiment, n, fill = 0) %&gt;%
+  mutate(sentiment = positive - negative) %T&gt;%
+  print</code></pre>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<pre><code>## # A tibble: 3,212 x 7
+##    book  word       index negative neutro positive sentiment
+##    &lt;fct&gt; &lt;chr&gt;      &lt;int&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+##  1 arg   abandonar    857     1.00   0        0        -1.00
+##  2 arg   absurdo      849     1.00   0        0        -1.00
+##  3 arg   absurdo     1863     1.00   0        0        -1.00
+##  4 arg   acougueiro  1413     1.00   0        0        -1.00
+##  5 arg   afogado     2275     1.00   0        0        -1.00
+##  6 arg   afogado     3659     1.00   0        0        -1.00
+##  7 arg   alegria     1134     0      0        1.00      1.00
+##  8 arg   alto        3055     0      1.00     0         0   
+##  9 arg   amador      1592     0      1.00     0         0   
+## 10 arg   amar        1811     0      1.00     0         0   
+## # ... with 3,202 more rows</code></pre>
+<p>Cada palavra possui um valor associado a sua polaridade , vejamos como ficou distribuído o número de palavras de cada sentimento de acordo com cada termo escolhido para a pesquisa:</p>
+<pre class="r"><code>book_sentiment%&gt;%
+  count(sentiment,book)%&gt;%
+  arrange(book) %&gt;%
+  
+  ggplot(aes(x = factor(sentiment),y = n,fill=book))+
+  geom_bar(stat=&quot;identity&quot;,position=&quot;dodge&quot;)+
+  facet_wrap(~book) +
+  theme_bw()+ 
+    scale_fill_manual(values=c(&quot;#75ade0&quot;, &quot;#009b3a&quot;))</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div id="comparando-sentimentos-dos-termos-de-pesquisa" class="section level4">
+<h4>Comparando sentimentos dos termos de pesquisa</h4>
+<p>Para termos associados a palavra “Brasil” no twitter:</p>
+<pre class="r"><code># Nuvem de comparação:
+suppressMessages(library(reshape2)) 
+
+tidy_books %&gt;%
+  filter(book==&quot;br&quot;)%&gt;%
+  inner_join(sentiment) %&gt;%
+  count(word, sentiment, sort = TRUE) %&gt;%
+  acast(word ~ sentiment, value.var = &quot;n&quot;, fill = 0) %&gt;%
+  comparison.cloud(colors = c(&quot;red&quot;, &quot;gray80&quot;,&quot;green&quot;),
+                   max.words = 200)</code></pre>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Para termos associados a palavra “Argentina” no twitter:</p>
+<pre class="r"><code>tidy_books %&gt;%
+  filter(book==&quot;arg&quot;)%&gt;%
+  inner_join(sentiment) %&gt;%
+  count(word, sentiment, sort = TRUE) %&gt;%
+  acast(word ~ sentiment, value.var = &quot;n&quot;, fill = 0) %&gt;%
+  comparison.cloud(colors = c(&quot;red&quot;, &quot;gray80&quot;,&quot;green&quot;),
+                   max.words = 200)</code></pre>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<div id="proporcao-de-palavras-positivas-e-negativas-por-texto" class="section level4">
+<h4>Proporção de palavras positivas e negativas por texto</h4>
+<pre class="r"><code># Proporção de palavras negativas:
+bingnegative &lt;- sentiment %&gt;% 
+  filter(sentiment == &quot;negative&quot;)
+
+bingpositive &lt;- sentiment %&gt;% 
+  filter(sentiment == &quot;positive&quot;)
+
+wordcounts &lt;- tidy_books %&gt;%
+  group_by(book, line) %&gt;%
+  summarize(words = n())</code></pre>
+<div id="para-negativas" class="section level5">
+<h5>Para negativas;</h5>
+<pre class="r"><code>tidy_books %&gt;%
+  semi_join(bingnegative) %&gt;%
+  group_by(book, line) %&gt;%
+  summarize(negativewords = n()) %&gt;%
+  left_join(wordcounts, by = c(&quot;book&quot;, &quot;line&quot;)) %&gt;%
+  mutate(ratio = negativewords/words) %&gt;%
+  top_n(5) %&gt;%
+  ungroup() %&gt;% arrange(desc(ratio)) %&gt;% filter(book==&quot;br&quot;)</code></pre>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<pre><code>## Selecting by ratio</code></pre>
+<pre><code>## # A tibble: 683 x 5
+##    book   line negativewords words ratio
+##    &lt;fct&gt; &lt;int&gt;         &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+##  1 br     2580             2     7 0.286
+##  2 br        2             1     4 0.250
+##  3 br        7             1     4 0.250
+##  4 br       10             1     4 0.250
+##  5 br       20             1     4 0.250
+##  6 br       25             1     4 0.250
+##  7 br       34             1     4 0.250
+##  8 br       58             1     4 0.250
+##  9 br       65             1     4 0.250
+## 10 br       70             1     4 0.250
+## # ... with 673 more rows</code></pre>
+<p>A frase mais negativa do brasil e da argentina::</p>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;br&quot;,line==2580) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c() </code></pre>
+<pre><code>## $text
+## [1] &quot;um medo? — de nois criar expectativa e o Brasil perder a copa https://t.co/0chcNWHh0m&quot;</code></pre>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;arg&quot;,line==572) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c()  </code></pre>
+<pre><code>## $text
+## [1] &quot;RT @DavidmeMelo: @SantiiSanchez16 @Flamengo Perder a copa para o time mais sujo e mais corrupto da argentina é assim mesmo https://t.co/zIC…&quot;</code></pre>
+</div>
+<div id="para-positivas" class="section level5">
+<h5>Para positivas:</h5>
+<pre class="r"><code>tidy_books %&gt;%
+  semi_join(bingpositive) %&gt;%
+  group_by(book, line) %&gt;%
+  summarize(positivewords = n()) %&gt;%
+  left_join(wordcounts, by = c(&quot;book&quot;, &quot;line&quot;)) %&gt;%
+  mutate(ratio = positivewords/words) %&gt;%
+  top_n(5) %&gt;%
+  ungroup() %&gt;% arrange(desc(ratio))</code></pre>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<pre><code>## Selecting by ratio</code></pre>
+<pre><code>## # A tibble: 18 x 5
+##    book   line positivewords words ratio
+##    &lt;fct&gt; &lt;int&gt;         &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+##  1 arg    2120             3     9 0.333
+##  2 br     2374             1     3 0.333
+##  3 arg    3272             2     7 0.286
+##  4 arg    1751             2     8 0.250
+##  5 arg    2301             1     4 0.250
+##  6 arg    2806             2     8 0.250
+##  7 br      553             2     8 0.250
+##  8 br     1499             2     9 0.222
+##  9 br     2054             2     9 0.222
+## 10 br       16             1     5 0.200
+## 11 br      126             1     5 0.200
+## 12 br      212             1     5 0.200
+## 13 br      232             1     5 0.200
+## 14 br     1591             1     5 0.200
+## 15 br     1923             1     5 0.200
+## 16 br     2095             2    10 0.200
+## 17 br     2591             1     5 0.200
+## 18 br     3281             1     5 0.200</code></pre>
+<p>A frase mais positiva do brasil e da argentina:</p>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;br&quot;,line==2374) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c() </code></pre>
+<pre><code>## $text
+## [1] &quot;Tirei Brasil, é uma honra https://t.co/OgNCot4Wu0&quot;</code></pre>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;arg&quot;,line==2120) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c()  </code></pre>
+<pre><code>## $text
+## [1] &quot;@_LeoFerreiraH Quero que a Argentina passe para possivelmente enfrentar o Brasil, ganhar da Argentina já é bom, na… https://t.co/bxHJUeGVpc&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="tf-idf" class="section level2">
+<h2>TF-IDF</h2>
+<p>Segundo <span class="citation">Silge; Robinson (2018)</span> no livro <a href="https://www.tidytextmining.com/tfidf.html">tidytextminig</a>:</p>
+<blockquote>
+<p>The statistic tf-idf is intended to measure how important a word is to a document in a collection (or corpus) of documents, for example, to one novel in a collection of novels or to one website in a collection of websites.</p>
+</blockquote>
+<p>Traduzido pelo Google tradutor:</p>
+<blockquote>
+<p>A estatística tf-idf destina-se a medir a importância de uma palavra para um documento em uma coleção (ou corpus) de documentos, por exemplo, para um romance em uma coleção de romances ou para um site em uma coleção de sites.</p>
+</blockquote>
+<p>Matematicamente:</p>
+<p><span class="math display">\[
+idf(\text{term}) = \ln{\left(\frac{n_{\text{documents}}}{n_{\text{documents containing term}}}\right)}
+\]</span></p>
+<p>E que com o pacote <code>tidytext</code> podemos obter usando o comando <code>bind_tf_idf()</code>, veja:</p>
+<pre class="r"><code># Obtendo numero de palavras
+book_words &lt;- original_books %&gt;%
+  unnest_tokens(word, text) %&gt;%
+  count(book, word, sort = TRUE) %&gt;%
+  ungroup()%&gt;%
+  anti_join(stop_words)</code></pre>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<pre class="r"><code>total_words &lt;- book_words %&gt;% 
+  group_by(book) %&gt;% 
+  summarize(total = sum(n))
+
+book_words &lt;- left_join(book_words, total_words)</code></pre>
+<pre><code>## Joining, by = &quot;book&quot;</code></pre>
+<pre class="r"><code># tf-idf:
+book_words &lt;- book_words %&gt;%
+  bind_tf_idf(word, book, n)
+
+book_words %&gt;%
+  arrange(desc(tf_idf))</code></pre>
+<pre><code>## # A tibble: 4,802 x 7
+##    book  word              n total      tf   idf  tf_idf
+##    &lt;fct&gt; &lt;chr&gt;         &lt;int&gt; &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 br    letras         1562 30006 0.0521  0.693 0.0361 
+##  2 arg   penalti         933 40244 0.0232  0.693 0.0161 
+##  3 br    ansioso         688 30006 0.0229  0.693 0.0159 
+##  4 arg   classificou     666 40244 0.0165  0.693 0.0115 
+##  5 arg   segundo         654 40244 0.0163  0.693 0.0113 
+##  6 arg   especialistas   649 40244 0.0161  0.693 0.0112 
+##  7 arg   repito          649 40244 0.0161  0.693 0.0112 
+##  8 br    icon            248 30006 0.00827 0.693 0.00573
+##  9 arg   silencio        290 40244 0.00721 0.693 0.00499
+## 10 arg   colocou         270 40244 0.00671 0.693 0.00465
+## # ... with 4,792 more rows</code></pre>
+<p>O que nos trás algo como: “termos mais relevantes”.</p>
+<p>Visualmente:</p>
+<pre class="r"><code>book_words %&gt;%
+  arrange(desc(tf_idf)) %&gt;%
+  mutate(word = factor(word, levels = rev(unique(word)))) %&gt;% 
+  group_by(book) %&gt;% 
+  top_n(15) %&gt;% 
+  ungroup %&gt;%
+  
+  ggplot(aes(word, tf_idf, fill = book)) +
+  geom_col(show.legend = FALSE) +
+  labs(x = NULL, y = &quot;tf-idf&quot;) +
+  facet_wrap(~book, ncol = 2, scales = &quot;free&quot;) +
+  coord_flip()+
+  theme_bw()+ 
+    scale_fill_manual(values=c(&quot;#75ade0&quot;, &quot;#009b3a&quot;))</code></pre>
+<pre><code>## Selecting by tf_idf</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="bi-grams" class="section level2">
+<h2>bi grams</h2>
+<p>OS bi grams são sequencias de palavras, a seguir será procurada as sequencias de duas palavras, o que nos permite estudar um pouco melhor o contexto do seu uso.</p>
+<pre class="r"><code># Bi grams
+book_bigrams &lt;- original_books %&gt;%
+  unnest_tokens(bigram, text, token = &quot;ngrams&quot;, n = 2)
+
+book_bigrams %&gt;%
+  count(bigram, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 12,027 x 3
+## # Groups:   book [2]
+##    book  bigram                    n
+##    &lt;fct&gt; &lt;chr&gt;                 &lt;int&gt;
+##  1 br    brasil copa            2030
+##  2 br    copa mundo             1459
+##  3 br    hoje brasil            1215
+##  4 arg   argentina copa         1119
+##  5 br    estreia brasil          856
+##  6 br    ansioso estreia         685
+##  7 arg   classificou argentina   660
+##  8 arg   copa segundo            649
+##  9 arg   messi repito            649
+## 10 arg   repito classificou      649
+## # ... with 12,017 more rows</code></pre>
+<p>Separando as coluna de bi grams:</p>
+<pre class="r"><code>bigrams_separated &lt;- book_bigrams %&gt;%
+  separate(bigram, c(&quot;word1&quot;, &quot;word2&quot;), sep = &quot; &quot;)
+
+bigrams_filtered &lt;- bigrams_separated %&gt;%
+  filter(!word1 %in% stop_words$word) %&gt;%
+  filter(!word2 %in% stop_words$word)
+
+# new bigram counts:
+bigram_counts &lt;- bigrams_filtered %&gt;% 
+  count(word1, word2, sort = TRUE)
+
+bigram_counts</code></pre>
+<pre><code>## # A tibble: 12,027 x 4
+## # Groups:   book [2]
+##    book  word1       word2           n
+##    &lt;fct&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;int&gt;
+##  1 br    brasil      copa         2030
+##  2 br    copa        mundo        1459
+##  3 br    hoje        brasil       1215
+##  4 arg   argentina   copa         1119
+##  5 br    estreia     brasil        856
+##  6 br    ansioso     estreia       685
+##  7 arg   classificou argentina     660
+##  8 arg   copa        segundo       649
+##  9 arg   messi       repito        649
+## 10 arg   repito      classificou   649
+## # ... with 12,017 more rows</code></pre>
+<p>Caso seja preciso juntar novamente:</p>
+<pre class="r"><code>bigrams_united &lt;- bigrams_filtered %&gt;%
+  unite(bigram, word1, word2, sep = &quot; &quot;)
+
+bigrams_united</code></pre>
+<pre><code>## # A tibble: 62,255 x 3
+## # Groups:   book [2]
+##    book   line bigram             
+##    &lt;fct&gt; &lt;int&gt; &lt;chr&gt;              
+##  1 arg       1 islandia pouco     
+##  2 arg       1 pouco mil          
+##  3 arg       1 mil habitantes     
+##  4 arg       1 habitantes montaram
+##  5 arg       1 montaram selecao   
+##  6 arg       1 selecao estao      
+##  7 arg       1 estao copa         
+##  8 arg       1 copa fizeram       
+##  9 arg       1 fizeram gol        
+## 10 arg       1 gol argentina      
+## # ... with 62,245 more rows</code></pre>
+<div id="analisando-bi-grams-com-tf-idf" class="section level3">
+<h3>Analisando bi grams com tf-idf</h3>
+<p>Também é possível aplicar a transformação <code>tf-idf</code> em bigrams, veja:</p>
+<pre class="r"><code>#bi grams com tf idf
+bigram_tf_idf &lt;- bigrams_united %&gt;%
+  count(book, bigram) %&gt;%
+  bind_tf_idf(bigram, book, n) %&gt;%
+  arrange(desc(tf_idf))
+
+bigram_tf_idf</code></pre>
+<pre><code>## # A tibble: 12,027 x 6
+## # Groups:   book [2]
+##    book  bigram                    n     tf   idf  tf_idf
+##    &lt;fct&gt; &lt;chr&gt;                 &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 br    hoje brasil            1215 0.0467 0.693 0.0324 
+##  2 br    ansioso estreia         685 0.0263 0.693 0.0183 
+##  3 br    letras letras           620 0.0238 0.693 0.0165 
+##  4 arg   classificou argentina   660 0.0182 0.693 0.0126 
+##  5 arg   copa segundo            649 0.0179 0.693 0.0124 
+##  6 arg   messi repito            649 0.0179 0.693 0.0124 
+##  7 arg   repito classificou      649 0.0179 0.693 0.0124 
+##  8 arg   segundo especialistas   649 0.0179 0.693 0.0124 
+##  9 br    brasil letras           313 0.0120 0.693 0.00834
+## 10 br    letras brasil           313 0.0120 0.693 0.00834
+## # ... with 12,017 more rows</code></pre>
+</div>
+<div id="analisando-contexto-de-palavras-negativas" class="section level3">
+<h3>Analisando contexto de palavras negativas:</h3>
+<p>Uma das abordagens interessantes ao estudar as bi-grams é a de avaliar o contexto das palavras negativas, veja:</p>
+<pre class="r"><code>bigrams_separated %&gt;%
+  filter(word1 == &quot;nao&quot;) %&gt;%
+  count(word1, word2, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 280 x 4
+## # Groups:   book [2]
+##    book  word1 word2         n
+##    &lt;fct&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;
+##  1 arg   nao   bom         259
+##  2 arg   nao   pq          259
+##  3 br    nao   blusa        97
+##  4 br    nao   pode         73
+##  5 arg   nao   podem        54
+##  6 arg   nao   desleal      39
+##  7 arg   nao   reclamou     39
+##  8 br    nao   alg          34
+##  9 arg   nao   passariam    31
+## 10 br    nao   to           20
+## # ... with 270 more rows</code></pre>
+<pre class="r"><code>not_words &lt;- bigrams_separated %&gt;%
+  filter(word1 == &quot;nao&quot;) %&gt;%
+  inner_join(sentiment, by = c(word2 = &quot;word&quot;)) %&gt;%
+  count(word2, sentiment, sort = TRUE) %&gt;%
+  ungroup()
+
+not_words</code></pre>
+<pre><code>## # A tibble: 17 x 4
+##    book  word2     sentiment     n
+##    &lt;fct&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt;
+##  1 arg   bom       positive    259
+##  2 arg   desleal   negative     39
+##  3 br    ganhar    positive      8
+##  4 arg   ganhar    positive      5
+##  5 arg   pior      negative      3
+##  6 arg   ruim      negative      3
+##  7 arg   gostar    neutro        2
+##  8 arg   vencer    positive      2
+##  9 arg   amigo     positive      1
+## 10 arg   melhor    neutro        1
+## 11 arg   sao       positive      1
+## 12 arg   verdade   positive      1
+## 13 br    amistoso  positive      1
+## 14 br    educacao  positive      1
+## 15 br    perder    negative      1
+## 16 br    preparado positive      1
+## 17 br    vao       negative      1</code></pre>
+<p>A palavra não antes de uma palavra “positiva”, como por exemplo “não gosto” pode ser anulada ao somar-se suas polaridades (“não” = - 1, “gosto” = +1 e “não gosto” = -1 + 1) o leva a necessidade de ser tomar um cuidado especial com essas palavras em uma análise de texto mais detalhada, veja de forma visual:</p>
+<pre class="r"><code>not_words %&gt;%
+  mutate(sentiment=ifelse(sentiment==&quot;positive&quot;,1,ifelse(sentiment==&quot;negative&quot;,-1,0)))%&gt;%
+  mutate(contribution = n * sentiment) %&gt;%
+  arrange(desc(abs(contribution))) %&gt;%
+  head(20) %&gt;%
+  mutate(word2 = reorder(word2, contribution)) %&gt;%
+  
+  ggplot(aes(word2, n * sentiment, fill = n * sentiment &gt; 0)) +
+  geom_col() +
+  xlab(&quot;Words preceded by \&quot;not\&quot;&quot;) +
+  ylab(&quot;Sentiment score * number of occurrences&quot;) +
+  coord_flip()+
+  theme_bw()</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="machine-learning" class="section level1">
+<h1>Machine Learning</h1>
+<p>Estava pesquisando sobre algorítimos recomendados para a análise de texto quando encontrei um artigo da data camp chamado: <a href="https://www.datacamp.com/community/tutorials/R-nlp-machine-learning"><em>Lyric Analysis with NLP &amp; Machine Learning with R</em></a>, do qual a autora expõe a seguinte tabela:</p>
+<center>
+<img src="http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1517331396/MLImage_cygwsb.jpg" style="width:60.0%" />
+</center>
+<p>Portanto resolvi fazer uma brincadeira e ajustar 4 dos modelos propostos para a tarefa supervisionada de classificação: K-NN, Tress (tentarei o ajuste do algorítimo Random Forest), Logistic Regression (Modelo estatístico) e Naive-Bayes (por meio do cálculo de probabilidades condicionais) para ver se conseguia recuperar a classificação de quais os termos de pesquisa que eu utilizei para obter esses dados</p>
+<p>Além de técnicas apresentadas no livro do pacote <code>caret</code>, por <span class="citation">Kuhn (2018)</span>, muito do que apliquei aqui foi baseado no livro “Introdução a mineração de dados” por <span class="citation">Silva; Peres; Boscarioli (2016)</span>, que foi bastante útil na minha introdução sobre o tema Machine Learning.</p>
+<p>Vou utilizar uma função chamada <code>plot_pred_type_distribution()</code>,apresentada neste post de titulo: <a href="https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/">Illustrated Guide to ROC and AUC</a> e fiz uma pequena alteração para que ela funcionasse para o dataset deste post . A função adaptada pode ser encontrada <a href="https://github.com/gomesfellipe/functions/blob/master/plot_pred_type_distribution.R">neste link</a> no meu github e a função original <a href="https://github.com/joyofdata/joyofdata-articles/blob/master/roc-auc/plot_pred_type_distribution.R">neste link do github do autor</a>.</p>
+<div id="pacote-caret" class="section level2">
+<h2>Pacote caret</h2>
+<p>Basicamente o ajuste de todos os modelos envolveram o uso do pacote <code>caret</code> e muitos dos passos aqui foram baseados nas instruções fornecidas no <a href="https://topepo.github.io/caret/index.html">livro do pacote</a>. O pacote facilita bastante o ajuste dos parâmetros no ajuste de modelos.</p>
+</div>
+<div id="transformar-e-arrumar" class="section level2">
+<h2>Transformar e arrumar</h2>
+<p>Uma <a href="https://www.kaggle.com/kailex/tidy-xgboost-glmnet-text2vec-lsa">solução do kaggle</a> para o desafio <a href="https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge">Toxic Comment Classification Challenge</a> me chamou atenção, do qual o participante da competição criou colunas que sinalizassem os caracteres especiais de cada frase, utilizarei esta técnica para o ajuste e novamente utilizarei o pacote de léxicos do apresentado no <a href="https://sillasgonzaga.github.io/2017-09-23-sensacionalista-pt01/">post do blog Paixão por dados</a></p>
+<p>Veja a base transformada e arrumada:</p>
+<pre class="r"><code># Ref: https://cfss.uchicago.edu/text_classification.html 
+# https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/plot_pred_type_distribution.R&quot;)</code></pre>
+<pre><code>## SHA-1 hash of file is 28a80d11778ba40d627731ab0c78bf2d783da269</code></pre>
+<pre class="r"><code>base &lt;- base %&gt;% 
+  mutate(length = str_length(text),
+         ncap = str_count(text, &quot;[A-Z]&quot;),
+         ncap_len = ncap / length,
+         nexcl = str_count(text, fixed(&quot;!&quot;)),
+         nquest = str_count(text, fixed(&quot;?&quot;)),
+         npunct = str_count(text, &quot;[[:punct:]]&quot;),
+         nword = str_count(text, &quot;\\w+&quot;),
+         nsymb = str_count(text, &quot;&amp;|@|#|\\$|%|\\*|\\^&quot;),
+         nsmile = str_count(text, &quot;((?::|;|=)(?:-)?(?:\\)|D|P))&quot;),
+         text = clean_tweets(text) %&gt;% enc2native() %&gt;% rm_accent())%&gt;%
+  unnest_tokens(word, text) %&gt;% 
+  anti_join(stop_words)%&gt;%
+  group_by(book,line,length, ncap, ncap_len, nexcl, nquest, npunct, nword, nsymb, nsmile)%&gt;%
+  summarise(text=paste(word,collapse = &quot; &quot;)) %&gt;% 
+  select(text,everything())%T&gt;% 
+  print()</code></pre>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<pre><code>## # A tibble: 7,995 x 12
+## # Groups:   book, line, length, ncap, ncap_len, nexcl, nquest, npunct,
+## #   nword, nsymb [7,995]
+##    text  book   line length  ncap ncap_len nexcl nquest npunct nword nsymb
+##    &lt;chr&gt; &lt;fct&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt;    &lt;dbl&gt; &lt;int&gt;  &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1 isla~ arg       1    139     7   0.0504     0      0      7    21     1
+##  2 pau ~ arg       2    108     6   0.0556     0      0      2    20     1
+##  3 mess~ arg       3    140    10   0.0714     0      0      4    24     1
+##  4 minu~ arg       4    140     2   0.0143     0      0      3    22     1
+##  5 requ~ arg       5    129    23   0.178      0      0     15    21     1
+##  6 bras~ arg       6    139    11   0.0791     0      0     13    20     1
+##  7 dupl~ arg       7    123    84   0.683      0      0      8    21     1
+##  8 mess~ arg       8    140    10   0.0714     0      0      4    24     1
+##  9 mess~ arg       9    140    10   0.0714     0      0      4    24     1
+## 10 mess~ arg      10    140    10   0.0714     0      0      4    24     1
+## # ... with 7,985 more rows, and 1 more variable: nsmile &lt;int&gt;</code></pre>
+<p>Após arrumar e transformar as informações que serão utilizadas na classificação, será criado um corpus sem a abordagem tidy para obter a matriz de documentos e termos, e depois utilizar a coluna de classificação, veja:</p>
+<pre class="r"><code>suppressMessages(library(tm))       #Pacote de para text mining
+corpus &lt;- Corpus(VectorSource(base$text))
+
+#Criando a matrix de termos:
+book_dtm = DocumentTermMatrix(corpus, control = list(minWordLength=2,minDocFreq=3)) %&gt;% 
+  weightTfIdf(normalize = T) %&gt;%    # Transformação tf-idf com pacote tm
+  removeSparseTerms( sparse = .95)  # obtendo matriz esparsa com pacote tm
+
+#Transformando em matrix, permitindo a manipulacao:
+matrix = as.matrix(book_dtm)
+dim(matrix)</code></pre>
+<pre><code>## [1] 7995   18</code></pre>
+<p>Pronto, agora já podemos juntar tudo em um data frame e separa em treino e teste para a classificação dos textos obtidos do twitter:</p>
+<pre class="r"><code>#Criando a base de dados:
+full=data.frame(cbind(
+  base[,&quot;book&quot;],
+  matrix,
+  base[,-c(1:3)]
+  )) </code></pre>
+</div>
+<div id="treino-e-teste" class="section level2">
+<h2>Treino e teste</h2>
+<p>Será utilizado tanto o método de hold-out e de cross-validation</p>
+<pre class="r"><code>set.seed(825)
+particao = sample(1:2,nrow(full), replace = T,prob = c(0.7,0.3))
+
+train = full[particao==1,] 
+test = full[particao==2,] 
+
+suppressMessages(library(caret))</code></pre>
+</div>
+<div id="ajustando-modelos" class="section level2">
+<h2>Ajustando modelos</h2>
+<div id="knn" class="section level3">
+<h3>KNN</h3>
+<p>É uma técnica de aprendizado baseado em instância, isto quer dizer que a classificação de uma observação com a classe desconhecida é realizada a partir da comparação com outras observações cada vez que uma observação é apresentado ao modelo e também é conhecido como “lazy evaluation”, já que um modelo não é induzido previamente.</p>
+<p>Diversas medidas de distância podem ser utilizadas, utilizarei aqui a euclideana e além disso a escolha do parâmetro <span class="math inline">\(k\)</span> (de k vizinhos mais próximos) deve ser feita com cuidado pois um <span class="math inline">\(k\)</span> pequeno pode expor o algorítimo a uma alta sensibilidade a um ruído.</p>
+<p>Utilizarei aqui o pacote <code>caret</code> como ferramenta para o ajuste deste modelo pois ela permite que eu configure que seja feita a validação cruzada em conjunto com a padronização, pois esses complementos beneficiam no ajuste de modelos que calculam distâncias.</p>
+<pre class="r"><code># knn -------
+set.seed(825)
+antes = Sys.time()
+book_knn &lt;- train(book ~.,
+                  data=train,
+                 method = &quot;knn&quot;,
+                 trControl = trainControl(method = &quot;cv&quot;,number = 10), # validacao cruzada
+                 preProc = c(&quot;center&quot;, &quot;scale&quot;))                      
+time_knn &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 6.492635 secs</code></pre>
+<pre class="r"><code>plot(book_knn)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/knn-1.png" width="672" /></p>
+<pre class="r"><code>previsao  = predict(book_knn, test)
+confusionMatrix(previsao, test$book)</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction  arg   br
+##        arg 1200   35
+##        br    33 1145
+##                                           
+##                Accuracy : 0.9718          
+##                  95% CI : (0.9644, 0.9781)
+##     No Information Rate : 0.511           
+##     P-Value [Acc &gt; NIR] : &lt;2e-16          
+##                                           
+##                   Kappa : 0.9436          
+##  Mcnemar&#39;s Test P-Value : 0.9035          
+##                                           
+##             Sensitivity : 0.9732          
+##             Specificity : 0.9703          
+##          Pos Pred Value : 0.9717          
+##          Neg Pred Value : 0.9720          
+##              Prevalence : 0.5110          
+##          Detection Rate : 0.4973          
+##    Detection Prevalence : 0.5118          
+##       Balanced Accuracy : 0.9718          
+##                                           
+##        &#39;Positive&#39; Class : arg             
+## </code></pre>
+<pre class="r"><code>df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/knn-2.png" width="672" /></p>
+<p>Como podemos ver, segundo a validação cruzada realizada com o pacote <code>caret</code>, o número 5 de vizinhos mais próximos foi o que apresentou o melhor resultado. Além disso o modelo apresentou uma acurácia de 97,18% e isto parece bom dado que a sensibilidade (taxa de verdadeiros positivos) e a especificidade (taxa de verdadeiros negativos) foram altas também, o que foi reforçado com o gráfico ilustrado da matriz de confusão.</p>
+<p>O tempo computacional para o ajuste do modelo foi de:6.491642 segundos</p>
+</div>
+<div id="random-forest" class="section level3">
+<h3>Random Forest</h3>
+<p>O modelo de Random Forest tem se tornado muito popular devido ao seu bom desempenho e pela sua alta capacidade de se adaptar aos dados. O modelo funciona através da combinação de várias árvores de decisões e no seu ajuste alguns parâmetros precisam ser levados em conta.</p>
+<p>O parâmetro que sera levado em conta para o ajuste será apenas o <code>ntree</code>, que representa o número de árvores ajustadas. Este parâmetro deve ser escolhido com cuidado pois pode ser tão grande quanto você quiser e continua aumentando a precisão até certo ponto porém pode ser mais limitado pelo tempo computacional disponível.</p>
+<pre class="r"><code>set.seed(824)
+# Random Forest
+antes = Sys.time()
+book_rf &lt;- train(book ~.,
+                  data=train,
+                     method = &quot;rf&quot;,trace=F,
+                     ntree = 200,
+                     trControl = trainControl(method = &quot;cv&quot;,number = 10))
+time_rf &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 50.14381 secs</code></pre>
+<pre class="r"><code>suppressMessages(library(randomForest))
+varImpPlot(book_rf$finalModel)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/rf-1.png" width="672" /></p>
+<pre class="r"><code>previsao  = predict(book_rf, test)
+confusionMatrix(previsao, test$book)</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction  arg   br
+##        arg 1222   15
+##        br    11 1165
+##                                           
+##                Accuracy : 0.9892          
+##                  95% CI : (0.9843, 0.9929)
+##     No Information Rate : 0.511           
+##     P-Value [Acc &gt; NIR] : &lt;2e-16          
+##                                           
+##                   Kappa : 0.9784          
+##  Mcnemar&#39;s Test P-Value : 0.5563          
+##                                           
+##             Sensitivity : 0.9911          
+##             Specificity : 0.9873          
+##          Pos Pred Value : 0.9879          
+##          Neg Pred Value : 0.9906          
+##              Prevalence : 0.5110          
+##          Detection Rate : 0.5064          
+##    Detection Prevalence : 0.5126          
+##       Balanced Accuracy : 0.9892          
+##                                           
+##        &#39;Positive&#39; Class : arg             
+## </code></pre>
+<pre class="r"><code># https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/
+df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/rf-2.png" width="672" /></p>
+<p>Segundo o gráfico de importância, parece que as palavras “brasil”, “argentina”, “copa” e “messi” foram as que apresentaram maior impacto do preditor (lembrando que essa medida não é um efeito específico), o que mostra que a presença das palavras que estamos utilizando para classificar tiveram um impacto na classificação bastante superior aos demais.</p>
+<p>Quanto a acurácia, o random forest apresentou valor um pouco maior do que o do algorítimo K-NN e além disso apresentou altos valores para a sensibilidade (taxa de verdadeiros positivos) e a especificidade (taxa de verdadeiros negativos), o que foi reforçado com o gráfico ilustrado da matriz de confusão, porém o tempo computacional utilizado para ajustar este modelo foi muito maior, o que leva a questionar se esse pequeno aumento na taxa de acerto vale a pena aumentando tanto no tempo de processamento (outra alternativa seria diminuir o tamanho do número de árvores para ver se melhoraria na qualidade do ajuste).</p>
+<p>O tempo computacional para o ajuste do modelo foi de: 50.142808 segundos</p>
+</div>
+<div id="naive-bayes" class="section level3">
+<h3>Naive Bayes</h3>
+<p>Este é um algorítimo que trata-se de um classificador estatístico baseado no <strong>Teorema de Bayes</strong> e recebe o nome de ingênuo (<em>naive</em>) porque pressupõe que o valor de um atributo que exerce algum efeito sobre a distribuição da variável resposta é independente do efeito que outros atributos.</p>
+<p>O cálculo para a classificação é feito por meio do cálculo de probabilidades condicionais, ou seja, probabilidade de uma observação pertencer a cada classe dado os exemplares existentes no conjunto de dados usado para o treinamento.</p>
+<pre class="r"><code># Naive Bayes ----
+set.seed(825)
+antes = Sys.time()
+book_nb &lt;- train(book ~.,
+                  data=train,
+                 method= &quot;nb&quot;,
+                 laplace =1,       
+                 trControl = trainControl(method = &quot;cv&quot;,number = 10))
+time_nb &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 15.91544 secs</code></pre>
+<pre class="r"><code>previsao  = predict(book_nb, test)
+confusionMatrix(previsao, test$book)</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction  arg   br
+##        arg 1232  395
+##        br     1  785
+##                                           
+##                Accuracy : 0.8359          
+##                  95% CI : (0.8205, 0.8505)
+##     No Information Rate : 0.511           
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+##                                           
+##                   Kappa : 0.6692          
+##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
+##                                           
+##             Sensitivity : 0.9992          
+##             Specificity : 0.6653          
+##          Pos Pred Value : 0.7572          
+##          Neg Pred Value : 0.9987          
+##              Prevalence : 0.5110          
+##          Detection Rate : 0.5106          
+##    Detection Prevalence : 0.6743          
+##       Balanced Accuracy : 0.8322          
+##                                           
+##        &#39;Positive&#39; Class : arg             
+## </code></pre>
+<pre class="r"><code># https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/
+df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/nb-1.png" width="672" /></p>
+<p>Apesar a aparente acurácia alta, o valor calculado para a especificidade (verdadeiros negativos) foi elevado o que aponta que o ajuste do modelo não se apresentou de forma eficiente</p>
+<p>O tempo computacional foi de 15.9144468 segundos</p>
+</div>
+<div id="glm---logit" class="section level3">
+<h3>GLM - Logit</h3>
+<p>Este é um modelo estatístico que já abordei aqui no blog no post sobre <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de machine learning</a> e seguindo a recomendação do artigo da datacamp vejamos quais resultados obtemos com o ajuste deste modelo:</p>
+<pre class="r"><code># Modelo logístico ----
+set.seed(825)
+antes = Sys.time()
+book_glm &lt;- train(book ~.,
+                  data=train,
+                  method = &quot;glm&quot;,                                         # modelo generalizado
+                  family = binomial(link = &#39;logit&#39;),                      # Familia Binomial ligacao logit
+                  trControl = trainControl(method = &quot;cv&quot;, number = 10))   # validacao cruzada
+time_glm &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 2.935504 secs</code></pre>
+<pre class="r"><code>suppressMessages(library(ggfortify))
+
+autoplot(book_glm$finalModel, which = 1:6, data = train,
+         colour = &#39;book&#39;, label.size = 3,
+         ncol = 3) + theme_classic()</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/glm-1.png" width="672" /></p>
+<pre class="r"><code>previsao  = predict(book_glm, test)
+confusionMatrix(previsao, test$book)</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction  arg   br
+##        arg 1201   38
+##        br    32 1142
+##                                           
+##                Accuracy : 0.971           
+##                  95% CI : (0.9635, 0.9773)
+##     No Information Rate : 0.511           
+##     P-Value [Acc &gt; NIR] : &lt;2e-16          
+##                                           
+##                   Kappa : 0.9419          
+##  Mcnemar&#39;s Test P-Value : 0.5501          
+##                                           
+##             Sensitivity : 0.9740          
+##             Specificity : 0.9678          
+##          Pos Pred Value : 0.9693          
+##          Neg Pred Value : 0.9727          
+##              Prevalence : 0.5110          
+##          Detection Rate : 0.4977          
+##    Detection Prevalence : 0.5135          
+##       Balanced Accuracy : 0.9709          
+##                                           
+##        &#39;Positive&#39; Class : arg             
+## </code></pre>
+<pre class="r"><code>df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/glm-2.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="comparando-modelos" class="section level1">
+<h1>Comparando modelos</h1>
+<p>Agora que temos 4 modelos ajustados e cada um apresentando resultados diferentes, vejamos qual deles seria o mais interessante para caso fosse necessário recuperar a classificação dos termos pesquisados através da API, veja a seguir um resumo das medidas obtidas:</p>
+<pre class="r"><code># &quot;Dados esses modelos, podemos fazer declarações estatísticas sobre suas diferenças de desempenho? Para fazer isso, primeiro coletamos os resultados de reamostragem usando resamples.&quot; - caret
+resamps &lt;- resamples(list(knn = book_knn,
+                          rf = book_rf,
+                          nb = book_nb,
+                          glm = book_glm)) 
+summary(resamps)</code></pre>
+<pre><code>## 
+## Call:
+## summary.resamples(object = resamps)
+## 
+## Models: knn, rf, nb, glm 
+## Number of resamples: 10 
+## 
+## Accuracy 
+##          Min.   1st Qu.    Median      Mean   3rd Qu.      Max. NA&#39;s
+## knn 0.9570662 0.9663978 0.9722463 0.9713387 0.9749104 0.9874552    0
+## rf  0.9802867 0.9825509 0.9847670 0.9851322 0.9870072 0.9910394    0
+## nb  0.8118280 0.8284050 0.8387097 0.8358971 0.8456369 0.8512545    0
+## glm 0.9623656 0.9668459 0.9695341 0.9690064 0.9708918 0.9749553    0
+## 
+## Kappa 
+##          Min.   1st Qu.    Median      Mean   3rd Qu.      Max. NA&#39;s
+## knn 0.9141090 0.9327833 0.9444845 0.9426705 0.9498189 0.9749123    0
+## rf  0.9605674 0.9651031 0.9695291 0.9702611 0.9740095 0.9820747    0
+## nb  0.6251296 0.6580331 0.6784979 0.6728768 0.6921197 0.7034234    0
+## glm 0.9247138 0.9337036 0.9390775 0.9380110 0.9417835 0.9499033    0</code></pre>
+<p>Como podemos ver, o modelo que apresentou a menor acurácia e o menor coeficiente kappa foi o Naive Bayes enquanto que o que apresentou as maiores medidas de qualidade do ajuste foi o modelo ajustado com o algorítimo Random Forest e tanto o modelo ajustado pelo algorítimo knn quanto o modelo linear generalizado com função de ligação “logit” também apresentaram acurácia e coeficiente kappa próximos do apresentado no ajuste do Random Forest.</p>
+<p>Portanto, apesar dos ajustes, caso dois modelos não apresentem diferença estatisticamente significante e o tempo computacional gasto para o ajuste de ambos for muito diferente pode ser que ser que tenhamos um modelo candidato para:</p>
+<pre class="r"><code>c( knn= time_knn,rf = time_rf,nb = time_nb,glm = time_glm)</code></pre>
+<pre><code>## Time differences in secs
+##       knn        rf        nb       glm 
+##  6.491642 50.142808 15.914447  2.934740</code></pre>
+<p>O modelo linear generalizado foi o que apresentou o menor tempo computacional e foi o que apresentou o terceiro maior registro para os as medidas de qualidade do ajuste dos modelos, portanto esse modelo será avaliado com mais cuidado em seguida para saber se ele será o modelo selecionado</p>
+<p><strong>Obs.:</strong> Sou suspeito para falar mas dentre esses modelos eu teria preferência por este modelo de qualquer maneira por não se tratar de uma “caixa preta”, da qual todos os efeitos de cada parâmetro ajustado podem ser interpretado, além de obter medidas como razões de chance que ajudam bastante na compreensão dos dados.</p>
+<p>Comparando de forma visual:</p>
+<pre class="r"><code>splom(resamps)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>Assim fica mais claro o como o ajuste dos modelos Random Forest, K-NN e GLM se destacaram quando avaliados em relação a acurácia apresentada.</p>
+<p>Vejamos a seguir como foi a distribuição dessas medidas de acordo com cada modelo através de boxplots:</p>
+<pre class="r"><code>bwplot(resamps)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p>Note que além de apresentar os ajustes com menor acurácia (e elevada taxa de falsos negativos) o algorítimo Naive Bayes foi o que apresentou a maior variação interquartil das medidas de qualidade do ajuste do modelo.</p>
+<p>Para finalizar a análise visual vamos obter as diferenças entre os modelos com a função <code>diff()</code> e em seguida conferir de maneira visual o comportamento dessas informações:</p>
+<pre class="r"><code>difValues &lt;- diff(resamps)
+
+# plot:
+bwplot(difValues)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/2018-06-24-brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p>Observe que tanto o modelo logístico quando o ajuste com o algorítimo K-NN apresentaram valores muito próximos dos valores do ajuste do Random Forest e como já vimos o Random Forest foi o modelo que levou maior tempo computacional para ser ajustado, portanto vamos conferir a seguir se existe diferença estatisticamente significante entre os valores obtidos através de cada um dos ajustes e decidir qual dos modelos se apresentou de maneira mais adequada para nosso caso:</p>
+<pre class="r"><code>tidy_resamps &lt;- 
+  resamps %&gt;% 
+  broom::tidy() %&gt;% 
+  select(glm,knn,rf)
+
+tidy_resamps %&gt;% 
+  purrr::map_dbl(function(x) shapiro.test(x)$p.value)</code></pre>
+<pre><code>##       glm       knn        rf 
+## 0.6122197 0.9047978 0.3582990</code></pre>
+<p>Como a hipótese de normalidade não foi rejeitada para nenhuma das amostras de acurácias registradas, vejamos se existe diferença estatisticamente significante entre as médias dessas medidas de qualidade para cada modelo:</p>
+<pre class="r"><code>t.test(tidy_resamps$rf,tidy_resamps$knn, paired = T)  </code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  tidy_resamps$rf and tidy_resamps$knn
+## t = 7.4601, df = 9, p-value = 3.851e-05
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.00961085 0.01797617
+## sample estimates:
+## mean of the differences 
+##              0.01379351</code></pre>
+<p>Rejeita a hipótese de que as médias das acurácias calculadas para o ajuste do algorítimo Random Forest e K-NN foram iguais</p>
+<pre class="r"><code>t.test(tidy_resamps$rf,tidy_resamps$glm, paired = T)  </code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  tidy_resamps$rf and tidy_resamps$glm
+## t = 9.9056, df = 9, p-value = 3.872e-06
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.01244314 0.01980852
+## sample estimates:
+## mean of the differences 
+##              0.01612583</code></pre>
+<p>Novamente, rejeita-se a hipótese de que as médias das acurácias calculadas para o ajuste do algorítimo Random Forest e do modelo de logístico foram iguais</p>
+<pre class="r"><code>t.test(tidy_resamps$knn,tidy_resamps$glm, paired = T)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  tidy_resamps$knn and tidy_resamps$glm
+## t = 0.85631, df = 9, p-value = 0.414
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.003829065  0.008493692
+## sample estimates:
+## mean of the differences 
+##             0.002332314</code></pre>
+<p>Já para a comparação entre as médias das acurácias calculadas para o algorítimo K-NN e para o modelo logístico não houve evidências estatísticas para se rejeitas a hipótese de que ambas as médias são iguais, o que nos sugere o modelo logístico como o segundo melhor candidato como modelo de classificação para este problema com estes dados.</p>
+<p>Então a escolha ficará a critério do que é mais importante. Caso o tempo computacional fosse uma medida que tivesse mais importância do que a pequena superioridade de acurácia apresentada pelo algorítimo Random Forest, escolheria o modelo logístico, porém como neste caso os 47.2080679 segundos a mais para ajustar o modelo não fazem diferença para mim, fico com o modelo Random Forest.</p>
+<p>Este post trás alguns dos conceitos que venho estudado e existem muitos tópicos apresentados aqui que podem (e devem) ser estudados com mais profundidade, espero que tenha gostado!</p>
+</div>
+<div id="referencias" class="section level1">
+<h1>Referências</h1>
+<p>obs.: links mensionados no corpo do texto</p>
+<div id="refs" class="references">
+<div id="ref-caret">
+<p>Kuhn, Max. 2018. <em>The Caret Package</em>.</p>
+</div>
+<div id="ref-tidytext">
+<p>Silge; Robinson, Julia; David. 2018. <em>Text Mining with R</em>. <em>A Tidy Approach</em>.</p>
+</div>
+<div id="ref-miner">
+<p>Silva; Peres; Boscarioli, Leandro Augusto; Sarajane Marques; Clodis. 2016. <em>Introdução à Mineração de Dados</em>. <em>Com Aplicações Em R</em>. Vol. 3. Elsevier Editora Ltda.</p>
+</div>
+</div>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="/categories/dplyr">dplyr</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/ggplot">ggplot</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/kaggle">kaggle</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/machine-learning">machine learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/modelos">Modelos</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/package">package</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/rmarkdown">rmarkdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/text-mining">text mining</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/tidytext">tidytext</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/analise-de-sentimentos">analise de sentimentos</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/dplyr">dplyr</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/kaggle">kaggle</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelagem">modelagem</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelos-generalizados">modelos generalizados</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelos-lineares">Modelos lineares</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelos">Modelos</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r-markdown">R Markdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/rstudio">RStudio</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/machine-learning">machine learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/tidytext">tidytext</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/sentiment">sentiment</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/"
+                class="button big previous">AED de forma rápida e um pouco de Machine Learning</a></li>
+    
+
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-06-24'>
+                June 24, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-05-26'>
+                May 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-04-12'>
+                April 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-03-07'>
+                March 7, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-17'>
+                February 17, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-01'>
+                February 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-26'>
+                December 26, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-18'>
+                December 18, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-17'>
+                December 17, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">Criando relatórios com template tufle </a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-14'>
+                December 14, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-05'>
+                December 5, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes e sou um entusiasta pela ciência de dados. Percebi que um dos muitos desafios na carreira de um cientista de dados é passar para as pessoas o que podemos fazer em diversas áreas de estudo, diante disso resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+        
+        
+        
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+
