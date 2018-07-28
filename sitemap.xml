@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
@@ -186,6 +191,12 @@
   </url>
   
   <url>
+    <loc>/categories/amostrador-de-gibbs/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/analise-de-sentimentos/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -193,24 +204,24 @@
   
   <url>
     <loc>/tags/aprendendo/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/bayesiana/</loc>
-    <lastmod>2017-12-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/bitcoin/</loc>
-    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/bitcoin/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/bitcoin/</loc>
     <lastmod>2017-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -222,13 +233,13 @@
   </url>
   
   <url>
-    <loc>/categories/cheatsheets/</loc>
+    <loc>/tags/cheatsheets/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/cheatsheets/</loc>
+    <loc>/categories/cheatsheets/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -274,25 +285,25 @@
   </url>
   
   <url>
-    <loc>/categories/datacamp/</loc>
-    <lastmod>2018-02-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/datacamp/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/dplyr/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <loc>/categories/datacamp/</loc>
+    <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/dplyr/</loc>
+    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/dplyr/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -304,14 +315,14 @@
   </url>
   
   <url>
-    <loc>/categories/estatistica/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <loc>/tags/estatistica/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/estatistica/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <loc>/categories/estatistica/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -323,7 +334,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -346,13 +357,13 @@
   </url>
   
   <url>
-    <loc>/categories/gamificacao/</loc>
+    <loc>/tags/gamificacao/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/gamificacao/</loc>
+    <loc>/categories/gamificacao/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -377,18 +388,18 @@
   
   <url>
     <loc>/tags/gomesfellipe/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/google/</loc>
-    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/google/</loc>
+    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/google/</loc>
     <lastmod>2018-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -418,20 +429,14 @@
   </url>
   
   <url>
-    <loc>/categories/jags/</loc>
-    <lastmod>2017-12-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/jags/</loc>
     <lastmod>2017-12-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/kaggle/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <loc>/categories/jags/</loc>
+    <lastmod>2017-12-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -442,13 +447,19 @@
   </url>
   
   <url>
-    <loc>/categories/latex/</loc>
-    <lastmod>2018-03-07T00:00:00+00:00</lastmod>
+    <loc>/categories/kaggle/</loc>
+    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/latex/</loc>
+    <lastmod>2018-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/latex/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -466,8 +477,8 @@
   </url>
   
   <url>
-    <loc>/categories/machine-learning/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <loc>/categories/mcmc/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -478,13 +489,19 @@
   </url>
   
   <url>
-    <loc>/categories/macro/</loc>
-    <lastmod>2018-03-07T00:00:00+00:00</lastmod>
+    <loc>/categories/machine-learning/</loc>
+    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/macro/</loc>
+    <lastmod>2018-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/macro/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -496,55 +513,61 @@
   </url>
   
   <url>
-    <loc>/categories/mapa/</loc>
-    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/mapa/</loc>
     <lastmod>2018-02-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>/categories/mapa/</loc>
+    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/mcmc/</loc>
-    <lastmod>2017-12-18T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/modelagem/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/modelos/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/modelos/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/modelos/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/modelos-generalizados/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/modelos-lineares/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/multivariada/</loc>
+    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/package/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -556,7 +579,7 @@
   </url>
   
   <url>
-    <loc>/tags/package/</loc>
+    <loc>/tags/pca/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -564,12 +587,6 @@
   <url>
     <loc>/categories/pca/</loc>
     <lastmod>2018-01-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/pca/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -587,43 +604,43 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/probabilidade/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/probabilidade/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/pr%C3%A1tica/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <loc>/categories/probabilidade/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/pr%C3%A1tica/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <loc>/categories/pr%C3%A1tica/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/r/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -647,7 +664,7 @@
   
   <url>
     <loc>/tags/rstudio/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -665,6 +682,12 @@
   
   <url>
     <loc>/tags/rela%C3%A7%C3%B5es-entre-vari%C3%A1veis/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rmarkdown/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -672,12 +695,6 @@
   <url>
     <loc>/categories/rmarkdown/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/rmarkdown/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -701,13 +718,13 @@
   
   <url>
     <loc>/categories/simulacao/</loc>
-    <lastmod>2018-01-20T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/simula%C3%A7ao/</loc>
-    <lastmod>2018-01-20T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -718,20 +735,14 @@
   </url>
   
   <url>
-    <loc>/categories/s%C3%A9ries-temporais/</loc>
-    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/s%C3%A9ries-temporais/</loc>
     <lastmod>2018-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/tabelas/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <loc>/categories/s%C3%A9ries-temporais/</loc>
+    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -742,8 +753,14 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/categories/tabelas/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -754,14 +771,14 @@
   </url>
   
   <url>
-    <loc>/categories/teoria/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <loc>/tags/teoria/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/teoria/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <loc>/categories/teoria/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -772,13 +789,13 @@
   </url>
   
   <url>
-    <loc>/categories/tidytext/</loc>
+    <loc>/tags/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/tidytext/</loc>
+    <loc>/categories/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -802,13 +819,13 @@
   </url>
   
   <url>
-    <loc>/categories/word/</loc>
+    <loc>/tags/word/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/word/</loc>
+    <loc>/categories/word/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
