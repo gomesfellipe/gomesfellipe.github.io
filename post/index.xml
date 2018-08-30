@@ -339,5 +339,15 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <description>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(&#39;js&#39;, new Date());gtag(&#39;config&#39;, &#39;UA-105500464-2&#39;);O que são CheatSheets, gamificação e por que aprender R é tão divertido?(function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,&#39;script&#39;,&#39;https://www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);ga(&#39;create&#39;, &#39;UA-105500464-2&#39;, &#39;auto&#39;);ga(&#39;send&#39;, &#39;pageview&#39;);post&amp;nbsp;setwd()&amp;nbsp;cv&amp;nbsp;Posts&amp;nbsp;Categorias&amp;nbsp;Contato&amp;nbsp;ExtrasShareSearchMenu&amp;nbsp;setwd()&amp;nbsp;cv&amp;nbsp;Posts&amp;nbsp;Categorias&amp;nbsp;Contato&amp;nbsp;ExtrasRecent PostsO que são CheatSheets, gamificação e por que aprender R é tão divertido?</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>/post/2018-07-28-modelo-bayesiano-do-zero/2018-07-28-modelo-bayesiano-do-zero/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-07-28-modelo-bayesiano-do-zero/2018-07-28-modelo-bayesiano-do-zero/</guid>
+      <description>Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.
+Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles.</description>
+    </item>
+    
   </channel>
 </rss>

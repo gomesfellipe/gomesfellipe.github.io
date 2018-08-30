@@ -1,0 +1,2621 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "post",
+        "name" : "",
+        "headline" : "",
+        "description" : "Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.
+Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "0001",
+        "datePublished": "0001-01-01 00:00:00 &#43;0000 UTC",
+        "dateModified" : "0001-01-01 00:00:00 &#43;0000 UTC",
+        "url" : "/post/2018-07-28-modelo-bayesiano-do-zero/2018-07-28-modelo-bayesiano-do-zero/",
+        "wordCount" : "3569",
+        "keywords" : [ "Blog" ]
+    }
+    </script>
+        
+            
+                <title>Fellipe Gomes</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.37" />
+        
+
+
+        
+        
+            
+                <meta name="description" content="Este blog é fruto da minha paixão pela Estatística e programação em R, trago aqui de maneira prática e descontraída algumas ferramentas, técnicas, curiosidades e brincadeiras disponíveis quando se utiliza o R como linguagem de programação. Espero que aproveite o conteúdo!">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.
+Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles."/>
+
+        <meta property="og:title" content="" />
+<meta property="og:description" content="Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.
+Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2018-07-28-modelo-bayesiano-do-zero/2018-07-28-modelo-bayesiano-do-zero/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.
+Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles.">
+
+
+
+<meta itemprop="wordCount" content="3569">
+
+
+
+<meta itemprop="keywords" content="" />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+
+
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105500464-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>cv
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/">
+                            <i class="fa fa-coffee">&nbsp;</i>Posts
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-reorder">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>cv
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/">
+                            <h3>
+                                <i class="fa fa-coffee">&nbsp;</i>Posts
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-reorder">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Ajustando um modelo de regressão linear bayesiano do zero</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-28'>
+                                    July 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-06-24'>
+                                    June 24, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-05-26'>
+                                    May 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-04-12'>
+                                    April 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/04/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-03-07'>
+                                    March 7, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-17'>
+                                    February 17, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-01'>
+                                    February 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-26'>
+                                    December 26, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-18'>
+                                    December 18, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-17'>
+                                    December 17, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">Criando relatórios com template tufle </a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-14'>
+                                    December 14, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f&amp;text=&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f&amp;title=" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f&amp;title=" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f&amp;title=" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f&amp;description=" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/post/2018-07-28-modelo-bayesiano-do-zero/2018-07-28-modelo-bayesiano-do-zero/"></a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='0001-01-01'>
+            January 1, 0001</time>
+        <span class="author"></span>
+        
+            <p>17 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f&amp;text=&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f&amp;title=" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f&amp;title=" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f&amp;title=" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f&amp;description=" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2f2018-07-28-modelo-bayesiano-do-zero%2f2018-07-28-modelo-bayesiano-do-zero%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+
+  <div id="content">
+    
+
+<h1 id="modelagem-estatística-e-as-duas-grandes-escolas-de-inferência">Modelagem estatística e as duas grandes escolas de inferência</h1>
+
+<p>Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.</p>
+
+<p>Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.</p>
+
+<p>O interesse pela modelagem estatística através da abordagem bayesiana surgiu a partir de um projeto de iniciação científica quando cursava o 6º período do curso de Graduação em Estatística que tinha como objetivo o cálculo e apresentação de estatísticas descritivas para ajudar uma pesquisadora. Após obter os resultados da análise exploratória e descritiva, notei, junto com meu orientador, que havia possibilidade de dar continuidade ao estudo a partir de uma abordagem estatística mais elaborada. Sendo assim, outro projeto de iniciação científica foi iniciado em seguida com a finalidade de me preparar para utilizar um modelo linear hierárquico bayesiano sob os dados disponibilizados pela pesquisadora em minha monografia.</p>
+
+<p>Caso tenha interesse em conferir o projeto com o estudo sobre modelos hierárquicos bayesianos, disponibilizei os resultados e os códigos em meu github <a href="https://github.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos">neste repositório</a>. Neste post farei uma breve introdução sobre o ajuste de um modelo linear bayesiano simples e os resultados obtidos (utilizando uma distribuição a priori não informativa). Os resultados obtidos serão comparados com os resultados obtidos com o ajuste de um modelo de regressão linear através da abordagem clássica.</p>
+
+<h2 id="distribuição-a-priori">Distribuição a priori</h2>
+
+<p>Para o estudo, optou-se pela utilização de valores elevados para variância a priori (também consideradas como &ldquo;não informativas&rdquo;, fazendo uma analogia à modelos clássicos) obtendo ajustes que atribuem maior importância à informação provinda da amostra.</p>
+
+<p>Portanto com valores elevados para variância da distribuição a priori (consideradas como &ldquo;não informativas&rdquo;) foram obtida a distribuição a posteriori de um parâmetro <em>θ</em> que contém toda a informação probabilística a respeito deste parâmetro e quando a forma analítica dessa distribuição é conhecida o gráfico da <a href="https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_densidade">fdp</a> pode ilustrar o comportamento probabilístico do parâmetro de interesse e auxiliar em alguma tomada de decisão, porém, quando a forma analítica não é conhecida ou é muito custosa de ser obtida, pode-se recorrer a métodos de simulação tais como os métodos MCMC.</p>
+
+<h2 id="amostrador-de-gibbs-método-mcmc">Amostrador de Gibbs - método MCMC</h2>
+
+<p>Com os avanços dos métodos de MCMC, surgiu o amostrador de Gibbs, proposto por S. Geman and Geman (1990) e tornou-se popular por Gelfand and Smith (1990), falo um pouco mais sobre o algoritmo no <a href="https://github.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos/blob/master/texto.pdf">texto do projeto</a>.</p>
+
+<p>Como a convergência ocorre após o aquecimento (ou burn-in), é comum usar os valores de <em>θ</em><sup>(<em>a</em>)</sup>, <em>θ</em><sup>(*a* + <em>t</em>)</sup>, <em>θ</em><sup>(*a* + 2<em>t</em>)</sup>,&hellip; para compor a amostra de <em>θ</em>, sendo *a* − 1 o número de iterações iniciais do aquecimento e <em>t</em> o espaçamento utilizado para diminuir a autocorrelação dos parâmetros. Maiores detalhes podem ser vistos em Gamerman and Lopes (2006).</p>
+
+<h1 id="ao-que-interessa">Ao que interessa</h1>
+
+<p>O objetivo deste post é apresentar e comparar os resultados do ajuste de um modelo linear bayesiano simples utilizando uma distribuição a priori não informativa com o modelo de regressão linear simples para dados simulados e para dados reais.</p>
+
+<p>Diversas funções foram criadas ao longo o estudo para conferir o comportamento das cadeias geradas e os resultados do ajuste do modelo, aproveitarei essas funções para este post importando do <a href="https://github.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos/blob/master/dependencies.R">repositório no github</a> da seguinte maneira:</p>
+
+<pre><code class="language-r">suppressMessages(
+  devtools::source_url(
+    &quot;https://raw.githubusercontent.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos/master/dependencies.R&quot;,
+    encoding=&quot;UTF-8&quot;
+  )
+)
+</code></pre>
+
+<h1 id="ajuste-do-modelo-para-dados-simulados">Ajuste do modelo para dados simulados</h1>
+
+<p>Suponha então um exemplo em que a população de interesse tenha distribuição normal com média <em>β</em><sub>0</sub> + <em>β</em><sub>1</sub><em>X</em>, sendo <em>β</em><sub>0</sub> e <em>β</em><sub>1</sub> desconhecidos e variância <em>σ</em><sup>2</sup> desconhecida. Seja $\tau=\frac{1}{\sigma^2}$ o parâmetro chamado de precisão.</p>
+
+<p>O parâmetro <em>β</em><sub>0</sub> é conhecido como intercepto ou coeficiente linear e o <em>β</em><sub>1</sub> como coeficiente angular. Além disso, suponha que as unidades dessa população sejam iid. Dessa forma, tem-se que as unidades dessa população tem a seguinte distribuição:</p>
+
+<p>$$
+Y_i \stackrel{iid}{\sim} N(\beta_0 + \beta_1 X_i,\frac{1}{\tau}),
+$$</p>
+
+<p>onde *i* = 1, &hellip;, <em>N</em>.</p>
+
+<p>Para o estudo do modelo primeiramente foi utilizado um conjunto de dados simulados utilizando uma amostra de tamanho *N* = 1000 e com os seguintes parâmetros &ldquo;desconhecidos&rdquo; dos quais desejamos estimar: <em>β</em><sub>0</sub> = 1, <em>β</em><sub>1</sub> = 0, 5, *τ* = 2. A amostra será simulada segundo a variável aleatória: <em>X</em><sub><em>i</em></sub> <em>N</em>(0, 1) e em seguida os parâmetros deste modelo, denotados por *θ* = (<em>β</em><sub>0</sub>, <em>β</em><sub>1</sub>, <em>τ</em>) foram estimados usando o paradigma Bayesiano.</p>
+
+<h2 id="gerando-a-amostra">Gerando a amostra</h2>
+
+<p>A amostra que foi simulada foi obtida da seguinte maneira:</p>
+
+<pre><code class="language-r"># Amostra que sera utilizada:
+
+set.seed(12)
+n   &lt;- 1000                 # N=1000
+b0  &lt;- 1                    # \beta_0 = 1
+b1  &lt;- 0.5                  # \beta_1 = 0,5
+tau &lt;- 2                    # \tau = 2 e 
+x   &lt;- rnorm(n)             # X_i ~ N(0,1), logo:
+y   &lt;- b0 + b1 * x + rnorm(n,0,sqrt(1/tau))
+</code></pre>
+
+<p>Obtendo-se uma amostra de tamanho <em>n</em>, pode-se inferir sob os parâmetros desconhecidos *θ* = (<em>β</em><sub>0</sub>, <em>β</em><sub>1</sub>, <em>τ</em>) através da distribuição a posteriori e para obter essa distribuição faz-se necessário calcular a função de verossimilhança, que pode ser obtida da seguinte forma:</p>
+
+<p>$$
+p(y| \beta_0, \beta_1 , \tau) =\prod^n_{i=1} p(y_i | \beta_0, \beta_1, \tau )<br />
+$$</p>
+
+<p>portanto</p>
+
+<p>$$
+p(y| \beta_0, \beta_1 , \tau) = \prod_{i=1}^n \frac{ \sqrt{\tau} }{ \sqrt{2\pi} } exp { - \frac{\tau}{2} ( y_i - \beta_0 - \beta_1 x_i )^2 }
+$$</p>
+
+<p>onde *y* = (<em>y</em><sub>1</sub>, &hellip;, <em>y</em><sub><em>n</em></sub>) é a amostra coletada. O valor p para o teste de Shapiro para conferir a suposição de normalidade da variável resposta foi de 0.6181791 enquanto que o valor p para conferir a normalidade da variável explicativa foi de 0.7413229.</p>
+
+<h2 id="distribuição-a-priori-1">Distribuição a priori</h2>
+
+<p>Durante o estudo diversos valores os parâmetros a priori foram selecionados para que fosse possível avaliar a sensibilidade da qualidade da escolha da distribuição priori, aqui será apresentado os resultados obtidos com valores elevados para variância a priori (também consideradas como &ldquo;não informativas&rdquo;, fazendo uma analogia à modelos clássicos) que ajusta o modelo atribuindo maior importância à informação provinda da amostra.</p>
+
+<p>Considere a priori que os parâmetros sejam independentes e que</p>
+
+<p>$$
+\beta_0 \sim N(m_0,\sigma_0^2),  \<br />
+\beta_1 \sim N(m_1,\sigma_1^2) \mbox{ e }  \<br />
+\tau    \sim G(a,b).
+$$</p>
+
+<p>Portanto, para a estimação foram utilizados os seguintes hiperparâmetros : <em>m</em><sub>0</sub> = <em>m</em><sub>1</sub> = 0, <em>σ</em><sub>0</sub><sup>2</sup> = <em>σ</em><sub>1</sub><sup>2</sup> = 100, *a* = 0, 1 e *b* = 0, 1</p>
+
+<p>No R:</p>
+
+<pre><code class="language-r">#Parametros para b0 ~ N(mu0, sig0)
+mu0    &lt;-  0
+sig0   &lt;-  1000
+
+#Parametros para b1 ~ N(mu1, sig1)
+mu1    &lt;-  0
+sig1   &lt;-  1000
+
+#Parametros para tau ~ G(a,b)
+a      &lt;-  0.1
+b      &lt;-  0.1
+</code></pre>
+
+<p>Dessa forma, tem-se que a distribuição conjunta a priori possui a seguinte forma:</p>
+
+<p>$$
+ p(\beta_0, \beta_1 , \tau) \propto exp\Big\{-\frac{1}{2\sigma_0^2}( \beta_0 - m_0)^2\Big\} exp\Big\{-\frac{1}{2\sigma_1^2}( \beta_1 - m_1)^2\Big\} \tau^{a-1}exp \{-b \tau\}.
+$$</p>
+
+<h2 id="distribuição-a-posteriori">Distribuição a posteriori</h2>
+
+<p>Combinando a função de verossimilhança com a distribuição a priori, obtêm-se a distribuição a posteriori que é proporcional a:</p>
+
+<p>$$
+p(\beta_0, \beta_1 , \tau|y) \propto \tau^{\frac{n}{2}+a-1} exp \left\{ -\frac{\tau}{2} \sum^n_{i=1} (y_i - \beta_0 - \beta_1 x_i)^2 - b\tau  - \frac{1}{2\sigma_0^2}(\beta_0-m_0)^2  \right\} \times   exp\left\{- \frac{1}{2\sigma_1^2}(\beta_1-m_1)^2  \right\} .
+$$</p>
+
+<p>Note que essa distribuição é multivariada e não possui forma analítica conhecida. Sendo assim, recorre-se aos métodos de MCMC para se obter amostras dessa distribuição. E então faz-se necessário obter as DCCP de <em>β</em><sub>0</sub>, <em>β</em><sub>1</sub> e <em>τ</em>.</p>
+
+<h2 id="implementando-o-amostrador-de-gibbs">Implementando o amostrador de Gibbs</h2>
+
+<p>O tamanho da cadeia foi de 30000 simulações e o <em>burn-in</em> (ou amostra de aquecimento) utilizado considerada após o ajuste foi de 15000. no R:</p>
+
+<pre><code class="language-r">nsim           &lt;-  3*10000
+burnin         &lt;-  nsim / 2 
+cadeia.b0      &lt;-  rep(0,nsim)
+cadeia.b1      &lt;-  rep(0,nsim)
+cadeia.tau     &lt;-  rep(0,nsim)
+
+# Chutes iniciais: 
+cadeia.b0[1]    &lt;-  0
+cadeia.b1[1]    &lt;-  0
+cadeia.tau[1]   &lt;-  1
+</code></pre>
+
+<h3 id="calculos-para-implementar-o-algoritimo-na-mão">Calculos para implementar o algoritimo na mão</h3>
+
+<p>Para a implementação do algoritmo, fez-se necessário o cálculo das distribuições condicionais completas a posteriori (DCCP), primeiramente veja os resultados obtidos para <em>τ</em>:</p>
+
+<ul>
+<li>DCCP de <em>τ</em>:</li>
+</ul>
+
+<p>$$
+\tau|y_1, &hellip;,y_n,\beta_0, \beta_1 \sim Gama ( \frac{n}{2}+a,b+\frac{1}{2} \sum^n_{i=1}(y_i-\beta_0-\beta_1 x_i)^2 )
+$$</p>
+
+<p>Em seguida, veja o resultado obtido para <em>β</em><sub>0</sub>, o coeficiente linear da reta, isto é, a altura em que a reta de regressão intercepta o eixo dos <em>Y</em>&rsquo;s:</p>
+
+<ul>
+<li>DCCP de <em>β</em><sub>0</sub>:</li>
+</ul>
+
+<p>$$
+\beta_0 | y_1,&hellip;,y_n , \tau,\beta_1 \sim N(\dfrac{(\tau\sum^n_{i=1}y_i - \tau\beta_1\sum^n_{i=1}x_i  +\frac{m_0}{\sigma_0^2})}{ \tau n + \frac{1}{\sigma_0^2}},  (n\tau +   \frac{1}{\sigma_0^2} )^{-1})
+$$</p>
+
+<p>Por fim, veja o resultado obtido para <em>β</em><sub>1</sub>, é o coeficiente angular da reta, ou seja, é o a variação esperada na variável <em>Y</em> quando a variável explicativa é acrescida de 1 unidade:</p>
+
+<ul>
+<li>DCCP de <em>β</em><sub>1</sub>:</li>
+</ul>
+
+<p>$$
+\beta_1 | y_1,&hellip;,y_n , \tau,\beta_0 \sim N(\frac{\tau\sum^n_{i=1}x_i y_i  - \tau\beta_0\sum^n_{i=1}x_i + \frac{m_1}{\sigma_1^2}}{\tau \sum^n_{i=1}x_i^2 + \frac{1}{\sigma_1^2}}, ( \tau \sum^n_{i=1}x_i^2 + \frac{1}{\sigma_1^2} )^{-1})
+$$</p>
+
+<p>Agora que todas as distribuições condicionais completas estão calculadas o algorítimo já pode ser implementado, no R foi feito da seguinte maneira: (note que as linhas que foram comentadas executariam uma barra de carregamento, com ilustrado em seguida)</p>
+
+<pre><code class="language-r"># pb &lt;- txtProgressBar(min = 0, max = nsim, style = 3) # iniciando barra de processo
+for (k in 2:nsim){
+  
+  #Cadeia tau
+  cadeia.tau[k]   &lt;-  rgamma(1, (n/2) + a, b + (sum((y - cadeia.b0[k-1] - (cadeia.b1[k-1]*x))^2)/2))
+  
+  # Cadeia B0
+  c0              &lt;-  (n*cadeia.tau[k]) + (1/sig0)
+  m0              &lt;-  (cadeia.tau[k]*sum(y) - (cadeia.tau[k]*cadeia.b1[k-1]*sum(x)) + (mu0/sig0))/c0
+  cadeia.b0[k]    &lt;-  rnorm(1, m0, 1/sqrt(c0))
+  
+  # Cadeia B1
+  c1              &lt;-   (sum(x^2)*cadeia.tau[k]) + (1/sig1)
+  m1              &lt;-   ((cadeia.tau[k]*sum(x*y)) - (cadeia.tau[k]*cadeia.b0[k]*sum(x)) + (mu1/sig1))/c1
+  cadeia.b1[k]    &lt;-   rnorm(1, m1, 1/sqrt(c1))
+  
+  # setTxtProgressBar(pb, k)
+  
+}# ;close(pb) #Encerrando barra de processo
+</code></pre>
+
+<p><img src="loading.png" alt="" /></p>
+
+<h3 id="resultados-da-cadeia">Resultados da cadeia</h3>
+
+<p>A seguir definiremos a variável <code>inds</code> que indica os valores após a amostra de aquecimento (ou <em>burn-in</em>), a variável <code>real</code> que contém os valores reais utilizados para gerar a amostra para conferir se o modelo foi capaz de recuperá-los, os nomes dos parâmetros e os resultados das cadeias foram agregados em uma matriz:</p>
+
+<pre><code class="language-r"># Juntando resultados:
+inds    &lt;- seq(burnin, nsim) # Definindo os indices
+real    &lt;- c(b0, b1, tau)
+name    &lt;- c(expression(beta[0]), expression(beta[1]), expression(tau))
+results &lt;- cbind(cadeia.b0, cadeia.b1, cadeia.tau) %&gt;% as.data.frame() %&gt;% .[inds, ] %T&gt;% head
+</code></pre>
+
+<h4 id="histograma-e-densidade">Histograma e densidade</h4>
+
+<p>A figura abaixo apresenta os histogramas junto com as densidades de três cadeias obtidas ao se inicializar o amostrador em pontos diferentes de todos os parâmetros contidos em <em>θ</em> e uma linha vermelha indicará o valor do real parâmetro utilizado para estimar a cadeia.</p>
+
+<pre><code class="language-r">g1 &lt;- hist_den(results[,1],name = name[1], p = real[1])
+g2 &lt;- hist_den(results[,2],name = name[2], p = real[2])
+g3 &lt;- hist_den(results[,3],name = name[3], p = real[3])
+grid.arrange(g1,g2,g3,ncol=1)
+</code></pre>
+
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-7-1.png" alt="" /></p>
+
+<h4 id="cadeia">Cadeia</h4>
+
+<p>A figura abaixo apresenta os traços das cadeias dos parâmetros amostrados exibindo o intervalo de credibilidade com a linha pontilhada em azul e o valor verdadeiro do parâmetro em vermelho. Note que há indícios de convergência.</p>
+
+<pre><code class="language-r"># Cadeia
+cadeia(results, name, real)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-8-1.png" alt="" /></p>
+
+<p>é possível notar que todos os intervalos de credibilidade contêm o parâmetro populacional real utilizado para gerar a amostra.</p>
+
+<h4 id="autocorrelação">Autocorrelação</h4>
+
+<p>A figura abaixo apresenta os gráficos de autocorrelação, que indicam se houve a influência dos &ldquo;valores vizinhos&rdquo; dos parâmetros amostrados. Note que parece haver independência entre as interações.</p>
+
+<pre><code class="language-r"># ACF
+FAC(results)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-9-1.png" alt="" /></p>
+
+<p>é possível notar que nenhuma das cadeias apresentaram estimativas autocorrelacionada</p>
+
+<h4 id="estimativas">Estimativas</h4>
+
+<p>Agora que já foi verificado que a cadeia se comportou de maneira satisfatória, veja os resultados obtidos sobre as estimativas dos parâmetros através do algoritmo. apresenta os resumos a posteriori dos parâmetros amostrados.</p>
+
+<pre><code class="language-r">coef &lt;-
+  coeficientes(results, real = real) %&gt;% as.data.frame()
+
+tabela_coeficientes(coef)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-10-1.png" alt="" /></p>
+
+<p>Como se trata de uma amostra simulada é possível comparar as estimativas com os valores reais que geraram a amostra e os valores estão muito próximos da média (todos eles estão incluídos no intervalo de credibilidade).</p>
+
+<h3 id="comparando-com-o-modelo-linear-clássico">Comparando com o modelo linear clássico</h3>
+
+<p>Agora que os resultados sob o paradigma bayesiano já foram conferidos será ajustado um modelo de regressão linear simples pelo método dos mínimos quadrados através da função <code>lm()</code> sob o paradigma clássico para comparar com os resultados de um modelo de regressão linear simples sob o paradigma bayesiano utilizando os resultados calculados.</p>
+
+<pre><code class="language-r"># Reta do modelo classico
+plot(x, y)
+modelo.classico &lt;- lm(y ~ 1 + x)
+a.classico      &lt;- modelo.classico$coefficients[1]
+b.classico      &lt;- modelo.classico$coefficients[2]
+abline(a        &lt;- a.classico, b = b.classico, col = &quot;blue&quot;)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-11-1.png" alt="" /></p>
+
+<p>O modelo estimado para estes dados sob o paradigma da inferência clássica foi o seguinte: $\hat{y} = 1.0245 x + 0,4933$, o que mostra que as estimativas de <em>β</em><sub>0</sub> e <em>β</em><sub>1</sub> foram muito parecidas com as estimativas sob o paradigma da inferência bayesiana.</p>
+
+<pre><code class="language-r"># Reta do modelo bayesiano
+plot(x, y)
+a.bayes  &lt;-  mean(results[, 1])
+b.bayes  &lt;-  mean(results[, 2])
+abline(a = a.bayes, b = b.bayes, col = &quot;red&quot;)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-12-1.png" alt="" /></p>
+
+<p>A figura apresenta o gráfico de dispersão entre as variáveis da amostra simulada e as retas dos ajustes de ambos os modelos:</p>
+
+<pre><code class="language-r">library(stringr)
+library(ggplot2)
+library(ggExtra)
+
+# Texto da imagem
+text.classico &lt;- str_c(&quot;Modelo Classico: &quot;,&quot;y = &quot;,round(a.classico,4),&quot; x + &quot;,round(b.classico,4))
+text.bayes    &lt;- str_c(&quot;Modelo Bayesiano: &quot;,&quot;y = &quot;,round(a.bayes,4),&quot; x + &quot;,round(b.bayes,4))
+
+# Gerando o e ambos:
+cbind(y, x) %&gt;%
+  as.data.frame %&gt;%
+    ggplot(aes(y = y, x = x)) +
+    geom_point() +
+    geom_smooth(method = &quot;lm&quot;, se = F, col = &quot;red&quot;) +
+    theme_classic() +
+    geom_abline(slope = b.bayes,
+    intercept = a.bayes,
+    col = &quot;blue&quot;) +
+    labs(title = &quot;&quot;,
+    x = &quot;Covariável&quot;,
+    y = &quot;Reposta&quot;)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-13-1.png" alt="" /></p>
+
+<p>Agora que os resultados no algoritmo já foram conferidos e avaliados de maneira satisfatória utilizando os dados simulados, é a vez de fazer o ajuste para dados reais.</p>
+
+<h1 id="ajuste-do-modelo-para-dados-reais">Ajuste do modelo para dados reais</h1>
+
+<p>O conjunto de dados que será utilizado como exemplo foi disponibilizado por Ezekiel (1930) e hoje faz parte do conjunto de banco de dados nativos do R (a base de dados pode ser obtida ao escrever <code>cars</code> no console). Os dados informam a velocidade dos carros e as distâncias tomadas para parar, esses dados foram registrados na década de 1920 e são de grande utilidade didática até os dias de hoje.</p>
+
+<p>Considere que deseja-se modelar a velocidade dos carros de acordo com as distâncias tomadas para parar, portanto a variável resposta será a velocidade e a variável explicativa do modelo será a distância tomada para parar.</p>
+
+<h2 id="amostra-utilizada">Amostra utilizada</h2>
+
+<pre><code class="language-r">y    &lt;-  cars$speed
+x    &lt;-  cars$dist
+n    &lt;-  nrow(cars)
+</code></pre>
+
+<p>o valor p para o teste de Shapiro para conferir a suposição de normalidade da variável resposta foi de 0.4576319 enquanto que o valor p para conferir a normalidade da variável explicativa foi de 0.0390997</p>
+
+<h2 id="distribuição-a-priori-2">Distribuição a priori</h2>
+
+<p>Serão utilizados os mesmos valores que foram propostos na simulação como hiperparametros e chutes iniciais para a cadeia, o código usado foi exatamente o mesmo.</p>
+
+<h2 id="resultados-da-cadeia-1">Resultados da cadeia</h2>
+
+<p>Definiremos novamente a variável <code>inds</code> que indica os valores após a amostra de aquecimento (ou <em>burn-in</em>), desta vez não haverá a variável <code>real</code> pois não conhecemos os valores reais utilizados para gerar a amostra para conferir se o modelo foi capaz de recuperá-los. Desta vez utilizaremos a variável <code>classico</code>, que guarda os valores obtidos com o ajuste do modelo linear pela abordagem clássica.</p>
+
+<pre><code class="language-r"># Juntando resultados:
+inds     &lt;- seq(burnin, nsim) # Definindo os indices
+results  &lt;- cbind(cadeia.b0, cadeia.b1, cadeia.tau) %&gt;% as.data.frame() %&gt;% .[inds, ]
+classico &lt;- c(coefficients(lm(cars)), 1 / var(lm(cars)$residuals))
+name     &lt;- c(expression(beta[0]), expression(beta[1]), expression(tau))
+</code></pre>
+
+<h4 id="histograma-e-densidade-1">Histograma e densidade</h4>
+
+<p>A figura abaixo exibe os histogramas com as densidades de três cadeias obtidas ao se iniciar o amostrador em pontos diferentes de todos os parâmetros <em>θ</em> mas dessa vez sem a linha vermelha que indicava o valor do parâmetro real pois agora ele é desconhecido.</p>
+
+<pre><code class="language-r">g1 &lt;- hist_den(results[, 1], name = name[1])
+g2 &lt;- hist_den(results[, 2], name = name[2])
+g3 &lt;- hist_den(results[, 3], name = name[3])
+grid.arrange(g1, g2, g3, ncol = 1)
+</code></pre>
+
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-17-1.png" alt="" /></p>
+
+<p>Nota-se que ambas as cadeias convergiram uma mesma distribuição e que as últimas três cadeias apresentaram valores próximos.</p>
+
+<h4 id="cadeias">Cadeias</h4>
+
+<p>A figura abaixo apresenta os traços das cadeias dos parâmetros amostrados. Note que há indícios de convergência.</p>
+
+<pre><code class="language-r">cadeia(results,name)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-18-1.png" alt="" /></p>
+
+<h4 id="autocorrelação-1">Autocorrelação</h4>
+
+<p>A Figura abaixo apresenta os gráficos de autocorrelação dos parâmetros amostrados.</p>
+
+<pre><code class="language-r">FAC(results)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-19-1.png" alt="" /></p>
+
+<p>É possível notar que apenas nas primeiras defasagens das cadeias das estimativas para os parâmetros <em>β</em><sub>0</sub> e <em>β</em><sub>1</sub> se apresentaram de forma autocorrelacionada e que a partir dessa defasagem o gráfico de autocorrelação se apresentou de forma desejável.</p>
+
+<h4 id="estimativas-1">Estimativas</h4>
+
+<p>Como todas as características da cadeia gerada foram avaliadas de maneira satisfatória agora será possível conferir o ajuste dos parâmetros de maneira mais segura pois já foi constatada a convergência da cadeia</p>
+
+<h4 id="comparando-com-o-modelo-linear-clássico-1">Comparando com o modelo linear clássico</h4>
+
+<p>Agora que os resultados sob o paradigma bayesiano já foram conferidos novamente será ajustado um modelo de regressão linear simples pelo método dos mínimos quadrados sob o paradigma clássico para comparar com os resultados do um modelo de regressão linear simples sob o paradigma bayesiano utilizando os resultados calculados na seção.</p>
+
+<pre><code class="language-r"># Reta do modelo classico 
+plot(x, y)
+modelo.classico &lt;- lm(y ~ 1 + x)
+a.classico      &lt;- modelo.classico$coefficients[1]
+b.classico      &lt;- modelo.classico$coefficients[2]
+abline(a        &lt;- a.classico, b = b.classico, col = &quot;blue&quot;)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-20-1.png" alt="" /></p>
+
+<pre><code class="language-r"># Reta do modelo bayesiano
+plot(x, y)
+a.bayes &lt;- mean(results[, 1])
+b.bayes &lt;- mean(results[, 2])
+abline(a = a.bayes, b = b.bayes, col = &quot;red&quot;)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-21-1.png" alt="" /></p>
+
+<p>A Tabela abaixo apresenta o resumo a posteriori dos parâmetros estimados da cadeia e note que esta tabela não conta com a coluna dos valores reais como no exemplo anterior e sim as estimativas sob o paradigma clássico.</p>
+
+<pre><code class="language-r">coef &lt;- 
+  coeficientes(results,real = classico) %&gt;% as.data.frame()
+
+tabela_coeficientes(coef)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-22-1.png" alt="" /></p>
+
+<p>O modelo estimado sob este paradigma pode ser escrito da seguinte maneira: $\hat{y} = 8,2839 x + 0,1656$, ou seja, os valores de <em>β</em><sub>0</sub> e de <em>β</em><sub>1</sub> novamente foram muito próximos dos parâmetros obtidos ao estimar sob o paradigma clássico.</p>
+
+<h4 id="comparando-de-forma-visual">Comparando de forma visual</h4>
+
+<p>A Figura ilustra o gráfico de dispersão dos dados citados acima, com a intenção de exibir quanto uma variável é afetada por outra, onde no eixo vertical representa a velocidade do carro e no eixo horizontal a distância tomada para parar.</p>
+
+<p>Além do comportamento das variáveis, neste gráfico é exibido também os resultados obtidos do ajuste ao se utilizar o método de mínimos quadrados (representada pela linha em vermelho) para estimar os parâmetros e o ajuste do modelo ao se utilizar o método apresentado acima em (representada pela linha azul).</p>
+
+<pre><code class="language-r"># Texto da imagem
+text.classico &lt;- str_c(&quot;Modelo Classico: &quot;,&quot;y = &quot;,round(a.classico,4),&quot; x + &quot;,round(b.classico,4))
+text.bayes    &lt;- str_c(&quot;Modelo Bayesiano: &quot;,&quot;y = &quot;,round(a.bayes,4),&quot; x + &quot;,round(b.bayes,4))
+
+#Gerando o scatter.plot
+cbind(y, x) %&gt;%
+  as.data.frame %&gt;%
+  ggplot(aes(y = y, x = x)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;, se = F, col = &quot;red&quot;) +
+  theme_classic() +
+  geom_abline(slope = b.bayes,
+              intercept = a.bayes,
+              col = &quot;blue&quot;) +
+  labs(title = &quot;Relação entre a Distância e a Velocidade com \nreta do modelo linear clássico vs bayesiano&quot;,
+       x = &quot;Distância&quot;,
+       y = &quot;Velocidade&quot;)
+</code></pre>
+
+<p><img src="2018-07-28-modelo-bayesiano-do-zero_files/figure-markdown_github/unnamed-chunk-23-1.png" alt="" /></p>
+
+<p>É possível notar que os coeficientes calculados foram muito parecidos, mesmo apresentando pequenas diferenças decimais no valor dos coeficientes ainda é possível notar que as retas estão basicamente sobrepostas, ou seja, os valores estimados em ambas as abordagens foram praticamente os mesmos.</p>
+
+<p>Apesar dos valores dos ajustes terem apresentado basicamente os mesmo resultados, a maneira de se conferir a qualidade do ajuste é diferente em ambas as abordagens. Enquanto sob o paradigma clássico o ajuste do modelo pode ser checado ao avaliar os pre-supostos quanto à distribuição dos resíduos, como recomenda Cordeiro and Demétrio (2008), ao utilizar um método de MCMC faz-se necessário conferir também outros aspectos como por exemplo se houve convergência da cadeias além do comportamento das autocorrelações, vide Migon, Gamerman, and Louzada (2014).</p>
+
+<h1 id="conclusão">Conclusão</h1>
+
+<p>O uso do algorítmo para simular os dados da implementação do modelo hierárquico bayesiano envolveu diversas etapas. Inicialmente foi necessária a revisão de literatura para a compreensão dos métodos que seriam utilizados na implementação do algoritmo, bem como em seu desenvolvimento. Essa pesquisa funcionou de maneira muito didática, de forma que a cada semana a abordagem pudesse envolver maior grau de complexidade.</p>
+
+<p>Durante o estudo, diversos valores de parâmetros a priori foram selecionados para que fosse possível avaliar a sensibilidade da qualidade da escolha da distribuição a priori. Observou-se que valores elevados para variância a priori (também consideradas como &ldquo;não informativas&rdquo; - fazendo uma analogia à modelos clássicos) obtiveram melhores ajustes atribuindo maior importância à informação provinda da amostra.</p>
+
+<p>O estudo com dados simulados facilitou o entendimento do algoritmo pois foi possível notar com facilidade a inadequabilidade das escolhas das prioris, que resultavam em estimativas muito distante do parâmetro populacional que gerou a amostra.</p>
+
+<h1 id="referências">Referências</h1>
+
+<p>Cordeiro, Gauss Moutinho, and Clarice G.B. Demétrio. 2008. <em>Modelos Lineares Generalizados E Extensões</em>.</p>
+
+<p>Ezekiel, M. 1930. <em>Methods of Correlation Analysis</em>. Wiley.</p>
+
+<p>Gamerman, Dani, and Hedibert F. Lopes. 2006. <em>Monte Carlo Markov Chain: Stochastic Simulation for Bayesian Inference</em>. 2nd ed. London: Chapman &amp; Hall.</p>
+
+<p>Gelfand, A. E., and A. F. M. Smith. 1990. <em>Samping-Based Approaches to Calculating Marginal Densities</em>. Journal of the American Statistical Association.</p>
+
+<p>Geman, S., and D. Geman. 1990. <em>Stochastic Relaxation, Gibbs Distribution and the Bayesian Restoration of Images</em>. IEEE, Transactions on Pattern Analysis; Machine Intelligence.</p>
+
+<p>Migon, Helio S., Dani Gamerman, and Francisco Louzada. 2014. <em>Statistical Inference: An Integrated Approach</em>. 2nd ed. CRC Press: Taylor e Francis Group.</p>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+
+    
+        <li><a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/"
+                class="button big next"></a></li>
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Ajustando um modelo de regressão linear bayesiano do zero</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-28'>
+                July 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-06-24'>
+                June 24, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-05-26'>
+                May 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-04-12'>
+                April 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-03-07'>
+                March 7, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-17'>
+                February 17, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-01'>
+                February 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-26'>
+                December 26, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-18'>
+                December 18, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-17'>
+                December 17, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">Criando relatórios com template tufle </a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-14'>
+                December 14, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes, sou Estatístico e entusiasta pela ciência de dados. Percebi que um dos muitos desafios na carreira de um cientista de dados é passar para as pessoas o que podemos fazer em diversas áreas de estudo, diante disso resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+        
+        
+        
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+	<script>
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/152619/script.js');
+</script>  
+  </body>
+</html>
+
