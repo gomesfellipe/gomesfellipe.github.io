@@ -1,0 +1,3331 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "post",
+        "name" : "Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle",
+        "headline" : "Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle",
+        "description" : "Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando a base de dados do Kaggle para prever o preço final de casas residenciais em Ames, Iowa, utilizando uma variedade de aspectos",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-08-31 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-08-31 00:00:00 &#43;0000 UTC",
+        "url" : "/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/",
+        "wordCount" : "6515",
+        "keywords" : [ "Aprendendo","data mining","datacamp","Estatistica","gamificacao","gamification","ggfortify","gomesfellipe","kaggle","machine learning","modelagem","Modelos","Modelos lineares","Prática","probabilidade","R","regression","tree random forest","gbm","bagging","boosting","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.37" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            <meta name="description" content="Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando a base de dados do Kaggle para prever o preço final de casas residenciais em Ames, Iowa, utilizando uma variedade de aspectos">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle"/>
+<meta name="twitter:description" content="Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando a base de dados do Kaggle para prever o preço final de casas residenciais em Ames, Iowa, utilizando uma variedade de aspectos"/>
+
+        <meta property="og:title" content="Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle" />
+<meta property="og:description" content="Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando a base de dados do Kaggle para prever o preço final de casas residenciais em Ames, Iowa, utilizando uma variedade de aspectos" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" />
+
+
+
+<meta property="article:published_time" content="2018-08-31T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-08-31T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle">
+<meta itemprop="description" content="Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando a base de dados do Kaggle para prever o preço final de casas residenciais em Ames, Iowa, utilizando uma variedade de aspectos">
+
+
+<meta itemprop="datePublished" content="2018-08-31T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-31T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="6515">
+
+
+
+<meta itemprop="keywords" content="Aprendendo,data mining,datacamp,Estatistica,gamificacao,gamification,ggfortify,gomesfellipe,kaggle,machine learning,modelagem,Modelos,Modelos lineares,Prática,probabilidade,R,regression,tree random forest,gbm,bagging,boosting," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+
+
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105500464-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>cv
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/">
+                            <i class="fa fa-coffee">&nbsp;</i>Posts
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-reorder">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>cv
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/">
+                            <h3>
+                                <i class="fa fa-coffee">&nbsp;</i>Posts
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-reorder">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-31'>
+                                    August 31, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="/date2018/08/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Ajustando um modelo de regressão linear bayesiano do zero</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-28'>
+                                    July 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-06-24'>
+                                    June 24, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/date/img.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-05-26'>
+                                    May 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-04-12'>
+                                    April 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/date/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-03-07'>
+                                    March 7, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/032018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-17'>
+                                    February 17, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-01'>
+                                    February 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-26'>
+                                    December 26, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-18'>
+                                    December 18, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-17'>
+                                    December 17, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">Criando relatórios com template tufle </a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-14'>
+                                    December 14, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f&amp;text=Um%20estudo%20sobre%20modelos%20de%20aprendizagem%20baseados%20em%20%c3%a1rvores%20com%20desafio%20do%20Kaggle&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f&amp;title=Um%20estudo%20sobre%20modelos%20de%20aprendizagem%20baseados%20em%20%c3%a1rvores%20com%20desafio%20do%20Kaggle" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f&amp;title=Um%20estudo%20sobre%20modelos%20de%20aprendizagem%20baseados%20em%20%c3%a1rvores%20com%20desafio%20do%20Kaggle" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f&amp;title=Um%20estudo%20sobre%20modelos%20de%20aprendizagem%20baseados%20em%20%c3%a1rvores%20com%20desafio%20do%20Kaggle" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f&amp;description=Um%20estudo%20sobre%20modelos%20de%20aprendizagem%20baseados%20em%20%c3%a1rvores%20com%20desafio%20do%20Kaggle" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></h1>
+            
+        
+        
+            <p>Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando a base de dados do Kaggle para prever o preço final de casas residenciais em Ames, Iowa, utilizando uma variedade de aspectos</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-08-31'>
+            August 31, 2018</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>31 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f&amp;text=Um%20estudo%20sobre%20modelos%20de%20aprendizagem%20baseados%20em%20%c3%a1rvores%20com%20desafio%20do%20Kaggle&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f&amp;title=Um%20estudo%20sobre%20modelos%20de%20aprendizagem%20baseados%20em%20%c3%a1rvores%20com%20desafio%20do%20Kaggle" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f&amp;title=Um%20estudo%20sobre%20modelos%20de%20aprendizagem%20baseados%20em%20%c3%a1rvores%20com%20desafio%20do%20Kaggle" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f&amp;title=Um%20estudo%20sobre%20modelos%20de%20aprendizagem%20baseados%20em%20%c3%a1rvores%20com%20desafio%20do%20Kaggle" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f&amp;description=Um%20estudo%20sobre%20modelos%20de%20aprendizagem%20baseados%20em%20%c3%a1rvores%20com%20desafio%20do%20Kaggle" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fpost%2f2018-08-31-modelos-em-arvore%2fmodelos-em-arvore%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="/img/2018/08/img1.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    <div id="kaggle" class="section level1">
+<h1>Kaggle</h1>
+<p>Segundo o <a href="https://en.wikipedia.org/wiki/Kaggle">Wikipédia</a>: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.</p>
+<p>O Kaggle trabalha com a ideia de <a href="https://en.wikipedia.org/wiki/Gamification">gamificação</a>, que é um assunto do qual já escrevi em um post sobre <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">gamificação e porque aprender R é tão divertido</a> e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</p>
+<p>A plataforma é focada em competições que envolvem modelagem preditiva, que julgam apenas o seu desempenho preditivo, embora a inteligibilidade não deixe de ser importante. Neste post farei também a modelagem descritiva com modelos de aprendizagem baseados em árvores, na qual o principal objetivo será obter informações sobre os dados para o ajuste dos modelos preditivos que iremos submeter à competição do Kaggle <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/">House Prices: Advanced Regression Techniques</a>.</p>
+<p>A diferença entre modelos preditivos e descritivos não é tão rigorosa assim pois algumas das técnicas podem ser utilizadas para ambos e geralmente um modelo pode servir para ambos os propósitos (mesmo que de de forma insuficiente).</p>
+<p>Além dos modelos de machine learning baseados em árvores, também será ajustado um modelo de regressão linear multivariado para compararmos os resultados dos ajustes e submeter nossas previsões no site do <a href="https://kaggle.com">kaggle</a>.</p>
+<p>Os pacotes que serão utilizados serão os seguintes:</p>
+<pre class="r"><code>library(purrr)       # Programacao funciona
+library(broom)       # Arrumar outputs
+library(dplyr)       # Manipulacao de dados
+library(magrittr)    # pipes
+library(funModeling) # df_status()
+library(plyr)        # revalue()
+library(gridExtra)   # Juntar ggplots
+library(reshape)     # funcao melt()
+library(rpart)       # Arvore de Decisoes
+library(rpart.plot)  # Plot da Arvore de Decisoes
+library(data.table)  # aux na manipulacao do heatmap
+library(readr)       # Leitura da base de dados
+library(stringr)     # Manipulacao de strings
+library(ggplot2)     # Graficos elegantes
+library(caret)       # Machine Learning 
+library(GGally)      # up ggplot
+library(ggfortify)   # autoplot()</code></pre>
+<div id="base-de-dados" class="section level2">
+<h2>Base de dados</h2>
+<p>A base de dados deste post vem de uma competição ótima para estudantes de ciência de dados de dados com alguma experiência com R ou Python e noções básicas de machine learning e estatística.</p>
+<p>Pode ser útil para aqueles que desejam expandir seu conjunto de habilidades em uma tarefa de regressão, quando a variável <span class="math inline">\(y\)</span> que desejamos estimar é do tipo numérico (contínuo ou discreto).</p>
+<p>Trata-se do <a href="https://ww2.amstat.org/publications/jse/v19n3/decock.pdf">conjunto de dados Ames Housing</a> que foi compilado por Dean De Cock para uso em educação de ciência de dados.</p>
+<pre class="r"><code>train &lt;- read_csv(&quot;train.csv&quot;)
+test  &lt;- read_csv(&quot;test.csv&quot;)
+full  &lt;- bind_rows(train, test)
+
+id    &lt;- test$Id
+full %&lt;&gt;% select(-Id)</code></pre>
+<div id="descricao-da-competicao" class="section level3">
+<h3>Descrição da Competição</h3>
+<p>Traduzido do site oficial do kaggle:</p>
+<p>“Peça a um comprador que descreva a casa dos seus sonhos, e eles provavelmente não começarão com a altura do teto do porão ou a proximidade de uma ferrovia leste-oeste. Mas o conjunto de dados desta competição de playground prova que muito mais influencia as negociações de preço do que o número de quartos ou uma cerca branca.</p>
+<p>Com 79 variáveis explicativas descrevendo (quase) todos os aspectos de casas residenciais em Ames, Iowa, esta competição desafia você a prever o preço final de cada casa.&quot;</p>
+<p>Portanto, primeiramente vamos entender o comportamento da variável resposta, depois buscar quais dessas 79 variáveis explicativas são mais importantes para representar a variação do preço de venda das casas através dos métodos baseados em árvores e por fim ajustar os modelos propostos e submeter nossas estimativas no site!</p>
+</div>
+</div>
+</div>
+<div id="analise-exploratoria-dos-dados" class="section level1">
+<h1>Análise exploratória dos dados</h1>
+<p>Antes de pensar em ajustar algum modelo é extremamente necessário entender como se comportam os dados, portanto, tanto a variável resposta quanto as variáveis explicativas serão avaliadas.</p>
+<div id="variavel-resposta" class="section level2">
+<h2>Variável resposta:</h2>
+<p><code>SalePrice</code> - o preço de venda da propriedade em dólares. Essa é a variável de destino que estamos tentando prever.</p>
+<pre><code>## Warning in ks.test(SalePrice, &quot;pnorm&quot;, mean(SalePrice), sd(SalePrice)):
+## ties should not be present for the Kolmogorov-Smirnov test
+
+## Warning in ks.test(SalePrice, &quot;pnorm&quot;, mean(SalePrice), sd(SalePrice)):
+## ties should not be present for the Kolmogorov-Smirnov test</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning in ks.test(log(SalePrice), &quot;pnorm&quot;, mean(log(SalePrice)),
+## sd(log(SalePrice))): ties should not be present for the Kolmogorov-Smirnov
+## test</code></pre>
+<pre><code>## Warning in ks.test(log(SalePrice), &quot;pnorm&quot;, mean(log(SalePrice)),
+## sd(log(SalePrice))): ties should not be present for the Kolmogorov-Smirnov
+## test</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Note que a distribuição dos dados referentes ao preço de venda se distribui de maneira assimétrica e não possuem evidências de normalidade dos dados. Apesar dos métodos baseados em árvore se tratarem de técnicas não paramétricas essa transformação será feita pois ao final deste post desejo comparar os resultados com um modelo de regressão linear múltipla.</p>
+</div>
+</div>
+<div id="arvore-de-decisao" class="section level1">
+<h1>Árvore de decisão</h1>
+<p>Uma técnica muito popular que é mais comumente usada para resolver tarefas de classificação de dados porém a árvore conhecida como <a href="https://tinyurl.com/ybhlsgom">CART (Classification and Regression Trees)(Breiman, 1986)</a> lida com todos os tipos de atributos (incluindo atributos numéricos que são tratados a partir da criação de intervalos). Para seu ajuste é possível realizar podas e produzir árvores binárias.</p>
+<p>A construção da árvore é realizada por meio do algoritmo que iterativamente analisa os atributos descritivos de um conjunto de dados previamente rotulado. Sua popularidade como apoio para a tomada de decisão se deve principalmente ao fato da fácil visualização do conhecimento gerado e o fácil entendimento.</p>
+<p>Outra característica legal da árvore de decisões é que ela permite ajustar um modelo sem um pré-processamento detalhado, pois é fácil de ajustar, aceita valores faltantes e é de fácil interpretação, veja:</p>
+<pre class="r"><code>library(rpart)
+
+control &lt;- rpart.control(minsplit =10, # o número mínimo de observações em um nó
+                         cp = 0.006    # parametro de complexidade q controla o tamanho da arvore
+)
+rpartFit &lt;- rpart(exp(SalePrice) ~ . , train, method = &quot;anova&quot;, control = control) 
+
+rpart.plot::rpart.plot(rpartFit,cex = 0.6)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-5-1.png" width="1200" /></p>
+<p>No topo, vemos o primeiro nó com 100% das observações, que representa o total da base (100%). Em seguida, vemos que a primeira variável que determina o preço de venda das casas <code>SalePrice</code> é a variável <code>OverallQual</code>. As casas que apresentaram <code>OverallQual</code> &lt; 7.5 ocorrem em maior proporção do que as que tiveram <code>OverallQual</code>&gt;7.5. A interpretação pode continuar dessa forma recursivamente.</p>
+<p>É possível notar que as variáveis <code>OverallQual</code>,<code>Neighborhood</code>,<code>1stFlrSF</code>,<code>2ndFlrSF</code>,<code>GrLivArea</code>, <code>BsmtFinSF1</code> foram as que melhor representaram os dados de acordo com os parâmetros que determinamos para ajustar esta árvore, vejamos com mais detalhes se existe relação linear e intensidade e direção dessa relação com o <a href="https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_Pearson">coeficiente de correlação de Pearson</a> entre estas variáveis dois a dois e em relação à variável resposta:</p>
+<pre class="r"><code>devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/correlations_for_ggpairs.R&quot;)</code></pre>
+<pre><code>## SHA-1 hash of file is 98fe0eedb3f7ad7c55a50c5d255312635995c737</code></pre>
+<pre class="r"><code>train %&gt;% 
+  select(SalePrice,OverallQual,`1stFlrSF`,`2ndFlrSF`,GrLivArea,BsmtFinSF1) %&gt;% 
+  ggpairs(lower = list(continuous = my_fn))+
+  theme_bw()</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Com esta figura temos muitas informações, destaca-se que todas essas variáveis possuem algum tipo de relação linear com a variável resposta, a menor correlação observada foi com o <code>BsmtFinSF1</code> e a variável que apresentou a maior correlação foi a <code>OverallQual</code>. Atenção para a correlação entre <code>SalePrice</code> e <code>OverallQual</code>, pois <code>Overallqual</code> parece ser uma variável ordinal e uma outra medida de correlação que melhor representaria esta relação é o <a href="https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_postos_de_Spearman">coeficiente de correlação de Spearman</a>, veja:</p>
+<pre class="r"><code>cor(full$SalePrice, full$OverallQual, method = &quot;spearman&quot;, use = &quot;complete.obs&quot;)</code></pre>
+<pre><code>## [1] 0.8098286</code></pre>
+<p>Um pouco diferente do resultado da correlação de Pearson pois avalia relações lineares, já a correlação de Spearman avalia relações monótonas, sejam elas lineares ou não.</p>
+<div id="analise-exploratoria-e-input-de-nas" class="section level2 tabset">
+<h2>Análise exploratória e input de <code>NA</code>s</h2>
+<p>Arrumar a base de dados é uma tarefa longa e que geralmente consome grande parte no tempo em um projeto de ciência de dados. Não adianta usar o algorítimo mais poderoso de machine learning se a base de dados não estiver arrumada de maneira que possibilite a análise dos dados.</p>
+<p>Para obter informações da amostra, confira no <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data">link do dataset da competição no Kaggle</a>. Na página é possível conferir <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/download/data_description.txt">a descrição da amostra</a> e nela nota-se que alguns dos valores faltantes possuem significado, então é necessário rotulá-los para que o R possa interpretar estes valores da maneira correta.</p>
+<div id="status-da-amostra" class="section level3">
+<h3>Status da amostra</h3>
+<p>Conferindo o status da amostra com a função <code>df_status()</code> do pacote <a href="https://cran.r-project.org/web/packages/funModeling/index.html"><code>funModeling</code></a>:</p>
+<pre class="r"><code>full %&gt;% 
+  df_status(print_results = F) %&gt;% 
+  as_tibble() %&gt;%
+  arrange(-p_na, -p_zeros)</code></pre>
+<pre><code>## # A tibble: 80 x 9
+##    variable     q_zeros p_zeros  q_na  p_na q_inf p_inf type      unique
+##    &lt;chr&gt;          &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;      &lt;int&gt;
+##  1 PoolQC             0       0  2909 99.7      0     0 character      3
+##  2 MiscFeature        0       0  2814 96.4      0     0 character      4
+##  3 Alley              0       0  2721 93.2      0     0 character      2
+##  4 Fence              0       0  2348 80.4      0     0 character      4
+##  5 SalePrice          0       0  1459 50.0      0     0 numeric      663
+##  6 FireplaceQu        0       0  1420 48.6      0     0 character      5
+##  7 LotFrontage        0       0   486 16.6      0     0 integer      128
+##  8 GarageYrBlt        0       0   159  5.45     0     0 integer      103
+##  9 GarageFinish       0       0   159  5.45     0     0 character      3
+## 10 GarageQual         0       0   159  5.45     0     0 character      5
+## # ... with 70 more rows</code></pre>
+<p>Note que as variáveis problemáticas foram ordenadas de forma decrescente (maior número de dados faltantes e zeros) vamos tratar uma de cada vez partindo da variável mais crítica</p>
+</div>
+<div id="pool" class="section level3">
+<h3>Pool</h3>
+<ul>
+<li><code>PoolQC</code> é a variável que possui mais <code>NA</code> e a descrição da base informa que:</li>
+</ul>
+<p><code>PoolQC</code>: qualidade da piscina</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Good</li>
+<li>TA Média / Típica</li>
+<li>Fa Pequena</li>
+<li>NA sem piscina</li>
+</ul>
+<p>É possível observar que se trata de uma variável ordinal, portanto vamos criar uma variável auxiliar (pois esta descrição se repete em outras variáveis):</p>
+<pre class="r"><code># Criando variável auxilar ordinal
+Qualidade &lt;- c(&#39;None&#39; = 0, &#39;Po&#39; = 1, &#39;Fa&#39; = 2, &#39;TA&#39; = 3, &#39;Gd&#39; = 4, &#39;Ex&#39; = 5)
+
+full %&lt;&gt;%
+  mutate(PoolQC =  if_else(PoolQC %&gt;% is.na, &quot;None&quot;, PoolQC) ) %&gt;% 
+  mutate(PoolQC = as.integer(revalue(PoolQC, Qualidade)))</code></pre>
+<pre><code>## The following `from` values were not present in `x`: Po, TA</code></pre>
+<p>Além disso, existe outra variável relacionada à piscina, veja:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Pool&quot;)]) %&gt;% 
+  table </code></pre>
+<pre><code>##         PoolQC
+## PoolArea    0    2    4    5
+##      0   2906    0    0    0
+##      144    0    0    0    1
+##      228    0    0    0    1
+##      368    1    0    0    0
+##      444    1    0    0    0
+##      480    0    0    1    0
+##      512    0    0    0    1
+##      519    0    1    0    0
+##      555    0    0    0    1
+##      561    1    0    0    0
+##      576    0    0    1    0
+##      648    0    1    0    0
+##      738    0    0    1    0
+##      800    0    0    1    0</code></pre>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Pool&quot;)]) %&gt;%
+  map(~sum(is.na(.x)))</code></pre>
+<pre><code>## $PoolArea
+## [1] 0
+## 
+## $PoolQC
+## [1] 0</code></pre>
+<pre class="r"><code># Arrumando inconsistëncias:
+full %&lt;&gt;% 
+  mutate(PoolQC = ifelse(PoolQC == 0 &amp; PoolArea !=0, 2, PoolQC))
+
+# Arrumando inconsistëncias:
+full %&lt;&gt;% 
+  mutate(Pool = ifelse(PoolQC == 0 &amp; PoolArea ==0, &quot;no&quot;, &quot;yes&quot;))</code></pre>
+</div>
+<div id="misc" class="section level3">
+<h3>Misc</h3>
+<p>Se referem aos recursos diversos</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Misc&quot;)],
+         SalePrice
+  ) %&gt;%
+  map(~sum(is.na(.x)))</code></pre>
+<pre><code>## $MiscFeature
+## [1] 2814
+## 
+## $MiscVal
+## [1] 0
+## 
+## $SalePrice
+## [1] 1459</code></pre>
+<p><code>MiscFeature</code>: recurso diverso não coberto em outras categorias</p>
+<ul>
+<li>Elevador elev</li>
+<li>Gar2 2nd Garage (se não for descrito na seção de garagem)</li>
+<li>Othr Outro</li>
+<li>Galpão derramado (mais de 100 SF)</li>
+<li>TenC Campo de ténis</li>
+<li>NA Nenhum</li>
+</ul>
+<p>Desta vez não se trata de uma variável ordinal, vejamos:</p>
+<pre class="r"><code>full %&lt;&gt;%
+  mutate(MiscFeature =  if_else(MiscFeature %&gt;% is.na, &quot;None&quot;, MiscFeature) %&gt;% as.factor) 
+
+# Breve resumo:
+g1 &lt;- 
+  full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Misc&quot;)], SalePrice) %&gt;% 
+  ggplot(aes(y=MiscVal,x= reorder(MiscFeature, -MiscVal,FUN = median) ,fill=MiscFeature))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;Recurso Diverso&quot;)
+
+g2 &lt;- 
+  full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Misc&quot;)], SalePrice) %&gt;% 
+  ggplot(aes(y=SalePrice,x= reorder(MiscFeature, -MiscVal,FUN = median) ,fill=MiscFeature))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;Preço de Venda&quot;)
+
+grid.arrange(g1, g2)</code></pre>
+<pre><code>## Warning: Removed 1459 rows containing non-finite values (stat_boxplot).</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>rm(g1,g2)</code></pre>
+<p>Além disso, <code>MiscVal</code>: Valor do recurso variado</p>
+</div>
+<div id="alley" class="section level3">
+<h3>Alley</h3>
+<p><code>Alley</code>: Tipo de acesso ao beco para a propriedade</p>
+<ul>
+<li>Grvl Cascalho</li>
+<li>Pave pavimentado</li>
+<li>NA Nenhum acesso de beco</li>
+</ul>
+<p>Basta realizar o input:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(Alley = Alley %&gt;% str_replace_na(&quot;None&quot;)) %&gt;% 
+  mutate(Alley = as.factor(Alley))</code></pre>
+<pre class="r"><code>full[!is.na(full$SalePrice),] %&gt;% 
+  select(Alley, SalePrice) %&gt;% 
+  ggplot(aes(y=SalePrice,x= reorder(Alley, -SalePrice,FUN = median) ,fill=Alley))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;tipo de Acesso&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="fence" class="section level3">
+<h3>Fence</h3>
+<p><code>Fence</code>: qualidade da cerca</p>
+<ul>
+<li>GdPrv Boa privacidade</li>
+<li>MnPrv minima privacidade</li>
+<li>GdWo boa madeira</li>
+<li>MnWw Mínima Madeira / Fio</li>
+<li>NA Sem cerca</li>
+</ul>
+<p>Input será da seguinte forma:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(Fence = Fence %&gt;% str_replace_na(&quot;None&quot;))</code></pre>
+<pre class="r"><code>full[1:nrow(train),] %&gt;% 
+  select(Fence, SalePrice) %&gt;% 
+  ggplot(aes(y=SalePrice,x= reorder(Fence, -SalePrice, median) ,fill=Fence))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;tipo de Acesso&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="r"><code>full %&lt;&gt;% mutate(Fence = as.factor(Fence))</code></pre>
+<p>Aparentemente não parece existir uma relação ordinal sobre o tipo de cerca quanto ao pre;o de venda da casa, portanto foi convertida para fator</p>
+</div>
+<div id="fireplace" class="section level3">
+<h3>FirePlace</h3>
+<p>Variáveis relacionadas com lareira. Segundo a descrição, temos:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Fireplace&quot;)], SalePrice)</code></pre>
+<pre><code>## # A tibble: 2,919 x 3
+##    Fireplaces FireplaceQu SalePrice
+##         &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;
+##  1          0 &lt;NA&gt;             12.2
+##  2          1 TA               12.1
+##  3          1 TA               12.3
+##  4          1 Gd               11.8
+##  5          1 TA               12.4
+##  6          0 &lt;NA&gt;             11.9
+##  7          1 Gd               12.6
+##  8          2 TA               12.2
+##  9          2 TA               11.8
+## 10          2 TA               11.7
+## # ... with 2,909 more rows</code></pre>
+<p><code>Fireplaces</code>: Numero de lareiras</p>
+<p><code>FireplaceQu</code>: Qualidade da lareira</p>
+<ul>
+<li>Ex Excellente - Excepcional Lareira de Alvenaria</li>
+<li>Gd Boa - Lareira de alvenaria no nível principal</li>
+<li>TA Média - lareira pré-fabricada na sala principal ou Lareira de alvenaria no porão</li>
+<li>Fa Pequena - Lareira pré-fabricada no porão</li>
+<li>Po Pobre - Fogão Ben Franklin</li>
+<li>NA sem lareira</li>
+</ul>
+<p>Nota-se que se trata de uma variável ordinal de acordo com a qualidade, portanto:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(FireplaceQu =  if_else(FireplaceQu %&gt;% is.na, &quot;None&quot;, FireplaceQu) ) %&gt;% 
+  mutate(FireplaceQu = as.integer(revalue(FireplaceQu, Qualidade)))</code></pre>
+<p>Conferindo se existem inconsistências:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Fireplace&quot;)]) %&gt;% 
+  table </code></pre>
+<pre><code>##           FireplaceQu
+## Fireplaces    0    1    2    3    4    5
+##          0 1420    0    0    0    0    0
+##          1    0   46   63  495  627   37
+##          2    0    0   10   92  112    5
+##          3    0    0    1    4    5    1
+##          4    0    0    0    1    0    0</code></pre>
+</div>
+<div id="lot" class="section level3">
+<h3>Lot</h3>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Lot&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>## LotFrontage     LotArea    LotShape   LotConfig   SalePrice 
+##         486           0           0           0        1459</code></pre>
+<p>Segundo a descrição:</p>
+<p><code>LotFrontage</code>: Ruas linearmente conectadas à propriedade</p>
+<p><code>LotArea</code> : Tamanho do lote em pés quadrados</p>
+<p><code>LotShape</code>: forma geral da propriedade</p>
+<ul>
+<li>Regue Regular<br />
+</li>
+<li>IR1 ligeiramente irregular</li>
+<li>IR2 moderadamente irregular</li>
+<li>IR3 Irregular</li>
+</ul>
+<p><code>LotConfig</code>: configuração de lote</p>
+<ul>
+<li>Inside Lote muito para dentro</li>
+<li>Corner Canto de esquina</li>
+<li>CulDSac Cul-de-sac</li>
+<li>FR2 Frente em 2 lados da propriedade</li>
+<li>FR3 Frente em 3 lados da propriedade</li>
+</ul>
+<p>Input para o <code>LotFrontage</code> será feito considerando a configuração do lote, veja:</p>
+<pre class="r"><code>inputsLot &lt;- full %&gt;% 
+  select(LotFrontage, LotConfig) %&gt;% 
+  group_by(LotConfig) %&gt;%
+  dplyr::summarise(Media = mean(LotFrontage, na.rm = T),
+            Mediana = median(LotFrontage, na.rm = T))</code></pre>
+<pre><code>## Warning: package &#39;bindrcpp&#39; was built under R version 3.4.4</code></pre>
+<pre class="r"><code>full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[1]] &lt;- inputsLot$Mediana[1] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[2]] &lt;- inputsLot$Mediana[2] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[3]] &lt;- inputsLot$Mediana[3] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[4]] &lt;- inputsLot$Mediana[4] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[5]] &lt;- inputsLot$Mediana[5] </code></pre>
+<p>Arrumando variáveis nominais e ordinais:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(LotShape = as.integer(revalue(full$LotShape, c(&#39;IR3&#39;=0, &#39;IR2&#39;=1, &#39;IR1&#39;=2, &#39;Reg&#39;=3))))</code></pre>
+</div>
+<div id="garages" class="section level3">
+<h3>Garages</h3>
+<p>Variáveis relacionadas, segundo a descrição, temos:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Garage&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>##   GarageType  GarageYrBlt GarageFinish   GarageCars   GarageArea 
+##          157          159          159            1            1 
+##   GarageQual   GarageCond    SalePrice 
+##          159          159         1459</code></pre>
+<p><code>GarageType</code>: localização da garagem</p>
+<ul>
+<li>2Types Mais de um tipo de garagem</li>
+<li>Attchd anexa a casa</li>
+<li>Basement tipo porao</li>
+<li>BuiltIn (garagem parte da casa - normalmente tem sala acima da garagem)</li>
+<li>CarPort Porta do carro</li>
+<li>Detchd nao anexa a casa</li>
+<li>NA Sem Garagem</li>
+</ul>
+<p><code>GarageYrBlt</code>: garagem do ano foi construída</p>
+<p><code>GarageFinish</code>: acabamento interior da garagem</p>
+<ul>
+<li>Fin Finished</li>
+<li>RFn Áspero Finalizado<br />
+</li>
+<li>Unf inacabado</li>
+<li>NA Sem Garagem</li>
+</ul>
+<p><code>GarageCars</code>: Tamanho da garagem na capacidade do carro</p>
+<p><code>GarageArea</code>: Tamanho da garagem em pés quadrados</p>
+<p><code>GarageQual</code>: GarageQuality</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Good</li>
+<li>TA Típico / Médio</li>
+<li>FA Justo</li>
+<li>Po Poor</li>
+<li>NA Sem Garagem</li>
+</ul>
+<p><code>GarageCond</code>: condição de garagem</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Good</li>
+<li>TA Típico / Médio</li>
+<li>Fa Justo</li>
+<li>Po Poor</li>
+<li>NA Sem Garagem</li>
+</ul>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(GarageType   =  if_else(GarageType %&gt;% is.na, &quot;None&quot;, GarageType) ) %&gt;% 
+  mutate(GarageYrBlt  = if_else(GarageYrBlt %&gt;% is.na,YearBuilt, GarageYrBlt) ) %&gt;% 
+  mutate(GarageFinish =  if_else(GarageFinish %&gt;% is.na, &quot;None&quot;, GarageFinish) ) %&gt;% 
+  mutate(GarageFinish = as.integer(revalue(GarageFinish, c(&#39;None&#39;=0, &#39;Unf&#39;=1, &#39;RFn&#39;=2, &#39;Fin&#39;=3)))) %&gt;% 
+  mutate(GarageCars   = ifelse(GarageCars %&gt;% is.na, 0, GarageCars) ) %&gt;% 
+  mutate(GarageArea   = ifelse(GarageArea %&gt;% is.na, 0, GarageArea)) %&gt;% 
+  mutate(GarageQual   = if_else(GarageQual %&gt;% is.na, &quot;None&quot;, GarageQual)) %&gt;% 
+  mutate(GarageQual   = as.integer(revalue(GarageQual, Qualidade))) %&gt;% 
+  mutate(GarageCond   = if_else(GarageCond %&gt;% is.na, &quot;None&quot;, GarageCond)) %&gt;% 
+  mutate(GarageCond   = as.integer(revalue(GarageCond, Qualidade))) 
+  
+table(full$GarageCond)</code></pre>
+<pre><code>## 
+##    0    1    2    3    4    5 
+##  159   14   74 2654   15    3</code></pre>
+</div>
+<div id="bsmt" class="section level3">
+<h3>Bsmt</h3>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>##     BsmtQual     BsmtCond BsmtExposure BsmtFinType1   BsmtFinSF1 
+##           81           82           82           79            1 
+## BsmtFinType2   BsmtFinSF2    BsmtUnfSF  TotalBsmtSF BsmtFullBath 
+##           80            1            1            1            2 
+## BsmtHalfBath    SalePrice 
+##            2         1459</code></pre>
+<p><code>BsmtQual</code>: Avalia a altura do porão</p>
+<ul>
+<li>Ex Excelente (100+ polegadas)<br />
+</li>
+<li>Gd Bom (90-99 polegadas)</li>
+<li>TA Típica (80-89 polegadas)</li>
+<li>Fa Justo (70-79 polegadas)</li>
+<li>Po Pobre (&lt;70 polegadas</li>
+<li>NA Sem Porão</li>
+</ul>
+<p><code>BsmtCond</code>: Avalia o estado geral do porão</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Bom</li>
+<li>TA Típica - umidade ligeira permitida</li>
+<li>Fa Razoável - umidade ou alguma rachadura ou sedimentação</li>
+<li>Po Insuficiente - Craqueamento severo, sedimentação ou umidade</li>
+<li>NA Sem Porão</li>
+</ul>
+<p><code>BsmtExposure</code>: Refere-se a paralisações ou paredes no nível do jardim</p>
+<ul>
+<li>Gd Good Exposição</li>
+<li>Av Média Exposição (níveis divididos ou foyers normalmente pontuação média ou acima)<br />
+</li>
+<li>Mn Exposição Mínima</li>
+<li>No Não Exposição</li>
+<li>NA Sem porão</li>
+</ul>
+<p><code>BsmtFinType1</code>: Avaliação da área acabada do porão</p>
+<ul>
+<li>GLQ Bons Viver</li>
+<li>ALQ Média Living Quarters</li>
+<li>BLQ Abaixo da média Living Quarters<br />
+</li>
+<li>Rec Média Rec Room</li>
+<li>LwQ Baixa Qualidade</li>
+<li>Unf unfinshed</li>
+<li>NA nenhum porão</li>
+</ul>
+<p><code>BsmtFinSF1</code>: pes quadrados do tipo 1 terminado</p>
+<p><code>BsmtFinType2</code>: Avaliação do porão área terminado (se vários tipos)</p>
+<ul>
+<li>GLQ Bons aposentos</li>
+<li>ALQ Medianos</li>
+<li>BLQ abaixo da media</li>
+<li>Rec Aposentos média qualidade</li>
+<li>LwQ Baixa Qualidade</li>
+<li>Unf</li>
+<li>Não Sem Porão</li>
+</ul>
+<p><code>BsmtFinSF2</code>: Pés quadrados acabados do Tipo 2</p>
+<p><code>BsmtUnfSF</code>: Pés quadrados inacabados da área do porão</p>
+<p><code>TotalBsmtSF</code>: Total pés quadrados da área do porão</p>
+<p>Input das variáveis não numéricas com <code>None</code> e convertendo para ordinal as variáveis com relação de ordem. Para os faltantes das variáveis numéricas foram imputados o valor 0 (zeros).</p>
+<pre class="r"><code># Categóricos:
+full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] &lt;- 
+  full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] %&gt;%
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]) %&gt;%
+  mutate_if( ~ !is.numeric(.x) , ~ ifelse(is.na(.x), &quot;None&quot;, .x)) %&gt;% 
+  mutate(BsmtQual = as.integer(revalue(BsmtQual, Qualidade))) %&gt;% 
+  mutate(BsmtCond = as.integer(revalue(BsmtCond, Qualidade))) %&gt;% 
+  mutate(BsmtExposure = as.integer(revalue(BsmtExposure, c(&#39;None&#39;=0, &#39;No&#39;=1, &#39;Mn&#39;=2, &#39;Av&#39;=3, &#39;Gd&#39;=4)))) %&gt;% 
+  mutate(BsmtFinType1 = as.integer(revalue(BsmtFinType1,c(&#39;None&#39;=0, &#39;Unf&#39;=1, &#39;LwQ&#39;=2, &#39;Rec&#39;=3, &#39;BLQ&#39;=4, &#39;ALQ&#39;=5, &#39;GLQ&#39;=6)))) </code></pre>
+<pre><code>## The following `from` values were not present in `x`: Po</code></pre>
+<pre><code>## The following `from` values were not present in `x`: Ex</code></pre>
+<pre class="r"><code># Numéricos:
+full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] &lt;- 
+  full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] %&gt;%
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]) %&gt;%
+  mutate_if( ~ is.numeric(.x) , ~ ifelse(is.na(.x), 0, .x))</code></pre>
+</div>
+<div id="masvnr" class="section level3">
+<h3>MasVnr</h3>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;MasVnr&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>## MasVnrType MasVnrArea  SalePrice 
+##         24         23       1459</code></pre>
+<p><code>MasVnrType</code>: Alvenaria tipo de verniz</p>
+<ul>
+<li>BrkCmn Brick Common</li>
+<li>BrkFace Face de tijolos</li>
+<li>CBlock Bloco cinza</li>
+<li>None Nenhum</li>
+<li>Stone Pedra</li>
+</ul>
+<p><code>MasVnrArea</code>: Área de folheado de alvenaria em pés quadrados</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(MasVnrType = if_else(is.na(MasVnrType), &quot;None&quot;, MasVnrType)) %&gt;% 
+  mutate(MasVnrType = as.integer(revalue(MasVnrType, c(&#39;None&#39;=0, &#39;BrkCmn&#39;=0, &#39;BrkFace&#39;=1, &#39;Stone&#39;=2)))) %&gt;% 
+  mutate(MasVnrArea = if_else(is.na(MasVnrArea), 0, 1))</code></pre>
+</div>
+<div id="variaveis-restantes-com-poucos-na" class="section level3">
+<h3>Variáveis restantes com poucos <code>NA</code></h3>
+<p>A estratégia adotada para imputar estes dados será tomada de maneira arbitrária. Os valores faltantes serão preenchidos com o valor comum mais frequente daquela variável. As variáveis que restam são:</p>
+<pre class="r"><code>full %&gt;% 
+  df_status(print_results = F) %&gt;% 
+  as_tibble() %&gt;%
+  arrange(-p_na, -p_zeros)</code></pre>
+<pre><code>## # A tibble: 81 x 9
+##    variable    q_zeros p_zeros  q_na    p_na q_inf p_inf type      unique
+##    &lt;chr&gt;         &lt;int&gt;   &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;      &lt;int&gt;
+##  1 SalePrice         0     0    1459 50.0        0     0 numeric      663
+##  2 MSZoning          0     0       4  0.140      0     0 character      5
+##  3 Utilities         0     0       2  0.0700     0     0 character      2
+##  4 Functional        0     0       2  0.0700     0     0 character      7
+##  5 Exterior1st       0     0       1  0.0300     0     0 character     15
+##  6 Exterior2nd       0     0       1  0.0300     0     0 character     16
+##  7 Electrical        0     0       1  0.0300     0     0 character      5
+##  8 KitchenQual       0     0       1  0.0300     0     0 character      4
+##  9 SaleType          0     0       1  0.0300     0     0 character      9
+## 10 PoolArea       2906    99.6     0  0          0     0 integer       14
+## # ... with 71 more rows</code></pre>
+<p>Vejamos:</p>
+<p><code>MSZoning</code>: Identifica a classificação geral de zoneamento da venda.</p>
+<ul>
+<li>Será convertida para fator, variável nominal</li>
+</ul>
+<p><code>KitchenQual</code>: Qualidade da cozinha</p>
+<ul>
+<li>Será convertida para ordinal</li>
+</ul>
+<p><code>Utilities</code>: Tipo de utilidade disponível</p>
+<ul>
+<li>Será removida</li>
+</ul>
+<p><code>Functional</code>: Funcionalidade doméstica</p>
+<ul>
+<li>Será considerada como ordinal</li>
+</ul>
+<p><code>Exterior1st</code>: revestimento Exterior em casa</p>
+<ul>
+<li>Convertida para fator, variável nominal</li>
+</ul>
+<p><code>Electrical</code>: Sistema elétrico</p>
+<ul>
+<li>Convertida para fator, variável nominal</li>
+</ul>
+<p><code>SaleType</code>: Tipo de venda</p>
+<ul>
+<li>Convertida para fator, variável nominal</li>
+</ul>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(MSZoning    = ifelse(is.na(MSZoning),
+                            full$MSZoning %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, MSZoning)) %&gt;% 
+  mutate(MSZoning    = as.factor(MSZoning)) %&gt;% 
+  mutate(KitchenQual = if_else(is.na(KitchenQual),
+                            full$KitchenQual %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, KitchenQual)) %&gt;% 
+  mutate(KitchenQual = as.integer(revalue(full$KitchenQual, Qualidade))) %&gt;% 
+  select(-Utilities) %&gt;% 
+  mutate(Exterior1st = ifelse(is.na(Exterior1st),
+                            full$Exterior1st %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, Exterior1st)) %&gt;% 
+  mutate(Exterior1st = as.factor(Exterior1st)) %&gt;% 
+  mutate(Exterior2nd = ifelse(is.na(Exterior2nd),
+                            full$Exterior2nd %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, Exterior2nd)) %&gt;% 
+  mutate(Exterior2nd = as.factor(Exterior2nd)) %&gt;% 
+  mutate(Electrical  = ifelse(is.na(Electrical),
+                            full$Electrical %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, Electrical)) %&gt;% 
+  mutate(Electrical  = as.factor(Electrical)) %&gt;% 
+  mutate(SaleType    = ifelse(is.na(SaleType ),
+                            full$SaleType  %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, SaleType )) %&gt;% 
+  mutate(SaleType    = as.factor(SaleType )) </code></pre>
+<pre><code>## The following `from` values were not present in `x`: None, Po</code></pre>
+<pre class="r"><code>full[is.na(full$Functional),&quot;Functional&quot;] &lt;- full$Functional %&gt;% table %&gt;% sort %&gt;% names %&gt;% last
+full$Functional = as.integer(revalue(full$Functional, c(&#39;Sal&#39;=0, &#39;Sev&#39;=1, &#39;Maj2&#39;=2, &#39;Maj1&#39;=3, &#39;Mod&#39;=4, &#39;Min2&#39;=5, &#39;Min1&#39;=6, &#39;Typ&#39;=7)))</code></pre>
+<pre><code>## The following `from` values were not present in `x`: Sal</code></pre>
+<pre class="r"><code>full[is.na(full$KitchenQual),&quot;KitchenQual&quot;] &lt;- full$KitchenQual %&gt;% table %&gt;% sort %&gt;% names %&gt;% last
+full$KitchenQual = as.integer(revalue(full$KitchenQual, Qualidade))</code></pre>
+<pre><code>## The following `from` values were not present in `x`: None, Po, Fa, TA, Gd, Ex</code></pre>
+<pre class="r"><code># full[is.na(full$Electrical),&quot;Electrical&quot;] &lt;- 3</code></pre>
+<p>Status da base no momento:</p>
+<pre class="r"><code>full %&gt;% 
+  df_status(print_results = F) %&gt;% 
+  as_tibble() %&gt;%
+  arrange(-p_na,-p_zeros, type)</code></pre>
+<pre><code>## # A tibble: 80 x 9
+##    variable      q_zeros p_zeros  q_na  p_na q_inf p_inf type    unique
+##    &lt;chr&gt;           &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;    &lt;int&gt;
+##  1 SalePrice           0     0    1459  50.0     0     0 numeric    663
+##  2 PoolArea         2906    99.6     0   0       0     0 integer     14
+##  3 PoolQC           2906    99.6     0   0       0     0 numeric      4
+##  4 3SsnPorch        2882    98.7     0   0       0     0 integer     31
+##  5 LowQualFinSF     2879    98.6     0   0       0     0 integer     36
+##  6 MiscVal          2816    96.5     0   0       0     0 integer     38
+##  7 BsmtHalfBath     2744    94.0     0   0       0     0 numeric      3
+##  8 ScreenPorch      2663    91.2     0   0       0     0 integer    121
+##  9 BsmtFinSF2       2572    88.1     0   0       0     0 numeric    272
+## 10 EnclosedPorch    2460    84.3     0   0       0     0 integer    183
+## # ... with 70 more rows</code></pre>
+<p>Transformando o <code>character</code> para <code>factor</code>:</p>
+<pre class="r"><code>full %&lt;&gt;% mutate_if(is.character, as.factor)</code></pre>
+<p>Transformando novamente nossa base de treino e de teste:</p>
+<pre class="r"><code>train &lt;- full[1:nrow(train),] %&gt;% as.data.frame()
+test  &lt;- full[(nrow(train)+1):nrow(full),-ncol(full)] %&gt;% as.data.frame()</code></pre>
+</div>
+</div>
+</div>
+<div id="machine-learning-com-algoritmos-de-aprendizagem-baseados-em-arvores" class="section level1">
+<h1>Machine Learning com algorítmos de aprendizagem baseados em árvores</h1>
+<p>Os métodos baseados em árvores fornecem modelos preditivos de alta precisão, estabilidade e facilidade de interpretação. Ao contrário dos modelos lineares, eles são capazes de lidar bem com relações não-lineares além de poderem ser adaptados para resolver tanto problemas de classificação quanto problemas de regressão.</p>
+<p>Algoritmos como árvores de decisão, random forest e “gradient boosting” estão sendo muito usados em todos os tipos de problemas de data science e é notável o uso desses algorítimos para resolver os desafios do <a href="https://www.kaggle.com/">Kaggle</a>. Para resolver este problema utilizaremos estes três algoritmos e ao final, pegando carona na seleção de variáveis para os algoritmos de árvore, será ajustado um modelo de regressão linear para compararmos e conferirmos a significância estatística de cada uma das variáveis.</p>
+<div id="varimp-com-random-forest" class="section level2">
+<h2>VarImp com Random Forest</h2>
+<p>Um dos benefícios da floresta aleatória é o poder de lidar com grande conjunto de dados com maior dimensionalidade e identificar as variáveis a importância das variáveis, que pode ser uma característica muito útil porém deve ser feita com cautela.</p>
+<p>Veja uma reflexão (traduzida) da <a href="https://www.stat.berkeley.edu/~breiman/RandomForests/reg_philosophy.htm">nota de Leo Breiman (Universidade da Califórnia em Berkeley)</a></p>
+<blockquote>
+<p>“Uma nota filosófica: RF é um exemplo de uma ferramenta que é útil para fazer análises de dados científicos; Mas os algoritmos mais inteligentes não substituem a inteligência humana e o conhecimento dos dados do problema; Pegue a saída de florestas aleatórias não como verdade absoluta, mas como suposições geradas por um computador inteligente que podem ser úteis para levar a uma compreensão mais profunda do problema.”</p>
+</blockquote>
+<p>O ajuste da árvore será feito com o pacote <code>caret</code> e o estudo de estimativas de erro foi definido como o <a href="https://en.wikipedia.org/wiki/Out-of-bag_error">Out of bag</a> que remove a necessidade de um conjunto de teste pois é o erro médio de previsão em cada amostra de treinamento <span class="math inline">\(x_i\)</span> , usando apenas as árvores que não tinham <span class="math inline">\(x_i\)</span> em sua amostra de <a href="https://www.ime.usp.br/~chang/home/mae5704/aula-bootstrap.pdf">bootstrap</a>.</p>
+<pre class="r"><code>set.seed(1)
+control &lt;- trainControl(method = &quot;oob&quot;,verboseIter = F)
+
+rfFit1 &lt;- train(SalePrice ~. ,
+      data=train,
+      method=&quot;rf&quot;,
+      metric = &quot;Rsquared&quot;,
+      trControl = control
+      )
+
+randomForest::varImpPlot(rfFit1$finalModel)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<pre class="r"><code>rfFit1$finalModel$importance %&gt;% 
+  as.data.frame %&gt;%
+  mutate(row = rownames(.)) %&gt;% 
+  arrange(desc(IncNodePurity)) %&gt;% 
+  as_tibble()</code></pre>
+<pre><code>## # A tibble: 218 x 2
+##    IncNodePurity row        
+##            &lt;dbl&gt; &lt;chr&gt;      
+##  1         77.6  OverallQual
+##  2         33.7  GrLivArea  
+##  3         16.3  YearBuilt  
+##  4         10.5  KitchenQual
+##  5          9.57 GarageCars 
+##  6          8.88 TotalBsmtSF
+##  7          7.48 GarageArea 
+##  8          7.42 `1stFlrSF` 
+##  9          5.84 ExterQualTA
+## 10          4.41 FireplaceQu
+## # ... with 208 more rows</code></pre>
+<p>Após inspecionar a importância das variáveis vamos selecionar as seguintes variáveis:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  select(
+    SalePrice  , Neighborhood, OverallQual , GrLivArea   , YearBuilt   ,  KitchenQual, 
+    GarageCars ,  GarageArea , `1stFlrSF`  , ExterQual   , BsmtFinSF1  , FireplaceQu, 
+    BsmtQual   , `2ndFlrSF`  , CentralAir  , GarageFinish, YearRemodAdd, FullBath, 
+    GarageYrBlt, Fireplaces  , LotFrontage , BsmtUnfSF   , TotalBsmtSF , BsmtFinType1,
+    OpenPorchSF, GarageType  , BsmtExposure, OverallCond , TotalBsmtSF , LotArea
+  )</code></pre>
+<p>Portanto, vamos definir novamente o conjunto de dados de treino e de teste:</p>
+<pre class="r"><code>train &lt;- full[1:nrow(train),] %&gt;% as.data.frame()
+test  &lt;- full[(nrow(train)+1):nrow(full),-1] %&gt;% as.data.frame()</code></pre>
+</div>
+<div id="variaveis-numericas" class="section level2">
+<h2>Variáveis numéricas</h2>
+<p>Após a seleção dessas variáveis, vamos entender como elas estão correlacionadas dois a dois com o <a href="https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_Pearson">coeficiente de correlação de pearson</a>, exibindo a matrix em um <a href="https://en.wikipedia.org/wiki/Heat_map">Heatmap</a> (ou mapa de calor ), que é uma representação gráfica de dados em que os valores individuais contidos em uma matriz representados como cores.</p>
+<pre class="r"><code>cormat &lt;- 
+  full %&gt;% 
+  select(SalePrice, everything()) %&gt;% 
+  select_if(is.numeric) %&gt;% 
+  as.data.frame() %&gt;% 
+  cor(use = &quot;na.or.complete&quot;) %&gt;% 
+  melt
+
+cormat %&gt;%   
+  ggplot( aes(reorder(X1,value), reorder(X2,value), fill=value))+
+  geom_tile(color=&quot;white&quot;)+
+  scale_fill_gradient2(low=&quot;blue&quot;, high=&quot;red&quot;, mid=&quot;white&quot;, midpoint=0, limit=c(-1,1), space=&quot;Lab&quot;, name=&quot;Pearson\nCorrelation&quot;)+
+  theme_bw()+
+  theme(axis.text.x=element_text(angle=45, vjust=1, size=10, hjust=1))+
+  coord_fixed()+
+  labs(x=&quot;&quot;,y=&quot;&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-37-1.png" width="1152" /></p>
+<p>É possível notar que existem variáveis explicativas correlacionadas o que indica que a presença de algumas variáveis pode possivelmente interferir no ajuste final do modelo linear multivariado.</p>
+</div>
+<div id="variaveis-categoricas" class="section level2">
+<h2>Variáveis categóricas</h2>
+<p>Já a relação das varáveis categóricas não podem ser calculada com o coeficiente de correlação calculado anteriormente, para avaliar como elas estão associadas será calculado a medida de associação <a href="https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V">V de Cramér</a>. Novamente a matrix dos resultados serão novamente apresentados em um <a href="https://en.wikipedia.org/wiki/Heat_map">Heatmap</a> (ou mapa de calor ) que foi inspirado <a href="http://analysingstuffs.xyz/2017/12/01/visualizing-the-correlations-between-categorical-variables-with-r-a-cramers-v-heatmap/">neste post</a> (neste post também é apresentada uma função para o cálculo da matrix, adaptei de forma que se tornasse mais geral e disponibilizei no meu github <a href="https://github.com/gomesfellipe/functions/blob/master/interaction_all.R">neste link</a>).</p>
+<pre class="r"><code># Carrega funcao que calcula o V de Cramer:
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/cv_test.R&quot;)</code></pre>
+<pre><code>## SHA-1 hash of file is 2d15bda1f718f1b36681e84a0379eb938af9d283</code></pre>
+<pre class="r"><code># Carrega a funcao que realiza as interações dos calculos dois a dois:
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/interaction_all.R&quot;)</code></pre>
+<pre><code>## SHA-1 hash of file is 8b0b0041fcec34896a26400c741fede7e508c94f</code></pre>
+<p>Veja:</p>
+<pre class="r"><code>cvmat &lt;- 
+train %&gt;%
+  select_if(~!is.numeric(.x)) %&gt;% 
+  as.data.table() %&gt;%
+  interaction_all(cv_test) %&gt;% 
+  as_tibble() </code></pre>
+<pre><code>## Warning in chisq.test(x, y, correct = FALSE): Chi-squared approximation may
+## be incorrect
+
+## Warning in chisq.test(x, y, correct = FALSE): Chi-squared approximation may
+## be incorrect
+
+## Warning in chisq.test(x, y, correct = FALSE): Chi-squared approximation may
+## be incorrect
+
+## Warning in chisq.test(x, y, correct = FALSE): Chi-squared approximation may
+## be incorrect
+
+## Warning in chisq.test(x, y, correct = FALSE): Chi-squared approximation may
+## be incorrect
+
+## Warning in chisq.test(x, y, correct = FALSE): Chi-squared approximation may
+## be incorrect</code></pre>
+<pre class="r"><code>cvmat %&gt;% 
+  ggplot( aes(variable_x, variable_y, fill=v_cramer))+
+  geom_tile(color=&quot;white&quot;)+
+  scale_fill_gradient2(low=&quot;blue&quot;, high=&quot;red&quot;, mid=&quot;white&quot;, midpoint=0, limit=c(-1,1), space=&quot;Lab&quot;, name=&quot;Cramer&#39;s V&quot;)+
+  theme_bw()+
+  theme(axis.text.x=element_text(angle=45, vjust=1, size=10, hjust=1))+
+  coord_fixed()+
+  labs(x=&quot;&quot;,y=&quot;&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+</div>
+</div>
+<div id="ajustando-modelos" class="section level1">
+<h1>Ajustando modelos</h1>
+<div id="arvore-de-decisao-1" class="section level2">
+<h2>Arvore de decisao</h2>
+<p>O modelo de árvore de decisão já foi comentado e deixei algumas referências ao final do post portanto vejamos a seguir o ajusto no R. Segundo a <a href="https://cran.r-project.org/web/packages/rpart/rpart.pdf">documentação</a>:</p>
+<p><code>cp</code>: parâmetro de complexidade. No nosso caso isso significa que o <a href="https://pt.wikipedia.org/wiki/R%C2%B2"><span class="math inline">\(R^2\)</span></a> total deve aumentar em cp em cada etapa. O principal papel desse parâmetro é economizar tempo de computação removendo as divisões que obviamente não valem a pena. Essencialmente, informamos ao programa que qualquer divisão que não melhore o ajuste por <code>cp</code> provavelmente será eliminada por <a href="https://pt.wikipedia.org/wiki/Valida%C3%A7%C3%A3o_cruzada">validação cruzada</a>, e que, portanto, o programa não precisa buscá-la.</p>
+<p>Para pesquisa de grade existem duas maneiras de ajustar um algoritmo no pacote <code>caret</code>: permitir que o sistema faça isso automaticamente ou especificar o <code>tuneGride</code> manualmente onde cada parâmetro do algoritmo pode ser especificado como um vetor de valores possíveis. Confira o ajuste manual em R:</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+tunegrid &lt;- expand.grid(cp=seq(0.001, 0.01, 0.001))
+
+rpartFit2 &lt;- 
+  train(y=train$SalePrice, x=train[,-1],
+        method=&quot;rpart&quot;,
+        trControl=control,
+        tuneGrid=tunegrid,
+        metric = &quot;Rsquared&quot;
+  )
+rpartFit2</code></pre>
+<pre><code>## CART 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1166, 1169, 1167, 1169 
+## Resampling results across tuning parameters:
+## 
+##   cp     RMSE       Rsquared   MAE      
+##   0.001  0.1851270  0.7850311  0.1335729
+##   0.002  0.1882550  0.7774668  0.1360632
+##   0.003  0.1937508  0.7642278  0.1406901
+##   0.004  0.1986244  0.7518272  0.1451432
+##   0.005  0.1983841  0.7524198  0.1466253
+##   0.006  0.2018946  0.7436975  0.1489733
+##   0.007  0.2029032  0.7412966  0.1498322
+##   0.008  0.2036704  0.7386382  0.1504721
+##   0.009  0.2063662  0.7321483  0.1516738
+##   0.010  0.2088097  0.7261248  0.1541896
+## 
+## Rsquared was used to select the optimal model using the largest value.
+## The final value used for the model was cp = 0.001.</code></pre>
+<p>Podemos conferir os resultados novamente de maneira visual:</p>
+<pre class="r"><code>rpart.plot(rpartFit2$finalModel, cex = 0.5)</code></pre>
+<pre><code>## Warning: labs do not fit even at cex 0.15, there may be some overplotting</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-41-1.png" width="1200" /></p>
+<p>Gerando arquivo para submissão no kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(rpartFit2, test) %&gt;% exp) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;rpartFit2.csv&quot;,row.names = F)</code></pre>
+</div>
+<div id="bagging" class="section level2">
+<h2>Bagging</h2>
+<p><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating">“Bagging”</a> é usado quando desejamos reduzir a variação de uma árvore de decisão. Ela combina o resultado de vários modelos onde todas as variáveis são considerados para divisão um nó. Em R:</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+treebagFit &lt;- train(y=train$SalePrice, 
+                    x=train[,-1], 
+                    method = &quot;treebag&quot;,
+                    metric = &quot;Rsquared&quot;,
+                    trControl=control
+)
+treebagFit</code></pre>
+<pre><code>## Bagged CART 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1166, 1169, 1167, 1169 
+## Resampling results:
+## 
+##   RMSE      Rsquared  MAE      
+##   0.180257  0.800383  0.1276895</code></pre>
+<p>Note que o <span class="math inline">\(R^2\)</span> aumentou e o <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation"><span class="math inline">\(RMSE\)</span></a> diminuiu após o uso desta técnica.</p>
+<p>Resultados para enviar para o Kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(treebagFit, test)%&gt;% exp) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;treebagFit.csv&quot;,row.names = F)</code></pre>
+</div>
+<div id="random-forest" class="section level2">
+<h2>Random Forest</h2>
+<p>A principal diferença entre “bagging” e o algoritmo Random Forest é que em <code>randomForest</code>, apenas um subconjunto de características é selecionado aleatoriamente em cada divisão em uma árvore de decisão enquanto que no bagging todos os recursos são usados.</p>
+<p>Para pesquisa de grade especificaremos um vetor com os possíveis valores, <a href="https://cran.r-project.org/web/packages/randomForest/randomForest.pdf">pois o default adotado para o parâmetro</a> <code>mtry</code> é <code>mtry</code> = p/3 (Número de variáveis amostradas aleatoriamente como candidatos em cada divisão), onde p é o número de variáveis e pode ser que o modelo se ajuste melhor aos dados ao utilizar outro valor.</p>
+<p>Veja:</p>
+<pre class="r"><code>set.seed(1)
+
+tunegrid &lt;- expand.grid(mtry = seq(4, ncol(train) * 0.8, 2))
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+rfFit &lt;- train(SalePrice ~. ,
+               data=train,
+               method=&quot;rf&quot;,
+               metric = &quot;Rsquared&quot;,
+               tuneGrid=tunegrid,
+               trControl=control
+)
+rfFit</code></pre>
+<pre><code>## Random Forest 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1166, 1169, 1167, 1169 
+## Resampling results across tuning parameters:
+## 
+##   mtry  RMSE       Rsquared   MAE       
+##    4    0.1455418  0.8777812  0.09715090
+##    6    0.1414106  0.8818890  0.09430431
+##    8    0.1390004  0.8845912  0.09260696
+##   10    0.1384602  0.8847086  0.09192925
+##   12    0.1375739  0.8856181  0.09146023
+##   14    0.1379341  0.8845199  0.09191786
+##   16    0.1375007  0.8848814  0.09173468
+##   18    0.1378254  0.8841412  0.09181452
+##   20    0.1370225  0.8852069  0.09167087
+##   22    0.1377031  0.8836794  0.09185160
+## 
+## Rsquared was used to select the optimal model using the largest value.
+## The final value used for the model was mtry = 12.</code></pre>
+<p>Note que o <span class="math inline">\(R^2\)</span> aumentou e o <span class="math inline">\(RMSE\)</span> apresentou resultados ainda mais satisfatórios.</p>
+<p>Veja visualmente a importância de ada variável:</p>
+<pre class="r"><code>randomForest::varImpPlot(rfFit$finalModel)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p>Resultados para enviar para o Kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(rfFit, test) %&gt;% exp) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;rfFit.csv&quot;,row.names = F) </code></pre>
+</div>
+<div id="gbm" class="section level2">
+<h2>GBM</h2>
+<p>Diferentemente do “bagging”, o “boosting” é uma técnica de ensemble (conjunto) na qual os preditores não são feitos independentemente, mas sequencialmente. Na imagem a seguir é possível ver uma representação visual dessa diferença:</p>
+<div class="figure">
+<img src="https://cdn-images-1.medium.com/max/1600/1*PaXJ8HCYE9r2MgiZ32TQ2A.png" />
+
+</div>
+<p>A imagem foi obtida <a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d">neste artigo: Gradient Boosting from scratch</a>, recomendo a leitura pois da uma boa intuição de como o algoritmo funciona.</p>
+<p>Para a pesquisa de grade vamos permitir que o sistema faça isso automaticamente configurando apenas o <code>tuneLength</code> para indicar o número de valores diferentes para cada parâmetro do algoritmo.</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+gbmFit &lt;- train(SalePrice~.,data=train,
+                method = &quot;gbm&quot;,
+                trControl=control,
+                tuneLength=5,
+                metric = &quot;Rsquared&quot;,
+                verbose = FALSE
+)
+gbmFit</code></pre>
+<pre><code>## Stochastic Gradient Boosting 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1166, 1169, 1167, 1169 
+## Resampling results across tuning parameters:
+## 
+##   interaction.depth  n.trees  RMSE       Rsquared   MAE       
+##   1                   50      0.1730397  0.8351648  0.12135999
+##   1                  100      0.1444704  0.8699373  0.10144622
+##   1                  150      0.1369571  0.8808203  0.09661622
+##   1                  200      0.1343402  0.8848707  0.09422986
+##   1                  250      0.1337297  0.8860971  0.09358998
+##   2                   50      0.1483094  0.8669459  0.10310990
+##   2                  100      0.1332364  0.8868509  0.09277565
+##   2                  150      0.1308947  0.8906276  0.09104835
+##   2                  200      0.1300717  0.8921879  0.09024389
+##   2                  250      0.1300771  0.8921040  0.09007936
+##   3                   50      0.1419465  0.8747933  0.09804802
+##   3                  100      0.1319456  0.8889471  0.09055141
+##   3                  150      0.1299294  0.8925420  0.08939164
+##   3                  200      0.1294453  0.8936116  0.08892228
+##   3                  250      0.1286343  0.8949347  0.08860049
+##   4                   50      0.1371505  0.8816338  0.09454808
+##   4                  100      0.1305124  0.8909805  0.09050102
+##   4                  150      0.1294474  0.8932055  0.08960923
+##   4                  200      0.1284459  0.8950245  0.08918657
+##   4                  250      0.1280869  0.8959699  0.08897876
+##   5                   50      0.1356299  0.8840098  0.09265884
+##   5                  100      0.1302069  0.8918284  0.08938808
+##   5                  150      0.1297269  0.8929259  0.08900940
+##   5                  200      0.1288664  0.8946107  0.08839819
+##   5                  250      0.1294697  0.8939757  0.08878455
+## 
+## Tuning parameter &#39;shrinkage&#39; was held constant at a value of 0.1
+## 
+## Tuning parameter &#39;n.minobsinnode&#39; was held constant at a value of 10
+## Rsquared was used to select the optimal model using the largest value.
+## The final values used for the model were n.trees = 250,
+##  interaction.depth = 4, shrinkage = 0.1 and n.minobsinnode = 10.</code></pre>
+<p>Note que este foi o modelo que apresentou os melhores resultados quanto só <span class="math inline">\(R^2\)</span> e ao <span class="math inline">\(RMSE\)</span> em comparação com os outros modelos.</p>
+<p>Submissão para Kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(gbmFit, test) %&gt;% exp) %&gt;%
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;gbmFit.csv&quot;, row.names = F)</code></pre>
+</div>
+<div id="regressao-linear" class="section level2">
+<h2>Regressão Linear</h2>
+<p>Por fim faremos o ajuste de um modelo de regressão linear multivariado utilizando o pacote caret.</p>
+<p>Utilizaremos validação cruzada separando nossa amostra em 5 e utilizaremos o método <code>lmStepAIC</code> que realiza a seleção do modelo escalonado pelo critério de informação de Akaike - <a href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a>.</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+lmFit &lt;- train(SalePrice~.,data=train,
+               method = &quot;lmStepAIC&quot;,
+               trControl=control,
+               metric = &quot;Rsquared&quot;,trace=F
+)
+lmFit</code></pre>
+<pre><code>## Linear Regression with Stepwise Selection 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1166, 1169, 1167, 1169 
+## Resampling results:
+## 
+##   RMSE       Rsquared   MAE       
+##   0.1476205  0.8625503  0.09569549</code></pre>
+<p>Note que o ajuste do modelo se apresenta de maneira satisfatória com <span class="math inline">\(R^2\)</span> e <span class="math inline">\(RMSE\)</span> semelhantes aos modelos de <code>bagging</code> e <code>boosting</code> e além disso, diferente dos modelos baseados em árvore, com este ajuste é possível notar a significância estatística de cada parâmetro ajustado, o que possibilita tanto o uso tanto como modelo preditivo quanto como modelo descritivo. Veja:</p>
+<pre class="r"><code>ggcoef(
+  lmFit$finalModel,                      #O modelo a ser conferido
+  vline_color = &quot;red&quot;,          #Reta em zero  
+  errorbar_color = &quot;blue&quot;,      #Cor da barra de erros
+  errorbar_height = .25,
+  shape = 18,                   #Altera o formato dos pontos centrais
+  size=2,                      #Altera o tamanho do ponto
+  color=&quot;black&quot;,
+  exclude_intercept = TRUE,                #Altera a cor do ponto
+  mapping = aes(x = estimate, y = term, size = p.value))+
+  scale_size_continuous(trans = &quot;reverse&quot;)+ #Essa linha faz com que inverta o tamanho
+  theme_bw()</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p>Note que o intercepto <span class="math inline">\(\beta_0\)</span> foi retirado da imagem pois é muito superior aos demais coeficientes. Note também que <span class="math inline">\(\beta_i\)</span> informa quão sensível é <span class="math inline">\(y\)</span>, no caso <code>log(SalePrice)</code> às variações de cara umas das <span class="math inline">\(x_{i,j}\)</span> variáveis explicativas. Mais concretamente, se <span class="math inline">\(x_{i,j}\)</span> aumenta em uma unidade, o valor de <span class="math inline">\(y\)</span> varia em <span class="math inline">\(\beta_1\)</span> unidades.</p>
+<p>Uma rápida <a href="http://www.portalaction.com.br/analise-de-regressao/analise-dos-residuos">Análise dos Resíduos</a>:</p>
+<pre class="r"><code>lmFit$finalModel %&gt;% 
+  autoplot(which = 1:2) + 
+  theme_bw()</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-52-1.png" width="1500" /></p>
+<p>É possível notar que parece haver alguns outliers em ambas as figuras. Na primeira é possível notar uma nuvem de pontos aleatórios em torno de zero porém na segunda figura nota-se que alguns valores não estão de acordo com os quantils teóricos de uma distribuição normal, o que pode prejudicar nossa interpretação dos coeficientes do modelo. Vamos encerrar o modelo por aqui mesmo e ver como ele se sai na competição do Kaggle, preparando a submissão:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(lmFit, test) %&gt;% exp ) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;lmFit.csv&quot;,row.names = F)</code></pre>
+<p>O score obtido com esta submissão no Kaggle foi muito próximo dos modelos baseados e árvore e o tempo computacional para este ajuste foi bem menor.</p>
+</div>
+<div id="comparando-ajustes" class="section level2">
+<h2>Comparando ajustes</h2>
+<p>Vejamos a seguir uma comparação entre estes modelos com as funções fornecidas pelo pacote `caret:.</p>
+<pre class="r"><code>resamps &lt;- resamples(list(rpart = rpartFit2,
+                          treebag = treebagFit,
+                          rf = rfFit,
+                          gbm = gbmFit,
+                          lm = lmFit 
+                          )) 
+bwplot(resamps)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/2018-08-31-modelos-em-arvore_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<p>Com este gráfico é possível notar que o modelo de regressão linear múltipla apresentou resultados semelhantes aos de bagging e boosting.</p>
+<p>É importante frisar que a maneira como as variáveis foram selecionadas para o modelo de regressão linear múltipla através da importância das variáveis obtida com o modelo randomForest não é um padrão e existem diversos outros modos estatísticos de se de determinar a significância e a relação das variáveis para o modelo.</p>
+<p>Um possível problema neste método é que não detecta a multicolinearidade, que ocorre quando as variáveis explicativas estão fortemente correlacionadas entre si e a análise de regressão linear pode ficar confusa e desprovida de significado, pois há dificuldade em distinguir o efeito de uma ou outra variável explicativa sobre a variável resposta <span class="math inline">\(Y\)</span> devido à variâncias muito elevadas ou sinais inconsistentes.</p>
+<p>Essa proposta de aprender se divertindo e de maneira produtiva me deixa muito empolgado, espero que tenham se divertido como eu me diverti fazendo este post!</p>
+</div>
+</div>
+<div id="referencias" class="section level1">
+<h1>Referências:</h1>
+<ul>
+<li><a href="https://www.datacamp.com/courses/machine-learning-with-tree-based-models-in-r">DataCamp Course:Machine Learning with Tree-Based Models in R</a></li>
+<li><a href="https://tinyurl.com/y796aa4t">Data Science <em>for</em> Business</a></li>
+<li><a href="https://lethalbrains.com/learn-ml-algorithms-by-coding-decision-trees-439ac503c9a4">Learn ML Algorithms by coding: Decision Trees</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/decision-trees-R">DataCamp Tutorials: Decision Trees in R</a></li>
+<li><a href="https://topepo.github.io/caret/">The caret Package - Max Kuhn</a></li>
+<li><a href="https://www.vooo.pro/insights/um-tutorial-completo-sobre-a-modelagem-baseada-em-tree-arvore-do-zero-em-r-python/">Um tutorial completo sobre modelagem baseada em árvores de decisão (códigos R e Python)</a></li>
+<li><a href="https://machinelearningmastery.com/tuning-machine-learning-models-using-the-caret-r-package/">Tuning Machine Learning Models Using the Caret R Package</a></li>
+<li><a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d">Gradient Boosting from scratch</a></li>
+<li><a href="https://machinelearningmastery.com/tune-machine-learning-algorithms-in-r/">Tune Machine Learning Algorithms in R (random forest case study)</a></li>
+<li><a href="https://www.stat.berkeley.edu/~breiman/RandomForests/cc_manual.htm">Random Forests - Leo Breiman and Adele Cutler</a></li>
+<li><a href="https://cran.r-project.org/web/packages/rpart/vignettes/longintro.pdf">An Introduction to Recursive Partitioning Using the RPART Routines - CRAN</a></li>
+</ul>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="/categories/datacamp">datacamp</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/gamificacao">gamificacao</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/kaggle">kaggle</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/machine-learning">machine learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/modelos">Modelos</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/probabilidade">probabilidade</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/rmarkdown">rmarkdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/teoria">Teoria</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/utilidades">utilidades</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/caret">caret</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/aprendendo">Aprendendo</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/data-mining">data mining</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/datacamp">datacamp</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gamificacao">gamificacao</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gamification">gamification</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/ggfortify">ggfortify</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/kaggle">kaggle</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/machine-learning">machine learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelagem">modelagem</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelos">Modelos</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelos-lineares">Modelos lineares</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/probabilidade">probabilidade</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/regression">regression</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/tree-random-forest">tree random forest</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gbm">gbm</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/bagging">bagging</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/boosting">boosting</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/"
+                class="button big previous">Ajustando um modelo de regressão linear bayesiano do zero</a></li>
+    
+
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-31'>
+                August 31, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="/img/2018/08/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Ajustando um modelo de regressão linear bayesiano do zero</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-28'>
+                July 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-06-24'>
+                June 24, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-05-26'>
+                May 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-04-12'>
+                April 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-03-07'>
+                March 7, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-17'>
+                February 17, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-01'>
+                February 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-26'>
+                December 26, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-18'>
+                December 18, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-17'>
+                December 17, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">Criando relatórios com template tufle </a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-14'>
+                December 14, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes, sou Estatístico e entusiasta pela ciência de dados. Percebi que um dos muitos desafios na carreira de um cientista de dados é passar para as pessoas o que podemos fazer em diversas áreas de estudo, diante disso resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+        
+        
+        
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+	<script>
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/152619/script.js');
+</script>  
+  </body>
+</html>
+

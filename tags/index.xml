@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Aprendendo</title>
       <link>/tags/aprendendo/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/aprendendo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bagging</title>
+      <link>/tags/bagging/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bagging/</guid>
       <description></description>
     </item>
     
@@ -26,6 +35,15 @@
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/bitcoin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boosting</title>
+      <link>/tags/boosting/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/boosting/</guid>
       <description></description>
     </item>
     
@@ -77,7 +95,7 @@
     <item>
       <title>Data mining</title>
       <link>/tags/data-mining/</link>
-      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/data-mining/</guid>
       <description></description>
@@ -86,7 +104,7 @@
     <item>
       <title>Datacamp</title>
       <link>/tags/datacamp/</link>
-      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/datacamp/</guid>
       <description></description>
@@ -113,7 +131,7 @@
     <item>
       <title>Estatistica</title>
       <link>/tags/estatistica/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/estatistica/</guid>
       <description></description>
@@ -140,7 +158,7 @@
     <item>
       <title>Gamificacao</title>
       <link>/tags/gamificacao/</link>
-      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/gamificacao/</guid>
       <description></description>
@@ -149,16 +167,25 @@
     <item>
       <title>Gamification</title>
       <link>/tags/gamification/</link>
-      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/gamification/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Gbm</title>
+      <link>/tags/gbm/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/gbm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Ggfortify</title>
       <link>/tags/ggfortify/</link>
-      <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/ggfortify/</guid>
       <description></description>
@@ -167,7 +194,7 @@
     <item>
       <title>Gomesfellipe</title>
       <link>/tags/gomesfellipe/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/gomesfellipe/</guid>
       <description></description>
@@ -212,7 +239,7 @@
     <item>
       <title>Kaggle</title>
       <link>/tags/kaggle/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/kaggle/</guid>
       <description></description>
@@ -239,7 +266,7 @@
     <item>
       <title>Machine learning</title>
       <link>/tags/machine-learning/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/machine-learning/</guid>
       <description></description>
@@ -284,7 +311,7 @@
     <item>
       <title>Modelagem</title>
       <link>/tags/modelagem/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/modelagem/</guid>
       <description></description>
@@ -293,7 +320,7 @@
     <item>
       <title>Modelos</title>
       <link>/tags/modelos/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/modelos/</guid>
       <description></description>
@@ -311,7 +338,7 @@
     <item>
       <title>Modelos lineares</title>
       <link>/tags/modelos-lineares/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/modelos-lineares/</guid>
       <description></description>
@@ -356,7 +383,7 @@
     <item>
       <title>Probabilidade</title>
       <link>/tags/probabilidade/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/probabilidade/</guid>
       <description></description>
@@ -365,7 +392,7 @@
     <item>
       <title>Prática</title>
       <link>/tags/pr%C3%A1tica/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/pr%C3%A1tica/</guid>
       <description></description>
@@ -374,7 +401,7 @@
     <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
       <description></description>
@@ -410,7 +437,7 @@
     <item>
       <title>Regression</title>
       <link>/tags/regression/</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/regression/</guid>
       <description></description>
@@ -530,6 +557,15 @@
       <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/tipos-de-vari%C3%A1veis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tree random forest</title>
+      <link>/tags/tree-random-forest/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tree-random-forest/</guid>
       <description></description>
     </item>
     
