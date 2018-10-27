@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/2018-10-27-server-cloud/server-cloud/</loc>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url>
@@ -236,7 +241,7 @@
   
   <url>
     <loc>/tags/bitcoin/</loc>
-    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -348,13 +353,13 @@
   
   <url>
     <loc>/tags/estatistica/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/estatistica/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -366,13 +371,19 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/filosofia/</loc>
     <lastmod>2017-12-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/fincan%C3%A7as/</loc>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -426,19 +437,19 @@
   
   <url>
     <loc>/tags/gomesfellipe/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/google/</loc>
-    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/google/</loc>
-    <lastmod>2018-04-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -606,13 +617,13 @@
   
   <url>
     <loc>/tags/package/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/package/</loc>
-    <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -642,7 +653,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -660,25 +671,25 @@
   
   <url>
     <loc>/tags/pr%C3%A1tica/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/pr%C3%A1tica/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/r/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -702,7 +713,19 @@
   
   <url>
     <loc>/tags/rstudio/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rstudio-server/</loc>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/rstudio-server/</loc>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -732,19 +755,19 @@
   
   <url>
     <loc>/tags/rmarkdown/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/rmarkdown/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/rstudio/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -757,6 +780,30 @@
   <url>
     <loc>/tags/sentiment/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/shiny/</loc>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/shiny/</loc>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/shiny-server/</loc>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/shiny-server/</loc>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

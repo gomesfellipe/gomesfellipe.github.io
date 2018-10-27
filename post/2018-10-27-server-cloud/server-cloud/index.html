@@ -1,0 +1,2528 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "post",
+        "name" : "Seu app, RStudio e Shiny Server na nuvem do Google",
+        "headline" : "Seu app, RStudio e Shiny Server na nuvem do Google",
+        "description" : "Uma maneira prática de hospedar o app desenvolvido no post no Shiny Server e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu 16.04.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-10-27 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-10-27 00:00:00 &#43;0000 UTC",
+        "url" : "/post/2018-10-27-server-cloud/server-cloud/",
+        "wordCount" : "2449",
+        "keywords" : [ "bitcoin","Estatistica","gomesfellipe","Google","package","Prática","R","rmarkdown","RStudio","RStudio Server","Shiny Server","Shiny","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Seu app, RStudio e Shiny Server na nuvem do Google</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.37" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            <meta name="description" content="Uma maneira prática de hospedar o app desenvolvido no post no Shiny Server e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu 16.04.">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Seu app, RStudio e Shiny Server na nuvem do Google"/>
+<meta name="twitter:description" content="Uma maneira prática de hospedar o app desenvolvido no post no Shiny Server e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu 16.04."/>
+
+        <meta property="og:title" content="Seu app, RStudio e Shiny Server na nuvem do Google" />
+<meta property="og:description" content="Uma maneira prática de hospedar o app desenvolvido no post no Shiny Server e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu 16.04." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2018-10-27-server-cloud/server-cloud/" />
+
+
+
+<meta property="article:published_time" content="2018-10-27T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-10-27T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="Seu app, RStudio e Shiny Server na nuvem do Google">
+<meta itemprop="description" content="Uma maneira prática de hospedar o app desenvolvido no post no Shiny Server e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu 16.04.">
+
+
+<meta itemprop="datePublished" content="2018-10-27T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-10-27T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2449">
+
+
+
+<meta itemprop="keywords" content="bitcoin,Estatistica,gomesfellipe,Google,package,Prática,R,rmarkdown,RStudio,RStudio Server,Shiny Server,Shiny," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+
+
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105500464-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>cv
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/">
+                            <i class="fa fa-coffee">&nbsp;</i>Posts
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-reorder">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>cv
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/">
+                            <h3>
+                                <i class="fa fa-coffee">&nbsp;</i>Posts
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-reorder">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-10-27-server-cloud/server-cloud/">Seu app, RStudio e Shiny Server na nuvem do Google</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-10-27'>
+                                    October 27, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-10-27-server-cloud/server-cloud/" class="image featured">
+            <img src="/img//img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-09-29'>
+                                    September 29, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/" class="image featured">
+            <img src="/img/2018/09/img1.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-31'>
+                                    August 31, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="/date2018/08/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Ajustando um modelo de regressão linear bayesiano do zero</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-28'>
+                                    July 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-06-24'>
+                                    June 24, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-05-26'>
+                                    May 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img//img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-04-12'>
+                                    April 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/04/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-03-07'>
+                                    March 7, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-17'>
+                                    February 17, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-01'>
+                                    February 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-26'>
+                                    December 26, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-18'>
+                                    December 18, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-17'>
+                                    December 17, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f&amp;text=Seu%20app%2c%20RStudio%20e%20Shiny%20Server%20na%20nuvem%20do%20Google&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f&amp;title=Seu%20app%2c%20RStudio%20e%20Shiny%20Server%20na%20nuvem%20do%20Google" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f&amp;title=Seu%20app%2c%20RStudio%20e%20Shiny%20Server%20na%20nuvem%20do%20Google" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f&amp;title=Seu%20app%2c%20RStudio%20e%20Shiny%20Server%20na%20nuvem%20do%20Google" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f&amp;description=Seu%20app%2c%20RStudio%20e%20Shiny%20Server%20na%20nuvem%20do%20Google" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/post/2018-10-27-server-cloud/server-cloud/">Seu app, RStudio e Shiny Server na nuvem do Google</a></h1>
+            
+        
+        
+            <p>Uma maneira prática de hospedar o app desenvolvido no post no Shiny Server e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu 16.04.</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-10-27'>
+            October 27, 2018</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>12 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f&amp;text=Seu%20app%2c%20RStudio%20e%20Shiny%20Server%20na%20nuvem%20do%20Google&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f&amp;title=Seu%20app%2c%20RStudio%20e%20Shiny%20Server%20na%20nuvem%20do%20Google" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f&amp;title=Seu%20app%2c%20RStudio%20e%20Shiny%20Server%20na%20nuvem%20do%20Google" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f&amp;title=Seu%20app%2c%20RStudio%20e%20Shiny%20Server%20na%20nuvem%20do%20Google" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f&amp;description=Seu%20app%2c%20RStudio%20e%20Shiny%20Server%20na%20nuvem%20do%20Google" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fpost%2f2018-10-27-server-cloud%2fserver-cloud%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-10-27-server-cloud/server-cloud/" class="image featured">
+            <img src="/img/2018/10/img1.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    <link href="/rmarkdown-libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+
+
+<div id="objetivo-do-post" class="section level1">
+<h1>Objetivo do post <i class="fa fa-rocket"></i></h1>
+<p>Uma das várias maneiras de se implementar o <a href="https://www.rstudio.com/products/rstudio/download-server/">RStudio Server</a> e o <a href="https://www.rstudio.com/products/shiny/download-server/">Shiny Server</a> é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.</p>
+<p>No final deste post teremos além do nosso próprio RStudio Server, esse app no Shiny Server que exibe em um gráfico das cotações encontradas via função função <a href="https://www.rdocumentation.org/packages/TTR/versions/0.23-4/topics/stockSymbols"><code>quantmod::stockSymbols()</code></a> com os pacotes <a href="http://jkunst.com/highcharter/"><code>highcharter</code></a> e <a href="https://www.quantmod.com/"><code>quantmod</code></a>:</p>
+<div class="figure">
+<img src="/img/2018-10-27-server-cloud/demoapp.gif" />
+
+</div>
+<p><strong>Nota</strong>: Algum conhecimento em Linux e Git pode ser útil, particularmente ainda tenho muito a aprender sobre ambos e devem existir outras maneiras mais eficientes de se realizar estas tarefas. Essa é uma forma relativamente simples e ao final do post deixarei os links que utilizei como referência para escrever este post.</p>
+<p><strong>Nota²</strong>, segundo o desenvolvedor do pacote <code>highcharter</code>: “<em>Highcharts (www.highcharts.com) é um produto de software da Highsoft que não é livre para uso comercial e governamental</em>”.</p>
+</div>
+<div id="gloogle-cloud" class="section level1">
+<h1>Gloogle cloud <i class="fa fa-cloud"></i></h1>
+<p>A serviço que escolhi para este exemplo foi o <a href="https://cloud.google.com/">Google Cloud</a>, que oferece um <a href="https://cloud.google.com/free/docs/frequently-asked-questions">período de um ano de Teste Grátis com $300</a> para utilizar nos serviços <a href="https://cloud.google.com/free/docs/frequently-asked-questions?hl=pt_BR&amp;_ga=2.209128081.-2022746393.1538697551&amp;_gac=1.3934980.1540514862.EAIaIQobChMImJjS9vCi3gIVEgaRCh0j3ArWEAAYASAAEgJ8AfD_BwE#always-free">dentre outras opções</a>, mas isso não quer dizer que seja a melhor de todas, sinta-se a vontade para utilizar os mesmos passos apresentados aqui nos demais serviços, entendendo, claro, suas peculiaridades.</p>
+<p>Dentre algumas vantagens sobre o uso de nuvem, temos:</p>
+<ul>
+<li>Maior produtividade, pois possibilita rápido acesso à sua área de trabalho;</li>
+<li>Permite o desenvolvedor trabalhar de qualquer lugar com acesso à internet;</li>
+<li>Permite colaboração rápida, pois os membros da equipe podem contribuir e acessar projetos ao mesmo tempo em que os dados são armazenados na nuvem em vez de em seus computadores</li>
+<li>Protegido pelos principais especialistas segurança do Google;</li>
+<li>Controle e flexibilidade, o desenvolvedor tem controle sobre a tecnologia que deseja usar, sobre os dados e caso decida não usar mais o serviço, é possível retirar seus dados da nuvem do Google.</li>
+</ul>
+<div id="compute-engine" class="section level2">
+<h2>Compute Engine <img src="/img/2018-10-27-server-cloud/compute_engine.png" style="width:5.0%" /></h2>
+<p>Compute Engine é um dos produtos oferecidos pelo Google. Também conhecido como <a href="https://pt.wikipedia.org/wiki/Infraestrutura_como_servi%C3%A7o">infraestrutura como serviço (IaaS)</a>, pode ser usada para executar altas cargas de trabalho em larga escala em máquinas virtuais, no nosso caso este produto que possibilita o uso das máquinas virtuais.</p>
+</div>
+</div>
+<div id="iniciar-uma-instancia-na-google-cloud-platform" class="section level1">
+<h1>Iniciar uma instância na Google Cloud Platform</h1>
+<p>Primeiramente, acesse <a href="https://cloud.google.com/" class="uri">https://cloud.google.com/</a> e se inscreva no recurso de nuvem, após isso acesse <a href="https://console.cloud.google.com" class="uri">https://console.cloud.google.com</a> e percorra o caminho:</p>
+<p><code>Menu de navegação</code> <i class="fas  fa-arrow-right "></i> <code>Compute Engine</code> <i class="fas  fa-arrow-right "></i> <code>Instâncias de VMs</code></p>
+<p>Nesta página existe o <img src="/img/2018-10-27-server-cloud/button_criar_instancia.png" />, clique nele para iniciar a configuração da VM. Na página que abrir será solicitado a dar um nome a sua VM (pode ser qualquer nome que te agrade). O Google tem data centers em quase todo o mundo e para este caso selecionei a <code>Região</code> <em>us-east1 (Carolina do Sul)</em> e a <code>Zona</code> deixei o default <em>us-east1-b</em>.<a href="https://cloud.google.com/free/docs/frequently-asked-questions?hl=pt_BR&amp;_ga=2.183970469.-2022746393.1538697551&amp;_gac=1.36440980.1540514862.EAIaIQobChMImJjS9vCi3gIVEgaRCh0j3ArWEAAYASAAEgJ8AfD_BwE#always-free">“saiba mais” do Google</a>.</p>
+<p>Dependendo de quão poderoso o servidor precisa ser é possível selecionar a capacidade da RAM e do disco rígido na seção <code>Tipo de Máquina</code>, como este é um exemplo para prova de conceito selecionei a opção <em>micro(1 vCPU compartilhado) - 0.6 GB de memória, f1-micro</em> pois custa cerca de $ 0,006 por hora e as “primeiras 744 horas para uso da instância de tipo f1-micro são gratuitas”, segundo o Google. No <code>Disco de inicialização</code> selecionei a <code>Imagen do SO</code> <em>Ubuntu 16.04 LTS</em> que tenho um pouco mais de familiaridade e não mexi nas demais configurações dessa seção, mas antes de finalizar, selecione a opção <em>Permitir tráfego HTTP</em> na opção de <code>Firewall</code> e clique no botão <code>criar</code>.</p>
+<p>Segundo o guia <a href="https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started">Acessando o RStudio Server Open-Source</a> e o <a href="http://rstudio.github.io/shiny-server/os/0.4.0/">Guia do Administrador - Shiny Server Open Source v0.4.1</a>o RStudio Server e o Shiny Server serão escutados nas portas 8787 e 3838 respectivamente, portanto, antes de começar a usar a VM é necessário Configurando regras de firewall para permitir acesso através destas portas.</p>
+<p>Navegue até a seção <code>Rede VPC</code> e selecione a opção <code>Regras de firewall</code>. Clique em <img src="/img/2018-10-27-server-cloud/criar_firewall.png" />. No formulário que abrir dê um nome e uma descrição à regra do firewall (‘rstudio’ está bom), deixe os botões de opção <code>Direção de tráfego</code> e <code>Ação ao corresponder</code> como padrão (<em>Entrada</em> e <em>Permitir</em>). Para a opção <code>Destinos</code>, escolhi <em>Conta de serviço especificado</em>, sendo a <code>Conta de serviço de destino</code> <em>Compute Engine default service account</em>. Se você quiser filtrar os IPs que podem acessar o aplicativo, insira-o no campo <code>Intervalos de IP de origem</code>, como estamos sob uma prova de conceito, inseri a rota quad-zero: 0.0.0.0/0, o que permite acesso de todos os IPs em todas as portas nessa máquina. Na opção <code>Protocolos e Portos</code> selecione o botão de opção <em>Protocolos e portas específicas</em> e no campo digite o tcp: 8787. Por fim, clique no botão <code>criar</code>.</p>
+<p>Faça o procedimento exatamente da mesma maneira, mas com um novo nome (‘shiny’ está bom) e digite ‘tcp: 3838’ em vez de ‘tcp: 8787’. Clique em <code>criar</code> e note que agora abrimos duas portas para usar no aplicativo.</p>
+<p>Nota: <em>Os passos para iniciar uma instância na Cloud do Google foram inspirados no seguinte post:</em> <a href="https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data" class="uri">https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data</a></p>
+</div>
+<div id="inicie-a-maquina-virtual" class="section level1">
+<h1>Inicie a máquina virtual <i class="fa fa-desktop"></i></h1>
+<p>Ótimo! Agora a VM já deve estar pronta para uso e o jeito mais simples de utilizá-la é clicando no botão <img src="/img/2018-10-27-server-cloud/ssh.png" /> na página de <code>Instâncias de VMs</code> e aguardar a máquina iniciar</p>
+<center>
+<img src="/img/2018-10-27-server-cloud/vm_on.gif" style="width:80.0%" />
+</center>
+<p>Vamos às configurações!</p>
+<div id="obter-senha-para-super-usuario" class="section level2">
+<h2>Obter senha para super usuário</h2>
+<p>O primeiro passo será obter a senha para usuário <code>root</code></p>
+<pre><code>sudo passwd</code></pre>
+<p>Após determinar a senha, alterne para este usuário e conceda a permissão de super usuário para evitar trabalhar como <code>root</code>:</p>
+<pre><code>su root
+passwd gomes_fellipe1
+gpasswd -a gomes_fellipe1 sudo
+su gomes_fellipe1</code></pre>
+<p>Agora meu usuário tem permissão de super usuário e uma senha para utilizar para acessar o RStudio Server.</p>
+</div>
+<div id="exibir-sua-vm-em-um-navegador" class="section level2">
+<h2>Exibir sua VM em um navegador</h2>
+<p>Se você utilizar o comando</p>
+<pre><code>curl ipinfo.io/ip</code></pre>
+<p>o endereço IP externo será exibido no console, porém se digitar este caminho no browser ainda não será possível acessar sua máquina. Para isso, instale o <a href="https://www.nginx.com/">Nginx</a> (que é um servidor web leve) com os comandos:</p>
+<pre><code>sudo apt-get update
+sudo apt-get -y install nginx</code></pre>
+<p>Agora se você digitar o endereço IP externo da sua máquina no browser será possível ver a tela de saudação do nginx!</p>
+</div>
+<div id="criar-um-arquivo-swap" class="section level2">
+<h2>Criar um arquivo swap</h2>
+<p>Seguindo a recomendação do post <a href="http://www.simoncoulombe.com/2018/05/07/protected_free_shiny/">Implantando um servidor Shiny Server e RStudio seguro em uma máquina virtual gratuita do Google Cloud</a> e as instruções do link <a href="https://digitizor.com/create-swap-file-ubuntu-linux/" class="uri">https://digitizor.com/create-swap-file-ubuntu-linux/</a>, podemos criar um arquivo <a href="https://pt.wikipedia.org/wiki/Mem%C3%B3ria_virtual">swap</a> pois a instância <em>f1-micro</em> não tem RAM suficiente e pode ser que alguns pacotes não possam ser instalados por falta de memória.</p>
+<pre><code>cd /
+sudo dd if=/dev/zero of=swapfile bs=1M count=3000
+sudo mkswap swapfile
+sudo swapon swapfile
+sudo nano etc/fstab
+
+# Adicione a linha a seguir no arquivo que abrir
+/swapfile none swap sw 0 0 
+cat /proc/meminfo</code></pre>
+</div>
+<div id="instalar-o-r" class="section level2">
+<h2>Instalar o R</h2>
+<p>Para instalar o R apenas segui os passos apresentados em <a href="https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/" class="uri">https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/</a> com os códigos:</p>
+<pre><code>sudo sh -c &#39;echo &quot;deb http://cran.rstudio.com/bin/linux/ubuntu xenial/&quot; &gt;&gt; /etc/apt/sources.list&#39;
+
+gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+gpg -a --export E084DAB9 | sudo apt-key add -
+
+sudo apt-get update
+sudo apt-get -y install r-base</code></pre>
+<p>Agora o R está pronto para uso, basta escrever <code>R</code> no console para iniciá-lo.</p>
+<center>
+<img src="/img/2018-10-27-server-cloud/R.png" />
+</center>
+<div id="dependencias-e-pacotes" class="section level3">
+<h3>Dependências e pacotes</h3>
+<p>Antes de instalar outros pacotes podemos iniciar instalando o <code>devtools</code> pois esse pacote permite instalar a versão do desenvolvedores de alguns pacotes do R que estão disponíveis no GitHub. Para instalar as dependências do <code>devtools</code>:</p>
+<pre><code>sudo apt-get -y install libcurl4-gnutls-dev libxml2-dev libssl-dev</code></pre>
+<p>Tudo certo, agora já é possível instalar pacotes tanto do <a href="https://cran.r-project.org/">CRAN</a> quando do <a href="www.github.com">GitHub</a>. Além do <code>devtools</code> instalaremos mais dois pacotes que serão utilizados pelo aplicativo exemplo deste post:</p>
+<pre><code>sudo su - -c &quot;R -e \&quot;install.packages(c(&#39;devtools&#39;,&#39;rmarkdown&#39;, &#39;quantmod&#39;), repos=&#39;http://cran.rstudio.com/&#39;)\&quot;&quot;
+sudo su - -c &quot;R -e \&quot;devtools::install_github(&quot;jbkunst/highcharter&quot;)\&quot;&quot;</code></pre>
+<p><strong>Importante:</strong> Note que ao instalar os pacotes do R no terminal os pacotes são instalados como usuário <code>root</code>, o que significa que os pacotes serão instalados em uma biblioteca global e estarão disponíveis para todos os usuários da máquina.</p>
+</div>
+</div>
+<div id="instalar-o-rstudio-server" class="section level2">
+<h2>Instalar o RStudio Server</h2>
+<p>Neste ponto já temos uma máquina virtual como R instalado e estamos preparados para dar início ao nosso <strong>RStudio Server</strong>! Para instalar entre na página de download do RStudio em: <a href="https://www.rstudio.com/products/rstudio/download-server/" class="uri">https://www.rstudio.com/products/rstudio/download-server/</a> e siga os passos de instalação. No meu caso bastou rodar:</p>
+<pre><code>sudo apt-get install gdebi-core
+wget https://download2.rstudio.org/rstudio-server-1.1.456-amd64.deb
+sudo gdebi rstudio-server-1.1.456-amd64.deb</code></pre>
+<p>Pronto, agora já possuímos nosso próprio RStudio Server na nuvem! Para acessá-lo basta utilizar a porta <code>8787</code> através de seu IP externo (que pode ser obtido com o comando: <code>curl ipinfo.io/ip</code>, como mencionado anteriormente). Portanto, acesse algo como: <a href="http://35.237.234.123:8787" class="uri">http://35.237.234.123:8787</a> (este link direcionará para a máquina virtual que criei no exemplo deste post) e você será direcionado para uma tela de login:</p>
+<center>
+<img src="/img/2018-10-27-server-cloud/rstudioserver.png" style="width:80.0%" />
+</center>
+<p>É possível fazer o login no RStudio Server com qualquer usuário que esteja cadastrado em sua máquina virtual, no meu caso eu faço o login com o nome de usuário <code>gomes_fellipe1</code> e a senha que defini para meu usuário ao criar a máquina.</p>
+<p>É possível criar um novo usuário para acessar o RStudio Server via terminal da máquina virtual com:</p>
+<pre><code>adduser novo_usuario</code></pre>
+<p>Caso seu objetivo seja apenas o de ter seu próprio RStudio Server Parabéns! Já está disponível e pronto para uso! A seguir trataremos de como instalar e como efetuar algumas configurações básicas de um Shiny Server, mesmo que você não seja desenvolvedor desse tipo de app sugiro que instale o servidor mesmo assim pois ele também pode ser usado para hospedar seus documentos interativos como arquivos Rmarkdown!</p>
+</div>
+<div id="instalar-o-shiny-server" class="section level2">
+<h2>Instalar o Shiny Server</h2>
+<p>Aplicativos Shiny são incríveis e sua aplicabilidade é tamanha que poderia dedicar uma série de posts exclusivamente para falar sobre essa ferramenta. Dedico uma enorme parte do meu tempo de trabalho atualmente no desenvolvimento de aplicativos Shiny e ao terminar todas as etapas de um <a href="http://r4ds.had.co.nz/introduction.html">“típico projeto de ciencia de dados”</a> a etapa da <strong>entrega</strong> dos resultados pode ser bastante crítica e um aplicativo Shiny é capaz de trazer interatividade às suas análises.</p>
+<p>Existem diversas opções de entrega, entre elas:</p>
+<ul>
+<li>Fazer um rápido deploy no <a href="http://www.shinyapps.io/" class="uri">http://www.shinyapps.io/</a>;</li>
+<li>Hospedar no now, como apresentado na página do <a href="https://www.curso-r.com/">curso-r</a> em: <a href="https://www.curso-r.com/blog/2018-03-05-shiny-now/" class="uri">https://www.curso-r.com/blog/2018-03-05-shiny-now/</a>;</li>
+<li>Dockerizar o app com a imagem <a href="https://hub.docker.com/u/rocker/" class="uri">https://hub.docker.com/u/rocker/</a> e disponibilizá-lo na rede interna de sua empresa;</li>
+<li>Criar um executável via R e Inno Setup (um instalador para programas do Windows), como ilustrado em: <a href="https://www.ficonsulting.com/filabs/RInno" class="uri">https://www.ficonsulting.com/filabs/RInno</a>;</li>
+<li>Dentre tantas outras…</li>
+</ul>
+<p>No caso deste post, estamos criando nosso próprio servidor e assim teremos controle tanto do desempenho da máquina hospedada quanto do uso do Shiny Server propriamente dito.</p>
+<p>Consulte a página de download do Shiny Server em: <a href="https://www.rstudio.com/products/shiny/download-server/" class="uri">https://www.rstudio.com/products/shiny/download-server/</a> para saber qual a versão mais recente para instalar no seu computador (note que será necessário instalar o pacote do shiny como mencionado anteriormente), no meu caso foi:</p>
+<pre><code>sudo su - -c &quot;R -e \&quot;install.packages(&#39;shiny&#39;, repos=&#39;https://cran.rstudio.com/&#39;)\&quot;&quot;
+sudo apt-get install gdebi-core
+wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.9.923-amd64.deb
+sudo gdebi shiny-server-1.5.9.923-amd64.deb</code></pre>
+<p>O Shiny Server está agora instalado e em execução. Supondo que correu tudo bem você já poderá acessar a página inicial padrão do Shiny Server, que inclui algumas instruções e dois aplicativos Shiny, veja em (na minha máquina de exemplo): <a href="http://35.237.234.123:3838" class="uri">http://35.237.234.123:3838</a> (Note que eu não configurei um IP externo fixo neste app por se tratar de uma prova de conceito, como ele pode alterar para um IP aleatório quando eu reiniciar a máquina então fiz um backup no <a href="http://www.shinyapps.io/" class="uri">http://www.shinyapps.io/</a> no endereço: <a href="https://gomesfellipe.shinyapps.io/app_acoes/" class="uri">https://gomesfellipe.shinyapps.io/app_acoes/</a> para manter este DEMO no caso dessa máquina específica não estar mais no ar futuramente)</p>
+<div class="figure">
+<img src="/img/2018-10-27-server-cloud/shinyserver.png" />
+
+</div>
+<p>Alguns comandos úteis para configurar o status do servidor:</p>
+<pre><code>sudo systemctl start shiny-server
+sudo systemctl stop shiny-server
+sudo systemctl restart shiny-server</code></pre>
+<p><strong>Importante</strong>:</p>
+<ul>
+<li>O arquivo de configuração do servidor está em: <code>/etc/shiny-server/shiny-server.conf</code>;</li>
+<li>A página inicial do Shiny Server estará em: <code>/srv/shiny-server/index.html</code> (normalmente removemos esta página ou incluir um outro html para customizá-la);</li>
+<li>Todos aplicativos Shiny com o nome <code>app.R</code> que você colocar em <code>/srv/shiny-server/</code> serão entendidos pelo servidor como um aplicativo Shiny;</li>
+<li>Todos aplicativos serão executados como usuário <code>shiny</code> o que implica que qualquer pacote necessário em um aplicativo shiny deverá estar na biblioteca global ou na biblioteca do usuário <code>shiny</code>. Existem diversas formas de lidar com esse aspecto da configuração inicial do servidor então deixarei algumas referências ao final do post para quem tiver a necessidade de maior customização e controle do servidor;</li>
+<li>Para visualizar os logs durante o desenvolvimento do aplicativo será necessário adicionar as linhas <code>preserve_logs true;</code>e <code>sanitize_errors false;</code> ao arquivo de configuração do servidor (e reiniciar o servidor em seguida) e assim os logs do servidor estarão disponíveis em <code>/var/log/shiny-server.log</code>.</li>
+</ul>
+</div>
+<div id="adicionar-aplicativos-ao-shiny-server-via-github" class="section level2">
+<h2>Adicionar aplicativos ao Shiny Server via Github</h2>
+<p>Como já foi dito, qualquer aplicativo Shiny colocado na pasta <code>/srv/shiny-server/</code> será automaticamente exibido como um Shiny app na página principal do servidor. Além da opção de desenvolver um um aplicativo diretamente pelo RStudio Server e salvar nesta pasta podemos clonar algum app hospedado no <a href="https://github.com/">GitHub</a> ou no <a href="https://bitbucket.org">BitBucket</a> para esta pasta.</p>
+<p>Primeiramente vamos instalar o git e realizar as configurações iniciais:</p>
+<pre><code>sudo apt-get -y install git
+git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot;</code></pre>
+<p>Agora vamos nos deslocar para a pasta <code>srv/shiny-server/</code> e remover a página <code>index.html</code> pois não estamos mais interessados em ver a página de exemplo do Shiny Server:</p>
+<pre><code>cd /srv/shiny-server
+sudo rm index.html</code></pre>
+<p>Em seguida já é possível clonar seu repositório do <a href="https://github.com/">GitHub</a> ou do <a href="https://bitbucket.org">BitBucket</a> diretamente para esta pasta (Lembrete: o arquivo que executa o app deve ser nomeado como <code>app.R</code>!), veja:</p>
+<pre><code>sudo git clone https://github.com/gomesfellipe/app_acoes.git</code></pre>
+<p>O legal de administrar suas aplicações via <a href="https://github.com/">GitHub</a> ou do <a href="https://bitbucket.org">BitBucket</a> é que o código hospedado pode ser trabalhado e “commitado” de qualquer outro lugar do mundo e para atualizar no servidor basta utilizar o comando <code>sudo git pull</code> na pasta do app que o diretório local será atualizado com as modificações realizadas no repositório remoto.</p>
+<p>Pronto, se utilizar o comando <code>ls</code> já será possível ver a pasta clonada no diretório local:</p>
+<center>
+<img src="/img/2018-10-27-server-cloud/ls.png" />
+</center>
+<p>Ao acessar o app teremos:</p>
+<center>
+<iframe width="100%" height="725" scrolling="no" frameborder="no" src="https://gomesfellipe.shinyapps.io/app_acoes/">
+</iframe>
+</center>
+<p>O código para gerar este app é:</p>
+<script src="https://gist.github.com/gomesfellipe/f1f6469884bff2d2dce8729fd8bce719.js"></script>
+<p><strong>Nota¹</strong>: O código do app e as dependências podem ser obtidas em: <a href="https://github.com/gomesfellipe/app_acoes" class="uri">https://github.com/gomesfellipe/app_acoes</a> e para executá-lo diretamente do seu terminal basta utilizar o comando:</p>
+<pre class="r"><code>shiny::runGitHub(&quot;gomesfellipe/app_acoes&quot;)</code></pre>
+<p><strong>Nota²</strong>: Caso queira incluir seu aplicativo Shiny em alguma página Web ou relatório é simples, utilizando um pouco de html é só o incluí no seu arquivo RMarkdown utilizando algo parecido com:</p>
+<pre><code>&lt;iframe width=&quot;450&quot; height=&quot;400&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;sua_url&quot;&gt; &lt;/iframe&gt;</code></pre>
+</div>
+</div>
+<div id="tudo-pronto" class="section level1">
+<h1>Tudo Pronto? <i class="fa fa-exclamation-triangle"></i></h1>
+<p>Definitivamente não! Implementamos um app bem básico mas existem intermináveis desafios que não foram abordados nesse rápido post como a instalação do Latex para o Shiny Server, o uso de contêineres Docker, senha para os aplicativos shiny, definir um IP estático, todas as outras dependências que podem ser requisitadas na instalação de pacotes específicos etc.. É aquela história, quanto mais a gente estuda mais coisa aparece para estudar mas esse é justamente o legal de tudo, que nunca fica fácil!</p>
+</div>
+<div id="referencias-e-sugestoes" class="section level1">
+<h1>Referências e sugestões:</h1>
+<ul>
+<li><a href="https://cloud.google.com/getting-started/?hl=pt-br" class="uri">https://cloud.google.com/getting-started/?hl=pt-br</a></li>
+<li><a href="https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started" class="uri">https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started</a></li>
+<li><a href="http://rstudio.github.io/shiny-server/os/0.4.0/" class="uri">http://rstudio.github.io/shiny-server/os/0.4.0/</a></li>
+<li><a href="https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/" class="uri">https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/</a></li>
+<li><a href="https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data" class="uri">https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data</a></li>
+<li><a href="https://shiny.rstudio.com/gallery/authentication-and-database.html" class="uri">https://shiny.rstudio.com/gallery/authentication-and-database.html</a></li>
+<li><a href="http://www.simoncoulombe.com/2018/05/07/protected_free_shiny/" class="uri">http://www.simoncoulombe.com/2018/05/07/protected_free_shiny/</a></li>
+<li><a href="https://www.brettory.com/2018/02/embedding-a-shiny-app-in-blogdown/" class="uri">https://www.brettory.com/2018/02/embedding-a-shiny-app-in-blogdown/</a></li>
+<li><a href="https://www.keycdn.com/support/413-request-entity-too-large" class="uri">https://www.keycdn.com/support/413-request-entity-too-large</a></li>
+<li><a href="https://auth0.com/blog/adding-authentication-to-shiny-server/" class="uri">https://auth0.com/blog/adding-authentication-to-shiny-server/</a></li>
+</ul>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/google">Google</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/package">package</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/rmarkdown">rmarkdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/rstudio">rstudio</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/rstudio-server">RStudio Server</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/shiny-server">Shiny Server</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/shiny">Shiny</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/fincan%C3%A7as">Fincanças</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/bitcoin">bitcoin</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/google">Google</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/package">package</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/rmarkdown">rmarkdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/rstudio">RStudio</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/rstudio-server">RStudio Server</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/shiny-server">Shiny Server</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/shiny">Shiny</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+<div>
+
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/"
+                class="button big previous">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a></li>
+    
+
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-10-27-server-cloud/server-cloud/">Seu app, RStudio e Shiny Server na nuvem do Google</a>
+              </h3>
+              
+              <time class="published" datetime='2018-10-27'>
+                October 27, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-10-27-server-cloud/server-cloud/" class="image featured">
+            <img src="/img/2018/10/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-09-29'>
+                September 29, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/" class="image featured">
+            <img src="/img/2018/09/img1.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-31'>
+                August 31, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="/img/2018/08/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Ajustando um modelo de regressão linear bayesiano do zero</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-28'>
+                July 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-06-24'>
+                June 24, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-05-26'>
+                May 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-04-12'>
+                April 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-03-07'>
+                March 7, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-17'>
+                February 17, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-01'>
+                February 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-26'>
+                December 26, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-18'>
+                December 18, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-17'>
+                December 17, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-17-string/string/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes, sou Estatístico e entusiasta pela ciência de dados. Percebi que um dos muitos desafios na carreira de um cientista de dados é passar para as pessoas o que podemos fazer em diversas áreas de estudo, diante disso resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#f4f4f4; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	 
+</style>
+<div id="mc_embed_signup">
+<form action="https://github.us19.list-manage.com/subscribe/post?u=ba1b89ab75a7b5f8a2f0c6a3f&amp;id=6bb643ba67" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Inscreva-se para acompanhar o conteúdo do blog!</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba1b89ab75a7b5f8a2f0c6a3f_6bb643ba67" tabindex="-1" value=""></div>
+    <div class="show"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+
+  
+  
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          Fellipe Gomes
+        
+      .
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+        
+        
+        
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+	<script>
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/152619/script.js');
+</script>  
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/ba1b89ab75a7b5f8a2f0c6a3f/2f5cf26a309ff4ddefd5005dc.js");</script>
+  </body>
+</html>
+

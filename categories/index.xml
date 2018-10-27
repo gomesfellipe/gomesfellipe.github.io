@@ -104,7 +104,7 @@
     <item>
       <title>Estatistica</title>
       <link>/categories/estatistica/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/estatistica/</guid>
       <description></description>
@@ -129,6 +129,15 @@
     </item>
     
     <item>
+      <title>Fincanças</title>
+      <link>/categories/fincan%C3%A7as/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/fincan%C3%A7as/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Gamificacao</title>
       <link>/categories/gamificacao/</link>
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
@@ -149,7 +158,7 @@
     <item>
       <title>Google</title>
       <link>/categories/google/</link>
-      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/google/</guid>
       <description></description>
@@ -257,7 +266,7 @@
     <item>
       <title>Package</title>
       <link>/categories/package/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/package/</guid>
       <description></description>
@@ -284,7 +293,7 @@
     <item>
       <title>Prática</title>
       <link>/categories/pr%C3%A1tica/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/pr%C3%A1tica/</guid>
       <description></description>
@@ -293,7 +302,7 @@
     <item>
       <title>R</title>
       <link>/categories/r/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/r/</guid>
       <description></description>
@@ -309,6 +318,15 @@
     </item>
     
     <item>
+      <title>RStudio Server</title>
+      <link>/categories/rstudio-server/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/rstudio-server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Regressão linear</title>
       <link>/categories/regress%C3%A3o-linear/</link>
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
@@ -320,7 +338,7 @@
     <item>
       <title>Rmarkdown</title>
       <link>/categories/rmarkdown/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/rmarkdown/</guid>
       <description></description>
@@ -329,9 +347,27 @@
     <item>
       <title>Rstudio</title>
       <link>/categories/rstudio/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny</title>
+      <link>/categories/shiny/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/shiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny Server</title>
+      <link>/categories/shiny-server/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/shiny-server/</guid>
       <description></description>
     </item>
     

@@ -32,7 +32,7 @@
     <item>
       <title>Bitcoin</title>
       <link>/tags/bitcoin/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/bitcoin/</guid>
       <description></description>
@@ -131,7 +131,7 @@
     <item>
       <title>Estatistica</title>
       <link>/tags/estatistica/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/estatistica/</guid>
       <description></description>
@@ -194,7 +194,7 @@
     <item>
       <title>Gomesfellipe</title>
       <link>/tags/gomesfellipe/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/gomesfellipe/</guid>
       <description></description>
@@ -203,7 +203,7 @@
     <item>
       <title>Google</title>
       <link>/tags/google/</link>
-      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/google/</guid>
       <description></description>
@@ -347,7 +347,7 @@
     <item>
       <title>Package</title>
       <link>/tags/package/</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/package/</guid>
       <description></description>
@@ -392,7 +392,7 @@
     <item>
       <title>Prática</title>
       <link>/tags/pr%C3%A1tica/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/pr%C3%A1tica/</guid>
       <description></description>
@@ -401,7 +401,7 @@
     <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
       <description></description>
@@ -428,9 +428,18 @@
     <item>
       <title>RStudio</title>
       <link>/tags/rstudio/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio Server</title>
+      <link>/tags/rstudio-server/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rstudio-server/</guid>
       <description></description>
     </item>
     
@@ -464,7 +473,7 @@
     <item>
       <title>Rmarkdown</title>
       <link>/tags/rmarkdown/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/rmarkdown/</guid>
       <description></description>
@@ -485,6 +494,24 @@
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/sentiment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny</title>
+      <link>/tags/shiny/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/shiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny Server</title>
+      <link>/tags/shiny-server/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/shiny-server/</guid>
       <description></description>
     </item>
     
