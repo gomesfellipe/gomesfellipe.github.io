@@ -222,7 +222,7 @@ tibble(n = 1:nrow(pubg_tpp1)) %>%
 
 Veja a seguir de forma visual como as variáveis numéricas se correlacionam:
 
-```{r,fig.width=12}
+```{r}
 pubg_tpp1 %>% 
   rev %>% 
   grafico_descritivo()
@@ -245,7 +245,7 @@ Vejamos o que acontece ao analisar o tempo de sobrevivência de cada jogador
 
 A seguir, a distribuição da variável resposta `player_survive_time` : 
 
-```{r,fig.width=12,fig.height = 5}
+```{r,fig.height = 5}
 plot_grid(pubg_tpp1 %>% 
             ggplot(aes(x=player_survive_time))+
             geom_histogram(aes(y = ..density..), bins = 30, fill="white", color="black")+
@@ -522,7 +522,7 @@ resultado_log_rank <-
 
 Os gráficos gerados a partir dos modelos ajustados acima bem como o resultado dos testes de log-rank são exibidos na imagem a seguir:
 
-```{r,fig.width=12,fig.height=6}
+```{r,fig.height=6}
 survplot <- map2(resultado_km,
                  case_when(resultado_log_rank == '0' ~ "log-rank: \n p < 0,00001",
                            resultado_log_rank == "" ~ "log-rank não se aplica",
@@ -554,7 +554,7 @@ Função de risco (hazard) ou taxa de falha é o risco "instantâneo" denotada p
 
 No exemplo representa a taxa de incidência ou risco acumulado para um indivíduo morrer até o momento $t$, dado que sobreviveu até este momento. É muito informativa quando comparada com a função de sobrevivência pois diferentes $S(t)$ podem ter formas semelhantes, enquanto que respectivas $\lambda(t)$ podem diferir drasticamente.
 
-```{r,fig.width=12,fig.height=6}
+```{r,fig.height=6}
 survplot <-
   map(resultado_km  ,
       ~ ggsurvplot(.x, conf.int = TRUE, 
