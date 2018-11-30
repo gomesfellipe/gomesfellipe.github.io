@@ -371,9 +371,6 @@ ga('send', 'pageview');
 
 
   
-  
-    
-  
 
 
         
@@ -1165,7 +1162,7 @@ kable2 &lt;- function(x,linhas=NULL,colunas=NULL, ...){
     k &lt;-  k %&gt;% column_spec(colunas,bold=T, color=&quot;white&quot;, background = &quot;#FFE8BD&quot;)
   }
   k %&gt;%
-    scroll_box(width = &quot;100%&quot;)
+    scroll_box(width = &quot;850px&quot;)
 }</code></pre>
 <p>Em uma análise de sobrevivência é comum a presença de observações censuradas, (isto é, quando ocorre a perda de informação decorrente de não se ter observado a data de ocorrência do desfecho). No caso dessa base de dados não existe uma variável que define a censura, pois apenas a morte do jogador é registrada e é possível que se os jogadores se desconectarem do jogo mesmo que não sejam mortos seja contado como morte de qualquer jeito. Os detalhes por trás da aquisição de dados não trazem essa informação portanto pode não ser possível distinguir a censura do desfecho e isso é um detalhe relevante que deve ser levado em conta.</p>
 <pre class="r"><code># Carregar base -----------------------------------------------------------
@@ -1210,7 +1207,7 @@ tibble(n = 1:nrow(pubg_tpp1)) %&gt;%
   cbind(pubg_tpp1) %&gt;%
   inicio_e_fim_da_base() %&gt;%
   kable2()</code></pre>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:850px; ">
 <table class="table table-striped table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1760,7 +1757,7 @@ no
   select_if(~ is.numeric(.x) &amp; length(table(.x))!=2) %&gt;% 
   sumario_custom_num() %&gt;% 
   kable2()</code></pre>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:850px; ">
 <table class="table table-striped table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2311,7 +2308,7 @@ grid.arrange(g1[[1]], g1[[2]], g1[[3]],g2[[1]], g2[[2]], g2[[3]], ncol=3, height
   select_if(~ is.numeric(.x) &amp; length(table(.x))!=2) %&gt;% 
   sumario_custom_num() %&gt;% 
   kable2()</code></pre>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:850px; ">
 <table class="table table-striped table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2733,7 +2730,7 @@ resultado_km &lt;-
 <pre class="r"><code>surv_summary(resultado_km[[1]], pubg_tpp1) %&gt;% .[1:5,-ncol(.)] %&gt;% cbind(variable = &quot;Geral&quot;) %&gt;% 
   select(variable, everything())%&gt;%
   kable2()</code></pre>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:850px; ">
 <table class="table table-striped table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2996,7 +2993,7 @@ map2_df(univ_models,
          res
        }) %&gt;% 
   kable2(linhas = 7)</code></pre>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:850px; ">
 <table class="table table-striped table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>

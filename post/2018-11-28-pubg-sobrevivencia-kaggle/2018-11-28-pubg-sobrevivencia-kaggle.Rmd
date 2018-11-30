@@ -164,7 +164,7 @@ kable2 <- function(x,linhas=NULL,colunas=NULL, ...){
     k <-  k %>% column_spec(colunas,bold=T, color="white", background = "#FFE8BD")
   }
   k %>%
-    scroll_box(width = "100%")
+    scroll_box(width = "850px")
 }
 
 ```
