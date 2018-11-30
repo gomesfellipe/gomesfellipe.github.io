@@ -1064,7 +1064,7 @@ ga('send', 'pageview');
         
 
         <a href="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/" class="image featured">
-            <img src="/img/2018/112018/11/img1.png" alt="">
+            <img src="/img/2018/11/img1.png" alt="">
         </a>
     
 
@@ -2938,7 +2938,7 @@ Geral
                   
                 )
 grid.arrange(survplot[[1]], survplot[[2]] ,survplot[[3]], survplot[[4]], ncol=2)</code></pre>
-<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-18-1.png" width="1344" /></p>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-18-1.png" width="1152" /></p>
 <p>O eixo horizontal (eixo x) representa o tempo em minutos, e o eixo vertical (eixo y) mostra a probabilidade de sobrevivência ou a proporção de jogadores que sobrevivem. As linhas representam curvas de sobrevivência dos dois grupos.</p>
 <p>Uma queda vertical nas curvas indica um evento. No tempo zero, a probabilidade de sobrevivência é de 1,0 (ou 100% dos jogadores vivos).</p>
 <p>Interpretação: Pelo gráfico, aparentemente não existe diferença no tempo de sobrevivência com estratificação dos dados de acordo com quem deu assistência ou não, já para o teste que compara igualdade de funções de sobrevivência das demais variáveis, existem evidencias estatísticas para rejeitar a hipótese de que não há diferença na sobrevida entre os dois grupos</p>
@@ -2957,7 +2957,7 @@ grid.arrange(survplot[[1]], survplot[[2]] ,survplot[[3]], survplot[[4]], ncol=2)
   )
 arrange_ggsurvplots(survplot, print = TRUE,
   ncol = 2, nrow = 2)</code></pre>
-<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-19-1.png" width="1344" /></p>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-19-1.png" width="1152" /></p>
 <p>O risco cumulativo <span class="math inline">\(H( t)\)</span> pode ser interpretado como a força cumulativa da mortalidade. Em outras palavras, corresponde ao número de eventos que seriam esperados para cada indivíduo pelo tempo t se o evento fosse um processo repetitivo.</p>
 </div>
 <div id="modelo-de-cox" class="section level2">
@@ -3260,7 +3260,7 @@ grid.arrange(
 <p>Em princípio, os resíduos de Schoenfeld são independentes do tempo. Um gráfico que mostra um padrão não aleatório contra o tempo é evidência de violação da suposição de hipótese.</p>
 <p>Para testar a suposição de riscos proporcionais:</p>
 <pre class="r"><code>final_model %&gt;% cox.zph %&gt;% ggcoxzph</code></pre>
-<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-24-1.png" width="1152" /></p>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-24-1.png" width="960" /></p>
 <p>A partir da inspeção gráfica, não há padrão com o tempo. A suposição de riscos proporcionais parece ser suportada pelas covariáveis</p>
 </div>
 </div>

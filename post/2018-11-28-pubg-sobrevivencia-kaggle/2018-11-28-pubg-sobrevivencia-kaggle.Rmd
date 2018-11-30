@@ -69,8 +69,7 @@ linktitle: ''
 
 ```{r setup, include=FALSE}
 # Opcoes do RMarkdown
-knitr::opts_chunk$set(echo = TRUE, warning = F, fig.height = 7,
-                      fig.width = 10, knitr.kable.NA = '',OutDec = ",")
+knitr::opts_chunk$set(echo = TRUE, warning = F, fig.height = 7, fig.width = 10)
 ```
 
 
@@ -523,7 +522,7 @@ resultado_log_rank <-
 
 Os gráficos gerados a partir dos modelos ajustados acima bem como o resultado dos testes de log-rank são exibidos na imagem a seguir:
 
-```{r,fig.width=14,fig.height=6}
+```{r,fig.width=12,fig.height=6}
 survplot <- map2(resultado_km,
                  case_when(resultado_log_rank == '0' ~ "log-rank: \n p < 0,00001",
                            resultado_log_rank == "" ~ "log-rank não se aplica",
@@ -555,7 +554,7 @@ Função de risco (hazard) ou taxa de falha é o risco "instantâneo" denotada p
 
 No exemplo representa a taxa de incidência ou risco acumulado para um indivíduo morrer até o momento $t$, dado que sobreviveu até este momento. É muito informativa quando comparada com a função de sobrevivência pois diferentes $S(t)$ podem ter formas semelhantes, enquanto que respectivas $\lambda(t)$ podem diferir drasticamente.
 
-```{r,fig.width=14,fig.height=6}
+```{r,fig.width=12,fig.height=6}
 survplot <-
   map(resultado_km  ,
       ~ ggsurvplot(.x, conf.int = TRUE, 
@@ -708,7 +707,7 @@ evidência de violação da suposição de hipótese.
 
 Para testar a suposição de riscos proporcionais:
 
-```{r,fig.height = 8,fig.width=12}
+```{r,fig.height = 8,fig.width=10}
 final_model %>% cox.zph %>% ggcoxzph
 ```
 
