@@ -6,15 +6,24 @@
     <description>Recent content in Tags on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Analise de sobrevivencia</title>
+      <link>/tags/analise-de-sobrevivencia/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/analise-de-sobrevivencia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Aprendendo</title>
       <link>/tags/aprendendo/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/aprendendo/</guid>
       <description></description>
@@ -75,6 +84,15 @@
     </item>
     
     <item>
+      <title>Cox</title>
+      <link>/tags/cox/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/cox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Cryptomoedas</title>
       <link>/tags/cryptomoedas/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
@@ -131,7 +149,7 @@
     <item>
       <title>Estatistica</title>
       <link>/tags/estatistica/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/estatistica/</guid>
       <description></description>
@@ -158,7 +176,7 @@
     <item>
       <title>Gamificacao</title>
       <link>/tags/gamificacao/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/gamificacao/</guid>
       <description></description>
@@ -167,7 +185,7 @@
     <item>
       <title>Gamification</title>
       <link>/tags/gamification/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/gamification/</guid>
       <description></description>
@@ -194,7 +212,7 @@
     <item>
       <title>Gomesfellipe</title>
       <link>/tags/gomesfellipe/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/gomesfellipe/</guid>
       <description></description>
@@ -239,9 +257,18 @@
     <item>
       <title>Kaggle</title>
       <link>/tags/kaggle/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/kaggle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kaplan meier</title>
+      <link>/tags/kaplan-meier/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/kaplan-meier/</guid>
       <description></description>
     </item>
     
@@ -311,7 +338,7 @@
     <item>
       <title>Modelagem</title>
       <link>/tags/modelagem/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/modelagem/</guid>
       <description></description>
@@ -320,7 +347,7 @@
     <item>
       <title>Modelos</title>
       <link>/tags/modelos/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/modelos/</guid>
       <description></description>
@@ -347,7 +374,7 @@
     <item>
       <title>Package</title>
       <link>/tags/package/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/package/</guid>
       <description></description>
@@ -374,7 +401,7 @@
     <item>
       <title>Plot</title>
       <link>/tags/plot/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/plot/</guid>
       <description></description>
@@ -383,7 +410,7 @@
     <item>
       <title>Probabilidade</title>
       <link>/tags/probabilidade/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/probabilidade/</guid>
       <description></description>
@@ -392,16 +419,25 @@
     <item>
       <title>Prática</title>
       <link>/tags/pr%C3%A1tica/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/pr%C3%A1tica/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Pubg</title>
+      <link>/tags/pubg/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/pubg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
       <description></description>
@@ -410,7 +446,7 @@
     <item>
       <title>R Markdown</title>
       <link>/tags/r-markdown/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/r-markdown/</guid>
       <description></description>
@@ -428,7 +464,7 @@
     <item>
       <title>RStudio</title>
       <link>/tags/rstudio/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/rstudio/</guid>
       <description></description>
@@ -473,7 +509,7 @@
     <item>
       <title>Rmarkdown</title>
       <link>/tags/rmarkdown/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/rmarkdown/</guid>
       <description></description>
@@ -545,7 +581,7 @@
     <item>
       <title>Tabelas</title>
       <link>/tags/tabelas/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/tabelas/</guid>
       <description></description>
@@ -563,7 +599,7 @@
     <item>
       <title>Teoria</title>
       <link>/tags/teoria/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/teoria/</guid>
       <description></description>

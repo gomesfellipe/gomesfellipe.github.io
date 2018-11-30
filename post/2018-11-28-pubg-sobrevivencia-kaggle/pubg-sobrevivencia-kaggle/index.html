@@ -1,0 +1,4591 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "post",
+        "name" : "Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle",
+        "headline" : "Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle",
+        "description" : "O que interefere na probabilidade de um indivíduo sobreviver? Quais fatores apresentam efeito no risco de morte em um intervalo de tempo? Neste post buscaremos evidências estatísticas para responder estas perguntas em dados abertos do PUBG hospedados no Kaggle",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-11-28 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-11-28 00:00:00 &#43;0000 UTC",
+        "url" : "/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/",
+        "wordCount" : "4570",
+        "keywords" : [ "teoria","tabelas","RStudio","rmarkdown","R Markdown","R","probabilidade","Prática","plot","package","Modelos","modelagem","kaggle","gomesfellipe","gamification","gamificacao","Estatistica","Aprendendo","analise de sobrevivencia","pubg","cox","kaplan meier","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.37" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            <meta name="description" content="O que interefere na probabilidade de um indivíduo sobreviver? Quais fatores apresentam efeito no risco de morte em um intervalo de tempo? Neste post buscaremos evidências estatísticas para responder estas perguntas em dados abertos do PUBG hospedados no Kaggle">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle"/>
+<meta name="twitter:description" content="O que interefere na probabilidade de um indivíduo sobreviver? Quais fatores apresentam efeito no risco de morte em um intervalo de tempo? Neste post buscaremos evidências estatísticas para responder estas perguntas em dados abertos do PUBG hospedados no Kaggle"/>
+
+        <meta property="og:title" content="Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle" />
+<meta property="og:description" content="O que interefere na probabilidade de um indivíduo sobreviver? Quais fatores apresentam efeito no risco de morte em um intervalo de tempo? Neste post buscaremos evidências estatísticas para responder estas perguntas em dados abertos do PUBG hospedados no Kaggle" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/" />
+
+
+
+<meta property="article:published_time" content="2018-11-28T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-11-28T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle">
+<meta itemprop="description" content="O que interefere na probabilidade de um indivíduo sobreviver? Quais fatores apresentam efeito no risco de morte em um intervalo de tempo? Neste post buscaremos evidências estatísticas para responder estas perguntas em dados abertos do PUBG hospedados no Kaggle">
+
+
+<meta itemprop="datePublished" content="2018-11-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-11-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="4570">
+
+
+
+<meta itemprop="keywords" content="teoria,tabelas,RStudio,rmarkdown,R Markdown,R,probabilidade,Prática,plot,package,Modelos,modelagem,kaggle,gomesfellipe,gamification,gamificacao,Estatistica,Aprendendo,analise de sobrevivencia,pubg,cox,kaplan meier," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+
+
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-105500464-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>cv
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/">
+                            <i class="fa fa-coffee">&nbsp;</i>Posts
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-reorder">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>cv
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/">
+                            <h3>
+                                <i class="fa fa-coffee">&nbsp;</i>Posts
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-reorder">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-11-28'>
+                                    November 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/" class="image featured">
+            <img src="/img/2018/112018/11/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-10-27-server-cloud/server-cloud/">Seu app, RStudio e Shiny Server na nuvem do Google</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-10-27'>
+                                    October 27, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-10-27-server-cloud/server-cloud/" class="image featured">
+            <img src="/img/2018/102018/10/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-09-29'>
+                                    September 29, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/" class="image featured">
+            <img src="/img//img1.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-31'>
+                                    August 31, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="/img//img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Ajustando um modelo de regressão linear bayesiano do zero</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-28'>
+                                    July 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-06-24'>
+                                    June 24, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/img/2018/062018/06/img.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-05-26'>
+                                    May 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/052018/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-04-12'>
+                                    April 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/042018/04/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-03-07'>
+                                    March 7, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-17'>
+                                    February 17, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-01'>
+                                    February 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-26'>
+                                    December 26, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-18'>
+                                    December 18, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f&amp;text=An%c3%a1lise%20de%20sobreviv%c3%aancia%20com%20dados%20do%20jogo%20PUBG%20dispon%c3%adveis%20no%20Kaggle&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f&amp;title=An%c3%a1lise%20de%20sobreviv%c3%aancia%20com%20dados%20do%20jogo%20PUBG%20dispon%c3%adveis%20no%20Kaggle" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f&amp;title=An%c3%a1lise%20de%20sobreviv%c3%aancia%20com%20dados%20do%20jogo%20PUBG%20dispon%c3%adveis%20no%20Kaggle" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f&amp;title=An%c3%a1lise%20de%20sobreviv%c3%aancia%20com%20dados%20do%20jogo%20PUBG%20dispon%c3%adveis%20no%20Kaggle" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f&amp;description=An%c3%a1lise%20de%20sobreviv%c3%aancia%20com%20dados%20do%20jogo%20PUBG%20dispon%c3%adveis%20no%20Kaggle" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a></h1>
+            
+        
+        
+            <p>O que interefere na probabilidade de um indivíduo sobreviver? Quais fatores apresentam efeito no risco de morte em um intervalo de tempo? Neste post buscaremos evidências estatísticas para responder estas perguntas em dados abertos do PUBG hospedados no Kaggle</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-11-28'>
+            November 28, 2018</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>22 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f&amp;text=An%c3%a1lise%20de%20sobreviv%c3%aancia%20com%20dados%20do%20jogo%20PUBG%20dispon%c3%adveis%20no%20Kaggle&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f&amp;title=An%c3%a1lise%20de%20sobreviv%c3%aancia%20com%20dados%20do%20jogo%20PUBG%20dispon%c3%adveis%20no%20Kaggle" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f&amp;title=An%c3%a1lise%20de%20sobreviv%c3%aancia%20com%20dados%20do%20jogo%20PUBG%20dispon%c3%adveis%20no%20Kaggle" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f&amp;title=An%c3%a1lise%20de%20sobreviv%c3%aancia%20com%20dados%20do%20jogo%20PUBG%20dispon%c3%adveis%20no%20Kaggle" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f&amp;description=An%c3%a1lise%20de%20sobreviv%c3%aancia%20com%20dados%20do%20jogo%20PUBG%20dispon%c3%adveis%20no%20Kaggle" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fpost%2f2018-11-28-pubg-sobrevivencia-kaggle%2fpubg-sobrevivencia-kaggle%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/" class="image featured">
+            <img src="/img/2018/11/img1.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<style>
+  .col2 {
+    columns: 2 200px;         /* number of columns and width in pixels*/
+    -webkit-columns: 2 200px; /* chrome, safari */
+    -moz-columns: 2 200px;    /* firefox */
+  }
+  .col3 {
+    columns: 3 100px;
+    -webkit-columns: 3 100px;
+    -moz-columns: 3 100px;
+  }
+</style>
+<div id="analise-de-sobrevivencia-e-pubg" class="section level1">
+<h1>Análise de sobrevivência e PUBG</h1>
+<p>Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.</p>
+<p>Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.</p>
+<p>PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal <strong>sobreviver</strong>, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.</p>
+<p>Um único jogo dura aproximadamente de 30-35 minutos e neste tempo o jogador coleta itens (arma, cura, boost), abate outros jogadores, comete e leva dano de seus adversários, pode dirigir veículos dentre outras ações enquanto tentam sobrevier ao mesmo tempo.</p>
+<p>Questões que surgiram em mente após um período de estudos de análise de sobrevivência e confiabilidade e ouvindo pessoas falarem sobre esta modalidade de jogo:</p>
+<ul>
+<li>O que interefere na probabilidade de um indivíduo sobreviver?</li>
+<li>O que tem efeito no risco de um jogador ser abatido em um intervalo de tempo?</li>
+</ul>
+<p>Faremos uma abordagem estatística aqui, após uma breve análise exploratória os dados serão avaliados utilizando o modelo de Kaplan-Meier, que é um estimador de forma não paramétrica para a função de sobrevivência e o modelo semiparamétrico de regressão de riscos proporcionais de Cox.</p>
+</div>
+<div id="a-base-de-dados" class="section level1">
+<h1>A Base de dados</h1>
+<p>A base de dados utilizada foi obtida através do Kaggle em “PUBG Match Deaths and Statistics”: <a href="https://www.kaggle.com/skihikingkevin/pubg-match-deaths" class="uri">https://www.kaggle.com/skihikingkevin/pubg-match-deaths</a> que conta com mais de 65 milhões de registros de mortes no jogo PlayerUnknown Battleground’s matches - PUBG.</p>
+<p><a href="https://www.kaggle.com/gomes555/analise-de-sobrevivencia-km-e-cox/">Existe uma versão deste post no kaggle</a> e além desta base, existe uma competição em andamento que vai até o dia 30 de Janeiro no link:<a href="https://www.kaggle.com/c/pubg-finish-placement-prediction" class="uri">https://www.kaggle.com/c/pubg-finish-placement-prediction</a> que desafia os jogadores a prever o posicionamento do vencedor em percentil, onde 1 corresponde ao 1º lugar e 0 corresponde ao último lugar do jogo. Fiz uma participação com um <a href="https://www.kaggle.com/gomes555/xgboost-caret-for-fun">script testando os resultados do algorítmo xgboost com caret</a> e também testei uns <a href="https://www.kaggle.com/gomes555/tidyverse-machine-learning-for-fun">ajustes com random forest utilizando o tidyverse</a>. Esses scripts são abertos e estão prontos para uso, <a href="https://www.kaggle.com/gomes555">não me renderam a melhor posição</a> mas a intensão aqui é, principalmente, aprender e testar os métodos pois São muitas possibilidade para aprender e praticar. Voltando a base de dados:</p>
+<p>Segundo a <a href="https://www.kaggle.com/skihikingkevin/pubg-match-deaths#aggregate.zip">descrição da base no kaggle</a>:</p>
+<p><code>agg_match_stats_x.csv</code> fornece informações de correspondência mais agregadas sobre os dados de mortes, como tamanho da fila, fpp/tpp, morte do jogador, etc.</p>
+<p>As colunas são as seguintes:</p>
+<div class="col2">
+<ul>
+<li><code>match_id</code> : O id único de correspondência gerado por pubg.op.gg. É possível fazer uma junção disso com os dados das mortes para ver todas as informações</li>
+<li><code>party_size</code> : o número máximo de jogadores por equipe. por exemplo, 2 implica que era um sistema de fila dupla</li>
+<li><code>player_dist_ride</code> : unidades de distancia total (metros?) que o jogador percorreu em um veículo</li>
+<li><code>player_dist_walk</code> : unidades de distancia total (metros?) percorrida pelo jogador a pé</li>
+<li><code>match_mode</code> : se o jogo foi jogado em primeira pessoa (fpp) ou em terceira pessoa (tpp)</li>
+<li><code>team_placement</code> : a classificação final da equipe dentro da partida</li>
+<li><code>player_dmg</code> : Total de pontos de vida que o jogador distribuiu</li>
+<li><code>player_assists</code> : Número de assistências que o jogador marcou</li>
+<li><code>game_size</code> : o número total de equipes que estavam no jogo</li>
+<li><code>player_dbno</code> : Número de knockdowns que o jogador marcou</li>
+<li><code>player_kills</code> : Número de mortes que o jogador marcou</li>
+<li><code>team_id</code> : o ID da equipe à qual o jogador pertencia</li>
+<li><code>date</code> : a data e a hora em que a partida ocorreu</li>
+<li><code>player_name</code> : nome do jogador</li>
+</ul>
+<hr />
+<div class="figure">
+<img src="/img/2018-11-28-pubg-sobrevivencia-kaggle/img.png" />
+
+</div>
+</div>
+<p>A rotinas abaixo carregam os pacotes, funções customizadas e salva em extensão <code>.rds</code>uma amostra da base de dados utilizadas ao longo do post:</p>
+<pre class="r"><code># Carregar pacotes --------------------------------------------------------
+packages &lt;- c(&quot;data.table&quot;, &quot;dplyr&quot;, &quot;purrr&quot;, &quot;survival&quot;  , &quot;survminer&quot;,&quot;ggfortify&quot;,&quot;GGally&quot;, &quot;ggplot2&quot;,&quot;moments&quot;, &quot;gridExtra&quot;,&quot;ggExtra&quot;, &quot;cowplot&quot;,&quot;lubridate&quot;, &quot;scales&quot;, &quot;knitr&quot;, &quot;kableExtra&quot;, &quot;grid&quot;,&quot;broom&quot;, &quot;formattable&quot;, &quot;grid&quot;)
+suppressMessages(purrr::walk(packages,library, character.only = TRUE, warn.conflicts = FALSE))
+rm(packages)
+
+# Funcoes customizadas do github ------------------------------------------
+source(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/inicio_e_fim_da_base.R&quot;)
+source(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/grafico_descritivo.R&quot;)
+source(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/sumario_custom_num.R&quot;)
+
+# Opcoes do documento -----------------------------------------------------
+# options(scipen = 99999)
+
+# Tema dos graficos -------------------------------------------------------
+theme_set(theme_bw()+
+            theme(axis.text.x = element_text(size=17),
+                  axis.text.y = element_text(size=17),
+                  axis.title.y = element_text(size=20), legend.position = &quot;bottom&quot;))
+
+# Tema das tabelas kable --------------------------------------------------
+kable2 &lt;- function(x,linhas=NULL,colunas=NULL, ...){
+  k &lt;- 
+    kable(x,digits = 4,...) %&gt;%
+    kable_styling(bootstrap_options = &quot;striped&quot;, full_width = F) %&gt;%
+    kable_styling(c(&quot;striped&quot;, &quot;bordered&quot;)) 
+  
+  if (!is.null(linhas)) {
+    # destque na linha:
+    k &lt;-  k %&gt;% row_spec(linhas, bold = T, color = &quot;white&quot;, background = &quot;#FFE8BD&quot;)
+  }
+  
+  if (!is.null(colunas)) {
+    # destque na colunas:
+    k &lt;-  k %&gt;% column_spec(colunas,bold=T, color=&quot;white&quot;, background = &quot;#FFE8BD&quot;)
+  }
+  k %&gt;%
+    scroll_box(width = &quot;100%&quot;)
+}</code></pre>
+<p>Em uma análise de sobrevivência é comum a presença de observações censuradas, (isto é, quando ocorre a perda de informação decorrente de não se ter observado a data de ocorrência do desfecho). No caso dessa base de dados não existe uma variável que define a censura, pois apenas a morte do jogador é registrada e é possível que se os jogadores se desconectarem do jogo mesmo que não sejam mortos seja contado como morte de qualquer jeito. Os detalhes por trás da aquisição de dados não trazem essa informação portanto pode não ser possível distinguir a censura do desfecho e isso é um detalhe relevante que deve ser levado em conta.</p>
+<pre class="r"><code># Carregar base -----------------------------------------------------------
+set.seed(2)   # reprodutivel
+pubg_tpp1 &lt;-  # Informacoes dos criterios de selecao no corpo do texto
+  map_df(paste0(&quot;agg_match_stats_&quot;,0:4,&quot;.csv&quot;), 
+         ~ fread(.x, showProgress = T,
+                 data.table = T)[match_mode == &quot;tpp&quot; &amp; party_size == 1 &amp; year(date) == 2018 &amp; player_dist_walk&gt;10 &amp; player_dmg != 0 ][, !c(&quot;match_mode&quot;,&quot;party_size&quot;,&quot;game_size&quot;,&quot;date&quot;, &quot;team_id&quot;,&quot;player_dbno&quot;, &quot;team_placement&quot;), with=FALSE][,player_survive_time := player_survive_time/60] %&gt;% 
+           group_by(match_id) %&gt;%
+           do(sample_n(.,1)) %&gt;% 
+           ungroup() 
+  )
+
+# Salvar base coletada ----------------------------------------------------
+saveRDS(pubg_tpp1,&quot;pubg_tpp1.rds&quot;)</code></pre>
+<!-- <iframe src="https://giphy.com/embed/3oKIPmaM8aFolCcuI0" width="100%" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+<div class="col2">
+<p>Descrição da rotina acima e os critérios para a seleção da amostra:</p>
+<ol style="list-style-type: decimal">
+<li>percorre as 5 bases disponíveis: <code>paste0(&quot;agg_match_stats_&quot;,0:4,&quot;.csv&quot;)</code></li>
+<li>seleciona partidas em terceira pessoa: <code>match_mode == &quot;tpp&quot;</code></li>
+<li>com tamanho da equipe = 1 (individual): <code>party_size == 1</code></li>
+<li>do ano de 2018: <code>year(date) == 2018</code></li>
+<li>andaram mais que 10 unidades de distancia (metros?): <code>player_dist_walk&gt;10</code></li>
+<li>fizeram algum dano (evitar jogadores ausentes): <code>player_dmg != 0</code><br />
+</li>
+<li>remove colunas não utilizadas na analise</li>
+<li>converte do tempo para minutos: <code>player_survive_time := player_survive_time/60</code></li>
+<li>agrupa por partida: <code>group_by(match_id)</code></li>
+<li>seleciona um jogador de cada partida: <code>do(sample_n(.,1))</code></li>
+</ol>
+<iframe src="https://giphy.com/embed/g4OqNwXDrnfOcbaaUM" width="240" height="300" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+</div>
+<p>Note que apenas um jogador de cada partida é selecionado na intenção de obter independência entre observações, isso reduziu drasticamente seu tamanho. Agora que a base já foi importada e filtrada, faremos a leitura de 200 linhas aleatórias com a finalidade de diminuir o tempo computacional das operações realizadas em seguida.</p>
+<pre class="r"><code>set.seed(1)
+pubg_tpp1 &lt;- readRDS(&quot;pubg_tpp1.rds&quot;) %&gt;% sample_n(200)%&gt;% 
+  select(-one_of(c(&quot;match_id&quot;, &quot;player_name&quot;)))
+
+# Resumo dos dados:
+tibble(n = 1:nrow(pubg_tpp1)) %&gt;% 
+  cbind(pubg_tpp1) %&gt;%
+  inicio_e_fim_da_base() %&gt;%
+  kable2()</code></pre>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+n
+</th>
+<th style="text-align:left;">
+player_assists
+</th>
+<th style="text-align:left;">
+player_dist_ride
+</th>
+<th style="text-align:left;">
+player_dist_walk
+</th>
+<th style="text-align:left;">
+player_dmg
+</th>
+<th style="text-align:left;">
+player_kills
+</th>
+<th style="text-align:left;">
+player_survive_time
+</th>
+<th style="text-align:left;">
+player_dist
+</th>
+<th style="text-align:left;">
+player_assists_d
+</th>
+<th style="text-align:left;">
+player_performance
+</th>
+<th style="text-align:left;">
+drive
+</th>
+<th style="text-align:left;">
+player_kills_d
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1849.61084
+</td>
+<td style="text-align:left;">
+223
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+15.19305
+</td>
+<td style="text-align:left;">
+1849.61084
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.84426692258746
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+68.039566
+</td>
+<td style="text-align:left;">
+200
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+2.38738333333333
+</td>
+<td style="text-align:left;">
+68.039566
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.82690266560073
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+150.748962
+</td>
+<td style="text-align:left;">
+73
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+2.80903333333333
+</td>
+<td style="text-align:left;">
+150.748962
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.28018697234077
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1025.04089
+</td>
+<td style="text-align:left;">
+775.5486
+</td>
+<td style="text-align:left;">
+145
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+7.60386666666667
+</td>
+<td style="text-align:left;">
+1800.58949
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.68309699895193
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1433.59912
+</td>
+<td style="text-align:left;">
+138
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+24.7346833333333
+</td>
+<td style="text-align:left;">
+1433.59912
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.44317232700123
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+841.1337
+</td>
+<td style="text-align:left;">
+1718.131
+</td>
+<td style="text-align:left;">
+99
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+13.05965
+</td>
+<td style="text-align:left;">
+2559.2647
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.60955489723966
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+195
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+455.095551
+</td>
+<td style="text-align:left;">
+3928.89429
+</td>
+<td style="text-align:left;">
+204
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+28.8068833333333
+</td>
+<td style="text-align:left;">
+4383.989841
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.83008406395481
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+196
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+228.803513
+</td>
+<td style="text-align:left;">
+4183.38135
+</td>
+<td style="text-align:left;">
+465
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+28.7875166666667
+</td>
+<td style="text-align:left;">
+4412.184863
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+2.157110064247
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+197
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1679.51465
+</td>
+<td style="text-align:left;">
+768.853333
+</td>
+<td style="text-align:left;">
+85
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+8.3086
+</td>
+<td style="text-align:left;">
+2448.367983
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.57859025107765
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+198
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+324.8071
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+5.0173
+</td>
+<td style="text-align:left;">
+324.8071
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.16903217588706
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+199
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+496.125519
+</td>
+<td style="text-align:left;">
+99
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+14.2931833333333
+</td>
+<td style="text-align:left;">
+496.125519
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.60955489723966
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+200
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+175.451889
+</td>
+<td style="text-align:left;">
+53
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+3.22588333333333
+</td>
+<td style="text-align:left;">
+175.451889
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.18697253504964
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Veja a seguir de forma visual como as variáveis numéricas se correlacionam:</p>
+<pre class="r"><code>pubg_tpp1 %&gt;% 
+  rev %&gt;% 
+  grafico_descritivo()</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-4-1.png" width="1152" /></p>
+<p>Vejamos um resumo inicial da amostra:</p>
+<pre class="r"><code>pubg_tpp1 %&gt;% 
+  select_if(~ is.numeric(.x) &amp; length(table(.x))!=2) %&gt;% 
+  sumario_custom_num() %&gt;% 
+  kable2()</code></pre>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+variavel
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+q25
+</th>
+<th style="text-align:right;">
+mediana
+</th>
+<th style="text-align:right;">
+media
+</th>
+<th style="text-align:right;">
+q75
+</th>
+<th style="text-align:right;">
+max
+</th>
+<th style="text-align:right;">
+desv_pad
+</th>
+<th style="text-align:right;">
+variancia
+</th>
+<th style="text-align:right;">
+assimetria
+</th>
+<th style="text-align:right;">
+curtose
+</th>
+<th style="text-align:right;">
+shapiro
+</th>
+<th style="text-align:right;">
+ks
+</th>
+<th style="text-align:right;">
+p_na
+</th>
+<th style="text-align:right;">
+p_zeros
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+player_dist_ride
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+867.3901
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+6697.7080
+</td>
+<td style="text-align:right;">
+1525.5517
+</td>
+<td style="text-align:right;">
+2327307.9869
+</td>
+<td style="text-align:right;">
+1.9416
+</td>
+<td style="text-align:right;">
+6.1725
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.61
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_dist_walk
+</td>
+<td style="text-align:right;">
+10.1071
+</td>
+<td style="text-align:right;">
+10.1071
+</td>
+<td style="text-align:right;">
+914.4866
+</td>
+<td style="text-align:right;">
+1326.7667
+</td>
+<td style="text-align:right;">
+257.8874
+</td>
+<td style="text-align:right;">
+4998.0910
+</td>
+<td style="text-align:right;">
+1236.8106
+</td>
+<td style="text-align:right;">
+1529700.3820
+</td>
+<td style="text-align:right;">
+0.8583
+</td>
+<td style="text-align:right;">
+2.6454
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+5e-04
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_dmg
+</td>
+<td style="text-align:right;">
+4.0000
+</td>
+<td style="text-align:right;">
+4.0000
+</td>
+<td style="text-align:right;">
+100.0000
+</td>
+<td style="text-align:right;">
+148.3850
+</td>
+<td style="text-align:right;">
+55.7500
+</td>
+<td style="text-align:right;">
+1024.0000
+</td>
+<td style="text-align:right;">
+160.5838
+</td>
+<td style="text-align:right;">
+25787.1425
+</td>
+<td style="text-align:right;">
+2.9713
+</td>
+<td style="text-align:right;">
+14.0654
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_kills
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.0000
+</td>
+<td style="text-align:right;">
+1.1200
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+12.0000
+</td>
+<td style="text-align:right;">
+1.6971
+</td>
+<td style="text-align:right;">
+2.8800
+</td>
+<td style="text-align:right;">
+3.1142
+</td>
+<td style="text-align:right;">
+15.8775
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_survive_time
+</td>
+<td style="text-align:right;">
+1.2836
+</td>
+<td style="text-align:right;">
+1.2836
+</td>
+<td style="text-align:right;">
+12.2185
+</td>
+<td style="text-align:right;">
+13.2223
+</td>
+<td style="text-align:right;">
+4.6762
+</td>
+<td style="text-align:right;">
+31.3476
+</td>
+<td style="text-align:right;">
+9.2327
+</td>
+<td style="text-align:right;">
+85.2429
+</td>
+<td style="text-align:right;">
+0.3714
+</td>
+<td style="text-align:right;">
+1.7813
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2e-03
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_dist
+</td>
+<td style="text-align:right;">
+10.1071
+</td>
+<td style="text-align:right;">
+10.1071
+</td>
+<td style="text-align:right;">
+1462.1542
+</td>
+<td style="text-align:right;">
+2194.1569
+</td>
+<td style="text-align:right;">
+257.8874
+</td>
+<td style="text-align:right;">
+9426.9541
+</td>
+<td style="text-align:right;">
+2225.2906
+</td>
+<td style="text-align:right;">
+4951918.4484
+</td>
+<td style="text-align:right;">
+0.9511
+</td>
+<td style="text-align:right;">
+2.9790
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_performance
+</td>
+<td style="text-align:right;">
+-0.0874
+</td>
+<td style="text-align:right;">
+-0.0874
+</td>
+<td style="text-align:right;">
+1.6116
+</td>
+<td style="text-align:right;">
+1.4762
+</td>
+<td style="text-align:right;">
+1.2313
+</td>
+<td style="text-align:right;">
+2.3139
+</td>
+<td style="text-align:right;">
+0.4378
+</td>
+<td style="text-align:right;">
+0.1917
+</td>
+<td style="text-align:right;">
+-0.8236
+</td>
+<td style="text-align:right;">
+3.5896
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="variavel-resposta" class="section level3">
+<h3>Variável resposta</h3>
+<p>Vejamos o que acontece ao analisar o tempo de sobrevivência de cada jogador</p>
+<iframe src="https://giphy.com/embed/o5hGnFgcKTiHC" width="100%" height="210" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>A seguir, a distribuição da variável resposta <code>player_survive_time</code> :</p>
+<pre class="r"><code>plot_grid(pubg_tpp1 %&gt;% 
+            ggplot(aes(x=player_survive_time))+
+            geom_histogram(aes(y = ..density..), bins = 30, fill=&quot;white&quot;, color=&quot;black&quot;)+
+            geom_density(alpha=.2, fill=&quot;white&quot;)+
+            scale_x_continuous(labels = scales::comma, limits = c(0,40), breaks = seq(0,40,5))+
+            labs(x=&quot;&quot;,y=&quot;&quot;, title = &quot;Tempo de sobrevivência dos jogadores selecionados&quot;)
+          ,
+          pubg_tpp1 %&gt;% 
+            ggplot(aes(x=&quot; &quot;, y=player_survive_time))+
+            geom_boxplot()+
+            labs(x=&quot;&quot;)+
+            coord_flip()
+          ,
+          ncol = 1, nrow = 2, align = &quot;v&quot;, rel_heights = c(3,1))</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-6-1.png" width="1152" /></p>
+<p>Note que possue uma <a href="https://binged.it/2BAYX3s">assimetria positiva</a></p>
+</div>
+<div id="data-wrangling" class="section level3">
+<h3>Data Wrangling</h3>
+<p>Primeiramente, vejamos as variáveis se relacionam entre si e com a variável resposta com os coeficientes de correlação de Pearson:</p>
+<pre class="r"><code># Correlations
+pubg_tpp1 %&gt;% 
+  select_if(is.numeric) %&gt;% 
+  cor() %&gt;% 
+  corrplot::corrplot(method = &quot;number&quot;,type = &quot;upper&quot;,diag = F, order = &quot;hclust&quot;,number.cex = 0.7, title = &quot;Correlation correlated numerics&quot;, mar=c(0,0,1,0))</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
+<p>É possível notar que apenas a variável <code>player_assists</code> não correlaciona-se com a variável resposta nem com as demais variáveis e <code>player_dmg</code> e <code>player_kills</code> são fortemente correlacionadas, isso indica que pode ser interessante remover uma delas ou juntar toda essa informação em uma única variável, veremos…</p>
+<p>Além disso nota-se que a distância percorrida a pé é fortemente correlacionada com a variável resposta enquanto que a distância de quem andou de carro não é tão correlacionada. Uma transformação na variável <code>player_dist_ride</code> para uma dummy <code>drive</code> indicando se o indivíduo dirigiu ou não pode representar melhor esta informação.</p>
+<p>Vejamos algumas características peculiares:</p>
+<pre class="r"><code>pubg_tpp1 %&gt;% 
+  select(player_kills, player_dist_ride, player_assists) %&gt;% 
+  map_dfr(~quantile(.x,  probs = seq(0,1,0.25)) %&gt;% round(2)) %&gt;% 
+  t  %&gt;% tidy() %&gt;% 
+  `colnames&lt;-`(c(&quot;variável&quot;,percent(seq(0,1,0.25)))) %&gt;% 
+  kable2()</code></pre>
+<p>Praticamente metade da amostra não registrou abates nem possui marcação de <code>player_dist_ride</code>. Como a variável <code>player_dmg</code> apresentou correlação com a variável resposta <code>player_survive_time</code>, vamos fazer algumas transformações:</p>
+<ol style="list-style-type: decimal">
+<li>Criar uma variável dummy <code>drive</code> se jogador usou carro</li>
+<li>Somar a <code>player_dist_ride</code> e <code>player_dist_walk</code> em uma única variável: <code>player_dist</code></li>
+<li>Juntar <code>player_kills</code>, <code>player_dmg</code> e <code>player_assists</code> em uma única variável: <code>player_performance</code></li>
+</ol>
+<div id="player-performance" class="section level4">
+<h4>Player performance</h4>
+<p>Como criar a variável <code>player_performance</code>?</p>
+<iframe src="https://giphy.com/embed/xT9IgnOQS8e8uKkflK" width="100%" height="270" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>Tentei inventar uma metodologia e com certeza devem existir maneiras mais eficientes de se fazer isso, porém, deixa eu explicar o que eu pensei, considere a formula:</p>
+<p><span class="math display">\[
+Playerperformance = log(WPlayerDmg + WPlayerAssists + WPlayerKills)
+\]</span></p>
+<p>onde:</p>
+<p><span class="math display">\[
+WPlayerKills = log(PlayerKills+0.5)\\
+WPlayerDmg = log(PlayerDmg)\\
+WPlayerAssists = PlayerAssists
+\]</span></p>
+<p>Note que:</p>
+<ul>
+<li><span class="math inline">\(WPlayerAssists\)</span>: Não é feita qualquer transformação;</li>
+<li><span class="math inline">\(WPlayerDmg\)</span>: A distribuição fica “quase simétrica” após a transformação log;</li>
+<li><span class="math inline">\(WPlayerKills\)</span>: adiciona-se 0.5 para poder tirar o log pois podem existir zeros nessa variável e além disso, quem não marcou abate será penalizado com <span class="math inline">\(-1\)</span> na soma final do score: <code>player_performance</code>.</li>
+</ul>
+<p>Veja a seguir de forma visual a distribuição das variáveis que farão parte da variável <code>player_performance</code> na parte de cima e na parte inferior o que acontece após sua soma, gerando a nova variável <code>player_performance</code> :</p>
+<pre class="r"><code>performance &lt;- tibble(w_player_kills = log(pubg_tpp1$player_kills+0.5),
+                     w_player_dmg = log(pubg_tpp1$player_dmg),
+                     w_player_assists = pubg_tpp1$player_assists) %&gt;% 
+  mutate(player_performance = log(w_player_dmg + w_player_assists + w_player_kills))
+
+grid.arrange(
+performance %&gt;% 
+  select(-player_performance) %&gt;% 
+  tidyr::gather() %&gt;% 
+  ggplot(aes(x=value))+
+  geom_histogram(aes(y = ..density..), bins = 30, fill=&quot;white&quot;, color=&quot;black&quot;)+
+  geom_density(alpha=.2, fill=&quot;white&quot;)+
+  scale_x_continuous(labels = scales::comma, limits = c(-1.5,8), breaks = seq(-1,8,1))+
+  labs(x=&quot;&quot;, y=&quot;&quot;)+
+  facet_wrap(~key, scales = &quot;free&quot;)
+,
+performance %&gt;% 
+  select(player_performance) %&gt;% 
+  tidyr::gather() %&gt;% 
+  ggplot(aes(x=value))+
+  geom_histogram(aes(y = ..density..), fill=&quot;white&quot;, color=&quot;black&quot;,bins = 15)+
+  geom_density(alpha=.2, fill=&quot;white&quot;)+
+  scale_x_continuous(limits = c(-1.,2.5), breaks = seq(-1,3,0.5))+
+  labs(x=&quot;&quot;, y=&quot;&quot;, title = &quot;performance&quot;),
+ncol=1
+)</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-9-1.png" width="960" /></p>
+</div>
+<div id="transformacoes-na-base" class="section level4">
+<h4>Transformações na base</h4>
+<p>A seguir faremos as mudanças diretamente no dataset que estamos trabalhando:</p>
+<pre class="r"><code>pubg_tpp1 &lt;- 
+  pubg_tpp1 %&gt;% 
+  mutate(player_dist = log(player_dist_ride + player_dist_walk)) %&gt;%  
+  mutate(player_assists_d = if_else(player_assists ==0, 0, 1)) %&gt;% 
+  mutate(player_performance = performance$player_performance )%&gt;% 
+  mutate(drive = ifelse(player_dist_ride==0, &quot;no&quot;, &quot;yes&quot;) %&gt;% as.factor()) %&gt;% 
+  mutate(player_kills_d = ifelse(player_kills==0, &quot;no&quot;, &quot;yes&quot;) %&gt;% as.factor()) </code></pre>
+<p>A manipulação acima cria as seguintes variáveis:</p>
+<ol style="list-style-type: decimal">
+<li><code>player_dist</code> como o log da soma de <code>player_dist_ride</code> e <code>player_dist_walk</code></li>
+<li><code>player_assists_d</code> como uma dummy: 1 se o jogador deu assistência; 0 c.c.</li>
+<li><code>player_performaec</code> como a combinação de <code>player_dmg</code>, <code>player_assists</code> e <code>player_kills</code></li>
+<li><code>drive</code> como uma dummy: 1 se o jogador dirigiu; 0 c.c.</li>
+<li><code>player_kills_d</code> como uma dummy: 1 se jogador matou alguém; 0 c.c.</li>
+</ol>
+<p>Vejamos como ocorre a distribuição das variáveis numéricas após as transformações:</p>
+<pre class="r"><code>g1 &lt;- 
+  pubg_tpp1 %&gt;% 
+  # select_if(~ !length(table(.x))==2 &amp; is.numeric(.x)) %&gt;% colnames() %&gt;% 
+  select(player_survive_time,player_performance,player_dist) %&gt;% colnames() %&gt;% 
+  map2(c(&quot;Densidade&quot;, &quot;&quot;, &quot;&quot;),
+       ~ plot_grid(
+          pubg_tpp1 %&gt;% 
+            ggplot(aes_string(x=.x)) + 
+            geom_histogram(aes(y=..density..),colour=&quot;black&quot;, fill=&quot;white&quot;, bins = 15) +
+            geom_density(alpha=.2, fill=&quot;lightgrey&quot;) +
+            scale_x_continuous()+
+            ggtitle(.x)+
+            labs(x=&quot;&quot;, y=.y)
+          ,
+          pubg_tpp1 %&gt;% 
+            ggplot(aes_string(, y=.x))+
+            geom_boxplot(aes(x=&quot; &quot;))+
+            labs(x=&quot;&quot;, y=&quot;&quot;)+
+            coord_flip(),
+          
+          ncol = 1, nrow = 2, align = &quot;v&quot;, rel_heights = c(3,1)
+        )
+  )
+
+dat &lt;- 
+  pubg_tpp1 %&gt;% 
+  select_if(~.x %&gt;% table %&gt;% length == 2) %&gt;% 
+  mutate_at(2,~if_else(.x==0, &quot;no&quot;, &quot;yes&quot;)) %&gt;% 
+  .[,-1]
+
+g2 &lt;- map2(colnames(dat),
+          c( &quot;Porcentagem&quot;, &quot;&quot;,&quot;&quot;),
+          ~ dat[,.x] %&gt;% 
+            tidyr::gather() %&gt;% 
+            group_by(key, value) %&gt;% 
+            summarise(n = n()) %&gt;% 
+            mutate(prop = n/sum(n)) %&gt;% 
+            ggplot(aes(x = key, y = prop,fill = value)) + 
+            geom_bar(position = &quot;fill&quot;,stat = &quot;identity&quot;, alpha=0.7) +
+            scale_y_continuous(labels = percent_format())+
+            labs(x=&quot;&quot;, y = .y)+
+            scale_fill_manual(values = c(&quot;grey&quot;, &quot;#FCC14B&quot;), name = &quot;Legenda:&quot;)
+)
+
+grid.arrange(g1[[1]], g1[[2]], g1[[3]],g2[[1]], g2[[2]], g2[[3]], ncol=3, heights=c(3/5, 2/5))</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-11-1.png" width="960" /></p>
+<p>Uma tabela com resumos de algumas estatísticas:</p>
+<pre class="r"><code>pubg_tpp1 %&gt;% 
+  select_if(~ is.numeric(.x) &amp; length(table(.x))!=2) %&gt;% 
+  sumario_custom_num() %&gt;% 
+  kable2()</code></pre>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+variavel
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+q25
+</th>
+<th style="text-align:right;">
+mediana
+</th>
+<th style="text-align:right;">
+media
+</th>
+<th style="text-align:right;">
+q75
+</th>
+<th style="text-align:right;">
+max
+</th>
+<th style="text-align:right;">
+desv_pad
+</th>
+<th style="text-align:right;">
+variancia
+</th>
+<th style="text-align:right;">
+assimetria
+</th>
+<th style="text-align:right;">
+curtose
+</th>
+<th style="text-align:right;">
+shapiro
+</th>
+<th style="text-align:right;">
+ks
+</th>
+<th style="text-align:right;">
+p_na
+</th>
+<th style="text-align:right;">
+p_zeros
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+player_dist_ride
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+867.3901
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+6697.7080
+</td>
+<td style="text-align:right;">
+1525.5517
+</td>
+<td style="text-align:right;">
+2327307.9869
+</td>
+<td style="text-align:right;">
+1.9416
+</td>
+<td style="text-align:right;">
+6.1725
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.61
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_dist_walk
+</td>
+<td style="text-align:right;">
+10.1071
+</td>
+<td style="text-align:right;">
+10.1071
+</td>
+<td style="text-align:right;">
+914.4866
+</td>
+<td style="text-align:right;">
+1326.7667
+</td>
+<td style="text-align:right;">
+257.8874
+</td>
+<td style="text-align:right;">
+4998.0910
+</td>
+<td style="text-align:right;">
+1236.8106
+</td>
+<td style="text-align:right;">
+1529700.3820
+</td>
+<td style="text-align:right;">
+0.8583
+</td>
+<td style="text-align:right;">
+2.6454
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0005
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_dmg
+</td>
+<td style="text-align:right;">
+4.0000
+</td>
+<td style="text-align:right;">
+4.0000
+</td>
+<td style="text-align:right;">
+100.0000
+</td>
+<td style="text-align:right;">
+148.3850
+</td>
+<td style="text-align:right;">
+55.7500
+</td>
+<td style="text-align:right;">
+1024.0000
+</td>
+<td style="text-align:right;">
+160.5838
+</td>
+<td style="text-align:right;">
+25787.1425
+</td>
+<td style="text-align:right;">
+2.9713
+</td>
+<td style="text-align:right;">
+14.0654
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_kills
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.0000
+</td>
+<td style="text-align:right;">
+1.1200
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+12.0000
+</td>
+<td style="text-align:right;">
+1.6971
+</td>
+<td style="text-align:right;">
+2.8800
+</td>
+<td style="text-align:right;">
+3.1142
+</td>
+<td style="text-align:right;">
+15.8775
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_survive_time
+</td>
+<td style="text-align:right;">
+1.2836
+</td>
+<td style="text-align:right;">
+1.2836
+</td>
+<td style="text-align:right;">
+12.2185
+</td>
+<td style="text-align:right;">
+13.2223
+</td>
+<td style="text-align:right;">
+4.6762
+</td>
+<td style="text-align:right;">
+31.3476
+</td>
+<td style="text-align:right;">
+9.2327
+</td>
+<td style="text-align:right;">
+85.2429
+</td>
+<td style="text-align:right;">
+0.3714
+</td>
+<td style="text-align:right;">
+1.7813
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0020
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_dist
+</td>
+<td style="text-align:right;">
+2.3132
+</td>
+<td style="text-align:right;">
+2.3132
+</td>
+<td style="text-align:right;">
+7.2875
+</td>
+<td style="text-align:right;">
+6.8060
+</td>
+<td style="text-align:right;">
+5.5520
+</td>
+<td style="text-align:right;">
+9.1513
+</td>
+<td style="text-align:right;">
+1.6542
+</td>
+<td style="text-align:right;">
+2.7365
+</td>
+<td style="text-align:right;">
+-0.6450
+</td>
+<td style="text-align:right;">
+2.4067
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0028
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_performance
+</td>
+<td style="text-align:right;">
+-0.0874
+</td>
+<td style="text-align:right;">
+-0.0874
+</td>
+<td style="text-align:right;">
+1.6116
+</td>
+<td style="text-align:right;">
+1.4762
+</td>
+<td style="text-align:right;">
+1.2313
+</td>
+<td style="text-align:right;">
+2.3139
+</td>
+<td style="text-align:right;">
+0.4378
+</td>
+<td style="text-align:right;">
+0.1917
+</td>
+<td style="text-align:right;">
+-0.8236
+</td>
+<td style="text-align:right;">
+3.5896
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A distribuição dos dados ordenada pela variável resposta <code>player_survive_time</code> :</p>
+<pre class="r"><code># Sorted
+pubg_tpp1 %&gt;% 
+  select(player_survive_time, everything()) %&gt;% 
+  mutate_if(~length(unique(.x))==2, as.factor) %&gt;% 
+  tabplot::tableplot(sortCol = player_survive_time,decreasing = T)</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-13-1.png" width="960" /></p>
+<p>Apos a transformação a distribuição e demais informações dos dados, vejamos novamente a distribuição das variáveis da amostra com os gráficos de dispersão, densidade e correlações levando em conta se dirigiu ou não:</p>
+<pre class="r"><code>grafico_descritivo(x = pubg_tpp1,
+                   colNames = c(&#39;player_survive_time&#39;, &quot;player_performance&quot;, &#39;player_dist&#39;,
+                                &#39;player_assists_d&#39;,&quot;player_kills_d&quot;, &#39;drive&#39;),
+                   color=&#39;drive&#39;,
+                   colors = c(&quot;grey&quot;, &quot;#FCC14B&quot;))</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-14-1.png" width="960" /></p>
+<p>O fato do jogador ter dirigido ou não exibiu padrões interessantes, pode ser que seja significante no ajuste do modelo final.</p>
+</div>
+</div>
+</div>
+<div id="analise-de-sobrevivencia" class="section level1">
+<h1>Análise de sobrevivencia</h1>
+<p>O passo inicial de qualquer análise estatística consiste em uma descrição dos dados e o principal componente da análise descritiva envolvendo dados de tempo de vida é a função de sobrevivência: <span class="math inline">\(S(t) = P(T&gt;t)\)</span>, que determina a probabilidade de um indivíduo sobreviver por mais do que um determinado tempo <span class="math inline">\(t\)</span>, ou por no mínimo um tempo igual a <span class="math inline">\(t\)</span>.</p>
+<p>A descrição dos dados já foi realizada, agora faremos a descrição envolvendo a função de sobrevivência.</p>
+<iframe src="https://giphy.com/embed/xT0xeMrCEGPiU5uw0w" width="100%" height="266" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<div id="kaplan-meier" class="section level2">
+<h2>Kaplan-Meier</h2>
+<p>Para isso existem algumas alternativas como o estimador de Kaplan-Meier, que utiliza os conceitos de independência e de probabilidade condicional para deduzir a probabilidade de sobreviver até o tempo <span class="math inline">\(t\)</span>.</p>
+<p>Veja a seguir são ajustados os modelos univariados de Kaplan-Meier para cada uma das coivaráveis da amostra:</p>
+<pre class="r"><code>surv &lt;- Surv(pubg_tpp1$player_survive_time)
+resultado_km &lt;-
+  list(geral            = survfit(surv ~ 1 ,data = pubg_tpp1),
+       player_assists_d = survfit(surv ~ player_assists_d ,data = pubg_tpp1),
+       drive            = survfit(surv ~ drive,data = pubg_tpp1 ),
+       player_kills_d   = survfit(surv ~ player_kills_d,data = pubg_tpp1))</code></pre>
+<p>Veja os resultados da função de sobrevivência sem levar em consideração nenhuma das coivaráveis:</p>
+<pre class="r"><code>surv_summary(resultado_km[[1]], pubg_tpp1) %&gt;% .[1:5,-ncol(.)] %&gt;% cbind(variable = &quot;Geral&quot;) %&gt;% 
+  select(variable, everything())%&gt;%
+  kable2()</code></pre>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+variable
+</th>
+<th style="text-align:right;">
+time
+</th>
+<th style="text-align:right;">
+n.risk
+</th>
+<th style="text-align:right;">
+n.event
+</th>
+<th style="text-align:right;">
+n.censor
+</th>
+<th style="text-align:right;">
+surv
+</th>
+<th style="text-align:right;">
+std.err
+</th>
+<th style="text-align:right;">
+upper
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Geral
+</td>
+<td style="text-align:right;">
+1.2836
+</td>
+<td style="text-align:right;">
+200
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.995
+</td>
+<td style="text-align:right;">
+0.0050
+</td>
+<td style="text-align:right;">
+1.0000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Geral
+</td>
+<td style="text-align:right;">
+1.5235
+</td>
+<td style="text-align:right;">
+199
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.990
+</td>
+<td style="text-align:right;">
+0.0071
+</td>
+<td style="text-align:right;">
+1.0000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Geral
+</td>
+<td style="text-align:right;">
+1.5569
+</td>
+<td style="text-align:right;">
+198
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.985
+</td>
+<td style="text-align:right;">
+0.0087
+</td>
+<td style="text-align:right;">
+1.0000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Geral
+</td>
+<td style="text-align:right;">
+1.5972
+</td>
+<td style="text-align:right;">
+197
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.980
+</td>
+<td style="text-align:right;">
+0.0101
+</td>
+<td style="text-align:right;">
+0.9996
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Geral
+</td>
+<td style="text-align:right;">
+1.7598
+</td>
+<td style="text-align:right;">
+196
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.975
+</td>
+<td style="text-align:right;">
+0.0113
+</td>
+<td style="text-align:right;">
+0.9969
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A função <code>surv_summary()</code> retorna um quadro de dados com as seguintes colunas:</p>
+<ul>
+<li>time: o tempo em que a curva tem um passo.</li>
+<li>n.risk: o número de sujeitos em risco em t.</li>
+<li>n.evento: o número de eventos que ocorrem no tempo t.</li>
+<li>n.censor: número de eventos censurados.</li>
+<li>surv: estimativa da probabilidade de sobrevivência.</li>
+<li>std.err: erro padrão de sobrevivência.</li>
+<li>superior: extremidade superior do intervalo de confiança</li>
+<li>inferior: extremidade inferior do intervalo de confiança</li>
+<li>estratos: indica a estratificação da estimativa de curvas. Os níveis de estratos (um fator) são os rótulos das curvas (se houver).</li>
+</ul>
+<div id="log-rank" class="section level3">
+<h3>Log-rank</h3>
+<p>Além da análise visual das estimativas é importante comparar as curvas de sobrevivência com testes de hipóteses para obter-se significância estatística para nossas afirmações.</p>
+<p>O teste log rank é um teste não paramétrico, que não faz suposições sobre as distribuições de sobrevivência. Essencialmente, o teste log rank compara o número observado de eventos em cada grupo com o que seria esperado se a hipótese nula fosse verdadeira. Considere então <span class="math inline">\(H_0: S_1(t)=S_2(t)\)</span> para todo <span class="math inline">\(t\)</span> no período de acompanhamento (ou seja, se as curvas de sobrevivência fossem idênticas). A estatística utilizada no teste é um <span class="math inline">\(T\)</span> com distribuição aproximadamente <span class="math inline">\(\chi^2\)</span> com 1 grau de liberdade.</p>
+<p>O objeto criado abaixo guarda o valor p para o teste de log-rank de cada em cada um dos modelos:</p>
+<pre class="r"><code>resultado_log_rank &lt;- 
+  c(geral = &quot;&quot;,
+    player_assists_d=round(1-pchisq(survdiff(surv~player_assists_d,data = pubg_tpp1)$chisq,1),5),
+    drive=round(1-pchisq(survdiff(surv~drive,data=pubg_tpp1)$chisq,1),5),
+    player_kills_d=round(1-pchisq(survdiff(surv~player_kills_d,data=pubg_tpp1)$chisq,1),5)
+  )</code></pre>
+<p>Os gráficos gerados a partir dos modelos ajustados acima bem como o resultado dos testes de log-rank são exibidos na imagem a seguir:</p>
+<pre class="r"><code>survplot &lt;- map2(resultado_km,
+                 case_when(resultado_log_rank == &#39;0&#39; ~ &quot;log-rank: \n p &lt; 0,00001&quot;,
+                           resultado_log_rank == &quot;&quot; ~ &quot;log-rank não se aplica&quot;,
+                           resultado_log_rank != &#39;0&#39; | resultado_log_rank != &#39;&#39; ~ 
+                             paste0(&quot;log-rank: \n p =&quot;,as.numeric(resultado_log_rank))),
+                 ~ autoplot(.x)+
+                   ggtitle(stringr::str_remove_all(names(.x$strata)[1],&quot;(=no|=yes)&quot;))+
+                   annotate(&quot;label&quot;,y = 0.20, x = 5,
+                            label = .y,
+                            size = 4, colour = &quot;red&quot;,hjust=0.1)+ 
+                   scale_fill_manual(values = c(&quot;grey&quot;, &quot;#FCC14B&quot;))+
+                   scale_color_manual(values = c(&quot;grey&quot;, &quot;#FCC14B&quot;))+
+  theme(legend.position = c(0.85,0.7))+
+    scale_x_continuous(limits = c(0,30), breaks = seq(0,30,5))
+                  
+                )
+grid.arrange(survplot[[1]], survplot[[2]] ,survplot[[3]], survplot[[4]], ncol=2)</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-18-1.png" width="1344" /></p>
+<p>O eixo horizontal (eixo x) representa o tempo em minutos, e o eixo vertical (eixo y) mostra a probabilidade de sobrevivência ou a proporção de jogadores que sobrevivem. As linhas representam curvas de sobrevivência dos dois grupos.</p>
+<p>Uma queda vertical nas curvas indica um evento. No tempo zero, a probabilidade de sobrevivência é de 1,0 (ou 100% dos jogadores vivos).</p>
+<p>Interpretação: Pelo gráfico, aparentemente não existe diferença no tempo de sobrevivência com estratificação dos dados de acordo com quem deu assistência ou não, já para o teste que compara igualdade de funções de sobrevivência das demais variáveis, existem evidencias estatísticas para rejeitar a hipótese de que não há diferença na sobrevida entre os dois grupos</p>
+</div>
+</div>
+<div id="funcao-de-risco-hazard-ou-taxa-de-falha" class="section level2">
+<h2>Função de risco (hazard) ou taxa de falha</h2>
+<p>Função de risco (hazard) ou taxa de falha é o risco “instantâneo” denotada por <span class="math inline">\(\lambda(t)\)</span> é uma taxa, não uma probabilidade e pode assumir qualquer valor real maior que zero.</p>
+<p>No exemplo representa a taxa de incidência ou risco acumulado para um indivíduo morrer até o momento <span class="math inline">\(t\)</span>, dado que sobreviveu até este momento. É muito informativa quando comparada com a função de sobrevivência pois diferentes <span class="math inline">\(S(t)\)</span> podem ter formas semelhantes, enquanto que respectivas <span class="math inline">\(\lambda(t)\)</span> podem diferir drasticamente.</p>
+<pre class="r"><code>survplot &lt;-
+  map(resultado_km  ,
+      ~ ggsurvplot(.x, conf.int = TRUE, 
+                   palette = c(&quot;grey&quot;, &quot;#FCC14B&quot;),
+                   risk.table = F,break.time.by = 5,
+                   fun = &quot;cumhaz&quot;,title = stringr::str_remove_all(names(.x$strata)[1],&quot;(=no|=yes)&quot;))
+  )
+arrange_ggsurvplots(survplot, print = TRUE,
+  ncol = 2, nrow = 2)</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-19-1.png" width="1344" /></p>
+<p>O risco cumulativo <span class="math inline">\(H( t)\)</span> pode ser interpretado como a força cumulativa da mortalidade. Em outras palavras, corresponde ao número de eventos que seriam esperados para cada indivíduo pelo tempo t se o evento fosse um processo repetitivo.</p>
+</div>
+<div id="modelo-de-cox" class="section level2">
+<h2>Modelo de cox</h2>
+<p>É caracterizado pela presença dos coeficientes <span class="math inline">\(\beta\)</span>s que medem os efeitos (semelhantes à análise de regressão logística múltipla e linear múltipla) das variáveis explicativas sobre a função de risco. Em um modelo de regressão de riscos proporcionais de Cox, a medida do efeito é a <em>taxa de risco</em>, que é o risco de falha, dado que o participante sobreviveu até um tempo específico.</p>
+<p>Algumas das suposições para o correto uso do modelo de regressão de riscos proporcionais de Co incluem:</p>
+<ul>
+<li>independência dos tempos de sobrevivência entre indivíduos distintos na amostra,</li>
+<li>relação multiplicativa entre os preditores e o risco,</li>
+<li>uma taxa de risco constante ao longo do tempo.</li>
+</ul>
+<p>O modelo de riscos proporcionais de Cox é chamado de modelo semi-paramétrico , porque não há suposições sobre o formato da função de risco de linha de base. No entanto, existem outras suposições, como observado acima.</p>
+<p>É possível utilizar as estatísticas de Wald, da razão de verossimilhança e escore para fazer inferências sobre os parâmetros do modelo</p>
+<p>Veja a seguir a significância dos coeficiente estimado em modelos univariados para cada variável candidata ao modelo:</p>
+<pre class="r"><code># Modelos univariados
+covariates    &lt;- c(&quot;player_kills&quot;,&quot;player_dist_ride&quot;,&quot;player_performance&quot;,
+                   &quot;player_dist_walk&quot;,&quot;player_dmg&quot;, &quot;player_dist&quot;, 
+                   &quot;player_assists_d&quot;,&quot;drive&quot;, &quot;player_kills_d&quot;)
+univ_formulas &lt;- map(covariates,~ as.formula(paste(&#39;Surv(player_survive_time) ~&#39;, .x)))
+univ_models   &lt;- map( univ_formulas, ~coxph(.x, data = pubg_tpp1))
+
+# estrair resultados 
+map2_df(univ_models,
+        covariates,
+       function(x,y){ 
+         x                = summary(x)
+         p.value          = signif(x$wald[&quot;pvalue&quot;], digits=2)
+         wald.test        = signif(x$wald[&quot;test&quot;], digits=2)
+         beta             = signif(x$coef[1], digits=2);#coeficient beta
+         HR               = signif(x$coef[2], digits=2);#exp(beta)
+         HR.confint.lower = signif(x$conf.int[,&quot;lower .95&quot;], 2)
+         HR.confint.upper = signif(x$conf.int[,&quot;upper .95&quot;],2)
+         HR               = paste0(HR, &quot; (&quot;, HR.confint.lower, &quot;-&quot;, HR.confint.upper, &quot;)&quot;)
+         res              = tibble(y,beta, HR, wald.test, p.value)
+         colnames(res)    = c(&quot;covariates&quot;,&quot;beta&quot;, &quot;HR (95% CI for HR)&quot;, &quot;wald.test&quot;, &quot;p.value&quot;)
+         res
+       }) %&gt;% 
+  kable2(linhas = 7)</code></pre>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+covariates
+</th>
+<th style="text-align:right;">
+beta
+</th>
+<th style="text-align:left;">
+HR (95% CI for HR)
+</th>
+<th style="text-align:right;">
+wald.test
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+player_kills
+</td>
+<td style="text-align:right;">
+-0.3000
+</td>
+<td style="text-align:left;">
+0.74 (0.67-0.82)
+</td>
+<td style="text-align:right;">
+31.0
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_dist_ride
+</td>
+<td style="text-align:right;">
+-0.0003
+</td>
+<td style="text-align:left;">
+1 (1-1)
+</td>
+<td style="text-align:right;">
+26.0
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_performance
+</td>
+<td style="text-align:right;">
+-0.8900
+</td>
+<td style="text-align:left;">
+0.41 (0.31-0.55)
+</td>
+<td style="text-align:right;">
+37.0
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_dist_walk
+</td>
+<td style="text-align:right;">
+-0.0013
+</td>
+<td style="text-align:left;">
+1 (1-1)
+</td>
+<td style="text-align:right;">
+140.0
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_dmg
+</td>
+<td style="text-align:right;">
+-0.0031
+</td>
+<td style="text-align:left;">
+1 (1-1)
+</td>
+<td style="text-align:right;">
+33.0
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_dist
+</td>
+<td style="text-align:right;">
+-1.5000
+</td>
+<td style="text-align:left;">
+0.22 (0.18-0.26)
+</td>
+<td style="text-align:right;">
+260.0
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: white;background-color: #FFE8BD;">
+player_assists_d
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: #FFE8BD;">
+-0.4300
+</td>
+<td style="text-align:left;font-weight: bold;color: white;background-color: #FFE8BD;">
+0.65 (0.41-1)
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: #FFE8BD;">
+3.5
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: #FFE8BD;">
+0.062
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+drive
+</td>
+<td style="text-align:right;">
+-0.8500
+</td>
+<td style="text-align:left;">
+0.43 (0.32-0.57)
+</td>
+<td style="text-align:right;">
+33.0
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+player_kills_d
+</td>
+<td style="text-align:right;">
+-0.7300
+</td>
+<td style="text-align:left;">
+0.48 (0.36-0.65)
+</td>
+<td style="text-align:right;">
+24.0
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Modelo de Cox usando uma variável categórica retorna uma razão de risco, que, acima de 1 indica uma covariável que está positivamente associada à probabilidade do evento e, portanto, negativamente associada ao tempo de sobrevida. O oposto vale para HR menor que um e HR = 1 indica que a covariável não tem efeito.</p>
+<pre class="r"><code>final_model  &lt;- 
+coxph(Surv(player_survive_time) ~ player_performance+player_dist+drive,
+      data = pubg_tpp1,x=T,method=&quot;breslow&quot;)
+
+summary(final_model)</code></pre>
+<pre><code>## Call:
+## coxph(formula = Surv(player_survive_time) ~ player_performance + 
+##     player_dist + drive, data = pubg_tpp1, x = T, method = &quot;breslow&quot;)
+## 
+##   n= 200, number of events= 200 
+## 
+##                       coef exp(coef) se(coef)       z Pr(&gt;|z|)    
+## player_performance -0.7469    0.4738   0.1787  -4.179 2.92e-05 ***
+## player_dist        -1.7599    0.1721   0.1150 -15.307  &lt; 2e-16 ***
+## driveyes            0.8832    2.4186   0.2091   4.225 2.39e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##                    exp(coef) exp(-coef) lower .95 upper .95
+## player_performance    0.4738     2.1105    0.3338    0.6726
+## player_dist           0.1721     5.8117    0.1374    0.2156
+## driveyes              2.4186     0.4135    1.6055    3.6434
+## 
+## Concordance= 0.883  (se = 0.024 )
+## Rsquare= 0.837   (max possible= 1 )
+## Likelihood ratio test= 362.7  on 3 df,   p=0
+## Wald test            = 274  on 3 df,   p=0
+## Score (logrank) test = 407.8  on 3 df,   p=0</code></pre>
+<p>No modelo ajustado note-se que existe uma associação negativa entre <code>player_performance</code> e mortalidade e entre <code>player_dist</code> e mortalidade (ou seja, o risco de morte diminui para jogadores que percorrem maiores distâncias e possuem melhor performance).</p>
+<p>As estimativas dos parâmetros representam o aumento no log esperado do risco relativo para cada aumento de uma unidade no preditor, mantendo os outros preditores constantes.</p>
+<p>Para interpretabilidade, calcularemos as taxas de risco exponenciando das estimativas dos parâmetros. Para a <code>player_performance</code>, exp(-0.7469196)= 0.4738239. Isso implica que diminui para 47.38% do valor original do risco esperado em relação a um aumento de uma unidade na performance, mantendo as demais variáveis constantes. A interpretação de <code>player_dist</code> em escala logarítimica é feita de maneira semelhante.`</p>
+<p>Já para os jogadores onde <code>drive</code> = 1 (que dirigiram durante a partida) existe uma relação positiva, como exp(0.8831835)= 2.4185871. O risco esperado corresponde à 2.4185871 do valor original nos que dirigiram em comparação aos que não dirigiram, mantendo as demais variáveis constantes.</p>
+<pre class="r"><code>map2_df(1:3,final_model$coefficients %&gt;% names(),~
+      tibble(
+        variable = .y,
+        beta             = signif(summary(final_model)$coef[.x,1], digits=2), #coeficient beta
+        HR               = signif(summary(final_model)$coef[.x,2], digits=2), #exp(beta)
+        HR.confint.lower = signif(summary(final_model)$conf.int[.x,&quot;lower .95&quot;], 2),
+        HR.confint.upper = signif(summary(final_model)$conf.int[.x,&quot;upper .95&quot;],2)) %&gt;% 
+      mutate(HR= paste0(HR, &quot; (&quot;, HR.confint.lower, &quot;-&quot;, HR.confint.upper, &quot;)&quot;)
+      )
+) %&gt;% kable2()</code></pre>
+<div class="col2">
+<p>Em suma:</p>
+<ul>
+<li>HR = 1: sem efeito</li>
+<li>HR &lt;1: Redução do risco</li>
+<li>HR&gt; 1: aumento do risco</li>
+</ul>
+<hr />
+<iframe src="https://giphy.com/embed/2Us3iTghyffcfeI35h" width="100%" height="200" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+</div>
+<div id="residuos-de-martingal-e-deviance" class="section level3">
+<h3>Resíduos de Martingal e Deviance</h3>
+<p>Como foi visto, o modelo de regressão de riscos proporcionais de Cox faz diversas suposições que precisam ser conferidas após o ajuste do modelo para chegar a qualidade de seus resultados pois um modelo mais ajustado pode trazer resultados enganosos e que não façam sentido algum</p>
+<iframe src="https://giphy.com/embed/l0CLSXnSgbYma8EOA" width="100%" height="269" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>Gráficos dos resíduos Martingal ou deviance contra os tempos fornecem uma forma de verificar a adequação do modelo ajustado, bem como ajudar na detecção de observações atípicas.</p>
+<p><strong>Deviance</strong></p>
+<p>Esses resíduos, que são uma tentativa de tornar os resíduos Martingal mais simétricos em torno do zero, facilitam, em geral, a detecção de pontos atípicos (outliers). Se o modelo for apropriado, esses resíduos devem apresentar um comportamento aleatório em torno de zero.</p>
+<p><strong>Martingal</strong></p>
+<p>Esses resíduos são vistos como uma estimativa do numero de falhas em excesso observada nos dados mas não predito pelo modelo. Os mesmos são usados, em geral, para examinar a melhor forma funcional (linear, quadrática, etc.) para uma dada covariavel em um modelo de regressão assumido para os dados do estudo.</p>
+<pre class="r"><code>res &lt;- 
+  tibble(residuo_deviance = resid(final_model,type=&quot;deviance&quot;) ,
+         residuo_martingal = resid(final_model,type=&quot;martingal&quot;),
+         linear_predictors = final_model$linear.predictors)
+
+# Graficos:
+grid.arrange(
+  ggplot(res, aes(x=linear_predictors, y=residuo_martingal))+ geom_point()+geom_hline(yintercept=0, color=&#39;coral&#39;)+ylab(&quot;Resíduos Martingual&quot;),
+  ggplot(res, aes(x=linear_predictors, y=residuo_deviance))+ geom_point()+geom_hline(yintercept=0, color=&#39;coral&#39;)+ylab(&quot;Deviance&quot;),
+  ncol=2
+)</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-23-1.png" width="960" /></p>
+<p>Interpretação:</p>
+<ul>
+<li><strong>Martingal</strong>: Parecido com deviance mais acentuado;</li>
+<li><strong>Deviance</strong>: Modelo não eh tao ruim assim, se fosse um modelo linear talvez deveríamos tomar cuidado.</li>
+</ul>
+<div id="residuos-de-schoenfeld" class="section level4">
+<h4>Residuos de Schoenfeld</h4>
+<p>Em princípio, os resíduos de Schoenfeld são independentes do tempo. Um gráfico que mostra um padrão não aleatório contra o tempo é evidência de violação da suposição de hipótese.</p>
+<p>Para testar a suposição de riscos proporcionais:</p>
+<pre class="r"><code>final_model %&gt;% cox.zph %&gt;% ggcoxzph</code></pre>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/2018-11-28-pubg-sobrevivencia-kaggle_files/figure-html/unnamed-chunk-24-1.png" width="1152" /></p>
+<p>A partir da inspeção gráfica, não há padrão com o tempo. A suposição de riscos proporcionais parece ser suportada pelas covariáveis</p>
+</div>
+</div>
+</div>
+<div id="consideracoes-finais" class="section level2">
+<h2>Considerações finais</h2>
+<iframe src="https://giphy.com/embed/RHJkLqcdvMQF4GI3P7" width="100%" height="270" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>Como era de se esperar, o risco de ser abatido diminui para jogadores que possuem melhor performance e também para os jogadores que percorrem maiores distâncias (o que mostra que ficar parado no jogo em uma zona pode não ser a melhor ideia, já é quanto mais se movimenta maior a quantidade de itens que podem ser coletados).</p>
+<p>Interessante notar que a curva de <strong>sobrevivência</strong> para os jogadores que dirigiram apresenta resultado oposto ao <strong>risco</strong> esperado nos que dirigiram, isso ocorre pois esses dois modelos calculam medidas diferentes.</p>
+</div>
+</div>
+<div id="referencias" class="section level1">
+<h1>Referências</h1>
+<p>Carvalho,M.A., Andreozzi,V.L., Codec¸o,C.T., Campos,D.P., Barbosa,M.T.S., Shimakura,S.E., Análise de sobrevivência: Teoria e aplicações em saúde, Segunda Edição, Editora FIOCRUZ, Rio de Janeiro, 2011.</p>
+<p>Colosimo,E.A., Giolo,S.R., Análise de sobrevivência aplicada, ABE-Projeto Fisher, São Paulo, 2010</p>
+<p>Lewis,E.E., Introduction to reliability engineering, John Wiley, New York, 1987</p>
+<p><a href="http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Survival/BS704_Survival6.html" class="uri">http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Survival/BS704_Survival6.html</a></p>
+<p><a href="http://www.sthda.com/english/wiki/cox-model-assumptions" class="uri">http://www.sthda.com/english/wiki/cox-model-assumptions</a></p>
+<p>TODO - curiosidade - leituras futuras:</p>
+<ul>
+<li>Evaluating Random Forests for Survival Analysis Using Prediction Error Curves: <a href="https://www.jstatsoft.org/article/view/v050i11" class="uri">https://www.jstatsoft.org/article/view/v050i11</a></li>
+<li>randomForestSRC: <a href="https://cran.r-project.org/web/packages/randomForestSRC/index.html" class="uri">https://cran.r-project.org/web/packages/randomForestSRC/index.html</a></li>
+<li>WTTE-RNN - Less hacky churn prediction: <a href="https://ragulpr.github.io/2016/12/22/WTTE-RNN-Hackless-churn-modeling/" class="uri">https://ragulpr.github.io/2016/12/22/WTTE-RNN-Hackless-churn-modeling/</a></li>
+<li>Weibull Time To Event Recurrent Neural Network: <a href="https://github.com/ragulpr/wtte-rnn/" class="uri">https://github.com/ragulpr/wtte-rnn/</a></li>
+<li>Neural Networks as Statistical Methods in Survival Analysis: <a href="https://www.stats.ox.ac.uk/pub/bdr/NNSM.pdf" class="uri">https://www.stats.ox.ac.uk/pub/bdr/NNSM.pdf</a></li>
+<li>Continuous and Discrete Time Survival Analysis: Neural Network Approaches: <a href="http://pcwww.liv.ac.uk/~afgt/eleuteri_lyon07.pdf" class="uri">http://pcwww.liv.ac.uk/~afgt/eleuteri_lyon07.pdf</a></li>
+<li>Cox Proportional Hazards Model - h2O Documentation: <a href="http://s3.amazonaws.com/h2o-release/h2o/master/1579/docs-website/datascience/coxph.html" class="uri">http://s3.amazonaws.com/h2o-release/h2o/master/1579/docs-website/datascience/coxph.html</a></li>
+<li>Introduction to H2OCoxPH: <a href="https://www.slideshare.net/0xdata/introduction-to-h2ocoxph" class="uri">https://www.slideshare.net/0xdata/introduction-to-h2ocoxph</a></li>
+</ul>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="/categories/dplyr">dplyr</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/gamificacao">gamificacao</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/ggplot">ggplot</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/kaggle">kaggle</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/modelos">Modelos</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/package">package</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/probabilidade">probabilidade</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/teoria">Teoria</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/tabelas">tabelas</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/rstudio">rstudio</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/rmarkdown">rmarkdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/analise-de-sobrevivencia">analise de sobrevivencia</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/pubg">pubg</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/cox">cox</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/kaplan-meier">kaplan meier</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/teoria">teoria</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/tabelas">tabelas</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/rstudio">RStudio</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/rmarkdown">rmarkdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r-markdown">R Markdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/probabilidade">probabilidade</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/plot">plot</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/package">package</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelos">Modelos</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/modelagem">modelagem</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/kaggle">kaggle</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gamification">gamification</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gamificacao">gamificacao</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/aprendendo">Aprendendo</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/analise-de-sobrevivencia">analise de sobrevivencia</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/pubg">pubg</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/cox">cox</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/kaplan-meier">kaplan meier</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+<div>
+
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/post/2018-10-27-server-cloud/server-cloud/"
+                class="button big previous">Seu app, RStudio e Shiny Server na nuvem do Google</a></li>
+    
+
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a>
+              </h3>
+              
+              <time class="published" datetime='2018-11-28'>
+                November 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/" class="image featured">
+            <img src="/img/2018/11/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-10-27-server-cloud/server-cloud/">Seu app, RStudio e Shiny Server na nuvem do Google</a>
+              </h3>
+              
+              <time class="published" datetime='2018-10-27'>
+                October 27, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-10-27-server-cloud/server-cloud/" class="image featured">
+            <img src="/img/2018/10/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-09-29'>
+                September 29, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/" class="image featured">
+            <img src="/img/2018/09/img1.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-31'>
+                August 31, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="/img/2018/08/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Ajustando um modelo de regressão linear bayesiano do zero</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-28'>
+                July 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-06-24'>
+                June 24, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-05-26'>
+                May 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-04-12'>
+                April 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="/img/2018/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-03-07'>
+                March 7, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-17'>
+                February 17, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-01'>
+                February 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/" class="image featured">
+            <img src="/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-26'>
+                December 26, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-18'>
+                December 18, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes, sou Estatístico e entusiasta pela ciência de dados. Percebi que um dos muitos desafios na carreira de um cientista de dados é passar para as pessoas o que podemos fazer em diversas áreas de estudo, diante disso resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#f4f4f4; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	 
+</style>
+<div id="mc_embed_signup">
+<form action="https://github.us19.list-manage.com/subscribe/post?u=ba1b89ab75a7b5f8a2f0c6a3f&amp;id=6bb643ba67" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Inscreva-se para acompanhar o conteúdo do blog!</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba1b89ab75a7b5f8a2f0c6a3f_6bb643ba67" tabindex="-1" value=""></div>
+    <div class="show"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+
+  
+  
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          Fellipe Gomes
+        
+      .
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+        
+        
+        
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+	<script>
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/152619/script.js');
+</script>  
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/ba1b89ab75a7b5f8a2f0c6a3f/2f5cf26a309ff4ddefd5005dc.js");</script>
+  </body>
+</html>
+

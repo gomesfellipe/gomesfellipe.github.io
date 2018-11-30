@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>Analise de sobrevivencia</title>
+      <link>/categories/analise-de-sobrevivencia/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/analise-de-sobrevivencia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Bayesiana</title>
       <link>/categories/bayesiana/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
@@ -84,6 +93,15 @@
     </item>
     
     <item>
+      <title>Cox</title>
+      <link>/categories/cox/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/cox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Datacamp</title>
       <link>/categories/datacamp/</link>
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
@@ -95,7 +113,7 @@
     <item>
       <title>Dplyr</title>
       <link>/categories/dplyr/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/dplyr/</guid>
       <description></description>
@@ -104,7 +122,7 @@
     <item>
       <title>Estatistica</title>
       <link>/categories/estatistica/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/estatistica/</guid>
       <description></description>
@@ -140,7 +158,7 @@
     <item>
       <title>Gamificacao</title>
       <link>/categories/gamificacao/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/gamificacao/</guid>
       <description></description>
@@ -149,7 +167,7 @@
     <item>
       <title>Ggplot</title>
       <link>/categories/ggplot/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/ggplot/</guid>
       <description></description>
@@ -185,9 +203,18 @@
     <item>
       <title>Kaggle</title>
       <link>/categories/kaggle/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/kaggle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kaplan meier</title>
+      <link>/categories/kaplan-meier/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/kaplan-meier/</guid>
       <description></description>
     </item>
     
@@ -248,7 +275,7 @@
     <item>
       <title>Modelos</title>
       <link>/categories/modelos/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/modelos/</guid>
       <description></description>
@@ -266,7 +293,7 @@
     <item>
       <title>Package</title>
       <link>/categories/package/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/package/</guid>
       <description></description>
@@ -284,7 +311,7 @@
     <item>
       <title>Probabilidade</title>
       <link>/categories/probabilidade/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/probabilidade/</guid>
       <description></description>
@@ -293,16 +320,25 @@
     <item>
       <title>Prática</title>
       <link>/categories/pr%C3%A1tica/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/pr%C3%A1tica/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Pubg</title>
+      <link>/categories/pubg/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/pubg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
       <link>/categories/r/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/r/</guid>
       <description></description>
@@ -338,7 +374,7 @@
     <item>
       <title>Rmarkdown</title>
       <link>/categories/rmarkdown/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/rmarkdown/</guid>
       <description></description>
@@ -347,7 +383,7 @@
     <item>
       <title>Rstudio</title>
       <link>/categories/rstudio/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/rstudio/</guid>
       <description></description>
@@ -392,7 +428,7 @@
     <item>
       <title>Tabelas</title>
       <link>/categories/tabelas/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/tabelas/</guid>
       <description></description>
@@ -401,7 +437,7 @@
     <item>
       <title>Teoria</title>
       <link>/categories/teoria/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/teoria/</guid>
       <description></description>

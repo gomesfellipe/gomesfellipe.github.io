@@ -6,10 +6,19 @@
     <description>Recent content in Gamificacao on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/gamificacao/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</title>
+      <link>/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/</guid>
+      <description>.col2 {columns: 2 200px; /* number of columns and width in pixels*/-webkit-columns: 2 200px; /* chrome, safari */-moz-columns: 2 200px; /* firefox */}.col3 {columns: 3 100px;-webkit-columns: 3 100px;-moz-columns: 3 100px;}Análise de sobrevivência e PUBGAnálise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.</description>
+    </item>
     
     <item>
       <title>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</title>
