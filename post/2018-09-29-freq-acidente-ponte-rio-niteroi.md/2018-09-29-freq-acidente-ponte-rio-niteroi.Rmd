@@ -168,7 +168,8 @@ base %>%
   map_df( ~.x %>% 
             select(dia_semana,classificacao_acidente, mortos, feridos, veiculos)) %>%
   map_if(is.character,as.factor) %>% 
-  SmartEDA::ExpCatViz(gp=NULL, fname=NULL, margin=2, Page = c(2,2)) 
+  bind_cols() %>% 
+  SmartEDA::ExpCatViz(target=NULL, fname=NULL, margin=2, Page = c(2,2)) 
 ```
 
 Nota-se que o maior número de acidentes ocorre na sexta-feira, praticamente todos os acidentes não tiveram mortos e em 78% dos acidentes não houveram vítimas. A maioria dos acidentes foi colisão entre dois carros.
@@ -591,13 +592,15 @@ walk(ind, function(i) g$grobs[i][[1]][["gp"]] <<-
        gpar(fill = "darkolivegreen1", col = "darkolivegreen1", lwd = 5)
      )
 
-g2  <- 
-  autoplot(fit,which=1:6, print=F,suppressMessages=T) +
-  theme_bw()
+# g2  <-
+#   ggplot2::autoplot(fit, print=F,suppressMessages=T) +
+#   theme_bw()
+# 
+# gn  <- arrangeGrob(g2[[1]], g2[[2]], g2[[3]], g2[[4]], g2[[5]], g2[[6]])
+# 
+# grid.arrange(gn, g, ncol=2)
 
-gn  <- arrangeGrob(g2[[1]], g2[[2]], g2[[3]], g2[[4]], g2[[5]], g2[[6]])
-
-grid.arrange(gn, g, ncol=2)
+grid.arrange(g)
 ```
 
 

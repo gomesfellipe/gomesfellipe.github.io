@@ -276,7 +276,7 @@ Note que as variáveis problemáticas foram ordenadas de forma decrescente (maio
 Qualidade <- c('None' = 0, 'Po' = 1, 'Fa' = 2, 'TA' = 3, 'Gd' = 4, 'Ex' = 5)
 
 full %<>%
-  mutate(PoolQC =  if_else(PoolQC %>% is.na, "None", PoolQC) ) %>% 
+  mutate(PoolQC =  ifelse(PoolQC %>% is.na, "None", PoolQC) %>% as.factor() ) %>% 
   mutate(PoolQC = as.integer(revalue(PoolQC, Qualidade)))
 ```
 
@@ -741,7 +741,8 @@ full %<>%
   mutate(Electrical  = as.factor(Electrical)) %>% 
   mutate(SaleType    = ifelse(is.na(SaleType ),
                             full$SaleType  %>% table %>% sort %>% names %>% last, SaleType )) %>% 
-  mutate(SaleType    = as.factor(SaleType )) 
+  mutate(SaleType    = as.factor(SaleType )) %>% 
+  select(-Pool)
 
 
 full[is.na(full$Functional),"Functional"] <- full$Functional %>% table %>% sort %>% names %>% last
@@ -846,7 +847,7 @@ cormat <-
   melt
 
 cormat %>%   
-  ggplot( aes(reorder(X1,value), reorder(X2,value), fill=value))+
+  ggplot( aes(reorder(Var1,value), reorder(Var2,value), fill=value))+
   geom_tile(color="white")+
   scale_fill_gradient2(low="blue", high="red", mid="white", midpoint=0, limit=c(-1,1), space="Lab", name="Pearson\nCorrelation")+
   theme_bw()+

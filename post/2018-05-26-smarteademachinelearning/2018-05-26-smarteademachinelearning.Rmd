@@ -222,8 +222,7 @@ Entendendo as dimensões do conjunto de dados, nomes de variáveis, resumo geral
 ```{r}
 # Visao geral dos dados - Type = 1
 ExpData(data=Affairs,
-        type=1,  # O tipo 1 é uma visão geral dos dados
-        DV=NULL) # especifique o nome da variável de destino, se houver. isso não é obrigatório
+        type=1) # O tipo 1 é uma visão geral dos dados
 ```
 
 Conferindo o nome das variáveis e os tipos de cada uma:
@@ -231,8 +230,7 @@ Conferindo o nome das variáveis e os tipos de cada uma:
 ```{r}
 # Estrutura dos dados - Type = 2
 ExpData(data=Affairs,
-        type=2,  # O tipo 2 é a estrutura dos dados
-        DV=NULL) # especifique o nome da variável de destino, se houver. isso não é obrigatório
+        type=2) # O tipo 2 é a estrutura dos dados
 ```
 
 Esta função fornece visão geral e estrutura dos quadros de dados.
@@ -316,7 +314,6 @@ Representação gráfica de todos os recursos numéricos com **gráfico de densi
 # Nota: Variável excluída (se o valor único da variável for menor ou igual a 10 [im = 10])
 
 ExpNumViz(Affairs,
-          gp=NULL, # Variaveel alvo
           Page=c(2,2), # padrão de saída. 
           sample=8) # seleção aleatória de plots
 ```
@@ -352,7 +349,6 @@ Gráficos de barra para todas as variáveis categóricas
 
 ```{r}
 ExpCatViz(Affairs,
-          gp=NULL, # Variavel target
           fname=NULL, # Nome do arquivo de saida, default é pdf
           clim=10,# categorias máximas a incluir nos gráficos de barras.
           margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
@@ -369,9 +365,7 @@ A função [`plot_kmeans()`](https://github.com/gomesfellipe/functions/blob/mast
 Vejamos os resultados:
 
 ```{r}
-plot_kmeans(Affairs[,-c(1)]%>%
-              select_if(is.numeric)
-            , 2)
+plot_kmeans(Affairs[,-c(1)] %>% select_if(is.numeric) , 2)
 ```
 
 Como podemos observar, foram detectados dois grupos no conjunto de dados. O ideal agora seria fazer uma AED desses clusters identificados e avaliar qual o comportamento dos grupos formados mas como essa variável foi omitida e a seguir discutiremos a avaliação da base diante de da variável resposta, deixo essas análises aos curiosos de plantão. 
@@ -402,7 +396,6 @@ Estatísticas de resumo quando a variável dependente é contínua Preço.
 ```{r}
 ExpNumStat(Affairs,
            by="A", # Agrupar por A (estatísticas resumidas por Todos), G (estatísticas resumidas por grupo), GA (estatísticas resumidas por grupo e Geral)
-           gp="affairs", # Variavel alvo
            Qnt=seq(0,1,0.1), # padrão NULL. Quantis especificados [c (0,25,0,75) encontrarão os percentis 25 e 75]
            MesofShape=1, # Medidas de formas (assimetria e curtose)
            Outlier=TRUE, # Calcular limite superior , inferior e numero de outliers
@@ -421,7 +414,7 @@ Variável dependente é affairs (contínuo).
 
 ```{r}
 ExpNumViz(Affairs,
-            gp="affairs", # Variavel alvo
+            target="affairs", # Variavel alvo
             nlim=4, # a variável numérica com valor exclusivo é maior que 4
             Page=c(2,2), # formato de saida
             sample=8) # selecionado aleatoriamente 8 gráficos de dispersão
@@ -432,8 +425,6 @@ ExpNumViz(Affairs,
 Resumo de variáveis categóricas de acordo com a frequência para todas as variáveis independentes categóricas por Affairs 
 ```{r}
 ##bin=4, descretized 4 categories based on quantiles
-
-
 ExpCTable(Affairs,
           Target="affairs",
           margin=1, # margem de índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em coluna
@@ -452,7 +443,7 @@ Gráficos de barra para todas as variáveis categóricas
 
 ```{r}
 ExpCatViz(Affairs,
-          gp="affairs", # Variavel target
+          target="affairs", # Variavel target
           fname=NULL, # Nome do arquivo de saida, default é pdf
           clim=10,# categorias máximas a incluir nos gráficos de barras.
           margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
@@ -614,7 +605,7 @@ Boxplot para todos os atributos numéricos por cada categoria de affair
 
 ```{r}
 ExpNumViz(Affairs,
-          gp="daffairs", # Variaevl alvo
+          target="daffairs", # Variaevl alvo
           type=1, # 1 (boxplot por categoria e global), 2 (boxplot por categoria apenas), 3 (boxplot for overall)
           nlim=NULL, # limite único da variável numérica. O padrão nlim é 3, o gráfico excluirá a variável numérica que está tendo um valor único menor que 'nlim'
           col=c("pink","yellow","orange"), # Cor dos boxplots
@@ -644,7 +635,7 @@ Gráfico de barras empilhadas com barras verticais ou horizontais para todas as 
 
 ```{r}
 ExpCatViz(Affairs,
-          gp="daffairs",
+          target="daffairs",
           fname=NULL, # Nome do arquivo de saida, default é pdf
           clim=10,# categorias máximas a incluir nos gráficos de barras.
           margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
@@ -661,7 +652,7 @@ ExpCatViz(Affairs,
 ExpCatStat(Affairs %>% mutate(daffairs = if_else(daffairs=="Não", 0, 1)) ,
            Target="daffairs",
            result = "IV") %>% 
-  select(-c(Target,Ref_1,Ref_0))
+  select(-one_of("Target","Ref_1","Ref_0"))
 ```
 
 ### Testes estatísticos 

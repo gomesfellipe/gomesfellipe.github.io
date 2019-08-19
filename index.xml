@@ -27,7 +27,7 @@ No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickh
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-12-26-retrospectiva/retrospectiva/</guid>
-      <description>.column-left{float: left;width: 33%;text-align: center;}.column-center{display: inline-block;width: 33%;text-align: center;}.column-right{float: right;width: 33%;text-align: center;}#left {left:-8.33%;text-align: left;float: left;width:50%;z-index:-10;}#right {left:31.25%;top: 75px;float: right;text-align: right;z-index:-10;width:50%;}Até que um dia..Agora em dezembro encerro um desafio pessoal de fazer pelo menos um post por mês durante o ano de 2018 e estou muito animado com o término deste ciclo!</description>
+      <description>.column-left{ float: left; width: 33%; text-align: center; } .column-center{ display: inline-block; width: 33%; text-align: center; } .column-right{ float: right; width: 33%; text-align: center; } #left { left:-8.33%; text-align: left; float: left; width:50%; z-index:-10; } #right { left:31.25%; top: 75px; float: right; text-align: right; z-index:-10; width:50%; }  Até que um dia.. Agora em dezembro encerro um desafio pessoal de fazer pelo menos um post por mês durante o ano de 2018 e estou muito animado com o término deste ciclo!</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@ No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickh
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/</guid>
-      <description>.col2 {columns: 2 200px; /* number of columns and width in pixels*/-webkit-columns: 2 200px; /* chrome, safari */-moz-columns: 2 200px; /* firefox */}.col3 {columns: 3 100px;-webkit-columns: 3 100px;-moz-columns: 3 100px;}Análise de sobrevivência e PUBGAnálise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.</description>
+      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  Análise de sobrevivência e PUBG Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.</description>
     </item>
     
     <item>
@@ -54,7 +54,7 @@ No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickh
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/</guid>
-      <description>PerguntasEstudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a criatividade.</description>
+      <description>Perguntas Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a criatividade.</description>
     </item>
     
     <item>
@@ -63,7 +63,7 @@ No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickh
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</guid>
-      <description>KaggleSegundo o Wikipédia: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.
+      <description>Kaggle Segundo o Wikipédia: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.
 O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já escrevi em um post sobre gamificação e porque aprender R é tão divertido e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</description>
     </item>
     
@@ -73,7 +73,7 @@ O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já es
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</guid>
-      <description>Modelagem estatística e as duas grandes escolas de inferênciaAtravés da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.</description>
+      <description>Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.</description>
     </item>
     
     <item>
@@ -91,7 +91,7 @@ O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já es
       <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</guid>
-      <description>.col2 {columns: 2 200px; /* number of columns and width in pixels*/-webkit-columns: 2 200px; /* chrome, safari */-moz-columns: 2 200px; /* firefox */}.col3 {columns: 3 100px;-webkit-columns: 3 100px;-moz-columns: 3 100px;}A análise exploratória dos dadosA análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”.</description>
+      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  A análise exploratória dos dados A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”.</description>
     </item>
     
     <item>
@@ -140,7 +140,7 @@ Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacot
       
       <guid>/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/</guid>
       <description>Curiosidades sobre a teoria das probabilidadesO uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.
-Os conceitos de chances e de incertezas são tão antigos quando a própria civilização. Pessoas sempre tiveram que lidar com incertezas sobre o clima, suprimento de alimentos, suprimentos de água, risco de vida e tantas outras ameaças ao ser humano que o esforço para reduzir essas incertezas e seus efeitos passou a ser muito importante.</description>
+Os conceitos de chances e de incertezas são tão antigos quando a própria civilização.</description>
     </item>
     
     <item>
@@ -149,7 +149,7 @@ Os conceitos de chances e de incertezas são tão antigos quando a própria civi
       <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/</guid>
-      <description>Importâcia da apresentação dos dadosO trabalho do estatístico vai muito além do planejamento, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. O processo de analises deve ser tratado na etapa final de todo projeto ou pesquisa que envolva apresentação dos resultados, não é atoa que já até existem áreas dentro da ciência de dados focada nesta tarefa, recebendo o título de “Data Artist”.</description>
+      <description>Importâcia da apresentação dos dados O trabalho do estatístico vai muito além do planejamento, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. O processo de analises deve ser tratado na etapa final de todo projeto ou pesquisa que envolva apresentação dos resultados, não é atoa que já até existem áreas dentro da ciência de dados focada nesta tarefa, recebendo o título de “Data Artist”.</description>
     </item>
     
     <item>
@@ -158,7 +158,7 @@ Os conceitos de chances e de incertezas são tão antigos quando a própria civi
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/</guid>
-      <description>Análise MultivariadaImagem do Wikpedia
+      <description>Análise Multivariada Imagem do Wikpedia
 Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados</description>
     </item>
     
@@ -193,7 +193,7 @@ Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</guid>
-      <description>Inferência bayesianaImagem da Internet
+      <description>Inferência bayesiana Imagem da Internet
 Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.
 Para isso devemos utilizar toda informação disponível, seja ela objetiva ou subjetiva (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)
 Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao teorema de bayes.
@@ -238,7 +238,7 @@ Através de suas séries temporais podemos avaliar a presença de pedrões, obte
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
-      <description>o pacote dplyr:A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
+      <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
 Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
     </item>
     
@@ -248,7 +248,7 @@ Existem diversos pacotes para as mais variadas necessidades dos cientistas de da
       <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/</guid>
-      <description>Funções do R para avaliar o ajuste de modelosTraduzindo:
+      <description>Funções do R para avaliar o ajuste de modelos Traduzindo:
 “Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
 Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
 Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
@@ -281,7 +281,7 @@ Não é novidade que a “computação em nuvem” tem impulsionado muitos proje
       <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/tipos-de-relacoes-entre-variaveis/</guid>
-      <description>Tipos de relaçõesNumérica x NuméricaGraficamenteDuas variaveisMais de duas variáveisNormalidadeGraficamenteQQ-plotQQ plot com envelopeTestesDados normais + Relação linearCoeficiente de Correlação de Pearson \(\rho\)Dados não normais e/ou sem relação linearCoeficiente de Correlação de Spearman \(\rho\)Coeficiente de Correlação de Kendall (\(\tau\) de kendall)Ordinal x OrdinalNumérica x OrdinalNominal x NominalQui-quadrado de independenciaTeste exato de fisherMedidas de associaçãoKappaNominal x OrdinalQui-quadrado de independenciaTeste exato de fisherMedidas de associaçãoKappaDicotônica x OrdinalNominal x Numérca\(R^2\) do ajuste de modelos linearesBisserial = PearsonComparações de GruposCorrelação parcialControlando variável numéricaControlando variável QualitativaReferênciasTipos de relaçõesVimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.</description>
+      <description>Tipos de relações Numérica x Numérica Graficamente Duas variaveis Mais de duas variáveis  Normalidade Graficamente QQ-plot QQ plot com envelope Testes  Dados normais + Relação linear Coeficiente de Correlação de Pearson \(\rho\)  Dados não normais e/ou sem relação linear Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall)   Ordinal x Ordinal Numérica x Ordinal Nominal x Nominal Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Nominal x Ordinal Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Dicotônica x Ordinal Nominal x Numérca \(R^2\) do ajuste de modelos lineares Bisserial = Pearson Comparações de Grupos  Correlação parcial Controlando variável numérica Controlando variável Qualitativa  Referências   Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.</description>
     </item>
     
     <item>
@@ -305,6 +305,16 @@ Brasileiros:
     </item>
     
     <item>
+      <title>blogroll</title>
+      <link>/itemized/item3/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/item3/</guid>
+      <description>Blogroll:
+ https://www.r-bloggers.com/ https://brbloggers.com.br/  </description>
+    </item>
+    
+    <item>
       <title>Sobre ombros de gigantes</title>
       <link>/itemized/item1/</link>
       <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
@@ -324,16 +334,6 @@ Brasileiros:
       
       <guid>/post/tipos-de-correlacoes/</guid>
       <description>CorrelaçõesTipos de VariáveisTipos de CorrelaçõesCoeficiente de Correlação de PearsonCoeficiente de Correlação de Spearman \(\rho\)Coeficiente de Correlação de Kendall (\(\tau\) de kendall)Qui-quadrado de independenciaTeste exato de fisherMedidas de associação\(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2)V de CrámerCoeficiente de contingênciaKappaMãos a obraReferências% --% --CorrelaçõesDe maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
-    </item>
-    
-    <item>
-      <title>blogroll</title>
-      <link>/itemized/item3/</link>
-      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item3/</guid>
-      <description>Blogroll:
- https://www.r-bloggers.com/ https://brbloggers.com.br/  </description>
     </item>
     
     <item>
@@ -361,9 +361,9 @@ Brasileiros:
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
       <guid>/post/2015-07-23-r-rmarkdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
     <item>
@@ -445,6 +445,15 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       
       <guid>/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/</guid>
       <description>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(&#39;js&#39;, new Date());gtag(&#39;config&#39;, &#39;UA-105500464-2&#39;);O que são CheatSheets, gamificação e por que aprender R é tão divertido?(function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,&#39;script&#39;,&#39;https://www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);ga(&#39;create&#39;, &#39;UA-105500464-2&#39;, &#39;auto&#39;);ga(&#39;send&#39;, &#39;pageview&#39;);post&amp;nbsp;setwd()&amp;nbsp;cv&amp;nbsp;Posts&amp;nbsp;Categorias&amp;nbsp;Contato&amp;nbsp;ExtrasShareSearchMenu&amp;nbsp;setwd()&amp;nbsp;cv&amp;nbsp;Posts&amp;nbsp;Categorias&amp;nbsp;Contato&amp;nbsp;ExtrasRecent PostsO que são CheatSheets, gamificação e por que aprender R é tão divertido?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2018-05-26-smarteademachinelearning/teste/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-05-26-smarteademachinelearning/teste/</guid>
+      <description>Exploratory Data Analysis Report /*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */ !function(a,b){&#34;object&#34;==typeof module&amp;&amp;&#34;object&#34;==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error(&#34;jQuery requires a window with a document&#34;);return b(a)}:b(a)}(&#34;undefined&#34;!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l=&#34;1.11.3&#34;,m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:&#34;&#34;,length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0a?b:0);return this.pushStack(c=0&amp;&amp;bc?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for(&#34;boolean&#34;==typeof g&amp;&amp;(j=g,g=arguments[h]||{},h++),&#34;object&#34;==typeof g||m.isFunction(g)||(g={}),h===i&amp;&amp;(g=this,h--);ih;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&amp;&amp;(j&amp;&amp;c&amp;&amp;(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&amp;&amp;m.isArray(a)?a:[]):f=a&amp;&amp;m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&amp;&amp;(g[d]=c));return g},m.extend({expando:&#34;jQuery&#34;+(l+Math.random()).replace(/\D/g,&#34;&#34;),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return&#34;function&#34;===m.type(a)},isArray:Array.isArray||function(a){return&#34;array&#34;===m.type(a)},isWindow:function(a){return null!=a&amp;&amp;a==a.window},isNumeric:function(a){return!m.isArray(a)&amp;&amp;a-parseFloat(a)+1=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||&#34;object&#34;!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&amp;&amp;!j.call(a,&#34;constructor&#34;)&amp;&amp;!j.call(a.constructor.prototype,&#34;isPrototypeOf&#34;))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+&#34;&#34;:&#34;object&#34;==typeof a||&#34;</description>
     </item>
     
     <item>

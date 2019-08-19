@@ -50,7 +50,7 @@ plot_kmeans = function(df, clusters, runs, standardize=F) {
   tmp_k = kmeans(as.data.frame(df), centers = clusters, nstart = 100)
   
   #factor
-  tmp_f = fa(df, 2, rotate = "none")
+  tmp_f = psych::fa(df, 2)
   
   #collect data
   tmp_d = data.frame(matrix(ncol=0, nrow=nrow(df)))

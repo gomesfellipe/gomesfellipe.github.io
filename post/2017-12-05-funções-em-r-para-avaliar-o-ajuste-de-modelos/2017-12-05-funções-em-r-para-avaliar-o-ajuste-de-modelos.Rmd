@@ -142,7 +142,7 @@ lm_with_cor <- function(data, mapping, ..., method = "pearson") {
 
 Portanto:
 
-```{r}
+```{r, eval=F}
 ggduo(
   psychademic, rev(psych_variables), academic_variables,
   mapping = aes(color = sex),

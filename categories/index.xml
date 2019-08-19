@@ -6,112 +6,13 @@
     <description>Recent content in Categories on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
-      <link>/categories/</link>
-      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Amostrador de Gibbs</title>
-      <link>/categories/amostrador-de-gibbs/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/amostrador-de-gibbs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Analise de sentimentos</title>
-      <link>/categories/analise-de-sentimentos/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/analise-de-sentimentos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Analise de sobrevivencia</title>
-      <link>/categories/analise-de-sobrevivencia/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/analise-de-sobrevivencia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bayesiana</title>
-      <link>/categories/bayesiana/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/bayesiana/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bitcoin</title>
-      <link>/categories/bitcoin/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/bitcoin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Caret</title>
-      <link>/categories/caret/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/caret/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cheatsheets</title>
-      <link>/categories/cheatsheets/</link>
-      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/cheatsheets/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Componentes principais</title>
-      <link>/categories/componentes-principais/</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/componentes-principais/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cox</title>
-      <link>/categories/cox/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/cox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Datacamp</title>
-      <link>/categories/datacamp/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/datacamp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dplyr</title>
+      <title>dplyr</title>
       <link>/categories/dplyr/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -129,34 +30,7 @@
     </item>
     
     <item>
-      <title>Estatística</title>
-      <link>/categories/estat%C3%ADstica/</link>
-      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/estat%C3%ADstica/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Filosofia</title>
-      <link>/categories/filosofia/</link>
-      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/filosofia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fincanças</title>
-      <link>/categories/fincan%C3%A7as/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/fincan%C3%A7as/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Flextable</title>
+      <title>flextable</title>
       <link>/categories/flextable/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -165,97 +39,79 @@
     </item>
     
     <item>
-      <title>Gamificacao</title>
-      <link>/categories/gamificacao/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      <title>package</title>
+      <link>/categories/package/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/gamificacao/</guid>
+      <guid>/categories/package/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Ggplot</title>
-      <link>/categories/ggplot/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/ggplot/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Google</title>
-      <link>/categories/google/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      <title>regressão linear</title>
+      <link>/categories/regress%C3%A3o-linear/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/google/</guid>
+      <guid>/categories/regress%C3%A3o-linear/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Google trends</title>
-      <link>/categories/google-trends/</link>
-      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
+      <title>rstudio</title>
+      <link>/categories/rstudio/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/google-trends/</guid>
+      <guid>/categories/rstudio/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Jags</title>
-      <link>/categories/jags/</link>
-      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
+      <title>split-apply-combine</title>
+      <link>/categories/split-apply-combine/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/jags/</guid>
+      <guid>/categories/split-apply-combine/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Kaggle</title>
-      <link>/categories/kaggle/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      <title>tidyverse</title>
+      <link>/categories/tidyverse/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/kaggle/</guid>
+      <guid>/categories/tidyverse/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Kaplan meier</title>
-      <link>/categories/kaplan-meier/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      <title>utilidades</title>
+      <link>/categories/utilidades/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/kaplan-meier/</guid>
+      <guid>/categories/utilidades/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Latex</title>
-      <link>/categories/latex/</link>
-      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      <title>bayesiana</title>
+      <link>/categories/bayesiana/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/latex/</guid>
+      <guid>/categories/bayesiana/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Leaflet</title>
-      <link>/categories/leaflet/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/leaflet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MCMC</title>
-      <link>/categories/mcmc/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/mcmc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Machine learning</title>
+      <title>machine learning</title>
       <link>/categories/machine-learning/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -264,20 +120,83 @@
     </item>
     
     <item>
-      <title>Macro</title>
-      <link>/categories/macro/</link>
-      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      <title>retrospectiva</title>
+      <link>/categories/retrospectiva/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/macro/</guid>
+      <guid>/categories/retrospectiva/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Mapa</title>
-      <link>/categories/mapa/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <title>rmarkdown</title>
+      <link>/categories/rmarkdown/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/mapa/</guid>
+      <guid>/categories/rmarkdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny</title>
+      <link>/categories/shiny/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/shiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>analise de sobrevivencia</title>
+      <link>/categories/analise-de-sobrevivencia/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/analise-de-sobrevivencia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cox</title>
+      <link>/categories/cox/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/cox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gamificacao</title>
+      <link>/categories/gamificacao/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/gamificacao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot</title>
+      <link>/categories/ggplot/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/ggplot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kaggle</title>
+      <link>/categories/kaggle/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/kaggle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kaplan meier</title>
+      <link>/categories/kaplan-meier/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/kaplan-meier/</guid>
       <description></description>
     </item>
     
@@ -291,34 +210,7 @@
     </item>
     
     <item>
-      <title>Multivariada</title>
-      <link>/categories/multivariada/</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/multivariada/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Package</title>
-      <link>/categories/package/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/package/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pca</title>
-      <link>/categories/pca/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/pca/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Probabilidade</title>
+      <title>probabilidade</title>
       <link>/categories/probabilidade/</link>
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -336,7 +228,7 @@
     </item>
     
     <item>
-      <title>Pubg</title>
+      <title>pubg</title>
       <link>/categories/pubg/</link>
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -345,115 +237,7 @@
     </item>
     
     <item>
-      <title>R</title>
-      <link>/categories/r/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Sweave</title>
-      <link>/categories/r-sweave/</link>
-      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/r-sweave/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RStudio Server</title>
-      <link>/categories/rstudio-server/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/rstudio-server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Regressão linear</title>
-      <link>/categories/regress%C3%A3o-linear/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/regress%C3%A3o-linear/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Retrospectiva</title>
-      <link>/categories/retrospectiva/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/retrospectiva/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rmarkdown</title>
-      <link>/categories/rmarkdown/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/rmarkdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rstudio</title>
-      <link>/categories/rstudio/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/rstudio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Shiny</title>
-      <link>/categories/shiny/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/shiny/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Shiny Server</title>
-      <link>/categories/shiny-server/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/shiny-server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Simulacao</title>
-      <link>/categories/simulacao/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/simulacao/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Split-apply-combine</title>
-      <link>/categories/split-apply-combine/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/split-apply-combine/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Séries Temporais</title>
-      <link>/categories/s%C3%A9ries-temporais/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/s%C3%A9ries-temporais/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tabelas</title>
+      <title>tabelas</title>
       <link>/categories/tabelas/</link>
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -471,7 +255,124 @@
     </item>
     
     <item>
-      <title>Text mining</title>
+      <title>Fincanças</title>
+      <link>/categories/fincan%C3%A7as/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/fincan%C3%A7as/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google</title>
+      <link>/categories/google/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio Server</title>
+      <link>/categories/rstudio-server/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/rstudio-server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny Server</title>
+      <link>/categories/shiny-server/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/shiny-server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>leaflet</title>
+      <link>/categories/leaflet/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/leaflet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mapa</title>
+      <link>/categories/mapa/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/mapa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Séries Temporais</title>
+      <link>/categories/s%C3%A9ries-temporais/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/s%C3%A9ries-temporais/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>caret</title>
+      <link>/categories/caret/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/caret/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datacamp</title>
+      <link>/categories/datacamp/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/datacamp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>amostrador de Gibbs</title>
+      <link>/categories/amostrador-de-gibbs/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/amostrador-de-gibbs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MCMC</title>
+      <link>/categories/mcmc/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/mcmc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>simulacao</title>
+      <link>/categories/simulacao/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/simulacao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>analise de sentimentos</title>
+      <link>/categories/analise-de-sentimentos/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/analise-de-sentimentos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>text mining</title>
       <link>/categories/text-mining/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
@@ -480,7 +381,7 @@
     </item>
     
     <item>
-      <title>Tidytext</title>
+      <title>tidytext</title>
       <link>/categories/tidytext/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
@@ -489,29 +390,119 @@
     </item>
     
     <item>
-      <title>Tidyverse</title>
-      <link>/categories/tidyverse/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      <title>componentes principais</title>
+      <link>/categories/componentes-principais/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/tidyverse/</guid>
+      <guid>/categories/componentes-principais/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Utilidades</title>
-      <link>/categories/utilidades/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      <title>multivariada</title>
+      <link>/categories/multivariada/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/utilidades/</guid>
+      <guid>/categories/multivariada/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Word</title>
+      <title>google trends</title>
+      <link>/categories/google-trends/</link>
+      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/google-trends/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>latex</title>
+      <link>/categories/latex/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macro</title>
+      <link>/categories/macro/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/macro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Sweave</title>
+      <link>/categories/r-sweave/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/r-sweave/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>word</title>
       <link>/categories/word/</link>
       <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/word/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cheatsheets</title>
+      <link>/categories/cheatsheets/</link>
+      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/cheatsheets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pca</title>
+      <link>/categories/pca/</link>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/pca/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jags</title>
+      <link>/categories/jags/</link>
+      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/jags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bitcoin</title>
+      <link>/categories/bitcoin/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/bitcoin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>estatística</title>
+      <link>/categories/estat%C3%ADstica/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/estat%C3%ADstica/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>filosofia</title>
+      <link>/categories/filosofia/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/filosofia/</guid>
       <description></description>
     </item>
     
