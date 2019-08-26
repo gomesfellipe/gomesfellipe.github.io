@@ -17,7 +17,7 @@
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-04-05-split-apply-combine/split-apply-combine/</guid>
-      <description>O método split-apply-combineGeralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.
+      <description>O método split-apply-combine Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.
 No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickham descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:</description>
     </item>
     
@@ -47,17 +47,6 @@ O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já es
       
       <guid>/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</guid>
       <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  A análise exploratória dos dados A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
   </channel>
