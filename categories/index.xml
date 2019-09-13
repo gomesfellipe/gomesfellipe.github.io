@@ -6,10 +6,100 @@
     <description>Recent content in Categories on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>automacao</title>
+      <link>/categories/automacao/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/automacao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prática</title>
+      <link>/categories/pr%C3%A1tica/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/pr%C3%A1tica/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regressão linear</title>
+      <link>/categories/regress%C3%A3o-linear/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/regress%C3%A3o-linear/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>relatorios</title>
+      <link>/categories/relatorios/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/relatorios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rmarkdown</title>
+      <link>/categories/rmarkdown/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/rmarkdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rstudio</title>
+      <link>/categories/rstudio/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>split-apply-combine</title>
+      <link>/categories/split-apply-combine/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/split-apply-combine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyverse</title>
+      <link>/categories/tidyverse/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utilidades</title>
+      <link>/categories/utilidades/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/utilidades/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>dplyr</title>
@@ -48,60 +138,6 @@
     </item>
     
     <item>
-      <title>R</title>
-      <link>/categories/r/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>regressão linear</title>
-      <link>/categories/regress%C3%A3o-linear/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/regress%C3%A3o-linear/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rstudio</title>
-      <link>/categories/rstudio/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/rstudio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>split-apply-combine</title>
-      <link>/categories/split-apply-combine/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/split-apply-combine/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tidyverse</title>
-      <link>/categories/tidyverse/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/tidyverse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>utilidades</title>
-      <link>/categories/utilidades/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/utilidades/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>bayesiana</title>
       <link>/categories/bayesiana/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
@@ -125,15 +161,6 @@
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/retrospectiva/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rmarkdown</title>
-      <link>/categories/rmarkdown/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/rmarkdown/</guid>
       <description></description>
     </item>
     
@@ -215,15 +242,6 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/probabilidade/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Prática</title>
-      <link>/categories/pr%C3%A1tica/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/pr%C3%A1tica/</guid>
       <description></description>
     </item>
     

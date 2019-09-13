@@ -3,8 +3,138 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/categories/automacao/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/estatistica/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/gomesfellipe/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/modelagem/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/modelos/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/modelos-lineares/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/pr%C3%A1tica/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-markdown/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/regress%C3%A3o-linear/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/relatorios/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/relatorios/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rmarkdown/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/rmarkdown/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rstudio/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/rstudio/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/split-apply-combine/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/split-apply-combine/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyverse/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/tidyverse/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/utilidades/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -14,16 +144,6 @@
   
   <url>
     <loc>/categories/estatistica/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/estatistica/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
     <lastmod>2019-04-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,27 +163,7 @@
   </url>
   
   <url>
-    <loc>/tags/gomesfellipe/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/2019-04-05-split-apply-combine/split-apply-combine/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/modelagem/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/modelos/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/modelos-lineares/</loc>
     <lastmod>2019-04-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -73,72 +173,12 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/regression/</loc>
     <lastmod>2019-04-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/regress%C3%A3o-linear/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/rstudio/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/rstudio/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/split-apply-combine/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/split-apply-combine/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/tabelas/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tidyverse/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/tidyverse/</loc>
-    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/utilidades/</loc>
     <lastmod>2019-04-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -153,22 +193,12 @@
   </url>
   
   <url>
-    <loc>/categories/machine-learning/</loc>
-    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/machine-learning/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2018-12-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/retrospectiva/</loc>
+    <loc>/categories/machine-learning/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -178,7 +208,7 @@
   </url>
   
   <url>
-    <loc>/categories/rmarkdown/</loc>
+    <loc>/tags/retrospectiva/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -198,12 +228,12 @@
   </url>
   
   <url>
-    <loc>/tags/analise-de-sobrevivencia/</loc>
+    <loc>/categories/analise-de-sobrevivencia/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/analise-de-sobrevivencia/</loc>
+    <loc>/tags/analise-de-sobrevivencia/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -253,12 +283,12 @@
   </url>
   
   <url>
-    <loc>/tags/kaplan-meier/</loc>
+    <loc>/categories/kaplan-meier/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/kaplan-meier/</loc>
+    <loc>/tags/kaplan-meier/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -278,17 +308,12 @@
   </url>
   
   <url>
-    <loc>/categories/probabilidade/</loc>
-    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/probabilidade/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/pr%C3%A1tica/</loc>
+    <loc>/categories/probabilidade/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -298,17 +323,12 @@
   </url>
   
   <url>
-    <loc>/tags/pubg/</loc>
-    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/pubg/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/rmarkdown/</loc>
+    <loc>/tags/pubg/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -338,12 +358,12 @@
   </url>
   
   <url>
-    <loc>/tags/google/</loc>
+    <loc>/categories/google/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/google/</loc>
+    <loc>/tags/google/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -363,12 +383,12 @@
   </url>
   
   <url>
-    <loc>/categories/shiny-server/</loc>
+    <loc>/tags/shiny-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/shiny-server/</loc>
+    <loc>/categories/shiny-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -388,12 +408,12 @@
   </url>
   
   <url>
-    <loc>/categories/mapa/</loc>
+    <loc>/tags/mapa/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/mapa/</loc>
+    <loc>/categories/mapa/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -428,12 +448,12 @@
   </url>
   
   <url>
-    <loc>/categories/datacamp/</loc>
+    <loc>/tags/datacamp/</loc>
     <lastmod>2018-08-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/datacamp/</loc>
+    <loc>/categories/datacamp/</loc>
     <lastmod>2018-08-31T00:00:00+00:00</lastmod>
   </url>
   
@@ -554,11 +574,6 @@
   
   <url>
     <loc>/tags/pca/</loc>
-    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/relatorios/</loc>
     <lastmod>2018-05-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -718,12 +733,12 @@
   </url>
   
   <url>
-    <loc>/tags/jags/</loc>
+    <loc>/categories/jags/</loc>
     <lastmod>2017-12-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/jags/</loc>
+    <loc>/tags/jags/</loc>
     <lastmod>2017-12-18T00:00:00+00:00</lastmod>
   </url>
   

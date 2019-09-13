@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,108 @@
     <item>
       <title>Estatistica</title>
       <link>/tags/estatistica/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/estatistica/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gomesfellipe</title>
+      <link>/tags/gomesfellipe/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/gomesfellipe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modelagem</title>
+      <link>/tags/modelagem/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/modelagem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Modelos</title>
+      <link>/tags/modelos/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/modelos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Modelos lineares</title>
+      <link>/tags/modelos-lineares/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/modelos-lineares/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>/tags/r-markdown/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>relatorios</title>
+      <link>/tags/relatorios/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/relatorios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rmarkdown</title>
+      <link>/tags/rmarkdown/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rmarkdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio</title>
+      <link>/tags/rstudio/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>split-apply-combine</title>
+      <link>/tags/split-apply-combine/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/split-apply-combine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyverse</title>
+      <link>/tags/tidyverse/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidyverse/</guid>
       <description></description>
     </item>
     
@@ -39,51 +138,6 @@
     </item>
     
     <item>
-      <title>gomesfellipe</title>
-      <link>/tags/gomesfellipe/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/gomesfellipe/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>modelagem</title>
-      <link>/tags/modelagem/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/modelagem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Modelos</title>
-      <link>/tags/modelos/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/modelos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Modelos lineares</title>
-      <link>/tags/modelos-lineares/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/modelos-lineares/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>/tags/r/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>regression</title>
       <link>/tags/regression/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
@@ -93,38 +147,11 @@
     </item>
     
     <item>
-      <title>RStudio</title>
-      <link>/tags/rstudio/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/rstudio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>split-apply-combine</title>
-      <link>/tags/split-apply-combine/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/split-apply-combine/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>tabelas</title>
       <link>/tags/tabelas/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/tabelas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tidyverse</title>
-      <link>/tags/tidyverse/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/tidyverse/</guid>
       <description></description>
     </item>
     
@@ -143,15 +170,6 @@
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>/tags/r-markdown/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-markdown/</guid>
       <description></description>
     </item>
     
@@ -269,15 +287,6 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/pubg/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rmarkdown</title>
-      <link>/tags/rmarkdown/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/rmarkdown/</guid>
       <description></description>
     </item>
     
@@ -494,15 +503,6 @@
       <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/pca/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>relatorios</title>
-      <link>/tags/relatorios/</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/relatorios/</guid>
       <description></description>
     </item>
     
