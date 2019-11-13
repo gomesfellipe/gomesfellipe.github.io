@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -58,12 +58,12 @@
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -78,12 +78,12 @@
   </url>
   
   <url>
-    <loc>/categories/relatorios/</loc>
+    <loc>/tags/relatorios/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/relatorios/</loc>
+    <loc>/categories/relatorios/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -108,12 +108,12 @@
   </url>
   
   <url>
-    <loc>/tags/split-apply-combine/</loc>
+    <loc>/categories/split-apply-combine/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/split-apply-combine/</loc>
+    <loc>/tags/split-apply-combine/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -258,12 +258,12 @@
   </url>
   
   <url>
-    <loc>/categories/gamificacao/</loc>
+    <loc>/tags/gamificacao/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/gamificacao/</loc>
+    <loc>/categories/gamificacao/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -308,12 +308,12 @@
   </url>
   
   <url>
-    <loc>/tags/probabilidade/</loc>
+    <loc>/categories/probabilidade/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/probabilidade/</loc>
+    <loc>/tags/probabilidade/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -323,12 +323,12 @@
   </url>
   
   <url>
-    <loc>/categories/pubg/</loc>
+    <loc>/tags/pubg/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/pubg/</loc>
+    <loc>/categories/pubg/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -383,12 +383,12 @@
   </url>
   
   <url>
-    <loc>/tags/shiny-server/</loc>
+    <loc>/categories/shiny-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/shiny-server/</loc>
+    <loc>/tags/shiny-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -543,12 +543,12 @@
   </url>
   
   <url>
-    <loc>/categories/tidytext/</loc>
+    <loc>/tags/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tidytext/</loc>
+    <loc>/categories/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -618,12 +618,12 @@
   </url>
   
   <url>
-    <loc>/tags/macro/</loc>
+    <loc>/categories/macro/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/macro/</loc>
+    <loc>/tags/macro/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -643,22 +643,22 @@
   </url>
   
   <url>
-    <loc>/categories/word/</loc>
-    <lastmod>2018-03-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/word/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/cheatsheets/</loc>
-    <lastmod>2018-02-17T00:00:00+00:00</lastmod>
+    <loc>/categories/word/</loc>
+    <lastmod>2018-03-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/cheatsheets/</loc>
+    <lastmod>2018-02-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cheatsheets/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
   </url>
   
