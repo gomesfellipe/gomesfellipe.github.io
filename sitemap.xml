@@ -88,12 +88,12 @@
   </url>
   
   <url>
-    <loc>/tags/rmarkdown/</loc>
+    <loc>/categories/rmarkdown/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/rmarkdown/</loc>
+    <loc>/tags/rmarkdown/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -108,12 +108,12 @@
   </url>
   
   <url>
-    <loc>/categories/split-apply-combine/</loc>
+    <loc>/tags/split-apply-combine/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/split-apply-combine/</loc>
+    <loc>/categories/split-apply-combine/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -193,12 +193,12 @@
   </url>
   
   <url>
-    <loc>/tags/machine-learning/</loc>
+    <loc>/categories/machine-learning/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/machine-learning/</loc>
+    <loc>/tags/machine-learning/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -213,12 +213,12 @@
   </url>
   
   <url>
-    <loc>/categories/shiny/</loc>
+    <loc>/tags/shiny/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/shiny/</loc>
+    <loc>/categories/shiny/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -283,12 +283,12 @@
   </url>
   
   <url>
-    <loc>/categories/kaplan-meier/</loc>
+    <loc>/tags/kaplan-meier/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/kaplan-meier/</loc>
+    <loc>/categories/kaplan-meier/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -308,12 +308,12 @@
   </url>
   
   <url>
-    <loc>/categories/probabilidade/</loc>
+    <loc>/tags/probabilidade/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/probabilidade/</loc>
+    <loc>/categories/probabilidade/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -358,17 +358,12 @@
   </url>
   
   <url>
-    <loc>/categories/google/</loc>
-    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/google/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/rstudio-server/</loc>
+    <loc>/categories/google/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -378,17 +373,22 @@
   </url>
   
   <url>
+    <loc>/tags/rstudio-server/</loc>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/2018-10-27-server-cloud/server-cloud/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/shiny-server/</loc>
+    <loc>/tags/shiny-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/shiny-server/</loc>
+    <loc>/categories/shiny-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -408,12 +408,12 @@
   </url>
   
   <url>
-    <loc>/tags/mapa/</loc>
+    <loc>/categories/mapa/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/mapa/</loc>
+    <loc>/tags/mapa/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -448,12 +448,12 @@
   </url>
   
   <url>
-    <loc>/tags/datacamp/</loc>
+    <loc>/categories/datacamp/</loc>
     <lastmod>2018-08-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/datacamp/</loc>
+    <loc>/tags/datacamp/</loc>
     <lastmod>2018-08-31T00:00:00+00:00</lastmod>
   </url>
   
@@ -543,12 +543,12 @@
   </url>
   
   <url>
-    <loc>/tags/tidytext/</loc>
+    <loc>/categories/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/tidytext/</loc>
+    <loc>/tags/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -643,12 +643,12 @@
   </url>
   
   <url>
-    <loc>/tags/word/</loc>
+    <loc>/categories/word/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/word/</loc>
+    <loc>/tags/word/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -845,11 +845,6 @@
   <url>
     <loc>/post/tipos-de-correlacoes/</loc>
     <lastmod>2017-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
   
   <url>
