@@ -106,11 +106,11 @@ Informações básicas e fundamentais para o uso da IDE do RStudio e o uso da li
 
 <div class="col3">
 
-![[RStudio IDE](https://www.rstudio.com/wp-content/uploads/2015/01/rstudio-ide-800x618.png)](https://www.rstudio.com/wp-content/uploads/2015/01/rstudio-ide-800x618.png)
+![RStudio IDE](https://d33wubrfki0l68.cloudfront.net/0dc0efccfaf638de8be4ce43e2bab8a91541d3d2/c4fdc/wp-content/uploads/2018/08/rstudio-ide.png)
 
-![[Basics R](https://www.rstudio.com/wp-content/uploads/2015/01/base-r-1-400x309.png)](https://www.rstudio.com/wp-content/uploads/2015/01/base-r-1-400x309.png)
+![Basics R](https://d33wubrfki0l68.cloudfront.net/4e0edeb0b12f314d6df04daa0ac37db91ba6bd56/6803a/wp-content/uploads/2015/01/base-r-1.png)
 
-![[Advanced R](https://www.rstudio.com/wp-content/uploads/2015/01/advanced-R-1-400x310.png)](https://www.rstudio.com/wp-content/uploads/2015/01/advanced-R-1-400x310.png)
+![Advanced R](https://d33wubrfki0l68.cloudfront.net/668a3fbd1b87e5086e95dfb679445a8333e4a4b4/73c41/wp-content/uploads/2015/01/advanced-r-1.png)
 
 </div>
 
@@ -120,11 +120,11 @@ Existem também algumas CheatSheets para auxiliar no uso dos recursos oferecidos
 
 <div class="col3">
 
-![[RMarkdown]((https://www.rstudio.com/wp-content/uploads/2015/01/rmarkdown-cheatsheet-2.0-800x618.png))](https://www.rstudio.com/wp-content/uploads/2015/01/rmarkdown-cheatsheet-2.0-800x618.png) 
+![RMarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference-guide.png)
 
-![[Guia de Referencia para RMarkdown]((https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference-guide.png))](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference-guide.png)
+![Guia de Referencia para RMarkdown](https://d33wubrfki0l68.cloudfront.net/65dffd1bdcaa0025006262164d98e8068e8b4387/c3895/wp-content/uploads/2018/08/rmarkdown-2.0.png)
 
-![[Shiny](https://www.rstudio.com/wp-content/uploads/2015/01/shiny-cheatsheet-1-800x618.png)](https://www.rstudio.com/wp-content/uploads/2015/01/shiny-cheatsheet-1-800x618.png)
+![Shiny](https://d33wubrfki0l68.cloudfront.net/349cbcca50af85a9214e552296f33f14be37f768/16877/wp-content/uploads/2018/08/shiny.png)
 
 </div>
 
@@ -136,17 +136,17 @@ Além das funcionalidades e recursos básicos disponíveis pela equipe da RStudi
 
 <div class="col3">
 
-![[stringr](https://www.rstudio.com/wp-content/uploads/2015/01/strings-800x618.png) Para facilitar a manipulação de strings](https://www.rstudio.com/wp-content/uploads/2015/01/strings-800x618.png)
+![stringr -  Para facilitar a manipulação de strings](https://d33wubrfki0l68.cloudfront.net/ed91b01c08afed41e2df36b805e32c2c46e48857/21514/wp-content/uploads/2018/08/strings.png)
 
-![[purrr]((https://www.rstudio.com/wp-content/uploads/2015/01/purrr-cheatsheet-800x618.png)) Pacote com ferramentas de programação funcional](https://www.rstudio.com/wp-content/uploads/2015/01/purrr-cheatsheet-800x618.png)
+![purrr - Pacote com ferramentas de programação funcional](https://d33wubrfki0l68.cloudfront.net/3ae77f446a7470730f3dbb7b6489525494ac8bd5/57024/wp-content/uploads/2018/08/purrr.png) 
 
-![[dplyr](https://www.rstudio.com/wp-content/uploads/2015/01/data-transformation-cheatsheet-800x618.png) Para facilidade e velocidade na manipulação de dados ](https://www.rstudio.com/wp-content/uploads/2015/01/data-transformation-cheatsheet-800x618.png)
+![dplyr - Para facilidade e velocidade na manipulação de dados](https://d33wubrfki0l68.cloudfront.net/db69c3d03699d395475d2ac14d64f611054fa9a4/e98f3/wp-content/uploads/2018/08/data-transformation.png) 
 
-![[ggplot2]((https://www.rstudio.com/wp-content/uploads/2015/01/ggplot2-cheatsheet-2.1-800x618.png)) Para apresentações visuais elegantes e práticas](https://www.rstudio.com/wp-content/uploads/2015/01/ggplot2-cheatsheet-2.1-800x618.png)
+![ggplot2 - Para apresentações visuais elegantes e práticas](https://d33wubrfki0l68.cloudfront.net/21d683072b0c21cbd9b41fc0e37a587ad26b9525/cbf41/wp-content/uploads/2018/08/data-visualization-2.1.png)
 
-![[readr](https://www.rstudio.com/wp-content/uploads/2015/01/data-import-cheatsheet-1-600x464.png) Para facilitar a tarefa de importar arquivos](https://www.rstudio.com/wp-content/uploads/2015/01/data-import-cheatsheet-1-600x464.png)
+![readr - Para facilitar a tarefa de importar arquivos](https://d33wubrfki0l68.cloudfront.net/b7142a24f47a959b8a4b67910c67db8b41036f28/ac9a2/wp-content/uploads/2018/08/data-import.png)
 
-![[devtools](https://www.rstudio.com/wp-content/uploads/2015/01/package-development-600x464.png) Possibilitando o usuário criar seus próprios pacotes](https://www.rstudio.com/wp-content/uploads/2015/01/package-development-600x464.png)
+![devtools - Possibilitando o usuário criar seus próprios pacotes](https://d33wubrfki0l68.cloudfront.net/4d6e2179e3e720eaa695017d3801fcfbc8e41fb3/33b9a/wp-content/uploads/2018/08/package-development.png)
 
 </div>
 
@@ -158,11 +158,11 @@ Como mostrado anteriormente, o pacote [`devtools`](https://cran.r-project.org/we
 
 <div class="col3">
 
-![[caret](https://www.rstudio.com/wp-content/uploads/2015/01/caret-cheatsheet-600x464.png) Pacote muito famoso quando o assunto é Machine Learning](https://www.rstudio.com/wp-content/uploads/2015/01/caret-cheatsheet-600x464.png)
+![caret - Pacote muito famoso quando o assunto é Machine Learning](https://d33wubrfki0l68.cloudfront.net/ad16acdb544c1a9ca00c7dd175312a52f45e8979/7e9a2/wp-content/uploads/2015/01/caret-cheatsheet.png)
 
-![[leaflet](https://www.rstudio.com/wp-content/uploads/2015/01/leaflet-cheatsheet-1-400x276.png) Para criar mapas interativos com facilidade](https://www.rstudio.com/wp-content/uploads/2015/01/leaflet-cheatsheet-1-400x276.png)
+![leaflet - Para criar mapas interativos com facilidade](https://d33wubrfki0l68.cloudfront.net/1267e8f809560bdbad86d15763be08302a471fb5/138a1/wp-content/uploads/2015/01/leaflet-cheatsheet-1.png)
 
-![[ $\LaTeX$ ](https://www.rstudio.com/wp-content/uploads/2018/01/latexsheet-400x309.png) Linguagem muito útil e fácil para escrever muitos tipos de documentos](https://www.rstudio.com/wp-content/uploads/2018/01/latexsheet-400x309.png)
+![ $\LaTeX$ - Linguagem muito útil e fácil para escrever muitos tipos de documentos](https://d33wubrfki0l68.cloudfront.net/78dd0d57fb9e19136289904bf4c571d246b0b6e8/e2d3b/wp-content/uploads/2018/01/latexsheet.png)
 
 </div>
 
@@ -179,8 +179,6 @@ A [gamificação](https://en.wikipedia.org/wiki/Gamification) é um conceito que
 </center>
 
 No site oficial da [RStudio](https://www.rstudio.com/) encontramos além das cheatsheets, dentre seus recursos existe a opção de [aprendizagem online](https://www.rstudio.com/online-learning/) onde é apresentada a [DataCamp](https://www.datacamp.com/) que é o primeiro e um dos mais importantes líderes em divulgar e ensinar Data Science, oferecendo treinamento baseado em habilidades, inovação técnica pioneira e cursos oferecidos pelos melhores educadores do mundo em data science!(Descrição deles no [site](https://www.datacamp.com/about))
-
-
 
 Apesar do site ser pago, existem diversas opções de cursos gratuitos para quem esta começando e é muito simples e fácil aprender pelo site. Ao cumprir com exercícios e terminar os cursos o usuário ganha xp (pontos de experiencia) que registram sua evolução. Pode ser um ótimo investimento para aprender com os melhores do mundo e o legal de tudo isso é que nunca fica fácil!
 
