@@ -58,12 +58,12 @@
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -78,22 +78,22 @@
   </url>
   
   <url>
-    <loc>/tags/relatorios/</loc>
-    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/relatorios/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/rmarkdown/</loc>
+    <loc>/tags/relatorios/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/rmarkdown/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/rmarkdown/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -108,12 +108,12 @@
   </url>
   
   <url>
-    <loc>/tags/split-apply-combine/</loc>
+    <loc>/categories/split-apply-combine/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/split-apply-combine/</loc>
+    <loc>/tags/split-apply-combine/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -123,12 +123,12 @@
   </url>
   
   <url>
-    <loc>/tags/tidyverse/</loc>
+    <loc>/categories/tidyverse/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/tidyverse/</loc>
+    <loc>/tags/tidyverse/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -148,12 +148,12 @@
   </url>
   
   <url>
-    <loc>/tags/flextable/</loc>
+    <loc>/categories/flextable/</loc>
     <lastmod>2019-04-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/flextable/</loc>
+    <loc>/tags/flextable/</loc>
     <lastmod>2019-04-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -213,12 +213,12 @@
   </url>
   
   <url>
-    <loc>/categories/shiny/</loc>
+    <loc>/tags/shiny/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/shiny/</loc>
+    <loc>/categories/shiny/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -283,12 +283,12 @@
   </url>
   
   <url>
-    <loc>/categories/kaplan-meier/</loc>
+    <loc>/tags/kaplan-meier/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/kaplan-meier/</loc>
+    <loc>/categories/kaplan-meier/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -358,22 +358,22 @@
   </url>
   
   <url>
-    <loc>/tags/google/</loc>
-    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/google/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/rstudio-server/</loc>
+    <loc>/tags/google/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/rstudio-server/</loc>
+    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rstudio-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -418,12 +418,12 @@
   </url>
   
   <url>
-    <loc>/tags/s%C3%A9ries-temporais/</loc>
+    <loc>/categories/s%C3%A9ries-temporais/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/s%C3%A9ries-temporais/</loc>
+    <loc>/tags/s%C3%A9ries-temporais/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -543,12 +543,12 @@
   </url>
   
   <url>
-    <loc>/categories/tidytext/</loc>
+    <loc>/tags/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tidytext/</loc>
+    <loc>/categories/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -618,12 +618,12 @@
   </url>
   
   <url>
-    <loc>/categories/macro/</loc>
+    <loc>/tags/macro/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/macro/</loc>
+    <loc>/categories/macro/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -884,11 +884,6 @@
   
   <url>
     <loc>/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/</loc>
     <priority>0</priority>
   </url>
   
