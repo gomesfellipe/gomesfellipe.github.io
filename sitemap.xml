@@ -213,12 +213,12 @@
   </url>
   
   <url>
-    <loc>/categories/shiny/</loc>
+    <loc>/tags/shiny/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/shiny/</loc>
+    <loc>/categories/shiny/</loc>
     <lastmod>2018-12-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -283,12 +283,12 @@
   </url>
   
   <url>
-    <loc>/categories/kaplan-meier/</loc>
+    <loc>/tags/kaplan-meier/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/kaplan-meier/</loc>
+    <loc>/categories/kaplan-meier/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -308,12 +308,12 @@
   </url>
   
   <url>
-    <loc>/categories/probabilidade/</loc>
+    <loc>/tags/probabilidade/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/probabilidade/</loc>
+    <loc>/categories/probabilidade/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -368,12 +368,12 @@
   </url>
   
   <url>
-    <loc>/tags/rstudio-server/</loc>
+    <loc>/categories/rstudio-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/rstudio-server/</loc>
+    <loc>/tags/rstudio-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -383,12 +383,12 @@
   </url>
   
   <url>
-    <loc>/categories/shiny-server/</loc>
+    <loc>/tags/shiny-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/shiny-server/</loc>
+    <loc>/categories/shiny-server/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -418,12 +418,12 @@
   </url>
   
   <url>
-    <loc>/tags/s%C3%A9ries-temporais/</loc>
+    <loc>/categories/s%C3%A9ries-temporais/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/s%C3%A9ries-temporais/</loc>
+    <loc>/tags/s%C3%A9ries-temporais/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -543,12 +543,12 @@
   </url>
   
   <url>
-    <loc>/categories/tidytext/</loc>
+    <loc>/tags/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tidytext/</loc>
+    <loc>/categories/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -643,22 +643,22 @@
   </url>
   
   <url>
-    <loc>/tags/word/</loc>
-    <lastmod>2018-03-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/word/</loc>
     <lastmod>2018-03-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/cheatsheets/</loc>
-    <lastmod>2018-02-17T00:00:00+00:00</lastmod>
+    <loc>/tags/word/</loc>
+    <lastmod>2018-03-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/cheatsheets/</loc>
+    <lastmod>2018-02-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/cheatsheets/</loc>
     <lastmod>2018-02-17T00:00:00+00:00</lastmod>
   </url>
   
