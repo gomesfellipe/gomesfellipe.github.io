@@ -6,10 +6,19 @@
     <description>Recent content in Modelos on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/modelos/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</title>
+      <link>/post/2020-03-25-investment-alert/investment-alert/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-03-25-investment-alert/investment-alert/</guid>
+      <description>.column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 33%; padding: 10px; } .column8 { float: left; width: 66%; padding: 10px; } .row:after { content: &#34;&#34;; display: table; clear: both; }  Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?</description>
+    </item>
     
     <item>
       <title>Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</title>
@@ -78,19 +87,6 @@ Os conceitos de chances e de incertezas são tão antigos quando a própria civi
     
     <item>
       <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/</link>
-      <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/</guid>
-      <description>Funções do R para avaliar o ajuste de modelosImagem da internet
-Traduzindo:
-“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
-Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
-Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
-    </item>
-    
-    <item>
-      <title>Pacotes do R para avaliar o ajuste de modelos</title>
       <link>/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</link>
       <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
       
@@ -112,18 +108,6 @@ Quando estamos falando de Inferência nosso objetivo normalmente é tentar verif
 Para isso devemos utilizar toda informação disponível, seja ela objetiva ou subjetiva (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)
 Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao teorema de bayes.
 Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa “crença” será representada por uma distribuição de probabilidade (ou modelo probabilístico)</description>
-    </item>
-    
-    <item>
-      <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/</link>
-      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/</guid>
-      <description>Funções do R para avaliar o ajuste de modelos Traduzindo:
-“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
-Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
-Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
     </item>
     
   </channel>

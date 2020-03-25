@@ -6,10 +6,19 @@
     <description>Recent content in package on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/package/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</title>
+      <link>/post/2020-03-25-investment-alert/investment-alert/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-03-25-investment-alert/investment-alert/</guid>
+      <description>.column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 33%; padding: 10px; } .column8 { float: left; width: 66%; padding: 10px; } .row:after { content: &#34;&#34;; display: table; clear: both; }  Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?</description>
+    </item>
     
     <item>
       <title>Hackeando o R: estratégia split-apply-combine</title>
@@ -83,19 +92,6 @@ Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacot
       
       <guid>/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/</guid>
       <description>Importâcia da apresentação dos dados O trabalho do estatístico vai muito além do planejamento, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. O processo de analises deve ser tratado na etapa final de todo projeto ou pesquisa que envolva apresentação dos resultados, não é atoa que já até existem áreas dentro da ciência de dados focada nesta tarefa, recebendo o título de “Data Artist”.</description>
-    </item>
-    
-    <item>
-      <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/</link>
-      <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/</guid>
-      <description>Funções do R para avaliar o ajuste de modelosImagem da internet
-Traduzindo:
-“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
-Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
-Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
     </item>
     
     <item>

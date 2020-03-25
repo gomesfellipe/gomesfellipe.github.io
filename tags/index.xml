@@ -6,15 +6,51 @@
     <description>Recent content in Tags on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>bitcoin</title>
+      <link>/tags/bitcoin/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bitcoin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bolsa de valores</title>
+      <link>/tags/bolsa-de-valores/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bolsa-de-valores/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Correlações</title>
+      <link>/tags/correla%C3%A7%C3%B5es/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/correla%C3%A7%C3%B5es/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dplyr</title>
+      <link>/tags/dplyr/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/dplyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Estatistica</title>
       <link>/tags/estatistica/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/estatistica/</guid>
       <description></description>
@@ -23,16 +59,25 @@
     <item>
       <title>gomesfellipe</title>
       <link>/tags/gomesfellipe/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/gomesfellipe/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>machine learning</title>
+      <link>/tags/machine-learning/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>modelagem</title>
       <link>/tags/modelagem/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/modelagem/</guid>
       <description></description>
@@ -41,9 +86,72 @@
     <item>
       <title>Modelos</title>
       <link>/tags/modelos/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/modelos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>package</title>
+      <link>/tags/package/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>prophet</title>
+      <link>/tags/prophet/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/prophet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>relatorios</title>
+      <link>/tags/relatorios/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/relatorios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio</title>
+      <link>/tags/rstudio/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Séries Temporais</title>
+      <link>/tags/s%C3%A9ries-temporais/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/s%C3%A9ries-temporais/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tabelas</title>
+      <link>/tags/tabelas/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tabelas/</guid>
       <description></description>
     </item>
     
@@ -57,15 +165,6 @@
     </item>
     
     <item>
-      <title>R</title>
-      <link>/tags/r/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>R Markdown</title>
       <link>/tags/r-markdown/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
@@ -75,29 +174,11 @@
     </item>
     
     <item>
-      <title>relatorios</title>
-      <link>/tags/relatorios/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/relatorios/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>rmarkdown</title>
       <link>/tags/rmarkdown/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/rmarkdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RStudio</title>
-      <link>/tags/rstudio/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/rstudio/</guid>
       <description></description>
     </item>
     
@@ -147,29 +228,11 @@
     </item>
     
     <item>
-      <title>tabelas</title>
-      <link>/tags/tabelas/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/tabelas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>kaggle</title>
       <link>/tags/kaggle/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/kaggle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>/tags/machine-learning/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/machine-learning/</guid>
       <description></description>
     </item>
     
@@ -246,15 +309,6 @@
     </item>
     
     <item>
-      <title>package</title>
-      <link>/tags/package/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/package/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>plot</title>
       <link>/tags/plot/</link>
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
@@ -300,15 +354,6 @@
     </item>
     
     <item>
-      <title>bitcoin</title>
-      <link>/tags/bitcoin/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/bitcoin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Google</title>
       <link>/tags/google/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
@@ -350,15 +395,6 @@
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/mapa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Séries Temporais</title>
-      <link>/tags/s%C3%A9ries-temporais/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/s%C3%A9ries-temporais/</guid>
       <description></description>
     </item>
     
@@ -458,15 +494,6 @@
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/simula%C3%A7ao/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dplyr</title>
-      <link>/tags/dplyr/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/dplyr/</guid>
       <description></description>
     </item>
     
@@ -647,15 +674,6 @@
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/tufle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Correlações</title>
-      <link>/tags/correla%C3%A7%C3%B5es/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/correla%C3%A7%C3%B5es/</guid>
       <description></description>
     </item>
     

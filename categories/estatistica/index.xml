@@ -6,10 +6,19 @@
     <description>Recent content in Estatistica on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/estatistica/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</title>
+      <link>/post/2020-03-25-investment-alert/investment-alert/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-03-25-investment-alert/investment-alert/</guid>
+      <description>.column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 33%; padding: 10px; } .column8 { float: left; width: 66%; padding: 10px; } .row:after { content: &#34;&#34;; display: table; clear: both; }  Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?</description>
+    </item>
     
     <item>
       <title>Hackeando o R: estratégia split-apply-combine</title>
@@ -134,19 +143,6 @@ Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilh
     
     <item>
       <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/</link>
-      <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/</guid>
-      <description>Funções do R para avaliar o ajuste de modelosImagem da internet
-Traduzindo:
-“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
-Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
-Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
-    </item>
-    
-    <item>
-      <title>Pacotes do R para avaliar o ajuste de modelos</title>
       <link>/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</link>
       <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
       
@@ -189,18 +185,6 @@ Elaborar templates de relatórios é uma tarefa comum entre programadores estat�
       <guid>/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
       <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
 Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
-    </item>
-    
-    <item>
-      <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/</link>
-      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2017-12-05-fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/fun%C3%A7%C3%B5es-em-r-para-avaliar-o-ajuste-de-modelos/</guid>
-      <description>Funções do R para avaliar o ajuste de modelos Traduzindo:
-“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
-Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
-Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
     </item>
     
     <item>
