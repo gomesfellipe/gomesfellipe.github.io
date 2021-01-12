@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Google on Hugo Future Imperfect</title>
-    <link>/tags/google/</link>
-    <description>Recent content in Google on Hugo Future Imperfect</description>
+    <title>Google on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/google/</link>
+    <description>Recent content in Google on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/google/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Séries temporais com Google Trends e R</title>
-      <link>/blog/google-trends-e-r/</link>
+      <link>https://gomesfellipe.github.io/blog/google-trends-e-r/</link>
       <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/google-trends-e-r/</guid>
+      <guid>https://gomesfellipe.github.io/blog/google-trends-e-r/</guid>
       <description>Google Trends O Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
 Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
 Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>

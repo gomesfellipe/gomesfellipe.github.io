@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dplyr on Hugo Future Imperfect</title>
-    <link>/tags/dplyr/</link>
-    <description>Recent content in dplyr on Hugo Future Imperfect</description>
+    <title>dplyr on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/dplyr/</link>
+    <description>Recent content in dplyr on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Manipulando dados com dplyr</title>
-      <link>/blog/manipulando-dados-com-dplyr/</link>
+      <link>https://gomesfellipe.github.io/blog/manipulando-dados-com-dplyr/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/manipulando-dados-com-dplyr/</guid>
+      <guid>https://gomesfellipe.github.io/blog/manipulando-dados-com-dplyr/</guid>
       <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
 Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
     </item>
