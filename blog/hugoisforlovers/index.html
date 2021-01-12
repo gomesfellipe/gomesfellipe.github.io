@@ -8,7 +8,7 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": "https:\/\/gomesfellipe.github.io\/"
+             "@id": "\/"
         },
         "articleSection" : "blog",
         "name" : "Getting Started with Hugo",
@@ -23,7 +23,7 @@
         "copyrightYear" : "2014",
         "datePublished": "2014-04-02 00:00:00 \u002b0000 UTC",
         "dateModified" : "2014-04-02 00:00:00 \u002b0000 UTC",
-        "url" : "https:\/\/gomesfellipe.github.io\/blog\/hugoisforlovers\/",
+        "url" : "\/blog\/hugoisforlovers\/",
         "wordCount" : "350",
         "keywords" : [ "Blog" ]
     }
@@ -45,7 +45,7 @@
         
         
             
-                <meta name="description" content="Este blog é fruto da minha paixão pela Estatística e programação em R, trago aqui de maneira prática e descontraída algumas ferramentas, técnicas, curiosidades e brincadeiras disponíveis quando se utiliza o R como linguagem de programação. Espero que aproveite o conteúdo!">
+                <meta name="description" content="HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo">
             
         
 
@@ -56,6 +56,7 @@ Go to hugo releases and download the
 appropriate version for your os and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at installing hugo"/>
+<meta name="twitter:site" content="@example"/>
 
         <meta property="og:title" content="Getting Started with Hugo" />
 <meta property="og:description" content="Step 1. Install Hugo
@@ -64,11 +65,11 @@ appropriate version for your os and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at installing hugo" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gomesfellipe.github.io/blog/hugoisforlovers/" />
+<meta property="og:url" content="/blog/hugoisforlovers/" />
 <meta property="article:published_time" content="2014-04-02T00:00:00+00:00" />
 <meta property="article:modified_time" content="2014-04-02T00:00:00+00:00" />
 
-        <meta property="og:image" content="https://gomesfellipe.github.io//images/logo.png">
+        <meta property="og:image" content="//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
@@ -112,22 +113,11 @@ More complete instructions are available at installing hugo">
 
   
     
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
 
 
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-105500464-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
     </head>
     <body>
 
@@ -146,37 +136,37 @@ if (!doNotTrack) {
             
                 <li>
                     <a href="/">
-                            <i class="fa fa-home">&nbsp;</i>setwd()
+                            <i class="fa fa-home">&nbsp;</i>Home
                     </a>
                 </li>
             
                 <li>
                     <a href="/about/">
-                            <i class="fa fa-id-card-o">&nbsp;</i>cv
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
                     </a>
                 </li>
             
                 <li>
-                    <a href="/post/">
-                            <i class="fa fa-coffee">&nbsp;</i>Posts
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/categories/">
-                            <i class="fa fa-reorder">&nbsp;</i>Categorias
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/contact/">
-                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    <a href="/blog/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                     </a>
                 </li>
             
                 <li>
                     <a href="/itemized/">
-                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            <i class="fa fa-list">&nbsp;</i>Itemized
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contact
                     </a>
                 </li>
             
@@ -193,7 +183,7 @@ if (!doNotTrack) {
                 <a class="fa-search" href="#search">Search</a>
                 <form id="search" method="get" action="//google.com/search">
                     <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+                    <input type="hidden" name="as_sitesearch" value="/">
                 </form>
             </li>
             <li class="menu">
@@ -210,7 +200,7 @@ if (!doNotTrack) {
         <section>
             <form class="search" method="get" action="//google.com/search">
                 <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+                <input type="hidden" name="as_sitesearch" value="/">
             </form>
         </section>
 
@@ -221,7 +211,7 @@ if (!doNotTrack) {
                     <li>
                         <a href="/">
                             <h3>
-                                <i class="fa fa-home">&nbsp;</i>setwd()
+                                <i class="fa fa-home">&nbsp;</i>Home
                             </h3>
                         </a>
                     </li>
@@ -229,31 +219,15 @@ if (!doNotTrack) {
                     <li>
                         <a href="/about/">
                             <h3>
-                                <i class="fa fa-id-card-o">&nbsp;</i>cv
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
                             </h3>
                         </a>
                     </li>
                 
                     <li>
-                        <a href="/post/">
+                        <a href="/blog/">
                             <h3>
-                                <i class="fa fa-coffee">&nbsp;</i>Posts
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories/">
-                            <h3>
-                                <i class="fa fa-reorder">&nbsp;</i>Categorias
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/contact/">
-                            <h3>
-                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                             </h3>
                         </a>
                     </li>
@@ -261,7 +235,23 @@ if (!doNotTrack) {
                     <li>
                         <a href="/itemized/">
                             <h3>
-                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                                <i class="fa fa-list">&nbsp;</i>Itemized
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contact
                             </h3>
                         </a>
                     </li>
@@ -284,11 +274,11 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="/blog/creating-a-new-theme/">Creating a New Theme</a></h3>
+                                <h3><a href="/blog/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2014-09-28'>
-                                    September 28, 2014</time>
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
                             </header>
                             
     
@@ -313,8 +303,8 @@ if (!doNotTrack) {
         
         
 
-        <a href="/blog/creating-a-new-theme/" class="image featured">
-            <img src="/img/2014/09/pic03.jpg" alt="">
+        <a href="/blog/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-R.png" alt="">
         </a>
     
 
@@ -323,11 +313,11 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="/blog/goisforlovers/">(Hu)go Template Primer</a></h3>
+                                <h3><a href="/blog/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2014-04-02'>
-                                    April 2, 2014</time>
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
                             </header>
                             
     
@@ -352,8 +342,8 @@ if (!doNotTrack) {
         
         
 
-        <a href="/blog/goisforlovers/" class="image featured">
-            <img src="/img/2014/04/pic02.jpg" alt="">
+        <a href="/blog/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
         </a>
     
 
@@ -362,11 +352,11 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="/blog/hugoisforlovers/">Getting Started with Hugo</a></h3>
+                                <h3><a href="/blog/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2014-04-02'>
-                                    April 2, 2014</time>
+                                    '2017-12-04'>
+                                    December 4, 2017</time>
                             </header>
                             
     
@@ -391,8 +381,8 @@ if (!doNotTrack) {
         
         
 
-        <a href="/blog/hugoisforlovers/" class="image featured">
-            <img src="/img/2014/04/pic01.jpg" alt="">
+        <a href="/blog/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="/img/2017/12/cryptomoedas-R.png" alt="">
         </a>
     
 
@@ -401,17 +391,35 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="/blog/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a></h3>
+                                <h3><a href="/blog/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2014-03-10'>
-                                    March 10, 2014</time>
+                                    '2017-12-02'>
+                                    December 2, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/tipos-de-correlacoes/">Tipos de Correlaçoes</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-01'>
+                                    December 1, 2017</time>
                             </header>
                             
 
                         </article>
                 
 
+                
+                    <a href=
+                        
+                            /blog/
+                        
+                        class="button">View more posts</a>
                 
             </div>
         </section>
@@ -431,7 +439,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f&amp;text=Getting%20Started%20with%20Hugo&amp;via=" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=%2fblog%2fhugoisforlovers%2f&amp;text=Getting%20Started%20with%20Hugo&amp;via=example" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -441,7 +449,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//plus.google.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -452,7 +460,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -462,7 +470,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//reddit.com/submit?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -472,7 +480,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -482,7 +490,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -492,7 +500,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f&amp;description=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fblog%2fhugoisforlovers%2f&amp;description=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -502,7 +510,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by Hugo%20author&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by Hugo%20author&amp;body=%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -549,7 +557,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f&amp;text=Getting%20Started%20with%20Hugo&amp;via=" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=%2fblog%2fhugoisforlovers%2f&amp;text=Getting%20Started%20with%20Hugo&amp;via=example" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -559,7 +567,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//plus.google.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -570,7 +578,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -580,7 +588,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//reddit.com/submit?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -590,7 +598,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -600,7 +608,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=%2fblog%2fhugoisforlovers%2f&amp;title=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -610,7 +618,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f&amp;description=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fblog%2fhugoisforlovers%2f&amp;description=Getting%20Started%20with%20Hugo" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -620,7 +628,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by Hugo%20author&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by Hugo%20author&amp;body=%2fblog%2fhugoisforlovers%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -727,7 +735,7 @@ Having nearly instant feedback enables you to have your creativity flow without 
                 <i class="fa fa-folder"></i>
                 
                 
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/hugo">Hugo</a></li>
+                <li><a class="article-category-link" href="/categories/hugo">Hugo</a></li>
                 
             
         
@@ -758,7 +766,7 @@ Having nearly instant feedback enables you to have your creativity flow without 
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.src = '//' + "shortname" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -790,25 +798,25 @@ Having nearly instant feedback enables you to have your creativity flow without 
     
     
       
-        <a href='/' class="logo"><img src="/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+        <a href='/' class="logo"><img src="/img/main/logo1.jpg" alt="Hugo Future Imperfect" /></a>
       
     
     
       <header>
-        <h2>Fellipe Gomes</h2>
-        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+        <h2>Hugo Future Imperfect</h2>
+        <p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a>. Ported by Julio Pescador with some extra goodies <i class='fa fa-hand-peace-o'></i></p>
       </header>
     
     
       <ul class="icons">
         
           
-    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
 
 
         
         
-  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+  <li><a href="//github.com/jpescador/hugo-future-imperfect" target="_blank" title="GitHub" class="fa fa-github"></a></li>
 
 
 
@@ -816,7 +824,6 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
-  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
 
 
 
@@ -825,6 +832,7 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
+  <li><a href="//flickr.com/photos/example" target="_blank" title="Flickr" class="fa fa-flickr"></a></li>
 
 
 
@@ -834,13 +842,13 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
-  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
 
 
+  <li><a href="//linkedin.com/in/example" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
 
-  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
 
 
+  <li><a href="//linkedin.com/company/examplebusiness" target="_blank" title="LinkedIn Company" class="fa fa-linkedin"></a></li>
 
 
 
@@ -850,11 +858,13 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
+  <li><a href="//facebook.com/example" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
 
 
 
 
 
+  <li><a href="//reddit.com/user/example" target="_blank" title="Reddit" class="fa fa-reddit"></a></li>
 
 
 
@@ -862,7 +872,6 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
-  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
 
 
 
@@ -873,12 +882,13 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
+  <li><a href="//instagram.com/example" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
 
 
 
 
 
-  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
 
 
 
@@ -886,9 +896,11 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
+  <li><a href="//pinterest.com/example" target="_blank" title="Pinterest" class="fa fa-pinterest-p"></a></li>
 
 
 
+  <li><a href="//telegram.me/example" target="_blank" title="telegram" class="fa fa-telegram"></a></li>
 
 
 
@@ -896,7 +908,13 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
-  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+<li><a href="//researchgate.net/profile/example" target="_blank" title="Research Gate"><i class="ai ai-researchgate"></i></a></li>
+
+
+
+  <li><a href="mailto:example" title="Email" class="fa fa-envelope"></a></li>
 
 
       </ul>
@@ -920,11 +938,11 @@ Having nearly instant feedback enables you to have your creativity flow without 
           <article class="mini-post">
             <header>
               <h3>
-                <a href="/blog/creating-a-new-theme/">Creating a New Theme</a>
+                <a href="/blog/google-trends-e-r/">Séries temporais com Google Trends e R</a>
               </h3>
               
-              <time class="published" datetime='2014-09-28'>
-                September 28, 2014
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
               </time>
             </header>
             
@@ -950,8 +968,8 @@ Having nearly instant feedback enables you to have your creativity flow without 
         
         
 
-        <a href="/blog/creating-a-new-theme/" class="image featured">
-            <img src="/img/2014/09/pic03.jpg" alt="">
+        <a href="/blog/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-R.png" alt="">
         </a>
     
 
@@ -961,11 +979,11 @@ Having nearly instant feedback enables you to have your creativity flow without 
           <article class="mini-post">
             <header>
               <h3>
-                <a href="/blog/goisforlovers/">(Hu)go Template Primer</a>
+                <a href="/blog/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
               </h3>
               
-              <time class="published" datetime='2014-04-02'>
-                April 2, 2014
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
               </time>
             </header>
             
@@ -991,8 +1009,8 @@ Having nearly instant feedback enables you to have your creativity flow without 
         
         
 
-        <a href="/blog/goisforlovers/" class="image featured">
-            <img src="/img/2014/04/pic02.jpg" alt="">
+        <a href="/blog/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
         </a>
     
 
@@ -1002,11 +1020,11 @@ Having nearly instant feedback enables you to have your creativity flow without 
           <article class="mini-post">
             <header>
               <h3>
-                <a href="/blog/hugoisforlovers/">Getting Started with Hugo</a>
+                <a href="/blog/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a>
               </h3>
               
-              <time class="published" datetime='2014-04-02'>
-                April 2, 2014
+              <time class="published" datetime='2017-12-04'>
+                December 4, 2017
               </time>
             </header>
             
@@ -1032,8 +1050,8 @@ Having nearly instant feedback enables you to have your creativity flow without 
         
         
 
-        <a href="/blog/hugoisforlovers/" class="image featured">
-            <img src="/img/2014/04/pic01.jpg" alt="">
+        <a href="/blog/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="/img/2017/12/cryptomoedas-R.png" alt="">
         </a>
     
 
@@ -1043,11 +1061,25 @@ Having nearly instant feedback enables you to have your creativity flow without 
           <article class="mini-post">
             <header>
               <h3>
-                <a href="/blog/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a>
+                <a href="/blog/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a>
               </h3>
               
-              <time class="published" datetime='2014-03-10'>
-                March 10, 2014
+              <time class="published" datetime='2017-12-02'>
+                December 2, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/tipos-de-correlacoes/">Tipos de Correlaçoes</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-01'>
+                December 1, 2017
               </time>
             </header>
             
@@ -1057,10 +1089,175 @@ Having nearly instant feedback enables you to have your creativity flow without 
       </div>
 
       
+        <a href=
+          
+            /blog/
+          
+        class="button">View more posts</a>
+      
     </div>
   </section>
 
   
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/r/">r</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/estatistica/">estatistica</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/hugo/">hugo</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/pr%C3%A1tica/">prática</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/teoria/">teoria</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/utilidades/">utilidades</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/bitcoin/">bitcoin</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/dplyr/">dplyr</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/go/">go</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/google/">google</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/jekyll/">jekyll</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/package/">package</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
   
   
 
@@ -1068,7 +1265,7 @@ Having nearly instant feedback enables you to have your creativity flow without 
   
     <section id="mini-bio">
       <h3>About</h3>
-      <p>Meu nome é Fellipe Gomes, sou Estatístico e entusiasta pela ciência de dados. Percebi que um dos muitos desafios na carreira de um cientista de dados é passar para as pessoas o que é possível fazer em diversas áreas de estudo, diante disso resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tellus lacus, auctor vehicula molestie quis, tempor quis velit. Quisque in quam ac leo efficitur vulputate. Phasellus ullamcorper aliquam sodales. Maecenas sit amet condimentum ipsum. Proin sit amet ligula elit. Mauris.</p>
       <a href="/about/" class="button">Learn More</a>
     </section>
   
@@ -1079,12 +1276,12 @@ Having nearly instant feedback enables you to have your creativity flow without 
       <ul class="icons">
         
           
-    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
 
 
         
         
-  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+  <li><a href="//github.com/jpescador/hugo-future-imperfect" target="_blank" title="GitHub" class="fa fa-github"></a></li>
 
 
 
@@ -1092,7 +1289,6 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
-  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
 
 
 
@@ -1101,6 +1297,7 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
+  <li><a href="//flickr.com/photos/example" target="_blank" title="Flickr" class="fa fa-flickr"></a></li>
 
 
 
@@ -1110,13 +1307,13 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
-  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
 
 
+  <li><a href="//linkedin.com/in/example" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
 
-  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
 
 
+  <li><a href="//linkedin.com/company/examplebusiness" target="_blank" title="LinkedIn Company" class="fa fa-linkedin"></a></li>
 
 
 
@@ -1126,11 +1323,13 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
+  <li><a href="//facebook.com/example" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
 
 
 
 
 
+  <li><a href="//reddit.com/user/example" target="_blank" title="Reddit" class="fa fa-reddit"></a></li>
 
 
 
@@ -1138,7 +1337,6 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
-  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
 
 
 
@@ -1149,12 +1347,13 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
+  <li><a href="//instagram.com/example" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
 
 
 
 
 
-  <li><a href="skype:gomes.fellipe@hotmail.com?userinfo" target="_blank" title="Skype" class="fa fa-skype"></a></li>
+  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
 
 
 
@@ -1162,9 +1361,11 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
+  <li><a href="//pinterest.com/example" target="_blank" title="Pinterest" class="fa fa-pinterest-p"></a></li>
 
 
 
+  <li><a href="//telegram.me/example" target="_blank" title="telegram" class="fa fa-telegram"></a></li>
 
 
 
@@ -1172,7 +1373,13 @@ Having nearly instant feedback enables you to have your creativity flow without 
 
 
 
-  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+<li><a href="//researchgate.net/profile/example" target="_blank" title="Research Gate"><i class="ai ai-researchgate"></i></a></li>
+
+
+
+  <li><a href="mailto:example" title="Email" class="fa fa-envelope"></a></li>
 
 
       </ul>
@@ -1181,7 +1388,7 @@ Having nearly instant feedback enables you to have your creativity flow without 
       
         &copy; 2020
         
-          Fellipe Gomes
+          Hugo Future Imperfect
         
       .
       Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
@@ -1201,10 +1408,13 @@ Having nearly instant feedback enables you to have your creativity flow without 
       
       
       
-        <script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
         
         
         
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
         <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
       
     

@@ -3,122 +3,282 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://gomesfellipe.github.io/blog/</loc>
+    <loc>/blog/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/</loc>
+    <loc>/blog/2020-12-01-r-rmarkdown/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/blog/2020-12-01-r-rmarkdown/</loc>
+    <loc>/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/tags/plot/</loc>
+    <loc>/tags/plot/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/categories/r/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/tags/r-markdown/</loc>
+    <loc>/tags/r-markdown/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/tags/regression/</loc>
+    <loc>/tags/regression/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/itemized/item1/</loc>
+    <loc>/tags/gomesfellipe/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/google/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/google/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/google-trends/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pr%C3%A1tica/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/pr%C3%A1tica/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rstudio/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/s%C3%A9ries-temporais/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/s%C3%A9ries-temporais/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/google-trends-e-r/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/utilidades/</loc>
+    <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/data-mining/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/dplyr/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/dplyr/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/estatistica/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/estatistica/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/manipulacao-de-dados/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/manipulando-dados-com-dplyr/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/package/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/package/</loc>
+    <lastmod>2017-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/analisando-o-mercado-de-cryptomoedas-com-r/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/bitcoin/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/bitcoin/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/correla%C3%A7%C3%B5es/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cryptomoedas/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/dropbox/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rela%C3%A7%C3%B5es-entre-vari%C3%A1veis/</loc>
+    <lastmod>2017-12-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/teoria/</loc>
+    <lastmod>2017-12-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/tipos-de-relacoes-entre-variaveis/</loc>
+    <lastmod>2017-12-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tipos-de-vari%C3%A1veis/</loc>
+    <lastmod>2017-12-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/tipos-de-correlacoes/</loc>
+    <lastmod>2017-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/itemized/item1/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/itemized/item2/</loc>
+    <loc>/itemized/item2/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/itemized/item3/</loc>
+    <loc>/itemized/item3/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/itemized/item4/</loc>
+    <loc>/itemized/item4/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/itemized/</loc>
+    <loc>/itemized/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/blog/creating-a-new-theme/</loc>
+    <loc>/blog/creating-a-new-theme/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/categories/hugo/</loc>
+    <loc>/categories/hugo/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/tags/tutorial/</loc>
+    <loc>/tags/tutorial/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/blog/goisforlovers/</loc>
+    <loc>/blog/goisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/blog/hugoisforlovers/</loc>
+    <loc>/blog/hugoisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/categories/go/</loc>
+    <loc>/categories/go/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/categories/jekyll/</loc>
+    <loc>/categories/jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/blog/migrate-from-jekyll/</loc>
+    <loc>/blog/migrate-from-jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gomesfellipe.github.io/contact/</loc>
+    <loc>/contact/</loc>
   </url>
   
 </urlset>

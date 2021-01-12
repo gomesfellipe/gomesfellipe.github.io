@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Correlações on Hugo Future Imperfect</title>
+    <link>/tags/correla%C3%A7%C3%B5es/</link>
+    <description>Recent content in Correlações on Hugo Future Imperfect</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/correla%C3%A7%C3%B5es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analisando o mercado de cryptomoedas com R</title>
+      <link>/blog/analisando-o-mercado-de-cryptomoedas-com-r/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
+      <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
+Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
+Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
+    </item>
+    
+    <item>
+      <title>Tipos de relações entre variáveis</title>
+      <link>/blog/tipos-de-relacoes-entre-variaveis/</link>
+      <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/tipos-de-relacoes-entre-variaveis/</guid>
+      <description>Tipos de relações Numérica x Numérica  Graficamente  Duas variaveis Mais de duas variáveis  Normalidade  Graficamente QQ-plot QQ plot com envelope Testes  Dados normais + Relação linear  Coeficiente de Correlação de Pearson \(\rho\)  Dados não normais e/ou sem relação linear  Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall)   Ordinal x Ordinal Numérica x Ordinal Nominal x Nominal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Nominal x Ordinal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Dicotônica x Ordinal Nominal x Numérca  \(R^2\) do ajuste de modelos lineares Bisserial = Pearson Comparações de Grupos  Correlação parcial  Controlando variável numérica Controlando variável Qualitativa  Referências   Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.</description>
+    </item>
+    
+    <item>
+      <title>Tipos de Correlaçoes</title>
+      <link>/blog/tipos-de-correlacoes/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/tipos-de-correlacoes/</guid>
+      <description>Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
+    </item>
+    
+  </channel>
+</rss>

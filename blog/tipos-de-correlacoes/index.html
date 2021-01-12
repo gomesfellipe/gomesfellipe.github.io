@@ -1,0 +1,1521 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "\/"
+        },
+        "articleSection" : "blog",
+        "name" : "Tipos de Correlaçoes",
+        "headline" : "Tipos de Correlaçoes",
+        "description" : "Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \\(\\rho\\) Coeficiente de Correlação de Kendall (\\(\\tau\\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \\(\\phi\\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2017",
+        "datePublished": "2017-12-01 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2017-12-01 00:00:00 \u002b0000 UTC",
+        "url" : "\/blog\/tipos-de-correlacoes\/",
+        "wordCount" : "935",
+        "keywords" : [ "gomesfellipe","R","Estatistica","Correlações","Tipos de variáveis","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Tipos de Correlaçoes</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.80.0" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            
+                <meta name="description" content="HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tipos de Correlaçoes"/>
+<meta name="twitter:description" content="Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis."/>
+<meta name="twitter:site" content="@example"/>
+
+        <meta property="og:title" content="Tipos de Correlaçoes" />
+<meta property="og:description" content="Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/tipos-de-correlacoes/" />
+<meta property="article:published_time" content="2017-12-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-01T00:00:00+00:00" />
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="Tipos de Correlaçoes">
+<meta itemprop="description" content="Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.">
+<meta itemprop="datePublished" content="2017-12-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2017-12-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="935">
+
+
+
+<meta itemprop="keywords" content="gomesfellipe,R,Estatistica,Correlações,Tipos de variáveis," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">blog</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/blog/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/itemized/">
+                            <i class="fa fa-list">&nbsp;</i>Itemized
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contact
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/blog/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/itemized/">
+                            <h3>
+                                <i class="fa fa-list">&nbsp;</i>Itemized
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contact
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-04'>
+                                    December 4, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-02'>
+                                    December 2, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/tipos-de-correlacoes/">Tipos de Correlaçoes</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-01'>
+                                    December 1, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /blog/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fblog%2ftipos-de-correlacoes%2f&amp;text=Tipos%20de%20Correla%c3%a7oes&amp;via=example" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fblog%2ftipos-de-correlacoes%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2ftipos-de-correlacoes%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fblog%2ftipos-de-correlacoes%2f&amp;title=Tipos%20de%20Correla%c3%a7oes" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2ftipos-de-correlacoes%2f&amp;title=Tipos%20de%20Correla%c3%a7oes" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fblog%2ftipos-de-correlacoes%2f&amp;title=Tipos%20de%20Correla%c3%a7oes" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fblog%2ftipos-de-correlacoes%2f&amp;description=Tipos%20de%20Correla%c3%a7oes" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fblog%2ftipos-de-correlacoes%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/blog/tipos-de-correlacoes/">Tipos de Correlaçoes</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2017-12-01'>
+            December 1, 2017</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>5 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fblog%2ftipos-de-correlacoes%2f&amp;text=Tipos%20de%20Correla%c3%a7oes&amp;via=example" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fblog%2ftipos-de-correlacoes%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2ftipos-de-correlacoes%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fblog%2ftipos-de-correlacoes%2f&amp;title=Tipos%20de%20Correla%c3%a7oes" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2ftipos-de-correlacoes%2f&amp;title=Tipos%20de%20Correla%c3%a7oes" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fblog%2ftipos-de-correlacoes%2f&amp;title=Tipos%20de%20Correla%c3%a7oes" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fblog%2ftipos-de-correlacoes%2f&amp;description=Tipos%20de%20Correla%c3%a7oes" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fblog%2ftipos-de-correlacoes%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+
+  <div id="content">
+    
+<script src="/blog/tipos-de-correlacoes/index_files/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#correlações">Correlações</a></li>
+<li><a href="#tipos-de-variáveis">Tipos de Variáveis</a></li>
+<li><a href="#tipos-de-correlações">Tipos de Correlações</a>
+<ul>
+<li><a href="#coeficiente-de-correlação-de-pearson">Coeficiente de Correlação de Pearson</a></li>
+<li><a href="#coeficiente-de-correlação-de-spearman-rho">Coeficiente de Correlação de Spearman <span class="math inline">\(\rho\)</span></a></li>
+<li><a href="#coeficiente-de-correlação-de-kendall-tau-de-kendall">Coeficiente de Correlação de Kendall (<span class="math inline">\(\tau\)</span> de kendall)</a></li>
+<li><a href="#qui-quadrado-de-independencia">Qui-quadrado de independencia</a></li>
+<li><a href="#teste-exato-de-fisher">Teste exato de fisher</a></li>
+<li><a href="#medidas-de-associação">Medidas de associação</a>
+<ul>
+<li><a href="#phi-phi-é-o-r-de-pearson-quando-aplicado-a-tabelas-2x2"><span class="math inline">\(\phi\)</span> (phi) (é o R de pearson quando aplicado a tabelas 2x2)</a></li>
+<li><a href="#v-de-crámer">V de Crámer</a></li>
+<li><a href="#coeficiente-de-contingência">Coeficiente de contingência</a></li>
+</ul></li>
+<li><a href="#kappa">Kappa</a></li>
+</ul></li>
+<li><a href="#mãos-a-obra">Mãos a obra</a></li>
+<li><a href="#referências">Referências</a></li>
+</ul>
+</div>
+
+<!-- # Base de dados:  -->
+<!-- ```{r,echo=F} -->
+<!-- dados <- read_excel("contabilidade.xlsx") -->
+<!-- kable(dados,"html")%>% -->
+<!--   kable_styling()%>% -->
+<!--   scroll_box(width = "700px", height = "250px") -->
+<!-- ```  -->
+<!-- É possível notar que existem diversos tipos de variáveis -->
+<div id="correlações" class="section level1">
+<h1>Correlações</h1>
+<p>De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os <em>coeficientes de associação</em> ou <em>correlação</em> entre variáveis.</p>
+<p>Essas medidas descrevem por meio de um único número a associação (ou dependência) entre duas variáveis.</p>
+<p>De modo a facilitar a compreensão, esses coeficientes geralmente variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.</p>
+<p>Existem muitas medidas disponíveis para quantificar a associação entre variáveis, porém, um primeiro conceito que deve ser levado em conta é: quais são os tipos de variáveis?</p>
+</div>
+<div id="tipos-de-variáveis" class="section level1">
+<h1>Tipos de Variáveis</h1>
+<p>Existem dois tipos de variáveis que podem ser abordadas de maneiras diferentes, veja:</p>
+<p><strong>Quantitativas</strong></p>
+<ul>
+<li>Continua: Medidas (Peso, altura, renda, dinheiro, comprimento)</li>
+<li>Discreta: Contagem (qnt. de coisas)</li>
+</ul>
+<p><strong>Qualitativas</strong></p>
+<ul>
+<li>Nominais: Nomes</li>
+<li>Ordinais: Quando é possível ordenar os arquivos</li>
+</ul>
+<p>E para cada relação ou associação que buscamos calcular, existe um tipo diferente de coeficiente, mas de maneira geral, todos eles possuem tais características em comum:</p>
+</div>
+<div id="tipos-de-correlações" class="section level1">
+<h1>Tipos de Correlações</h1>
+<p>Coeficientes de correlação informam:</p>
+<ul>
+<li>Intensidade
+<ul>
+<li>Fortemente relacionadas (Valores próximos de 1 ou -1)</li>
+<li>Fracamente relacionadas (Valores próximos de 0)</li>
+</ul></li>
+<li>Direção
+<ul>
+<li>Positiva (Se ambas as variáveis crescem no mesmo sentido)</li>
+<li>Negativa (Se as variáveis crescem em sentidos opostos)</li>
+</ul></li>
+<li>Significância</li>
+</ul>
+<p>IMPORTANTE: CORRELAÇÃO NÃO INDICA RELAÇÃO DE CAUSALIDADE</p>
+<p>E além dos coeficientes de correlação, existem outras medidas de associação igualmente importantes, veja:</p>
+<div id="coeficiente-de-correlação-de-pearson" class="section level2">
+<h2>Coeficiente de Correlação de Pearson</h2>
+<p>Sejam duas variáveis X e Y, ambas quantitativas, preferencialmente contínuas. A existência de relação linear entre essas variáveis pode ser detectada com auxílio do Diagrama de Dispersão, mas, também, com auxílio do Coeficiente de Correlação Linear de Pearson.</p>
+</div>
+<div id="coeficiente-de-correlação-de-spearman-rho" class="section level2">
+<h2>Coeficiente de Correlação de Spearman <span class="math inline">\(\rho\)</span></h2>
+<p>Utilizado quando não existe normalidade e/ou não existe relação linear, deve ser usado quando não se deseja utilizar nenhuma suposição de normalidade ou da presença de qualquer outra distribuição para a variável ou para a estatística de teste.</p>
+<p>Este coeficiente se baseia nos postos das observações dentro de cada variável e se baseia sobre as diferenças entre os postos observados, nas variáveis X e Y, para um mesmo objeto de estudo.</p>
+<p>Ideal quando temos variáveis medidas apenas em uma escala ordinal.</p>
+</div>
+<div id="coeficiente-de-correlação-de-kendall-tau-de-kendall" class="section level2">
+<h2>Coeficiente de Correlação de Kendall (<span class="math inline">\(\tau\)</span> de kendall)</h2>
+<p>O coeficiente de correlação Tau de Kendall serve para verificar se existe correlação entre duas variáveis ordinais. É um método adequado quando amostras têm tamanhos reduzidos, pois o método é mais preciso. E pode ser estendido a correlações parciais, quando o efeito de uma terceira variável, que age sobre X e Y, é retirado antes de determinar se X e Y estão relacionadas.</p>
+<p>Coeficiente de Kendall é, muitas vezes, interpretado como uma medida de concordância entre dois conjuntos de classificações relativas a um conjunto de objetos de estudo.</p>
+</div>
+<div id="qui-quadrado-de-independencia" class="section level2">
+<h2>Qui-quadrado de independencia</h2>
+<p>Utiliza-se esta prova quando os dados da pesquisa se apresentam sob forma de frequências em categorias
+discretas. Pode aplicar a prova <span class="math inline">\(\chi^2\)</span> para determinar a significância de diferenças entre dois grupos independentes e conseqüentemente, com respeito a frequências relativas com que os componentes do grupo se enquadram nas diversas categorias.</p>
+<p>Suas hipóteses:</p>
+<p><span class="math display">\[
+H_0: \text{São independentes (Não associadas)} \\
+H_1: \text{Não são independentes (São associadas) }
+\]</span></p>
+</div>
+<div id="teste-exato-de-fisher" class="section level2">
+<h2>Teste exato de fisher</h2>
+<p>O teste qui-quadrado quando aplicado a amostras pequenas, como por exemplo com tamanho inferior a 20, veja:</p>
+</div>
+<div id="medidas-de-associação" class="section level2">
+<h2>Medidas de associação</h2>
+<p>os testes fornecem apenas a resposta se as variáveis estão ou não correlacionadas. Para saber a intensidade desta relação, utilizam-se medidas de associação.</p>
+<p>Considere as seguintes medidas:</p>
+<div id="phi-phi-é-o-r-de-pearson-quando-aplicado-a-tabelas-2x2" class="section level3">
+<h3><span class="math inline">\(\phi\)</span> (phi) (é o R de pearson quando aplicado a tabelas 2x2)</h3>
+<p>O coeficiente phi é uma medida de associação entre duas variáveis binárias. A interpretação é similar a de um coeficiente de correlação. Duas variáveis binárias são consideradas positivamente associadas se a maior parte dos dados (frequências) cai ao longo das células da diagonal (a e d maiores que b e c). E serão consideradas negativamente associadas se a maior parte dos dados cai fora da diagonal.</p>
+</div>
+<div id="v-de-crámer" class="section level3">
+<h3>V de Crámer</h3>
+<p>O coeficiente V de Cramer serve para medir associação em tabelas não quadradas.</p>
+</div>
+<div id="coeficiente-de-contingência" class="section level3">
+<h3>Coeficiente de contingência</h3>
+<p>O Coeficiente de Contingência C é uma medida de associação, relacionada à estatística de teste do teste qui-quadrado, e ajustada para diferentes tamanhos de amostra. Ele também está diretamente relacionado à estatística de teste do teste qui-quadrado e ao Coeficiente Phi (possui as mesmas vantagens e desvantagens de Phi).</p>
+<p>Ambos variam de 0 (ausência de associação) a 1 (associação muito forte).</p>
+</div>
+</div>
+<div id="kappa" class="section level2">
+<h2>Kappa</h2>
+<p>O coeficiente Kappa é uma medida de concordância inter observador e mede o grau de concordância além do que seria esperado só por conta do acaso. Muitas vezes é usado no lugar do teste de McNemar.</p>
+<p><strong>Obs</strong>: Também pode ser utilizado o coeficiente de Kappa ponderado</p>
+</div>
+</div>
+<div id="mãos-a-obra" class="section level1">
+<h1>Mãos a obra</h1>
+<p>É impressionante a gama de opções que já existe para avaliarmos variáveis por diversas perspectivas!</p>
+<p>É bom ressaltar que é extremamente fácil se perder no meio de tantos resultados em tantas situações possíveis, por isso meu <a href="https://gomesfellipe.github.io/post/tipos-de-relacoes-entre-variaveis/">próximo post</a> irá tratar justamente dos diferentes tipos de relações entre variáveis e quais tipos de medidas são possíveis para cada caso, até a próxima!</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<p><a href="https://www.amazon.com.br/Practical-Nonparametric-Statistics-W-Conover/dp/0471160687">CONOVER, W. J. Pratical Nonparametric Statistics</a></p>
+<p><a href="https://www.amazon.com.br/Estat%C3%ADstica-n%C3%A3o-Param%C3%A9trica-Para-Ci%C3%AAncias-Comportamento-ebook/dp/B06Y2F9NQY/ref=sr_1_2?s=books&amp;ie=UTF8&amp;qid=1515522153&amp;sr=1-2">SIEGEL, S. Estatística Não Paramétrica para as Ciências do Comportamento</a></p>
+<p><a href="https://www.amazon.com.br/Estat%C3%ADstica-B%C3%A1sica-Pedro-Morettin/dp/8502207997">BUSSAB, W. de O. ;MORETTIN, P. A. Estatística básica. 5 ed.</a></p>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/teoria">Teoria</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/correla%C3%A7%C3%B5es">Correlações</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/tipos-de-vari%C3%A1veis">Tipos de variáveis</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/blog/creating-a-new-theme/"
+                class="button big previous">Creating a New Theme</a></li>
+    
+
+    
+        <li><a href="/blog/tipos-de-relacoes-entre-variaveis/"
+                class="button big next">Tipos de relações entre variáveis</a></li>
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="/img/main/logo1.jpg" alt="Hugo Future Imperfect" /></a>
+      
+    
+    
+      <header>
+        <h2>Hugo Future Imperfect</h2>
+        <p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a>. Ported by Julio Pescador with some extra goodies <i class='fa fa-hand-peace-o'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/jpescador/hugo-future-imperfect" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//flickr.com/photos/example" target="_blank" title="Flickr" class="fa fa-flickr"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/example" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+  <li><a href="//linkedin.com/company/examplebusiness" target="_blank" title="LinkedIn Company" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+  <li><a href="//facebook.com/example" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+  <li><a href="//reddit.com/user/example" target="_blank" title="Reddit" class="fa fa-reddit"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//instagram.com/example" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
+
+
+
+
+
+  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+  <li><a href="//pinterest.com/example" target="_blank" title="Pinterest" class="fa fa-pinterest-p"></a></li>
+
+
+
+  <li><a href="//telegram.me/example" target="_blank" title="telegram" class="fa fa-telegram"></a></li>
+
+
+
+
+
+
+
+
+
+<li><a href="//researchgate.net/profile/example" target="_blank" title="Research Gate"><i class="ai ai-researchgate"></i></a></li>
+
+
+
+  <li><a href="mailto:example" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-04'>
+                December 4, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-02'>
+                December 2, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/tipos-de-correlacoes/">Tipos de Correlaçoes</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-01'>
+                December 1, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /blog/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/r/">r</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/estatistica/">estatistica</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/hugo/">hugo</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/pr%C3%A1tica/">prática</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/teoria/">teoria</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/utilidades/">utilidades</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/bitcoin/">bitcoin</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/dplyr/">dplyr</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/go/">go</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/google/">google</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/jekyll/">jekyll</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/package/">package</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tellus lacus, auctor vehicula molestie quis, tempor quis velit. Quisque in quam ac leo efficitur vulputate. Phasellus ullamcorper aliquam sodales. Maecenas sit amet condimentum ipsum. Proin sit amet ligula elit. Mauris.</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/jpescador/hugo-future-imperfect" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//flickr.com/photos/example" target="_blank" title="Flickr" class="fa fa-flickr"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/example" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+  <li><a href="//linkedin.com/company/examplebusiness" target="_blank" title="LinkedIn Company" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+  <li><a href="//facebook.com/example" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+  <li><a href="//reddit.com/user/example" target="_blank" title="Reddit" class="fa fa-reddit"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//instagram.com/example" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
+
+
+
+
+
+  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+  <li><a href="//pinterest.com/example" target="_blank" title="Pinterest" class="fa fa-pinterest-p"></a></li>
+
+
+
+  <li><a href="//telegram.me/example" target="_blank" title="telegram" class="fa fa-telegram"></a></li>
+
+
+
+
+
+
+
+
+
+<li><a href="//researchgate.net/profile/example" target="_blank" title="Research Gate"><i class="ai ai-researchgate"></i></a></li>
+
+
+
+  <li><a href="mailto:example" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2020
+        
+          Hugo Future Imperfect
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+
