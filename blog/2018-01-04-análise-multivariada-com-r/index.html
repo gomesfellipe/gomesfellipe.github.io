@@ -1,0 +1,2531 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https:\/\/gomesfellipe.github.io\/"
+        },
+        "articleSection" : "blog",
+        "name" : "Análise Multivariada com R",
+        "headline" : "Análise Multivariada com R",
+        "description" : "Análise Multivariada Imagem do Wikpedia\nEsse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-01-04 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2018-01-04 00:00:00 \u002b0000 UTC",
+        "url" : "https:\/\/gomesfellipe.github.io\/blog\/2018-01-04-an%C3%A1lise-multivariada-com-r\/",
+        "wordCount" : "3063",
+        "keywords" : [ "Estatistica","gomesfellipe","R Markdown","R","Teoria","pca","kmeans","clustering","analise multivariada","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Análise Multivariada com R</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.80.0" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            
+                <meta name="description" content="Este blog é fruto da minha paixão pela Estatística e Ciência de dados, trago aqui de maneira prática e descontraída algumas ferramentas, técnicas, curiosidades e brincadeiras disponíveis quando se utiliza o R como linguagem de programação. Espero que aproveite o conteúdo!">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Análise Multivariada com R"/>
+<meta name="twitter:description" content="Análise Multivariada Imagem do Wikpedia
+Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados"/>
+<meta name="twitter:site" content="@gomesfellipe"/>
+
+        <meta property="og:title" content="Análise Multivariada com R" />
+<meta property="og:description" content="Análise Multivariada Imagem do Wikpedia
+Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/" />
+<meta property="article:published_time" content="2018-01-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-01-04T00:00:00+00:00" />
+
+        <meta property="og:image" content="https://gomesfellipe.github.io//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="Análise Multivariada com R">
+<meta itemprop="description" content="Análise Multivariada Imagem do Wikpedia
+Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados">
+<meta itemprop="datePublished" content="2018-01-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-01-04T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3063">
+
+
+
+<meta itemprop="keywords" content="Estatistica,gomesfellipe,R Markdown,R,Teoria,pca,kmeans,clustering,analise multivariada," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/main.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/add-on.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-105500464-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="https://gomesfellipe.github.io/">blog</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>CV
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/blog/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>CV
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/blog/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/">Ajustando Modelos Bayesianos com JAGS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-18'>
+                                    December 18, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/">Manipulação de Strings e Text Mining</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-17'>
+                                    December 17, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/">Criando relatorios com template tufle</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-14'>
+                                    December 14, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/">google trends e r</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-04'>
+                                    December 4, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-02'>
+                                    December 2, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correlacoes/">Tipos de Correlacoes</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-01'>
+                                    December 1, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/">Creating a New Theme</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-09-28'>
+                                    September 28, 2014</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/09/pic03.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/goisforlovers/">(Hu)go Template Primer</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-04-02'>
+                                    April 2, 2014</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/goisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic02.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/hugoisforlovers/">Getting Started with Hugo</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-04-02'>
+                                    April 2, 2014</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/hugoisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic01.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-03-10'>
+                                    March 10, 2014</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2018-01-04-an%25C3%25A1lise-multivariada-com-r%2f&amp;text=An%c3%a1lise%20Multivariada%20com%20R&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2018-01-04-an%25C3%25A1lise-multivariada-com-r%2f&amp;title=An%c3%a1lise%20Multivariada%20com%20R" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2018-01-04-an%25C3%25A1lise-multivariada-com-r%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/">Análise Multivariada com R</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-01-04'>
+            January 4, 2018</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>15 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2018-01-04-an%25C3%25A1lise-multivariada-com-r%2f&amp;text=An%c3%a1lise%20Multivariada%20com%20R&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2018-01-04-an%25C3%25A1lise-multivariada-com-r%2f&amp;title=An%c3%a1lise%20Multivariada%20com%20R" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2018-01-04-an%25C3%25A1lise-multivariada-com-r%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    
+<script src="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/index_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="análise-multivariada" class="section level1">
+<h1>Análise Multivariada</h1>
+<p><a href="https://commons.wikimedia.org/wiki/File:Multivariate_Gaussian.png">Imagem do Wikpedia</a></p>
+<p>Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, <a href="https://gomesfellipe.github.io/post/2017-12-12-google-trends-e-r/google-trends-e-r/">identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends</a> sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados</p>
+<p>Diversas vezes nos deparamos com bases de dados que envolvem além de muitas observações, muitas variáveis, especialmente nas análises de fenômenos ou processos sociais, psicológicos, educacionais e econômicos bem como na área da química, biologia, geologia, marketing, medicina, medicina veterinária, dentre muitas outras.</p>
+<p>Com as ferramentas estatísticas da análise multivariada somos capazes de identificar muitos elementos que podem ter relevância na análise dos dados, dois exemplos de ferramentas importantes são as que permitem encontrar fatores que não são diretamente observáveis com base em um conjunto de variáveis observáveis e as que permitem agrupar conjuntos de dados que possuem características semelhantes com algorítimos computacionais (chamados de aprendizados não-supervisionados ou semi-supervisionados em machine learning) e a partir dai estudar as novas classificações.</p>
+<p>Neste post será apresentado algumas soluções para o caso em que existe a necessidade de avaliar um grande conjunto de dados com muitas variáveis e não temos muitas informações a respeito.</p>
+</div>
+<div id="análise-fatorial" class="section level1">
+<h1>Análise Fatorial</h1>
+<p>Na análise fatorial buscamos fatores que explicam parte da variância total dos dados, os fatores são as somas das variâncias originais.</p>
+<div id="objetivo-da-análise-fatorial" class="section level2">
+<h2>Objetivo da análise fatorial:</h2>
+<ul>
+<li><p>Procura identificar fatores que não são diretamente observáveis, com base em um conjunto de variáveis observáveis.</p></li>
+<li><p>Explicar a correlação ou covariância, entre um conjunto de variáveis, em termos de um número limitado de variáveis não-observáveis, chamadas de fatores ou variáveis latentes.</p></li>
+<li><p>Em casos nos quais se tem um número grande de variáveis medidas e correlacionadas entre si, seria possível identificar-se um número menor de variáveis alternativas, não correlacionadas e que de algum modo sumarizassem as informações principais das variáveis originais.</p></li>
+<li><p>A partir do momento em que os fatores são identificados, seus valores numéricos, chamados de escores, podem ser obtidos para cada elemento amostral. Conseqüentemente, estes escores podem ser utilizados em outras análises que envolvam outras técnicas estatísticas, como análise de regressão ou análise de variância, por exemplo.</p></li>
+</ul>
+</div>
+<div id="etapas-para-realização" class="section level2">
+<h2>Etapas para realização</h2>
+<ul>
+<li><p>Computação da matriz de correlações para as variáveis originais;</p></li>
+<li><p>Extração de fatores</p></li>
+<li><p>Rotação dos fatores para tonar a interpretação mais fácil;</p></li>
+<li><p>Cálculo dos escores dos fatores</p></li>
+</ul>
+<div id="matriz-de-correlação" class="section level3">
+<h3>Matriz de Correlação:</h3>
+<ul>
+<li>Teste de Bartlett - a hipótese nula da matriz de correlação ser uma matriz identidade ( <span class="math inline">\(| R | = 1\)</span> ), isto é, avalia se os componentes fora da diagonal principal são zero. O resultado significativo indica que existem algumas relações entre as variáveis.</li>
+</ul>
+<p>No R:</p>
+<pre class="r"><code>Bartlett.sphericity.test &lt;- function(x)
+{
+  method &lt;- &quot;Teste de esfericidade de Bartlett&quot;
+  data.name &lt;- deparse(substitute(x))
+  x &lt;- subset(x, complete.cases(x)) # Omitindo valores faltantes
+  n &lt;- nrow(x)
+  p &lt;- ncol(x)
+  chisq &lt;- (1-n+(2*p+5)/6)*log(det(cor(x)))
+  df &lt;- p*(p-1)/2
+  p.value &lt;- pchisq(chisq, df, lower.tail=FALSE)
+  names(chisq) &lt;- &quot;X-squared&quot;
+  names(df) &lt;- &quot;df&quot;
+  return(structure(list(statistic=chisq, parameter=df, p.value=p.value,
+                        method=method, data.name=data.name), class=&quot;htest&quot;))
+}
+Bartlett.sphericity.test(dados)</code></pre>
+<pre><code>## 
+##  Teste de esfericidade de Bartlett
+## 
+## data:  dados
+## X-squared = 2590.3, df = 55, p-value &lt; 2.2e-16</code></pre>
+<ul>
+<li>Teste KMO (Kaiser-Meyer-Olkin) - avalia a adequação do tamanho amostra. Varia entre 0 e 1, onde: zero indica inadequado para análise fatorial, aceitável se for maior que 0.5, recomendado acima de 0.8.</li>
+</ul>
+<p>No R:</p>
+<pre class="r"><code>kmo = function(x)
+{
+  x = subset(x, complete.cases(x))
+  r = cor(x)
+  r2 = r^2 
+  i = solve(r) 
+  d = diag(i) 
+  p2 = (-i/sqrt(outer(d, d)))^2 
+  diag(r2) &lt;- diag(p2) &lt;- 0 
+  KMO = sum(r2)/(sum(r2)+sum(p2))
+  MSA = colSums(r2)/(colSums(r2)+colSums(p2))
+  return(list(KMO=KMO, MSA=MSA))
+}
+
+kmo(dados)</code></pre>
+<pre><code>## $KMO
+## [1] 0.5942236
+## 
+## $MSA
+##         A         B         C         D         E         F         G         H 
+## 0.6789278 0.9151657 0.6897541 0.3385536 0.8699746 0.3632508 0.5172135 0.4878681 
+##         I         J         K 
+## 0.4901580 0.4895023 0.4686937</code></pre>
+<div id="tipos-de-correlação" class="section level4">
+<h4>Tipos de correlação:</h4>
+<p>Nem sempre é possível utilizar a correlação de pearson, porém, existem diversas outras maneiras de se saber qual a correlação dos dados. Podemos utilizar correlações como de Spearman, Policórica, etc.. Já fiz um post onde explico os <a href="https://gomesfellipe.github.io/post/tipos-de-relacoes-entre-variaveis/">diferentes tipos de relações entre os tipos de variáveis</a> e os <a href="https://gomesfellipe.github.io/post/tipos-de-correlacoes/">tipos de correlações</a> possíveis para avaliar a relação dessas variáveis.</p>
+<p>Aqui um outro exemplo de como utilizar a correlação parcial</p>
+<pre class="r"><code>partial.cor &lt;- function (x)
+{
+R &lt;- cor(x)
+RI &lt;- solve(R)
+D &lt;- 1/sqrt(diag(RI))
+Rp &lt;- -RI * (D %o% D)
+diag(Rp) &lt;- 0
+rownames(Rp) &lt;- colnames(Rp) &lt;- colnames(x)
+Rp
+}
+mat_anti_imagem &lt;- -partial.cor(dados[,1:10])
+mat_anti_imagem</code></pre>
+<pre><code>##              A           B            C           D           E            F
+## A  0.000000000 -0.25871349 -0.872167400  0.01668860 -0.04245837 -0.011036934
+## B -0.258713494  0.00000000 -0.204228090  0.05621580  0.09801359  0.060189694
+## C -0.872167400 -0.20422809  0.000000000 -0.02459342 -0.00482831 -0.008201211
+## D  0.016688604  0.05621580 -0.024593418  0.00000000 -0.18602037  0.806258927
+## E -0.042458373  0.09801359 -0.004828310 -0.18602037  0.00000000 -0.140784264
+## F -0.011036934  0.06018969 -0.008201211  0.80625893 -0.14078426  0.000000000
+## G  0.006994874 -0.12746560  0.045529480 -0.75073120 -0.32160010 -0.792991683
+## H -0.071792191  0.03375700  0.059785980 -0.03196914  0.08903510  0.001496987
+## I  0.055698412 -0.03720345 -0.040061304  0.08243832 -0.03925037  0.084673934
+## J -0.042609593  0.06775755  0.004145341 -0.06024239  0.05806892 -0.001404078
+##              G            H           I            J
+## A  0.006994874 -0.071792191  0.05569841 -0.042609593
+## B -0.127465596  0.033756995 -0.03720345  0.067757550
+## C  0.045529480  0.059785980 -0.04006130  0.004145341
+## D -0.750731196 -0.031969142  0.08243832 -0.060242391
+## E -0.321600101  0.089035097 -0.03925037  0.058068923
+## F -0.792991683  0.001496987  0.08467393 -0.001404078
+## G  0.000000000 -0.025016441 -0.05943429  0.009961615
+## H -0.025016441  0.000000000 -0.55229599  0.044929237
+## I -0.059434295 -0.552295987  0.00000000  0.056248550
+## J  0.009961615  0.044929237  0.05624855  0.000000000</code></pre>
+</div>
+</div>
+<div id="extração-de-fatores-via-componentes-principais" class="section level3">
+<h3>Extração de fatores via componentes principais</h3>
+<ul>
+<li><p>Determinado o número de fatores necessários para representar os dados</p></li>
+<li><p>Também é determinado o método que será utilizado, o mais utilizado é a análise de componentes principais</p></li>
+</ul>
+<div id="estimação-do-número-de-fatores-m" class="section level4">
+<h4>Estimação do número de fatores m</h4>
+<ul>
+<li><p>Estimação do número de fatores m</p></li>
+<li><p>Para a estimação de m, bastará extrair-se os autovalores da matriz de correlação amostral.</p></li>
+<li><p>Observa-se quais autovalores são os mais importantes em termos de grandeza numérica.</p></li>
+<li><p>os autovalores refletem a importância do fator se o número de fatores for igual ao número de variáveis então a soma dos autovetores é igual a soma das variâncias (pois cada variância será igual a 1).</p></li>
+<li><p>Portanto a razão $ / 2 var $ indica proporção da variabilidade total explicada pelo fator</p></li>
+</ul>
+<p><strong>Critérios:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>A análise da proporção da variância total relacionada com cada autovalor (<span class="math inline">\(\lambda_i\)</span>). Permanecem aqueles autovalores que maiores proporções da variância total e, portanto, o valor de m será igual ao número de autovalores retidos;</p></li>
+<li><p>A comparação do valor numérico de (<span class="math inline">\(\lambda_i\)</span>) com o valor 1. O valor de m será igual ao número de autovalores maiores ou iguais a 1.</p></li>
+<li><p>Observação do gráfico scree-plot, que dispõe os valores de (<span class="math inline">\(\lambda_i\)</span>) ordenados em ordem decrescente. Por este critério, procura-se no gráfico um “ponto de salto”, que estaria representando um decréscimo de importância em relação à variância total. O valor de m seria então igual ao número de autovalores anteriores ao “ponto de salto”.</p></li>
+</ol>
+</div>
+</div>
+<div id="análise-de-componentes-principais" class="section level3">
+<h3>Análise de componentes Principais:</h3>
+<ul>
+<li><p>Fatores são obtidos através da decomposição espectral da matriz de correlações, resultado em cargas fatoriais que indicam o quanto cada variável está associada a cada fator e os autovalores associados a cada um dos fatores envolvidos</p></li>
+<li><p>São formadas combinações lineares das variáveis observadas.</p></li>
+<li><p>O primeiro componente principal consiste na combinação que responde pela maior quantidade de variância na amostra.</p></li>
+<li><p>O segundo componente responde pela segunda maior variância na amostra e não é correlacionado com o primeiro componente.</p></li>
+<li><p>Sucessivos componentes explicam progressivamente menores porções de variância total da amostra e todos são não correlacionados uns aos outros.</p></li>
+</ul>
+<p>No R a análise de componentes principais pode ser realizada com as funções nativas <code>prcomp()</code> e a visualização pode ser realizada com a função <code>biplot</code> nativa do R ou com a função <code>autoplot()</code> do pacote <code>ggfortify</code> apresentado em um posto que eu <a href="https://gomesfellipe.github.io/post/2017-12-26-diagnostico-de-modelos/diagnostico-de-modelos/">comento sobre ajustes de modelos lineares</a>.</p>
+<p>Neste exemplo utilizaremos <a href="https://github.com/vqv/ggbiplot/blob/master/R/ggscreeplot.r">as funções de código aberto encontrei nesse github</a> que permite elaborar o gráfico baseado em funções do <code>ggplot</code>, além disso também carregaremos o pacote deste Github. Veja:</p>
+<pre class="r"><code>library(ggplot2)
+library(ggfortify)
+library(ggbiplot)
+#Componentes principais:
+acpcor=prcomp(dados, scale = TRUE)
+summary(acpcor)</code></pre>
+<pre><code>## Importance of components:
+##                           PC1    PC2    PC3    PC4     PC5     PC6    PC7
+## Standard deviation     1.7205 1.5835 1.2745 1.2107 1.02156 0.72100 0.6634
+## Proportion of Variance 0.2691 0.2280 0.1477 0.1333 0.09487 0.04726 0.0400
+## Cumulative Proportion  0.2691 0.4971 0.6447 0.7780 0.87285 0.92011 0.9601
+##                           PC8     PC9    PC10    PC11
+## Standard deviation     0.4953 0.33061 0.25079 0.14588
+## Proportion of Variance 0.0223 0.00994 0.00572 0.00193
+## Cumulative Proportion  0.9824 0.99235 0.99807 1.00000</code></pre>
+<pre class="r"><code>ggbiplot(acpcor, obs.scale = 1, var.scale = 1,
+   ellipse = TRUE, circle = TRUE) +
+  scale_color_discrete(name = &#39;&#39;) +
+  theme(legend.direction = &#39;horizontal&#39;, legend.position = &#39;top&#39;)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code># autoplot(acpcor, label = TRUE, label.size = 1,
+#          loadings = TRUE, loadings.label = TRUE, loadings.label.size  = 3)</code></pre>
+<p>Para a observação do gráfico scree-plot podemos utilizar os comandos a seguir (com funções nativas do R ou mesmo com funções personalizadas como a que eu acabei de comentar <a href="https://github.com/vqv/ggbiplot/blob/master/R/ggscreeplot.r">disponivel nesse github</a></p>
+<pre class="r"><code>#Com Funcao nativa do R:
+# plot(1:ncol(dados), acpcor$sdev^2, type = &quot;b&quot;, xlab = &quot;Componente&quot;,
+#      ylab = &quot;Variância&quot;, pch = 20, cex.axis = 1.3, cex.lab = 1.3)
+
+#Ou funcao personalizada com ggplot2:
+ggscreeplot(acpcor)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div id="rotação" class="section level4">
+<h4>Rotação</h4>
+<ul>
+<li><p>Algumas variáveis são mais correlacionadas com alguns fatores do que outras.</p></li>
+<li><p>Em alguns casos, a interpretação dos fatores originais pode não ser tarefa muito fácil devido à aparição de coeficientes de grandeza numérica similar, e não desprezível, em vários fatores diferentes.</p></li>
+<li><p>O propósito da rotação é obter uma estrutura simples.</p></li>
+<li><p>Em uma estrutura simples, cada fator tem carga alta somente para algumas variáveis, tornando mais fácil a sua identificação.</p></li>
+<li><p>Tipos: Varimax, Quartimax, Equamax</p></li>
+</ul>
+<p>Aplicando a Varimax:</p>
+<pre class="r"><code>k &lt;- 6 #6 fatores selecionados
+carfat = acpcor$rotation[, 1:k] %*% diag(acpcor$sdev[1:k])
+carfatr = varimax(carfat)</code></pre>
+</div>
+<div id="comunalidade" class="section level4">
+<h4>Comunalidade</h4>
+<ul>
+<li><p>Índices atribuídos a variável original que expressam em % o quanto da variabilidade de cada variável é explicada pelo modelo</p></li>
+<li><p>Designa-se por comunalidade (<span class="math inline">\(h^{2}_i\)</span>)a proporção da variância de cada variável explicada pelos fatores comuns.</p></li>
+<li><p>As comunalidades variam entre 0 e 1, sendo 0 quando os fatores comuns não explicam nenhuma variância da variável e 1 quando explicam toda a sua variância.</p></li>
+<li><p>Quando o valor das comunalidades é menor que 0,6 deve-se
+pensar em: aumentar a amostra, eliminar as variáveis.</p></li>
+</ul>
+</div>
+</div>
+<div id="interpretar-o-modelo" class="section level3">
+<h3>Interpretar o modelo</h3>
+<ul>
+<li><p>Feito pelas cargas fatoriais que são os parâmetros do modelo</p></li>
+<li><p>Fatores expressam as covariâncias entre cada fator e as variáveis originais</p></li>
+<li><p>Varimax ajuda a interpretar o modelo</p></li>
+<li><p>Rotações ortogonais (para dependente) ; Rotações oblíquas (para independentes)</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="clusters" class="section level1">
+<h1>Clusters</h1>
+<p>Técnica estatística multivariada que tem como objetivo organizar um conjunto de objetos em um determinado nº de subconjuntos mutuamente exclusivos (clusters), de tal forma que os objetos em um mesmo cluster sejam semelhantes entre si,porém diferentes dos objetos nos outros clusters</p>
+<p>Etapas para análise de clusters, que são comuns em qualquer análise (KDD):</p>
+<ul>
+<li>Seleção dos objetos a serem agrupados</li>
+<li>Definir conjunto de atributos que caracterizam os objetos</li>
+<li>Medida de dissimilaridade</li>
+<li>Seleção de um algoritmo de agregação</li>
+<li>Definição do número de clusters</li>
+<li>Interpretação e validação dos clusters</li>
+</ul>
+<p>Critérios para a seleção:</p>
+<ul>
+<li>Selecionar variáveis diferentes entre si</li>
+<li>Variáveis padronizadas (padronização mais comum é a Z-score)</li>
+</ul>
+<p>Existem algumas abordagens para a utilização das técnicas de análises de clusters, as diferenças entre os métodos hierárquicos e os não hierárquicos são as seguintes:</p>
+<p>Métodos Hierárquicos são preferidos quando:</p>
+<ul>
+<li>Serão analisadas varias alternativas de agrupamento.</li>
+<li>O tamanho da amostra é moderado ( de 300 a 1000 objetos )</li>
+</ul>
+<p>Métodos não-hierárquicos são preferidos quando:</p>
+<ul>
+<li>O número de grupos é conhecido.</li>
+<li>Presença dos outliers, desde que os métodos não-hierárquicos são
+menos influenciados por outliers.</li>
+<li>Há um grande nº de objetos a serem agrupados.</li>
+</ul>
+<div id="método-hierárquico-de-agrupamento" class="section level2">
+<h2>Método hierárquico de agrupamento</h2>
+<p>É realizado em dois passos, o primeiro deles calcula-se a matriz de similaridade com o uso da função <em>dist()</em> (existem diversos tipos de distâncias que podem ser utilizadas aqui), o método utilizado será o de <strong>Ward</strong> (também poderíamos escolher o método da menor distância, maior distância ou a distância média).</p>
+<p>Vantagens:</p>
+<ul>
+<li>Rápidos e exigem menos tempo de processamento.</li>
+<li>Apresentam resultados para diferentes níveis de agregação.</li>
+</ul>
+<p>Desvantagens:</p>
+<ul>
+<li>Alocação de um objeto em um cluster é irrevogável</li>
+<li>Impacto substancial dos outliers ( apesar do Ward ser o menos susceptível)</li>
+<li>Não apropriados para analisar uma amostra muito extensa, pois a medida que o tamanho da amostra aumenta, a necessidade de armazenamento das distâncias cresce drasticamente</li>
+</ul>
+<p>Para bases grandes é melhor não usar este método pois precisa da matriz de distâncias.</p>
+<p>Dentre os métodos, a menor distância pode ser ruim em muitas situações, pois coloca muitos objetos no mesmo cluster.</p>
+<p>Geralmente utiliza-se o dendograma para a visualização dos clusters.</p>
+<pre class="r"><code>#Construindo a matriz de similaridade:
+matriz_similaridade = dist(iris[,-5],             #Conjunto de dados utilizados
+                           &quot;euclidean&quot;            #medida de distância utilizada
+                           )
+
+#Construindo o agrupamento hierárquico aglomerativo:
+agrupamento = hclust(matriz_similaridade,     #Matriz de similaridade calculada
+                     &quot;ward.D&quot;                 #Método de agrupamento
+                     )
+#Converte hclust em dendrograma e plot:
+hcd &lt;- as.dendrogram(agrupamento)
+
+library(ggdendro)
+# Tipo pode ser &quot;rectangle&quot; ou &quot;triangle&quot;
+dend_data &lt;- dendro_data(hcd, type = &quot;rectangle&quot;)
+# o que esta contido em dend_data:
+names(dend_data)</code></pre>
+<pre><code>## [1] &quot;segments&quot;    &quot;labels&quot;      &quot;leaf_labels&quot; &quot;class&quot;</code></pre>
+<pre class="r"><code>plot(agrupamento,xlab=&quot;Matriz de similaridade&quot;,main = &quot;Dendograma&quot;, cex = 0.3)
+#Construindo representacao de grupos - geração de vetores:
+grupos = cutree(agrupamento,             #Variável calculada em hclust
+                3                        #Quantidade de grupos desejados
+                )
+
+#Construindo o dendograma:
+rect.hclust(agrupamento, k=3, border=&quot;red&quot;)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Existem diversas outras maneiras de se visualizar dendogramas, veja a seguir um outro exemplo utilizando o pacote <code>ape</code>:</p>
+<pre class="r"><code>library(ape)
+plot(as.phylo(agrupamento), type = &quot;unrooted&quot;, cex = 0.6,
+     no.margin = TRUE)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Para mais informações de métodos de plot de dendogramas,talvez <a href="http://www.sthda.com/english/wiki/beautiful-dendrogram-visualizations-in-r-5-must-known-methods-unsupervised-machine-learning">essa página</a> possa ser útil.</p>
+</div>
+<div id="método-não-hierárquico-de-agrupamento-k-means" class="section level2">
+<h2>Método não hierárquico de agrupamento K-means</h2>
+<p>Esta é uma das mais populares abordagens de agrupamento de dados por partição. A partir de uma escolha inicial para os centroides, o algoritmo procede verificando quais exemplares são mais similares a quais centroides.</p>
+<p>Vantagens:</p>
+<ul>
+<li>Tendem a maximizar a dispersão entre os centros de gravidade dos clusters (mantem os clusters bem separados)</li>
+<li>Simplicidade de cálculo, calcula somente as distâncias entre os objetos e os centros de gravidade dos clusters</li>
+</ul>
+<p>Desvantagens:</p>
+<ul>
+<li>Depende dos conjuntos de sementes iniciais, principalmente se a seleção das sementes é aleatória</li>
+<li>Não há garantias de um agrupamento ótimo dos objetos</li>
+</ul>
+<pre class="r"><code>#Construindo o agrupamento por particionamento:
+c = kmeans(iris[,-5],          #Conjunto de dados utilizados
+                 2,            #Número de  grupos a ser descoberto
+                 iter.max=5    #Número máximo de iterações permitido no algorítmo
+                 )</code></pre>
+<p>Para efeito de visualização, podemos utilizar a seguinte função que encontra dois fatores principais a partir da análise fatorial e às utiliza como eixos</p>
+<pre class="r"><code>plot_kmeans = function(df, clusters, runs) {
+  suppressMessages(library(psych))
+  suppressMessages(library(ggplot2))
+  
+  #cluster
+  tmp_k = kmeans(df, centers = clusters, nstart = 100)
+  
+  #factor
+  tmp_f = fa(df, 2, rotate = &quot;none&quot;)
+  
+  #collect data
+  tmp_d = data.frame(matrix(ncol=0, nrow=nrow(df)))
+  tmp_d$cluster = as.factor(tmp_k$cluster)
+  tmp_d$fact_1 = as.numeric(tmp_f$scores[, 1])
+  tmp_d$fact_2 = as.numeric(tmp_f$scores[, 2])
+  tmp_d$label = rownames(df)
+  
+  #plot
+  g = ggplot(tmp_d, aes(fact_1, fact_2, color = cluster)) + geom_point() + geom_text(aes(label = label), size = 3, vjust = 1, color = &quot;black&quot;)
+  return(g)
+}
+plot_kmeans(iris[,-5], 3)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div id="análise-exploratória-dos-clusters" class="section level3">
+<h3>Análise exploratória dos clusters</h3>
+<p>Não vou me estender nessa parte, mas é bom esclarecer que após encontrar os clusters e de extrema importância realizar a análise exploratória deles para entender os comportamentos dos grupos identificados.</p>
+<pre class="r"><code>#Conferindo os grupos formados:
+c$cluster%&gt;%
+  table()</code></pre>
+<pre><code>## .
+##  1  2 
+## 97 53</code></pre>
+<pre class="r"><code>c$cluster%&gt;%
+  table()%&gt;%
+  barplot(main=&quot;Frequências dos clusters&quot;, names.arg=c(&quot;Cluster 1&quot;, &quot;Cluster 2&quot;))</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/index_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+</div>
+<div id="medidas-de-validação-e-estabilidade" class="section level2">
+<h2>Medidas de validação e estabilidade</h2>
+<div id="pseudo-f" class="section level4">
+<h4>pseudo-F</h4>
+<p>O número adequado de clusters (k) deve ser maximizar o pseudo-F:</p>
+<p><span class="math display">\[
+pseudo-F = \dfrac{  \dfrac{BSS}{k-1} } { \dfrac{WSS}{N-k}} =\dfrac{\textrm{Quadrado médio entre clusters}}{\textrm{Quadrado médio dentro dos clusters}}
+\]</span></p>
+</div>
+<div id="libraryclvalid" class="section level4">
+<h4>library(clvalid)</h4>
+<p>Este pacote faz os cálculos das medidas que avaliam se os clusters são compactos, bem separados e estáveis.</p>
+<p>Vejamos os tipos de medidas:</p>
+<p><strong>Medidas de validação</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>conectividade: relativa ao grau de vizinhança entre objetos em um mesmo cluster, varia
+entre 0 e infinito e quanto menor melhor.</li>
+<li>silhueta: homogeneidade interna, assume valores entre -1 e 1 e quanto mais próximo de 1
+melhor.</li>
+<li>índice de Dunn: quantifica a separação entre os agrupamentos, assume valores entre 0 e 1 e
+quanto maior melhor.</li>
+</ol>
+<p><strong>Medidas de estabilidade</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>APN - average proportion of non-overlap: proporção média de observações não
+classificadas no mesmo cluster nos casos com dados completos e incompletos. Assume valor
+no intervalo [0,1], próximos de 0 indicam agrupamentos consistentes.</li>
+<li>AD - average distance: distância média entre observações classificadas no mesmo cluster
+nos casos com dados completos e incompletos. Assume valores não negativos, sendo
+preferíveis valores próximos de zero.</li>
+<li>ADM - average distance between means: distância média entre os centroides quando as
+observações estão em um mesmo cluster. Assume valores não negativos, sendo preferíveis
+valores próximos de zero.</li>
+<li>FOM - figure of merit: medida do erro cometido ao usar os centroides como estimativas das
+observações na coluna removida. Assume valores não negativos, sendo preferíveis valores
+próximos de zero.</li>
+</ol>
+<pre class="r"><code>library(clValid)
+
+#Medidas de validação:
+valida=clValid(iris[1:4],3,clMethods=c(&quot;hierarchical&quot;,&quot;kmeans&quot;),validation=&quot;internal&quot;)
+summary(valida)</code></pre>
+<pre><code>## 
+## Clustering Methods:
+##  hierarchical kmeans 
+## 
+## Cluster sizes:
+##  3 
+## 
+## Validation Measures:
+##                                  3
+##                                   
+## hierarchical Connectivity   4.4770
+##              Dunn           0.1378
+##              Silhouette     0.5542
+## kmeans       Connectivity  10.0917
+##              Dunn           0.0988
+##              Silhouette     0.5528
+## 
+## Optimal Scores:
+## 
+##              Score  Method       Clusters
+## Connectivity 4.4770 hierarchical 3       
+## Dunn         0.1378 hierarchical 3       
+## Silhouette   0.5542 hierarchical 3</code></pre>
+<pre class="r"><code>#Medidas de estabilidade;
+valida=clValid(iris[1:4],3,clMethods=c(&quot;hierarchical&quot;,&quot;kmeans&quot;),validation=&quot;stability&quot;)
+summary(valida)</code></pre>
+<pre><code>## 
+## Clustering Methods:
+##  hierarchical kmeans 
+## 
+## Cluster sizes:
+##  3 
+## 
+## Validation Measures:
+##                        3
+##                         
+## hierarchical APN  0.0912
+##              AD   1.0596
+##              ADM  0.3680
+##              FOM  0.4209
+## kmeans       APN  0.0630
+##              AD   0.9390
+##              ADM  0.1131
+##              FOM  0.3935
+## 
+## Optimal Scores:
+## 
+##     Score  Method Clusters
+## APN 0.0630 kmeans 3       
+## AD  0.9390 kmeans 3       
+## ADM 0.1131 kmeans 3       
+## FOM 0.3935 kmeans 3</code></pre>
+</div>
+<div id="gráfico-da-silhueta" class="section level4">
+<h4>Gráfico da silhueta:</h4>
+<pre class="r"><code>library(cluster)
+#Construindo a matriz de similaridade:
+matriz_similaridade = dist(iris[,-5],             #Conjunto de dados utilizados
+                           &quot;euclidean&quot;            #medida de distância utilizada
+                           )
+
+#Construindo o agrupamento hierárquico aglomerativo:
+agrupamento = hclust(matriz_similaridade,     #Matriz de similaridade calculada
+                     &quot;ward.D&quot;                 #Método de agrupamento
+                     )
+
+silhueta =silhouette(cutree(agrupamento,k=3),dist(iris[,-5]))
+plot(silhueta,main=&quot;&quot;)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/index_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="r"><code>summary(silhueta)</code></pre>
+<pre><code>## Silhouette of 150 units in 3 clusters from silhouette.default(x = cutree(agrupamento, k = 3), dist = dist(iris[,  from     -5])) :
+##  Cluster sizes and average silhouette widths:
+##        50        64        36 
+## 0.7994998 0.4115006 0.4670305 
+## Individual silhouette widths:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -0.09013  0.39933  0.56701  0.55416  0.77690  0.85493</code></pre>
+</div>
+<div id="muitas-opções" class="section level3">
+<h3>Muitas opções</h3>
+<p>Como podemos observar, a análise de agrupamentos é um método exploratório. É útil para organizar conjuntos de dados que contam com características semelhantes.</p>
+<p>É uma das principais técnicas da mineração de dados e já conta com grande variedade de algoritmos.</p>
+</div>
+</div>
+</div>
+<div id="referência" class="section level1">
+<h1>Referência</h1>
+<p><a href="https://www1.udel.edu/oiss/pdf/617.pdf">I Johnson e Wichern (2007). Applied Multivariate Statistical Analysis, 6th
+Edition. Prentice-Hal</a></p>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/teoria">Teoria</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/analise-mutivariada">Analise Mutivariada</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/nao-supervisionado">Nao supervisionado</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/clustering">Clustering</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/r-markdown">R Markdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/teoria">Teoria</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/pca">pca</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/kmeans">kmeans</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/clustering">clustering</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/analise-multivariada">analise multivariada</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/"
+                class="button big previous">Pacotes do R para avaliar o ajuste de modelos</a></li>
+    
+
+    
+        <li><a href="https://gomesfellipe.github.io/blog/2020-12-01-r-rmarkdown/"
+                class="button big next">Hello R Markdown</a></li>
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='https://gomesfellipe.github.io/' class="logo"><img src="https://gomesfellipe.github.io/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/">Ajustando Modelos Bayesianos com JAGS</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-18'>
+                December 18, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/">Manipulação de Strings e Text Mining</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-17'>
+                December 17, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/">Criando relatorios com template tufle</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-14'>
+                December 14, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/">google trends e r</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-04'>
+                December 4, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-02'>
+                December 2, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correlacoes/">Tipos de Correlacoes</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-01'>
+                December 1, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/">Creating a New Theme</a>
+              </h3>
+              
+              <time class="published" datetime='2014-09-28'>
+                September 28, 2014
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/09/pic03.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/goisforlovers/">(Hu)go Template Primer</a>
+              </h3>
+              
+              <time class="published" datetime='2014-04-02'>
+                April 2, 2014
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/goisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic02.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/hugoisforlovers/">Getting Started with Hugo</a>
+              </h3>
+              
+              <time class="published" datetime='2014-04-02'>
+                April 2, 2014
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/hugoisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic01.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a>
+              </h3>
+              
+              <time class="published" datetime='2014-03-10'>
+                March 10, 2014
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="https://gomesfellipe.github.io/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/r/">r</a>
+                <span style="float:right;">11</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/estatistica/">estatistica</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/teoria/">teoria</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/hugo/">hugo</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/modelagem-estatistica/">modelagem-estatistica</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tidyverse/">tidyverse</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/analise-mutivariada/">analise-mutivariada</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bayes/">bayes</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bitcoin/">bitcoin</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/clustering/">clustering</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/data-mining/">data-mining</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/go/">go</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/google/">google</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/google-trends/">google-trends</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/jekyll/">jekyll</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/nao-supervisionado/">nao-supervisionado</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/reports/">reports</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/text-mining/">text-mining</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes, sou Estatístico e atuo como cientista de dados. Percebi que passar para as pessoas o que é possível fazer nas diversas áreas de estudo que envolvem ciência de dados é um grande desafio. Diante disso, resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="https://gomesfellipe.github.io/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2020
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="https://gomesfellipe.github.io/js/util.js"></script>
+      <script src="https://gomesfellipe.github.io/js/main.js"></script>
+      <script src="https://gomesfellipe.github.io/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+
