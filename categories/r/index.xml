@@ -1,71 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/categories/r/</link>
-    <description>Recent content in R on Fellipe Gomes</description>
+    <title>R on Hugo Future Imperfect</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on Hugo Future Imperfect</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello R Markdown</title>
-      <link>https://gomesfellipe.github.io/blog/2020-12-01-r-rmarkdown/2020-12-01-r-rmarkdown/</link>
+      <link>/blog/2020-12-01-r-rmarkdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2020-12-01-r-rmarkdown/2020-12-01-r-rmarkdown/</guid>
+      <guid>/blog/2020-12-01-r-rmarkdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
-    </item>
-    
-    <item>
-      <title>Séries temporais com Google Trends e R</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/</link>
-      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/</guid>
-      <description>Google Trends O Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
-Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
-Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
-    </item>
-    
-    <item>
-      <title>Manipulando dados com dplyr</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</link>
-      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
-      <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
-Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
-    </item>
-    
-    <item>
-      <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
-      <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
-Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
-Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
-    </item>
-    
-    <item>
-      <title>Tipos de relações entre variáveis</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/</link>
-      <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/</guid>
-      <description>Tipos de relações Numérica x Numérica  Graficamente  Duas variaveis Mais de duas variáveis  Normalidade  Graficamente QQ-plot QQ plot com envelope Testes  Dados normais + Relação linear  Coeficiente de Correlação de Pearson \(\rho\)  Dados não normais e/ou sem relação linear  Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall)   Ordinal x Ordinal Numérica x Ordinal Nominal x Nominal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Nominal x Ordinal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Dicotônica x Ordinal Nominal x Numérca  \(R^2\) do ajuste de modelos lineares Bisserial = Pearson Comparações de Grupos  Correlação parcial  Controlando variável numérica Controlando variável Qualitativa  Referências   Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.</description>
-    </item>
-    
-    <item>
-      <title>Tipos de Correlaçoes</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correla%C3%A7oes/tipos-de-correlacoes/</link>
-      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correla%C3%A7oes/tipos-de-correlacoes/</guid>
-      <description>Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
     </item>
     
   </channel>

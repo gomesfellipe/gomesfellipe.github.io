@@ -1,126 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/categories/</link>
-    <description>Recent content in Categories on Fellipe Gomes</description>
+    <title>Categories on Hugo Future Imperfect</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on Hugo Future Imperfect</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R</title>
-      <link>https://gomesfellipe.github.io/categories/r/</link>
+      <link>/categories/r/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>https://gomesfellipe.github.io/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google</title>
-      <link>https://gomesfellipe.github.io/categories/google/</link>
-      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/google/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Prática</title>
-      <link>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</link>
-      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Séries Temporais</title>
-      <link>https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/</link>
-      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>utilidades</title>
-      <link>https://gomesfellipe.github.io/categories/utilidades/</link>
-      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/utilidades/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dplyr</title>
-      <link>https://gomesfellipe.github.io/categories/dplyr/</link>
-      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/dplyr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Estatistica</title>
-      <link>https://gomesfellipe.github.io/categories/estatistica/</link>
-      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/estatistica/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>package</title>
-      <link>https://gomesfellipe.github.io/categories/package/</link>
-      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/package/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bitcoin</title>
-      <link>https://gomesfellipe.github.io/categories/bitcoin/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/bitcoin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Teoria</title>
-      <link>https://gomesfellipe.github.io/categories/teoria/</link>
-      <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/teoria/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>https://gomesfellipe.github.io/categories/hugo/</link>
+      <link>/categories/hugo/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/categories/hugo/</guid>
+      <guid>/categories/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Go</title>
-      <link>https://gomesfellipe.github.io/categories/go/</link>
+      <link>/categories/go/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/categories/go/</guid>
+      <guid>/categories/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jekyll</title>
-      <link>https://gomesfellipe.github.io/categories/jekyll/</link>
+      <link>/categories/jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/categories/jekyll/</guid>
+      <guid>/categories/jekyll/</guid>
       <description></description>
     </item>
     
