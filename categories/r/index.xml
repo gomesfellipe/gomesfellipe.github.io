@@ -18,5 +18,16 @@ You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
     </item>
     
+    <item>
+      <title>google trends e r</title>
+      <link>/blog/google-trends-e-r/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/google-trends-e-r/</guid>
+      <description>Google Trends O Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
+Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
+Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
+    </item>
+    
   </channel>
 </rss>
