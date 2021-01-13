@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Prática on Hugo Future Imperfect</title>
-    <link>/categories/pr%C3%A1tica/</link>
-    <description>Recent content in Prática on Hugo Future Imperfect</description>
+    <title>Prática on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</link>
+    <description>Recent content in Prática on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="/categories/pr%C3%A1tica/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Manipulação de Strings e Text Mining</title>
-      <link>/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</link>
       <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</guid>
       <description>Manipulação de strings e Text mining Estudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo string.
 Uma variável do tipo string é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.</description>
     </item>
     
     <item>
+      <title>Criando relatorios com template tufle</title>
+      <link>https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/</guid>
+      <description>Focando no conteúdo Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico.
+Como disse Khalil Gibran; é preciso transformar em palavras aquilo que já conhecemos em pensamentos. Ninguém quer perder tempo precioso de análises em formatações de documentos.
+Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos.</description>
+    </item>
+    
+    <item>
       <title>google trends e r</title>
-      <link>/blog/2017-12-12-google-trends-e-r/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/</link>
       <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-12-google-trends-e-r/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/</guid>
       <description>Google Trends O Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
 Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
 Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
@@ -30,10 +41,10 @@ Através de suas séries temporais podemos avaliar a presença de pedrões, obte
     
     <item>
       <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
       <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
 Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
 Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>

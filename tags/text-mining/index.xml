@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>text mining on Hugo Future Imperfect</title>
-    <link>/tags/text-mining/</link>
-    <description>Recent content in text mining on Hugo Future Imperfect</description>
+    <title>text mining on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/text-mining/</link>
+    <description>Recent content in text mining on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/text-mining/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/text-mining/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Manipulação de Strings e Text Mining</title>
-      <link>/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</link>
       <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</guid>
       <description>Manipulação de strings e Text mining Estudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo string.
 Uma variável do tipo string é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.</description>
     </item>

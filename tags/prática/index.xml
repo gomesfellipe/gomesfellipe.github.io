@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Prática on Hugo Future Imperfect</title>
-    <link>/tags/pr%C3%A1tica/</link>
-    <description>Recent content in Prática on Hugo Future Imperfect</description>
+    <title>Prática on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/pr%C3%A1tica/</link>
+    <description>Recent content in Prática on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/pr%C3%A1tica/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/pr%C3%A1tica/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Criando relatorios com template tufle</title>
+      <link>https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/</guid>
+      <description>Focando no conteúdo Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico.
+Como disse Khalil Gibran; é preciso transformar em palavras aquilo que já conhecemos em pensamentos. Ninguém quer perder tempo precioso de análises em formatações de documentos.
+Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos.</description>
+    </item>
+    
     <item>
       <title>google trends e r</title>
-      <link>/blog/2017-12-12-google-trends-e-r/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/</link>
       <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-12-google-trends-e-r/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/</guid>
       <description>Google Trends O Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
 Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
 Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
@@ -20,10 +31,10 @@ Através de suas séries temporais podemos avaliar a presença de pedrões, obte
     
     <item>
       <title>Manipulando dados com dplyr</title>
-      <link>/blog/2017-12-07-manipulando-dados-com-dplyr/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-07-manipulando-dados-com-dplyr/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/</guid>
       <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
 Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
     </item>

@@ -1,39 +1,63 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Hugo Future Imperfect</title>
-    <link>/blog/</link>
-    <description>Recent content in Blog on Hugo Future Imperfect</description>
+    <title>Blog on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/blog/</link>
+    <description>Recent content in Blog on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://gomesfellipe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello R Markdown</title>
-      <link>/blog/2020-12-01-r-rmarkdown/</link>
+      <link>https://gomesfellipe.github.io/blog/2020-12-01-r-rmarkdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>/blog/2020-12-01-r-rmarkdown/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2020-12-01-r-rmarkdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
     </item>
     
     <item>
+      <title>Ajustando Modelos Bayesianos com JAGS</title>
+      <link>https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/</link>
+      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/</guid>
+      <description>Inferência bayesiana Imagem da Internet
+Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.
+Para isso devemos utilizar toda informação disponível, seja ela objetiva ou subjetiva (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)
+Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao teorema de bayes.
+Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa “crença” será representada por uma distribuição de probabilidade (ou modelo probabilístico)</description>
+    </item>
+    
+    <item>
       <title>Manipulação de Strings e Text Mining</title>
-      <link>/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</link>
       <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</guid>
       <description>Manipulação de strings e Text mining Estudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo string.
 Uma variável do tipo string é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.</description>
     </item>
     
     <item>
+      <title>Criando relatorios com template tufle</title>
+      <link>https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/</guid>
+      <description>Focando no conteúdo Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico.
+Como disse Khalil Gibran; é preciso transformar em palavras aquilo que já conhecemos em pensamentos. Ninguém quer perder tempo precioso de análises em formatações de documentos.
+Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos.</description>
+    </item>
+    
+    <item>
       <title>google trends e r</title>
-      <link>/blog/2017-12-12-google-trends-e-r/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/</link>
       <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-12-google-trends-e-r/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/</guid>
       <description>Google Trends O Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
 Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
 Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
@@ -41,20 +65,20 @@ Através de suas séries temporais podemos avaliar a presença de pedrões, obte
     
     <item>
       <title>Manipulando dados com dplyr</title>
-      <link>/blog/2017-12-07-manipulando-dados-com-dplyr/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-07-manipulando-dados-com-dplyr/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/</guid>
       <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
 Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
     </item>
     
     <item>
       <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
       <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
 Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
 Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
@@ -62,10 +86,10 @@ Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanid
     
     <item>
       <title>Tipos de relações entre variáveis</title>
-      <link>/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/</link>
       <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/</guid>
       <description>Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.
 Já sabemos que esses coeficientes variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.
 Porém o que fazer com tantas métricas? Qual o cálculo mais aconselhado para as relações dois a dois de cada tipo de variáveis (medidas, quantidades, nomes, classes com algum tipo de ordem ou hierarquia)?</description>
@@ -73,52 +97,52 @@ Porém o que fazer com tantas métricas? Qual o cálculo mais aconselhado para a
     
     <item>
       <title>Tipos de Correlacoes</title>
-      <link>/blog/2017-12-01-tipos-de-correlacoes/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correlacoes/</link>
       <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-12-01-tipos-de-correlacoes/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correlacoes/</guid>
       <description>Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
     </item>
     
     <item>
       <title>Creating a New Theme</title>
-      <link>/blog/creating-a-new-theme/</link>
+      <link>https://gomesfellipe.github.io/blog/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/blog/creating-a-new-theme/</guid>
+      <guid>https://gomesfellipe.github.io/blog/creating-a-new-theme/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>/blog/goisforlovers/</link>
+      <link>https://gomesfellipe.github.io/blog/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/blog/goisforlovers/</guid>
+      <guid>https://gomesfellipe.github.io/blog/goisforlovers/</guid>
       <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
 This document is a brief primer on using go templates.</description>
     </item>
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>/blog/hugoisforlovers/</link>
+      <link>https://gomesfellipe.github.io/blog/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/blog/hugoisforlovers/</guid>
+      <guid>https://gomesfellipe.github.io/blog/hugoisforlovers/</guid>
       <description>&lt;h2 id=&#34;step-1-install-hugo&#34;&gt;Step 1. Install Hugo&lt;/h2&gt;
 &lt;p&gt;Go to &lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;hugo releases&lt;/a&gt; and download the
 appropriate version for your os and architecture.&lt;/p&gt;
 &lt;p&gt;Save it somewhere specific as we will be using it in the next step.&lt;/p&gt;
-&lt;p&gt;More complete instructions are available at &lt;a href=&#34;/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;More complete instructions are available at &lt;a href=&#34;https://gomesfellipe.github.io/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Migrate to Hugo from Jekyll</title>
-      <link>/blog/migrate-from-jekyll/</link>
+      <link>https://gomesfellipe.github.io/blog/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>/blog/migrate-from-jekyll/</guid>
+      <guid>https://gomesfellipe.github.io/blog/migrate-from-jekyll/</guid>
       <description>&lt;h2 id=&#34;move-static-content-to-static&#34;&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Jekyll has a rule that any directory not starting with &lt;code&gt;_&lt;/code&gt; will be copied as-is to the &lt;code&gt;_site&lt;/code&gt; output. Hugo keeps all static content under &lt;code&gt;static&lt;/code&gt;. You should therefore move it all there.
 With Jekyll, something that looked like&lt;/p&gt;
