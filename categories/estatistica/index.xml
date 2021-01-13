@@ -6,7 +6,19 @@
     <description>Recent content in Estatistica on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/estatistica/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/estatistica/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pacotes do R para avaliar o ajuste de modelos</title>
+      <link>https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/</link>
+      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/</guid>
+      <description>Funções do R para avaliar o ajuste de modelos Traduzindo:
+“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
+Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
+Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
+    </item>
+    
     <item>
       <title>Ajustando Modelos Bayesianos com JAGS</title>
       <link>https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/</link>

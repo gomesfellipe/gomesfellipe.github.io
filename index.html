@@ -265,6 +265,45 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/">Ajustando Modelos Bayesianos com JAGS</a></h3>
                                 
                                 <time class="published" datetime=
@@ -639,19 +678,21 @@ if (!doNotTrack) {
   <header>
     <div class="title">
         
-            <h2><a href="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/">Ajustando Modelos Bayesianos com JAGS</a></h2>
+            <h2><a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h2>
         
+        
+            <p>Alguns pacotes úteis para avaliar o ajuste do modelo de forma rápida, precisa e elegante</p>
         
     </div>
     <div class="meta">
         
 
         <time class="published"
-            datetime='2017-12-18'>
-            December 18, 2017</time>
+            datetime='2017-12-24'>
+            December 24, 2017</time>
         <span class="author">Fellipe Gomes</span>
         
-            <p>12 minute read</p>
+            <p>9 minute read</p>
         
         
     </div>
@@ -666,7 +707,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-18-ajustando-modelos-bayesianos-com-jags%2f&amp;text=Ajustando%20Modelos%20Bayesianos%20com%20JAGS&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-24-diagnostico-de-modelos%2f&amp;text=Pacotes%20do%20R%20para%20avaliar%20o%20ajuste%20de%20modelos&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -685,7 +726,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-18-ajustando-modelos-bayesianos-com-jags%2f&amp;title=Ajustando%20Modelos%20Bayesianos%20com%20JAGS" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-24-diagnostico-de-modelos%2f&amp;title=Pacotes%20do%20R%20para%20avaliar%20o%20ajuste%20de%20modelos" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -701,7 +742,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-18-ajustando-modelos-bayesianos-com-jags%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-24-diagnostico-de-modelos%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -735,495 +776,283 @@ if (!doNotTrack) {
         
         
 
-        <a href="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg" alt="">
+        <a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
         </a>
     
 
 
   <div id="content">
     
-<script src="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/index_files/header-attrs/header-attrs.js"></script>
+<script src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/header-attrs/header-attrs.js"></script>
 
 
-<div id="inferência-bayesiana" class="section level1">
-<h1>Inferência bayesiana</h1>
-<p><a href="https://www.flickr.com/photos/mattbuck007/3676624894/in/photolist-6ATEuo-9TK3TW">Imagem da Internet</a></p>
-<p>Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.</p>
-<p>Para isso devemos utilizar <strong>toda</strong> informação disponível, seja ela <strong>objetiva</strong> ou <strong>subjetiva</strong> (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)</p>
-<p>Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao <a href="https://pt.wikipedia.org/wiki/Teorema_de_Bayes">teorema de bayes</a>.</p>
-<p>Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa “crença” será representada por uma distribuição de probabilidade (ou modelo probabilístico)</p>
-<p><em>Teorema de bayes</em>:
-<span class="math display">\[
-p(\theta|x)=\frac{p(x,\theta)}{p(x)}=\frac{p(x|\theta)p(\theta)}{p(x)}
-\]</span></p>
-<p>onde:</p>
-<ul>
-<li><span class="math inline">\(p(x|\theta)\)</span>: função de verossimilhança (modelo)</li>
-<li><span class="math inline">\(p(\theta)\)</span>: distribuição a priori</li>
-<li><span class="math inline">\(p(x)\)</span>: distribuição marginal de <span class="math inline">\(x\)</span>.</li>
-</ul>
-<p>A estimação muitas vezes envolve o cálculo de integrais nada simples analiticamente porém, alguns algorítimos como o amostrador de Gibbs pode relizar aproximações muito relevantes.</p>
+<div id="funções-do-r-para-avaliar-o-ajuste-de-modelos" class="section level1">
+<h1>Funções do R para avaliar o ajuste de modelos</h1>
+<p>Traduzindo:</p>
+<p>“<em>Essencialmente, todos os modelos estão errados, mas alguns são úteis</em>” - George E. P. Box</p>
+<p>Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!</p>
+<p>Lendo um <a href="http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf">artigo sobre a vida de Fisher</a> um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</p>
+<p>“Joan Fisher Box, filha de Fisher, em seu livro sobre a vida do pai, se referindo à péssima classificação dele em francês, escreveu: “… ele nunca teve muita paciência com irrelevâncias.” (Box, 1978)"</p>
+<p>Fico imaginando o tamanho da contribuição desdes crânios para a comunidade se tivessem acesso a tantos mecanismos que temos hoje em dia e o que eles achariam relevantes..</p>
+<p>Para o bom ajuste de um modelo, certamente; a inferência, as análises de desvios, os critérios de seleção de um modelo, conferir comportamento dos resíduos e avaliação das estatísticas de diagnósticos são muito relevantes.</p>
+<p>No <a href="https://cran.r-project.org/">CRAN</a> já contamos com muitos pacotes disponíveis para nos auxiliar nessas avaliações, portanto vou mostrar aqui alguns pacotes com funções que já me ajudaram muito em avaliações de modelos indo além das funções nativas do R e do pacote <code>ggplot2</code> (Um excelente pacote para apresentações elegantes e práticas de resultados visuais).</p>
 </div>
-<div id="modelo-linear-bayesiano" class="section level1">
-<h1>Modelo linear bayesiano</h1>
-<p>Para entender como funciona o modelo bayesiano, primeiramente vamos começar com algo bem simples, suponha:</p>
-<p><span class="math display">\[
-Y_i \sim N(\mu_i,\tau)
-\]</span>
-onde <span class="math inline">\(\mu\)</span> é definido como <span class="math inline">\(\mu_i= X \mathbf{\beta}\)</span>.</p>
-<p>Incialmente vamos considerar que não existe relação nenhuma, então utilizaremos a priori:</p>
-<p><span class="math display">\[
-\beta \sim N(0,\tau_{\beta})
-\]</span></p>
-<p>onde <span class="math inline">\(\tau\)</span> é conhecido.</p>
-<p>Nem sempre é uma tarefa simples determinar a distribuição posteri de um modelo bayesiano e é neste ponto que o pacote <code>jags</code>será bastante útil (existem outras alternativas como o <a href="https://cran.r-project.org/package=R2WinBUGS">WinBugs</a>, <a href="https://cran.r-project.org/package=R2OpenBUGS">OpenBugs</a>, <a href="https://cran.r-project.org/web/packages/rstan/index.html">Stan</a>, mas aqui resolvi trazer apenas o <a href="https://cran.r-project.org/package=rjags">jags</a> por possuir vantagens bem interessantes.)</p>
-</div>
-<div id="jags" class="section level1">
-<h1>Jags</h1>
-<p>O pacote <a href="https://cran.r-project.org/package=R2jags"><code>R2jags</code></a> é exatamente o que seu nome significa: “<em>Just Another Gibbs Sampler</em>”. Possui as mesmas funcionalidades do nosso querido <a href="https://cran.r-project.org/package=R2OpenBUGS">OpenBugs</a> possibilitando também que seja utilizado inteiramente dentro do ambiente R.</p>
-<p>Assim como o OpenBugs, ele também trabalha chamando o <a href="mcmc-jags.sourceforge.net/">software oficial que precisa ser baixado no site</a>.</p>
-<p>Para começar a utilizar basta baixar o pacote e acessá-lo na biblioteca:</p>
-<pre class="r"><code>library(R2jags)</code></pre>
-</div>
-<div id="declarando-o-modelo" class="section level1">
-<h1>Declarando o modelo</h1>
-<p>A base de dados que será utilizada para ajustar o modelo será a base nativa do R chamada <code>trees</code>:</p>
-<pre class="r"><code>X&lt;-trees[,1:2] #Matriz de variáveis explanatórias
-Y&lt;- trees[,3]  #Vetor da variável resposta
-p &lt;- ncol(X)   #p é o número de parâmetros do modelo (nesse caso é o número de colunas)
-n &lt;- nrow(X)   #n é o número de observações do modelo</code></pre>
-<p>O modelo deve estar declarado e salvo em um arquivo <code>.txt</code> (ou mesmo um outro arquivo <code>.r</code>) da seguinte maneira:</p>
-<pre class="r"><code>### Declarando o modelo Bayesiano
-sink(&quot;linreg.txt&quot;)
-cat(&quot;
-    model {
-    
-    # Prioris
-    for(j in 1:p)
-    {
-    beta[j] ~ dnorm(mu.beta, tau.beta)       
-    }
-    sigma ~ dunif(0, 100)            
-    tau &lt;- 1/ (sigma * sigma)
-    
-    # Verossimilhança
-    for (i in 1:n) {
-    y[i] ~ dnorm(mu[i], tau)
-    mu[i] &lt;- inprod(X[i,], beta)
-    }
+<div id="ggally" class="section level1">
+<h1>GGally</h1>
+<p>Este pacote é sensacional, existem funções muito relevantes nele para melhorar a nossa experiência com ajuste de modelos, as funções apresentadas aqui são baseadas na <a href="http://ggobi.github.io/ggally/#ggally">página de documentação GGally</a>, lá você pode conferir a documentação completa.</p>
+<p>Primeiramente vamos carregar o pacote:</p>
+<pre class="r"><code>library(GGally)</code></pre>
+<p>Carregado o pacote, vejamos as principais funções que podem nos auxiliar.</p>
+<div id="ggallyggcoef" class="section level2">
+<h2><code>GGally::ggcoef</code></h2>
+<p>O objetivo da função <code>GGally::ggcoef</code> é traçar rapidamente os coeficientes de um modelo.</p>
+<p>Para um modelo linear:</p>
+<pre class="r"><code>reg &lt;- lm(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, data = iris)
+ggcoef(reg)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Para um modelo logístico podemos utilizar o argumento <code>exponentiate = TRUE</code> e além disso, somos capazes de fazer diversas alterações no gráfico utilizando o <code>ggcoef()</code> veja alguns exemplo de argumentos que podem ser usados para personalizar como barras de erro e a linha vertical são plotadas:</p>
+<pre class="r"><code>#Ajustando o modelo:
+d &lt;- as.data.frame(Titanic)
+log.reg &lt;- glm(Survived ~ Sex + Age + Class, family = binomial, data = d, weights = d$Freq)
 
-    }
-    &quot;,fill=TRUE)
-sink()</code></pre>
-<p>Uma vez que o modelo esta declarado, é a hora de nomear os parametros da função que fará o ajuste do modelo</p>
-<pre class="r"><code>#Parametros da Priori
-mu.beta &lt;- 0
-tau.beta &lt;- 0.001
-
-#Set Working Directory
-wd &lt;- getwd()
-
-# Junte os dados em uma lista
-win.data &lt;- list(X=X,y=Y,p=p,n=n,mu.beta=mu.beta,tau.beta=tau.beta)
-
-# Função de inicialização
-inits &lt;- function(){ list(beta=rnorm(p), sigma = rlnorm(1))}
-
-# Os parametros que desejamos estimar
-params &lt;- c(&quot;beta&quot;,&quot;sigma&quot;,&quot;tau&quot;)
-
-# Caracteristicas do MCMC
-n.burnin &lt;- 500                    #Número de iterações que serão descartadas
-n.thin &lt;- 10                       #para economizar memória e tempo de computação se n.iter for grande
-n.post &lt;- 5000  
-n.chains &lt;- 3                      #Número de cadeias
-n.iter &lt;- n.burnin + n.thin*n.post #Número de iterações</code></pre>
+#Elaborando o gráfico
+ggcoef(
+  log.reg,                      #O modelo a ser conferido
+  exponentiate = TRUE,          #Para avaliar o modelo logístico
+  vline_color = &quot;red&quot;,          #Reta em zero  
+  #vline_linetype =  &quot;solid&quot;,   #Altera a linha de referência
+  errorbar_color = &quot;blue&quot;,      #Cor da barra de erros
+  errorbar_height = .25,
+  shape = 18,                   #Altera o formato dos pontos centrais
+  #size=3,                      #Altera o tamanho do ponto
+  color=&quot;black&quot;,                #Altera a cor do ponto
+  mapping = aes(x = estimate, y = term, size = p.value))+
+  scale_size_continuous(trans = &quot;reverse&quot;) #Essa linha faz com que inverta o tamanho                 </code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
-<div id="implementando-o-modelo" class="section level1">
-<h1>Implementando o modelo</h1>
-<p>Após ter em mãos todos esses resultados, já podemos ajustar o modelo com o comando <code>jags()</code>, veja:</p>
-<pre class="r"><code>bayes.mod.fit &lt;-jags(data = win.data,
-                     inits = inits,
-                     parameters = params,
-                     model.file = &quot;linreg.txt&quot;,  # O arquivo &quot;linreg.txt&quot; deve estar no mesmo diretório
-                     n.iter = n.iter,
-                     n.thin=n.thin,
-                     n.burnin=n.burnin,
-                     n.chains=n.chains,
-                     working.directory=wd,DIC = T)</code></pre>
-<pre><code>## Compiling model graph
-##    Resolving undeclared variables
-##    Allocating nodes
-## Graph information:
-##    Observed stochastic nodes: 31
-##    Unobserved stochastic nodes: 3
-##    Total graph size: 166
-## 
-## Initializing model</code></pre>
-<pre class="r"><code>print(bayes.mod.fit, dig = 3)</code></pre>
-<pre><code>## Inference for Bugs model at &quot;linreg.txt&quot;, fit using jags,
-##  3 chains, each with 50500 iterations (first 500 discarded), n.thin = 10
-##  n.sims = 15000 iterations saved
-##          mu.vect sd.vect    2.5%     25%     50%     75%   97.5%  Rhat n.eff
-## beta[1]    5.043   0.434   4.179   4.760   5.041   5.327   5.897 1.001  9400
-## beta[2]   -0.477   0.077  -0.630  -0.528  -0.477  -0.426  -0.325 1.001  7700
-## sigma      6.443   0.896   4.966   5.811   6.354   6.963   8.466 1.001 15000
-## tau        0.025   0.007   0.014   0.021   0.025   0.030   0.041 1.001 15000
-## deviance 201.903   2.679 198.876 199.959 201.212 203.117 208.898 1.001 15000
-## 
-## For each parameter, n.eff is a crude measure of effective sample size,
-## and Rhat is the potential scale reduction factor (at convergence, Rhat=1).
-## 
-## DIC info (using the rule, pD = var(deviance)/2)
-## pD = 3.6 and DIC = 205.5
-## DIC is an estimate of expected predictive error (lower deviance is better).</code></pre>
-<p>Com os resultados em mãos podemos avaliar o ajuste do modelo, o jags nos fornece os intervalos de credibilidade e o Rhat, que é a convergência da cadeia, a princípio vamos apenas considerar o fato de que quanto mais próximo de 1, melhor são as estimativas.</p>
-<p>Não vou me extender neste post com a interpretação do modelo pois o objetivo esta sendo mostrar a funcionalidade do jags em conjunto com o R.</p>
+<div id="ggallyggduo" class="section level2">
+<h2><code>GGally::ggduo</code></h2>
+<p>O objetivo desta função é exibir dois dados agrupados em uma matriz de plotagem. Isso é útil para análise de correlação canônica, análise de séries temporais múltiplas e análise de regressão.</p>
+<p>Os dados do exemplo apresentados aqui podem ser encontrados neste <a href="http://www.stats.idre.ucla.edu/r/dae/canonical-correlation-analysis">link</a></p>
+<pre class="r"><code>data(psychademic)
+head(psychademic)</code></pre>
+<pre><code>##   locus_of_control self_concept motivation read write math science    sex
+## 1            -0.84        -0.24          4 54.8  64.5 44.5    52.6 female
+## 2            -0.38        -0.47          3 62.7  43.7 44.7    52.6 female
+## 3             0.89         0.59          3 60.6  56.7 70.5    58.0   male
+## 4             0.71         0.28          3 62.7  56.7 54.7    58.0   male
+## 5            -0.64         0.03          4 41.6  46.3 38.4    36.3 female
+## 6             1.11         0.90          2 62.7  64.5 61.4    58.0 female</code></pre>
+<pre class="r"><code>psych_variables &lt;- attr(psychademic, &quot;psychology&quot;)
+academic_variables &lt;- attr(psychademic, &quot;academic&quot;)</code></pre>
+<pre class="r"><code>ggduo(
+  psychademic, psych_variables, academic_variables,
+  types = list(continuous = &quot;smooth_lm&quot;),
+  title = &quot;Correlação entre as variáveis psicológicas e academicas&quot;,
+  xlab = &quot;Psicológicos&quot;,
+  ylab = &quot;Academicas&quot;
+)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Uma vez que o <code>ggduo</code> não tem uma seção superior para exibir os valores de correlação, podemos usar uma função personalizada para adicionar a informação nas parcelas contínuas.</p>
+<p>Criando uma função personalizada para informar a correlação entre as observações:</p>
+<pre class="r"><code>lm_with_cor &lt;- function(data, mapping, ..., method = &quot;pearson&quot;) {
+  x &lt;- eval(mapping$x, data)
+  y &lt;- eval(mapping$y, data)
+  cor &lt;- cor(x, y, method = method)
+  ggally_smooth_lm(data, mapping, ...) +
+    ggplot2::geom_label(
+      data = data.frame(
+        x = min(x, na.rm = TRUE),
+        y = max(y, na.rm = TRUE),
+        lab = round(cor, digits = 3)
+      ),
+      mapping = ggplot2::aes(x = x, y = y, label = lab),
+      hjust = 0, vjust = 1,
+      size = 5, fontface = &quot;bold&quot;,
+      inherit.aes = FALSE # do not inherit anything from the ...
+    )
+}</code></pre>
+<p>Portanto:</p>
+<pre class="r"><code>ggduo(
+  psychademic, psych_variables, academic_variables,
+  types = list(continuous = &quot;smooth_lm&quot;),
+  title = &quot;Correlação entre variáveis acadêmica e psicológica&quot;,
+  xlab = &quot;Psicológica&quot;,
+  ylab = &quot;Academica&quot;
+)+
+  theme(legend.position = &quot;bottom&quot;)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Para avaliar resíduos da uma regressão ajustada para cada uma das variáveis explanatórias vs. as variáveis explanatórias:</p>
+<pre class="r"><code>dados &lt;- datasets::swiss
+
+# Criando uma coluna &quot;fake&quot;:
+dados$Residual &lt;- seq_len(nrow(dados))
+
+# Calculando todos os resíduos que serão exibidos:
+colunas=2:6  #Informe as colunas que contem as variaveis explanatorias
+residuals &lt;- lapply(dados[colunas], function(x) {
+  summary(lm(Fertility ~ x, data = dados))$residuals
+})
+# Calculando um intervalo constante para todos os resíduos
+y_range &lt;- range(unlist(residuals))
+
+# Função modificada para mostrar os resíduos:
+
+lm_or_resid &lt;- function(data, mapping, ..., line_color = &quot;red&quot;, line_size = 1) {
+  if (as.character(mapping$y) != &quot;Residual&quot;) {
+    return(ggally_smooth_lm(data, mapping, ...))
+  }
+
+  # Criando os resíduos para apresentar:
+  resid_data &lt;- data.frame(
+    x = data[[as.character(mapping$x)]],
+    y = residuals[[as.character(mapping$x)]]
+  )
+
+  ggplot(data = data, mapping = mapping) +
+    geom_hline(yintercept = 0, color = line_color, size = line_size) +
+    ylim(y_range) +
+    geom_point(data = resid_data, mapping = aes(x = x, y = y), ...)
+
+}
+
+# Plote os dados:
+ggduo(
+  dados,
+  2:6, c(1,7),
+  types = list(continuous = lm_or_resid)
+)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
-<div id="diagnósticos-do-modelo-com-mcmcplots" class="section level1">
-<h1>Diagnósticos do modelo com <code>mcmcplots</code></h1>
-<p>Para o diagnóstico do modelo podemos utilizar o pacote <code>mcmcplots</code> que fornece de maneira bem agradável os resultados gerados pelo amostrador, primeiramente vamos carregar o pacote:</p>
-<pre class="r"><code>library(mcmcplots)</code></pre>
-<p>Em seguida precisar informar para o <code>R</code> que o resultado do algorítimo se trata de um objeto mcmc, portanto:</p>
-<pre class="r"><code>bayes.mod.fit.mcmc &lt;- as.mcmc(bayes.mod.fit)
-summary(bayes.mod.fit.mcmc)</code></pre>
-<pre><code>## 
-## Iterations = 1:49991
-## Thinning interval = 10 
-## Number of chains = 3 
-## Sample size per chain = 5000 
+<div id="ggallyggnostic" class="section level2">
+<h2><code>GGally::ggnostic</code></h2>
+<p>O <code>ggnostic</code> é um wrapper de exibição para <code>ggduo</code> que exibe diagnósticos de modelo completo para cada variável explicativa dada.</p>
+<p>Por padrão, o ggduo exibe os valores residuais, o sigma do modelo de “leave-one-out”, os pontos de alavanca e a distância de Cook em relação a cada variável explicativa.</p>
+<p>As linhas da matriz de plotagem podem ser expandidas para incluir valores ajustados, erro padrão dos valores ajustados, resíduos padronizados e qualquer uma das variáveis de resposta.</p>
+<p>Se o modelo for um modelo linear, os asteriscos (*) são adicionados de acordo com a significância anova de cada variável explicativa.</p>
+<p>A maioria das parcelas diagnósticas contêm linhas de referência para ajudar a determinar se o modelo está adequadamente instalado</p>
+<p>Olhando para os conjuntos de dados do conjunto de dados <code>state.x77</code> ajustaremos um modelo de regressão múltipla para a expectativa de vida.</p>
+<pre class="r"><code>#Dados que serão utilizados no exemplos:
+state &lt;- as.data.frame(state.x77)
+#Arrumando o nome das variaveis:
+colnames(state)[c(4, 6)] &lt;- c(&quot;Life.Exp&quot;, &quot;HS.Grad&quot;)
+# Ajustando o modelo completo:
+model &lt;- lm(Life.Exp ~ ., data = state)
+# Executando o stepwise para encontrar o melhor ajuste
+model &lt;- step(model, trace = FALSE)</code></pre>
+<p>Executando o diagnóstico deste modelo com a função <code>ggnostic()</code>:</p>
+<pre class="r"><code># look at model diagnostics
+ggnostic(model)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Para acessar as variáveis influentes do modelo podemos utilizar a função <code>influence.measures()</code>, veja:</p>
+<pre class="r"><code>summary(influence.measures(model))</code></pre>
+<pre><code>## Potentially influential observations of
+##   lm(formula = Life.Exp ~ Population + Murder + HS.Grad + Frost,      data = state) :
 ## 
-## 1. Empirical mean and standard deviation for each variable,
-##    plus standard error of the mean:
-## 
-##               Mean       SD  Naive SE Time-series SE
-## beta[1]    5.04302 0.434040 0.0035439      0.0035438
-## beta[2]   -0.47719 0.077431 0.0006322      0.0006238
-## deviance 201.90287 2.678566 0.0218704      0.0228989
-## sigma      6.44317 0.896200 0.0073174      0.0073177
-## tau        0.02544 0.006785 0.0000554      0.0000554
-## 
-## 2. Quantiles for each variable:
-## 
-##               2.5%       25%       50%       75%     97.5%
-## beta[1]    4.17857   4.76002   5.04062   5.32705   5.89655
-## beta[2]   -0.62983  -0.52801  -0.47671  -0.42624  -0.32464
-## deviance 198.87616 199.95891 201.21200 203.11696 208.89847
-## sigma      4.96640   5.81106   6.35354   6.96267   8.46609
-## tau        0.01395   0.02063   0.02477   0.02961   0.04054</code></pre>
-<p>O pacote nos fornece alguns tipos de gráficos para diagnóstico</p>
-<pre class="r"><code>caterplot(bayes.mod.fit.mcmc)                #Observando todas as estimativas</code></pre>
-<p><img src="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<pre class="r"><code>caterplot(bayes.mod.fit.mcmc,parms = params) #Observando as estimativas de todos os parâmetros menos o desvio</code></pre>
-<p><img src="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/index_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
-<pre class="r"><code>denplot(bayes.mod.fit.mcmc)                  #Densidade das estimativas de cada cadeia</code></pre>
-<p><img src="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/index_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
-<pre class="r"><code>traplot(bayes.mod.fit.mcmc,greek = T)        #Avaliando a convergência</code></pre>
-<p><img src="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/index_files/figure-html/unnamed-chunk-8-4.png" width="672" /></p>
-<p>E por fim, para diagnósticos rápidos, pode produzir arquivos html com traço, densidade e autocorrelação.</p>
-<p>O comando traça tudo em uma página e os arquivos serão exibidos em seu navegador de internet padrão.</p>
-<pre class="r"><code>mcmcplot(bayes.mod.fit.mcmc)</code></pre>
-<p>Vai retornar um relatório resumido para todos os parâmetros como nesta <a href="https://introndatalab.com/wp-content/uploads/manually/20150405/MCMC%20Plots%20%20result2_files/attack%5B1,1%5D.png">imagem da internet</a> como:</p>
-<p><img src="images/imagem1.png" /></p>
-<p>Como o objetivo do post é trazer a funcionalidade do pacote, vou apenas deixar ilustrado quais são algumas das funções mais comumente utilizadas para avaliar estatísticamente o desempenho dos modelos.</p>
-<p>Diagnosticos estatísticos do modelo:</p>
-<pre class="r"><code>#Mais diagnosticos:
-gelman.plot(bayes.mod.fit.mcmc)</code></pre>
-<p><img src="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre class="r"><code>geweke.diag(bayes.mod.fit.mcmc)</code></pre>
-<pre><code>## [[1]]
-## 
-## Fraction in 1st window = 0.1
-## Fraction in 2nd window = 0.5 
-## 
-##  beta[1]  beta[2] deviance    sigma      tau 
-##   0.7169  -0.5513   0.2267  -0.6655   0.5061 
-## 
-## 
-## [[2]]
-## 
-## Fraction in 1st window = 0.1
-## Fraction in 2nd window = 0.5 
-## 
-##  beta[1]  beta[2] deviance    sigma      tau 
-##  -0.7505   0.6383  -0.1087  -0.3117   0.1284 
-## 
-## 
-## [[3]]
-## 
-## Fraction in 1st window = 0.1
-## Fraction in 2nd window = 0.5 
-## 
-##  beta[1]  beta[2] deviance    sigma      tau 
-## -0.27680  0.51656  0.51645 -0.46390  0.07078</code></pre>
-<pre class="r"><code>geweke.plot(bayes.mod.fit.mcmc)</code></pre>
-<p><img src="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/index_files/figure-html/unnamed-chunk-10-2.png" width="672" /><img src="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/index_files/figure-html/unnamed-chunk-10-3.png" width="672" /><img src="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/index_files/figure-html/unnamed-chunk-10-4.png" width="672" /></p>
-<pre class="r"><code>raftery.diag(bayes.mod.fit.mcmc)</code></pre>
-<pre><code>## [[1]]
-## 
-## Quantile (q) = 0.025
-## Accuracy (r) = +/- 0.005
-## Probability (s) = 0.95 
-##                                                 
-##           Burn-in  Total Lower bound  Dependence
-##           (M)      (N)   (Nmin)       factor (I)
-##  beta[1]  20       39950 3746         10.70     
-##  beta[2]  20       38030 3746         10.20     
-##  deviance 20       38660 3746         10.30     
-##  sigma    20       37410 3746          9.99     
-##  tau      20       37410 3746          9.99     
-## 
-## 
-## [[2]]
-## 
-## Quantile (q) = 0.025
-## Accuracy (r) = +/- 0.005
-## Probability (s) = 0.95 
-##                                                 
-##           Burn-in  Total Lower bound  Dependence
-##           (M)      (N)   (Nmin)       factor (I)
-##  beta[1]  20       35610 3746          9.51     
-##  beta[2]  20       38030 3746         10.20     
-##  deviance 20       39300 3746         10.50     
-##  sigma    20       38660 3746         10.30     
-##  tau      20       37410 3746          9.99     
-## 
-## 
-## [[3]]
-## 
-## Quantile (q) = 0.025
-## Accuracy (r) = +/- 0.005
-## Probability (s) = 0.95 
-##                                                 
-##           Burn-in  Total Lower bound  Dependence
-##           (M)      (N)   (Nmin)       factor (I)
-##  beta[1]  20       37410 3746          9.99     
-##  beta[2]  20       38030 3746         10.20     
-##  deviance 20       36200 3746          9.66     
-##  sigma    20       37410 3746          9.99     
-##  tau      20       36800 3746          9.82</code></pre>
-<pre class="r"><code>heidel.diag(bayes.mod.fit.mcmc)</code></pre>
-<pre><code>## [[1]]
-##                                        
-##          Stationarity start     p-value
-##          test         iteration        
-## beta[1]  passed       1         0.648  
-## beta[2]  passed       1         0.700  
-## deviance passed       1         0.558  
-## sigma    passed       1         0.180  
-## tau      passed       1         0.259  
-##                                      
-##          Halfwidth Mean     Halfwidth
-##          test                        
-## beta[1]  passed      5.0453 0.012216 
-## beta[2]  passed     -0.4777 0.002170 
-## deviance passed    201.9045 0.075352 
-## sigma    passed      6.4342 0.024569 
-## tau      passed      0.0255 0.000187 
-## 
-## [[2]]
-##                                        
-##          Stationarity start     p-value
-##          test         iteration        
-## beta[1]  passed       1         0.374  
-## beta[2]  passed       1         0.302  
-## deviance passed       1         0.995  
-## sigma    passed       1         0.661  
-## tau      passed       1         0.882  
-##                                      
-##          Halfwidth Mean     Halfwidth
-##          test                        
-## beta[1]  passed      5.0495 0.01197  
-## beta[2]  passed     -0.4784 0.00214  
-## deviance passed    201.9233 0.07439  
-## sigma    passed      6.4479 0.02502  
-## tau      passed      0.0254 0.00019  
-## 
-## [[3]]
-##                                        
-##          Stationarity start     p-value
-##          test         iteration        
-## beta[1]  passed       1         0.729  
-## beta[2]  passed       1         0.699  
-## deviance passed       1         0.669  
-## sigma    passed       1         0.614  
-## tau      passed       1         0.750  
-##                                      
-##          Halfwidth Mean     Halfwidth
-##          test                        
-## beta[1]  passed      5.0342 0.011904 
-## beta[2]  passed     -0.4755 0.002041 
-## deviance passed    201.8808 0.083175 
-## sigma    passed      6.4474 0.024934 
-## tau      passed      0.0254 0.000187</code></pre>
+##            dfb.1_ dfb.Pplt dfb.Mrdr dfb.HS.G dfb.Frst dffit   cov.r   cook.d
+## Alaska      0.41   0.18    -0.40    -0.35    -0.16    -0.50    1.36_*  0.05 
+## California  0.04  -0.09     0.00    -0.04     0.03    -0.12    1.81_*  0.00 
+## Hawaii     -0.03  -0.57    -0.28     0.66    -1.24_*   1.43_*  0.74    0.36 
+## Nevada      0.40   0.14    -0.42    -0.29    -0.28    -0.52    1.46_*  0.05 
+## New York    0.01  -0.06     0.00     0.00    -0.01    -0.07    1.44_*  0.00 
+##            hat    
+## Alaska      0.25  
+## California  0.38_*
+## Hawaii      0.24  
+## Nevada      0.29  
+## New York    0.23</code></pre>
+<p>Esta função retorna as seguintes estatísticas:</p>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="25%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DFBeta</th>
+<th>DFFit</th>
+<th>CovRatio</th>
+<th>D.Cook</th>
+<th>h</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alteração no vetor estimado <span class="math inline">\(\hat \beta\)</span> ao se retirar o i-ésimo ponto da análise</td>
+<td>Alteração provocada no valor ajustado pela retirada da observação <span class="math inline">\(i\)</span></td>
+<td>Expressa o relação de covariancia</td>
+<td>Medida de afastamento das estimativas ao retirar <span class="math inline">\(i\)</span> e também considera o resíduo estudentizado internamente</td>
+<td>Elementos da diagonal da matriz H</td>
+</tr>
+</tbody>
+</table>
+<p>Vejamos então um exemplo de matriz de matriz de diagnóstico completo.</p>
+<p>As seguintes linhas de código exibirão uma matriz de diagnóstico para o mesmo modelo:</p>
+<pre class="r"><code>#Ajustando um modelo de exemplo:
+flea_model &lt;- step(lm(head ~ ., data = flea), trace = FALSE)</code></pre>
+<p>Todas as colunas possíveis e usando <code>ggally_smooth()</code> para exibir os pontos ajustados e as variáveis de resposta temos:</p>
+<pre class="r"><code># default output
+ggnostic(flea_model,
+ #        mapping = ggplot2::aes(color = species),  #Para colorir segundo um fator
+         columnsY = c(&quot;head&quot;, &quot;.fitted&quot;, &quot;.se.fit&quot;, &quot;.resid&quot;, &quot;.std.resid&quot;, &quot;.hat&quot;, &quot;.sigma&quot;, &quot;.cooksd&quot;),
+        continuous = list(default = ggally_smooth, .fitted = ggally_smooth)
+)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
-<div id="diagnostico-de-convergencia-rapida-superdiag" class="section level1">
-<h1>Diagnostico de convergencia rapida: <code>superdiag</code></h1>
-<p>Uma função muito conveniente para analisar representações numéricas de diagnósticos em um ajuste é o pacote <code>superdiag</code> de Tsai, Gill e Rapkin, 2012 que trás uma série de estatísticas para avaliar o desempenho dos ajustes do modelo.</p>
-<pre class="r"><code>library(superdiag)
-superdiag(bayes.mod.fit.mcmc, burnin = 100)</code></pre>
-<pre><code>## Number of chains = 3 
-## Number of iterations = 5000 per chain before discarding the burn-in period
-## Burn-in period = 100 per chain
-## Sample size in total = 14703 
-## 
-## ****************** The Geweke diagnostic: ******************
-## Windows:
-##            chain 1 chain 2 chain 3
-## From start     0.1   0.761  0.0948
-## From stop      0.5   0.152  0.4664
-## 
-## Z-scores:
-##          chain 1 chain 2  chain 3
-## beta[1]   0.8507  0.4175  0.25135
-## beta[2]  -0.6151 -0.2380 -0.06332
-## deviance -0.3843  0.3897  0.81127
-## sigma    -0.6795 -1.2480 -0.07431
-## tau       0.6354  1.1254 -0.20423
-## 
-## *************** The Gelman-Rubin diagnostic: ***************
-## Potential scale reduction factors:
-##          Point est. Upper C.I.
-## beta[1]      1.0002     1.0007
-## beta[2]      1.0001     1.0005
-## deviance     1.0005     1.0006
-## sigma        0.9999     0.9999
-## tau          1.0000     1.0002
-## 
-## Multivariate psrf: 1.0002
-## 
-## ************* The Heidelberger-Welch diagnostic ************
-## Chain 1:
-## epsilon=0.1, alpha=0.05                                       
-##          Stationarity start     p-value
-##          test         iteration        
-## beta[1]  passed       1         0.5508 
-## beta[2]  passed       1         0.6059 
-## deviance passed       1         0.3960 
-## sigma    passed       1         0.1332 
-## tau      passed       1         0.1852 
-##                                       
-##          Halfwidth Mean      Halfwidth
-##          test                         
-## beta[1]  passed      5.04566 0.0123509
-## beta[2]  passed     -0.47775 0.0021941
-## deviance passed    201.89882 0.0759837
-## sigma    passed      6.43278 0.0247998
-## tau      passed      0.02549 0.0001887
-## 
-## Chain 2:
-## epsilon=0.17, alpha=0.01                                       
-##          Stationarity start     p-value
-##          test         iteration        
-## beta[1]  passed       1         0.4153 
-## beta[2]  passed       1         0.3489 
-## deviance passed       1         0.9720 
-## sigma    passed       1         0.5445 
-## tau      passed       1         0.8137 
-##                                       
-##          Halfwidth Mean      Halfwidth
-##          test                         
-## beta[1]  passed      5.04885 0.0120792
-## beta[2]  passed     -0.47829 0.0021594
-## deviance passed    201.91517 0.0750212
-## sigma    passed      6.44628 0.0252348
-## tau      passed      0.02544 0.0001923
-## 
-## Chain 3:
-## epsilon=0.14, alpha=0.005                                       
-##          Stationarity start     p-value
-##          test         iteration        
-## beta[1]  passed       1         0.8291 
-## beta[2]  passed       1         0.8502 
-## deviance passed       1         0.6469 
-## sigma    passed       1         0.5917 
-## tau      passed       1         0.6661 
-##                                       
-##          Halfwidth Mean      Halfwidth
-##          test                         
-## beta[1]  passed      5.03531 0.0120225
-## beta[2]  passed     -0.47566 0.0021479
-## deviance passed    201.87973 0.0842294
-## sigma    passed      6.44738 0.0252513
-## tau      passed      0.02542 0.0001896
-## 
-## *************** The Raftery-Lewis diagnostic ***************
-## Chain 1:
-## Convergence eps = 0.001
-## Quantile (q) = 0.025
-## Accuracy (r) = +/- 0.005
-## Probability (s) = 0.95 
-##                                                 
-##           Burn-in  Total Lower bound  Dependence
-##           (M)      (N)   (Nmin)       factor (I)
-##  beta[1]  30       40170 3746         10.70     
-##  beta[2]  20       38200 3746         10.20     
-##  deviance 20       38850 3746         10.40     
-##  sigma    10       37560 3746         10.00     
-##  tau      20       36950 3746          9.86     
-## 
-## Chain 2:
-## Convergence eps = 0.005
-## Quantile (q) = 0.1
-## Accuracy (r) = +/- 5e-04
-## Probability (s) = 0.95 
-## 
-## You need a sample size of at least 1382926 with these values of q, r and s
-## 
-## Chain 3:
-## Convergence eps = 2e-04
-## Quantile (q) = 0.01
-## Accuracy (r) = +/- 5e-04
-## Probability (s) = 0.975 
-## 
-## You need a sample size of at least 198946 with these values of q, r and s
-## 
-## ************* The Hellinger distance diagnostic ************
-## Between chains: 
-##              Min     Max
-## beta[1]  0.03051 0.03156
-## beta[2]  0.02839 0.03520
-## deviance 0.03087 0.03431
-## sigma    0.01917 0.02645
-## tau      0.02214 0.02893
-## 
-## Within chain 1:
-##              980    1960    2940    3920
-## beta[1]  0.04859 0.04801 0.05292 0.04812
-## beta[2]  0.04997 0.04971 0.06098 0.04418
-## deviance 0.05938 0.05878 0.04371 0.04635
-## sigma    0.05055 0.05103 0.04574 0.04512
-## tau      0.04505 0.04066 0.04975 0.05126
-## 
-## Within chain 2:
-##              980    1960    2940    3920
-## beta[1]  0.04430 0.03712 0.03595 0.04523
-## beta[2]  0.05369 0.04367 0.03696 0.05307
-## deviance 0.04608 0.04331 0.03955 0.04300
-## sigma    0.03454 0.05825 0.04092 0.03750
-## tau      0.03870 0.04064 0.03877 0.03388
-## 
-## Within chain 3:
-##              980    1960    2940    3920
-## beta[1]  0.03974 0.03482 0.04128 0.03791
-## beta[2]  0.04523 0.03781 0.03239 0.04122
-## deviance 0.05892 0.05512 0.03662 0.04346
-## sigma    0.03560 0.03910 0.04235 0.03468
-## tau      0.03383 0.03675 0.02716 0.02924</code></pre>
-<p>Para finalizar, outra função que pode ser útil pata atualizando o modelo, se necessário - por exemplo, se não houver convergência ou pouca convergencia:</p>
-<pre class="r"><code>bayes.mod.fit.upd &lt;- update(bayes.mod.fit, n.iter=1000)
-bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
+<div id="ggallyggpairs" class="section level2">
+<h2><code>GGally::ggpairs</code></h2>
+<p>O <code>ggpairs</code> é uma forma especial de uma ggmatrix que produz uma comparação pairwise de dados multivariados. Por padrão, o ggpairs fornece duas comparações diferentes de cada par de colunas e exibe a densidade ou a contagem da variável respectiva ao longo da diagonal. Com diferentes configurações de parâmetros, a diagonal pode ser substituída pelos valores do eixo e rótulos variáveis.</p>
+<pre class="r"><code>#Funcao de correlacoes
+my_fn &lt;- function(data, mapping, method=&quot;lm&quot;, ...){
+  p &lt;- ggplot(data = data, mapping = mapping) + 
+    geom_point() + 
+    geom_smooth(method=method, ...)
+  p
+}
+data(tips, package = &quot;reshape&quot;)
+#Correlaçoes cruzadas
+ggpairs(tips, lower = list(continuous = my_fn))</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Existem muitos recursos ocultos dentro dos <code>ggpairs()</code> e muitos exemplos podem ser conferidos na internet para obter o máximo do <code>ggpairs()</code>.</p>
 </div>
-<div id="muito-a-estudar" class="section level1">
-<h1>Muito a estudar</h1>
-<p>Assim como toda a Estatística, inferência bayesiana não funciona se a teoria não for aplicada corretamente. É uma ferramenta muito poderosa e necessita ser usada com cautela pois demanda bastante o uso de metodologias estatísticas.</p>
-<p>Como dizia o tio Ben: “grandes poderes trazem grandes responsabilidades” então vamos tomar cuidado com os resultados que encontramos.</p>
+<div id="ggallyggscatmat" class="section level2">
+<h2><code>GGally::ggscatmat</code></h2>
+<p>A principal função é <code>ggscatmat</code>. É semelhante a <code>ggpairs()</code>, mas funciona apenas para dados multivariados puramente numéricos.</p>
+<p>É mais rápido que ggpairs, porque é necessário fazer menos escolhas.</p>
+<p>Ele cria uma matriz com diagramas de dispersão na diagonal inferior, densidades na diagonal e correlações escritas na diagonal superior.</p>
+<p>A sintaxe é inserir o conjunto de dados, as colunas que deseja traçar, uma coluna de cores e um nível alfa.</p>
+<pre class="r"><code>data(flea)
+ggscatmat(flea, columns = 2:4, color=&quot;species&quot;, alpha=0.8)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 </div>
-<div id="referencias" class="section level1">
-<h1>Referencias</h1>
-<p><a href="http://recologia.com.br/2012/12/uma-primeira-olhada-em-estatistica-bayesiana-e-linguagem-bugs/">Uma primeira olhada em estatística bayesiana e linguagem BUGS por Augusto Ribas - blog Recologia</a></p>
-<p><a href="http://www.users.csbsju.edu/~mgass/robert.pdf">John K. Kruschke 2014 Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and Stan.2nd Edition. Academic Press / Elsevier.</a></p>
+</div>
+<div id="ggfottify" class="section level1">
+<h1>ggfottify</h1>
+<p>Outra opção interessante para avaliar o ajuste dos modelos é o pacote <a href="https://cran.r-project.org/web/packages/ggfortify/index.html">ggfottify</a>. Ele disponibiliza uma interface de traçado (como a função <code>plot(modelo_ajustado)</code>) de análise e gráficos em um estilo unificado, porém usando <code>ggplot2</code>.</p>
+<p>Vamos então dar início carregando o pacote:</p>
+<pre class="r"><code>library(ggfortify)</code></pre>
+<p>Veja a seguir alguns dos gráficos disponíveis no R para a análise de resíduos:</p>
+<pre class="r"><code>autoplot(flea_model, which = 1:6, ncol = 3, label.size = 3)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>Especificando as opções de plot</p>
+<p>Algumas propriedades desses gráficos podem ser alteradas. Por exemplo, a opção <code>colour = 'dodgerblue3'</code> é para pontos de dados, o <code>smooth.colour = 'black'</code> é para linhas de suavização e <code>ad.colour = 'blue'</code> é para opções adicionais.</p>
+<p>Veja ainda que ncol e nrow controlam o layout.</p>
+<pre class="r"><code>autoplot(flea_model, which = 1:6, colour = &#39;dodgerblue3&#39;,
+         smooth.colour = &#39;black&#39;, smooth.linetype = &#39;dashed&#39;,
+         ad.colour = &#39;blue&#39;,
+         label.size = 3, label.n = 5, label.colour = &#39;blue&#39;,
+         ncol = 3)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Além disso, você pode usar nomes de colunas para essas propriedades, vamos separar os grupos de machos e fêmeas por cores:</p>
+<pre class="r"><code>autoplot(flea_model, which = 1:6, data = flea,
+         colour = &#39;species&#39;, label.size = 3,
+         ncol = 3)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/index_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>O que será que os crânios da estatística fariam diante de tantos recursos?</p>
 </div>
 
   </div>
@@ -1241,16 +1070,16 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
                 <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/estatistica">Estatistica</a></li>
                 
                 
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/modelagem-estatistica">Modelagem Estatistica</a></li>
+                
+                
                 <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/r">R</a></li>
                 
                 
                 <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/teoria">Teoria</a></li>
                 
                 
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/bayes">Bayes</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/modelagem-estatistica">Modelagem Estatistica</a></li>
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/tidyverse">Tidyverse</a></li>
                 
             
         
@@ -1264,25 +1093,43 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
                 <i class="fa fa-tags"></i>
                 
                 
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/estatistica">Estatistica</a></li>
-                
-                
                 <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/gomesfellipe">gomesfellipe</a></li>
                 
                 
                 <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/r">R</a></li>
                 
                 
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/jags">jags</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/bayes">bayes</a></li>
-                
-                
                 <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelagem">modelagem</a></li>
                 
                 
                 <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelagem-estatistica">modelagem estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/correlacoes">Correlacoes</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/r-markdown">R Markdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/regression">regression</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/teoria">Teoria</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelos-lineares">modelos lineares</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelos-generalizados">modelos generalizados</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/ggfortify">ggfortify</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/ggally">GGally</a></li>
                 
             
         
@@ -1320,8 +1167,8 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
 
 <ul class="actions pagination">
     
-        <li><a href="https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/"
-                class="button big previous">Manipulação de Strings e Text Mining</a></li>
+        <li><a href="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/"
+                class="button big previous">Ajustando Modelos Bayesianos com JAGS</a></li>
     
 
     
@@ -1343,7 +1190,7 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
 
 
 <li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-18-ajustando-modelos-bayesianos-com-jags%2f&amp;text=Ajustando%20Modelos%20Bayesianos%20com%20JAGS&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-24-diagnostico-de-modelos%2f&amp;text=Pacotes%20do%20R%20para%20avaliar%20o%20ajuste%20de%20modelos&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -1362,7 +1209,7 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-18-ajustando-modelos-bayesianos-com-jags%2f&amp;title=Ajustando%20Modelos%20Bayesianos%20com%20JAGS" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-24-diagnostico-de-modelos%2f&amp;title=Pacotes%20do%20R%20para%20avaliar%20o%20ajuste%20de%20modelos" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -1378,7 +1225,7 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-18-ajustando-modelos-bayesianos-com-jags%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-24-diagnostico-de-modelos%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -1527,6 +1374,47 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
           
         
 
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
         
           <article class="mini-post">
             <header>
@@ -1881,6 +1769,9 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
 
 
   
+  
+    
+  
 
 
         
@@ -1936,7 +1827,7 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/r/">r</a>
-                <span style="float:right;">9</span>
+                <span style="float:right;">10</span>
               
             </header>
           </article>
@@ -1947,18 +1838,7 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/estatistica/">estatistica</a>
-                <span style="float:right;">4</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
-                <span style="float:right;">4</span>
+                <span style="float:right;">5</span>
               
             </header>
           </article>
@@ -1969,6 +1849,17 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/teoria/">teoria</a>
+                <span style="float:right;">5</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
                 <span style="float:right;">4</span>
               
             </header>
@@ -1990,7 +1881,29 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
           <article>
             <header>
               
+                <a href="https://gomesfellipe.github.io/categories/modelagem-estatistica/">modelagem-estatistica</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
                 <a href="https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tidyverse/">tidyverse</a>
                 <span style="float:right;">2</span>
               
             </header>
@@ -2078,17 +1991,6 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
           <article>
             <header>
               
-                <a href="https://gomesfellipe.github.io/categories/modelagem-estatistica/">modelagem-estatistica</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
                 <a href="https://gomesfellipe.github.io/categories/reports/">reports</a>
                 <span style="float:right;">1</span>
               
@@ -2101,17 +2003,6 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/text-mining/">text-mining</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://gomesfellipe.github.io/categories/tidyverse/">tidyverse</a>
                 <span style="float:right;">1</span>
               
             </header>
