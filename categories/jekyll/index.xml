@@ -9,17 +9,22 @@
     <lastBuildDate>Mon, 10 Mar 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/jekyll/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Migrate to Hugo from Jekyll</title>
-      <link>https://gomesfellipe.github.io/blog/migrate-from-jekyll/</link>
+      <link>https://gomesfellipe.github.io/blog/migrate-from-jekyll/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/migrate-from-jekyll/</guid>
-      <description>&lt;h2 id=&#34;move-static-content-to-static&#34;&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;
+      <guid>https://gomesfellipe.github.io/blog/migrate-from-jekyll/migrate-from-jekyll/</guid>
+      <description>
+&lt;script src=&#34;https://gomesfellipe.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;move-static-content-to-static&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Jekyll has a rule that any directory not starting with &lt;code&gt;_&lt;/code&gt; will be copied as-is to the &lt;code&gt;_site&lt;/code&gt; output. Hugo keeps all static content under &lt;code&gt;static&lt;/code&gt;. You should therefore move it all there.
 With Jekyll, something that looked like&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/
     ▾ images/
-        logo.png
-&lt;/code&gt;&lt;/pre&gt;</description>
+        logo.png&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
   </channel>

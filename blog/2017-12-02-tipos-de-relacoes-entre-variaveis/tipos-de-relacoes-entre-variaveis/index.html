@@ -1,0 +1,2123 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https:\/\/gomesfellipe.github.io\/"
+        },
+        "articleSection" : "blog",
+        "name" : "Tipos de relações entre variáveis",
+        "headline" : "Tipos de relações entre variáveis",
+        "description" : "Tipos de relações Numérica x Numérica  Graficamente  Duas variaveis Mais de duas variáveis  Normalidade  Graficamente QQ-plot QQ plot com envelope Testes  Dados normais \u002b Relação linear  Coeficiente de Correlação de Pearson \\(\\rho\\)  Dados não normais e\/ou sem relação linear  Coeficiente de Correlação de Spearman \\(\\rho\\) Coeficiente de Correlação de Kendall (\\(\\tau\\) de kendall)   Ordinal x Ordinal Numérica x Ordinal Nominal x Nominal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Nominal x Ordinal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Dicotônica x Ordinal Nominal x Numérca  \\(R^2\\) do ajuste de modelos lineares Bisserial = Pearson Comparações de Grupos  Correlação parcial  Controlando variável numérica Controlando variável Qualitativa  Referências   Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2017",
+        "datePublished": "2017-12-02 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2017-12-02 00:00:00 \u002b0000 UTC",
+        "url" : "https:\/\/gomesfellipe.github.io\/blog\/2017-12-02-tipos-de-relacoes-entre-variaveis\/tipos-de-relacoes-entre-variaveis\/",
+        "wordCount" : "2273",
+        "keywords" : [ "gomesfellipe","Relações entre variáveis","Correlações","Tipos de variáveis","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Tipos de relações entre variáveis</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.80.0" />
+        
+
+
+        
+            <meta name="author" content="Fellipe">
+        
+        
+            
+                <meta name="description" content="Este blog é fruto da minha paixão pela Estatística e Ciência de dados, trago aqui de maneira prática e descontraída algumas ferramentas, técnicas, curiosidades e brincadeiras disponíveis quando se utiliza o R como linguagem de programação. Espero que aproveite o conteúdo!">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tipos de relações entre variáveis"/>
+<meta name="twitter:description" content="Tipos de relações Numérica x Numérica  Graficamente  Duas variaveis Mais de duas variáveis  Normalidade  Graficamente QQ-plot QQ plot com envelope Testes  Dados normais &#43; Relação linear  Coeficiente de Correlação de Pearson \(\rho\)  Dados não normais e/ou sem relação linear  Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall)   Ordinal x Ordinal Numérica x Ordinal Nominal x Nominal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Nominal x Ordinal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Dicotônica x Ordinal Nominal x Numérca  \(R^2\) do ajuste de modelos lineares Bisserial = Pearson Comparações de Grupos  Correlação parcial  Controlando variável numérica Controlando variável Qualitativa  Referências   Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis."/>
+<meta name="twitter:site" content="@gomesfellipe"/>
+
+        <meta property="og:title" content="Tipos de relações entre variáveis" />
+<meta property="og:description" content="Tipos de relações Numérica x Numérica  Graficamente  Duas variaveis Mais de duas variáveis  Normalidade  Graficamente QQ-plot QQ plot com envelope Testes  Dados normais &#43; Relação linear  Coeficiente de Correlação de Pearson \(\rho\)  Dados não normais e/ou sem relação linear  Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall)   Ordinal x Ordinal Numérica x Ordinal Nominal x Nominal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Nominal x Ordinal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Dicotônica x Ordinal Nominal x Numérca  \(R^2\) do ajuste de modelos lineares Bisserial = Pearson Comparações de Grupos  Correlação parcial  Controlando variável numérica Controlando variável Qualitativa  Referências   Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/" />
+<meta property="article:published_time" content="2017-12-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-02T00:00:00+00:00" />
+
+        <meta property="og:image" content="https://gomesfellipe.github.io//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="Tipos de relações entre variáveis">
+<meta itemprop="description" content="Tipos de relações Numérica x Numérica  Graficamente  Duas variaveis Mais de duas variáveis  Normalidade  Graficamente QQ-plot QQ plot com envelope Testes  Dados normais &#43; Relação linear  Coeficiente de Correlação de Pearson \(\rho\)  Dados não normais e/ou sem relação linear  Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall)   Ordinal x Ordinal Numérica x Ordinal Nominal x Nominal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Nominal x Ordinal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Dicotônica x Ordinal Nominal x Numérca  \(R^2\) do ajuste de modelos lineares Bisserial = Pearson Comparações de Grupos  Correlação parcial  Controlando variável numérica Controlando variável Qualitativa  Referências   Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.">
+<meta itemprop="datePublished" content="2017-12-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2017-12-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2273">
+
+
+
+<meta itemprop="keywords" content="gomesfellipe,Relações entre variáveis,Correlações,Tipos de variáveis," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/main.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/add-on.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-105500464-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="https://gomesfellipe.github.io/">blog</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>CV
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/blog/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>CV
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/blog/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/gtrends-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-04'>
+                                    December 4, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-02'>
+                                    December 2, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correla%C3%A7oes/tipos-de-correlacoes/">Tipos de Correlaçoes</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-01'>
+                                    December 1, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/creating-a-new-theme/">Creating a New Theme</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-09-28'>
+                                    September 28, 2014</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/creating-a-new-theme/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/09/pic03.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/goisforlovers/goisforlovers/">(Hu)go Template Primer</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-04-02'>
+                                    April 2, 2014</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/goisforlovers/goisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/042014/04/pic02.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/hugoisforlovers/hugoisforlovers/">Getting Started with Hugo</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-04-02'>
+                                    April 2, 2014</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/hugoisforlovers/hugoisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic01.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/migrate-from-jekyll/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-03-10'>
+                                    March 10, 2014</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-02-tipos-de-relacoes-entre-variaveis%2ftipos-de-relacoes-entre-variaveis%2f&amp;text=Tipos%20de%20rela%c3%a7%c3%b5es%20entre%20vari%c3%a1veis&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-02-tipos-de-relacoes-entre-variaveis%2ftipos-de-relacoes-entre-variaveis%2f&amp;title=Tipos%20de%20rela%c3%a7%c3%b5es%20entre%20vari%c3%a1veis" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-02-tipos-de-relacoes-entre-variaveis%2ftipos-de-relacoes-entre-variaveis%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2017-12-02'>
+            December 2, 2017</time>
+        <span class="author">Fellipe</span>
+        
+            <p>11 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-02-tipos-de-relacoes-entre-variaveis%2ftipos-de-relacoes-entre-variaveis%2f&amp;text=Tipos%20de%20rela%c3%a7%c3%b5es%20entre%20vari%c3%a1veis&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-02-tipos-de-relacoes-entre-variaveis%2ftipos-de-relacoes-entre-variaveis%2f&amp;title=Tipos%20de%20rela%c3%a7%c3%b5es%20entre%20vari%c3%a1veis" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-02-tipos-de-relacoes-entre-variaveis%2ftipos-de-relacoes-entre-variaveis%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+
+  <div id="content">
+    
+<script src="https://gomesfellipe.github.io/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#tipos-de-relações">Tipos de relações</a></li>
+<li><a href="#numérica-x-numérica">Numérica x Numérica</a>
+<ul>
+<li><a href="#graficamente">Graficamente</a>
+<ul>
+<li><a href="#duas-variaveis">Duas variaveis</a></li>
+<li><a href="#mais-de-duas-variáveis">Mais de duas variáveis</a></li>
+</ul></li>
+<li><a href="#normalidade">Normalidade</a>
+<ul>
+<li><a href="#graficamente-1">Graficamente</a></li>
+<li><a href="#qq-plot">QQ-plot</a></li>
+<li><a href="#qq-plot-com-envelope">QQ plot com envelope</a></li>
+<li><a href="#testes">Testes</a></li>
+</ul></li>
+<li><a href="#dados-normais-relação-linear">Dados normais + Relação linear</a>
+<ul>
+<li><a href="#coeficiente-de-correlação-de-pearson-rho">Coeficiente de Correlação de Pearson <span class="math inline">\(\rho\)</span></a></li>
+</ul></li>
+<li><a href="#dados-não-normais-eou-sem-relação-linear">Dados não normais e/ou sem relação linear</a>
+<ul>
+<li><a href="#coeficiente-de-correlação-de-spearman-rho">Coeficiente de Correlação de Spearman <span class="math inline">\(\rho\)</span></a></li>
+<li><a href="#coeficiente-de-correlação-de-kendall-tau-de-kendall">Coeficiente de Correlação de Kendall (<span class="math inline">\(\tau\)</span> de kendall)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ordinal-x-ordinal">Ordinal x Ordinal</a></li>
+<li><a href="#numérica-x-ordinal">Numérica x Ordinal</a></li>
+<li><a href="#nominal-x-nominal">Nominal x Nominal</a>
+<ul>
+<li><a href="#qui-quadrado-de-independencia">Qui-quadrado de independencia</a></li>
+<li><a href="#teste-exato-de-fisher">Teste exato de fisher</a></li>
+<li><a href="#medidas-de-associação">Medidas de associação</a></li>
+<li><a href="#kappa">Kappa</a></li>
+</ul></li>
+<li><a href="#nominal-x-ordinal">Nominal x Ordinal</a>
+<ul>
+<li><a href="#qui-quadrado-de-independencia-1">Qui-quadrado de independencia</a></li>
+<li><a href="#teste-exato-de-fisher-1">Teste exato de fisher</a></li>
+<li><a href="#medidas-de-associação-1">Medidas de associação</a></li>
+<li><a href="#kappa-1">Kappa</a></li>
+</ul></li>
+<li><a href="#dicotônica-x-ordinal">Dicotônica x Ordinal</a></li>
+<li><a href="#nominal-x-numérca">Nominal x Numérca</a>
+<ul>
+<li><a href="#r2-do-ajuste-de-modelos-lineares"><span class="math inline">\(R^2\)</span> do ajuste de modelos lineares</a></li>
+<li><a href="#bisserial-pearson">Bisserial = Pearson</a></li>
+<li><a href="#comparações-de-grupos">Comparações de Grupos</a></li>
+</ul></li>
+<li><a href="#correlação-parcial">Correlação parcial</a>
+<ul>
+<li><a href="#controlando-variável-numérica">Controlando variável numérica</a></li>
+<li><a href="#controlando-variável-qualitativa">Controlando variável Qualitativa</a></li>
+</ul></li>
+<li><a href="#referências">Referências</a></li>
+</ul>
+</div>
+
+<div id="tipos-de-relações" class="section level1">
+<h1>Tipos de relações</h1>
+<p>Vimos no <a href="https://gomesfellipe.github.io/post/tipos-de-correlacoes/">último post</a> sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.</p>
+<p>Já sabemos que esses coeficientes variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.</p>
+<p>Porém o que fazer com tantas métricas? Qual o cálculo mais aconselhado para as relações dois a dois de cada tipo de variáveis (medidas, quantidades, nomes, classes com algum tipo de ordem ou hierarquia)?</p>
+<p>Não basta chegar no R e fazer um <code>pairs(dados)</code> junto com <code>cor(dados)</code> e olhar aquele monte de números sem saber se eles apresentam algum resultado realmente relevante embasado na teoria estatística.</p>
+<p>Vejamos então os tipos de relações possíveis e quais tipos de medidas podem ser utilizadas a seguir.</p>
+</div>
+<div id="numérica-x-numérica" class="section level1">
+<h1>Numérica x Numérica</h1>
+<p>Tipos de medidas que podem ser utilizadas:</p>
+<ul>
+<li>Pearson (Intensidade de relacionamento linear)</li>
+<li>Spearman (Relação monotônica entre dados emparelhados)</li>
+<li>Kendall (Correlação entre duas variáveis ordinais de amostras pequenas)</li>
+</ul>
+<div id="graficamente" class="section level2">
+<h2>Graficamente</h2>
+<p>Um jeito informal e intuitivo de avaliar a relação é verificar se existe relação linear entre as variáveis, além de identificar se esta relação é positiva, negativa ou inexistente.</p>
+<div id="duas-variaveis" class="section level3">
+<h3>Duas variaveis</h3>
+<p>Algumas opções de como avaliar graficamente duas variáveis:</p>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-1-1.png" width="672" /><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+</div>
+<div id="mais-de-duas-variáveis" class="section level3">
+<h3>Mais de duas variáveis</h3>
+<p>Quando existe a presença de mais de duas variáveis em estudo podemos utilizar outras características gráficas além do eixo x e y para identificar padrões, veja:</p>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-2-1.png" width="672" /><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-2-2.png" width="672" /><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
+</div>
+</div>
+<div id="normalidade" class="section level2">
+<h2>Normalidade</h2>
+<p>A suposição de normalidade é amplamente utilizada na estatística.</p>
+<div id="graficamente-1" class="section level3">
+<h3>Graficamente</h3>
+<p>Avaliando a normalidade de forma visual com alguns comandos do ggplot:</p>
+<pre class="r"><code>### Verificando a Normalidade Através do Histograma
+
+# Criando um painel com o espaço de 4 gráficos
+par(mfrow=c(2,2))
+
+#preenchendo os quatro espaços com 4 histogramas (um para cada variável)
+histogram=function(x){
+  hist(x,prob=T)
+  lines(density(x),col=&quot;red&quot;)
+  curve(dnorm(x,mean(x), sd(x)),add=T,col=&quot;blue&quot;)
+}
+histogram(dados$GASTEDU)
+histogram(dados$GASAUDE)
+histogram(dados$GASLAZER)
+histogram(dados$IDADE)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="qq-plot" class="section level3">
+<h3>QQ-plot</h3>
+<p>Compara os quantis dos dados com os quantis de uma normal padrão</p>
+<pre class="r"><code>par(mfrow=c(2,2))
+### Verificando a Normalidade Através do QQplot
+qq = function(x){
+  qqnorm(x,main = &quot;&quot;, xlab = &quot;Quantis teóricos N(0,1)&quot;, pch = 20)
+qqline(x, lty = 1, col = &quot;red&quot;)
+}
+
+qq(dados$IDADE)
+qq(dados$GASAUDE)
+qq(dados$GASLAZER)
+qq(dados$GASTEDU)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="qq-plot-com-envelope" class="section level3">
+<h3>QQ plot com envelope</h3>
+<p>Incluindo uma região de aceitação, para cada ponto constroi o intervalo de confiança</p>
+<pre class="r"><code>#Envelope
+envelope&lt;-function(x){
+  n &lt;- length(x)
+  nsim &lt;- 100 # Número de simulações
+  conf &lt;- 0.95 # Coef. de confiança
+  # Dados simulados ~ normal
+  dadossim &lt;- matrix(rnorm(n*nsim, mean = mean(x), sd = sd(x)), nrow = n)
+  dadossim &lt;- apply(dadossim,2,sort)
+  # Limites da banda e média
+  infsup&lt;-apply(dadossim,1,quantile, probs = c((1 - conf) / 2,(1 + conf) / 2))
+  xbsim &lt;- rowMeans(dadossim)
+  faixay &lt;- range(x, dadossim)
+  qq0 &lt;- qqnorm(x, main = &quot;&quot;, xlab = &quot;Quantis teóricos N(0,1)&quot;, pch = 20, ylim = faixay)
+  eixox &lt;- sort(qq0$x)
+  lines(eixox, xbsim)
+  lines(eixox, infsup[1,], col = &quot;red&quot;)
+  lines(eixox, infsup[2,], col = &quot;red&quot;)
+}
+
+par(mfrow=c(2,2))
+envelope(dados$GASTEDU)
+envelope(dados$GASAUDE)
+envelope(dados$GASLAZER)
+envelope(dados$IDADE)</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="testes" class="section level3">
+<h3>Testes</h3>
+<p>A seguir, diversos testes de hipóteses para avaliar:</p>
+<p><span class="math display">\[
+H_0: \text{Dados Normais} \\
+H_1: \text{Dados Não Normais} 
+\]</span></p>
+<p>A seguir uma função que criei colocando logo uma variedade de testes para fornecer diferentes evidências para nossa hipótese:</p>
+<pre class="r"><code>normalidade&lt;-function(x){
+t1 &lt;- ks.test(x, &quot;pnorm&quot;,mean(x), sd(x)) # KS  
+t2 &lt;- lillie.test(x) # Lilliefors
+t3 &lt;- cvm.test(x) # Cramér-von Mises
+t4 &lt;- shapiro.test(x) # Shapiro-Wilk 
+t5 &lt;- sf.test(x) # Shapiro-Francia
+t6 &lt;- ad.test(x) # Anderson-Darling
+t7&lt;-pearson.test(x) # Pearson Test of Normality
+
+testes &lt;- c(t1$method, t2$method, t3$method, t4$method, t5$method,t6$method,t7$method)
+valorp &lt;- c(t1$p.value, t2$p.value, t3$p.value, t4$p.value, t5$p.value,t6$p.value,t7$p.value)
+
+resultados &lt;- cbind(valorp)
+rownames(resultados) &lt;- testes
+print(resultados, digits = 4)
+
+}
+
+normalidade(dados$GASAUDE)</code></pre>
+<pre><code>##                                                valorp
+## One-sample Kolmogorov-Smirnov test             0.9238
+## Lilliefors (Kolmogorov-Smirnov) normality test 0.6494
+## Cramer-von Mises normality test                0.6605
+## Shapiro-Wilk normality test                    0.6297
+## Shapiro-Francia normality test                 0.6286
+## Anderson-Darling normality test                0.6346
+## Pearson chi-square normality test              0.3249</code></pre>
+</div>
+</div>
+<div id="dados-normais-relação-linear" class="section level2">
+<h2>Dados normais + Relação linear</h2>
+<p>Quando os dados são normais e a relação entre variáveis é linear, podemos utilizar os mesmos testes já comentados:</p>
+<ul>
+<li>Pearson</li>
+<li>Spearman (amostras maiores)</li>
+<li>Kendall (amostras pequenas)</li>
+</ul>
+<div id="coeficiente-de-correlação-de-pearson-rho" class="section level3">
+<h3>Coeficiente de Correlação de Pearson <span class="math inline">\(\rho\)</span></h3>
+<p>No R:</p>
+<pre class="r"><code>#Matriz de correlações:
+cor(dados$GASTEDU,dados$GASAUDE)</code></pre>
+<pre><code>## [1] 0.77825</code></pre>
+<p>Como saber se a correlação é significativa?</p>
+<p><span class="math display">\[
+H_0: \text{Não existe correlação} \\
+H_1: \text{Existe correlação} 
+\]</span></p>
+<p>Aplicando o teste:</p>
+<pre class="r"><code>#Teste de correlação:
+cor.test(dados$GASTEDU,dados$GASAUDE,method = &quot;pearson&quot;)</code></pre>
+</div>
+</div>
+<div id="dados-não-normais-eou-sem-relação-linear" class="section level2">
+<h2>Dados não normais e/ou sem relação linear</h2>
+<p>Quando os dados não se apresentam conforme a distribuição normal ou não apresentam relação linear, temos disponíveis o cálculo das seguintes correlações:</p>
+<ul>
+<li>Spearman (amostras maiores)</li>
+<li>kendall (amostras pequenas)</li>
+</ul>
+<div id="coeficiente-de-correlação-de-spearman-rho" class="section level3">
+<h3>Coeficiente de Correlação de Spearman <span class="math inline">\(\rho\)</span></h3>
+<p>Ideal quando temos variáveis medidas apenas em uma escala ordinal.</p>
+<p>Executando no R:</p>
+<pre class="r"><code>#Teste de correlação:
+cor.test(dados$GASTEDU,dados$GASAUDE,method = &quot;spearman&quot;)</code></pre>
+</div>
+<div id="coeficiente-de-correlação-de-kendall-tau-de-kendall" class="section level3">
+<h3>Coeficiente de Correlação de Kendall (<span class="math inline">\(\tau\)</span> de kendall)</h3>
+<p>Coeficiente de Kendall é, muitas vezes, interpretado como uma medida de concordância entre dois conjuntos de classificações relativas a um conjunto de objetos de estudo.</p>
+<p>Vamos considerar apenas os 20 primeiros elementos da amostra:</p>
+<p>Aplicação no R:</p>
+<pre class="r"><code>#Teste de correlação:
+cor.test(dados2$IDADE,dados2$GASAUDE,method = &quot;kendall&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div id="ordinal-x-ordinal" class="section level1">
+<h1>Ordinal x Ordinal</h1>
+<p>Tipos de correlações possíveis para calcular:</p>
+<ul>
+<li>Spearman (amostras maiores)</li>
+<li>kendall (amostras pequenas)</li>
+</ul>
+<p>Exemplo de uso de Spearman no R:</p>
+<pre class="r"><code>cor(dados$ESCOLAR, dados$RENDA, method = &quot;spearman&quot;)
+cor.test(dados$ESCOLAR, dados$RENDA, method = &quot;spearman&quot;)</code></pre>
+<p>Exemplo de uso de Kendall com uma amostra menor:</p>
+<pre class="r"><code>cor(dados2$ESCOLAR, dados2$RENDA, method = &quot;kendall&quot;)
+cor.test(dados2$ESCOLAR, dados2$RENDA, method = &quot;kendall&quot;)</code></pre>
+</div>
+<div id="numérica-x-ordinal" class="section level1">
+<h1>Numérica x Ordinal</h1>
+<p>Independente de ser normal ou não</p>
+<ul>
+<li>Spearman (amostras maiores)</li>
+<li>Kendall (amostras pequenas)</li>
+<li>Comparações de grupos (Testes de Hipóteses)</li>
+</ul>
+<p>Exemplo de uso de Spearman no R:</p>
+<pre class="r"><code>cor(dados$IDADE, dados$RENDA, method = &quot;spearman&quot;)
+cor.test(dados$IDADE, dados$RENDA, method = &quot;spearman&quot;)</code></pre>
+<p>Exemplo de uso de Kendall com uma amostra menor:</p>
+<pre class="r"><code>cor(dados2$IDADE, dados2$RENDA, method = &quot;kendall&quot;)
+cor.test(dados2$IDADE, dados2$RENDA, method = &quot;kendall&quot;)</code></pre>
+</div>
+<div id="nominal-x-nominal" class="section level1">
+<h1>Nominal x Nominal</h1>
+<p>Os termos nível nominal de
+medida ou escala nominal são utilizadas para se referir
+a àqueles dados que só podem ser categorizados. No
+sentido estrito, não existe uma medida ou escala envolvida,
+o que existe é apenas uma contagem.</p>
+<p>Vamos avaliar a profissão e o estado civil primeiramente, precisamos da tabela de contingência.</p>
+<p>Tabelas de Contingência (ou tabelas de freqüência de dupla entrada) são tabelas em que as frequências correspondem a duas classificações, uma classificação está nas linhas da tabela e a outra está nas colunas. Veja:</p>
+<pre class="r"><code>tab=ftable(as.factor(dados$PROFI),
+      as.factor(dados$ESTCIVIL),
+      dnn=c(&quot;Profissão&quot;, &quot;EStado Civil&quot;))
+tab</code></pre>
+<pre><code>##           EStado Civil  1  2  3  4
+## Profissão                         
+## 1                      26 13 29  1
+## 2                      24  6 21  0</code></pre>
+<div id="qui-quadrado-de-independencia" class="section level2">
+<h2>Qui-quadrado de independencia</h2>
+<p><span class="math display">\[
+H_0: \text{São independentes (Não associadas)} \\
+H_1: \text{Não são independentes (São associadas) }
+\]</span></p>
+<p>Executando o teste:</p>
+<pre class="r"><code>chisq.test(dados$PROFI, dados$ESTCIVIL)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  dados$PROFI and dados$ESTCIVIL
+## X-squared = 2.2905, df = 3, p-value = 0.5143</code></pre>
+<p><strong>OBS</strong>: Correção de YAKES quando existe alguma frequência esperada menor do que 5, veja:</p>
+</div>
+<div id="teste-exato-de-fisher" class="section level2">
+<h2>Teste exato de fisher</h2>
+<p>O teste qui-quadrado quando aplicado a amostras pequenas, como por exemplo com tamanho inferior a 20, veja:</p>
+<pre class="r"><code>fisher.test(dados2$PROFI, dados2$ESTCIVIL)</code></pre>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  dados2$PROFI and dados2$ESTCIVIL
+## p-value = 0.5226
+## alternative hypothesis: two.sided</code></pre>
+</div>
+<div id="medidas-de-associação" class="section level2">
+<h2>Medidas de associação</h2>
+<p>os testes fornecem apenas a resposta se as variáveis estão ou não correlacionadas. Para saber a intensidade desta relação, utilizam-se medidas de associação.</p>
+<p>Considere as seguintes medidas:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{\phi}\)</span> <strong>(phi)</strong> (é o R de pearson quando aplicado a tabelas 2x2)</li>
+<li><strong>V de Crámer</strong></li>
+<li><strong>Coeficiente de contingência</strong></li>
+</ul>
+<p>Ambos variam de 0 (ausência de associação) a 1 (associação muito forte).</p>
+<pre class="r"><code>#Comando para tabela cruzada:
+tab &lt;- xtabs(~ PROFI + ESTCIVIL, data = dados)
+
+#Calcular as medidas de associação da tabela:
+summary(assocstats(tab))</code></pre>
+<pre><code>## 
+## Call: xtabs(formula = ~PROFI + ESTCIVIL, data = dados)
+## Number of cases in table: 120 
+## Number of factors: 2 
+## Test for independence of all factors:
+##  Chisq = 2.2905, df = 3, p-value = 0.5143
+##  Chi-squared approximation may be incorrect
+##                     X^2 df P(&gt; X^2)
+## Likelihood Ratio 2.6823  3  0.44324
+## Pearson          2.2905  3  0.51435
+## 
+## Phi-Coefficient   : NA 
+## Contingency Coeff.: 0.137 
+## Cramer&#39;s V        : 0.138</code></pre>
+<pre class="r"><code>#phi  (r aplicado na Tabela de 2x2 --&gt; Phi)
+cor(dados$PROFI,dados$ESTCIVIL)  </code></pre>
+<pre><code>## [1] -0.06972599</code></pre>
+</div>
+<div id="kappa" class="section level2">
+<h2>Kappa</h2>
+<p>É uma medida de concordância.</p>
+<p><strong>Obs</strong>: Também pode ser utilizado o coeficiente de Kappa ponderado (pesquisar)</p>
+<pre class="r"><code>#Kappa
+medico1&lt;-sample(0:1,10, replace=T)
+medico2&lt;-sample(0:1,10, replace=T)
+
+#Kappa.test(x, y=NULL, conf.level=0.95)
+
+fmsb::Kappa.test(medico1,medico2)</code></pre>
+<pre><code>## $Result
+## 
+##  Estimate Cohen&#39;s kappa statistics and test the null hypothesis that
+##  the extent of agreement is same as random (kappa=0)
+## 
+## data:  medico1 and medico2
+## Z = 0, p-value = 0.5
+## 95 percent confidence interval:
+##  -0.619795  0.619795
+## sample estimates:
+## [1] 0
+## 
+## 
+## $Judgement
+## [1] &quot;Slight agreement&quot;</code></pre>
+</div>
+</div>
+<div id="nominal-x-ordinal" class="section level1">
+<h1>Nominal x Ordinal</h1>
+<p>Vamos avaliar a profissão e o estado civil primeiramente, precisamos da tabela de contingência:</p>
+<pre class="r"><code>tab=ftable(as.factor(dados$PROFI),
+      as.factor(dados$RENDA),
+      dnn=c(&quot;Profissão&quot;, &quot;Renda&quot;))
+tab</code></pre>
+<pre><code>##           Renda  1  2  3  4
+## Profissão                  
+## 1                4 52  9  4
+## 2                0 30 17  4</code></pre>
+<div id="qui-quadrado-de-independencia-1" class="section level2">
+<h2>Qui-quadrado de independencia</h2>
+<p><span class="math display">\[
+H_0: \text{São independentes (Não associadas)} \\
+H_1: \text{Não são independentes (São associadas) }
+\]</span></p>
+<p>Executando o teste:</p>
+<pre class="r"><code>chisq.test(dados$PROFI, dados$RENDA)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  dados$PROFI and dados$RENDA
+## X-squared = 9.8864, df = 3, p-value = 0.01956</code></pre>
+<p><strong>OBS</strong>: Correção de YAKES quando existe alguma frequência esperada menor do que 5, veja:</p>
+</div>
+<div id="teste-exato-de-fisher-1" class="section level2">
+<h2>Teste exato de fisher</h2>
+<p>O teste qui-quadrado quando aplicado a amostras pequenas, como por exemplo com tamanho inferior a 20, veja:</p>
+<pre class="r"><code>fisher.test(dados2$PROFI, dados2$RENDA)</code></pre>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  dados2$PROFI and dados2$RENDA
+## p-value = 1
+## alternative hypothesis: two.sided</code></pre>
+</div>
+<div id="medidas-de-associação-1" class="section level2">
+<h2>Medidas de associação</h2>
+<p>os testes fornecem apenas a resposta se as variáveis estão ou não correlacionadas. Para saber a intensidade desta relação, utilizam-se medidas de associação.</p>
+<p>Considere as seguintes medidas:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{\phi}\)</span> <strong>(phi) </strong> (é o R de pearson quando aplicado a tabelas 2x2)</li>
+<li><strong>V de Crámer</strong></li>
+<li><strong>Coeficiente de contingência</strong></li>
+</ul>
+<p>Ambos variam de 0 (ausência de associação) a 1 (associação muito forte).</p>
+<pre class="r"><code>#Comando para tabela cruzada:
+tab &lt;- xtabs(~ PROFI + RENDA, data = dados)
+
+#Calcular as medidas de associação da tabela:
+summary(assocstats(tab))</code></pre>
+<pre><code>## 
+## Call: xtabs(formula = ~PROFI + RENDA, data = dados)
+## Number of cases in table: 120 
+## Number of factors: 2 
+## Test for independence of all factors:
+##  Chisq = 9.886, df = 3, p-value = 0.01956
+##  Chi-squared approximation may be incorrect
+##                      X^2 df P(&gt; X^2)
+## Likelihood Ratio 11.3123  3 0.010152
+## Pearson           9.8864  3 0.019557
+## 
+## Phi-Coefficient   : NA 
+## Contingency Coeff.: 0.276 
+## Cramer&#39;s V        : 0.287</code></pre>
+<pre class="r"><code>#phi  (r aplicado na Tabela de 2x2 --&gt; Phi)
+cor(dados$PROFI,dados$RENDA)  </code></pre>
+<pre><code>## [1] 0.231198</code></pre>
+</div>
+<div id="kappa-1" class="section level2">
+<h2>Kappa</h2>
+<p>Testa a concordância entre duas pessoas (a hipótese nula é de que a concordância é zero)</p>
+<pre class="r"><code>#Kappa
+medico1&lt;-sample(0:1,10, replace=T)
+medico2&lt;-sample(0:1,10, replace=T)
+
+#Kappa.test(x, y=NULL, conf.level=0.95)
+
+fmsb::Kappa.test(medico1,medico2)</code></pre>
+<pre><code>## $Result
+## 
+##  Estimate Cohen&#39;s kappa statistics and test the null hypothesis that
+##  the extent of agreement is same as random (kappa=0)
+## 
+## data:  medico1 and medico2
+## Z = -0.63246, p-value = 0.7365
+## 95 percent confidence interval:
+##  -0.8072726  0.4072726
+## sample estimates:
+## [1] -0.2
+## 
+## 
+## $Judgement
+## [1] &quot;No agreement&quot;</code></pre>
+</div>
+</div>
+<div id="dicotônica-x-ordinal" class="section level1">
+<h1>Dicotônica x Ordinal</h1>
+<p>Uma variável dicotômica é uma variável qualitativa que só possui duas categorias.</p>
+<p>Portanto a mesma abordagem utilizada em:</p>
+<p>Dicotômica x Ordinal = Nominal x Ordinal = Nominal x Nominal</p>
+</div>
+<div id="nominal-x-numérca" class="section level1">
+<h1>Nominal x Numérca</h1>
+<div id="r2-do-ajuste-de-modelos-lineares" class="section level2">
+<h2><span class="math inline">\(R^2\)</span> do ajuste de modelos lineares</h2>
+<p>Pode-se ajustar um modelo de regressão linear simples e avaliar seu coeficiente de determinação, veja:</p>
+<pre class="r"><code>#R2:
+summary(lm(dados$GASAUDE~dados$ESTCIVIL))$r.squared</code></pre>
+<pre><code>## [1] 0.0001015817</code></pre>
+</div>
+<div id="bisserial-pearson" class="section level2">
+<h2>Bisserial = Pearson</h2>
+<p>O pearson aplicada em uma relação de variável dicotômica com uma variável ordinal</p>
+</div>
+<div id="comparações-de-grupos" class="section level2">
+<h2>Comparações de Grupos</h2>
+<p>Quando por exemplo, trabalha-se com “renda por grupo”, existem muitas abordagens como o teste t ou anova como opções de testes paramétricos e muito mais</p>
+</div>
+</div>
+<div id="correlação-parcial" class="section level1">
+<h1>Correlação parcial</h1>
+<div id="controlando-variável-numérica" class="section level2">
+<h2>Controlando variável numérica</h2>
+<p>Pode ser que queremos estudar a correlação entre x e y, porém existem uma variável z que também está correlacionada com alguma das duas variáveis, veja:</p>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<pre><code>## [1] 0.7821115</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
+<pre><code>## [1] 0.7476177</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-27-3.png" width="672" /></p>
+<pre><code>## [1] 0.7821115</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-27-4.png" width="672" /></p>
+<pre><code>## [1] 0.77825</code></pre>
+<p>Isto implica que a variável educação é uma variável de confusão, veja as correlações:</p>
+<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
+##   method from   
+##   +.gg   ggplot2</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>O que acontece com a associação entre lazer e saúde quando controlamos a variável de confusão educação?</p>
+<pre class="r"><code># correlação LAZER vc SAÚDE controlando o EDUCAÇÃO (correlação parcial de primeira ordem = um variável para controlar)
+rp&lt;-ggm::pcor(c(&quot;GASLAZER&quot;, &quot;GASAUDE&quot;, &quot;GASTEDU&quot;),var(dados))  #controlando A EDUCAÇÃO
+
+#Significância da Correlação Parcial
+
+#Coeficiente de Determinação com base no Coef. de Pearson
+r&lt;-cor(dados$GASLAZER,dados$GASAUDE) #sem controlar o lazer
+
+#Coeficiente de Determinação com base na correlação parcial
+pcor.test(rp,1,length(dados$GASAUDE))  #&quot;1&quot; porque só usamos uma variável de controle</code></pre>
+<pre><code>## $tval
+## [1] 5.922106
+## 
+## $df
+## [1] 117
+## 
+## $pvalue
+## [1] 3.259388e-08</code></pre>
+<pre class="r"><code>data.frame(&quot;Sem correção&quot;=r^2, &quot;Com correção&quot;=rp^2)</code></pre>
+<pre><code>##   Sem.correção Com.correção
+## 1    0.6116985    0.2306242</code></pre>
+</div>
+<div id="controlando-variável-qualitativa" class="section level2">
+<h2>Controlando variável Qualitativa</h2>
+<p>A variável de controle (ou qualquer uma delas) pode ser dicotômica (categórica)</p>
+<pre class="r"><code>#Visualmente:
+ggplot(data = dados, aes(x = GASLAZER, y = GASAUDE,colour = as.factor(PROFI))) + geom_point()</code></pre>
+<p><img src="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<pre class="r"><code>#Sem controlar:
+r=cor(dados$GASLAZER, dados$GASAUDE)
+rp&lt;-pcor(c(&quot;GASLAZER&quot;, &quot;GASAUDE&quot;, &quot;PROFI&quot;),var(dados))
+data.frame(&quot;Sem correção&quot;=r^2, &quot;Com correção&quot;=rp^2)</code></pre>
+<pre><code>##   Sem.correção Com.correção
+## 1    0.6116985    0.6162497</code></pre>
+</div>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<p><a href="https://www.amazon.com.br/Practical-Nonparametric-Statistics-W-Conover/dp/0471160687">CONOVER, W. J. Pratical Nonparametric Statistics</a></p>
+<p><a href="https://www.amazon.com.br/Estat%C3%ADstica-n%C3%A3o-Param%C3%A9trica-Para-Ci%C3%AAncias-Comportamento-ebook/dp/B06Y2F9NQY/ref=sr_1_2?s=books&amp;ie=UTF8&amp;qid=1515522153&amp;sr=1-2">SIEGEL, S. Estatística Não Paramétrica para as Ciências do Comportamento</a></p>
+<p><a href="https://www.amazon.com.br/Estat%C3%ADstica-B%C3%A1sica-Pedro-Morettin/dp/8502207997">BUSSAB, W. de O.;MORETTIN, P. A. Estatística básica. 5 ed.</a></p>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/teoria">Teoria</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/rela%C3%A7%C3%B5es-entre-vari%C3%A1veis">Relações entre variáveis</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/correla%C3%A7%C3%B5es">Correlações</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/tipos-de-vari%C3%A1veis">Tipos de variáveis</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correla%C3%A7oes/tipos-de-correlacoes/"
+                class="button big previous">Tipos de Correlaçoes</a></li>
+    
+
+    
+        <li><a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/"
+                class="button big next">Analisando o mercado de cryptomoedas com R</a></li>
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='https://gomesfellipe.github.io/' class="logo"><img src="https://gomesfellipe.github.io/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/gtrends-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="https://gomesfellipe.github.io/date/dplyr.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-04'>
+                December 4, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-02'>
+                December 2, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correla%C3%A7oes/tipos-de-correlacoes/">Tipos de Correlaçoes</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-01'>
+                December 1, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/creating-a-new-theme/">Creating a New Theme</a>
+              </h3>
+              
+              <time class="published" datetime='2014-09-28'>
+                September 28, 2014
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/creating-a-new-theme/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/09/pic03.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/goisforlovers/goisforlovers/">(Hu)go Template Primer</a>
+              </h3>
+              
+              <time class="published" datetime='2014-04-02'>
+                April 2, 2014
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/goisforlovers/goisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic02.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/hugoisforlovers/hugoisforlovers/">Getting Started with Hugo</a>
+              </h3>
+              
+              <time class="published" datetime='2014-04-02'>
+                April 2, 2014
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/hugoisforlovers/hugoisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic01.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/migrate-from-jekyll/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a>
+              </h3>
+              
+              <time class="published" datetime='2014-03-10'>
+                March 10, 2014
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="https://gomesfellipe.github.io/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/r/">r</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/estatistica/">estatistica</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/hugo/">hugo</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/teoria/">teoria</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/utilidades/">utilidades</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bitcoin/">bitcoin</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/dplyr/">dplyr</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/go/">go</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/google/">google</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/jekyll/">jekyll</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/package/">package</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes, sou Estatístico e atuo como cientista de dados. Percebi que passar para as pessoas o que é possível fazer nas diversas áreas de estudo que envolvem ciência de dados é um grande desafio. Diante disso, resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="https://gomesfellipe.github.io/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2020
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="https://gomesfellipe.github.io/js/util.js"></script>
+      <script src="https://gomesfellipe.github.io/js/main.js"></script>
+      <script src="https://gomesfellipe.github.io/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

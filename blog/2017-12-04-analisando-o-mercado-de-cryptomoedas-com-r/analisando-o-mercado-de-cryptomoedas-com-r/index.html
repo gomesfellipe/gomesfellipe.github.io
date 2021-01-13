@@ -1,0 +1,1737 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https:\/\/gomesfellipe.github.io\/"
+        },
+        "articleSection" : "blog",
+        "name" : "Analisando o mercado de cryptomoedas com R",
+        "headline" : "Analisando o mercado de cryptomoedas com R",
+        "description" : "As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.\nAlém disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.\nEstamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2017",
+        "datePublished": "2017-12-04 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2017-12-04 00:00:00 \u002b0000 UTC",
+        "url" : "https:\/\/gomesfellipe.github.io\/blog\/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r\/analisando-o-mercado-de-cryptomoedas-com-r\/",
+        "wordCount" : "723",
+        "keywords" : [ "Correlações","gomesfellipe","bitcoin","cryptomoedas","Dropbox","RStudio","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Analisando o mercado de cryptomoedas com R</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.80.0" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            
+                <meta name="description" content="Este blog é fruto da minha paixão pela Estatística e Ciência de dados, trago aqui de maneira prática e descontraída algumas ferramentas, técnicas, curiosidades e brincadeiras disponíveis quando se utiliza o R como linguagem de programação. Espero que aproveite o conteúdo!">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Analisando o mercado de cryptomoedas com R"/>
+<meta name="twitter:description" content="As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
+Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
+Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes."/>
+<meta name="twitter:site" content="@gomesfellipe"/>
+
+        <meta property="og:title" content="Analisando o mercado de cryptomoedas com R" />
+<meta property="og:description" content="As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
+Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
+Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/" />
+<meta property="article:published_time" content="2017-12-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-04T00:00:00+00:00" />
+
+        <meta property="og:image" content="https://gomesfellipe.github.io//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="Analisando o mercado de cryptomoedas com R">
+<meta itemprop="description" content="As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
+Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
+Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.">
+<meta itemprop="datePublished" content="2017-12-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2017-12-04T00:00:00+00:00" />
+<meta itemprop="wordCount" content="723">
+
+
+
+<meta itemprop="keywords" content="Correlações,gomesfellipe,bitcoin,cryptomoedas,Dropbox,RStudio," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/main.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/add-on.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-105500464-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="https://gomesfellipe.github.io/">blog</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>CV
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/blog/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>CV
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/blog/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/gtrends-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-04'>
+                                    December 4, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-02'>
+                                    December 2, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correla%C3%A7oes/tipos-de-correlacoes/">Tipos de Correlaçoes</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-01'>
+                                    December 1, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/creating-a-new-theme/">Creating a New Theme</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-09-28'>
+                                    September 28, 2014</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/creating-a-new-theme/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/09/pic03.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/goisforlovers/goisforlovers/">(Hu)go Template Primer</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-04-02'>
+                                    April 2, 2014</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/goisforlovers/goisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic02.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/hugoisforlovers/hugoisforlovers/">Getting Started with Hugo</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-04-02'>
+                                    April 2, 2014</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/hugoisforlovers/hugoisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic01.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/migrate-from-jekyll/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2014-03-10'>
+                                    March 10, 2014</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r%2fanalisando-o-mercado-de-cryptomoedas-com-r%2f&amp;text=Analisando%20o%20mercado%20de%20cryptomoedas%20com%20R&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r%2fanalisando-o-mercado-de-cryptomoedas-com-r%2f&amp;title=Analisando%20o%20mercado%20de%20cryptomoedas%20com%20R" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r%2fanalisando-o-mercado-de-cryptomoedas-com-r%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2017-12-04'>
+            December 4, 2017</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>4 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r%2fanalisando-o-mercado-de-cryptomoedas-com-r%2f&amp;text=Analisando%20o%20mercado%20de%20cryptomoedas%20com%20R&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r%2fanalisando-o-mercado-de-cryptomoedas-com-r%2f&amp;title=Analisando%20o%20mercado%20de%20cryptomoedas%20com%20R" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fblog%2f2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r%2fanalisando-o-mercado-de-cryptomoedas-com-r%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    
+<script src="https://gomesfellipe.github.io/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="as-cryptomoedas" class="section level1">
+<h1>As cryptomoedas</h1>
+<!-- ![](imagem1.png) -->
+<p>Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna <a href="http://g1.globo.com/jornal-da-globo/noticia/2016/07/bitcoin-moeda-virtual-se-populariza-no-brasil-e-tem-valorizacao-recorde.html">notícia na globo</a>, notícia no <a href="http://forbes.uol.com.br/tag/bitcoin/">site da Forbes</a> dentre muitos outros.</p>
+<p>Além disso sua <a href="http://dolarhoje.com/bitcoin-hoje/">cotação</a> já pode ser acompanhada nos maiores sites de busca do mercado financeiro.</p>
+<p>Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</p>
+<p>Portanto surge a pergunta que vem a tona: como o R pode nos ajudar a cryptomoedas?</p>
+<p>Vejamos o que o que encontramos no CRAN..</p>
+</div>
+<div id="pacote-coinmarketcapr" class="section level1">
+<h1>Pacote <code>coinmarketcapr</code></h1>
+<p>Tem disponível no <a href="https://cran.r-project.org/">CRAN</a> o pacote <a href="https://cran.r-project.org/web/packages/coinmarketcapr/index.html">coinmarketcapr</a> que nos permite extrair e monitorar o preço e o limite de mercado das cryptomoedas da API do <a href="https://coinmarketcap.com/">coinmarketcap.com</a></p>
+<p>Primeiramente precisamos instalar o pacote:</p>
+<pre class="r"><code>install.packages(&quot;coinmarketcapr&quot;)
+library(coinmarketcapr)</code></pre>
+<div id="maiores-ocorrências" class="section level3">
+<h3>Maiores ocorrências</h3>
+<p>O pacote conta com a função <code>plot_top_5_currencies()</code> que já apresenta de brinde um gráfico de barras com as 5 principais cryptomoedas do mercado, veja:</p>
+<pre class="r"><code>plot_top_5_currencies()</code></pre>
+<p><img src="foto1.png" /></p>
+</div>
+<div id="detalhes-do-mercado" class="section level3">
+<h3>Detalhes do mercado</h3>
+<p>Os resultados ficam disponíveis para quem quiser interpretar. É importante notar que isso não nos da a imagem de como o mercado está dividido entre várias cryptomoedas, então vamos obter os dados completos de várias cryptomoedas:</p>
+<pre class="r"><code>mercado_hoje &lt;- get_marketcap_ticker_all()
+head(mercado_hoje[,1:8])</code></pre>
+<p><img src="foto3.png" /></p>
+</div>
+<div id="visualmente" class="section level3">
+<h3>Visualmente</h3>
+<p>Após extrair os dados completos de várias cryptomoedas, vamos visualizar essa distribuição através de um <code>treemap</code> com os códigos:</p>
+<pre class="r"><code>library(treemap)
+base &lt;- na.omit(mercado_hoje[,c(&#39;id&#39;,&#39;market_cap_usd&#39;)])
+base$market_cap_usd &lt;- as.numeric(base$market_cap_usd)
+base$formatted_market_cap &lt;-  paste0(base$id,&#39;\n&#39;,&#39;$&#39;,format(base$market_cap_usd,big.mark = &#39;,&#39;,scientific = F, trim = T))
+treemap(base, index = &#39;formatted_market_cap&#39;, vSize = &#39;market_cap_usd&#39;, title = &#39;Cryptocurrency Market Cap&#39;, fontsize.labels=c(12, 8), palette=&#39;RdYlGn&#39;)</code></pre>
+<p><img src="foto2.png" /></p>
+<p>Vou deixar as interpretações para os analistas de mercado, mas como um cientista de dados, muitos (muitos mesmo) insights podem ser extraídos dos dados acima e pode ser interessante analisar esse mercado</p>
+</div>
+</div>
+<div id="pacote-jsonlite-para-avaliar-bitcoins" class="section level1">
+<h1>Pacote <code>jsonlite</code> para avaliar Bitcoins</h1>
+<p>O <a href="https://cran.r-project.org/web/packages/jsonlite/index.html">pacote jsonlite disponível no CRAN</a> trás série de recursos flexíveis, robustos e de alto desempenho para trabalhar o R com JSON conjuntamente. O pacote é capaz de interagir com API da Web e isso vai ser o recurso que precisamos aqui.</p>
+<p>Trazendo o foco para os Bitcoins, existe mais de uma maneira de se extrair os dados do mercado que possam trazer grandes insights. Vamos conferir aqui como este pacote pode ajudar nesta tarefa.</p>
+<p>Inicialmente precisamos instalar e carregar o pacote:</p>
+<pre class="r"><code>#install.packages(&quot;jsonlite&quot;)
+library(jsonlite)
+suppressMessages(library(tidyverse)) #Para manipulação de dados</code></pre>
+<p>Com o pacote carregado já podemos realizar uma consulta diretamente de dentro do R com o comando <code>safe_fromJSON()</code>.</p>
+<p>Os preços da bitcoin são fornecidos pela API da <a href="https://blinktrade.com/">BlinkTrad</a> que é bem simples usar, basta pegar o json que a url do código abaixo solta.</p>
+<p>Aproveito e dou um tapinha para deixar em forma de data.frame e com a data de consulta junto.</p>
+<pre class="r"><code>safe_fromJSON = safely(fromJSON, as.numneric(NA))
+nova_consulta_list = safe_fromJSON(&quot;http://api.blinktrade.com/api/v1/BRL/ticker?crypto_currency=BTC&quot;)
+
+nova_consulta = nova_consulta_list$result %&gt;%
+  as.tibble %&gt;%
+  mutate(timestamp = lubridate::now())
+
+nova_consulta</code></pre>
+<div id="loop-infinito-para-acompanhar-os-preço" class="section level3">
+<h3>Loop infinito para acompanhar os preço</h3>
+<p>Existe um universo de infinitas possibilidades para acompanhar estes dados, trago aqui um loop infinito <code>(while(TRUE))</code> composto por um , um data.frame histórico.RData, um tempo entre uma consulta e outra (30 segundos por padrão) e a consulta propriamente dita. Veja:</p>
+<pre class="r"><code>#Inicializa o historico.RData
+historico = nova_consulta
+save(historico, file = &quot;historico.RData&quot;)</code></pre>
+<p>Dando início ao loop:</p>
+<pre class="r"><code>  #loop infinito
+  while(TRUE){
+    #pega a cotacao do bitcoin brasil (BTCBRL) da API do blinktrade
+    nova_consulta_list = safe_fromJSON(&quot;http://api.blinktrade.com/api/v1/BRL/ticker?crypto_currency=BTC&quot;)
+  
+    #verifica se a API retornou uma lista
+    if(&quot;list&quot; %in% class(nova_consulta_list$result)){
+      nova_consulta = nova_consulta_list$result %&gt;%
+        as.tibble %&gt;%
+        mutate(timestamp = lubridate::now())
+      #
+      #
+      # espaco reservado para as regras!
+      #
+      #
+      #guarda a consulta
+      historico = bind_rows(historico, nova_consulta)
+      save(historico, file = &quot;historico.RData&quot;)
+    }
+    #condicoes
+    #Exemplo:
+    #if(nova_consulta$buy &gt; 14600 &amp; nova_consulta$last &lt; 14500){
+    #
+    #Fazer alguma coisa
+    #
+    #
+    #}
+  }</code></pre>
+<p>Também podemos acompanhar graficamente incluindo um gráfico dentro do loop, veja:</p>
+<pre class="r"><code>while(TRUE){
+    #pega a cotacao do bitcoin brasil (BTCBRL) da API do blinktrade
+    nova_consulta_list = safe_fromJSON(&quot;http://api.blinktrade.com/api/v1/BRL/ticker?crypto_currency=BTC&quot;)
+  
+    #verifica se a API retornou uma lista
+    if(&quot;list&quot; %in% class(nova_consulta_list$result)){
+      nova_consulta = nova_consulta_list$result %&gt;%
+        as.tibble %&gt;%
+        mutate(timestamp = lubridate::now())
+      
+      #
+      #
+      # espaco reservado para as regras!
+      #
+      #
+      
+      #guarda a consulta
+      historico = bind_rows(historico, nova_consulta)
+      save(historico, file = &quot;historico.RData&quot;)
+    }
+    
+    #Cria um gráfico;
+    
+    ggplot(historico %&gt;%
+                 gather(indicador, valor, high, low, buy, sell, last))+
+      geom_line(aes(x=timestamp, y=valor, color=indicador))
+    
+    #condicoes
+    #if(nova_consulta$buy &gt; 14600 &amp; nova_consulta$last &lt; 14500){
+    #
+    # Fazer alguma coisa
+    #
+    #}
+    
+    
+  }</code></pre>
+<p>Este gráfico retornará algo como:</p>
+<p><img src="foto4.png" /></p>
+<p>Este gráfico será atualizado em tempo real!</p>
+</div>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/utilidades">utilidades</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/bitcoin">bitcoin</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/correla%C3%A7%C3%B5es">Correlações</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/bitcoin">bitcoin</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/cryptomoedas">cryptomoedas</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/dropbox">Dropbox</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/rstudio">RStudio</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/"
+                class="button big previous">Tipos de relações entre variáveis</a></li>
+    
+
+    
+        <li><a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/"
+                class="button big next">Manipulando dados com dplyr</a></li>
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='https://gomesfellipe.github.io/' class="logo"><img src="https://gomesfellipe.github.io/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/gtrends-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-04'>
+                December 4, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-02'>
+                December 2, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correla%C3%A7oes/tipos-de-correlacoes/">Tipos de Correlaçoes</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-01'>
+                December 1, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/creating-a-new-theme/">Creating a New Theme</a>
+              </h3>
+              
+              <time class="published" datetime='2014-09-28'>
+                September 28, 2014
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/creating-a-new-theme/creating-a-new-theme/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/09/pic03.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/goisforlovers/goisforlovers/">(Hu)go Template Primer</a>
+              </h3>
+              
+              <time class="published" datetime='2014-04-02'>
+                April 2, 2014
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/goisforlovers/goisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic02.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/hugoisforlovers/hugoisforlovers/">Getting Started with Hugo</a>
+              </h3>
+              
+              <time class="published" datetime='2014-04-02'>
+                April 2, 2014
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/hugoisforlovers/hugoisforlovers/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2014/04/pic01.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/migrate-from-jekyll/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a>
+              </h3>
+              
+              <time class="published" datetime='2014-03-10'>
+                March 10, 2014
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="https://gomesfellipe.github.io/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/r/">r</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/estatistica/">estatistica</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/hugo/">hugo</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/teoria/">teoria</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/utilidades/">utilidades</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bitcoin/">bitcoin</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/dplyr/">dplyr</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/go/">go</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/google/">google</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/jekyll/">jekyll</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/package/">package</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes, sou Estatístico e atuo como cientista de dados. Percebi que passar para as pessoas o que é possível fazer nas diversas áreas de estudo que envolvem ciência de dados é um grande desafio. Diante disso, resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="https://gomesfellipe.github.io/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2020
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="https://gomesfellipe.github.io/js/util.js"></script>
+      <script src="https://gomesfellipe.github.io/js/main.js"></script>
+      <script src="https://gomesfellipe.github.io/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

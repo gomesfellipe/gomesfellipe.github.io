@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://gomesfellipe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello R Markdown</title>
-      <link>https://gomesfellipe.github.io/blog/2020-12-01-r-rmarkdown/</link>
+      <link>https://gomesfellipe.github.io/blog/2020-12-01-r-rmarkdown/2020-12-01-r-rmarkdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2020-12-01-r-rmarkdown/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2020-12-01-r-rmarkdown/2020-12-01-r-rmarkdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
@@ -20,10 +20,10 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
     <item>
       <title>Séries temporais com Google Trends e R</title>
-      <link>https://gomesfellipe.github.io/blog/google-trends-e-r/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/</link>
       <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/google-trends-e-r/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-12-google-trends-e-r/google-trends-e-r/</guid>
       <description>Google Trends O Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
 Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
 Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
@@ -31,20 +31,20 @@ Através de suas séries temporais podemos avaliar a presença de pedrões, obte
     
     <item>
       <title>Manipulando dados com dplyr</title>
-      <link>https://gomesfellipe.github.io/blog/manipulando-dados-com-dplyr/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/manipulando-dados-com-dplyr/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
       <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
 Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
     </item>
     
     <item>
       <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>https://gomesfellipe.github.io/blog/analisando-o-mercado-de-cryptomoedas-com-r/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
       <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
 Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
 Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
@@ -52,68 +52,78 @@ Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanid
     
     <item>
       <title>Tipos de relações entre variáveis</title>
-      <link>https://gomesfellipe.github.io/blog/tipos-de-relacoes-entre-variaveis/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/</link>
       <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/tipos-de-relacoes-entre-variaveis/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/tipos-de-relacoes-entre-variaveis/</guid>
       <description>Tipos de relações Numérica x Numérica  Graficamente  Duas variaveis Mais de duas variáveis  Normalidade  Graficamente QQ-plot QQ plot com envelope Testes  Dados normais + Relação linear  Coeficiente de Correlação de Pearson \(\rho\)  Dados não normais e/ou sem relação linear  Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall)   Ordinal x Ordinal Numérica x Ordinal Nominal x Nominal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Nominal x Ordinal  Qui-quadrado de independencia Teste exato de fisher Medidas de associação Kappa  Dicotônica x Ordinal Nominal x Numérca  \(R^2\) do ajuste de modelos lineares Bisserial = Pearson Comparações de Grupos  Correlação parcial  Controlando variável numérica Controlando variável Qualitativa  Referências   Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.</description>
     </item>
     
     <item>
       <title>Tipos de Correlaçoes</title>
-      <link>https://gomesfellipe.github.io/blog/tipos-de-correlacoes/</link>
+      <link>https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correla%C3%A7oes/tipos-de-correlacoes/</link>
       <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/tipos-de-correlacoes/</guid>
+      <guid>https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correla%C3%A7oes/tipos-de-correlacoes/</guid>
       <description>Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
     </item>
     
     <item>
       <title>Creating a New Theme</title>
-      <link>https://gomesfellipe.github.io/blog/creating-a-new-theme/</link>
+      <link>https://gomesfellipe.github.io/blog/creating-a-new-theme/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+      <guid>https://gomesfellipe.github.io/blog/creating-a-new-theme/creating-a-new-theme/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I’ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won’t cover using CSS to style your theme.
+We’ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>https://gomesfellipe.github.io/blog/goisforlovers/</link>
+      <link>https://gomesfellipe.github.io/blog/goisforlovers/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/goisforlovers/</guid>
-      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates.</description>
+      <guid>https://gomesfellipe.github.io/blog/goisforlovers/goisforlovers/</guid>
+      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.</description>
     </item>
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://gomesfellipe.github.io/blog/hugoisforlovers/</link>
+      <link>https://gomesfellipe.github.io/blog/hugoisforlovers/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/hugoisforlovers/</guid>
-      <description>&lt;h2 id=&#34;step-1-install-hugo&#34;&gt;Step 1. Install Hugo&lt;/h2&gt;
+      <guid>https://gomesfellipe.github.io/blog/hugoisforlovers/hugoisforlovers/</guid>
+      <description>
+&lt;script src=&#34;https://gomesfellipe.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;step-1.-install-hugo&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Step 1. Install Hugo&lt;/h2&gt;
 &lt;p&gt;Go to &lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;hugo releases&lt;/a&gt; and download the
 appropriate version for your os and architecture.&lt;/p&gt;
 &lt;p&gt;Save it somewhere specific as we will be using it in the next step.&lt;/p&gt;
-&lt;p&gt;More complete instructions are available at &lt;a href=&#34;https://gomesfellipe.github.io/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;More complete instructions are available at &lt;a href=&#34;https://gomesfellipe.github.io/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;
+</description>
     </item>
     
     <item>
       <title>Migrate to Hugo from Jekyll</title>
-      <link>https://gomesfellipe.github.io/blog/migrate-from-jekyll/</link>
+      <link>https://gomesfellipe.github.io/blog/migrate-from-jekyll/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/migrate-from-jekyll/</guid>
-      <description>&lt;h2 id=&#34;move-static-content-to-static&#34;&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;
+      <guid>https://gomesfellipe.github.io/blog/migrate-from-jekyll/migrate-from-jekyll/</guid>
+      <description>
+&lt;script src=&#34;https://gomesfellipe.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;move-static-content-to-static&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Jekyll has a rule that any directory not starting with &lt;code&gt;_&lt;/code&gt; will be copied as-is to the &lt;code&gt;_site&lt;/code&gt; output. Hugo keeps all static content under &lt;code&gt;static&lt;/code&gt;. You should therefore move it all there.
 With Jekyll, something that looked like&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/
     ▾ images/
-        logo.png
-&lt;/code&gt;&lt;/pre&gt;</description>
+        logo.png&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
   </channel>
