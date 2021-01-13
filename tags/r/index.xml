@@ -18,5 +18,14 @@ Através dele temos acesso a uma gigantesca base de dados que reúne os temas ma
 Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
     </item>
     
+    <item>
+      <title>Tipos de Correlacoes</title>
+      <link>/blog/tipos-de-correlacoes/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/tipos-de-correlacoes/</guid>
+      <description>Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
+    </item>
+    
   </channel>
 </rss>
