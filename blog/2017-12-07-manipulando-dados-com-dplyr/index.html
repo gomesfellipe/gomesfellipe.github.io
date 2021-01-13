@@ -1,0 +1,1718 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "\/"
+        },
+        "articleSection" : "blog",
+        "name" : "Manipulando dados com dplyr",
+        "headline" : "Manipulando dados com dplyr",
+        "description" : "Manipular bases de dados nunca foi tão simples",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2017",
+        "datePublished": "2017-12-07 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2017-12-07 00:00:00 \u002b0000 UTC",
+        "url" : "\/blog\/2017-12-07-manipulando-dados-com-dplyr\/",
+        "wordCount" : "1051",
+        "keywords" : [ "Estatistica","gomesfellipe","R","Prática","Dplyr","Tidyverse","Data Mining","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Manipulando dados com dplyr</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.80.0" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            <meta name="description" content="Manipular bases de dados nunca foi tão simples">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Manipulando dados com dplyr"/>
+<meta name="twitter:description" content="Manipular bases de dados nunca foi tão simples"/>
+<meta name="twitter:site" content="@example"/>
+
+        <meta property="og:title" content="Manipulando dados com dplyr" />
+<meta property="og:description" content="Manipular bases de dados nunca foi tão simples" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/2017-12-07-manipulando-dados-com-dplyr/" />
+<meta property="article:published_time" content="2017-12-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-07T00:00:00+00:00" />
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="Manipulando dados com dplyr">
+<meta itemprop="description" content="Manipular bases de dados nunca foi tão simples">
+<meta itemprop="datePublished" content="2017-12-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2017-12-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1051">
+
+
+
+<meta itemprop="keywords" content="Estatistica,gomesfellipe,R,Prática,Dplyr,Tidyverse,Data Mining," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">blog</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/blog/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/itemized/">
+                            <i class="fa fa-list">&nbsp;</i>Itemized
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contact
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/blog/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/itemized/">
+                            <h3>
+                                <i class="fa fa-list">&nbsp;</i>Itemized
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contact
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/">Manipulação de Strings e Text Mining</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-17'>
+                                    December 17, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/2017-12-12-google-trends-e-r/">google trends e r</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/2017-12-12-google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/2017-12-07-manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/2017-12-07-manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-04'>
+                                    December 4, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-02'>
+                                    December 2, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /blog/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f&amp;text=Manipulando%20dados%20com%20dplyr&amp;via=example" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f&amp;title=Manipulando%20dados%20com%20dplyr" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f&amp;title=Manipulando%20dados%20com%20dplyr" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f&amp;title=Manipulando%20dados%20com%20dplyr" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f&amp;description=Manipulando%20dados%20com%20dplyr" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/blog/2017-12-07-manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h1>
+            
+        
+        
+            <p>Manipular bases de dados nunca foi tão simples</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2017-12-07'>
+            December 7, 2017</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>5 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f&amp;text=Manipulando%20dados%20com%20dplyr&amp;via=example" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f&amp;title=Manipulando%20dados%20com%20dplyr" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f&amp;title=Manipulando%20dados%20com%20dplyr" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f&amp;title=Manipulando%20dados%20com%20dplyr" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f&amp;description=Manipulando%20dados%20com%20dplyr" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=%2fblog%2f2017-12-07-manipulando-dados-com-dplyr%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/2017-12-07-manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    
+<script src="/blog/2017-12-07-manipulando-dados-com-dplyr/index_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="o-pacote-dplyr" class="section level1">
+<h1>o pacote <code>dplyr</code>:</h1>
+<p>A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do <strong>R</strong>.</p>
+<p>Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no <a href="https://cran.r-project.org/">CRAN</a> e hoje quero registrar aqui algumas das funcionalidades do pacote <a href="https://cran.r-project.org/package=dplyr">dplyr</a> que são muito úteis.</p>
+<p>É um dos pacotes mais poderosos e populares do R, desenvolvido por Hadley Wickham, faz a exploração de dados e permite a manipulação de dados de forma fácil e rápida no R.</p>
+<p>Segundo sua descrição no <a href="https://cran.r-project.org/">CRAN</a>, o <a href="https://cran.r-project.org/package=dplyr">dplyr</a> é definido como uma ferramenta rápida e consistente para trabalhar com data.frames como objetos, tanto na memória quanto fora da memória. Vamos conferir então o que de tão especial tem nesse pacote.</p>
+<div id="operador-pipe" class="section level2">
+<h2>Operador pipe: %&gt;%</h2>
+<p>O operador <code>%&gt;%</code> é uma opção incrivelmente útil para a manipulação dos dados, funcionando com uma lógica diferente da nativa do <strong>R</strong>, que executa funções no formato <code>f(x)</code>, o pipe permite que façamos operações no formato <code>x %&gt;% f()</code> que basicamente funciona da maneira como raciocinamos: “Pega esse objeto e executa isso, depois isso, depois isso…”
+Realiza múltiplas ações sem guardar os passos intermediários.</p>
+<!-- Vejamos um resumo dos dados: -->
+<p>Vamos começar carregando o pacote:</p>
+<pre class="r"><code># Carregando o pacote dplyr
+suppressMessages(library(dplyr))</code></pre>
+</div>
+<div id="selecionando-n-linhas-aleatorias-função-sample_n" class="section level2">
+<h2>Selecionando n linhas aleatorias: função <code>sample_n()</code></h2>
+<pre class="r"><code># Selecionando 5 linhas aleatoriamente
+df%&gt;%
+  sample_n(5)</code></pre>
+</div>
+<div id="removendo-linhas-duplicadas-função-distinct" class="section level2">
+<h2>Removendo linhas duplicadas: função <code>distinct()</code></h2>
+<div id="baseado-em-todas-as-variáveis" class="section level3">
+<h3>Baseado em todas as variáveis</h3>
+<pre class="r"><code># excluindo linhas iguais
+df%&gt;%
+  distinct()</code></pre>
+</div>
+<div id="baseado-em-uma-variável" class="section level3">
+<h3>Baseado em uma variável</h3>
+<pre class="r"><code># excluindo linhas que possuem Datas iguais
+df%&gt;%
+  distinct(Datas)</code></pre>
+</div>
+<div id="baseado-em-mais-de-uma-variável" class="section level3">
+<h3>Baseado em mais de uma variável</h3>
+<pre class="r"><code># excluindo linhas que possuem ano e consumo iguais
+df%&gt;%
+  distinct(ano, consumo)</code></pre>
+</div>
+</div>
+<div id="selecionando-colunas-variáveis-função-select" class="section level2">
+<h2>Selecionando colunas (variáveis): função <code>select()</code></h2>
+<pre class="r"><code># Selecionando a variavel ano e  todas as variáveis de sucesso até tonalidade na df
+df%&gt;%
+  select(ano, sucesso:tonalidade)
+
+# Selecionando todas as variaveis com exceção de ano e id
+df%&gt;%
+  select(-c(ano,id))
+
+
+# Selecionando todas as variaveis cujo nome inicia com e
+df%&gt;%
+  select(starts_with(&quot;a&quot;))</code></pre>
+<div id="podem-ser-úteis-também-ends_with-e-contains." class="section level4">
+<h4>Podem ser úteis também <code>ends_with()</code> e <code>contains()</code>.</h4>
+</div>
+</div>
+<div id="reordenando-as-as-colunas-das-variáveis-função-select" class="section level2">
+<h2>Reordenando as as colunas das variáveis: função <code>select()</code></h2>
+<pre class="r"><code># reorganiza o data frame, iniciando com a variável Datas e depois as demais
+df%&gt;%
+  select(Datas,everything())</code></pre>
+</div>
+<div id="renomeando-variáveis-função-rename" class="section level2">
+<h2>Renomeando variáveis: função <code>rename()</code></h2>
+<pre class="r"><code># Renomeando a variável Datas para micro
+df%&gt;%
+  rename(Dia = Datas)</code></pre>
+</div>
+<div id="selecionando-um-subconjunto-de-linhas-que-satisfazem-uma-ou-mais-condições-função-filter" class="section level2">
+<h2>Selecionando um subconjunto de linhas que satisfazem uma ou mais condições: função <code>filter()</code></h2>
+<pre class="r"><code># Selecionando somente os indivíduos do sexo masculino
+df%&gt;%
+  filter( sexo == &quot;Masculino&quot;)
+
+
+# Selecionando somente os indivíduos do sexo masculino e branco
+df%&gt;%
+  filter( sexo == &quot;Masculino&quot; &amp; tonalidade == &quot;Branco&quot;)
+
+
+# Selecionando somente os indivíduos com consumo de 1 a 3 anos e 4 a 7 anos
+df%&gt;%
+  filter( consumo %in% c(&quot;1 a 3&quot;,&quot;4 a 7&quot;))
+
+
+# Selecionando indivíduos que ou são homens solteiros ou são mulheres casadas
+df%&gt;%
+  filter( (estado_civil==&quot;Solteiro&quot; &amp; sexo ==&quot;Masculino&quot;) | (estado_civil==&quot;Casado&quot; &amp; sexo ==&quot;Feminino&quot;) )</code></pre>
+</div>
+<div id="ordenando-seus-data-frames-função-arrange" class="section level2">
+<h2>Ordenando seus data frames: função <code>arrange()</code></h2>
+<pre class="r"><code># Ordenando os dados pela variável ano de forma crescente
+df%&gt;%
+  arrange( ano )
+
+# Ordenando os dados pela variável ano e consumo
+df%&gt;%
+  arrange( ano ,consumo)
+
+# Ordenando os dados pela variável ano de forma decrescente
+df%&gt;%
+  arrange( desc(ano) )</code></pre>
+</div>
+<div id="criando-uma-nova-variável-função-mutate-e-transmute" class="section level2">
+<h2>Criando uma nova variável: função <code>mutate()</code> e <code>transmute()</code></h2>
+<pre class="r"><code># Criando a variável ano ao quadrado
+df%&gt;%
+  mutate( ano2 = ano**2 )
+
+# Criando a variável Dia e a variável Mes
+df%&gt;%
+  mutate( Dia = substring(Datas,1,2), Mes = substring(mensalidade,1,1) )
+
+# Se você quiser somente manter as variáveis criadas
+df18 = transmute(mensalidade = substring(Datas,1,2), Mes = substring(mensalidade,1,1) )</code></pre>
+</div>
+<div id="resumindo-variáveis-função-summarize" class="section level2">
+<h2>Resumindo variáveis: função <code>summarize()</code></h2>
+<pre class="r"><code># Calculando a media e a mediana da variável ano
+df%&gt;%
+  summarise(  media.ano = mean(ano), mediana.ano = median(ano))</code></pre>
+</div>
+<div id="resumindo-variáveis-por-grupo-função-group_by-e-summarize" class="section level2">
+<h2>Resumindo variáveis por grupo: função <code>group_by()</code> e <code>summarize()</code></h2>
+<pre class="r"><code># Calculando a media da variável ano para as combinações entre sexo, consumo e estado civil e a frequencia de indivíduos em cada combinação
+df%&gt;%
+  group_by(sexo, consumo, estado_civil)%&gt;%
+  summarise(media.ano = mean(ano),frequencia=n())
+
+
+# Calculando a media da variável ano para as combinações entre ano legal, consumo e estado civil e a frequencia de indivíduos em cada combinação
+df%&gt;%
+  group_by(id, consumo, estado_civil)%&gt;%
+  summarise(media.ano = mean(ano),frequencia=n())</code></pre>
+</div>
+<div id="operador-pipe-1" class="section level2">
+<h2>Operador pipe: %&gt;%</h2>
+<p>Portanto, o operador <code>%&gt;%</code> realiza múltiplas ações sem guardar os passos intermediários. Mais alguns exemplos:</p>
+<pre class="r"><code># Selecionando as variáveis ano e id
+df %&gt;%
+  select(ano,id)
+
+
+df %&gt;% select(-estado_civil) %&gt;%
+  filter(sexo==&quot;Masculino&quot;) %&gt;%
+  group_by(tonalidade,consumo) %&gt;%
+  summarise(maximo=max(ano),media=mean(ano))</code></pre>
+</div>
+<div id="aplicando-funções-em-linhas" class="section level2">
+<h2>Aplicando funções em linhas</h2>
+<pre class="r"><code>df%&gt;%
+  mutate(ano2 = ano**2 )%&gt;%
+  rowwise() %&gt;% mutate(Max= max(ano:ano2)) %&gt;%
+  select(ano,ano2,Max)</code></pre>
+</div>
+</div>
+<div id="fazendo-a-união-de-banco-de-dados-distintos" class="section level1">
+<h1>Fazendo a união de banco de dados distintos</h1>
+<div id="combinando-duas-bases-de-dados" class="section level2">
+<h2>Combinando duas bases de dados</h2>
+<p>O pacote dplyr possui um conjunto de funções que nos auxiliam a combinar dos data frames do nosso interesse.</p>
+<div id="inner_join" class="section level3">
+<h3>inner_join</h3>
+<pre class="r"><code># Função inner_join: Combina as duas bases incluindo todas as variáveis de ambas as bases e todas as linhas comuns as duas bases
+inner_join(df1,df2,by=&quot;ID&quot;)
+
+inner_join(df1,df3,by=c(&quot;ID&quot;=&quot;Identificacao&quot;))</code></pre>
+</div>
+<div id="left_join" class="section level3">
+<h3>left_join</h3>
+<pre class="r"><code># Função left_join: Combina as duas bases incluindo todas as variáveis de ambas as bases e todas as linhas da base a esquerda
+left_join(df1,df2,by=&quot;ID&quot;)</code></pre>
+</div>
+<div id="right_join" class="section level3">
+<h3>right_join</h3>
+<pre class="r"><code># Função right_join: Combina as duas bases incluindo todas as variáveis de ambas as bases e todas as linhas da base a direita
+right_join(df1,df2,by=&quot;ID&quot;)</code></pre>
+</div>
+<div id="full_join" class="section level3">
+<h3>full_join</h3>
+<pre class="r"><code># Função full_join: Combina as duas bases incluindo todas as variáveis de ambas as bases e todas as linhas de ambas as bases
+full_join(df1,df2,by=&quot;ID&quot;)</code></pre>
+</div>
+<div id="semi_join" class="section level3">
+<h3>semi_join</h3>
+<pre class="r"><code># Função semi_join: Combina as duas bases incluindo as variáveis da basea a esquerda e todas as linhas comuns as duas bases
+semi_join(df1,df2,by=&quot;ID&quot;)</code></pre>
+</div>
+<div id="anti_join" class="section level3">
+<h3>anti_join</h3>
+<pre class="r"><code># Função anti_join: Combina as duas bases incluindo as variáveis da base a esquerda e todas as linhas que não são comuns as duas bases
+anti_join(df1,df2,by=&quot;ID&quot;)</code></pre>
+</div>
+</div>
+<div id="combinando-dados-verticalmente" class="section level2">
+<h2>Combinando dados verticalmente</h2>
+<div id="juntando-por-linhas-comuns-com-intersect" class="section level3">
+<h3>Juntando por linhas comuns com intersect</h3>
+<pre class="r"><code>#Criando uma base com as linhas comus as duas bases
+intersect(d1,d2)</code></pre>
+</div>
+<div id="juntando-todas-as-linhas-com-union" class="section level3">
+<h3>Juntando todas as linhas com union</h3>
+<pre class="r"><code>#Criando uma base unindo todas as linhas das duas bases
+union(d1,d3)</code></pre>
+</div>
+<div id="base-com-linhas-distintas-nas-duas-bases-com-setdiff" class="section level3">
+<h3>Base com linhas distintas nas duas bases com setdiff</h3>
+<pre class="r"><code>#Criando uma base com as linhas distintas nas duas bases
+setdiff(d1,d3)</code></pre>
+</div>
+<div id="empilhando-duas-bases-uma-sobre-a-outra-com-rbind" class="section level3">
+<h3>Empilhando duas bases uma sobre a outra com rbind</h3>
+<pre class="r"><code>#Empilhando duas bases, uma em cima da outra
+rbind(d1,d3)</code></pre>
+</div>
+<div id="empilhando-duas-bases-lado-a-lado-com-cbind" class="section level3">
+<h3>Empilhando duas bases lado a lado com cbind</h3>
+<pre class="r"><code>#Empilhando duas bases, uma ao lado da outra
+cbind(d3,d4)</code></pre>
+<p>É realmente impressionante como este pacote pode impulsionar nossas habilidades na manipulação de dados! Espero que a partir de hoje o <code>%&gt;%</code> não seja mais visto coisa “esquisita”</p>
+</div>
+</div>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/teoria">Teoria</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/tidyverse">Tidyverse</a></li>
+                
+                
+                <li><a class="article-category-link" href="/categories/data-mining">Data mining</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/dplyr">Dplyr</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/tidyverse">Tidyverse</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/data-mining">Data Mining</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/"
+                class="button big previous">Analisando o mercado de cryptomoedas com R</a></li>
+    
+
+    
+        <li><a href="/blog/2017-12-12-google-trends-e-r/"
+                class="button big next">google trends e r</a></li>
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="/img/main/logo.jpg" alt="Hugo Future Imperfect" /></a>
+      
+    
+    
+      <header>
+        <h2>Hugo Future Imperfect</h2>
+        <p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a>. Ported by Julio Pescador with some extra goodies <i class='fa fa-hand-peace-o'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/jpescador/hugo-future-imperfect" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//flickr.com/photos/example" target="_blank" title="Flickr" class="fa fa-flickr"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/example" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+  <li><a href="//linkedin.com/company/examplebusiness" target="_blank" title="LinkedIn Company" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+  <li><a href="//facebook.com/example" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+  <li><a href="//reddit.com/user/example" target="_blank" title="Reddit" class="fa fa-reddit"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//instagram.com/example" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
+
+
+
+
+
+  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+  <li><a href="//pinterest.com/example" target="_blank" title="Pinterest" class="fa fa-pinterest-p"></a></li>
+
+
+
+  <li><a href="//telegram.me/example" target="_blank" title="telegram" class="fa fa-telegram"></a></li>
+
+
+
+
+
+
+
+
+
+<li><a href="//researchgate.net/profile/example" target="_blank" title="Research Gate"><i class="ai ai-researchgate"></i></a></li>
+
+
+
+  <li><a href="mailto:example" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/">Manipulação de Strings e Text Mining</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-17'>
+                December 17, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/" class="image featured">
+            <img src="/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/2017-12-12-google-trends-e-r/">google trends e r</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/2017-12-12-google-trends-e-r/" class="image featured">
+            <img src="/img/2017/12/gtrends-r.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/2017-12-07-manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/2017-12-07-manipulando-dados-com-dplyr/" class="image featured">
+            <img src="/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-04'>
+                December 4, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-02'>
+                December 2, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /blog/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/r/">r</a>
+                <span style="float:right;">7</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/estatistica/">estatistica</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/hugo/">hugo</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/pr%C3%A1tica/">prática</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/teoria/">teoria</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/bitcoin/">bitcoin</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/data-mining/">data-mining</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/go/">go</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/google/">google</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/google-trends/">google-trends</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/jekyll/">jekyll</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/text-mining/">text-mining</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/tidyverse/">tidyverse</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tellus lacus, auctor vehicula molestie quis, tempor quis velit. Quisque in quam ac leo efficitur vulputate. Phasellus ullamcorper aliquam sodales. Maecenas sit amet condimentum ipsum. Proin sit amet ligula elit. Mauris.</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/jpescador/hugo-future-imperfect" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//flickr.com/photos/example" target="_blank" title="Flickr" class="fa fa-flickr"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/example" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+  <li><a href="//linkedin.com/company/examplebusiness" target="_blank" title="LinkedIn Company" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+  <li><a href="//facebook.com/example" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+  <li><a href="//reddit.com/user/example" target="_blank" title="Reddit" class="fa fa-reddit"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//instagram.com/example" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
+
+
+
+
+
+  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+  <li><a href="//pinterest.com/example" target="_blank" title="Pinterest" class="fa fa-pinterest-p"></a></li>
+
+
+
+  <li><a href="//telegram.me/example" target="_blank" title="telegram" class="fa fa-telegram"></a></li>
+
+
+
+
+
+
+
+
+
+<li><a href="//researchgate.net/profile/example" target="_blank" title="Research Gate"><i class="ai ai-researchgate"></i></a></li>
+
+
+
+  <li><a href="mailto:example" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2020
+        
+          Hugo Future Imperfect
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

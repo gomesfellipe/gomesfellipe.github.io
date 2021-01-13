@@ -40,6 +40,16 @@ Através de suas séries temporais podemos avaliar a presença de pedrões, obte
     </item>
     
     <item>
+      <title>Manipulando dados com dplyr</title>
+      <link>/blog/2017-12-07-manipulando-dados-com-dplyr/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2017-12-07-manipulando-dados-com-dplyr/</guid>
+      <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
+Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
+    </item>
+    
+    <item>
       <title>Analisando o mercado de cryptomoedas com R</title>
       <link>/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
