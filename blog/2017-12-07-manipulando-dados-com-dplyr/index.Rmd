@@ -1,0 +1,447 @@
+---
+title: Manipulando dados com dplyr
+author: Fellipe Gomes
+date: '2017-12-07'
+slug: []
+categories:
+  - Estatistica
+  - R
+  - Teoria
+  - Tidyverse
+  - Data mining
+tags:
+  - Estatistica
+  - gomesfellipe
+  - R
+  - Prática
+  - Dplyr
+  - Tidyverse
+  - Data Mining
+description: 'Manipular bases de dados nunca foi tão simples'
+featuredalt: 'Pic 3'
+featured: 'dplyr.png'
+featuredpath: 'date'
+linktitle: ''
+type: post
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
+```
+
+# o pacote `dplyr`:
+
+A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do **R**. 
+
+Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no [CRAN](https://cran.r-project.org/) e hoje quero registrar aqui algumas das funcionalidades do pacote [dplyr](https://cran.r-project.org/package=dplyr) que são muito úteis.
+
+É um dos pacotes mais poderosos e populares do R, desenvolvido por Hadley Wickham, faz a exploração de dados e permite a manipulação de dados de forma fácil e rápida no R.
+
+Segundo sua descrição no [CRAN](https://cran.r-project.org/), o [dplyr](https://cran.r-project.org/package=dplyr) é definido como uma ferramenta rápida e consistente para trabalhar com data.frames como objetos, tanto na memória quanto fora da memória. Vamos conferir então o que de tão especial tem nesse pacote.
+
+## Operador pipe: %>%
+
+O operador `%>%` é uma opção incrivelmente útil para a manipulação dos dados, funcionando com uma lógica diferente da nativa do **R**, que executa funções no formato `f(x)`, o pipe permite que façamos operações no formato `x %>% f()` que basicamente funciona da maneira como raciocinamos: "Pega esse objeto e executa isso, depois isso, depois isso..."
+Realiza múltiplas ações sem guardar os passos intermediários.
+
+
+```{r, eval=F, echo=F, warning=F}
+df=read.csv("sucessos.csv", header=T, sep=";")
+```
+
+```{r, eval=F, echo=F, warning=F}
+#Transformando a variável sucesso 
+df$sucesso = factor(df$sucesso, labels=c("Não","Sim"))
+
+#Transformando a variável Microrregiao em um factor
+df$Microrregiao = factor(df$Microrregiao)
+
+#Transformando a variável Escolaridade em um ordered
+df$escolaridade = ordered(df$escolaridade,levels=c(1,2,3,4,5,6), labels=c("Nenhum","1 a 3","4 a 7","8 a 11", "12 ou mais","Muito"))
+
+#Transformando a variável estado civil em um factor
+df$estado_civil = factor(df$estado_civil, labels=c("Solteiro","União estavel","Casado","Viuvo", "Divorciado","Desconhecido"))
+
+#Transformando a variável tonalidade em um factor
+df$tonalidade = factor(df$tonalidade, labels=c("Branco","Negro","Amarelo","Pardo", "Indigena","Desconhecido"))
+
+#Transformando a variável sexo em um factor
+df$sexo = factor(df$sexo, labels=c("Masculino","Feminino"))
+
+#Transformando a variável id em um factor
+df$id = factor(df$id, labels=c("Não","Sim"))
+
+#Transformando a variável trab em um factor
+df$sucesso = factor(df$sucesso, labels=c("Não","Sim"))
+```
+
+<!-- Vejamos um resumo dos dados: -->
+
+```{r, eval=F, echo=F, warning=F}
+summary(df)
+```
+
+Vamos começar carregando o pacote:
+
+```{r, eval=F}
+# Carregando o pacote dplyr
+suppressMessages(library(dplyr))
+```
+
+## Selecionando n linhas aleatorias: função `sample_n()`
+
+```{r, eval=F}
+# Selecionando 5 linhas aleatoriamente
+df%>%
+  sample_n(5)
+```
+
+## Removendo linhas duplicadas: função  `distinct()`
+
+### Baseado em todas as variáveis
+
+```{r, eval=F}
+# excluindo linhas iguais
+df%>%
+  distinct()
+```
+
+### Baseado em uma variável
+
+```{r, eval=F}
+# excluindo linhas que possuem Datas iguais
+df%>%
+  distinct(Datas)
+
+```
+
+### Baseado em mais de uma variável
+
+```{r, eval=F}
+# excluindo linhas que possuem ano e consumo iguais
+df%>%
+  distinct(ano, consumo)
+
+```
+
+## Selecionando colunas (variáveis): função  `select()`
+
+```{r, eval=F}
+# Selecionando a variavel ano e  todas as variáveis de sucesso até tonalidade na df
+df%>%
+  select(ano, sucesso:tonalidade)
+
+# Selecionando todas as variaveis com exceção de ano e id
+df%>%
+  select(-c(ano,id))
+
+
+# Selecionando todas as variaveis cujo nome inicia com e
+df%>%
+  select(starts_with("a"))
+```
+
+#### Podem ser úteis também `ends_with()` e `contains()`.
+
+## Reordenando as as colunas das variáveis: função  `select()`
+
+```{r, eval=F}
+# reorganiza o data frame, iniciando com a variável Datas e depois as demais
+df%>%
+  select(Datas,everything())
+```
+
+## Renomeando variáveis: função `rename()`
+
+```{r, eval=F}
+# Renomeando a variável Datas para micro
+df%>%
+  rename(Dia = Datas)
+```
+
+## Selecionando um subconjunto de linhas que satisfazem uma ou mais condições: função `filter()`
+
+```{r, eval=F}
+# Selecionando somente os indivíduos do sexo masculino
+df%>%
+  filter( sexo == "Masculino")
+
+
+# Selecionando somente os indivíduos do sexo masculino e branco
+df%>%
+  filter( sexo == "Masculino" & tonalidade == "Branco")
+
+
+# Selecionando somente os indivíduos com consumo de 1 a 3 anos e 4 a 7 anos
+df%>%
+  filter( consumo %in% c("1 a 3","4 a 7"))
+
+
+# Selecionando indivíduos que ou são homens solteiros ou são mulheres casadas
+df%>%
+  filter( (estado_civil=="Solteiro" & sexo =="Masculino") | (estado_civil=="Casado" & sexo =="Feminino") )
+
+```
+
+## Ordenando seus data frames: função `arrange()`
+
+```{r, eval=F}
+# Ordenando os dados pela variável ano de forma crescente
+df%>%
+  arrange( ano )
+
+# Ordenando os dados pela variável ano e consumo
+df%>%
+  arrange( ano ,consumo)
+
+# Ordenando os dados pela variável ano de forma decrescente
+df%>%
+  arrange( desc(ano) )
+
+```
+
+## Criando uma nova variável: função `mutate()` e `transmute()`
+
+```{r, eval=F}
+# Criando a variável ano ao quadrado
+df%>%
+  mutate( ano2 = ano**2 )
+
+# Criando a variável Dia e a variável Mes
+df%>%
+  mutate( Dia = substring(Datas,1,2), Mes = substring(mensalidade,1,1) )
+
+# Se você quiser somente manter as variáveis criadas
+df18 = transmute(mensalidade = substring(Datas,1,2), Mes = substring(mensalidade,1,1) )
+
+```
+
+## Resumindo variáveis: função `summarize()`
+
+```{r, eval=F}
+# Calculando a media e a mediana da variável ano
+df%>%
+  summarise(  media.ano = mean(ano), mediana.ano = median(ano))
+```
+
+## Resumindo variáveis por grupo: função `group_by()` e `summarize()`
+
+```{r, eval=F}
+# Calculando a media da variável ano para as combinações entre sexo, consumo e estado civil e a frequencia de indivíduos em cada combinação
+df%>%
+  group_by(sexo, consumo, estado_civil)%>%
+  summarise(media.ano = mean(ano),frequencia=n())
+
+
+# Calculando a media da variável ano para as combinações entre ano legal, consumo e estado civil e a frequencia de indivíduos em cada combinação
+df%>%
+  group_by(id, consumo, estado_civil)%>%
+  summarise(media.ano = mean(ano),frequencia=n())
+
+```
+
+## Operador pipe: %>%
+
+Portanto, o operador `%>%` realiza múltiplas ações sem guardar os passos intermediários. Mais alguns exemplos:
+
+```{r, eval=F}
+# Selecionando as variáveis ano e id
+df %>%
+  select(ano,id)
+
+
+df %>% select(-estado_civil) %>%
+  filter(sexo=="Masculino") %>%
+  group_by(tonalidade,consumo) %>%
+  summarise(maximo=max(ano),media=mean(ano))
+```
+
+## Aplicando funções em linhas
+
+```{r, eval=F}
+df%>%
+  mutate(ano2 = ano**2 )%>%
+  rowwise() %>% mutate(Max= max(ano:ano2)) %>%
+  select(ano,ano2,Max)
+
+```
+
+# Fazendo a união de banco de dados distintos
+
+```{r, eval=F, echo=F, warning=F}
+df.pop=read.csv("Populacao por micro sexo e idade.txt", header=TRUE, sep="")
+
+library(readxl)
+df.mun <- read_excel("~/Estatistica Aplicada II/Dplyr/Municipios_2010.xlsx")
+
+df.obitos <- read_excel("~/Estatistica Aplicada II/Dplyr/Municipios_2010.xlsx")
+```
+
+```{r, eval=F, echo=F, warning=F}
+#Cabeçalho da base com as informações sobre a população
+head(df.pop)
+dim(df.pop)
+
+#Cabeçalho da df com as informações sobre os municípios
+head(base.mun)
+dim(base.mun)
+
+#Cabeçalho da base com as informações sobre os números de óbitos
+head(base.obitos)
+dim(base.obitos)
+```
+
+## Combinando duas bases de dados
+
+O pacote dplyr possui um conjunto de funções que nos auxiliam a combinar dos data frames do nosso interesse.
+
+```{r, eval=F,echo=F}
+#Criando a df b1
+b1 <- data.frame(ID = c(1010, 2010, 3010, 4010, 5010),
+                  W = c('a', 'b', 'c', 'd', 'e'),
+                  X = c(1, 1, 0, 0, 1),
+                  Y=rnorm(5))
+```
+
+```{r, eval=F,echo=F}
+#Criando a df b2
+
+b2 <- data.frame(ID = c(1010, 7010, 3010, 6010, 8010),
+                  A = c('z', 'b', 'k', 'd', 'l'),
+                  B = c(1, 2, 3, 0, 4),
+                  C =rnorm(5))
+```
+
+```{r, eval=F,echo=F}
+#Criando a df b3
+
+b3 <- data.frame(Identificacao = c(1010, 5010,2541),
+                  Z =rnorm(3),
+                  W =c("Rio","São Paulo","Niteroi"))
+```
+
+### inner_join
+
+```{r, eval=F}
+# Função inner_join: Combina as duas bases incluindo todas as variáveis de ambas as bases e todas as linhas comuns as duas bases
+inner_join(df1,df2,by="ID")
+
+inner_join(df1,df3,by=c("ID"="Identificacao"))
+
+```
+
+### left_join
+
+```{r, eval=F}
+# Função left_join: Combina as duas bases incluindo todas as variáveis de ambas as bases e todas as linhas da base a esquerda
+left_join(df1,df2,by="ID")
+
+```
+
+### right_join
+
+```{r, eval=F}
+# Função right_join: Combina as duas bases incluindo todas as variáveis de ambas as bases e todas as linhas da base a direita
+right_join(df1,df2,by="ID")
+
+```
+
+### full_join
+
+```{r, eval=F}
+# Função full_join: Combina as duas bases incluindo todas as variáveis de ambas as bases e todas as linhas de ambas as bases
+full_join(df1,df2,by="ID")
+
+```
+
+### semi_join
+
+```{r, eval=F}
+# Função semi_join: Combina as duas bases incluindo as variáveis da basea a esquerda e todas as linhas comuns as duas bases
+semi_join(df1,df2,by="ID")
+
+```
+
+### anti_join
+
+```{r, eval=F}
+# Função anti_join: Combina as duas bases incluindo as variáveis da base a esquerda e todas as linhas que não são comuns as duas bases
+anti_join(df1,df2,by="ID")
+
+```
+
+## Combinando dados verticalmente
+
+```{r, eval=F,echo=F}
+#Criando a base d1
+d1 <- data.frame(ID = c(10, 20, 30, 40, 50),
+                  W = c('a', 'b', 'a', 'b', 'e'),
+                  X = c(4, 5, 6, 7, 8, 1),
+                  Y=c(3,6,3,5,7))
+
+
+
+#Criando a base d2
+
+d2 <- data.frame(ID = c(1010, 2010, 5010),
+                  W = c('a', 'b', 'e'),
+                  X = c(1, 1, 1),
+                  Y=c(3,6,7))
+
+
+
+#Criando a base d3
+
+d3 <- data.frame(ID = c(3210, 2011, 1017),
+                  W = c('b', 'e', "a"),
+                  X = c(1,0,1),
+                  Y=c(3,5,4))
+
+
+
+#Criando a base d4
+
+d4 <- data.frame(ID = c(3210, 2011, 1017),
+                  ano = c(10,20,32),
+                  Sexo = c(1,0,1))
+
+
+```
+
+### Juntando por linhas comuns com intersect
+
+```{r, eval=F}
+#Criando uma base com as linhas comus as duas bases
+intersect(d1,d2)
+```
+
+### Juntando todas as linhas com union
+
+```{r, eval=F}
+#Criando uma base unindo todas as linhas das duas bases
+union(d1,d3)
+```
+
+### Base com linhas distintas nas duas bases com setdiff
+
+```{r, eval=F}
+#Criando uma base com as linhas distintas nas duas bases
+setdiff(d1,d3)
+```
+
+### Empilhando duas bases uma sobre a outra com rbind
+
+```{r, eval=F}
+#Empilhando duas bases, uma em cima da outra
+rbind(d1,d3)
+```
+
+### Empilhando duas bases lado a lado com cbind
+
+```{r, eval=F}
+#Empilhando duas bases, uma ao lado da outra
+cbind(d3,d4)
+```
+
+É realmente impressionante como este pacote pode impulsionar nossas habilidades na manipulação de dados! Espero que a partir de hoje o `%>%` não seja mais visto coisa "esquisita"

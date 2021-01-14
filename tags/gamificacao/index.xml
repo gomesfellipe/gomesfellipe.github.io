@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gamificacao on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/gamificacao/</link>
+    <description>Recent content in gamificacao on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/gamificacao/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Produzindo e formatando um documento Word direto em R</title>
+      <link>https://gomesfellipe.github.io/blog/2018-03-07-word-e-r-2/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/blog/2018-03-07-word-e-r-2/</guid>
+      <description>Relatórios de alta qualidade só com \(\LaTeX\)? Como já mencionei no post sobre tabelas incríveis com R, a tarefa de um estatístico (ou Data Scient, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem \(\LaTeX\), mas será que ela é realmente a única opção?</description>
+    </item>
+    
+    <item>
+      <title>O que são CheatSheets, gamificação e por que aprender R é tão divertido?</title>
+      <link>https://gomesfellipe.github.io/blog/2018-02-17-cheatsheet-gamificacao-r/</link>
+      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/blog/2018-02-17-cheatsheet-gamificacao-r/</guid>
+      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  -- Você costuma ler o manual? Quando eramos crianças geralmente não tinhamos o costume de ler o manual das coisas não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois.</description>
+    </item>
+    
+  </channel>
+</rss>
