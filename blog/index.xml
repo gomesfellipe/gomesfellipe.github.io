@@ -19,6 +19,25 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     </item>
     
     <item>
+      <title>O paradoxo dos aniversários com simulação e probabilidade</title>
+      <link>https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/</guid>
+      <description>Curiosidades sobre a teoria das probabilidades O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.
+Os conceitos de chances e de incertezas são tão antigos quando a própria civilização.</description>
+    </item>
+    
+    <item>
+      <title>Tabelas incriveis com R</title>
+      <link>https://gomesfellipe.github.io/blog/2018-01-12-tabelas-incriveis-com-r/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/blog/2018-01-12-tabelas-incriveis-com-r/</guid>
+      <description>Importâcia da apresentação dos dados O trabalho do estatístico vai muito além do planejamento, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. O processo de analises deve ser tratado na etapa final de todo projeto ou pesquisa que envolva apresentação dos resultados, não é atoa que já até existem áreas dentro da ciência de dados focada nesta tarefa, recebendo o título de “Data Artist”.</description>
+    </item>
+    
+    <item>
       <title>Análise Multivariada com R</title>
       <link>https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/</link>
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>

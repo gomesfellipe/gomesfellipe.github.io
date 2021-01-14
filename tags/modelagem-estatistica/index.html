@@ -28,9 +28,9 @@
         "publisher": "",
         "accountablePerson" : "",
         "copyrightHolder" : "",
-        "copyrightYear" : "2017",
-        "datePublished": "2017-12-24 00:00:00 \u002b0000 UTC",
-        "dateModified" : "2017-12-24 00:00:00 \u002b0000 UTC",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-01-20 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2018-01-20 00:00:00 \u002b0000 UTC",
         "url" : "https:\/\/gomesfellipe.github.io\/tags\/modelagem-estatistica\/",
         "wordCount" : "0",
         "keywords" : [ "Blog" ]
@@ -62,7 +62,7 @@
 <meta property="og:description" content="Este blog é fruto da minha paixão pela Estatística e Ciência de dados, trago aqui de maneira prática e descontraída algumas ferramentas, técnicas, curiosidades e brincadeiras disponíveis quando se utiliza o R como linguagem de programação. Espero que aproveite o conteúdo!" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://gomesfellipe.github.io/tags/modelagem-estatistica/" />
-<meta property="og:updated_time" content="2017-12-24T00:00:00+00:00" />
+<meta property="og:updated_time" content="2018-01-20T00:00:00+00:00" />
 
         <meta property="og:image" content="https://gomesfellipe.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
@@ -266,6 +266,84 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/blog/2018-01-12-tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2018-01-12-tabelas-incriveis-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/">Análise Multivariada com R</a></h3>
                                 
                                 <time class="published" datetime=
@@ -335,7 +413,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/" class="image featured">
-            <img src="https://gomesfellipe.github.io/date2017/12/diag-modelo.jpg" alt="">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
         </a>
     
 
@@ -374,7 +452,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/" class="image featured">
-            <img src="https://gomesfellipe.github.io/date2017/12/bayes-R-jags.jpg" alt="">
+            <img src="https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg" alt="">
         </a>
     
 
@@ -413,7 +491,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/" class="image featured">
-            <img src="https://gomesfellipe.github.io/date2017/12/imagem2.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2017/12/imagem2.png" alt="">
         </a>
     
 
@@ -503,7 +581,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2017/122017/12/dplyr.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2017/12/dplyr.png" alt="">
         </a>
     
 
@@ -720,6 +798,136 @@ if (!doNotTrack) {
   <header>
     <div class="title">
         
+            <h2><a href="https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h2>
+        
+        
+            <p>Quanto você acha que é a probabiliddade num grupo de 23 pessoas escolhidas aleatoriamente que duas delas farão aniversário no mesmo dia? Acreditaria se eu te dissesse que essa chance é maior do que 50%? A probabilidade é contra intuitiva e neste post vamos demonstrar de forma analitica e atraves de simulação esse e outros resultados além de dissertar um pouco sobre a história e conceitos importantes de probabilidade</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-01-20'>
+            January 20, 2018</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>7 minute read</p>
+        
+        
+    </div>
+</header>
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+  
+  <p>O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.</p>
+  <footer>
+    <ul class="actions">
+      <li><a href="https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/" class="button big">Continue Reading</a></li>
+    </ul>
+  <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/modelagem-estatistica">Modelagem Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria">Analise Exploratória</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/teoria">Teoria</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o">Simulação</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/probabilidade">Probabilidade</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/teoria">Teoria</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/analise-multivariada">analise multivariada</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelagem">modelagem</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelagem-estatistica">modelagem estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/simulacao">simulacao</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/probabilidade">probabilidade</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+</article>
+
+        
+            <article class="post">
+  <header>
+    <div class="title">
+        
             <h2><a href="https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h2>
         
         
@@ -894,9 +1102,6 @@ if (!doNotTrack) {
 
 
   
-  
-    
-  
 
 
         
@@ -904,7 +1109,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg" alt="">
+            <img src="https://gomesfellipe.github.io/img//bayes-R-jags.jpg" alt="">
         </a>
     
 
@@ -1133,6 +1338,88 @@ if (!doNotTrack) {
           <article class="mini-post">
             <header>
               <h3>
+                <a href="https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/blog/2018-01-12-tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/blog/2018-01-12-tabelas-incriveis-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/">Análise Multivariada com R</a>
               </h3>
               
@@ -1154,6 +1441,9 @@ if (!doNotTrack) {
 
 
   
+  
+    
+  
 
 
         
@@ -1161,7 +1451,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img//multivariada-fatorial-cluster-R.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
         </a>
     
 
@@ -1191,6 +1481,9 @@ if (!doNotTrack) {
 
 
 
+  
+  
+    
   
 
 
@@ -1628,7 +1921,7 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/estatistica/">estatistica</a>
-                <span style="float:right;">6</span>
+                <span style="float:right;">8</span>
               
             </header>
           </article>
@@ -1639,7 +1932,7 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/teoria/">teoria</a>
-                <span style="float:right;">6</span>
+                <span style="float:right;">7</span>
               
             </header>
           </article>
@@ -1650,7 +1943,7 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
-                <span style="float:right;">4</span>
+                <span style="float:right;">5</span>
               
             </header>
           </article>
@@ -1672,6 +1965,39 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/modelagem-estatistica/">modelagem-estatistica</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/">analise-exploratória</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/analise-mutivariada/">analise-mutivariada</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/reports/">reports</a>
                 <span style="float:right;">2</span>
               
             </header>
@@ -1695,17 +2021,6 @@ if (!doNotTrack) {
               
                 <a href="https://gomesfellipe.github.io/categories/tidyverse/">tidyverse</a>
                 <span style="float:right;">2</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://gomesfellipe.github.io/categories/analise-mutivariada/">analise-mutivariada</a>
-                <span style="float:right;">1</span>
               
             </header>
           </article>
@@ -1814,7 +2129,18 @@ if (!doNotTrack) {
           <article>
             <header>
               
-                <a href="https://gomesfellipe.github.io/categories/reports/">reports</a>
+                <a href="https://gomesfellipe.github.io/categories/probabilidade/">probabilidade</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o/">simulação</a>
                 <span style="float:right;">1</span>
               
             </header>
