@@ -6,7 +6,17 @@
     <description>Recent content in Reports on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/reports/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/reports/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>leaflet carnaval</title>
+      <link>https://gomesfellipe.github.io/blog/2018-02-01-leaflet-carnaval/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/blog/2018-02-01-leaflet-carnaval/</guid>
+      <description>Onde estão os blocos? Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.
+Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes ggmap e leaflet para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar</description>
+    </item>
+    
     <item>
       <title>Tabelas incriveis com R</title>
       <link>https://gomesfellipe.github.io/blog/2018-01-12-tabelas-incriveis-com-r/</link>
