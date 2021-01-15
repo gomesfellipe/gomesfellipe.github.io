@@ -25,7 +25,7 @@ featured: 'multivariada-fatorial-cluster-R.png'
 featuredalt: 'Pic 9'
 featuredpath: 'date'
 linktitle: ''
-type: post
+type: "post"
 ---
 
 ```{r setup, include=FALSE}

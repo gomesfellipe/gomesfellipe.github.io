@@ -24,7 +24,7 @@
         "datePublished": "2017-12-17 00:00:00 \u002b0000 UTC",
         "dateModified" : "2017-12-17 00:00:00 \u002b0000 UTC",
         "url" : "https:\/\/gomesfellipe.github.io\/post\/2017-12-17-string\/string\/",
-        "wordCount" : "2113",
+        "wordCount" : "2104",
         "keywords" : [ "gomesfellipe","R","RStudio","text mining","strings","Blog" ]
     }
     </script>
@@ -67,7 +67,7 @@
 <meta itemprop="description" content="Algumas dicas e truques úteis de pacotes especiais para a manipulação e tratamento de strings">
 <meta itemprop="datePublished" content="2017-12-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2017-12-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2113">
+<meta itemprop="wordCount" content="2104">
 
 
 
@@ -1083,12 +1083,12 @@ if (!doNotTrack) {
   #            Outras palavras aceitas: &quot;all&quot; (retira todos os acentos, que são &quot;´&quot;, &quot;`&quot;, &quot;^&quot;, &quot;~&quot;, &quot;¨&quot;, &quot;ç&quot;)
   if(!is.character(str))
     str &lt;- as.character(str)
-
+  
   pattern &lt;- unique(pattern)
-
+  
   if(any(pattern==&quot;Ç&quot;))
     pattern[pattern==&quot;Ç&quot;] &lt;- &quot;ç&quot;
-
+  
   symbols &lt;- c(
     acute = &quot;áéíóúÁÉÍÓÚýÝ&quot;,
     grave = &quot;àèìòùÀÈÌÒÙ&quot;,
@@ -1097,7 +1097,7 @@ if (!doNotTrack) {
     umlaut = &quot;äëïöüÄËÏÖÜÿ&quot;,
     cedil = &quot;çÇ&quot;
   )
-
+  
   nudeSymbols &lt;- c(
     acute = &quot;aeiouAEIOUyY&quot;,
     grave = &quot;aeiouAEIOU&quot;,
@@ -1106,15 +1106,15 @@ if (!doNotTrack) {
     umlaut = &quot;aeiouAEIOUy&quot;,
     cedil = &quot;cC&quot;
   )
-
+  
   accentTypes &lt;- c(&quot;´&quot;,&quot;`&quot;,&quot;^&quot;,&quot;~&quot;,&quot;¨&quot;,&quot;ç&quot;)
-
+  
   if(any(c(&quot;all&quot;,&quot;al&quot;,&quot;a&quot;,&quot;todos&quot;,&quot;t&quot;,&quot;to&quot;,&quot;tod&quot;,&quot;todo&quot;)%in%pattern)) # opcao retirar todos
     return(chartr(paste(symbols, collapse=&quot;&quot;), paste(nudeSymbols, collapse=&quot;&quot;), str))
-
+  
   for(i in which(accentTypes%in%pattern))
     str &lt;- chartr(symbols[i],nudeSymbols[i], str)
-
+  
   return(str)
 }</code></pre>
 <p>Criar nossas próprias funções é muito simples em R e eu encorajo a todos a começarem a trabalhar com funções próprias também (além das nativas do R), pois o programa fica muito mais dinâmico e limpo.</p>
@@ -1141,13 +1141,13 @@ if (!doNotTrack) {
 ##  [9] &quot;Café/dia&quot;                 &quot;Suco/dia&quot;</code></pre>
 <p>Unindo as funções deste pacote com a sintaxe do pacote <code>dplyr</code> podemos elaborar uma função que irá facilitar bastante nas chamadas das colunas do data.frame na hora da análise, veja:</p>
 <pre class="r"><code>ajustar_nomes=function(x){
- x%&gt;%
-  stringr::str_trim() %&gt;%                        #Remove espaços em branco sobrando
-  stringr::str_to_lower() %&gt;%                    #Converte todas as strings para minusculo
-  rm_accent() %&gt;%                                #Remove os acentos com a funcao criada acima
-  stringr::str_replace_all(&quot;[/&#39; &#39;.()]&quot;, &quot;_&quot;) %&gt;% #Substitui os caracteres especiais por &quot;_&quot;
-  stringr::str_replace_all(&quot;_+&quot;, &quot;_&quot;) %&gt;%        #Substitui os caracteres especiais por &quot;_&quot;   
-  stringr::str_replace(&quot;_$&quot;, &quot;&quot;)                 #Substitui o caracter especiais por &quot;_&quot;
+  x%&gt;%
+    stringr::str_trim() %&gt;%                        #Remove espaços em branco sobrando
+    stringr::str_to_lower() %&gt;%                    #Converte todas as strings para minusculo
+    rm_accent() %&gt;%                                #Remove os acentos com a funcao criada acima
+    stringr::str_replace_all(&quot;[/&#39; &#39;.()]&quot;, &quot;_&quot;) %&gt;% #Substitui os caracteres especiais por &quot;_&quot;
+    stringr::str_replace_all(&quot;_+&quot;, &quot;_&quot;) %&gt;%        #Substitui os caracteres especiais por &quot;_&quot;   
+    stringr::str_replace(&quot;_$&quot;, &quot;&quot;)                 #Substitui o caracter especiais por &quot;_&quot;
 }
 nomes=ajustar_nomes(nomes)
 nomes</code></pre>
@@ -1219,7 +1219,7 @@ str_sub(words, start=3, end=-3)</code></pre>
 <h1>Pacote <code>tm</code></h1>
 <p>O pacote <code>tm</code> é um clássico para o text mining em R, quando os dados se apresentam de forma não estrutura, necessitam de uma preparação prévia que pode ser considerada um tipo de pré-processamento.</p>
 <p>Inicialmente, carregando o pacote:</p>
-<pre class="r"><code>suppressMessages( library(tm))</code></pre>
+<pre class="r"><code>library(tm)</code></pre>
 <p>Em bases de dados textuais, conhecidos como <em>corpus</em> ou <em>corpora</em> são tratado como “documentos” e cada “documento” em um <em>corpus</em> pode assumir diferentes características em relação ao tamanho do texto (sequências de caracteres), tipo de conteúdo (assunto abordado), língua na qual é escrito ou tipo de linguagem adotada dentro outros exemplos.</p>
 <p>A transformação de um <em>corpus</em> em um conjunto de dados que possa ser submetido à procedimentos de análise consiste em um processo que gera uma representação capaz de descrever cada documento em termos de suas características.</p>
 <p>Para criar um <em>corpus</em> a partir de um <code>data.frame</code> basta utilizar o seguinte comando:</p>
@@ -1235,14 +1235,14 @@ corpus &lt;- Corpus(DataframeSource(x))</code></pre>
 
 #Tratamento do corpus
 tratar_corpus=function(x){
-x%&gt;% 
-  tm_map(stripWhitespace)%&gt;%                                #remover excessos de espaços em branco
-  tm_map(removePunctuation)%&gt;%                              #remover pontuacao
-  tm_map(removeNumbers)%&gt;%                                  #remover numeros
-  tm_map(removeWords, c(stopwords(&quot;portuguese&quot;),novas))%&gt;%  #remmover as stopwords,crie um vetor chamado &quot;novas&quot; para incluir novas stopwords 
-  tm_map(stripWhitespace)%&gt;%                                #remover excessos de espaços em branco novamente
-  tm_map(removeNumbers)                                 #remover numeros novamente
- # tm_map(content_transformer(tolower))%&gt;%                   #colocar todos caracteres como minusculo
+  x%&gt;% 
+    tm_map(stripWhitespace)%&gt;%                                #remover excessos de espaços em branco
+    tm_map(removePunctuation)%&gt;%                              #remover pontuacao
+    tm_map(removeNumbers)%&gt;%                                  #remover numeros
+    tm_map(removeWords, c(stopwords(&quot;portuguese&quot;),novas))%&gt;%  #remmover as stopwords,crie um vetor chamado &quot;novas&quot; para incluir novas stopwords 
+    tm_map(stripWhitespace)%&gt;%                                #remover excessos de espaços em branco novamente
+    tm_map(removeNumbers)                                 #remover numeros novamente
+  # tm_map(content_transformer(tolower))%&gt;%                   #colocar todos caracteres como minusculo
   #tm_map(stemDocument)                                      #Extraindo os radicais
 }                                   
 corpus=tratar_corpus(corpus)
@@ -1325,29 +1325,29 @@ head(matriz, n=10) %&gt;%
 <pre class="r"><code>library(ngram)
 ngrams=3
 temp=ngram::ngram(ngram::concatenate(corpus),ngrams)      # Objeto temporario recebe objeto que guarda sequencias
-    temp=get.phrasetable(temp)                                  # Obtendo tabela de sequencias do objeto acima
-    
-    temp$ngrams=temp$ngrams%&gt;%                                  # Limpeza das sequencias obtidas:
-      str_replace_all(pattern = &quot;^([A-Za-z] [A-Za-z])+&quot;,&quot;&quot;)%&gt;%  # Remover sequencias de apenas 1 letras 
-      str_replace_all(pattern = &quot;[:punct:]&quot;,&quot;&quot;)%&gt;%              # Remover caracteres especiais
-      str_replace_all(pattern = &quot;\n&quot;,&quot;&quot;)%&gt;%                     # Remover o marcador de &quot;nova linha&quot;
-      str_trim()                                                # Remover espaços em branco sobrando
-    
-    #Apos a limpeza..
-    
-    temp=temp[temp$ngrams!=&quot;&quot;,]                                 # Selecionando apenas as linhas que contenham informacao
-    
-    temp=temp%&gt;%                                                # Novamente manipulando o objeto que contem a tabela de sequencias
-      group_by(ngrams) %&gt;%                                      # Agrupando por &quot;ngrams&quot; (sequencias obtidas)
-      summarise(freq=sum(freq))%&gt;%                              # Resumir as linhas repetidas pela soma das frequencias
-      arrange(desc(freq))%&gt;%                                    # Organizando da maior para a menos frequencia
-      as.matrix()                                               # Alterando o tipo de objeto para matrix</code></pre>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre class="r"><code>    rownames(temp)=str_c(temp[,1])                              # O nome das linhas passa a ser a sequencia correspondente
-    v=sort(temp[,2],decreasing = T)                               # Retorna um objeto com as frequencias em ordem decrescente e linhas nomeadas
+temp=get.phrasetable(temp)                                  # Obtendo tabela de sequencias do objeto acima
+
+temp$ngrams=temp$ngrams%&gt;%                                  # Limpeza das sequencias obtidas:
+  str_replace_all(pattern = &quot;^([A-Za-z] [A-Za-z])+&quot;,&quot;&quot;)%&gt;%  # Remover sequencias de apenas 1 letras 
+  str_replace_all(pattern = &quot;[:punct:]&quot;,&quot;&quot;)%&gt;%              # Remover caracteres especiais
+  str_replace_all(pattern = &quot;\n&quot;,&quot;&quot;)%&gt;%                     # Remover o marcador de &quot;nova linha&quot;
+  str_trim()                                                # Remover espaços em branco sobrando
+
+#Apos a limpeza..
+
+temp=temp[temp$ngrams!=&quot;&quot;,]                                 # Selecionando apenas as linhas que contenham informacao
+
+temp=temp%&gt;%                                                # Novamente manipulando o objeto que contem a tabela de sequencias
+  group_by(ngrams) %&gt;%                                      # Agrupando por &quot;ngrams&quot; (sequencias obtidas)
+  summarise(freq=sum(freq))%&gt;%                              # Resumir as linhas repetidas pela soma das frequencias
+  arrange(desc(freq))%&gt;%                                    # Organizando da maior para a menos frequencia
+  as.matrix()                                               # Alterando o tipo de objeto para matrix
+
+rownames(temp)=str_c(temp[,1])                              # O nome das linhas passa a ser a sequencia correspondente
+v=sort(temp[,2],decreasing = T)                               # Retorna um objeto com as frequencias em ordem decrescente e linhas nomeadas
 data.frame(words = names(v),freq=v)%&gt;%
   head(n=25)%&gt;%
-      ggplot(aes(words, freq)) +
+  ggplot(aes(words, freq)) +
   geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, fill = &quot;#87CEFA&quot;) +
   geom_text(aes(hjust = 1.3, label = freq)) + 
   coord_flip() + 
