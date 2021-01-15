@@ -29,8 +29,8 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2018",
-        "datePublished": "2018-01-20 00:00:00 \u002b0000 UTC",
-        "dateModified" : "2018-01-20 00:00:00 \u002b0000 UTC",
+        "datePublished": "2018-07-28 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2018-07-28 00:00:00 \u002b0000 UTC",
         "url" : "https:\/\/gomesfellipe.github.io\/tags\/teoria\/",
         "wordCount" : "0",
         "keywords" : [ "Blog" ]
@@ -62,7 +62,7 @@
 <meta property="og:description" content="Este blog é fruto da minha paixão pela Estatística e Ciência de dados, trago aqui de maneira prática e descontraída algumas ferramentas, técnicas, curiosidades e brincadeiras disponíveis quando se utiliza o R como linguagem de programação. Espero que aproveite o conteúdo!" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://gomesfellipe.github.io/tags/teoria/" />
-<meta property="og:updated_time" content="2018-01-20T00:00:00+00:00" />
+<meta property="og:updated_time" content="2018-07-28T00:00:00+00:00" />
 
         <meta property="og:image" content="https://gomesfellipe.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
@@ -238,6 +238,96 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-28'>
+                                    July 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/">Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-28'>
+                                    July 28, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-06-24'>
+                                    June 24, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h3>
                                 
                                 <time class="published" datetime=
@@ -272,18 +362,6 @@ if (!doNotTrack) {
         </a>
     
 
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://gomesfellipe.github.io/post/">Post</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-05-26'>
-                                    May 26, 2018</time>
-                            </header>
-                            
 
                         </article>
                 
@@ -804,6 +882,157 @@ if (!doNotTrack) {
     <div id="main">
         <h1>Teoria</h1>
         
+        
+            <article class="post">
+  <header>
+    <div class="title">
+        
+            <h2><a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a></h2>
+        
+        
+            <p>Um pouco sobre as duas grandes escolas de inferência, contas e implementação de um modelo linear bayesiano na mão para dados simulados e para dados reais</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-07-28'>
+            July 28, 2018</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>16 minute read</p>
+        
+        
+    </div>
+</header>
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+  
+  <p>Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.</p>
+  <footer>
+    <ul class="actions">
+      <li><a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="button big">Continue Reading</a></li>
+    </ul>
+  <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado">Aprendizado Não Supervisionado</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/bayes">Bayes</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/infer%C3%AAncia-bayesiana">Inferência Bayesiana</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/modelagem-estatistica">Modelagem Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/probabilidade">Probabilidade</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o">Simulação</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/teoria">Teoria</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/bayes">bayes</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/jags">jags</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelagem">modelagem</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelagem-estatistica">modelagem estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelos-generalizados">modelos generalizados</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelos-lineares">modelos lineares</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/probabilidade">probabilidade</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/regression">regression</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/teoria">Teoria</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+</article>
+
         
             <article class="post">
   <header>
@@ -1361,6 +1590,85 @@ if (!doNotTrack) {
           <article class="mini-post">
             <header>
               <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-28'>
+                July 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-06-24'>
+                June 24, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a>
               </h3>
               
@@ -1474,7 +1782,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/03/Word-R.png" alt="">
+            <img src="https://gomesfellipe.github.io/date2018/03/Word-R.png" alt="">
         </a>
     
 
@@ -1546,9 +1854,6 @@ if (!doNotTrack) {
 
 
   
-  
-    
-  
 
 
         
@@ -1587,9 +1892,6 @@ if (!doNotTrack) {
 
 
   
-  
-    
-  
 
 
         
@@ -1597,7 +1899,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+            <img src="https://gomesfellipe.github.io/img//modelagem-probabilidade2.png" alt="">
         </a>
     
 
@@ -1960,7 +2262,7 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/r/">r</a>
-                <span style="float:right;">14</span>
+                <span style="float:right;">16</span>
               
             </header>
           </article>
@@ -1971,7 +2273,7 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/estatistica/">estatistica</a>
-                <span style="float:right;">11</span>
+                <span style="float:right;">13</span>
               
             </header>
           </article>
@@ -1982,7 +2284,7 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
-                <span style="float:right;">9</span>
+                <span style="float:right;">10</span>
               
             </header>
           </article>
@@ -1993,7 +2295,18 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/teoria/">teoria</a>
-                <span style="float:right;">8</span>
+                <span style="float:right;">9</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/modelagem-estatistica/">modelagem-estatistica</a>
+                <span style="float:right;">6</span>
               
             </header>
           </article>
@@ -2014,6 +2327,17 @@ if (!doNotTrack) {
           <article>
             <header>
               
+                <a href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/">analise-exploratória</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
                 <a href="https://gomesfellipe.github.io/categories/analise-mutivariada/">analise-mutivariada</a>
                 <span style="float:right;">4</span>
               
@@ -2025,18 +2349,7 @@ if (!doNotTrack) {
           <article>
             <header>
               
-                <a href="https://gomesfellipe.github.io/categories/modelagem-estatistica/">modelagem-estatistica</a>
-                <span style="float:right;">4</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/">analise-exploratória</a>
+                <a href="https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado/">aprendizado-não-supervisionado</a>
                 <span style="float:right;">3</span>
               
             </header>
@@ -2048,6 +2361,17 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/data-mining/">data-mining</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bayes/">bayes</a>
                 <span style="float:right;">2</span>
               
             </header>
@@ -2069,7 +2393,62 @@ if (!doNotTrack) {
           <article>
             <header>
               
+                <a href="https://gomesfellipe.github.io/categories/infer%C3%AAncia-bayesiana/">inferência-bayesiana</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/machine-learning/">machine-learning</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/probabilidade/">probabilidade</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o/">simulação</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
                 <a href="https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/text-mining/">text-mining</a>
                 <span style="float:right;">2</span>
               
             </header>
@@ -2091,7 +2470,7 @@ if (!doNotTrack) {
           <article>
             <header>
               
-                <a href="https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado/">aprendizado-não-supervisionado</a>
+                <a href="https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sentimentos/">análise-de-sentimentos</a>
                 <span style="float:right;">1</span>
               
             </header>
@@ -2103,17 +2482,6 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/aprendizado-supervisionado/">aprendizado-supervisionado</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://gomesfellipe.github.io/categories/bayes/">bayes</a>
                 <span style="float:right;">1</span>
               
             </header>
@@ -2157,17 +2525,6 @@ if (!doNotTrack) {
           <article>
             <header>
               
-                <a href="https://gomesfellipe.github.io/categories/machine-learning/">machine-learning</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
                 <a href="https://gomesfellipe.github.io/categories/mapas/">mapas</a>
                 <span style="float:right;">1</span>
               
@@ -2190,40 +2547,7 @@ if (!doNotTrack) {
           <article>
             <header>
               
-                <a href="https://gomesfellipe.github.io/categories/probabilidade/">probabilidade</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
                 <a href="https://gomesfellipe.github.io/categories/rmarkdown/">rmarkdown</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o/">simulação</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://gomesfellipe.github.io/categories/text-mining/">text-mining</a>
                 <span style="float:right;">1</span>
               
             </header>

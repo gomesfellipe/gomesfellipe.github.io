@@ -31,6 +31,7 @@ featured: 'img1.png'
 featuredalt: 'Pic 16'
 featuredpath: 'date'
 linktitle: ''
+type: "post"
 ---
 
 ```{r setup, include=FALSE,warning=F}
