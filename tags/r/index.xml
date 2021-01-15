@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 12 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Séries temporais com Google Trends e R</title>
-      <link>https://gomesfellipe.github.io/blog/2018-04-12-google-trends-e-r/</link>
+      <link>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/</link>
       <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-04-12-google-trends-e-r/</guid>
+      <guid>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/</guid>
       <description>Google Trends O Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
 Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
 Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
@@ -20,48 +20,48 @@ Através de suas séries temporais podemos avaliar a presença de pedrões, obte
     
     <item>
       <title>Produzindo e formatando um documento Word direto em R</title>
-      <link>https://gomesfellipe.github.io/blog/2018-03-07-word-e-r-2/</link>
+      <link>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/</link>
       <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-03-07-word-e-r-2/</guid>
+      <guid>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/</guid>
       <description>Relatórios de alta qualidade só com \(\LaTeX\)? Como já mencionei no post sobre tabelas incríveis com R, a tarefa de um estatístico (ou Data Scient, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem \(\LaTeX\), mas será que ela é realmente a única opção?</description>
     </item>
     
     <item>
       <title>O que são CheatSheets, gamificação e por que aprender R é tão divertido?</title>
-      <link>https://gomesfellipe.github.io/blog/2018-02-17-cheatsheet-gamificacao-r/</link>
+      <link>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/</link>
       <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-02-17-cheatsheet-gamificacao-r/</guid>
-      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  -- Você costuma ler o manual? Quando eramos crianças geralmente não tinhamos o costume de ler o manual das coisas não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois.</description>
+      <guid>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/</guid>
+      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  Você costuma ler o manual? Quando eramos crianças geralmente não tinhamos o costume de ler o manual das coisas não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois.</description>
     </item>
     
     <item>
-      <title>leaflet carnaval</title>
-      <link>https://gomesfellipe.github.io/blog/2018-02-01-leaflet-carnaval/</link>
+      <title>Carnaval e mapas interativos com R</title>
+      <link>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/2018-02-01-leaflet-carnaval/</link>
       <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-02-01-leaflet-carnaval/</guid>
+      <guid>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/2018-02-01-leaflet-carnaval/</guid>
       <description>Onde estão os blocos? Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.
 Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes ggmap e leaflet para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar</description>
     </item>
     
     <item>
       <title>Análise Multivariada com R</title>
-      <link>https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/</link>
+      <link>https://gomesfellipe.github.io/post/2018-01-04-an%C3%A1lise-multivariada-em-r/ana%CC%81lise-multivariada-em-r/</link>
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/</guid>
+      <guid>https://gomesfellipe.github.io/post/2018-01-04-an%C3%A1lise-multivariada-em-r/ana%CC%81lise-multivariada-em-r/</guid>
       <description>Análise Multivariada Imagem do Wikpedia
 Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados</description>
     </item>
     
     <item>
       <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</link>
       <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</guid>
       <description>Funções do R para avaliar o ajuste de modelos Traduzindo:
 “Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
 Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
@@ -70,10 +70,10 @@ Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma
     
     <item>
       <title>Ajustando Modelos Bayesianos com JAGS</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</link>
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-18-ajustando-modelos-bayesianos-com-jags/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</guid>
       <description>Inferência bayesiana Imagem da Internet
 Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.
 Para isso devemos utilizar toda informação disponível, seja ela objetiva ou subjetiva (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)
@@ -83,20 +83,20 @@ Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa 
     
     <item>
       <title>Manipulação de Strings e Text Mining</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-17-string/string/</link>
       <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-17-manipula%C3%A7%C3%A3o-de-strings-e-text-mining/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-17-string/string/</guid>
       <description>Manipulação de strings e Text mining Estudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo string.
 Uma variável do tipo string é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.</description>
     </item>
     
     <item>
       <title>Criando relatorios com template tufle</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/</link>
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/</guid>
       <description>Focando no conteúdo Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico.
 Como disse Khalil Gibran; é preciso transformar em palavras aquilo que já conhecemos em pensamentos. Ninguém quer perder tempo precioso de análises em formatações de documentos.
 Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos.</description>
@@ -104,20 +104,20 @@ Elaborar templates de relatórios é uma tarefa comum entre programadores estat�
     
     <item>
       <title>Manipulando dados com dplyr</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
       <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
 Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
     </item>
     
     <item>
       <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
       <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
 Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
 Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
@@ -125,10 +125,10 @@ Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanid
     
     <item>
       <title>Tipos de Correlacoes</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correlacoes/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</link>
       <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correlacoes/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</guid>
       <description>Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
     </item>
     

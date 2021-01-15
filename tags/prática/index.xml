@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 12 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/pr%C3%A1tica/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Séries temporais com Google Trends e R</title>
-      <link>https://gomesfellipe.github.io/blog/2018-04-12-google-trends-e-r/</link>
+      <link>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/</link>
       <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-04-12-google-trends-e-r/</guid>
+      <guid>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/</guid>
       <description>Google Trends O Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
 Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
 Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
@@ -20,47 +20,47 @@ Através de suas séries temporais podemos avaliar a presença de pedrões, obte
     
     <item>
       <title>Produzindo e formatando um documento Word direto em R</title>
-      <link>https://gomesfellipe.github.io/blog/2018-03-07-word-e-r-2/</link>
+      <link>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/</link>
       <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-03-07-word-e-r-2/</guid>
+      <guid>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/</guid>
       <description>Relatórios de alta qualidade só com \(\LaTeX\)? Como já mencionei no post sobre tabelas incríveis com R, a tarefa de um estatístico (ou Data Scient, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem \(\LaTeX\), mas será que ela é realmente a única opção?</description>
     </item>
     
     <item>
       <title>O que são CheatSheets, gamificação e por que aprender R é tão divertido?</title>
-      <link>https://gomesfellipe.github.io/blog/2018-02-17-cheatsheet-gamificacao-r/</link>
+      <link>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/</link>
       <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-02-17-cheatsheet-gamificacao-r/</guid>
-      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  -- Você costuma ler o manual? Quando eramos crianças geralmente não tinhamos o costume de ler o manual das coisas não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois.</description>
+      <guid>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/</guid>
+      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  Você costuma ler o manual? Quando eramos crianças geralmente não tinhamos o costume de ler o manual das coisas não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois.</description>
     </item>
     
     <item>
-      <title>leaflet carnaval</title>
-      <link>https://gomesfellipe.github.io/blog/2018-02-01-leaflet-carnaval/</link>
+      <title>Carnaval e mapas interativos com R</title>
+      <link>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/2018-02-01-leaflet-carnaval/</link>
       <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-02-01-leaflet-carnaval/</guid>
+      <guid>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/2018-02-01-leaflet-carnaval/</guid>
       <description>Onde estão os blocos? Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.
 Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes ggmap e leaflet para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar</description>
     </item>
     
     <item>
       <title>Tabelas incriveis com R</title>
-      <link>https://gomesfellipe.github.io/blog/2018-01-12-tabelas-incriveis-com-r/</link>
+      <link>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/</link>
       <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-01-12-tabelas-incriveis-com-r/</guid>
+      <guid>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/</guid>
       <description>Importâcia da apresentação dos dados O trabalho do estatístico vai muito além do planejamento, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. O processo de analises deve ser tratado na etapa final de todo projeto ou pesquisa que envolva apresentação dos resultados, não é atoa que já até existem áreas dentro da ciência de dados focada nesta tarefa, recebendo o título de “Data Artist”.</description>
     </item>
     
     <item>
       <title>Criando relatorios com template tufle</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/</link>
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-14-criando-relatorios-com-template-tufle/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/</guid>
       <description>Focando no conteúdo Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico.
 Como disse Khalil Gibran; é preciso transformar em palavras aquilo que já conhecemos em pensamentos. Ninguém quer perder tempo precioso de análises em formatações de documentos.
 Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos.</description>
@@ -68,10 +68,10 @@ Elaborar templates de relatórios é uma tarefa comum entre programadores estat�
     
     <item>
       <title>Manipulando dados com dplyr</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-07-manipulando-dados-com-dplyr/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
       <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
 Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
     </item>

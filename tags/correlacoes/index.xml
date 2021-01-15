@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 24 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/correlacoes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</link>
       <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</guid>
       <description>Funções do R para avaliar o ajuste de modelos Traduzindo:
 “Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
 Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
@@ -21,10 +21,10 @@ Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma
     
     <item>
       <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
       <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
 Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
 Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
@@ -32,10 +32,10 @@ Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanid
     
     <item>
       <title>Tipos de relações entre variáveis</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</link>
       <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-02-tipos-de-relacoes-entre-variaveis/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</guid>
       <description>Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.
 Já sabemos que esses coeficientes variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.
 Porém o que fazer com tantas métricas? Qual o cálculo mais aconselhado para as relações dois a dois de cada tipo de variáveis (medidas, quantidades, nomes, classes com algum tipo de ordem ou hierarquia)?</description>
@@ -43,10 +43,10 @@ Porém o que fazer com tantas métricas? Qual o cálculo mais aconselhado para a
     
     <item>
       <title>Tipos de Correlacoes</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correlacoes/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</link>
       <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-01-tipos-de-correlacoes/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</guid>
       <description>Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
     </item>
     

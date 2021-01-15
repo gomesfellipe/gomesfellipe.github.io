@@ -9,30 +9,30 @@
     <lastBuildDate>Sat, 20 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/teoria/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>O paradoxo dos aniversários com simulação e probabilidade</title>
-      <link>https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/</link>
+      <link>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/</link>
       <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-01-20-simulacao-e-probabilidade/</guid>
+      <guid>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/</guid>
       <description>Curiosidades sobre a teoria das probabilidades O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.
 Os conceitos de chances e de incertezas são tão antigos quando a própria civilização.</description>
     </item>
     
     <item>
       <title>Análise Multivariada com R</title>
-      <link>https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/</link>
+      <link>https://gomesfellipe.github.io/post/2018-01-04-an%C3%A1lise-multivariada-em-r/ana%CC%81lise-multivariada-em-r/</link>
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2018-01-04-an%C3%A1lise-multivariada-com-r/</guid>
+      <guid>https://gomesfellipe.github.io/post/2018-01-04-an%C3%A1lise-multivariada-em-r/ana%CC%81lise-multivariada-em-r/</guid>
       <description>Análise Multivariada Imagem do Wikpedia
 Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados</description>
     </item>
     
     <item>
       <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</link>
       <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/blog/2017-12-24-diagnostico-de-modelos/</guid>
+      <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</guid>
       <description>Funções do R para avaliar o ajuste de modelos Traduzindo:
 “Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
 Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!

@@ -1,0 +1,293 @@
+---
+title: O paradoxo dos aniversários com simulação e probabilidade
+author: Fellipe Gomes
+date: '2018-01-20'
+slug: []
+categories:
+  - Estatistica
+  - Modelagem Estatistica
+  - Analise Exploratória
+  - Teoria
+  - Simulação
+  - Probabilidade
+tags:
+  - gomesfellipe
+  - Estatistica
+  - Teoria
+  - analise multivariada
+  - modelagem
+  - modelagem estatistica
+  - simulacao
+  - probabilidade
+description: 'Quanto você acha que é a probabiliddade num grupo de 23 pessoas escolhidas aleatoriamente que duas delas farão aniversário no mesmo dia? Acreditaria se eu te dissesse que essa chance é maior do que 50%? A probabilidade é contra intuitiva e neste post vamos demonstrar de forma analitica e atraves de simulação esse e outros resultados além de dissertar um pouco sobre a história e conceitos importantes de probabilidade'
+featured: 'modelagem-probabilidade2.png'
+featuredalt: 'Pic 10'
+featuredpath: 'date'
+linktitle: ''
+references: 
+- id: DeGroot
+  title: Probability and Statistics
+  author:
+  - family: DeGroot
+    given: Morris H. 
+  volume: 4
+  page: 1
+  type: book
+
+- id: Magalhaes
+  title: Probabilidade e Variáveis aleatóriasa
+  author:
+  - family: Magalhães
+    given: Mascos N. 
+  volume: 1
+  type: book
+  
+- id: Feller
+  title: An Introduction to Probability Theory and its Applications
+  author:
+  - family: Feller
+    given: William
+  volume: 3
+  page: 10-11
+  type: book
+type: post
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = F, warning = F) 
+```
+    
+# Curiosidades sobre a teoria das probabilidades
+
+O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo...) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.
+
+Os conceitos de chances e de incertezas são tão antigos quando a própria civilização. Pessoas sempre tiveram que lidar com incertezas sobre o clima, suprimento de alimentos, suprimentos de água, risco de vida e tantas outras ameaças ao ser humano que o esforço para reduzir essas incertezas e seus efeitos  passou a ser muito importante.
+
+A ideia do jogo tem uma longa história,já no egito antigo em 2000 a.c foram encontrados em tumbas ([dados cúbicos com marcações praticamente idênticas às de dados modernos (wikipedia)](https://pt.wikipedia.org/wiki/Jogo_de_azar#Hist%C3%B3ria)).
+
+Segundo @DeGroot, a teoria da probabilidade foi desenvolvida de forma constante desde o século XVII e tem sido amplamente aplicada em diversos campos de estudo. Hoje, a teoria da probabilidade é uma ferramenta importante na maioria das áreas de engenharia, ciência e gestão. 
+
+Muitos pesquisadores estão ativamente envolvidos na descoberta e no estabelecimento de novas aplicações de probabilidade em campos de química, meteorologia, fotografia de satélites, marketing, previsão de terremoto, comportamento humano, design de sistemas informáticos, finanças, genética e lei.
+
+## Conceitos e interpretações para probabilidades
+
+Além das muitas aplicações formais da teoria da probabilidade, o conceito de probabilidade entra em nossa vida cotidiana e conversa.
+
+Muitas vezes ouvimos e usamos expressões como "*Provavelmente vai chover a amanhã à noite*", "*É muito provável que o onibus atrase*", ou "*As chances são altas de não poder se juntar a nós para almoçar esta tarde*". Cada uma dessas expressões é baseada no conceito da probabilidade de que algum evento específico ocorrerá.
+
+Existem três abordagens atualmente, as duas primeiras são:
+
+
+#### Clássica
+
+  * Se refere à subconjuntos unitários equiprováveis
+      
+  * $P(A)=\dfrac{\text{Número de elementos de }A}{\text{Número de elementos de }\Omega}$
+  
+#### Frequentista ou Estatística
+  
+  * Considera o limite de frequências relativas como o valor de probabilidade
+      
+  * $P(A)=lim_{n \rightarrow \infty} \frac{n_A}{n}$ 
+  
+onde $n_A$ é o nº de ocorrências de $A$ em $n$ repetições independentes do experimento
+
+#### Definição de probabilidade
+
+Segundo @Magalhaes, as definições acima possuem o apelo da intuição e permanecem sendo usadas para resolver inúmeros problemas, entretanto elas não são suficientes para uma formulação matemática rigorosa da probabilidade.
+
+Aproximadamente em 1930 A. N. Kolmogorov apresentou um conjunto de axiomas matemáticos para definir probabilidade, permitindo incluir as definições anteriores como casos particulares. 
+
+
+Porém, como o verdadeiro significado da probabilidade ainda é um assunto altamente polêmico e está envolvido em muitas discussões filosóficas atuais sobre as bases da estatística e quando se trata de probabilidades, não adianta utilizar apenas a intuição pois nosso cérebro vai da bug! 
+
+A probabilidade é extremamente contra intuitiva e seu estudo deve sempre envolver uma vasta gama de exercícios para treinar nosso raciocínio analítico. Existem diversos problemas práticos que já ilustraram isso e um ótimo exemplo que todo mundo que já fez um curso básico de probabilidade já conhece, o [Paradóxo do aniversário](https://pt.wikipedia.org/wiki/Paradoxo_do_anivers%C3%A1rio)
+
+# O paradoxo do aniversário (ou problema dos aniversários - Feller[68])
+
+Exemplo retirado do livro do @Feller, questiona:
+
+"Num grupo de $n$ pessoas, qual é a probabilidade de pelo menos duas delas fazerem aniversário no mesmo dia?"
+
+Esse problema surpreende todo mundo porque dependendo do valor de $n$ pessoas, a probabilidade é bastante alta! Segundo veremos a probabilidade de isso ocorrer em uma turma de 23 pessoas ou mais escolhidas **aleatoriamente** é maior que **50%**! 
+
+Qual aluno de qualquer turma de probabilidade que nunca foi desafiado numa aposta pelo professor que tinha dois alunos com mesma data de aniversário na sala de aula e se deu conta que perderia em poucos minutos?
+
+Vamos resolver esse problema tanto pela abordagem clássica quanto pela abordagem frequentista, para utilizar a segunda abordagem dados  de muitas turmas de variados tamanhos serão simulados utilizando o **R** e podemos comparar os resultados e buscar alguma evidência de que os dados se distribuem de forma semelhante! 
+
+**Obs**: Simular dados permitem imitar o funcionamento de, praticamente, qualquer tipo de operação ou processo (sistemas) do mundo real!
+
+# Probabilidade
+
+Considerando o ano com 365 dias, podemos assumir que $n<365$ primeiramente devemos definir o espaço amostral $\Omega$ que será o conjunto de todas as sequências formadas com as datas dos aniversários (associamos cada data a um dos 365 dias do ano), defini-se:
+
+*experimento*: observar o aniversário de n pessoas
+
+$$
+\Omega = \{ (1,1,...,1),(1,2,53,...,201),(24,27,109,...,200),... \}
+$$
+
+portanto, sua cardinalidade será:
+
+$$
+\#\Omega = 365^n
+$$
+
+Definindo o evento:
+
+$$
+A = \text{pelo meno 2 alunos fazendo aniversário no mesmo dia em uma turma de tamanho }n
+$$
+Observa-se que é um evento complicado de se calcular. Uma prática muito comum na teoria das probabilidades nestes casos é estudar o complementar do evento de interesse, veja:
+
+$$
+A^c = \text{nenhum dos alunos fazenndo aniversário no mesmo dia em uma turma de tamanho }n
+$$
+
+Agora basta fazer a conta:
+
+$$
+P(A^c)=\frac{\#A^c}{\#\Omega}=\frac{365 \times 364 \times ... \times (365-n+1)}{365^n}=\frac{365!}{365^n (365-n)!}
+$$
+
+segundo propriedades , se o evento é o complementar de todos n serem diferentes consequentemente o seguinte resultado é verdadeiro:
+
+$$
+p(A)=1- \frac{365!}{365^n (365-n)!}
+$$
+
+Agora que já sabemos a probabilidade de pelo menos duas pessoas fazerem aniversário no mesmo dia em uma turma de $n$ alunos, vejamos o comportamento deste ajuste e uma tabela com possíveis valores de $n$:
+
+Em R:
+
+Utilizando expansão em série de Taylor ([mais informações](https://pt.wikipedia.org/wiki/Paradoxo_do_anivers%C3%A1rio#Aproxima%C3%A7%C3%B5es)):
+
+```{r}
+birthday=function(x){
+  a=1-exp(-(x^2)/(2*365))
+  return(a)
+}
+birthday(23)
+```
+
+```{r,warning=F,echo=F}
+library(formattable)
+library(RColorBrewer)
+df=data.frame(n=seq(5,100,10),P=birthday(seq(5,100,10)))
+
+formattable(df[1:9,], list(
+  area(col = c(n)) ~ normalize_bar(brewer.pal(length(df$n+1), "Oranges"),0.2),
+  area(col = c(P)) ~ normalize_bar(brewer.pal(length(df$n+1), "Oranges"),0.2)
+))
+```
+
+Em Python (função retirada do [wikpédia](https://pt.wikipedia.org/wiki/Paradoxo_do_anivers%C3%A1rio#Implementa%C3%A7%C3%A3o_em_Python) para comparar os resultados):
+
+```{python}
+def birthday(x):
+    p = (1.0/365)**x
+    for i in range((366-x),366):
+        p *= i
+    return 1-p
+    
+print("%1.7f" %(birthday(23))) #Arredondando para o mesmo numero de casas decimais default do R
+```
+
+Tanto a aproximação do R quanto a do Python obtiveram resultados semelhantes
+
+Vejamos como é o comportamento da curva teórica e as estimações:
+
+```{r,warning=F,echo=F}
+library(ggplot2)
+ggplot(data=df,aes(y=P,x=n))+
+  geom_line()+
+  theme_minimal()+
+  scale_x_continuous(limits=c(0,max(df$n+5)),breaks = seq(0,max(df$n+5),5))+
+  labs(y="p(n)",x="Tamanho da turma",title="Gráfico ilustra a probabilidade de que pelo menos duas pessoas \ntenham a mesma data de aniversário em um certo número de pessoas.")+
+  geom_vline(xintercept=23, linetype="dashed", color = "red",size=0.5)
+```
+
+Note que segundo a distribuição teórica, confirmamos que a probabilidade do evento ocorrer em uma turma de 23 pessoas ou mais escolhidas **aleatoriamente** é maior que **50%**!
+
+# Simulação
+
+Segundo o [wikipédia](https://pt.wikipedia.org/wiki/Simula%C3%A7%C3%A3o), a simulação "consiste em empregar formalizações em computadores, como expressões matemáticas ou especificações mais ou menos formalizadas, com o propósito de imitar um processo ou operação do mundo real"
+
+Nossa simulação irá consistir em imitar o comportamento de um processo do mundo real utilizando o seguinte código para simular o experimento de *observar o aniversário de $n$ pessoas* milhares de vezes:
+
+```{r}
+N<- 5000                                    #Numero de simulacoes do experimento
+
+prob=0
+for(n in 2:100){                            #Para n variand de 2 até 50
+  cont_a=0                                  #Inicia o contador
+  M=matrix(NA, N, n)                        #Delara uma matriz varia com as dimensoes desejadas  
+  for(i in 1:N){                            #indice i que percorre todas as N linhas simuladas
+    M[i,] = sample(1:365, n, replace = T)   #Sorteio de uma amosra de tamanho n de numeros de 1 a 365 
+    linha=M[i,]                             #objeto linha recebe a linha simulada
+    tab=table(linha)                        #objeto tab guarda a tabela de frequencias dessa amostra
+    if(length(tab)<n){                      #se o tamanho da tabela de frequencias for menor que o tamanho da turma
+      cont_a=cont_a+1                       #contador recebe 1 pois duas pessoas fizeram aniversario no mesmo dia
+    } 
+  }
+  prob[n]=cont_a/N                          #a probabilidade será a proporcao de pessoas que fazem aniversario no mesmo dia observadas em N amostra simuladas
+}
+
+prob[23]
+```
+
+Notamos que o resultado observado é muito próximo d resultado calculado de acordo com a probabilidade teoria para a chance de se se encontrar pelo menos 2 pessoas que fazem aniversário em uma turma de 23 anos (*novamente ultrapassou os 50%!!!*)
+
+
+Para efeito de comparação visual com a resolução anterior:
+
+```{r,warning=F,echo=F}
+library(formattable)
+library(RColorBrewer)
+library(dplyr)
+df2=data.frame(n=1:n,P=prob)
+
+df2[seq(5,100,10),]%>%
+  head(9)%>%
+formattable(list(
+  area(col = c(n)) ~ normalize_bar(brewer.pal(length(df$n+1), "Oranges"),0.2),
+  area(col = c(P)) ~ normalize_bar(brewer.pal(length(df$n+1), "Oranges"),0.2)
+))
+```
+
+
+
+```{r,warning=F,echo=F}
+library(ggplot2)
+ggplot(data=df2,aes(y=P,x=n,color=I("lightgrey")))+
+  geom_point()+
+  theme_minimal()+
+  scale_x_continuous(limits=c(5,max(df$n+5)),breaks = seq(0,max(df$n+5),5))+
+  labs(y="p(n)",x="Tamanho da turma",title="Gráfico ilustra a proporção observada de que pelo menos \nduas pessoas tinham a mesma data de aniversário em\n simulações de diversos números de pessoas.")+
+  geom_vline(xintercept=23, linetype="dashed", color = "red",size=0.5)
+```
+
+
+# Comparando
+
+Por fim, vejamos de forma visual se o comportamento dos resultados simulados estão de acordo com o resultado teórico calculado:
+
+```{r,echo=F,warning=F}
+ggplot(data=df,aes(y=P,x=n))+
+  geom_line()+
+  geom_point(data=df2,aes(y=P,x=n,color=I("lightgrey")))+
+  theme_minimal()+
+  scale_x_continuous(limits=c(5,max(df$n+5)),breaks = seq(0,max(df$n+5),5))+
+  labs(y="p(n)",x="Tamanho da turma",title="Gráfico ilustra a proporção observada e da a probabilidade teórica \ncalculadas de que pelo menos duas pessoas tinham a mesma \ndata de aniversário em simulações de diversos números de pessoas.")+
+  geom_vline(xintercept=23, linetype="dashed", color = "red",size=0.5)
+```
+
+Como podemos ver o comportamento dos dados simulados foi muito similar ao da curva teórica calculada.
+
+# Modelagem e simulação em probabilidade
+
+Existe uma vasta gama de aplicações de simulações como em projetos de análises de sistemas de manufatura, avaliação de requisitos não funcionais de hardware e software, avaliação de novas armas e táticas militares, reposição de estoque, projeto de sistemas de transporte, avaliações de serviços, aplicações estatísticas de cadeias MCMC... 
+
+Um simulador permite testar várias alternativas a um custo **geralmente** mais baixo do que no mundo real, possibilitando o melhor entendimento sobre o problema! 
+
+# Referências
