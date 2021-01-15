@@ -1,0 +1,3094 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https:\/\/gomesfellipe.github.io\/"
+        },
+        "articleSection" : "post",
+        "name" : "AED de forma rápida e um pouco de Machine Learning",
+        "headline" : "AED de forma rápida e um pouco de Machine Learning",
+        "description" : "Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-05-26 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2018-05-26 00:00:00 \u002b0000 UTC",
+        "url" : "https:\/\/gomesfellipe.github.io\/post\/2018-05-26-smarteademachinelearning\/smarteademachinelearning\/",
+        "wordCount" : "6636",
+        "keywords" : [ "analise multivariada","Correlacoes","Data Mining","Estatistica","gomesfellipe","kmeans","modelagem","pca","R","RStudio","Blog" ]
+    }
+    </script>
+        
+            
+                <title>AED de forma rápida e um pouco de Machine Learning</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.80.0" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            <meta name="description" content="Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AED de forma rápida e um pouco de Machine Learning"/>
+<meta name="twitter:description" content="Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados"/>
+<meta name="twitter:site" content="@gomesfellipe"/>
+
+        <meta property="og:title" content="AED de forma rápida e um pouco de Machine Learning" />
+<meta property="og:description" content="Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" />
+<meta property="article:published_time" content="2018-05-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-05-26T00:00:00+00:00" />
+
+        <meta property="og:image" content="https://gomesfellipe.github.io//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="AED de forma rápida e um pouco de Machine Learning">
+<meta itemprop="description" content="Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados">
+<meta itemprop="datePublished" content="2018-05-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-05-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6636">
+
+
+
+<meta itemprop="keywords" content="analise multivariada,Correlacoes,Data Mining,Estatistica,gomesfellipe,kmeans,modelagem,pca,R,RStudio," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/main.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/add-on.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-105500464-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="https://gomesfellipe.github.io/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/post/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/categories/">
+                            <i class="">&nbsp;</i>
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/contact/">
+                            <i class="fa fa-exclamation">&nbsp;</i>Atenção!!! Blog passando por Manutenção!!!
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/post/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/categories/">
+                            <h3>
+                                <i class="">&nbsp;</i>
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/contact/">
+                            <h3>
+                                <i class="fa fa-exclamation">&nbsp;</i>Atenção!!! Blog passando por Manutenção!!!
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-05-26'>
+                                    May 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/">Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-05-26'>
+                                    May 26, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-04-12'>
+                                    April 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/04/gtrends-r.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-03-07'>
+                                    March 7, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-17'>
+                                    February 17, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/2018-02-01-leaflet-carnaval/">Carnaval e mapas interativos com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-01'>
+                                    February 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/2018-02-01-leaflet-carnaval/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/ana%CC%81lise-multivariada-em-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/ana%CC%81lise-multivariada-em-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-18'>
+                                    December 18, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-17'>
+                                    December 17, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/">Criando relatorios com template tufle</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-14'>
+                                    December 14, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-07'>
+                                    December 7, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-04'>
+                                    December 4, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-02'>
+                                    December 2, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/">Tipos de Correlacoes</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-01'>
+                                    December 1, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;text=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;title=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h1>
+            
+        
+        
+            <p>Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-05-26'>
+            May 26, 2018</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>32 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;text=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f&amp;title=AED%20de%20forma%20r%c3%a1pida%20e%20um%20pouco%20de%20Machine%20Learning" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-05-26-smarteademachinelearning%2fsmarteademachinelearning%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    
+<script src="https://gomesfellipe.github.io/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="https://gomesfellipe.github.io/rmarkdown-libs/pagedtable/css/pagedtable.css" rel="stylesheet" />
+<script src="https://gomesfellipe.github.io/rmarkdown-libs/pagedtable/js/pagedtable.js"></script>
+
+
+<style>
+  .col2 {
+    columns: 2 200px;         /* number of columns and width in pixels*/
+    -webkit-columns: 2 200px; /* chrome, safari */
+    -moz-columns: 2 200px;    /* firefox */
+  }
+  .col3 {
+    columns: 3 100px;
+    -webkit-columns: 3 100px;
+    -moz-columns: 3 100px;
+  }
+</style>
+<!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários-->
+<div id="a-análise-exploratória-dos-dados" class="section level1">
+<h1>A análise exploratória dos dados</h1>
+<div class="col2">
+<p>A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações</p>
+<p>Ao iniciar uma análise de dados, começamos pela AED para a partir dai decidir como buscar qual solução para o problema. É importante frisar que a AED e a construção de gráficos <strong>não</strong> são a mesma coisa, mesmo a AED sendo altamente baseada em produção de gráficos como de dispersão, histogramas, boxplots etc.</p>
+<p>Por vezes a AED no R pode envolver a produção de longos scripts utilizando funções como as do pacote <code>ggplot2</code> e mesmo sabendo que desejamos sempre criar o gráfico de maneira mais informativa e atraente possível, as vezes precisamos ter uma noção geral dos dados de forma rápida, não necessariamente tão detalhada e customizada de cara.</p>
+<p>A vezes queremos apenas ter uma primeira impressão dos dados e em seguida pensar em quais os gráficos mais se adequariam para a entrega dos resultados que mesmo as funções base do R dependendo do caso também envolvem a confecção de longos scripts.</p>
+<p>Existem pacotes que auxiliam na hora de se fazer uma rápida análise exploratória, como o <a href="https://github.com/ropenscilabs/skimr">skimr</a> e o <a href="https://github.com/boxuancui/DataExplorer">DataExplorer</a>. Porém estava pesquisando de existiam mais opções para uma rápida abordagem de AED e me deparei com esta <a href="https://cran.r-project.org/web/packages/SmartEDA/vignettes/Report_r1.html">vinheta</a>, por Dayanand, Kiran, Ravi.</p>
+<p>Essa vinheta apresenta o pacote <a href="https://cran.r-project.org/web/packages/SmartEDA"><code>SmartEAD</code></a> que trás uma série de funções que auxiliam na AED de forma bem prática. O pacote está disponível no CRAN.</p>
+<p>Para testar o pacote foi utilizada uma base de dados do artigo <a href="http://people.stern.nyu.edu/wgreene/Lugano2013/Fair-ExtramaritalAffairs.pdf">A Theory of Extramarital Affairs</a>, publicado pela <a href="http://www.jstor.org/publisher/ucpress">The University of Chicago Press</a>.</p>
+<p>Gostei tanto da proposta do pacote que resolvi preparar este post que conta com a explanação de alguns tópicos apresentados pelo autor, algumas explicações da teoria estatística apresentada na análise descritiva e exploratória dos dados e além da aplicação de algumas técnicas estatísticas e de machine learning para o entendimento da base de dados.</p>
+</div>
+<p></br></p>
+</div>
+<div id="smarteda" class="section level1">
+<h1>SmartEDA</h1>
+<p>Como ele pode ajudá-lo a criar uma análise de dados exploratória? O <code>SmartEDA</code> inclui várias funções personalizadas para executar uma análise exploratória inicial em qualquer dado de entrada. A saída gerada pode ser obtida em formato resumido e gráfico e os resultados também podem ser exportados como relatórios.</p>
+<p>O pacote SmartEDA ajuda a construir uma boa base de compreensão de dados, algumas de suas funcionalidades são:</p>
+<ul>
+<li>O pacote SmartEDA fará com que você seja capaz de aplicar diferentes tipos de EDA sem ter que lembre-se dos diferentes nomes dos pacotes R e escrever longos scripts R com esforço manual para preparar o relatório da EDA, permitindo o entendimento dos dados de maneira mais rápida</li>
+<li>Não há necessidade de categorizar as variáveis em caractere, numérico, fator etc. As funções do SmartEDA categorizam automaticamente todos os recursos no tipo de dados correto (caractere, numérico, fator etc.) com base nos dados de entrada.</li>
+</ul>
+<p>O pacote SmartEDA ajuda a obter a análise completa dos dados exploratórios apenas executando a função em vez de escrever um longo código r.</p>
+<div id="carregando-o-pacote" class="section level2">
+<h2>Carregando o pacote:</h2>
+<pre class="r"><code># install.packages(&quot;SmartEDA&quot;)
+library(&quot;SmartEDA&quot;)</code></pre>
+<p>outros pactes que serão utilizados no post (incluindo um script com algumas funções, que estará disponível no meu github <a href="https://github.com/gomesfellipe/gomesfellipe.github.io/blob/master/post/2018-05-26-smarteademachinelearning/functions.R">neste link</a>).</p>
+<pre class="r"><code>library(knitr)        # Para tabelas interativas
+library(DT)           # Para tabelas interativas
+library(dplyr)        # Para manipulacao de dados
+library(plotly)       # Para gerar uma tabela
+library(psych)        # para análise fatorial
+source(&quot;functions.R&quot;) # script com funcoes customizadas</code></pre>
+<div id="base-de-dados-utilizada" class="section level3">
+<h3>Base de dados utilizada:</h3>
+<div class="col2">
+<p>Estava à procura de uma base de dados para testar as funcionalidades do pacote <code>SmartEAD</code> quando um colega de trabalho me mostrou um artigo chamado <a href="http://people.stern.nyu.edu/wgreene/Lugano2013/Fair-ExtramaritalAffairs.pdf">A Theory of Extramarital Affairs</a>, publicado pela <a href="http://www.jstor.org/publisher/ucpress">The University of Chicago Press</a>. Neste artigo é desenvolvido um <a href="https://en.wikipedia.org/wiki/Tobit_model">modelo pelo estimador de Tobit</a> que explica a alocação de um tempo do indivíduo entre o trabalho e dois tipos de atividades de lazer: tempo passou com o cônjuge e tempo gasto com o amante.</p>
+<p>Não conhecia o modelo proposto e em uma rápida pesquisa no Google notei que alguns dos dados utilizados nesse artigo estão disponíveis no pacote <a href="ftp://cran.r-project.org/pub/R/web/packages/AER">AER</a> de Econometria Aplicada com R, que contém funções, conjuntos de dados, exemplos, demonstrações e vinhetas para o livro <a href="http://jrsyzx.njau.edu.cn/__local/C/94/F1/35C7CC5EDA214D4AAE7FE2BA0FD_0D3DFF32_3CDD40.pdf?e=.pdf">Applied Econometrics with R</a> e como esses dados já foram tratados e estão “prontos para análise”, resolvi usar essa amostra pela conveniência.</p>
+<p>Portanto farei aqui uma análise exploratória e ao final de cada caso (<em>sem variável reposta</em>, <em>com variável resposta numérica</em> e <em>com variável resposta binária</em>), para ter uma breve intuição de como se comportam os dados irei primeiro utilizar um <em>algorítimo de machine learning não supervisionado</em> para o agrupamento das observações (sem considerar q já conhecemos a variável resposta), depois ajustar um* modelo de regressão linear simples* considerando a variável resposta como numérica e por fim o ajuste de um <em>algorítimo de machine learning supervisonado de classificação</em> após discretizar a variável resposta.</p>
+<p>A base de dados pode ser conferida a seguir:</p>
+</div>
+<pre class="r"><code>library(AER)
+data(Affairs)
+Affairs %&gt;% rmarkdown::paged_table()</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["affairs"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["gender"],"name":[2],"type":["fct"],"align":["left"]},{"label":["age"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["yearsmarried"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["children"],"name":[5],"type":["fct"],"align":["left"]},{"label":["religiousness"],"name":[6],"type":["int"],"align":["right"]},{"label":["education"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["occupation"],"name":[8],"type":["int"],"align":["right"]},{"label":["rating"],"name":[9],"type":["int"],"align":["right"]}],"data":[{"1":"0","2":"male","3":"37.0","4":"10.000","5":"no","6":"3","7":"18","8":"7","9":"4","_rn_":"4"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"no","6":"4","7":"14","8":"6","9":"4","_rn_":"5"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"1","7":"12","8":"1","9":"4","_rn_":"11"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"5","7":"18","8":"6","9":"5","_rn_":"16"},{"1":"0","2":"male","3":"22.0","4":"0.750","5":"no","6":"2","7":"17","8":"6","9":"3","_rn_":"23"},{"1":"0","2":"female","3":"32.0","4":"1.500","5":"no","6":"2","7":"17","8":"5","9":"5","_rn_":"29"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"2","7":"12","8":"1","9":"3","_rn_":"44"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"2","7":"14","8":"4","9":"4","_rn_":"45"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"4","7":"16","8":"1","9":"2","_rn_":"47"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"no","6":"4","7":"14","8":"4","9":"5","_rn_":"49"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"2","7":"20","8":"7","9":"2","_rn_":"50"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"4","7":"18","8":"6","9":"4","_rn_":"55"},{"1":"0","2":"male","3":"47.0","4":"15.000","5":"yes","6":"5","7":"17","8":"6","9":"4","_rn_":"64"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"17","8":"5","9":"4","_rn_":"80"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"no","6":"4","7":"14","8":"5","9":"4","_rn_":"86"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"1","7":"17","8":"5","9":"5","_rn_":"93"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"2","7":"18","8":"4","9":"3","_rn_":"108"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"3","7":"16","8":"5","9":"4","_rn_":"114"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"16","8":"5","9":"5","_rn_":"115"},{"1":"0","2":"female","3":"27.0","4":"10.000","5":"yes","6":"2","7":"14","8":"1","9":"5","_rn_":"116"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"16","8":"5","9":"5","_rn_":"123"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"16","8":"5","9":"5","_rn_":"127"},{"1":"0","2":"female","3":"27.0","4":"10.000","5":"yes","6":"4","7":"16","8":"5","9":"4","_rn_":"129"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"3","7":"14","8":"1","9":"5","_rn_":"134"},{"1":"0","2":"male","3":"37.0","4":"4.000","5":"yes","6":"2","7":"20","8":"6","9":"4","_rn_":"137"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"18","8":"5","9":"5","_rn_":"139"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"no","6":"4","7":"16","8":"1","9":"5","_rn_":"147"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"5","7":"20","8":"6","9":"4","_rn_":"151"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"3","7":"16","8":"5","9":"5","_rn_":"153"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"3","7":"17","8":"5","9":"4","_rn_":"155"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"4","7":"20","8":"6","9":"3","_rn_":"162"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"3","7":"16","8":"5","9":"5","_rn_":"163"},{"1":"0","2":"male","3":"27.0","4":"0.417","5":"no","6":"4","7":"17","8":"6","9":"4","_rn_":"165"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"5","7":"14","8":"5","9":"4","_rn_":"168"},{"1":"0","2":"male","3":"32.0","4":"4.000","5":"yes","6":"1","7":"18","8":"6","9":"4","_rn_":"170"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"4","7":"16","8":"5","9":"3","_rn_":"172"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"3","7":"12","8":"1","9":"4","_rn_":"184"},{"1":"0","2":"female","3":"22.0","4":"4.000","5":"no","6":"4","7":"17","8":"5","9":"5","_rn_":"187"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"yes","6":"1","7":"14","8":"3","9":"5","_rn_":"192"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"3","7":"16","8":"1","9":"5","_rn_":"194"},{"1":"0","2":"male","3":"32.0","4":"10.000","5":"yes","6":"5","7":"20","8":"6","9":"5","_rn_":"210"},{"1":"0","2":"male","3":"52.0","4":"15.000","5":"yes","6":"5","7":"18","8":"6","9":"3","_rn_":"217"},{"1":"0","2":"female","3":"22.0","4":"0.417","5":"no","6":"5","7":"14","8":"1","9":"4","_rn_":"220"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"2","7":"18","8":"6","9":"1","_rn_":"224"},{"1":"0","2":"female","3":"32.0","4":"7.000","5":"yes","6":"5","7":"17","8":"5","9":"3","_rn_":"227"},{"1":"0","2":"male","3":"22.0","4":"4.000","5":"no","6":"3","7":"16","8":"5","9":"5","_rn_":"228"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"18","8":"6","9":"5","_rn_":"239"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"2","7":"18","8":"5","9":"4","_rn_":"241"},{"1":"0","2":"male","3":"27.0","4":"1.500","5":"yes","6":"4","7":"16","8":"3","9":"5","_rn_":"245"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"2","7":"20","8":"6","9":"4","_rn_":"249"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"5","7":"14","8":"3","9":"5","_rn_":"262"},{"1":"0","2":"male","3":"32.0","4":"7.000","5":"yes","6":"2","7":"20","8":"6","9":"4","_rn_":"265"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"5","7":"20","8":"6","9":"5","_rn_":"267"},{"1":"0","2":"male","3":"27.0","4":"10.000","5":"yes","6":"4","7":"20","8":"6","9":"4","_rn_":"269"},{"1":"0","2":"male","3":"22.0","4":"4.000","5":"no","6":"1","7":"18","8":"5","9":"5","_rn_":"271"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"14","8":"3","9":"1","_rn_":"277"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"yes","6":"5","7":"16","8":"4","9":"4","_rn_":"290"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"17","8":"1","9":"5","_rn_":"292"},{"1":"0","2":"female","3":"27.0","4":"0.750","5":"no","6":"4","7":"17","8":"5","9":"4","_rn_":"293"},{"1":"0","2":"male","3":"32.0","4":"10.000","5":"yes","6":"4","7":"20","8":"6","9":"4","_rn_":"295"},{"1":"0","2":"female","3":"47.0","4":"15.000","5":"yes","6":"5","7":"14","8":"7","9":"2","_rn_":"299"},{"1":"0","2":"male","3":"37.0","4":"10.000","5":"yes","6":"3","7":"20","8":"6","9":"4","_rn_":"320"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"2","7":"16","8":"5","9":"5","_rn_":"321"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"no","6":"2","7":"18","8":"4","9":"5","_rn_":"324"},{"1":"0","2":"male","3":"32.0","4":"7.000","5":"no","6":"4","7":"20","8":"6","9":"4","_rn_":"334"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"2","7":"17","8":"3","9":"5","_rn_":"351"},{"1":"0","2":"male","3":"37.0","4":"10.000","5":"yes","6":"4","7":"20","8":"6","9":"4","_rn_":"355"},{"1":"0","2":"female","3":"47.0","4":"15.000","5":"yes","6":"3","7":"17","8":"6","9":"5","_rn_":"361"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"5","7":"16","8":"5","9":"5","_rn_":"362"},{"1":"0","2":"female","3":"27.0","4":"1.500","5":"no","6":"2","7":"16","8":"6","9":"4","_rn_":"366"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"no","6":"3","7":"17","8":"5","9":"5","_rn_":"370"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"5","7":"14","8":"4","9":"5","_rn_":"374"},{"1":"0","2":"female","3":"22.0","4":"0.125","5":"no","6":"2","7":"12","8":"5","9":"5","_rn_":"378"},{"1":"0","2":"male","3":"47.0","4":"15.000","5":"yes","6":"4","7":"14","8":"4","9":"3","_rn_":"381"},{"1":"0","2":"male","3":"32.0","4":"15.000","5":"yes","6":"1","7":"14","8":"5","9":"5","_rn_":"382"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"yes","6":"4","7":"16","8":"5","9":"5","_rn_":"383"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"yes","6":"3","7":"16","8":"5","9":"5","_rn_":"384"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"3","7":"17","8":"6","9":"5","_rn_":"400"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"3","7":"16","8":"5","9":"5","_rn_":"403"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"2","7":"14","8":"7","9":"2","_rn_":"409"},{"1":"0","2":"male","3":"17.5","4":"1.500","5":"yes","6":"3","7":"18","8":"6","9":"5","_rn_":"412"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"4","7":"20","8":"6","9":"5","_rn_":"413"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"2","7":"16","8":"3","9":"4","_rn_":"416"},{"1":"0","2":"male","3":"42.0","4":"4.000","5":"no","6":"4","7":"17","8":"3","9":"3","_rn_":"418"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"yes","6":"4","7":"12","8":"1","9":"5","_rn_":"422"},{"1":"0","2":"female","3":"22.0","4":"0.417","5":"no","6":"1","7":"17","8":"6","9":"4","_rn_":"435"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"4","7":"17","8":"5","9":"5","_rn_":"439"},{"1":"0","2":"female","3":"27.0","4":"1.500","5":"no","6":"3","7":"18","8":"5","9":"2","_rn_":"445"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"yes","6":"3","7":"14","8":"1","9":"5","_rn_":"447"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"3","7":"14","8":"1","9":"4","_rn_":"448"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"4","7":"14","8":"3","9":"4","_rn_":"449"},{"1":"0","2":"male","3":"37.0","4":"10.000","5":"yes","6":"2","7":"14","8":"5","9":"3","_rn_":"478"},{"1":"0","2":"male","3":"37.0","4":"10.000","5":"yes","6":"4","7":"16","8":"5","9":"4","_rn_":"482"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"5","7":"20","8":"5","9":"3","_rn_":"486"},{"1":"0","2":"male","3":"27.0","4":"0.417","5":"no","6":"1","7":"16","8":"3","9":"4","_rn_":"489"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"5","7":"14","8":"1","9":"5","_rn_":"490"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"3","7":"16","8":"6","9":"1","_rn_":"491"},{"1":"0","2":"male","3":"37.0","4":"10.000","5":"yes","6":"1","7":"16","8":"6","9":"4","_rn_":"492"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"3","7":"17","8":"5","9":"5","_rn_":"503"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"20","8":"6","9":"5","_rn_":"508"},{"1":"0","2":"female","3":"27.0","4":"10.000","5":"yes","6":"5","7":"14","8":"1","9":"5","_rn_":"509"},{"1":"0","2":"male","3":"37.0","4":"10.000","5":"yes","6":"2","7":"18","8":"6","9":"4","_rn_":"512"},{"1":"0","2":"female","3":"22.0","4":"0.125","5":"no","6":"4","7":"12","8":"4","9":"5","_rn_":"515"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"5","7":"20","8":"6","9":"5","_rn_":"517"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"18","8":"6","9":"4","_rn_":"532"},{"1":"0","2":"male","3":"22.0","4":"4.000","5":"yes","6":"4","7":"14","8":"6","9":"4","_rn_":"533"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"yes","6":"4","7":"18","8":"5","9":"4","_rn_":"535"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"4","7":"20","8":"5","9":"4","_rn_":"537"},{"1":"0","2":"male","3":"32.0","4":"15.000","5":"yes","6":"3","7":"14","8":"6","9":"3","_rn_":"538"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"14","8":"5","9":"4","_rn_":"543"},{"1":"0","2":"female","3":"32.0","4":"7.000","5":"yes","6":"4","7":"17","8":"1","9":"5","_rn_":"547"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"17","8":"6","9":"5","_rn_":"550"},{"1":"0","2":"female","3":"32.0","4":"1.500","5":"no","6":"5","7":"18","8":"5","9":"5","_rn_":"558"},{"1":"0","2":"male","3":"42.0","4":"10.000","5":"yes","6":"5","7":"20","8":"7","9":"4","_rn_":"571"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"no","6":"3","7":"16","8":"5","9":"4","_rn_":"578"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"no","6":"4","7":"20","8":"6","9":"5","_rn_":"583"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"14","8":"3","9":"2","_rn_":"586"},{"1":"0","2":"male","3":"32.0","4":"10.000","5":"no","6":"5","7":"18","8":"6","9":"4","_rn_":"594"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"4","7":"16","8":"1","9":"5","_rn_":"597"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"12","8":"2","9":"4","_rn_":"602"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"2","7":"16","8":"2","9":"5","_rn_":"603"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"5","7":"18","8":"5","9":"4","_rn_":"604"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"4","7":"17","8":"5","9":"3","_rn_":"612"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"2","7":"16","8":"1","9":"2","_rn_":"613"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"3","7":"16","8":"5","9":"5","_rn_":"621"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"5","7":"20","8":"6","9":"5","_rn_":"627"},{"1":"0","2":"female","3":"22.0","4":"0.125","5":"no","6":"2","7":"14","8":"4","9":"5","_rn_":"630"},{"1":"0","2":"male","3":"27.0","4":"1.500","5":"no","6":"4","7":"16","8":"5","9":"5","_rn_":"631"},{"1":"0","2":"male","3":"32.0","4":"1.500","5":"no","6":"2","7":"18","8":"6","9":"5","_rn_":"632"},{"1":"0","2":"male","3":"27.0","4":"1.500","5":"no","6":"2","7":"17","8":"6","9":"5","_rn_":"639"},{"1":"0","2":"female","3":"27.0","4":"10.000","5":"yes","6":"4","7":"16","8":"1","9":"3","_rn_":"645"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"4","7":"18","8":"6","9":"5","_rn_":"647"},{"1":"0","2":"female","3":"27.0","4":"1.500","5":"no","6":"2","7":"16","8":"6","9":"5","_rn_":"648"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"no","6":"2","7":"18","8":"6","9":"3","_rn_":"651"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"3","7":"14","8":"5","9":"3","_rn_":"655"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"3","7":"18","8":"5","9":"4","_rn_":"667"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"2","7":"18","8":"6","9":"5","_rn_":"670"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"2","7":"16","8":"1","9":"4","_rn_":"671"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"4","7":"20","8":"5","9":"5","_rn_":"673"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"no","6":"1","7":"20","8":"5","9":"4","_rn_":"701"},{"1":"0","2":"female","3":"27.0","4":"10.000","5":"yes","6":"2","7":"12","8":"1","9":"4","_rn_":"705"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"5","7":"18","8":"6","9":"4","_rn_":"706"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"yes","6":"5","7":"12","8":"5","9":"3","_rn_":"709"},{"1":"0","2":"male","3":"52.0","4":"15.000","5":"yes","6":"2","7":"18","8":"5","9":"4","_rn_":"717"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"no","6":"3","7":"20","8":"6","9":"3","_rn_":"719"},{"1":"0","2":"male","3":"37.0","4":"4.000","5":"yes","6":"1","7":"18","8":"5","9":"4","_rn_":"723"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"4","7":"14","8":"5","9":"4","_rn_":"724"},{"1":"0","2":"female","3":"52.0","4":"15.000","5":"yes","6":"5","7":"12","8":"1","9":"3","_rn_":"726"},{"1":"0","2":"female","3":"57.0","4":"15.000","5":"yes","6":"4","7":"16","8":"6","9":"4","_rn_":"734"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"yes","6":"1","7":"16","8":"5","9":"4","_rn_":"735"},{"1":"0","2":"male","3":"37.0","4":"7.000","5":"yes","6":"4","7":"20","8":"6","9":"3","_rn_":"736"},{"1":"0","2":"male","3":"22.0","4":"0.750","5":"no","6":"2","7":"14","8":"4","9":"3","_rn_":"737"},{"1":"0","2":"male","3":"32.0","4":"4.000","5":"yes","6":"2","7":"18","8":"5","9":"3","_rn_":"739"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"20","8":"6","9":"3","_rn_":"743"},{"1":"0","2":"male","3":"22.0","4":"0.750","5":"yes","6":"2","7":"14","8":"4","9":"3","_rn_":"745"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"4","7":"20","8":"6","9":"3","_rn_":"747"},{"1":"0","2":"female","3":"52.0","4":"15.000","5":"yes","6":"5","7":"17","8":"1","9":"1","_rn_":"751"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"14","8":"1","9":"2","_rn_":"752"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"yes","6":"4","7":"14","8":"5","9":"3","_rn_":"754"},{"1":"0","2":"male","3":"32.0","4":"4.000","5":"yes","6":"2","7":"16","8":"5","9":"5","_rn_":"760"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"2","7":"18","8":"6","9":"5","_rn_":"763"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"2","7":"18","8":"5","9":"5","_rn_":"774"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"5","7":"18","8":"6","9":"5","_rn_":"776"},{"1":"0","2":"female","3":"47.0","4":"15.000","5":"yes","6":"5","7":"12","8":"5","9":"4","_rn_":"779"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"3","7":"17","8":"1","9":"4","_rn_":"784"},{"1":"0","2":"female","3":"27.0","4":"1.500","5":"yes","6":"4","7":"17","8":"1","9":"2","_rn_":"788"},{"1":"0","2":"female","3":"57.0","4":"15.000","5":"yes","6":"2","7":"18","8":"5","9":"2","_rn_":"794"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"4","7":"14","8":"5","9":"4","_rn_":"795"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"3","7":"14","8":"3","9":"4","_rn_":"798"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"4","7":"9","8":"2","9":"2","_rn_":"800"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"4","7":"20","8":"6","9":"5","_rn_":"803"},{"1":"0","2":"female","3":"22.0","4":"0.125","5":"no","6":"4","7":"14","8":"4","9":"5","_rn_":"807"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"4","7":"14","8":"1","9":"5","_rn_":"812"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"3","7":"18","8":"5","9":"4","_rn_":"820"},{"1":"0","2":"female","3":"27.0","4":"1.500","5":"no","6":"2","7":"18","8":"6","9":"5","_rn_":"823"},{"1":"0","2":"male","3":"32.0","4":"0.125","5":"yes","6":"2","7":"18","8":"5","9":"2","_rn_":"830"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"no","6":"3","7":"16","8":"5","9":"4","_rn_":"843"},{"1":"0","2":"female","3":"27.0","4":"10.000","5":"yes","6":"2","7":"16","8":"1","9":"4","_rn_":"848"},{"1":"0","2":"female","3":"32.0","4":"7.000","5":"yes","6":"4","7":"16","8":"1","9":"3","_rn_":"851"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"14","8":"5","9":"4","_rn_":"854"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"5","7":"17","8":"6","9":"2","_rn_":"856"},{"1":"0","2":"male","3":"32.0","4":"1.500","5":"yes","6":"4","7":"14","8":"6","9":"5","_rn_":"857"},{"1":"0","2":"female","3":"32.0","4":"4.000","5":"yes","6":"3","7":"17","8":"5","9":"3","_rn_":"859"},{"1":"0","2":"female","3":"37.0","4":"7.000","5":"no","6":"4","7":"18","8":"5","9":"5","_rn_":"863"},{"1":"0","2":"female","3":"22.0","4":"0.417","5":"yes","6":"3","7":"14","8":"3","9":"5","_rn_":"865"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"14","8":"1","9":"5","_rn_":"867"},{"1":"0","2":"male","3":"27.0","4":"0.750","5":"no","6":"3","7":"16","8":"5","9":"5","_rn_":"870"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"2","7":"20","8":"5","9":"5","_rn_":"873"},{"1":"0","2":"male","3":"32.0","4":"10.000","5":"yes","6":"4","7":"16","8":"4","9":"5","_rn_":"875"},{"1":"0","2":"male","3":"32.0","4":"15.000","5":"yes","6":"1","7":"14","8":"5","9":"5","_rn_":"876"},{"1":"0","2":"male","3":"22.0","4":"0.750","5":"no","6":"3","7":"17","8":"4","9":"5","_rn_":"877"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"17","8":"1","9":"4","_rn_":"880"},{"1":"0","2":"male","3":"27.0","4":"0.417","5":"yes","6":"4","7":"20","8":"5","9":"4","_rn_":"903"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"20","8":"5","9":"4","_rn_":"904"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"2","7":"14","8":"1","9":"3","_rn_":"905"},{"1":"0","2":"male","3":"22.0","4":"4.000","5":"yes","6":"1","7":"18","8":"5","9":"4","_rn_":"908"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"17","8":"5","9":"3","_rn_":"909"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"14","8":"4","9":"5","_rn_":"910"},{"1":"0","2":"male","3":"52.0","4":"15.000","5":"yes","6":"4","7":"14","8":"6","9":"2","_rn_":"912"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"4","7":"17","8":"5","9":"5","_rn_":"914"},{"1":"0","2":"male","3":"32.0","4":"4.000","5":"yes","6":"5","7":"14","8":"3","9":"5","_rn_":"915"},{"1":"0","2":"male","3":"32.0","4":"4.000","5":"yes","6":"2","7":"14","8":"3","9":"5","_rn_":"916"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"3","7":"16","8":"6","9":"5","_rn_":"920"},{"1":"0","2":"male","3":"27.0","4":"0.750","5":"no","6":"2","7":"18","8":"3","9":"3","_rn_":"921"},{"1":"0","2":"female","3":"22.0","4":"7.000","5":"yes","6":"2","7":"14","8":"5","9":"2","_rn_":"925"},{"1":"0","2":"female","3":"27.0","4":"0.750","5":"no","6":"2","7":"17","8":"5","9":"3","_rn_":"926"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"12","8":"1","9":"2","_rn_":"929"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"1","7":"14","8":"1","9":"5","_rn_":"931"},{"1":"0","2":"female","3":"37.0","4":"10.000","5":"no","6":"2","7":"12","8":"4","9":"4","_rn_":"945"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"18","8":"5","9":"3","_rn_":"947"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"3","7":"12","8":"3","9":"3","_rn_":"949"},{"1":"0","2":"male","3":"22.0","4":"4.000","5":"no","6":"2","7":"18","8":"5","9":"5","_rn_":"950"},{"1":"0","2":"male","3":"52.0","4":"7.000","5":"yes","6":"2","7":"20","8":"6","9":"2","_rn_":"961"},{"1":"0","2":"male","3":"27.0","4":"0.750","5":"no","6":"2","7":"17","8":"5","9":"5","_rn_":"965"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"no","6":"2","7":"17","8":"4","9":"5","_rn_":"966"},{"1":"0","2":"male","3":"42.0","4":"1.500","5":"no","6":"5","7":"20","8":"6","9":"5","_rn_":"967"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"no","6":"4","7":"17","8":"6","9":"5","_rn_":"987"},{"1":"0","2":"male","3":"22.0","4":"4.000","5":"no","6":"4","7":"17","8":"5","9":"3","_rn_":"990"},{"1":"0","2":"female","3":"22.0","4":"4.000","5":"yes","6":"1","7":"14","8":"5","9":"4","_rn_":"992"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"5","7":"20","8":"4","9":"5","_rn_":"995"},{"1":"0","2":"female","3":"37.0","4":"10.000","5":"yes","6":"3","7":"16","8":"6","9":"3","_rn_":"1009"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"4","7":"17","8":"6","9":"5","_rn_":"1021"},{"1":"0","2":"female","3":"47.0","4":"15.000","5":"yes","6":"4","7":"17","8":"5","9":"5","_rn_":"1026"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"no","6":"4","7":"16","8":"5","9":"4","_rn_":"1027"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"3","7":"12","8":"1","9":"4","_rn_":"1030"},{"1":"0","2":"female","3":"22.0","4":"7.000","5":"yes","6":"1","7":"14","8":"3","9":"5","_rn_":"1031"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"4","7":"17","8":"5","9":"4","_rn_":"1034"},{"1":"0","2":"male","3":"27.0","4":"1.500","5":"yes","6":"2","7":"16","8":"2","9":"4","_rn_":"1037"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"14","8":"5","9":"5","_rn_":"1038"},{"1":"0","2":"male","3":"42.0","4":"4.000","5":"yes","6":"3","7":"14","8":"4","9":"5","_rn_":"1039"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"5","7":"14","8":"5","9":"4","_rn_":"1045"},{"1":"0","2":"female","3":"32.0","4":"7.000","5":"yes","6":"4","7":"17","8":"5","9":"5","_rn_":"1046"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"4","7":"18","8":"6","9":"5","_rn_":"1054"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"no","6":"4","7":"18","8":"6","9":"4","_rn_":"1059"},{"1":"0","2":"male","3":"22.0","4":"0.750","5":"no","6":"4","7":"18","8":"6","9":"5","_rn_":"1063"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"4","7":"14","8":"5","9":"3","_rn_":"1068"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"5","7":"18","8":"1","9":"5","_rn_":"1070"},{"1":"0","2":"female","3":"52.0","4":"15.000","5":"yes","6":"5","7":"9","8":"5","9":"5","_rn_":"1072"},{"1":"0","2":"male","3":"32.0","4":"10.000","5":"yes","6":"3","7":"14","8":"5","9":"5","_rn_":"1073"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"16","8":"4","9":"4","_rn_":"1077"},{"1":"0","2":"male","3":"32.0","4":"7.000","5":"yes","6":"2","7":"20","8":"5","9":"4","_rn_":"1081"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"3","7":"18","8":"1","9":"4","_rn_":"1083"},{"1":"0","2":"male","3":"32.0","4":"15.000","5":"yes","6":"1","7":"16","8":"5","9":"5","_rn_":"1084"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"3","7":"18","8":"5","9":"5","_rn_":"1086"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"4","7":"12","8":"3","9":"4","_rn_":"1087"},{"1":"0","2":"male","3":"22.0","4":"0.750","5":"yes","6":"3","7":"14","8":"2","9":"4","_rn_":"1089"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"3","7":"16","8":"5","9":"3","_rn_":"1096"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"4","7":"14","8":"3","9":"5","_rn_":"1102"},{"1":"0","2":"female","3":"52.0","4":"15.000","5":"yes","6":"3","7":"16","8":"5","9":"4","_rn_":"1103"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"5","7":"20","8":"6","9":"4","_rn_":"1107"},{"1":"0","2":"female","3":"47.0","4":"15.000","5":"yes","6":"4","7":"12","8":"2","9":"3","_rn_":"1109"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"2","7":"20","8":"6","9":"4","_rn_":"1115"},{"1":"0","2":"male","3":"32.0","4":"7.000","5":"yes","6":"4","7":"17","8":"5","9":"5","_rn_":"1119"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"17","8":"1","9":"4","_rn_":"1124"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"no","6":"1","7":"18","8":"6","9":"5","_rn_":"1126"},{"1":"0","2":"female","3":"22.0","4":"4.000","5":"yes","6":"3","7":"9","8":"1","9":"4","_rn_":"1128"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"14","8":"1","9":"5","_rn_":"1129"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"2","7":"20","8":"6","9":"4","_rn_":"1130"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"4","7":"9","8":"2","9":"4","_rn_":"1133"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"2","7":"18","8":"1","9":"5","_rn_":"1140"},{"1":"0","2":"female","3":"22.0","4":"4.000","5":"yes","6":"3","7":"14","8":"1","9":"5","_rn_":"1143"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"14","8":"5","9":"3","_rn_":"1146"},{"1":"0","2":"male","3":"32.0","4":"7.000","5":"yes","6":"1","7":"18","8":"6","9":"4","_rn_":"1153"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"14","8":"5","9":"5","_rn_":"1156"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"yes","6":"3","7":"12","8":"1","9":"3","_rn_":"1157"},{"1":"0","2":"male","3":"52.0","4":"15.000","5":"yes","6":"2","7":"14","8":"5","9":"5","_rn_":"1158"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"2","7":"14","8":"1","9":"1","_rn_":"1160"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"2","7":"14","8":"5","9":"5","_rn_":"1161"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"4","7":"20","8":"4","9":"5","_rn_":"1166"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"3","7":"18","8":"4","9":"5","_rn_":"1177"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"20","8":"6","9":"5","_rn_":"1178"},{"1":"0","2":"male","3":"27.0","4":"1.500","5":"no","6":"3","7":"18","8":"5","9":"5","_rn_":"1180"},{"1":"0","2":"female","3":"22.0","4":"0.125","5":"no","6":"2","7":"16","8":"6","9":"3","_rn_":"1187"},{"1":"0","2":"male","3":"32.0","4":"10.000","5":"yes","6":"2","7":"20","8":"6","9":"3","_rn_":"1191"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"no","6":"4","7":"18","8":"5","9":"4","_rn_":"1195"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"2","7":"12","8":"5","9":"1","_rn_":"1207"},{"1":"0","2":"male","3":"32.0","4":"4.000","5":"yes","6":"5","7":"18","8":"6","9":"3","_rn_":"1208"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"2","7":"17","8":"5","9":"5","_rn_":"1209"},{"1":"0","2":"male","3":"47.0","4":"15.000","5":"no","6":"4","7":"20","8":"6","9":"4","_rn_":"1211"},{"1":"0","2":"male","3":"27.0","4":"1.500","5":"no","6":"1","7":"18","8":"5","9":"5","_rn_":"1215"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"20","8":"6","9":"4","_rn_":"1221"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"4","7":"18","8":"1","9":"4","_rn_":"1226"},{"1":"0","2":"female","3":"32.0","4":"7.000","5":"yes","6":"4","7":"17","8":"5","9":"4","_rn_":"1229"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"3","7":"14","8":"1","9":"3","_rn_":"1231"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"3","7":"16","8":"1","9":"4","_rn_":"1234"},{"1":"0","2":"male","3":"27.0","4":"1.500","5":"no","6":"3","7":"16","8":"4","9":"2","_rn_":"1235"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"no","6":"3","7":"16","8":"3","9":"5","_rn_":"1242"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"3","7":"16","8":"4","9":"2","_rn_":"1245"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"3","7":"12","8":"1","9":"2","_rn_":"1260"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"2","7":"18","8":"5","9":"4","_rn_":"1266"},{"1":"0","2":"female","3":"37.0","4":"7.000","5":"yes","6":"3","7":"14","8":"4","9":"4","_rn_":"1271"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"no","6":"2","7":"16","8":"5","9":"5","_rn_":"1273"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"5","7":"20","8":"5","9":"4","_rn_":"1276"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"4","7":"16","8":"5","9":"3","_rn_":"1280"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"4","7":"16","8":"1","9":"5","_rn_":"1282"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"no","6":"2","7":"17","8":"5","9":"3","_rn_":"1285"},{"1":"0","2":"female","3":"22.0","4":"0.417","5":"no","6":"4","7":"14","8":"5","9":"5","_rn_":"1295"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"no","6":"2","7":"18","8":"5","9":"5","_rn_":"1298"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"18","8":"5","9":"3","_rn_":"1299"},{"1":"0","2":"male","3":"37.0","4":"10.000","5":"yes","6":"5","7":"20","8":"7","9":"4","_rn_":"1304"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"2","7":"14","8":"4","9":"2","_rn_":"1305"},{"1":"0","2":"male","3":"32.0","4":"4.000","5":"yes","6":"2","7":"16","8":"5","9":"5","_rn_":"1311"},{"1":"0","2":"male","3":"32.0","4":"4.000","5":"yes","6":"2","7":"16","8":"6","9":"4","_rn_":"1314"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"no","6":"3","7":"18","8":"4","9":"5","_rn_":"1319"},{"1":"0","2":"female","3":"22.0","4":"4.000","5":"yes","6":"4","7":"14","8":"3","9":"4","_rn_":"1322"},{"1":"0","2":"female","3":"17.5","4":"0.750","5":"no","6":"2","7":"18","8":"5","9":"4","_rn_":"1324"},{"1":"0","2":"male","3":"32.0","4":"10.000","5":"yes","6":"4","7":"20","8":"4","9":"5","_rn_":"1327"},{"1":"0","2":"female","3":"32.0","4":"0.750","5":"no","6":"5","7":"14","8":"3","9":"3","_rn_":"1328"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"17","8":"5","9":"3","_rn_":"1330"},{"1":"0","2":"male","3":"32.0","4":"4.000","5":"no","6":"3","7":"14","8":"4","9":"5","_rn_":"1332"},{"1":"0","2":"female","3":"27.0","4":"1.500","5":"no","6":"2","7":"17","8":"3","9":"2","_rn_":"1333"},{"1":"0","2":"female","3":"22.0","4":"7.000","5":"yes","6":"4","7":"14","8":"1","9":"5","_rn_":"1336"},{"1":"0","2":"male","3":"47.0","4":"15.000","5":"yes","6":"5","7":"14","8":"6","9":"5","_rn_":"1341"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"1","7":"16","8":"4","9":"4","_rn_":"1344"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"5","7":"14","8":"1","9":"3","_rn_":"1352"},{"1":"0","2":"male","3":"42.0","4":"4.000","5":"yes","6":"4","7":"18","8":"5","9":"5","_rn_":"1358"},{"1":"0","2":"female","3":"32.0","4":"4.000","5":"yes","6":"2","7":"14","8":"1","9":"5","_rn_":"1359"},{"1":"0","2":"male","3":"52.0","4":"15.000","5":"yes","6":"2","7":"14","8":"7","9":"4","_rn_":"1361"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"16","8":"1","9":"4","_rn_":"1364"},{"1":"0","2":"male","3":"52.0","4":"15.000","5":"yes","6":"4","7":"12","8":"2","9":"4","_rn_":"1368"},{"1":"0","2":"female","3":"22.0","4":"0.417","5":"no","6":"3","7":"17","8":"1","9":"5","_rn_":"1384"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"16","8":"5","9":"5","_rn_":"1390"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"4","7":"20","8":"6","9":"4","_rn_":"1393"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"4","7":"14","8":"1","9":"5","_rn_":"1394"},{"1":"0","2":"female","3":"27.0","4":"1.500","5":"no","6":"2","7":"16","8":"3","9":"5","_rn_":"1402"},{"1":"0","2":"male","3":"32.0","4":"4.000","5":"no","6":"1","7":"20","8":"6","9":"5","_rn_":"1407"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"3","7":"20","8":"6","9":"4","_rn_":"1408"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"no","6":"2","7":"16","8":"6","9":"5","_rn_":"1412"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"5","7":"14","8":"5","9":"5","_rn_":"1413"},{"1":"0","2":"male","3":"37.0","4":"1.500","5":"yes","6":"4","7":"18","8":"5","9":"3","_rn_":"1416"},{"1":"0","2":"male","3":"32.0","4":"1.500","5":"no","6":"2","7":"18","8":"4","9":"4","_rn_":"1417"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"4","7":"14","8":"1","9":"4","_rn_":"1418"},{"1":"0","2":"female","3":"47.0","4":"15.000","5":"yes","6":"4","7":"18","8":"5","9":"4","_rn_":"1419"},{"1":"0","2":"female","3":"27.0","4":"10.000","5":"yes","6":"5","7":"12","8":"1","9":"5","_rn_":"1420"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"3","7":"16","8":"4","9":"5","_rn_":"1423"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"12","8":"4","9":"2","_rn_":"1424"},{"1":"0","2":"female","3":"27.0","4":"0.750","5":"no","6":"4","7":"16","8":"5","9":"5","_rn_":"1432"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"16","8":"1","9":"5","_rn_":"1433"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"3","7":"16","8":"1","9":"5","_rn_":"1437"},{"1":"0","2":"female","3":"27.0","4":"10.000","5":"yes","6":"2","7":"16","8":"1","9":"5","_rn_":"1438"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"no","6":"2","7":"20","8":"6","9":"5","_rn_":"1439"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"2","7":"14","8":"1","9":"3","_rn_":"1446"},{"1":"0","2":"male","3":"27.0","4":"1.500","5":"yes","6":"2","7":"17","8":"4","9":"4","_rn_":"1450"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"yes","6":"2","7":"14","8":"1","9":"5","_rn_":"1451"},{"1":"0","2":"male","3":"22.0","4":"4.000","5":"yes","6":"4","7":"14","8":"2","9":"4","_rn_":"1452"},{"1":"0","2":"male","3":"42.0","4":"0.125","5":"no","6":"4","7":"17","8":"6","9":"4","_rn_":"1453"},{"1":"0","2":"male","3":"27.0","4":"1.500","5":"yes","6":"4","7":"18","8":"6","9":"5","_rn_":"1456"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"yes","6":"3","7":"16","8":"6","9":"3","_rn_":"1464"},{"1":"0","2":"female","3":"52.0","4":"15.000","5":"yes","6":"4","7":"14","8":"1","9":"3","_rn_":"1469"},{"1":"0","2":"male","3":"27.0","4":"1.500","5":"no","6":"5","7":"20","8":"5","9":"2","_rn_":"1473"},{"1":"0","2":"female","3":"27.0","4":"1.500","5":"no","6":"2","7":"16","8":"5","9":"5","_rn_":"1481"},{"1":"0","2":"female","3":"27.0","4":"1.500","5":"no","6":"3","7":"17","8":"5","9":"5","_rn_":"1482"},{"1":"0","2":"male","3":"22.0","4":"0.125","5":"no","6":"5","7":"16","8":"4","9":"4","_rn_":"1496"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"4","7":"16","8":"1","9":"5","_rn_":"1497"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"4","7":"12","8":"1","9":"5","_rn_":"1504"},{"1":"0","2":"female","3":"47.0","4":"15.000","5":"yes","6":"2","7":"14","8":"5","9":"5","_rn_":"1513"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"3","7":"14","8":"5","9":"3","_rn_":"1515"},{"1":"0","2":"male","3":"42.0","4":"7.000","5":"yes","6":"2","7":"16","8":"5","9":"5","_rn_":"1534"},{"1":"0","2":"male","3":"22.0","4":"0.750","5":"no","6":"4","7":"16","8":"6","9":"4","_rn_":"1535"},{"1":"0","2":"male","3":"27.0","4":"0.125","5":"no","6":"3","7":"20","8":"6","9":"5","_rn_":"1536"},{"1":"0","2":"male","3":"32.0","4":"10.000","5":"yes","6":"3","7":"20","8":"6","9":"5","_rn_":"1540"},{"1":"0","2":"female","3":"22.0","4":"0.417","5":"no","6":"5","7":"14","8":"4","9":"5","_rn_":"1551"},{"1":"0","2":"female","3":"47.0","4":"15.000","5":"yes","6":"5","7":"14","8":"1","9":"4","_rn_":"1555"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"3","7":"14","8":"1","9":"5","_rn_":"1557"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"4","7":"17","8":"5","9":"5","_rn_":"1566"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"3","7":"20","8":"6","9":"5","_rn_":"1567"},{"1":"0","2":"female","3":"32.0","4":"7.000","5":"yes","6":"4","7":"17","8":"1","9":"5","_rn_":"1576"},{"1":"0","2":"female","3":"37.0","4":"10.000","5":"yes","6":"4","7":"16","8":"1","9":"5","_rn_":"1584"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"1","7":"18","8":"1","9":"4","_rn_":"1585"},{"1":"0","2":"female","3":"22.0","4":"4.000","5":"no","6":"3","7":"14","8":"1","9":"4","_rn_":"1590"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"14","8":"3","9":"2","_rn_":"1594"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"yes","6":"5","7":"18","8":"5","9":"2","_rn_":"1595"},{"1":"0","2":"male","3":"32.0","4":"7.000","5":"yes","6":"2","7":"18","8":"5","9":"5","_rn_":"1603"},{"1":"0","2":"female","3":"27.0","4":"1.500","5":"no","6":"4","7":"17","8":"1","9":"3","_rn_":"1608"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"no","6":"4","7":"14","8":"5","9":"5","_rn_":"1609"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"yes","6":"4","7":"14","8":"5","9":"4","_rn_":"1615"},{"1":"0","2":"female","3":"32.0","4":"7.000","5":"yes","6":"3","7":"16","8":"1","9":"5","_rn_":"1616"},{"1":"0","2":"female","3":"47.0","4":"15.000","5":"yes","6":"3","7":"16","8":"5","9":"4","_rn_":"1617"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"3","7":"16","8":"1","9":"5","_rn_":"1620"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"yes","6":"2","7":"14","8":"5","9":"5","_rn_":"1621"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"1","7":"16","8":"5","9":"5","_rn_":"1637"},{"1":"0","2":"male","3":"52.0","4":"15.000","5":"yes","6":"4","7":"16","8":"5","9":"5","_rn_":"1638"},{"1":"0","2":"male","3":"32.0","4":"10.000","5":"yes","6":"4","7":"20","8":"6","9":"5","_rn_":"1650"},{"1":"0","2":"male","3":"47.0","4":"15.000","5":"yes","6":"4","7":"16","8":"6","9":"4","_rn_":"1654"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"2","7":"14","8":"1","9":"2","_rn_":"1665"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"4","7":"14","8":"4","9":"5","_rn_":"1670"},{"1":"0","2":"female","3":"32.0","4":"10.000","5":"yes","6":"2","7":"16","8":"5","9":"4","_rn_":"1671"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"2","7":"16","8":"5","9":"4","_rn_":"1675"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"16","8":"5","9":"5","_rn_":"1688"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"3","7":"18","8":"6","9":"4","_rn_":"1691"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"5","7":"14","8":"4","9":"5","_rn_":"1695"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"4","7":"16","8":"4","9":"4","_rn_":"1698"},{"1":"0","2":"female","3":"57.0","4":"15.000","5":"yes","6":"3","7":"18","8":"5","9":"2","_rn_":"1704"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"3","7":"18","8":"6","9":"2","_rn_":"1705"},{"1":"0","2":"female","3":"32.0","4":"7.000","5":"yes","6":"2","7":"14","8":"1","9":"2","_rn_":"1711"},{"1":"0","2":"male","3":"22.0","4":"4.000","5":"no","6":"5","7":"12","8":"4","9":"5","_rn_":"1719"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"1","7":"16","8":"6","9":"5","_rn_":"1723"},{"1":"0","2":"female","3":"22.0","4":"0.750","5":"no","6":"1","7":"14","8":"4","9":"5","_rn_":"1726"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"4","7":"12","8":"1","9":"5","_rn_":"1749"},{"1":"0","2":"male","3":"22.0","4":"1.500","5":"no","6":"2","7":"18","8":"5","9":"3","_rn_":"1752"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"5","7":"17","8":"2","9":"5","_rn_":"1754"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"4","7":"12","8":"1","9":"5","_rn_":"1758"},{"1":"0","2":"male","3":"42.0","4":"15.000","5":"yes","6":"5","7":"18","8":"5","9":"4","_rn_":"1761"},{"1":"0","2":"male","3":"32.0","4":"1.500","5":"no","6":"2","7":"20","8":"7","9":"3","_rn_":"1773"},{"1":"0","2":"male","3":"57.0","4":"15.000","5":"no","6":"4","7":"9","8":"3","9":"1","_rn_":"1775"},{"1":"0","2":"male","3":"37.0","4":"7.000","5":"no","6":"4","7":"18","8":"5","9":"5","_rn_":"1786"},{"1":"0","2":"male","3":"52.0","4":"15.000","5":"yes","6":"2","7":"17","8":"5","9":"4","_rn_":"1793"},{"1":"0","2":"male","3":"47.0","4":"15.000","5":"yes","6":"4","7":"17","8":"6","9":"5","_rn_":"1799"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"no","6":"2","7":"17","8":"5","9":"4","_rn_":"1803"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"14","8":"5","9":"5","_rn_":"1806"},{"1":"0","2":"female","3":"22.0","4":"4.000","5":"no","6":"2","7":"14","8":"3","9":"3","_rn_":"1807"},{"1":"0","2":"male","3":"37.0","4":"7.000","5":"yes","6":"2","7":"20","8":"6","9":"5","_rn_":"1808"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"no","6":"4","7":"12","8":"4","9":"3","_rn_":"1814"},{"1":"0","2":"male","3":"42.0","4":"10.000","5":"yes","6":"4","7":"18","8":"6","9":"4","_rn_":"1815"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"3","7":"14","8":"1","9":"5","_rn_":"1818"},{"1":"0","2":"female","3":"22.0","4":"4.000","5":"yes","6":"2","7":"14","8":"1","9":"3","_rn_":"1827"},{"1":"0","2":"female","3":"57.0","4":"15.000","5":"no","6":"4","7":"20","8":"6","9":"5","_rn_":"1834"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"14","8":"4","9":"3","_rn_":"1835"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"3","7":"18","8":"5","9":"5","_rn_":"1843"},{"1":"0","2":"female","3":"17.5","4":"10.000","5":"no","6":"4","7":"14","8":"4","9":"5","_rn_":"1846"},{"1":"0","2":"male","3":"22.0","4":"4.000","5":"yes","6":"4","7":"16","8":"5","9":"5","_rn_":"1850"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"2","7":"16","8":"1","9":"4","_rn_":"1851"},{"1":"0","2":"female","3":"37.0","4":"15.000","5":"yes","6":"2","7":"14","8":"5","9":"1","_rn_":"1854"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"5","7":"14","8":"1","9":"4","_rn_":"1859"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"yes","6":"2","7":"20","8":"5","9":"4","_rn_":"1861"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"4","7":"14","8":"5","9":"5","_rn_":"1866"},{"1":"0","2":"male","3":"22.0","4":"0.125","5":"no","6":"1","7":"16","8":"3","9":"5","_rn_":"1873"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"14","8":"1","9":"4","_rn_":"1875"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"5","7":"16","8":"5","9":"3","_rn_":"1885"},{"1":"0","2":"male","3":"32.0","4":"10.000","5":"yes","6":"4","7":"18","8":"5","9":"4","_rn_":"1892"},{"1":"0","2":"female","3":"32.0","4":"15.000","5":"yes","6":"2","7":"14","8":"3","9":"4","_rn_":"1895"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"3","7":"17","8":"5","9":"5","_rn_":"1896"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"4","7":"17","8":"4","9":"4","_rn_":"1897"},{"1":"0","2":"female","3":"52.0","4":"15.000","5":"yes","6":"5","7":"14","8":"1","9":"5","_rn_":"1899"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"2","7":"12","8":"1","9":"2","_rn_":"1904"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"3","7":"12","8":"1","9":"4","_rn_":"1905"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"2","7":"14","8":"1","9":"4","_rn_":"1908"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"4","7":"14","8":"5","9":"4","_rn_":"1916"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"yes","6":"4","7":"14","8":"3","9":"3","_rn_":"1918"},{"1":"0","2":"male","3":"27.0","4":"7.000","5":"yes","6":"2","7":"20","8":"6","9":"2","_rn_":"1920"},{"1":"0","2":"female","3":"42.0","4":"15.000","5":"yes","6":"3","7":"12","8":"3","9":"3","_rn_":"1930"},{"1":"0","2":"male","3":"27.0","4":"4.000","5":"yes","6":"3","7":"16","8":"3","9":"5","_rn_":"1940"},{"1":"0","2":"female","3":"27.0","4":"7.000","5":"yes","6":"3","7":"14","8":"1","9":"4","_rn_":"1947"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"14","8":"4","9":"5","_rn_":"1949"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"4","7":"14","8":"1","9":"4","_rn_":"1951"},{"1":"0","2":"female","3":"22.0","4":"4.000","5":"no","6":"4","7":"14","8":"5","9":"5","_rn_":"1952"},{"1":"0","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"16","8":"4","9":"5","_rn_":"1960"},{"1":"0","2":"male","3":"47.0","4":"15.000","5":"no","6":"4","7":"14","8":"5","9":"4","_rn_":"9001"},{"1":"0","2":"male","3":"37.0","4":"10.000","5":"yes","6":"2","7":"18","8":"6","9":"2","_rn_":"9012"},{"1":"0","2":"male","3":"37.0","4":"15.000","5":"yes","6":"3","7":"17","8":"5","9":"4","_rn_":"9023"},{"1":"0","2":"female","3":"27.0","4":"4.000","5":"yes","6":"2","7":"16","8":"1","9":"4","_rn_":"9029"},{"1":"3","2":"male","3":"27.0","4":"1.500","5":"no","6":"3","7":"18","8":"4","9":"4","_rn_":"6"},{"1":"3","2":"female","3":"27.0","4":"4.000","5":"yes","6":"3","7":"17","8":"1","9":"5","_rn_":"12"},{"1":"7","2":"male","3":"37.0","4":"15.000","5":"yes","6":"5","7":"18","8":"6","9":"2","_rn_":"43"},{"1":"12","2":"female","3":"32.0","4":"10.000","5":"yes","6":"3","7":"17","8":"5","9":"2","_rn_":"53"},{"1":"1","2":"male","3":"22.0","4":"0.125","5":"no","6":"4","7":"16","8":"5","9":"5","_rn_":"67"},{"1":"1","2":"female","3":"22.0","4":"1.500","5":"yes","6":"2","7":"14","8":"1","9":"5","_rn_":"79"},{"1":"12","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"14","8":"5","9":"2","_rn_":"122"},{"1":"7","2":"female","3":"22.0","4":"1.500","5":"no","6":"2","7":"14","8":"3","9":"4","_rn_":"126"},{"1":"2","2":"male","3":"37.0","4":"15.000","5":"yes","6":"2","7":"18","8":"6","9":"4","_rn_":"133"},{"1":"3","2":"female","3":"32.0","4":"15.000","5":"yes","6":"4","7":"12","8":"3","9":"2","_rn_":"138"},{"1":"1","2":"female","3":"37.0","4":"15.000","5":"yes","6":"4","7":"14","8":"4","9":"2","_rn_":"154"},{"1":"7","2":"female","3":"42.0","4":"15.000","5":"yes","6":"3","7":"17","8":"1","9":"4","_rn_":"159"},{"1":"12","2":"female","3":"42.0","4":"15.000","5":"yes","6":"5","7":"9","8":"4","9":"1","_rn_":"174"},{"1":"12","2":"male","3":"37.0","4":"10.000","5":"yes","6":"2","7":"20","8":"6","9":"2","_rn_":"176"},{"1":"12","2":"female","3":"32.0","4":"15.000","5":"yes","6":"3","7":"14","8":"1","9":"2","_rn_":"181"},{"1":"3","2":"male","3":"27.0","4":"4.000","5":"no","6":"1","7":"18","8":"6","9":"5","_rn_":"182"},{"1":"7","2":"male","3":"37.0","4":"10.000","5":"yes","6":"2","7":"18","8":"7","9":"3","_rn_":"186"},{"1":"7","2":"female","3":"27.0","4":"4.000","5":"no","6":"3","7":"17","8":"5","9":"5","_rn_":"189"},{"1":"1","2":"male","3":"42.0","4":"15.000","5":"yes","6":"4","7":"16","8":"5","9":"5","_rn_":"204"},{"1":"1","2":"female","3":"47.0","4":"15.000","5":"yes","6":"5","7":"14","8":"4","9":"5","_rn_":"215"},{"1":"7","2":"female","3":"27.0","4":"4.000","5":"yes","6":"3","7":"18","8":"5","9":"4","_rn_":"232"},{"1":"1","2":"female","3":"27.0","4":"7.000","5":"yes","6":"5","7":"14","8":"1","9":"4","_rn_":"233"},{"1":"12","2":"male","3":"27.0","4":"1.500","5":"yes","6":"3","7":"17","8":"5","9":"4","_rn_":"252"},{"1":"12","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"14","8":"6","9":"2","_rn_":"253"},{"1":"3","2":"female","3":"42.0","4":"15.000","5":"yes","6":"4","7":"16","8":"5","9":"4","_rn_":"274"},{"1":"7","2":"female","3":"27.0","4":"10.000","5":"yes","6":"4","7":"12","8":"7","9":"3","_rn_":"275"},{"1":"1","2":"male","3":"27.0","4":"1.500","5":"no","6":"2","7":"18","8":"5","9":"2","_rn_":"287"},{"1":"1","2":"male","3":"32.0","4":"4.000","5":"no","6":"4","7":"20","8":"6","9":"4","_rn_":"288"},{"1":"1","2":"female","3":"27.0","4":"7.000","5":"yes","6":"3","7":"14","8":"1","9":"3","_rn_":"325"},{"1":"3","2":"female","3":"32.0","4":"10.000","5":"yes","6":"4","7":"14","8":"1","9":"4","_rn_":"328"},{"1":"3","2":"male","3":"27.0","4":"4.000","5":"yes","6":"2","7":"18","8":"7","9":"2","_rn_":"344"},{"1":"1","2":"female","3":"17.5","4":"0.750","5":"no","6":"5","7":"14","8":"4","9":"5","_rn_":"353"},{"1":"1","2":"female","3":"32.0","4":"10.000","5":"yes","6":"4","7":"18","8":"1","9":"5","_rn_":"354"},{"1":"7","2":"female","3":"32.0","4":"7.000","5":"yes","6":"2","7":"17","8":"6","9":"4","_rn_":"367"},{"1":"7","2":"male","3":"37.0","4":"15.000","5":"yes","6":"2","7":"20","8":"6","9":"4","_rn_":"369"},{"1":"7","2":"female","3":"37.0","4":"10.000","5":"no","6":"1","7":"20","8":"5","9":"3","_rn_":"390"},{"1":"12","2":"female","3":"32.0","4":"10.000","5":"yes","6":"2","7":"16","8":"5","9":"5","_rn_":"392"},{"1":"7","2":"male","3":"52.0","4":"15.000","5":"yes","6":"2","7":"20","8":"6","9":"4","_rn_":"423"},{"1":"7","2":"female","3":"42.0","4":"15.000","5":"yes","6":"1","7":"12","8":"1","9":"3","_rn_":"432"},{"1":"1","2":"male","3":"52.0","4":"15.000","5":"yes","6":"2","7":"20","8":"6","9":"3","_rn_":"436"},{"1":"2","2":"male","3":"37.0","4":"15.000","5":"yes","6":"3","7":"18","8":"6","9":"5","_rn_":"483"},{"1":"12","2":"female","3":"22.0","4":"4.000","5":"no","6":"3","7":"12","8":"3","9":"4","_rn_":"513"},{"1":"12","2":"male","3":"27.0","4":"7.000","5":"yes","6":"1","7":"18","8":"6","9":"2","_rn_":"516"},{"1":"1","2":"male","3":"27.0","4":"4.000","5":"yes","6":"3","7":"18","8":"5","9":"5","_rn_":"518"},{"1":"12","2":"male","3":"47.0","4":"15.000","5":"yes","6":"4","7":"17","8":"6","9":"5","_rn_":"520"},{"1":"12","2":"female","3":"42.0","4":"15.000","5":"yes","6":"4","7":"12","8":"1","9":"1","_rn_":"526"},{"1":"7","2":"male","3":"27.0","4":"4.000","5":"no","6":"3","7":"14","8":"3","9":"4","_rn_":"528"},{"1":"7","2":"female","3":"32.0","4":"7.000","5":"yes","6":"4","7":"18","8":"4","9":"5","_rn_":"553"},{"1":"1","2":"male","3":"32.0","4":"0.417","5":"yes","6":"3","7":"12","8":"3","9":"4","_rn_":"576"},{"1":"3","2":"male","3":"47.0","4":"15.000","5":"yes","6":"5","7":"16","8":"5","9":"4","_rn_":"611"},{"1":"12","2":"male","3":"37.0","4":"15.000","5":"yes","6":"2","7":"20","8":"5","9":"4","_rn_":"625"},{"1":"7","2":"male","3":"22.0","4":"4.000","5":"yes","6":"2","7":"17","8":"6","9":"4","_rn_":"635"},{"1":"1","2":"male","3":"27.0","4":"4.000","5":"no","6":"2","7":"14","8":"4","9":"5","_rn_":"646"},{"1":"7","2":"female","3":"52.0","4":"15.000","5":"yes","6":"5","7":"16","8":"1","9":"3","_rn_":"657"},{"1":"1","2":"male","3":"27.0","4":"4.000","5":"no","6":"3","7":"14","8":"3","9":"3","_rn_":"659"},{"1":"1","2":"female","3":"27.0","4":"10.000","5":"yes","6":"4","7":"16","8":"1","9":"4","_rn_":"666"},{"1":"1","2":"male","3":"32.0","4":"7.000","5":"yes","6":"3","7":"14","8":"7","9":"4","_rn_":"679"},{"1":"7","2":"male","3":"32.0","4":"7.000","5":"yes","6":"2","7":"18","8":"4","9":"1","_rn_":"729"},{"1":"3","2":"male","3":"22.0","4":"1.500","5":"no","6":"1","7":"14","8":"3","9":"2","_rn_":"755"},{"1":"7","2":"male","3":"22.0","4":"4.000","5":"yes","6":"3","7":"18","8":"6","9":"4","_rn_":"758"},{"1":"7","2":"male","3":"42.0","4":"15.000","5":"yes","6":"4","7":"20","8":"6","9":"4","_rn_":"770"},{"1":"2","2":"female","3":"57.0","4":"15.000","5":"yes","6":"1","7":"18","8":"5","9":"4","_rn_":"786"},{"1":"7","2":"female","3":"32.0","4":"4.000","5":"yes","6":"3","7":"18","8":"5","9":"2","_rn_":"797"},{"1":"1","2":"male","3":"27.0","4":"4.000","5":"yes","6":"1","7":"16","8":"4","9":"4","_rn_":"811"},{"1":"7","2":"male","3":"32.0","4":"7.000","5":"yes","6":"4","7":"16","8":"1","9":"4","_rn_":"834"},{"1":"2","2":"male","3":"57.0","4":"15.000","5":"yes","6":"1","7":"17","8":"4","9":"4","_rn_":"858"},{"1":"7","2":"female","3":"42.0","4":"15.000","5":"yes","6":"4","7":"14","8":"5","9":"2","_rn_":"885"},{"1":"7","2":"male","3":"37.0","4":"10.000","5":"yes","6":"1","7":"18","8":"5","9":"3","_rn_":"893"},{"1":"3","2":"male","3":"42.0","4":"15.000","5":"yes","6":"3","7":"17","8":"6","9":"1","_rn_":"927"},{"1":"1","2":"female","3":"52.0","4":"15.000","5":"yes","6":"3","7":"14","8":"4","9":"4","_rn_":"928"},{"1":"2","2":"female","3":"27.0","4":"7.000","5":"yes","6":"3","7":"17","8":"5","9":"3","_rn_":"933"},{"1":"12","2":"male","3":"32.0","4":"7.000","5":"yes","6":"2","7":"12","8":"4","9":"2","_rn_":"951"},{"1":"1","2":"male","3":"22.0","4":"4.000","5":"no","6":"4","7":"14","8":"2","9":"5","_rn_":"968"},{"1":"3","2":"male","3":"27.0","4":"7.000","5":"yes","6":"3","7":"18","8":"6","9":"4","_rn_":"972"},{"1":"12","2":"female","3":"37.0","4":"15.000","5":"yes","6":"1","7":"18","8":"5","9":"5","_rn_":"975"},{"1":"7","2":"female","3":"32.0","4":"15.000","5":"yes","6":"3","7":"17","8":"1","9":"3","_rn_":"977"},{"1":"7","2":"female","3":"27.0","4":"7.000","5":"no","6":"2","7":"17","8":"5","9":"5","_rn_":"981"},{"1":"1","2":"female","3":"32.0","4":"7.000","5":"yes","6":"3","7":"17","8":"5","9":"3","_rn_":"986"},{"1":"1","2":"male","3":"32.0","4":"1.500","5":"yes","6":"2","7":"14","8":"2","9":"4","_rn_":"1002"},{"1":"12","2":"female","3":"42.0","4":"15.000","5":"yes","6":"4","7":"14","8":"1","9":"2","_rn_":"1007"},{"1":"7","2":"male","3":"32.0","4":"10.000","5":"yes","6":"3","7":"14","8":"5","9":"4","_rn_":"1011"},{"1":"7","2":"male","3":"37.0","4":"4.000","5":"yes","6":"1","7":"20","8":"6","9":"3","_rn_":"1035"},{"1":"1","2":"female","3":"27.0","4":"4.000","5":"yes","6":"2","7":"16","8":"5","9":"3","_rn_":"1050"},{"1":"12","2":"female","3":"42.0","4":"15.000","5":"yes","6":"3","7":"14","8":"4","9":"3","_rn_":"1056"},{"1":"1","2":"male","3":"27.0","4":"10.000","5":"yes","6":"5","7":"20","8":"6","9":"5","_rn_":"1057"},{"1":"12","2":"male","3":"37.0","4":"10.000","5":"yes","6":"2","7":"20","8":"6","9":"2","_rn_":"1075"},{"1":"12","2":"female","3":"27.0","4":"7.000","5":"yes","6":"1","7":"14","8":"3","9":"3","_rn_":"1080"},{"1":"3","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"12","8":"1","9":"2","_rn_":"1125"},{"1":"3","2":"male","3":"32.0","4":"10.000","5":"yes","6":"2","7":"14","8":"4","9":"4","_rn_":"1131"},{"1":"12","2":"female","3":"17.5","4":"0.750","5":"yes","6":"2","7":"12","8":"1","9":"3","_rn_":"1138"},{"1":"12","2":"female","3":"32.0","4":"15.000","5":"yes","6":"3","7":"18","8":"5","9":"4","_rn_":"1150"},{"1":"2","2":"female","3":"22.0","4":"7.000","5":"no","6":"4","7":"14","8":"4","9":"3","_rn_":"1163"},{"1":"1","2":"male","3":"32.0","4":"7.000","5":"yes","6":"4","7":"20","8":"6","9":"5","_rn_":"1169"},{"1":"7","2":"male","3":"27.0","4":"4.000","5":"yes","6":"2","7":"18","8":"6","9":"2","_rn_":"1198"},{"1":"1","2":"female","3":"22.0","4":"1.500","5":"yes","6":"5","7":"14","8":"5","9":"3","_rn_":"1204"},{"1":"12","2":"female","3":"32.0","4":"15.000","5":"no","6":"3","7":"17","8":"5","9":"1","_rn_":"1218"},{"1":"12","2":"female","3":"42.0","4":"15.000","5":"yes","6":"2","7":"12","8":"1","9":"2","_rn_":"1230"},{"1":"7","2":"male","3":"42.0","4":"15.000","5":"yes","6":"3","7":"20","8":"5","9":"4","_rn_":"1236"},{"1":"12","2":"male","3":"32.0","4":"10.000","5":"no","6":"2","7":"18","8":"4","9":"2","_rn_":"1247"},{"1":"12","2":"female","3":"32.0","4":"15.000","5":"yes","6":"3","7":"9","8":"1","9":"1","_rn_":"1259"},{"1":"7","2":"male","3":"57.0","4":"15.000","5":"yes","6":"5","7":"20","8":"4","9":"5","_rn_":"1294"},{"1":"12","2":"male","3":"47.0","4":"15.000","5":"yes","6":"4","7":"20","8":"6","9":"4","_rn_":"1353"},{"1":"2","2":"female","3":"42.0","4":"15.000","5":"yes","6":"2","7":"17","8":"6","9":"3","_rn_":"1370"},{"1":"12","2":"male","3":"37.0","4":"15.000","5":"yes","6":"3","7":"17","8":"6","9":"3","_rn_":"1427"},{"1":"12","2":"male","3":"37.0","4":"15.000","5":"yes","6":"5","7":"17","8":"5","9":"2","_rn_":"1445"},{"1":"7","2":"male","3":"27.0","4":"10.000","5":"yes","6":"2","7":"20","8":"6","9":"4","_rn_":"1460"},{"1":"2","2":"male","3":"37.0","4":"15.000","5":"yes","6":"2","7":"16","8":"5","9":"4","_rn_":"1480"},{"1":"12","2":"female","3":"32.0","4":"15.000","5":"yes","6":"1","7":"14","8":"5","9":"2","_rn_":"1505"},{"1":"7","2":"male","3":"32.0","4":"10.000","5":"yes","6":"3","7":"17","8":"6","9":"3","_rn_":"1543"},{"1":"2","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"18","8":"5","9":"1","_rn_":"1548"},{"1":"7","2":"female","3":"27.0","4":"1.500","5":"no","6":"2","7":"17","8":"5","9":"5","_rn_":"1550"},{"1":"3","2":"female","3":"47.0","4":"15.000","5":"yes","6":"2","7":"17","8":"5","9":"2","_rn_":"1561"},{"1":"12","2":"male","3":"37.0","4":"15.000","5":"yes","6":"2","7":"17","8":"5","9":"4","_rn_":"1564"},{"1":"12","2":"female","3":"27.0","4":"4.000","5":"no","6":"2","7":"14","8":"5","9":"5","_rn_":"1573"},{"1":"2","2":"female","3":"27.0","4":"10.000","5":"yes","6":"4","7":"14","8":"1","9":"5","_rn_":"1575"},{"1":"1","2":"female","3":"22.0","4":"4.000","5":"yes","6":"3","7":"16","8":"1","9":"3","_rn_":"1599"},{"1":"12","2":"male","3":"52.0","4":"7.000","5":"no","6":"4","7":"16","8":"5","9":"5","_rn_":"1622"},{"1":"2","2":"female","3":"27.0","4":"4.000","5":"yes","6":"1","7":"16","8":"3","9":"5","_rn_":"1629"},{"1":"7","2":"female","3":"37.0","4":"15.000","5":"yes","6":"2","7":"17","8":"6","9":"4","_rn_":"1664"},{"1":"2","2":"female","3":"27.0","4":"4.000","5":"no","6":"1","7":"17","8":"3","9":"1","_rn_":"1669"},{"1":"12","2":"female","3":"17.5","4":"0.750","5":"yes","6":"2","7":"12","8":"3","9":"5","_rn_":"1674"},{"1":"7","2":"female","3":"32.0","4":"15.000","5":"yes","6":"5","7":"18","8":"5","9":"4","_rn_":"1682"},{"1":"7","2":"female","3":"22.0","4":"4.000","5":"no","6":"1","7":"16","8":"3","9":"5","_rn_":"1685"},{"1":"2","2":"male","3":"32.0","4":"4.000","5":"yes","6":"4","7":"18","8":"6","9":"4","_rn_":"1697"},{"1":"1","2":"female","3":"22.0","4":"1.500","5":"yes","6":"3","7":"18","8":"5","9":"2","_rn_":"1716"},{"1":"3","2":"female","3":"42.0","4":"15.000","5":"yes","6":"2","7":"17","8":"5","9":"4","_rn_":"1730"},{"1":"1","2":"male","3":"32.0","4":"7.000","5":"yes","6":"4","7":"16","8":"4","9":"4","_rn_":"1731"},{"1":"12","2":"male","3":"37.0","4":"15.000","5":"no","6":"3","7":"14","8":"6","9":"2","_rn_":"1732"},{"1":"1","2":"male","3":"42.0","4":"15.000","5":"yes","6":"3","7":"16","8":"6","9":"3","_rn_":"1743"},{"1":"1","2":"male","3":"27.0","4":"4.000","5":"yes","6":"1","7":"18","8":"5","9":"4","_rn_":"1751"},{"1":"2","2":"male","3":"37.0","4":"15.000","5":"yes","6":"4","7":"20","8":"7","9":"3","_rn_":"1757"},{"1":"7","2":"male","3":"37.0","4":"15.000","5":"yes","6":"3","7":"20","8":"6","9":"4","_rn_":"1763"},{"1":"3","2":"male","3":"22.0","4":"1.500","5":"no","6":"2","7":"12","8":"3","9":"3","_rn_":"1766"},{"1":"3","2":"male","3":"32.0","4":"4.000","5":"yes","6":"3","7":"20","8":"6","9":"2","_rn_":"1772"},{"1":"2","2":"male","3":"32.0","4":"15.000","5":"yes","6":"5","7":"20","8":"6","9":"5","_rn_":"1776"},{"1":"12","2":"female","3":"52.0","4":"15.000","5":"yes","6":"1","7":"18","8":"5","9":"5","_rn_":"1782"},{"1":"12","2":"male","3":"47.0","4":"15.000","5":"no","6":"1","7":"18","8":"6","9":"5","_rn_":"1784"},{"1":"3","2":"female","3":"32.0","4":"15.000","5":"yes","6":"4","7":"16","8":"4","9":"4","_rn_":"1791"},{"1":"7","2":"female","3":"32.0","4":"15.000","5":"yes","6":"3","7":"14","8":"3","9":"2","_rn_":"1831"},{"1":"7","2":"female","3":"27.0","4":"7.000","5":"yes","6":"4","7":"16","8":"1","9":"2","_rn_":"1840"},{"1":"12","2":"male","3":"42.0","4":"15.000","5":"yes","6":"3","7":"18","8":"6","9":"2","_rn_":"1844"},{"1":"7","2":"female","3":"42.0","4":"15.000","5":"yes","6":"2","7":"14","8":"3","9":"2","_rn_":"1856"},{"1":"12","2":"male","3":"27.0","4":"7.000","5":"yes","6":"2","7":"17","8":"5","9":"4","_rn_":"1876"},{"1":"3","2":"male","3":"32.0","4":"10.000","5":"yes","6":"4","7":"14","8":"4","9":"3","_rn_":"1929"},{"1":"7","2":"male","3":"47.0","4":"15.000","5":"yes","6":"3","7":"16","8":"4","9":"2","_rn_":"1935"},{"1":"1","2":"male","3":"22.0","4":"1.500","5":"yes","6":"1","7":"12","8":"2","9":"5","_rn_":"1938"},{"1":"7","2":"female","3":"32.0","4":"10.000","5":"yes","6":"2","7":"18","8":"5","9":"4","_rn_":"1941"},{"1":"2","2":"male","3":"32.0","4":"10.000","5":"yes","6":"2","7":"17","8":"6","9":"5","_rn_":"1954"},{"1":"2","2":"male","3":"22.0","4":"7.000","5":"yes","6":"3","7":"18","8":"6","9":"2","_rn_":"1959"},{"1":"1","2":"female","3":"32.0","4":"15.000","5":"yes","6":"3","7":"14","8":"1","9":"5","_rn_":"9010"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Neste post, a análise de dados será feita considerando a variável <code>affairs</code> (Quantas vezes envolvido em caso extraconjugal no último ano (aparentemente em 1977)) e a base de dados conta com as variáveis gênero, idade, anos de casado, se tem crianças, religiosidade, educação, ocupação e como avalia o casamento.</p>
+<p>Informações detalhadas podem ser conferidas na tabela a seguir, retirada do artigo apresentado:</p>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/tab.png" /></p>
+<p>Obs.: Essa tabela foi feita com o pacote <a href="https://plot.ly/r/"><code>plotly</code></a>, o código pode ser conferido <a href="https://gist.github.com/gomesfellipe/4d1d17ca97ac6dadfabad6baef3c5539">aqui</a>.</p>
+</div>
+</div>
+</div>
+<div id="visão-geral-dos-dados" class="section level1">
+<h1>Visão geral dos dados</h1>
+<p>Entendendo as dimensões do conjunto de dados, nomes de variáveis, resumo geral, variáveis ausentes e tipos de dados de cada variável com a função <code>ExpData()</code>, se o argumento Type = 1, visualização dos dados (os nomes das colunas são “Descrições”, “Obs.”), já se Type = 2, estrutura dos dados (os nomes das colunas são “S.no”, “VarName”, “VarClass”, “VarType”)
+:</p>
+<pre class="r"><code># Visao geral dos dados - Type = 1
+ExpData(data=Affairs, type=1) # O tipo 1 é uma visão geral dos dados</code></pre>
+<pre><code>##                                           Descriptions    Value
+## 1                                   Sample size (nrow)      601
+## 2                              No. of variables (ncol)        9
+## 3                    No. of numeric/interger variables        7
+## 4                              No. of factor variables        2
+## 5                                No. of text variables        0
+## 6                             No. of logical variables        0
+## 7                          No. of identifier variables        0
+## 8                                No. of date variables        0
+## 9             No. of zero variance variables (uniform)        0
+## 10               %. of variables having complete cases 100% (9)
+## 11   %. of variables having &gt;0% and &lt;50% missing cases   0% (0)
+## 12 %. of variables having &gt;=50% and &lt;90% missing cases   0% (0)
+## 13          %. of variables having &gt;=90% missing cases   0% (0)</code></pre>
+<p>Conferindo o nome das variáveis e os tipos de cada uma:</p>
+<pre class="r"><code># Estrutura dos dados - Type = 2
+ExpData(data=Affairs, type=2) # O tipo 2 é a estrutura dos dados</code></pre>
+<pre><code>##   Index Variable_Name Variable_Type Per_of_Missing No_of_distinct_values
+## 1     1       affairs       numeric              0                     6
+## 2     2        gender        factor              0                     2
+## 3     3           age       numeric              0                     9
+## 4     4  yearsmarried       numeric              0                     8
+## 5     5      children        factor              0                     2
+## 6     6 religiousness       integer              0                     5
+## 7     7     education       numeric              0                     7
+## 8     8    occupation       integer              0                     7
+## 9     9        rating       integer              0                     5</code></pre>
+<p>Esta função fornece visão geral e estrutura dos quadros de dados.</p>
+</div>
+<div id="análise-exploratória-dos-dados" class="section level1">
+<h1>Análise exploratória dos dados</h1>
+<p>As funções a seguir apresentam a saída EDA para 3 casos diferentes de análise exploratória dos dados, são elas:</p>
+<ul>
+<li><p>A variável de destino não está definida</p></li>
+<li><p>A variável alvo é contínua</p></li>
+<li><p>A variável de destino é categórica</p></li>
+</ul>
+<p>Para fins ilustrativos, será feita inicialmente uma análise considerando que não existe variável resposta, em seguida será considerada a variável <code>affairs</code> como variável resposta e por fim, será feita uma transformação nesta variável resposta numérica de forma que ela seja discretizada da seguinte maneira:</p>
+<p><span class="math display">\[
+1 \text{ se já houve caso extraconjugal} \\
+0 \text{ se não houve caso extraconjugal}
+\]</span></p>
+</div>
+<div id="relatório-em-uma-linha" class="section level1">
+<h1>Relatório em uma linha</h1>
+<p>Caso o interesse seja apenas ter uma noção geral dos dados de forma extremamente rápida, basta rodar a linha de código abaixo:</p>
+<pre><code>ExpReport(Affairs,op_file = &quot;teste.html&quot;)</code></pre>
+<p>Antes de começar a explanar cada um dos casos, achei que seria legal frisar que além de tudo que será apresentado, existe a opção de se obter um relatório extenso sobre a análise exploratória dos dados em apenas uma linha!</p>
+<div id="exemplo-para-o-caso-1-a-variável-de-destino-não-está-definida" class="section level2">
+<h2>Exemplo para o caso 1: a variável de destino não está definida</h2>
+<p>Para ilustrar o primeiro caso, onde a variável destino não é definida, vamos supor que não existe uma variável alvo na nossa base de dados e estamos interessados em simplesmente obter uma visão geral enquanto pensamos em quais técnicas estatísticas serão utilizadas para avaliar nosso dataset.</p>
+<div id="resumo-das-variáveis-numéricas" class="section level3">
+<h3>Resumo das variáveis numéricas</h3>
+<p>Resumo de de todas as variáveis numéricas:</p>
+<pre class="r"><code>ExpNumStat (Affairs, 
+            by = &quot;A&quot;,       # Agrupar por A (estatísticas resumidas por Todos), G (estatísticas resumidas por grupo), GA (estatísticas resumidas por grupo e Geral)
+            gp = NULL,      # variável de destino, se houver, padrão NULL
+            MesofShape = 2, # Medidas de formas (assimetria e curtose).
+            Outlier = TRUE, # Calcular o limite inferior, o limite superior e o número de outliers
+            round = 2)      # Arredondar</code></pre>
+<pre><code>##   Vname Group
+## 1     1   All</code></pre>
+<p>Podemos ver que não existem variáveis negativas e a única variável que apresentou “zero” foi a variável resposta. Nenhum registro como <code>Inf</code> ou como <code>NA</code> e além das medidas descritivas também podemos notar as medidas de <code>skweness</code> e <code>kurtosis</code>. Alguns comentários sobre essas medidas:</p>
+<p>Medidas de forma para dar uma avaliação detalhada dos dados. Explica a quantidade e a direção do desvio.</p>
+<ul>
+<li><strong>Kurotsis</strong> explica o quão alto e afiado é o pico central (Achatamento).</li>
+<li><strong>Skewness</strong> não tem unidades: mas um número, como um escore z (medida da assimetria)</li>
+</ul>
+<p>Onde:</p>
+<p><a href="https://pt.wikipedia.org/wiki/Curtose"><strong>Kurtose</strong></a>:</p>
+<p>A curtose é uma medida de forma que caracteriza o achatamento da curva da função de distribuição de probabilidade, Assim:</p>
+<ul>
+<li>Se o valor da curtose for = 0 (ou 3, pela segunda definição), então tem o mesmo achatamento que a distribuição normal. Chama-se a estas funções de mesocúrticas</li>
+<li>Se o valor é &gt; 0 (ou &gt; 3), então a distribuição em questão é mais alta (afunilada) e concentrada que a distribuição normal. Diz-se que esta função probabilidade é leptocúrtica, ou que a distribuição tem caudas pesadas (o significado é que é relativamente fácil obter valores que não se aproximam da média a vários múltiplos do desvio padrão)</li>
+<li>Se o valor é &lt; 0 (ou &lt; 3), então a função de distribuição é mais “achatada” que a distribuição normal. Chama-se-lhe platicúrtica</li>
+</ul>
+<p><a href="https://pt.wikipedia.org/wiki/Obliquidade"><strong>Skewness</strong></a>:</p>
+<p>O Skewness mede a assimetria das caudas da distribuição. Distribuições assimétricas que tem uma cauda mais “pesada” que a outra apresentam obliquidade. Distribuições simétricas tem obliquidade zero. Assim:</p>
+<ul>
+<li>Se v&gt;0, então a distribuição tem uma cauda direita (valores acima da média) mais pesada</li>
+<li>Se v&lt;0, então a distribuição tem uma cauda esquerda (valores abaixo da média) mais pesada</li>
+<li>Se v=0, então a distribuição é aproximadamente simétrica (na terceira potência do desvio em relação à média).</li>
+</ul>
+<div id="distribuições-de-variáveis-numéricas" class="section level4">
+<h4>Distribuições de variáveis numéricas</h4>
+<p>Representação gráfica de todos os recursos numéricos com <strong>gráfico de densidade</strong> (uni variada):</p>
+<pre class="r"><code># Nota: Variável excluída (se o valor único da variável for menor ou igual a 10 [im = 10])
+
+ExpNumViz(Affairs,
+          Page=c(2,2), # padrão de saída. 
+          sample=NULL) # seleção aleatória de plots</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-9-1.png" width="672" /><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<p>Exibidos os gráficos com as densidades das variáveis numéricas. Como podemos ver a maioria da amostra não registrou caso extraconjugal, a maioria tem de 12 ou mais anos de casado. A média amostral da idade dos indivíduos é de aproximadamente 32 anos apresentando leve assimetria com cauda a direita. As demais variáveis podem ser conferidas visualmente.</p>
+</div>
+</div>
+<div id="resumo-de-variáveis-categóricas" class="section level3">
+<h3>Resumo de variáveis categóricas</h3>
+<p>Essa função selecionará automaticamente variáveis categóricas e gerará frequência ou tabelas cruzadas com base nas entradas do usuário. A saída inclui contagens, porcentagens, total de linhas e total de colunas.</p>
+<p>Frequência para todas as variáveis independentes categóricas:</p>
+<pre class="r"><code>ExpCTable(Affairs,
+          Target=NULL)</code></pre>
+<pre><code>##         Variable  Valid Frequency Percent CumPercent
+## 1         gender female       315   52.41      52.41
+## 2         gender   male       286   47.59     100.00
+## 3         gender  TOTAL       601      NA         NA
+## 4       children     no       171   28.45      28.45
+## 5       children    yes       430   71.55     100.00
+## 6       children  TOTAL       601      NA         NA
+## 7        affairs      0       451   75.04      75.04
+## 8        affairs      1        34    5.66      80.70
+## 9        affairs     12        38    6.32      87.02
+## 10       affairs      2        17    2.83      89.85
+## 11       affairs      3        19    3.16      93.01
+## 12       affairs      7        42    6.99     100.00
+## 13       affairs  TOTAL       601      NA         NA
+## 14           age   17.5         6    1.00       1.00
+## 15           age     22       117   19.47      20.47
+## 16           age     27       153   25.46      45.93
+## 17           age     32       115   19.13      65.06
+## 18           age     37        88   14.64      79.70
+## 19           age     42        56    9.32      89.02
+## 20           age     47        23    3.83      92.85
+## 21           age     52        21    3.49      96.34
+## 22           age     57        22    3.66     100.00
+## 23           age  TOTAL       601      NA         NA
+## 24  yearsmarried  0.125        11    1.83       1.83
+## 25  yearsmarried  0.417        10    1.66       3.49
+## 26  yearsmarried   0.75        31    5.16       8.65
+## 27  yearsmarried    1.5        88   14.64      23.29
+## 28  yearsmarried     10        70   11.65      34.94
+## 29  yearsmarried     15       204   33.94      68.88
+## 30  yearsmarried      4       105   17.47      86.35
+## 31  yearsmarried      7        82   13.64      99.99
+## 32  yearsmarried  TOTAL       601      NA         NA
+## 33 religiousness      1        48    7.99       7.99
+## 34 religiousness      2       164   27.29      35.28
+## 35 religiousness      3       129   21.46      56.74
+## 36 religiousness      4       190   31.61      88.35
+## 37 religiousness      5        70   11.65     100.00
+## 38 religiousness  TOTAL       601      NA         NA
+## 39     education     12        44    7.32       7.32
+## 40     education     14       154   25.62      32.94
+## 41     education     16       115   19.13      52.07
+## 42     education     17        89   14.81      66.88
+## 43     education     18       112   18.64      85.52
+## 44     education     20        80   13.31      98.83
+## 45     education      9         7    1.16      99.99
+## 46     education  TOTAL       601      NA         NA
+## 47    occupation      1       113   18.80      18.80
+## 48    occupation      2        13    2.16      20.96
+## 49    occupation      3        47    7.82      28.78
+## 50    occupation      4        68   11.31      40.09
+## 51    occupation      5       204   33.94      74.03
+## 52    occupation      6       143   23.79      97.82
+## 53    occupation      7        13    2.16      99.98
+## 54    occupation  TOTAL       601      NA         NA
+## 55        rating      1        16    2.66       2.66
+## 56        rating      2        66   10.98      13.64
+## 57        rating      3        93   15.47      29.11
+## 58        rating      4       194   32.28      61.39
+## 59        rating      5       232   38.60      99.99
+## 60        rating  TOTAL       601      NA         NA</code></pre>
+<p>Obs.: <code>NA</code> significa <code>Not Applicable</code></p>
+</div>
+<div id="distribuições-de-variáveis-categóricas" class="section level3">
+<h3>Distribuições de variáveis categóricas</h3>
+<p>Essa função varre automaticamente cada variável e cria um gráfico de barras para variáveis categóricas.</p>
+<p>Gráficos de barra para todas as variáveis categóricas</p>
+<pre class="r"><code>ExpCatViz(Affairs,
+          fname=NULL, # Nome do arquivo de saida, default é pdf
+          clim=10,# categorias máximas a incluir nos gráficos de barras.
+          margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
+          Page = c(2,1), # padrao de saida
+          sample=4) # seleção aleatória de plot</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-11-1.png" width="672" /><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+</div>
+<div id="machine-lerning-usando-algorítimo-não-supervisionado-de-agrupamento" class="section level3">
+<h3>Machine Lerning usando algorítimo não supervisionado de agrupamento</h3>
+<p>Apenas para efeitos ilustrativos, como estamos supondo que não temos a variável resposta vou remover a coluna <code>affairs</code> do data set e considerarei apenas as variáveis numéricas para fazer uma análise multivariada com o algorítimo de machine learning <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/kmeans.html"><code>kmeans</code></a>.</p>
+<p>A função <a href="https://github.com/gomesfellipe/functions/blob/master/plot_kmeans.R"><code>plot_kmeans()</code></a> pode ser encontrada em <a href="github.com/gomesfellipe">meu github</a> no <a href="https://github.com/gomesfellipe/functions">repositório aberto de funções</a>.</p>
+<p>Vejamos os resultados:</p>
+<pre class="r"><code>plot_kmeans(Affairs[,-c(1)] %&gt;% select_if(is.numeric) , 2)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Como podemos observar, foram detectados dois grupos no conjunto de dados. O ideal agora seria fazer uma AED desses clusters identificados e avaliar qual o comportamento dos grupos formados mas como essa variável foi omitida e a seguir discutiremos a avaliação da base diante de da variável resposta, deixo essas análises aos curiosos de plantão.</p>
+<p>Mais informações sobre análise multivariava podem ser encontrada no meu post sobre <a href="https://gomesfellipe.github.io/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise Multivariada com r</a> e também em um <a href="https://www.kaggle.com/gomes555/an-lise-multivariada-pca-e-kmeans">kernel que escrevi para a plataforma kaggle</a>.</p>
+<p>Além disso disponibilizo uma aplicação Shiny que criei a algum tempo para PCA (Análise de componentes Principais) e tarefa de machine learning com agrupamento <a href="https://gomesfellipe.shinyapps.io/appPCAkmeans/">nenste link</a>.</p>
+</div>
+</div>
+<div id="exemplo-para-o-caso-2-a-variável-de-destino-é-contínua" class="section level2">
+<h2>Exemplo para o caso 2: A variável de destino é contínua</h2>
+<p>Agora vamos considerar que estamos diante de um desfecho onde a variável alvo é contínua, para isso será considerada a variável <code>affairs</code> como variável alvo.</p>
+<div id="resumo-da-variável-dependente-contínua" class="section level3">
+<h3>Resumo da variável dependente contínua</h3>
+<p>Descrição da variável affairs:</p>
+<pre class="r"><code>summary(Affairs[,&quot;affairs&quot;])</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   0.000   1.456   0.000  12.000</code></pre>
+</div>
+<div id="resumo-das-variáveis-numéricas-1" class="section level3">
+<h3>Resumo das variáveis numéricas</h3>
+<p>Estatísticas de resumo quando a variável dependente é contínua Preço.</p>
+<pre class="r"><code>ExpNumStat(Affairs,
+           by=&quot;A&quot;, # Agrupar por A (estatísticas resumidas por Todos), G (estatísticas resumidas por grupo), GA (estatísticas resumidas por grupo e Geral)
+           Qnt=seq(0,1,0.1), # padrão NULL. Quantis especificados [c (0,25,0,75) encontrarão os percentis 25 e 75]
+           MesofShape=1, # Medidas de formas (assimetria e curtose)
+           Outlier=TRUE, # Calcular limite superior , inferior e numero de outliers
+           round=2) # Arredondamento</code></pre>
+<pre><code>##   Vname Group
+## 1     1   All</code></pre>
+<pre class="r"><code>#Se a variável de destino for contínua, as estatísticas de resumo adicionarão a coluna de correlação (Correlação entre a variável de destino e todas as variáveis independentes)</code></pre>
+<div id="distribuições-de-variáveis-numéricas-1" class="section level4">
+<h4>Distribuições de variáveis numéricas</h4>
+<p>Representação gráfica de todas as variáveis numéricas com gráficos de dispersão (bivariada)</p>
+<p>Gráfico de dispersão entre todas as variáveis numéricas e a variável de destino affairs. Esta trama ajuda a examinar quão bem uma variável alvo está correlacionada com variáveis dependentes.</p>
+<p>Variável dependente é affairs (contínuo).</p>
+<pre class="r"><code>ExpNumViz(Affairs,
+            target=&quot;affairs&quot;, # Variavel alvo
+            nlim=4, # a variável numérica com valor exclusivo é maior que 4
+            Page=c(2,2), # formato de saida
+            sample=NULL) # selecionado aleatoriamente 8 gráficos de dispersão</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-15-1.png" width="672" /><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
+</div>
+</div>
+<div id="resumo-de-variáveis-categóricas-1" class="section level3">
+<h3>Resumo de variáveis categóricas</h3>
+<p>Resumo de variáveis categóricas de acordo com a frequência para todas as variáveis independentes categóricas por Affairs</p>
+<pre class="r"><code>##bin=4, descretized 4 categories based on quantiles
+ExpCTable(Affairs, Target=&quot;affairs&quot;)</code></pre>
+<pre><code>##         VARIABLE CATEGORY affairs:(-0.012,4] affairs:(4,8] affairs:(8,12] TOTAL
+## 1         gender   female                273            22             20   315
+## 2         gender     male                248            20             18   286
+## 3         gender    TOTAL                521            42             38   601
+## 4       children       no                157             7              7   171
+## 5       children      yes                364            35             31   430
+## 6       children    TOTAL                521            42             38   601
+## 7        affairs        0                451             0              0   451
+## 8        affairs        1                 34             0              0    34
+## 9        affairs       12                  0             0             38    38
+## 10       affairs        2                 17             0              0    17
+## 11       affairs        3                 19             0              0    19
+## 12       affairs        7                  0            42              0    42
+## 13       affairs    TOTAL                521            42             38   601
+## 14           age     17.5                  4             0              2     6
+## 15           age       22                112             4              1   117
+## 16           age       27                138             9              6   153
+## 17           age       32                 95            11              9   115
+## 18           age       37                 71             8              9    88
+## 19           age       42                 44             6              6    56
+## 20           age       47                 19             1              3    23
+## 21           age       52                 17             2              2    21
+## 22           age       57                 21             1              0    22
+## 23           age    TOTAL                521            42             38   601
+## 24  yearsmarried    0.125                 11             0              0    11
+## 25  yearsmarried    0.417                 10             0              0    10
+## 26  yearsmarried     0.75                 29             0              2    31
+## 27  yearsmarried      1.5                 85             2              1    88
+## 28  yearsmarried       10                 57             8              5    70
+## 29  yearsmarried       15                165            17             22   204
+## 30  yearsmarried        4                 94             9              2   105
+## 31  yearsmarried        7                 70             6              6    82
+## 32  yearsmarried    TOTAL                521            42             38   601
+## 33 religiousness        1                 37             5              6    48
+## 34 religiousness        2                138            14             12   164
+## 35 religiousness        3                105            13             11   129
+## 36 religiousness        4                177             6              7   190
+## 37 religiousness        5                 64             4              2    70
+## 38 religiousness    TOTAL                521            42             38   601
+## 39     education       12                 36             2              6    44
+## 40     education       14                139             6              9   154
+## 41     education       16                108             5              2   115
+## 42     education       17                 72             9              8    89
+## 43     education       18                 94            11              7   112
+## 44     education       20                 67             9              4    80
+## 45     education        9                  5             0              2     7
+## 46     education    TOTAL                521            42             38   601
+## 47    occupation        1                101             6              6   113
+## 48    occupation        2                 13             0              0    13
+## 49    occupation        3                 39             5              3    47
+## 50    occupation        4                 60             4              4    68
+## 51    occupation        5                177            12             15   204
+## 52    occupation        6                120            13             10   143
+## 53    occupation        7                 11             2              0    13
+## 54    occupation    TOTAL                521            42             38   601
+## 55        rating        1                 11             1              4    16
+## 56        rating        2                 43             8             15    66
+## 57        rating        3                 80             9              4    93
+## 58        rating        4                169            18              7   194
+## 59        rating        5                218             6              8   232
+## 60        rating    TOTAL                521            42             38   601</code></pre>
+<div id="distribuições-de-variáveis-categóricas-1" class="section level4">
+<h4>Distribuições de variáveis categóricas</h4>
+<p>Essa função varre automaticamente cada variável e cria um gráfico de barras para variáveis categóricas.</p>
+<p>Gráficos de barra para todas as variáveis categóricas</p>
+<pre class="r"><code>ExpCatViz(Affairs,
+          target=&quot;affairs&quot;, # Variavel target
+          fname=NULL, # Nome do arquivo de saida, default é pdf
+          clim=10,# categorias máximas a incluir nos gráficos de barras.
+          margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
+          Page = c(2,1), # padrao de saida
+          sample=4) # seleção aleatória de plot</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-17-1.png" width="672" /><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+</div>
+</div>
+<div id="avaliando-a-correlação-entre-as-variáveis" class="section level3">
+<h3>Avaliando a correlação entre as variáveis</h3>
+<pre class="r"><code>library(ggplot2)
+library(dplyr)
+library(GGally)
+data(&quot;Affairs&quot;)
+#Correlaçoes cruzadas
+Affairs%&gt;%
+  select(age:rating,affairs)%&gt;%
+ggpairs(lower = list(continuous = my_fn,combo=wrap(&quot;facethist&quot;, binwidth=1), 
+                                       continuous=wrap(my_bin, binwidth=0.25)),aes(fill=affairs))+theme_bw()</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre class="r"><code>ggcorr(Affairs,label = T,nbreaks = 5,label_round = 4)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="modelo-de-regressão-linear-usando-stepwiseaic" class="section level3">
+<h3>Modelo de regressão linear usando stepwiseAIC</h3>
+<p>Por fim, vamos ajustar um modelo de regressão linear para entender quais são as variáveis significativas para explicar a variação da variável resposta e qual o efeito de cada uma dessas variáveis explicativas no nosso desfecho.</p>
+<p>Com o R base é possível ajustar um modelo de regressão linear simples utilizando a função <code>lm()</code> e em seguida usar a função <code>step()</code> para utilizar técnicas como <a href="https://en.wikipedia.org/wiki/Stepwise_regression">stepwise</a>, porém como quero utilizar também a técnica de <a href="https://pt.wikipedia.org/wiki/Valida%C3%A7%C3%A3o_cruzada">validação cruzada</a>. Para isso vou utilizar o pacote <a href="https://cran.r-project.org/web/packages/caret/caret.pdf"><code>caret</code></a>, muito famoso por facilitar o ajuste de modelos de machine learning (ou mesmo modelos estatísticos tradicionais).</p>
+<p>Além disso estou usando as transformações <a href="https://www.rdocumentation.org/packages/caret/versions/6.0-79/topics/preProcess"><code>center()</code></a>, que subtrai a média dos dados e <a href="https://www.rdocumentation.org/packages/caret/versions/6.0-79/topics/preProcess"><code>scale()</code></a> divide pelo desvio padrão.</p>
+<pre class="r"><code>data(&quot;Affairs&quot;)
+library(caret)
+set.seed(123)
+index &lt;- sample(1:2,nrow(Affairs),replace=T,prob=c(0.8,0.2))
+train = Affairs[index==1,] %&gt;%as.data.frame()
+test = Affairs[index==2,] %&gt;%as.data.frame()
+
+# Setando os parâmetros para o controle do ajuste do modelo:
+fitControl &lt;- trainControl(method = &quot;repeatedcv&quot;,         # 10fold cross validation
+                     number = 10, repeats=5                         # do 5 repititições of cv
+                     )
+
+# Regressão Linear com Stepwise
+set.seed(825)
+lmFit &lt;- train(affairs ~ ., data = train,
+                method = &quot;lmStepAIC&quot;, 
+                trControl = fitControl,
+                preProc = c(&quot;center&quot;, &quot;scale&quot;),trace=F)
+summary(lmFit)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = .outcome ~ age + yearsmarried + religiousness + 
+##     occupation + rating, data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.1452 -1.7819 -0.7601  0.2719 11.3518 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     1.4146     0.1401  10.096  &lt; 2e-16 ***
+## age            -0.6890     0.2291  -3.007 0.002779 ** 
+## yearsmarried    1.1058     0.2302   4.804 2.09e-06 ***
+## religiousness  -0.5121     0.1455  -3.519 0.000475 ***
+## occupation      0.3858     0.1445   2.669 0.007858 ** 
+## rating         -0.7830     0.1470  -5.326 1.55e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.07 on 474 degrees of freedom
+## Multiple R-squared:  0.144,  Adjusted R-squared:  0.135 
+## F-statistic: 15.95 on 5 and 474 DF,  p-value: 1.542e-14</code></pre>
+<p>Como podemos ver as variáveis Idade, Anos de casado, religiosidade, ocupação e como avaliam o próprio relacionamento se apresentaram significantes</p>
+<p>Como o <span class="math inline">\(R^2=0,144\)</span>, conclui-se que <span class="math inline">\(14,4%\)</span> da variação da quantidade de vezes que foi envolvida em caso extraconjugal no último ano é explicada pelo modelo ajustado.</p>
+<p>Observando a coluna das estimativas, podemos notar o quanto varia a quantidade de vezes que foi envolvido em caso extraconjugal ao aumentar em 1 unidade cada uma das variáveis explicativas.</p>
+<p>Além disso o valor p obtido através da estatística F foi menor do que <span class="math inline">\(\alpha = 0.05\)</span>, o que implica que pelo menos uma das variáveis explicativas tem relação significativa com a variável resposta.</p>
+<p>Selecionando apenas as variáveis selecionadas com o ajuste do modelo:</p>
+<pre class="r"><code>train=as.data.frame(train[,c(1,3,4,6,8,9)])
+test=as.data.frame(test[,c(1,3,4,6,8,9)])</code></pre>
+<div id="diagnóstico-do-modelo" class="section level4">
+<h4>Diagnóstico do modelo</h4>
+<p>Existem varias formas e técnicas de se avaliar o ajuste de um modelo e como o foco deste post é apresentar as utilidades do pacote <code>SmartEAD</code> irei fazer uma avaliação muito breve sobre os resíduos, apresento mais algumas maneiras no post sobre <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">pacotes do R para avaliar o ajuste de modelos</a>.</p>
+<div id="avaliando-residuos" class="section level5">
+<h5>Avaliando residuos</h5>
+<pre class="r"><code>library(GGally)
+# calculate all residuals prior to display
+residuals &lt;- lapply(train[2:ncol(train)], function(x) {
+  summary(lm(affairs ~ x, data = train))$residuals
+})
+
+# add a &#39;fake&#39; column
+train$Residual &lt;- seq_len(nrow(train))
+
+# calculate a consistent y range for all residuals
+y_range &lt;- range(unlist(residuals))
+
+# plot the data
+ggduo(
+  train,
+  2:6, c(1,7),
+  types = list(continuous = lm_or_resid)
+)+ theme_bw()</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<pre class="r"><code>train=train%&gt;%
+  select(-Residual)</code></pre>
+<p>Neste gráfico é possível observar como se comportam os ajustes de modelos lineares de cada variável explicativa em relação à variável resposta e além disso na segunda linha é possível notar o comportamento dos resíduos no modelo.</p>
+<p>Uma das suposições do ajuste de um modelo linear normal é de que <span class="math inline">\(\epsilon \sim N(0,\sigma^2)\)</span> e visualmente parece que essa condição não deve ser atendida, pois esperaríamos algo como uma “nuvem” aleatória de pontos em torno de zero.</p>
+</div>
+<div id="residuos-e-medidas-de-influencia" class="section level5">
+<h5>Residuos e medidas de influencia</h5>
+<p>Além da suposição da normalidade dos resíduos, existem ainda mais detalhes do comportamento desses erros, uma breve apresentação no gráfico a seguir:</p>
+<pre class="r"><code>library(ggfortify)
+
+autoplot(lmFit$finalModel, which = 1:6, data = train,
+         colour = &#39;affairs&#39;, label.size = 3,
+         ncol = 3)+theme_classic()</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>Pelo que parece no gráfico com título “Normal Q-Q”, as variáveis associadas à variável resposta com valores acima de 6 se comportam de forma inesperadas quando comparadas com os quantis teóricos.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exemplo-para-o-caso-3-a-variável-de-destino-é-categórica" class="section level2">
+<h2>Exemplo para o caso 3: a variável de destino é categórica</h2>
+<p>Para finalizar a avaliação da base de dados, a Variável alvo será discretizado de tal forma:</p>
+<p><span class="math display">\[
+1 = \text{se affairs} &gt; 0\\
+0 = c.c.
+\]</span></p>
+<p>Essa transformação será utilizada apenas com fins ilustrativos do algorítimo de árvore de decisões, que está ficando muito comum na ciência de dados como uma tarefa supervisionada de machine learning.</p>
+<pre class="r"><code>Affairs = Affairs %&gt;% 
+  mutate(daffairs = ifelse(Affairs$affairs!=0,1,0)) %&gt;% 
+  mutate(daffairs = as.factor(daffairs))%&gt;% 
+  select(-affairs)
+levels(Affairs$daffairs) = c(&quot;Não&quot;, &quot;Sim&quot;)</code></pre>
+<div id="resumo-das-variáveis-numéricas-2" class="section level3">
+<h3>Resumo das variáveis numéricas</h3>
+<p>Resumo de todas as variáveis numéricas</p>
+<pre class="r"><code>ExpNumStat(Affairs,
+           by=&quot;A&quot;, # Agrupar por A (estatísticas resumidas por Todos), G (estatísticas resumidas por grupo), GA (estatísticas resumidas por grupo e Geral)
+           gp=&quot;daffairs&quot;, # Variavel alvo
+           Qnt=seq(0,1,0.1), # padrão NULL. Quantis especificados [c (0,25,0,75) encontrarão os percentis 25 e 75]
+           MesofShape=1, # Medidas de formas (assimetria e curtose)
+           Outlier=TRUE, # Calcular limite superior , inferior e numero de outliers
+           round=2) # Arredondamento</code></pre>
+<pre><code>##   Vname Group
+## 1     1   All</code></pre>
+<div id="distribuições-de-variáveis-numéricas-2" class="section level4">
+<h4>Distribuições de variáveis numéricas</h4>
+<p>Box plots para todas as variáveis numéricas vs variável dependente categórica - Comparação bivariada apenas com categorias</p>
+<p>Boxplot para todos os atributos numéricos por cada categoria de affair</p>
+<pre class="r"><code>ExpNumViz(Affairs, target=&quot;daffairs&quot;) # amostra de variaveis para o resumo</code></pre>
+<pre><code>## [[1]]</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<pre><code>## 
+## [[2]]</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-26-2.png" width="672" /></p>
+<pre><code>## 
+## [[3]]</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-26-3.png" width="672" /></p>
+<pre><code>## 
+## [[4]]</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-26-4.png" width="672" /></p>
+<pre><code>## 
+## [[5]]</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-26-5.png" width="672" /></p>
+<pre><code>## 
+## [[6]]</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-26-6.png" width="672" /></p>
+</div>
+</div>
+<div id="resumo-das-variáveis-categóricas" class="section level3">
+<h3>Resumo das variáveis categóricas</h3>
+<p>Tabulação cruzada com variável de destino com tabelas customizadas entre todas as variáveis independentes categóricas e a variável de destino <code>daffairs</code>:</p>
+<pre class="r"><code>ExpCTable(Affairs,
+          Target=&quot;daffairs&quot;, # variavel alvo
+          margin=1, # 1 para proporcoes por linha, 2 para colunas
+          clim=10, # maximo de categorias consideradas por frequencia/ custom table
+          round=2, # arredondar
+          per=F) # valores percentuais. Tabela padrão dará contagens.</code></pre>
+<pre><code>##         VARIABLE CATEGORY daffairs:Não daffairs:Sim TOTAL
+## 1         gender   female          243           72   315
+## 2         gender     male          208           78   286
+## 3         gender    TOTAL          451          150   601
+## 4       children       no          144           27   171
+## 5       children      yes          307          123   430
+## 6       children    TOTAL          451          150   601
+## 7            age     17.5            3            3     6
+## 8            age       22          101           16   117
+## 9            age       27          117           36   153
+## 10           age       32           77           38   115
+## 11           age       37           65           23    88
+## 12           age       42           38           18    56
+## 13           age       47           16            7    23
+## 14           age       52           15            6    21
+## 15           age       57           19            3    22
+## 16           age    TOTAL          451          150   601
+## 17  yearsmarried    0.125           10            1    11
+## 18  yearsmarried    0.417            9            1    10
+## 19  yearsmarried     0.75           28            3    31
+## 20  yearsmarried      1.5           76           12    88
+## 21  yearsmarried       10           49           21    70
+## 22  yearsmarried       15          142           62   204
+## 23  yearsmarried        4           78           27   105
+## 24  yearsmarried        7           59           23    82
+## 25  yearsmarried    TOTAL          451          150   601
+## 26 religiousness        1           28           20    48
+## 27 religiousness        2          123           41   164
+## 28 religiousness        3           86           43   129
+## 29 religiousness        4          157           33   190
+## 30 religiousness        5           57           13    70
+## 31 religiousness    TOTAL          451          150   601
+## 32     education       12           31           13    44
+## 33     education       14          119           35   154
+## 34     education       16           95           20   115
+## 35     education       17           62           27    89
+## 36     education       18           79           33   112
+## 37     education       20           60           20    80
+## 38     education        9            5            2     7
+## 39     education    TOTAL          451          150   601
+## 40    occupation        1           90           23   113
+## 41    occupation        2           10            3    13
+## 42    occupation        3           32           15    47
+## 43    occupation        4           47           21    68
+## 44    occupation        5          160           44   204
+## 45    occupation        6          104           39   143
+## 46    occupation        7            8            5    13
+## 47    occupation    TOTAL          451          150   601
+## 48        rating        1            8            8    16
+## 49        rating        2           33           33    66
+## 50        rating        3           66           27    93
+## 51        rating        4          146           48   194
+## 52        rating        5          198           34   232
+## 53        rating    TOTAL          451          150   601</code></pre>
+<div id="distribuições-de-variáveis-categóricas-2" class="section level4">
+<h4>Distribuições de variáveis categóricas</h4>
+<p>Gráfico de barras empilhadas com barras verticais ou horizontais para todas as variáveis categóricas</p>
+<pre class="r"><code>ExpCatViz(Affairs,
+          target=&quot;daffairs&quot;,
+          fname=NULL, # Nome do arquivo de saida, default é pdf
+          clim=10,# categorias máximas a incluir nos gráficos de barras.
+          margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
+          Page = c(2,1), # padrao de saida
+          sample=4) # seleção aleatória de plot</code></pre>
+<pre><code>## $`0`</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-28-1.png" width="672" /><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-28-2.png" width="672" /></p>
+</div>
+</div>
+<div id="valor-da-informação" class="section level3">
+<h3>Valor da informação</h3>
+<p><code>IV</code> é o peso da evidência e valores da informação, <span class="math inline">\(ln(odss) \times(pct0 - pct1)\)</span> onde <span class="math inline">\(pct1 =\frac{\text{&quot;boas observações&quot;}}{\text{&quot;total boas observações&quot;}}\)</span>; <span class="math inline">\(pct0 = \frac{&quot;\text{observações ruins&quot;} }{ \text{&quot;total de observações ruins&quot;}}\)</span> e $odds =  $</p>
+<pre class="r"><code>ExpCatStat(Affairs %&gt;% mutate(daffairs = if_else(daffairs==&quot;Não&quot;, 0, 1)) ,
+           Target=&quot;daffairs&quot;,
+           result = &quot;IV&quot;) %&gt;% 
+  select(-one_of(&quot;Target&quot;,&quot;Ref_1&quot;,&quot;Ref_0&quot;))</code></pre>
+<pre><code>##           Variable  Class Out_1 Out_0 TOTAL Per_1 Per_0 Odds   WOE   IV
+## 1         gender.1 female    72   243   315  0.48  0.54 0.79 -0.12 0.01
+## 2         gender.2   male    78   208   286  0.52  0.46 1.27  0.12 0.01
+## 3       children.1     no    27   144   171  0.18  0.32 0.47 -0.58 0.08
+## 4       children.2    yes   123   307   430  0.82  0.68 2.14  0.19 0.03
+## 5            age.1   17.5     3     3     6  0.02  0.01 3.05  0.69 0.01
+## 6            age.2     22    16   101   117  0.11  0.22 0.41 -0.69 0.08
+## 7            age.3     27    36   117   153  0.24  0.26 0.90 -0.08 0.00
+## 8            age.4     32    38    77   115  0.25  0.17 1.65  0.39 0.03
+## 9            age.5     37    23    65    88  0.15  0.14 1.08  0.07 0.00
+## 10           age.6     42    18    38    56  0.12  0.08 1.48  0.41 0.02
+## 11           age.7     47     7    16    23  0.05  0.04 1.33  0.22 0.00
+## 12           age.8     52     6    15    21  0.04  0.03 1.21  0.29 0.00
+## 13           age.9     57     3    19    22  0.02  0.04 0.46 -0.69 0.01
+## 14  yearsmarried.1  0.125     1    10    11  0.01  0.02 0.30 -0.69 0.01
+## 15  yearsmarried.2  0.417     1     9    10  0.01  0.02 0.33 -0.69 0.01
+## 16  yearsmarried.3   0.75     3    28    31  0.02  0.06 0.31 -1.11 0.04
+## 17  yearsmarried.4    1.5    12    76    88  0.08  0.17 0.43 -0.76 0.07
+## 18  yearsmarried.5     10    21    49    70  0.14  0.11 1.34  0.24 0.01
+## 19  yearsmarried.6     15    62   142   204  0.41  0.31 1.53  0.28 0.03
+## 20  yearsmarried.7      4    27    78   105  0.18  0.17 1.05  0.06 0.00
+## 21  yearsmarried.8      7    23    59    82  0.15  0.13 1.20  0.14 0.00
+## 22 religiousness.1      1    20    28    48  0.13  0.06 2.32  0.77 0.05
+## 23 religiousness.2      2    41   123   164  0.27  0.27 1.00  0.00 0.00
+## 24 religiousness.3      3    43    86   129  0.29  0.19 1.71  0.43 0.04
+## 25 religiousness.4      4    33   157   190  0.22  0.35 0.53 -0.46 0.06
+## 26 religiousness.5      5    13    57    70  0.09  0.13 0.66 -0.37 0.01
+## 27     education.1     12    13    31    44  0.09  0.07 1.29  0.25 0.00
+## 28     education.2     14    35   119   154  0.23  0.26 0.85 -0.13 0.00
+## 29     education.3     16    20    95   115  0.13  0.21 0.58 -0.48 0.04
+## 30     education.4     17    27    62    89  0.18  0.14 1.38  0.25 0.01
+## 31     education.5     18    33    79   112  0.22  0.18 1.33  0.20 0.01
+## 32     education.6     20    20    60    80  0.13  0.13 1.00  0.00 0.00
+## 33     education.7      9     2     5     7  0.01  0.01 1.21  0.00 0.00
+## 34    occupation.1      1    23    90   113  0.15  0.20 0.73 -0.29 0.01
+## 35    occupation.2      2     3    10    13  0.02  0.02 0.90  0.00 0.00
+## 36    occupation.3      3    15    32    47  0.10  0.07 1.45  0.36 0.01
+## 37    occupation.4      4    21    47    68  0.14  0.10 1.40  0.34 0.01
+## 38    occupation.5      5    44   160   204  0.29  0.35 0.75 -0.19 0.01
+## 39    occupation.6      6    39   104   143  0.26  0.23 1.17  0.12 0.00
+## 40    occupation.7      7     5     8    13  0.03  0.02 1.91  0.41 0.00
+## 41        rating.1      1     8     8    16  0.05  0.02 3.12  0.92 0.03
+## 42        rating.2      2    33    33    66  0.22  0.07 3.57  1.14 0.17
+## 43        rating.3      3    27    66    93  0.18  0.15 1.28  0.18 0.01
+## 44        rating.4      4    48   146   194  0.32  0.32 0.98  0.00 0.00
+## 45        rating.5      5    34   198   232  0.23  0.44 0.37 -0.65 0.14</code></pre>
+</div>
+<div id="testes-estatísticos" class="section level3">
+<h3>Testes estatísticos</h3>
+<p>Além de toda a informação visual e das estatísticas descritivas, ainda contamos com alguma função que fornece estatísticas resumidas para todas as colunas de caracteres ou categóricas no data frame</p>
+<pre class="r"><code>ExpCatStat(Affairs %&gt;% mutate(daffairs = if_else(daffairs==&quot;Não&quot;, 0, 1)),
+           Target=&quot;daffairs&quot;, # variavel alvo
+           result = &quot;Stat&quot;) # resumo de estatisticas</code></pre>
+<pre><code>##        Variable   Target Unique Chi-squared p-value df IV Value Cramers V
+## 1        gender daffairs      2       1.334   0.248  1     0.02      0.05
+## 2      children daffairs      2      10.055   0.002  1     0.11      0.13
+## 3           age daffairs      9      17.771   0.023  8     0.15      0.17
+## 4  yearsmarried daffairs      8      17.177   0.016  7     0.17      0.17
+## 5 religiousness daffairs      5      19.354   0.001  4     0.16      0.18
+## 6     education daffairs      7       7.057   0.316  6     0.06      0.11
+## 7    occupation daffairs      7       6.718   0.348  6     0.04      0.11
+## 8        rating daffairs      5      41.433   0.000  4     0.35      0.26
+##   Degree of Association    Predictive Power
+## 1             Very Weak      Not Predictive
+## 2                  Weak Somewhat Predictive
+## 3                  Weak Somewhat Predictive
+## 4                  Weak Somewhat Predictive
+## 5                  Weak Somewhat Predictive
+## 6                  Weak      Not Predictive
+## 7                  Weak      Not Predictive
+## 8              Moderate   Highly Predictive</code></pre>
+<p>Os critérios usados para classificação de poder preditivo variável categórico são</p>
+<ul>
+<li><p>Se o valor da informação for &lt;0,03, então, poder de previsão = “Não Preditivo”</p></li>
+<li><p>Se o valor da informação é de 0,3 a 0,1, então o poder preditivo = “um pouco preditivo”</p></li>
+<li><p>Se o valor da informação for de 0,1 a 0,3, então, poder preditivo = “Medium Predictive”</p></li>
+<li><p>Se o valor da informação for&gt; 0.3, então, poder preditivo = “Altamente Preditivo”</p></li>
+</ul>
+<p>Nota para a variável <code>rating</code> que segundo essas regras, demonstrou alto poder preditivo.</p>
+</div>
+<div id="machine-learning-com-random-forest" class="section level3">
+<h3>Machine Learning com Random Forest</h3>
+<p>O algorítimo supervisionado de machine learning conhecido como <a href="https://www.stat.berkeley.edu/~breiman/RandomForests/">Random Forest</a> é uma grande caixa preta. Apresenta resultados muito robustos pois combina o resultado de várias árvores de decisões e pode ser facilmente aplicada com o pacote <code>caret</code>.</p>
+<p><a href="https://topepo.github.io/caret/variable-importance.html">No livro do pacote caret</a> o algorítimo é apresentado da seguinte maneira: “segundo o pacote do R: Para cada árvore, a precisão da previsão na parte fora do saco dos dados é registrada. Então, o mesmo é feito após a permutação de cada variável preditora. A diferença entre as duas precisões é calculada pela média de todas as árvores e normalizada pelo erro padrão. Para a regressão, o MSE é calculado nos dados fora da bolsa para cada árvore e, em seguida, o mesmo é computado após a permutação de uma variável. As diferenças são calculadas e normalizadas pelo erro padrão. Se o erro padrão é igual a 0 para uma variável, a divisão não é feita.”</p>
+<p>Não entrarei em muitos detalhes sobre o algorítimo pois esta parte é apenas um demonstrativo dos diferentes cenários de análise exploratória dos dados. Serão comentadas apenas algumas métricas utilizadas.</p>
+<p>Ajuste com o algorítimo Random Forest:</p>
+<pre class="r"><code>library(caret)
+set.seed(1)
+index &lt;- sample(1:2,nrow(Affairs),replace=T,prob=c(0.8,0.2))
+train = Affairs[index==1,] %&gt;%as.data.frame()
+test = Affairs[index==2,] %&gt;%as.data.frame()
+
+
+# Setando os parâmetros para o controle do ajuste do modelo:
+fitControl &lt;- trainControl(method = &quot;repeatedcv&quot;,         # 10fold cross validation
+                     number = 10
+                     )
+
+# Random Forest
+set.seed(825)
+antes = Sys.time()
+rfFit &lt;- train(daffairs ~ ., data = train,
+                method = &quot;rf&quot;, 
+                trControl = fitControl,
+                trace=F,
+                preProc = c(&quot;center&quot;, &quot;scale&quot;))
+
+antes - Sys.time() # Para saber quanto tempo durou o ajuste</code></pre>
+<pre><code>## Time difference of -13.38876 secs</code></pre>
+<p>Resultados do ajuste:</p>
+<pre class="r"><code>rfFit</code></pre>
+<pre><code>## Random Forest 
+## 
+## 484 samples
+##   8 predictor
+##   2 classes: &#39;Não&#39;, &#39;Sim&#39; 
+## 
+## Pre-processing: centered (8), scaled (8) 
+## Resampling: Cross-Validated (10 fold, repeated 1 times) 
+## Summary of sample sizes: 436, 436, 435, 435, 435, 436, ... 
+## Resampling results across tuning parameters:
+## 
+##   mtry  Accuracy   Kappa    
+##   2     0.7539966  0.1369868
+##   5     0.7292942  0.1727691
+##   8     0.7231718  0.1613695
+## 
+## Accuracy was used to select the optimal model using the largest value.
+## The final value used for the model was mtry = 2.</code></pre>
+<p><strong>Accurary e Kappa</strong></p>
+<p>Essas são as métricas padrão usadas para avaliar algoritmos em conjuntos de dados de classificação binária.</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Accuracy_and_precision"><strong>Accuray</strong></a>: é a porcentagem de classificar corretamente as instâncias fora de todas as instâncias. É mais útil em uma classificação binária do que problemas de classificação de várias classes, porque pode ser menos claro exatamente como a precisão é dividida entre essas classes (por exemplo, você precisa ir mais fundo com uma matriz de confusão).</li>
+<li><a href="https://en.wikipedia.org/wiki/Cohen%27s_kappa"><strong>Kappa ou Kappa de Cohen</strong></a> é como a precisão da classificação, exceto que é normalizado na linha de base da chance aleatória em seu conjunto de dados. É uma medida mais útil para usar em problemas que têm um desequilíbrio nas classes (por exemplo, divisão de 70 a 30 para as classes 0 e 1 e você pode atingir 70% de precisão prevendo que todas as instâncias são para a classe 0).</li>
+</ul>
+<p>A seguir a “Variable Importance” de cada variável:</p>
+<pre class="r"><code>rfImp = varImp(rfFit);rfImp</code></pre>
+<pre><code>## rf variable importance
+## 
+##               Overall
+## rating         100.00
+## age             94.66
+## religiousness   85.77
+## education       78.99
+## yearsmarried    67.41
+## occupation      62.48
+## gendermale       6.94
+## childrenyes      0.00</code></pre>
+<pre class="r"><code>plot(rfImp)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p>A função dimensiona automaticamente as pontuações de importância entre 0 e 100, os escores de importância da variável em Random Forest são medidas agregadas. Eles apenas quantificam o impacto do preditor, não o efeito específico, para isso utilizamos o ajuste um modelo paramétrico onde conseguimos estimar termos estruturais.</p>
+<p>É claro que existem muitos adentos a serem feitos tanto na forma como os dados foram apresentados no ajuste do modelo linear e no Random Forest, mas como a finalidade do post continua sendo apresentar o pacote SmartEAD, encerrarei a avaliação por aqui.</p>
+<p>Caso alguém queira entender com mais detalhes a avaliação de modelos de machine learning, talvez <a href="https://topepo.github.io/caret/measuring-performance.html">o livro do pacote caret</a> seja uma alternativa interessante para ter uma noção geral.</p>
+<blockquote>
+<p><em>Todos os modelos estão errados, alguns são úteis - George Box</em></p>
+</blockquote>
+<p>Não conseguimos nenhum modelo útil que quantificasse as incertezas nas modelagens deste post mas conseguimos executar praticamente todas as funções do pacote <code>SmartEAD</code> e foi muito útil para conhecer a base em poucas linhas, obrigado Dayanand Ubrangala, Kiran R. e Ravi Prasad Kondapalli!</p>
+</div>
+</div>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria">Analise Exploratória</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/data-mining">Data mining</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/modelagem-estatistica">Modelagem Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/reports">Reports</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/machine-learning">Machine Learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/analise-mutivariada">Analise Mutivariada</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/aprendizado-supervisionado">Aprendizado Supervisionado</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado">Aprendizado Não Supervisionado</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/analise-multivariada">analise multivariada</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/correlacoes">Correlacoes</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/data-mining">Data Mining</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/kmeans">kmeans</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelagem">modelagem</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/pca">pca</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/rstudio">RStudio</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/"
+                class="button big previous">Séries temporais com Google Trends e R</a></li>
+    
+
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='https://gomesfellipe.github.io/' class="logo"><img src="https://gomesfellipe.github.io/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um programador estatístico?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-05-26'>
+                May 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-04-12'>
+                April 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/04/gtrends-r.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-03-07'>
+                March 7, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-17'>
+                February 17, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/2018-02-01-leaflet-carnaval/">Carnaval e mapas interativos com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-01'>
+                February 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/2018-02-01-leaflet-carnaval/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/ana%CC%81lise-multivariada-em-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/ana%CC%81lise-multivariada-em-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-18'>
+                December 18, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-17'>
+                December 17, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/">Criando relatorios com template tufle</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-14'>
+                December 14, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-07'>
+                December 7, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/dplyr.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-04'>
+                December 4, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-02'>
+                December 2, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/">Tipos de Correlacoes</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-01'>
+                December 1, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="https://gomesfellipe.github.io/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/r/">r</a>
+                <span style="float:right;">14</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/estatistica/">estatistica</a>
+                <span style="float:right;">11</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
+                <span style="float:right;">9</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/teoria/">teoria</a>
+                <span style="float:right;">8</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/reports/">reports</a>
+                <span style="float:right;">5</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/analise-mutivariada/">analise-mutivariada</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/modelagem-estatistica/">modelagem-estatistica</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/">analise-exploratória</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/data-mining/">data-mining</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/google/">google</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tidyverse/">tidyverse</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado/">aprendizado-não-supervisionado</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/aprendizado-supervisionado/">aprendizado-supervisionado</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bayes/">bayes</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bitcoin/">bitcoin</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/clustering/">clustering</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/google-trends/">google-trends</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/machine-learning/">machine-learning</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/mapas/">mapas</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/nao-supervisionado/">nao-supervisionado</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/probabilidade/">probabilidade</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/rmarkdown/">rmarkdown</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o/">simulação</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/text-mining/">text-mining</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes, sou Estatístico e atuo como cientista de dados. Percebi que passar para as pessoas o que é possível fazer nas diversas áreas de estudo que envolvem ciência de dados é um grande desafio. Diante disso, resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="https://gomesfellipe.github.io/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="https://gomesfellipe.github.io/js/util.js"></script>
+      <script src="https://gomesfellipe.github.io/js/main.js"></script>
+      <script src="https://gomesfellipe.github.io/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

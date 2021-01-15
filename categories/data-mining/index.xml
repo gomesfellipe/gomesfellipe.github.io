@@ -6,7 +6,16 @@
     <description>Recent content in Data mining on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/data-mining/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/data-mining/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AED de forma rápida e um pouco de Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</guid>
+      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  A análise exploratória dos dados A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”.</description>
+    </item>
+    
     <item>
       <title>Manipulando dados com dplyr</title>
       <link>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</link>
