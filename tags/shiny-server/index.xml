@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shiny server on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/shiny-server/</link>
+    <description>Recent content in Shiny server on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/shiny-server/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Seu app, RStudio e Shiny Server na nuvem do Google</title>
+      <link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</guid>
+      <description>Objetivo do post  Uma das várias maneiras de se implementar o RStudio Server e o Shiny Server é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.</description>
+    </item>
+    
+  </channel>
+</rss>
