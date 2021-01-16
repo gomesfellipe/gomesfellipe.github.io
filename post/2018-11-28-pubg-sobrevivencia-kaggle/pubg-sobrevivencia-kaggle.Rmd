@@ -35,21 +35,6 @@ linktitle: ''
 type: "post"
 ---
 
-
-<style>
-.col2 {
-columns: 2 200px;         /* number of columns and width in pixels*/
--webkit-columns: 2 200px; /* chrome, safari */
--moz-columns: 2 200px;    /* firefox */
-}
-.col3 {
-columns: 3 100px;
--webkit-columns: 3 100px;
--moz-columns: 3 100px;
-}
-</style>
-
-
 ```{r setup, include=FALSE}
 # Opcoes do RMarkdown
 knitr::opts_chunk$set(echo = TRUE, warning = F, message = F, fig.height = 5)

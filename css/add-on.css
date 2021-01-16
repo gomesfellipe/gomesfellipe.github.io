@@ -3,12 +3,31 @@
   or for the implementation of features specifically for their site. Anything that
   is an official part of the theme (ex. Pull Requests) should be included in main.css
   within the formating given.
+  
+/*
+Codigo customizado -------------------------------------------------------------
+*/
+
+
+.col2 {
+columns: 2 200px;         /* number of columns and width in pixels*/
+-webkit-columns: 2 200px; /* chrome, safari */
+-moz-columns: 2 200px;    /* firefox */
+}
+.col3 {
+columns: 3 100px;
+-webkit-columns: 3 100px;
+-moz-columns: 3 100px;
+}
+
+/*
+--------------------------------------------------------------------------------
+*/
+
 /*
   Codigo abaixo foi obtido do script: bootstrap-grid.css 
   no link: http://getbootstrap.com/docs/4.1/getting-started/contents/#css-files
 */
-
-/*
 
 /*!
  * Bootstrap Grid v4.1.3 (https://getbootstrap.com/)
