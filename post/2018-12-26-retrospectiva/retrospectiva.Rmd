@@ -390,7 +390,9 @@ Agora o ano está se encerrando e assim se encerra mais um ciclo, estou muito sa
 
 Foram diversos desafios pois no começo foi bem complicado entender como manipular `html`, `css` e controlar as versões dos códigos no `git` pois era tudo muito novo mas o desafio valeu a pena, hoje aprendi um pouquinho sobre essas e outras ferramentas que um estatístico não vê na graduação e foi bem proveitoso em meus trabalhos. Se consegui ajudar pelo menos uma pessoa já atingi minha meta, se ajudei duas pessoas então consegui dobrar essa meta!
 
-<div id="left">
+<div class="row">
+
+<div class="col-sm-6">
 
 <img vspace="20">
 
@@ -405,11 +407,14 @@ Foram diversos desafios pois no começo foi bem complicado entender como manipul
 <!-- </div> -->
 
 
-<div id="right">
+<div class="col-sm-6">
 
 ![](/post/2018-12-26-retrospectiva/retrospectiva_files/picasso-victorian-house.jpg){width=60%}
 
 </div>
+</div>
+
+
 
 ---
 
