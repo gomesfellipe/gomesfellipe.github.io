@@ -6,41 +6,46 @@
     <description>Recent content in Itemized on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/itemized/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/itemized/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Fancy App 1</title>
-      <link>https://gomesfellipe.github.io/itemized/item1/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/itemized/item1/</guid>
-      <description>App 1 </description>
-    </item>
-    
-    <item>
-      <title>Fancy App 2</title>
+      <title>Bancos de dados públicos</title>
       <link>https://gomesfellipe.github.io/itemized/item2/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/itemized/item2/</guid>
-      <description>App 2 </description>
+      <description>Esses são alguns sites que podem ser utilizados como fontes de dados públicos:
+Brasileiros:
+  IPEA DATA: http://www.ipeadata.gov.br/
+  IBGE: https://www.ibge.gov.br/
+  Banco de Informações Econômicas e Financeiras do Banco Central: https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries
+  Datasus: http://datasus.saude.gov.br/
+  Portal da transparência: http://transparencia.gov.br/
+  Polícia federal - Ministério da justiça e segurança pública: http://www.pf.gov.br/institucional/acessoainformacao/acesso-a-informacao
+  Ministério da Cultura: http://sistemas.cultura.gov.br/comparar/salicnet/salicnet.php
+  Portal brasileiro de dados abertos: http://dados.</description>
     </item>
     
     <item>
-      <title>Fancy App 3</title>
+      <title>blogroll</title>
       <link>https://gomesfellipe.github.io/itemized/item3/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/itemized/item3/</guid>
-      <description>App 3 </description>
+      <description>Blogroll:
+ https://www.r-bloggers.com/ https://brbloggers.com.br/  </description>
     </item>
     
     <item>
-      <title>Fancy App 4</title>
-      <link>https://gomesfellipe.github.io/itemized/item4/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <title>Sobre ombros de gigantes</title>
+      <link>https://gomesfellipe.github.io/itemized/item1/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/itemized/item4/</guid>
-      <description>App 4 </description>
+      <guid>https://gomesfellipe.github.io/itemized/item1/</guid>
+      <description>Essas são algumas das frases que me impactaram de alguma forma e que eu carrego para a minha vida:
+  &amp;ldquo;Com organização e tempo, acha-se o segredo de fazer tudo e bem feito.&amp;rdquo; - Pitágoras
+  &amp;ldquo;A imaginação é mais importante que o conhecimento.&amp;rdquo; - Albert Einstein
+  &amp;ldquo;Na vida, não existe nada a temer, mas a entender.&amp;rdquo; - Marie Curie
+  &amp;ldquo;A matemática foi o alfabeto com o qual Deus escreveu o universo.</description>
     </item>
     
   </channel>

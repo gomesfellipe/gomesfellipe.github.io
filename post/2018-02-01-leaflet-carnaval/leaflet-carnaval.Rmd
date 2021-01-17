@@ -24,7 +24,7 @@ featured: 'carnaval2.png'
 featuredalt: 'Pic 10'
 featuredpath: 'date'
 linktitle: ''
-type: post
+type: "post" 
 ---
 
 ```{r setup, include=FALSE}
@@ -35,7 +35,7 @@ library(dplyr)
 base=read_csv("base.csv")
 ```
 
-# Onde estão os blocos?
+# Onde estão os blocos? 
 
 Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: "Onde tem bloco?".
 

@@ -263,7 +263,7 @@ A função `knit_child()` compila o código R e retorna uma saída pura (Latex, 
 
 ```
 rmarkdown::render("gapminder_automatico_master.Rmd")
-```
+``` 
 
 Veja o conteúdo do script `gapminder_automatico_master.Rmd`:
 

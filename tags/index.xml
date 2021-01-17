@@ -6,20 +6,47 @@
     <description>Recent content in Tags on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Data Mining</title>
-      <link>https://gomesfellipe.github.io/tags/data-mining/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <title>bitcoin</title>
+      <link>https://gomesfellipe.github.io/tags/bitcoin/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gomesfellipe.github.io/tags/data-mining/</guid>
+      <guid>https://gomesfellipe.github.io/tags/bitcoin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bolsa de valores</title>
+      <link>https://gomesfellipe.github.io/tags/bolsa-de-valores/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/bolsa-de-valores/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Correlacoes</title>
+      <link>https://gomesfellipe.github.io/tags/correlacoes/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/correlacoes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dplyr</title>
+      <link>https://gomesfellipe.github.io/tags/dplyr/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/dplyr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Estatistica</title>
       <link>https://gomesfellipe.github.io/tags/estatistica/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/tags/estatistica/</guid>
       <description></description>
@@ -28,9 +55,90 @@
     <item>
       <title>gomesfellipe</title>
       <link>https://gomesfellipe.github.io/tags/gomesfellipe/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/tags/gomesfellipe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://gomesfellipe.github.io/tags/machine-learning/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modelagem</title>
+      <link>https://gomesfellipe.github.io/tags/modelagem/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/modelagem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>prophet</title>
+      <link>https://gomesfellipe.github.io/tags/prophet/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/prophet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://gomesfellipe.github.io/tags/r/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reports</title>
+      <link>https://gomesfellipe.github.io/tags/reports/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/reports/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio</title>
+      <link>https://gomesfellipe.github.io/tags/rstudio/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Séries Temporais</title>
+      <link>https://gomesfellipe.github.io/tags/s%C3%A9ries-temporais/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/s%C3%A9ries-temporais/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tabelas</title>
+      <link>https://gomesfellipe.github.io/tags/tabelas/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/tabelas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Mining</title>
+      <link>https://gomesfellipe.github.io/tags/data-mining/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/data-mining/</guid>
       <description></description>
     </item>
     
@@ -49,15 +157,6 @@
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/tags/pr%C3%A1tica/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://gomesfellipe.github.io/tags/r/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/tags/r/</guid>
       <description></description>
     </item>
     
@@ -89,15 +188,6 @@
     </item>
     
     <item>
-      <title>reports</title>
-      <link>https://gomesfellipe.github.io/tags/reports/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/tags/reports/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>rmarkdown</title>
       <link>https://gomesfellipe.github.io/tags/rmarkdown/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
@@ -107,29 +197,11 @@
     </item>
     
     <item>
-      <title>RStudio</title>
-      <link>https://gomesfellipe.github.io/tags/rstudio/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/tags/rstudio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>split-apply-combine</title>
       <link>https://gomesfellipe.github.io/tags/split-apply-combine/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/tags/split-apply-combine/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tabelas</title>
-      <link>https://gomesfellipe.github.io/tags/tabelas/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/tags/tabelas/</guid>
       <description></description>
     </item>
     
@@ -157,15 +229,6 @@
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/tags/kaggle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://gomesfellipe.github.io/tags/machine-learning/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/tags/machine-learning/</guid>
       <description></description>
     </item>
     
@@ -215,15 +278,6 @@
     </item>
     
     <item>
-      <title>modelagem</title>
-      <link>https://gomesfellipe.github.io/tags/modelagem/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/tags/modelagem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>modelagem estatistica</title>
       <link>https://gomesfellipe.github.io/tags/modelagem-estatistica/</link>
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
@@ -247,15 +301,6 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/tags/teoria/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bitcoin</title>
-      <link>https://gomesfellipe.github.io/tags/bitcoin/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/tags/bitcoin/</guid>
       <description></description>
     </item>
     
@@ -305,29 +350,11 @@
     </item>
     
     <item>
-      <title>Séries Temporais</title>
-      <link>https://gomesfellipe.github.io/tags/s%C3%A9ries-temporais/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/tags/s%C3%A9ries-temporais/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>acidentes</title>
       <link>https://gomesfellipe.github.io/tags/acidentes/</link>
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/tags/acidentes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dplyr</title>
-      <link>https://gomesfellipe.github.io/tags/dplyr/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/tags/dplyr/</guid>
       <description></description>
     </item>
     
@@ -382,15 +409,6 @@
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/tags/caret/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Correlacoes</title>
-      <link>https://gomesfellipe.github.io/tags/correlacoes/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/tags/correlacoes/</guid>
       <description></description>
     </item>
     

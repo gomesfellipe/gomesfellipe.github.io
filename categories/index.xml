@@ -6,11 +6,11 @@
     <description>Recent content in Categories on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Analise Exploratória</title>
       <link>https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/</guid>
       <description></description>
@@ -19,25 +19,52 @@
     <item>
       <title>Automação</title>
       <link>https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Bitcoin</title>
+      <link>https://gomesfellipe.github.io/categories/bitcoin/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/bitcoin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud</title>
+      <link>https://gomesfellipe.github.io/categories/cloud/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Estatistica</title>
       <link>https://gomesfellipe.github.io/categories/estatistica/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/estatistica/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Machine Learning</title>
+      <link>https://gomesfellipe.github.io/categories/machine-learning/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Prática</title>
       <link>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</guid>
       <description></description>
@@ -46,9 +73,45 @@
     <item>
       <title>R</title>
       <link>https://gomesfellipe.github.io/categories/r/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reports</title>
+      <link>https://gomesfellipe.github.io/categories/reports/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/reports/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RMarkdown</title>
+      <link>https://gomesfellipe.github.io/categories/rmarkdown/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/rmarkdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny</title>
+      <link>https://gomesfellipe.github.io/categories/shiny/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/shiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Séries Temporais</title>
+      <link>https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/</guid>
       <description></description>
     </item>
     
@@ -58,24 +121,6 @@
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/regress%C3%A3o/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Reports</title>
-      <link>https://gomesfellipe.github.io/categories/reports/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/reports/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RMarkdown</title>
-      <link>https://gomesfellipe.github.io/categories/rmarkdown/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/rmarkdown/</guid>
       <description></description>
     </item>
     
@@ -152,24 +197,6 @@
     </item>
     
     <item>
-      <title>Bitcoin</title>
-      <link>https://gomesfellipe.github.io/categories/bitcoin/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/bitcoin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cloud</title>
-      <link>https://gomesfellipe.github.io/categories/cloud/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/cloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Google</title>
       <link>https://gomesfellipe.github.io/categories/google/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
@@ -188,29 +215,11 @@
     </item>
     
     <item>
-      <title>Shiny</title>
-      <link>https://gomesfellipe.github.io/categories/shiny/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/shiny/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Shiny Server</title>
       <link>https://gomesfellipe.github.io/categories/shiny-server/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/shiny-server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Séries Temporais</title>
-      <link>https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/</guid>
       <description></description>
     </item>
     
@@ -229,15 +238,6 @@
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Machine Learning</title>
-      <link>https://gomesfellipe.github.io/categories/machine-learning/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/machine-learning/</guid>
       <description></description>
     </item>
     
@@ -337,6 +337,33 @@
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/nao-supervisionado/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>estatística</title>
+      <link>https://gomesfellipe.github.io/categories/estat%C3%ADstica/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/estat%C3%ADstica/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>filosofia</title>
+      <link>https://gomesfellipe.github.io/categories/filosofia/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/filosofia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utilidades</title>
+      <link>https://gomesfellipe.github.io/categories/utilidades/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/utilidades/</guid>
       <description></description>
     </item>
     
