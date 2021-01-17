@@ -592,6 +592,9 @@ if (!doNotTrack) {
 
 
   
+  
+    
+  
 
 
         
@@ -1454,7 +1457,7 @@ if (!doNotTrack) {
 <h1>Objetivo do post <i class="fa fa-rocket"></i></h1>
 <p>Uma das várias maneiras de se implementar o <a href="https://www.rstudio.com/products/rstudio/download-server/">RStudio Server</a> e o <a href="https://www.rstudio.com/products/shiny/download-server/">Shiny Server</a> é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.</p>
 <p>No final deste post teremos além do nosso próprio RStudio Server, esse app no Shiny Server que exibe em um gráfico das cotações encontradas via função função <a href="https://www.rdocumentation.org/packages/TTR/versions/0.23-4/topics/stockSymbols"><code>quantmod::stockSymbols()</code></a> com os pacotes <a href="http://jkunst.com/highcharter/"><code>highcharter</code></a> e <a href="https://www.quantmod.com/"><code>quantmod</code></a>:</p>
-<p><img src="post/2018-10-27-server-cloud/server-cloud_files/demoapp.gif" /></p>
+<p><img src="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud_files/demoapp.gif" /></p>
 <p><strong>Nota</strong>: Algum conhecimento em Linux e Git pode ser útil, particularmente ainda tenho muito a aprender sobre ambos e devem existir outras maneiras mais eficientes de se realizar estas tarefas. Essa é uma forma relativamente simples e ao final do post deixarei os links que utilizei como referência para escrever este post.</p>
 <p><strong>Nota²</strong>, segundo o desenvolvedor do pacote <code>highcharter</code>: “<em>Highcharts (www.highcharts.com) é um produto de software da Highsoft que não é livre para uso comercial e governamental</em>”.</p>
 </div>
@@ -1470,7 +1473,7 @@ if (!doNotTrack) {
 <li>Controle e flexibilidade, o desenvolvedor tem controle sobre a tecnologia que deseja usar, sobre os dados e caso decida não usar mais o serviço, é possível retirar seus dados da nuvem do Google.</li>
 </ul>
 <div id="compute-engine" class="section level2">
-<h2>Compute Engine <img src="post/2018-10-27-server-cloud/server-cloud_files/compute_engine.png" style="width:5.0%" /></h2>
+<h2>Compute Engine <img src="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud_files/compute_engine.png" style="width:5.0%" /></h2>
 <p>Compute Engine é um dos produtos oferecidos pelo Google. Também conhecido como <a href="https://pt.wikipedia.org/wiki/Infraestrutura_como_servi%C3%A7o">infraestrutura como serviço (IaaS)</a>, pode ser usada para executar altas cargas de trabalho em larga escala em máquinas virtuais, no nosso caso este produto que possibilita o uso das máquinas virtuais.</p>
 </div>
 </div>
@@ -1478,18 +1481,18 @@ if (!doNotTrack) {
 <h1>Iniciar uma instância na Google Cloud Platform</h1>
 <p>Primeiramente, acesse <a href="https://cloud.google.com/" class="uri">https://cloud.google.com/</a> e se inscreva no recurso de nuvem, após isso acesse <a href="https://console.cloud.google.com" class="uri">https://console.cloud.google.com</a> e percorra o caminho:</p>
 <p><code>Menu de navegação</code> → <code>Compute Engine</code> → <code>Instâncias de VMs</code></p>
-<p>Nesta página existe o <img src="post/2018-10-27-server-cloud/server-cloud_files/button_criar_instancia.png" />, clique nele para iniciar a configuração da VM. Na página que abrir será solicitado a dar um nome a sua VM (pode ser qualquer nome que te agrade). O Google tem data centers em quase todo o mundo e para este caso selecionei a <code>Região</code> <em>us-east1 (Carolina do Sul)</em> e a <code>Zona</code> deixei o default <em>us-east1-b</em>.<a href="https://cloud.google.com/free/docs/frequently-asked-questions?hl=pt_BR&amp;_ga=2.183970469.-2022746393.1538697551&amp;_gac=1.36440980.1540514862.EAIaIQobChMImJjS9vCi3gIVEgaRCh0j3ArWEAAYASAAEgJ8AfD_BwE#always-free">“saiba mais” do Google</a>.</p>
+<p>Nesta página existe o <img src="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud_files/button_criar_instancia.png" />, clique nele para iniciar a configuração da VM. Na página que abrir será solicitado a dar um nome a sua VM (pode ser qualquer nome que te agrade). O Google tem data centers em quase todo o mundo e para este caso selecionei a <code>Região</code> <em>us-east1 (Carolina do Sul)</em> e a <code>Zona</code> deixei o default <em>us-east1-b</em>.<a href="https://cloud.google.com/free/docs/frequently-asked-questions?hl=pt_BR&amp;_ga=2.183970469.-2022746393.1538697551&amp;_gac=1.36440980.1540514862.EAIaIQobChMImJjS9vCi3gIVEgaRCh0j3ArWEAAYASAAEgJ8AfD_BwE#always-free">“saiba mais” do Google</a>.</p>
 <p>Dependendo de quão poderoso o servidor precisa ser é possível selecionar a capacidade da RAM e do disco rígido na seção <code>Tipo de Máquina</code>, como este é um exemplo para prova de conceito selecionei a opção <em>micro(1 vCPU compartilhado) - 0.6 GB de memória, f1-micro</em> pois custa cerca de $ 0,006 por hora e as “primeiras 744 horas para uso da instância de tipo f1-micro são gratuitas”, segundo o Google. No <code>Disco de inicialização</code> selecionei a <code>Imagen do SO</code> <em>Ubuntu 16.04 LTS</em> que tenho um pouco mais de familiaridade e não mexi nas demais configurações dessa seção, mas antes de finalizar, selecione a opção <em>Permitir tráfego HTTP</em> na opção de <code>Firewall</code> e clique no botão <code>criar</code>.</p>
 <p>Segundo o guia <a href="https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started">Acessando o RStudio Server Open-Source</a> e o <a href="http://rstudio.github.io/shiny-server/os/0.4.0/">Guia do Administrador - Shiny Server Open Source v0.4.1</a>o RStudio Server e o Shiny Server serão escutados nas portas 8787 e 3838 respectivamente, portanto, antes de começar a usar a VM é necessário Configurando regras de firewall para permitir acesso através destas portas.</p>
-<p>Navegue até a seção <code>Rede VPC</code> e selecione a opção <code>Regras de firewall</code>. Clique em <img src="post/2018-10-27-server-cloud/server-cloud_files/criar_firewall.png" />. No formulário que abrir dê um nome e uma descrição à regra do firewall (‘rstudio’ está bom), deixe os botões de opção <code>Direção de tráfego</code> e <code>Ação ao corresponder</code> como padrão (<em>Entrada</em> e <em>Permitir</em>). Para a opção <code>Destinos</code>, escolhi <em>Conta de serviço especificado</em>, sendo a <code>Conta de serviço de destino</code> <em>Compute Engine default service account</em>. Se você quiser filtrar os IPs que podem acessar o aplicativo, insira-o no campo <code>Intervalos de IP de origem</code>, como estamos sob uma prova de conceito, inseri a rota quad-zero: 0.0.0.0/0, o que permite acesso de todos os IPs em todas as portas nessa máquina. Na opção <code>Protocolos e Portos</code> selecione o botão de opção <em>Protocolos e portas específicas</em> e no campo digite o tcp: 8787. Por fim, clique no botão <code>criar</code>.</p>
+<p>Navegue até a seção <code>Rede VPC</code> e selecione a opção <code>Regras de firewall</code>. Clique em <img src="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud_files/criar_firewall.png" />. No formulário que abrir dê um nome e uma descrição à regra do firewall (‘rstudio’ está bom), deixe os botões de opção <code>Direção de tráfego</code> e <code>Ação ao corresponder</code> como padrão (<em>Entrada</em> e <em>Permitir</em>). Para a opção <code>Destinos</code>, escolhi <em>Conta de serviço especificado</em>, sendo a <code>Conta de serviço de destino</code> <em>Compute Engine default service account</em>. Se você quiser filtrar os IPs que podem acessar o aplicativo, insira-o no campo <code>Intervalos de IP de origem</code>, como estamos sob uma prova de conceito, inseri a rota quad-zero: 0.0.0.0/0, o que permite acesso de todos os IPs em todas as portas nessa máquina. Na opção <code>Protocolos e Portos</code> selecione o botão de opção <em>Protocolos e portas específicas</em> e no campo digite o tcp: 8787. Por fim, clique no botão <code>criar</code>.</p>
 <p>Faça o procedimento exatamente da mesma maneira, mas com um novo nome (‘shiny’ está bom) e digite ‘tcp: 3838’ em vez de ‘tcp: 8787’. Clique em <code>criar</code> e note que agora abrimos duas portas para usar no aplicativo.</p>
 <p>Nota: <em>Os passos para iniciar uma instância na Cloud do Google foram inspirados no seguinte post:</em> <a href="https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data" class="uri">https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data</a></p>
 </div>
 <div id="inicie-a-máquina-virtual" class="section level1">
 <h1>Inicie a máquina virtual <i class="fa fa-desktop"></i></h1>
-<p>Ótimo! Agora a VM já deve estar pronta para uso e o jeito mais simples de utilizá-la é clicando no botão <img src="post/2018-10-27-server-cloud/server-cloud_files/ssh.png" /> na página de <code>Instâncias de VMs</code> e aguardar a máquina iniciar</p>
+<p>Ótimo! Agora a VM já deve estar pronta para uso e o jeito mais simples de utilizá-la é clicando no botão <img src="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud_files/ssh.png" /> na página de <code>Instâncias de VMs</code> e aguardar a máquina iniciar</p>
 <center>
-<img src="post/2018-10-27-server-cloud/server-cloud_files/vm_on.gif" style="width:80.0%" />
+<img src="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud_files/vm_on.gif" style="width:80.0%" />
 </center>
 <p>Vamos às configurações!</p>
 <div id="obter-senha-para-super-usuário" class="section level2">
@@ -1537,7 +1540,7 @@ sudo apt-get update
 sudo apt-get -y install r-base</code></pre>
 <p>Agora o R está pronto para uso, basta escrever <code>R</code> no console para iniciá-lo.</p>
 <center>
-<img src="post/2018-10-27-server-cloud/server-cloud_files/R.png" />
+<img src="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud_files/R.png" />
 </center>
 <div id="dependências-e-pacotes" class="section level3">
 <h3>Dependências e pacotes</h3>
@@ -1557,7 +1560,7 @@ wget https://download2.rstudio.org/rstudio-server-1.1.456-amd64.deb
 sudo gdebi rstudio-server-1.1.456-amd64.deb</code></pre>
 <p>Pronto, agora já possuímos nosso próprio RStudio Server na nuvem! Para acessá-lo basta utilizar a porta <code>8787</code> através de seu IP externo (que pode ser obtido com o comando: <code>curl ipinfo.io/ip</code>, como mencionado anteriormente). Portanto, acesse algo como: <a href="http://35.237.234.123:8787" class="uri">http://35.237.234.123:8787</a> (este link direcionará para a máquina virtual que criei no exemplo deste post) e você será direcionado para uma tela de login:</p>
 <center>
-<img src="post/2018-10-27-server-cloud/server-cloud_files/rstudioserver.png" style="width:80.0%" />
+<img src="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud_files/rstudioserver.png" style="width:80.0%" />
 </center>
 <p>É possível fazer o login no RStudio Server com qualquer usuário que esteja cadastrado em sua máquina virtual, no meu caso eu faço o login com o nome de usuário <code>gomes_fellipe1</code> e a senha que defini para meu usuário ao criar a máquina.</p>
 <p>É possível criar um novo usuário para acessar o RStudio Server via terminal da máquina virtual com:</p>
@@ -1582,7 +1585,7 @@ sudo apt-get install gdebi-core
 wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.9.923-amd64.deb
 sudo gdebi shiny-server-1.5.9.923-amd64.deb</code></pre>
 <p>O Shiny Server está agora instalado e em execução. Supondo que correu tudo bem você já poderá acessar a página inicial padrão do Shiny Server, que inclui algumas instruções e dois aplicativos Shiny, veja em (na minha máquina de exemplo): <a href="http://35.237.234.123:3838" class="uri">http://35.237.234.123:3838</a> (Note que eu não configurei um IP externo fixo neste app por se tratar de uma prova de conceito, como ele pode alterar para um IP aleatório quando eu reiniciar a máquina então fiz um backup no <a href="http://www.shinyapps.io/" class="uri">http://www.shinyapps.io/</a> no endereço: <a href="https://gomesfellipe.shinyapps.io/app_acoes/" class="uri">https://gomesfellipe.shinyapps.io/app_acoes/</a> para manter este DEMO no caso dessa máquina específica não estar mais no ar futuramente)</p>
-<p><img src="post/2018-10-27-server-cloud/server-cloud_files/shinyserver.png" /></p>
+<p><img src="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud_files/shinyserver.png" /></p>
 <p>Alguns comandos úteis para configurar o status do servidor:</p>
 <pre><code>sudo systemctl start shiny-server
 sudo systemctl stop shiny-server
@@ -1611,7 +1614,7 @@ sudo rm index.html</code></pre>
 <p>O legal de administrar suas aplicações via <a href="https://github.com/">GitHub</a> ou do <a href="https://bitbucket.org">BitBucket</a> é que o código hospedado pode ser trabalhado e “commitado” de qualquer outro lugar do mundo e para atualizar no servidor basta utilizar o comando <code>sudo git pull</code> na pasta do app que o diretório local será atualizado com as modificações realizadas no repositório remoto.</p>
 <p>Pronto, se utilizar o comando <code>ls</code> já será possível ver a pasta clonada no diretório local:</p>
 <center>
-<img src="post/2018-10-27-server-cloud/server-cloud_files/ls.png" />
+<img src="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud_files/ls.png" />
 </center>
 <p>Ao acessar o app teremos:</p>
 <center>
@@ -2451,7 +2454,7 @@ sudo rm index.html</code></pre>
         
 
         <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/032018/03/Word-R.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/03/Word-R.png" alt="">
         </a>
     
 
