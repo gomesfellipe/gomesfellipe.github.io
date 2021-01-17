@@ -1478,7 +1478,7 @@ library(coinmarketcapr)</code></pre>
 <p>O pacote conta com a função <code>plot_top_5_currencies()</code> que já apresenta de brinde um gráfico de barras com as 5 principais cryptomoedas do mercado, veja:</p>
 <pre class="r"><code>plot_top_5_currencies()</code></pre>
 <center>
-<img src="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r_files/foto1.png" style="width:70.0%" />
+<img src="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto1.png" style="width:70.0%" />
 </center>
 </div>
 <div id="detalhes-do-mercado" class="section level3">
@@ -1486,7 +1486,7 @@ library(coinmarketcapr)</code></pre>
 <p>Os resultados ficam disponíveis para quem quiser interpretar. É importante notar que isso não nos da a imagem de como o mercado está dividido entre várias cryptomoedas, então vamos obter os dados completos de várias cryptomoedas:</p>
 <pre class="r"><code>mercado_hoje &lt;- get_marketcap_ticker_all()
 head(mercado_hoje[,1:8])</code></pre>
-<p><img src="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r_files/foto3.png" /></p>
+<p><img src="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto3.png" /></p>
 </div>
 <div id="visualmente" class="section level3">
 <h3>Visualmente</h3>
@@ -1497,7 +1497,7 @@ base$market_cap_usd &lt;- as.numeric(base$market_cap_usd)
 base$formatted_market_cap &lt;-  paste0(base$id,&#39;\n&#39;,&#39;$&#39;,format(base$market_cap_usd,big.mark = &#39;,&#39;,scientific = F, trim = T))
 treemap(base, index = &#39;formatted_market_cap&#39;, vSize = &#39;market_cap_usd&#39;, title = &#39;Cryptocurrency Market Cap&#39;, fontsize.labels=c(12, 8), palette=&#39;RdYlGn&#39;)</code></pre>
 <center>
-<img src="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r_files/foto2.png" style="width:80.0%" />
+<img src="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto2.png" style="width:80.0%" />
 </center>
 <p>Vou deixar as interpretações para os analistas de mercado, mas como um cientista de dados, muitos (muitos mesmo) insights podem ser extraídos dos dados acima e pode ser interessante analisar esse mercado</p>
 </div>
@@ -1595,7 +1595,7 @@ save(historico, file = &quot;historico.RData&quot;)</code></pre>
   }</code></pre>
 <p>Este gráfico retornará algo como:</p>
 <center>
-<img src="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r_files/foto4.png" style="width:70.0%" />
+<img src="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto4.png" style="width:70.0%" />
 </center>
 <p>Este gráfico será atualizado em tempo real!</p>
 </div>
@@ -2750,7 +2750,7 @@ save(historico, file = &quot;historico.RData&quot;)</code></pre>
         
 
         <a href="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2017/12/dplyr.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2017/122017/12/dplyr.png" alt="">
         </a>
     
 

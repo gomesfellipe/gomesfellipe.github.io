@@ -59,7 +59,7 @@ O pacote conta com a função `plot_top_5_currencies()` que já apresenta  de br
 plot_top_5_currencies()
 ```
 
-<center>![](/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r_files/foto1.png){width=70%}</center>
+<center>![](/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto1.png){width=70%}</center>
 
 ### Detalhes do mercado
 
@@ -70,7 +70,7 @@ mercado_hoje <- get_marketcap_ticker_all()
 head(mercado_hoje[,1:8])
 ```
 
-![](/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r_files/foto3.png)
+![](/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto3.png)
 
 
 ### Visualmente
@@ -86,7 +86,7 @@ treemap(base, index = 'formatted_market_cap', vSize = 'market_cap_usd', title = 
 
 ```
 
-<center>![](/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r_files/foto2.png){width=80%}</center>
+<center>![](/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto2.png){width=80%}</center>
 
 Vou deixar as interpretações para os analistas de mercado, mas como um cientista de dados, muitos (muitos mesmo) insights podem ser extraídos dos dados acima e pode ser interessante analisar esse mercado
 
@@ -206,9 +206,9 @@ while(TRUE){
   }
 ```
 
-Este gráfico retornará algo como: 
+Este gráfico retornará algo como:  
 
-<center>![](/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r_files/foto4.png){width=70%}</center>
+<center>![](/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto4.png){width=70%}</center>
 
 
 Este gráfico será atualizado em tempo real!

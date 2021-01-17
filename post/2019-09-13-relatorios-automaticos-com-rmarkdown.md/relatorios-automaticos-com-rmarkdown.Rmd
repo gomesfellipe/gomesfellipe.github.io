@@ -273,9 +273,9 @@ Note que este script chama outro arquivo `.Rmd` chamado `gapminder_automatico_ch
 
 <script src="https://gist.github.com/gomesfellipe/2a9d666e041907ca88dd2188cbc72924.js"></script>
 
-Veja os resultados do looping:
+Veja os resultados do looping: 
 
-<iframe src="/post/2019-09-13-relatorios-automaticos-com-rmarkdown/relatorios-automaticos-com-rmarkdown_files/gapminder_automatico_master.pdf" width="600" height="827" style="border: none;"></iframe>
+<iframe src="/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown_files/gapminder_automatico_master.pdf" width="600" height="827" style="border: none;"></iframe>
 
 # Conclusão
 
