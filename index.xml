@@ -6,7 +6,21 @@
     <description>Recent content on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>diaversario</title>
+      <link>https://gomesfellipe.github.io/apps/diaversario/</link>
+      <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/apps/diaversario/</guid>
+      <description>diaversario Link do app publicado: https://gomes555.shinyapps.io/diaversario/
+Link do repositório no github: https://github.com/gomesfellipe/diaversario
+ diaversario App simples para calcular quantidade de dias de vida.
+Para utiliza-lo basta inserir a data do nascimento como mostra a imagem:
+How to Códigos para calcular as medidas:
+ R :  born &amp;lt;- as.Date(&amp;#34;1993-12-14&amp;#34;) today &amp;lt;- Sys.Date() # Quantos dias de vida difftime(today, born) # Completa 10.000 dias de vida em: born+days(10000) # Faltam difftime(born+days(10000), today)  Python:  from datetime import datetime, timedelta today = datetime.</description>
+    </item>
+    
     <item>
       <title>AcompanhAções</title>
       <link>https://gomesfellipe.github.io/apps/acompanhacoes/</link>
