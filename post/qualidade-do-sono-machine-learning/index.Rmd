@@ -100,16 +100,12 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, error = F,
 Sim, exatamente! Neste post analisaremos dados de um *tracking* que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.
 
 <div class="row">
-<div class="column8">
-<div class="center">
-<span>
-<div>
+<div class="column8"> 
+
 Boas noites de sono nos tornam mais felizes, mais saudáveis, mais inteligentes, mais dispostos e evita problemas de cansaço, falta de concentração, depressão e ansiedade.
 
 Resumindo, a nossa qualidade de vida está diretamente ligada à qualidade do nosso sono, pois ao dormir nosso corpo realiza funções extremamente importantes como por exemplo o fortalecimento do sistema imunológico, secreção e liberação de hormônios, consolidação da memória, entre outras[^1].
-</div>
-</span>
-</div>
+
 </div>
 
 <div class="column4">
