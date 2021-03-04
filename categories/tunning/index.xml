@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tunning on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/categories/tunning/</link>
+    <description>Recent content in Tunning on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/tunning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prevendo a qualidade do sono utilizando Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</guid>
+      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle?  Objetivo 🎯 Explorar dados 🔎  Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados  Modelagem 🚀  Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM  Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳    .</description>
+    </item>
+    
+  </channel>
+</rss>
