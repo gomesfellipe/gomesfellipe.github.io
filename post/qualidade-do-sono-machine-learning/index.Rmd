@@ -1874,13 +1874,13 @@ Apenas olhando o gráfico não da para fazer uma análise conclusiva, vejamos as
 test_results <- 
   bind_rows(
     evalue_model(null_test_preds_bas, model = "null baseline", null_model = TRUE),
-    evalue_model(tree_test_preds_bas, model = "rpart baseline"),
+    evalue_model(tree_test_preds_bas, model = "rpart default"),
     evalue_model(tree_test_preds_tun, model = "rpart tunning"),
-    evalue_model(rf_test_preds_bas, model = "rf baseline"),
+    evalue_model(rf_test_preds_bas, model = "rf default"),
     evalue_model(rf_test_preds_tun, model = "rf tunning"),
-    evalue_model(lgbm_test_preds_bas, model = "lgbm baseline"),
+    evalue_model(lgbm_test_preds_bas, model = "lgbm default"),
     evalue_model(lgbm_test_preds_tun, model = "lgbm tunning")
-  ) %>% print_table(round = 4, evalue_model = T) 
+  ) %>% print_table(round = 4, evalue_model = T)   
 ```
 </details>
 &nbsp;
