@@ -6,7 +6,21 @@
     <description>Recent content on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Meus Kaggle Notebooks</title>
+      <link>https://gomesfellipe.github.io/itemized/item4/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/itemized/item4/</guid>
+      <description>Caso prefira acessar direto na plataforma, acesse: https://www.kaggle.com/gomes555/code
+Notebooks públicos no Kaggle:
+TPS-Apr2021 R EDA + LightGBM BayesOpt 🚢
+ Dataset: Tabular Playground Series - Apr 2021 Score: 0.79409 Link: https://www.kaggle.com/gomes555/tps-apr2021-r-eda-lightgbm-bayesopt  TPS-Apr2021 EDA Profiling + RF Pipeline Baseline
+ Dataset: Tabular Playground Series - Apr 2021 Score: 0.71841 https://www.kaggle.com/gomes555/tps-apr2021-eda-profiling-rf-pipeline-baseline  TPS-Mar2021 LightGBM HyperOpt
+ Dataset: Tabular Playground Series - Mar 2021 Score: 0.89107 https://www.kaggle.com/gomes555/tps-mar2021-lightgbm-hyperopt  TPS-Mar2021 LightGBM Optuna (opt data prep 🔧)</description>
+    </item>
+    
     <item>
       <title>Prevendo a qualidade do sono utilizando Machine Learning</title>
       <link>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</link>
