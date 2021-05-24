@@ -6,7 +6,17 @@
     <description>Recent content in Post on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ciência de Dados - Uma visao geral</title>
+      <link>https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/</link>
+      <pubDate>Mon, 24 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/</guid>
+      <description>Com a elevada quantidade de dados sendo produzidos a todo instante e o poder computacional cada vez maior, a ciência de dados tem ganhado muito espaço no mercado. Isso ocorre pois suas ferramentas nos permitem descobrir soluções ocultas a partir de enormes massas de dados desorganizados combinando programação, matemática, estatística e compreensão contextual.
+O bom filho à casa torna! No dia 23 de abr. de 2021 tive o enorme prazer de apresentar no Ramo Estudantil IEEE UFF um pouco sobre a minha visão sobre áreas que compõe a ciência de dados e apresentar alguns cases relacionados!</description>
+    </item>
+    
     <item>
       <title>Prevendo a qualidade do sono utilizando Machine Learning</title>
       <link>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</link>
