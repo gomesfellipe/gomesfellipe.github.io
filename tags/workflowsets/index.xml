@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>workflowsets on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/workflowsets/</link>
+    <description>Recent content in workflowsets on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/workflowsets/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Otimizando pipelines que envolvem dados desbalanceados</title>
+      <link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
+      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem  Baselines Preparar Pipeline de dados com workflowsets Benchmark  Conclusão Referências    .column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 33%; padding: 10px; } .column8 { float: left; width: 66%; padding: 10px; } .row:after { content: &#34;&#34;; display: table; clear: both; } .</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -29,8 +29,8 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2021",
-        "datePublished": "2021-05-24 00:00:00 \u002b0000 UTC",
-        "dateModified" : "2021-05-24 00:00:00 \u002b0000 UTC",
+        "datePublished": "2021-06-28 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2021-06-28 00:00:00 \u002b0000 UTC",
         "url" : "https:\/\/gomesfellipe.github.io\/post\/",
         "wordCount" : "0",
         "keywords" : [ "Blog" ]
@@ -62,7 +62,7 @@
 <meta property="og:description" content="Este blog é fruto da minha paixão pela Estatística e Ciência de dados, trago aqui de maneira prática e descontraída algumas ferramentas, técnicas, curiosidades e brincadeiras disponíveis quando se utiliza o R como linguagem de programação. Espero que aproveite o conteúdo!" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://gomesfellipe.github.io/post/" />
-<meta property="og:updated_time" content="2021-05-24T00:00:00+00:00" />
+<meta property="og:updated_time" content="2021-06-28T00:00:00+00:00" />
 
         <meta property="og:image" content="https://gomesfellipe.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
@@ -280,6 +280,57 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/">Otimizando pipelines que envolvem dados desbalanceados</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-06-28'>
+                                    June 28, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/06/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/">Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-06-28'>
+                                    June 28, 2021</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/">Ciência de Dados - Uma visão geral</a></h3>
                                 
                                 <time class="published" datetime=
@@ -314,18 +365,6 @@ if (!doNotTrack) {
         </a>
     
 
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://gomesfellipe.github.io/post/">Post</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2021-05-24'>
-                                    May 24, 2021</time>
-                            </header>
-                            
 
                         </article>
                 
@@ -1328,18 +1367,6 @@ if (!doNotTrack) {
 
                         </article>
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/">Tipos de Correlacoes</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2017-12-01'>
-                                    December 1, 2017</time>
-                            </header>
-                            
-
-                        </article>
-                
 
                 
                     <a href=
@@ -1358,6 +1385,154 @@ if (!doNotTrack) {
     
     <div id="main">
         
+        
+            <article class="post">
+  <header>
+    <div class="title">
+        
+            <h2><a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/">Otimizando pipelines que envolvem dados desbalanceados</a></h2>
+        
+        
+            <p>Utilizaremos o framework tidymodels para machine learning em R com o auxílio do pacote workflowsets para otimizar pipelines de dados desbalanceados</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2021-06-28'>
+            June 28, 2021</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>12 minute read</p>
+        
+        
+    </div>
+</header>
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/06/img1.png" alt="">
+        </a>
+    
+
+
+  
+  <p>A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:</p>
+  <footer>
+    <ul class="actions">
+      <li><a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/" class="button big">Continue Reading</a></li>
+    </ul>
+  <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/aprendizado-supervisionado">Aprendizado Supervisionado</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o">Automação</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/dados-desbalanceados">Dados Desbalanceados</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/machine-learning">Machine Learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores">modelo baseado em arvores</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/randomforest">randomforest</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/tunning">tunning</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/tidyverse">Tidyverse</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/tidymodels">Tidymodels</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/random-forest">random forest</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/machine-learning">machine learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/kaggle">kaggle</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/imbalanced">imbalanced</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/imbalanced-data">imbalanced data</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/workflowsets">workflowsets</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+</article>
+
         
             <article class="post">
   <header>
@@ -1954,136 +2129,6 @@ if (!doNotTrack) {
 </article>
 
         
-            <article class="post">
-  <header>
-    <div class="title">
-        
-            <h2><a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/">Hackeando o R: estratégia split-apply-combine</a></h2>
-        
-        
-            <p>Veja como aplicar essa estratégia de maneira eficiente utilizando os pacotes do tidyverse: dplyr&#43;tidyr&#43;purrr</p>
-        
-    </div>
-    <div class="meta">
-        
-
-        <time class="published"
-            datetime='2019-04-05'>
-            April 5, 2019</time>
-        <span class="author">Fellipe Gomes</span>
-        
-            <p>7 minute read</p>
-        
-        
-    </div>
-</header>
-
-  
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2019/04/img1.png" alt="">
-        </a>
-    
-
-
-  
-  <p>Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.</p>
-  <footer>
-    <ul class="actions">
-      <li><a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/" class="button big">Continue Reading</a></li>
-    </ul>
-  <ul class="stats">
-  <li class="categories">
-    <ul>
-        
-            
-            
-                <i class="fa fa-folder"></i>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria">Analise Exploratória</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/data-mining">Data mining</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/estatistica">Estatistica</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/pr%C3%A1tica">Prática</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/r">R</a></li>
-                
-            
-        
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-        
-            
-            
-                <i class="fa fa-tags"></i>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/data-mining">Data Mining</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/estatistica">Estatistica</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/gomesfellipe">gomesfellipe</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/pr%C3%A1tica">Prática</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/r">R</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/tabelas">Tabelas</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/rstudio">RStudio</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/split-aply-combine">split aply combine</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/flextable">flextable</a></li>
-                
-            
-        
-    </ul>
-  </li>
-</ul>
-
-  </footer>
-</article>
-
-        
 
         
 <ul class="actions pagination">
@@ -2234,6 +2279,47 @@ if (!doNotTrack) {
           
         
 
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/">Otimizando pipelines que envolvem dados desbalanceados</a>
+              </h3>
+              
+              <time class="published" datetime='2021-06-28'>
+                June 28, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/06/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
         
           <article class="mini-post">
             <header>
@@ -2679,7 +2765,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/07/img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/date/img1.png" alt="">
         </a>
     
 
@@ -2761,7 +2847,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/05/img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/052018/05/img1.png" alt="">
         </a>
     
 
@@ -2915,9 +3001,6 @@ if (!doNotTrack) {
 
 
   
-  
-    
-  
 
 
         
@@ -2925,7 +3008,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/02/carnaval2.png" alt="">
+            <img src="https://gomesfellipe.github.io/img//carnaval2.png" alt="">
         </a>
     
 
@@ -2966,7 +3049,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/012018/01/modelagem-probabilidade2.png" alt="">
         </a>
     
 
@@ -3048,7 +3131,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+            <img src="https://gomesfellipe.github.io/img//multivariada-fatorial-cluster-R.png" alt="">
         </a>
     
 
@@ -3267,7 +3350,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/analisando-o-mercado-de-cryptomoedas-com-r/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2017/122017/12/cryptomoedas-R.png" alt="">
         </a>
     
 
@@ -3308,7 +3391,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2017/12/dropbox-R.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2017/122017/12/dropbox-R.png" alt="">
         </a>
     
 
@@ -3346,6 +3429,12 @@ if (!doNotTrack) {
       </div>
 
       
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
     </div>
   </section>
 
@@ -3370,7 +3459,7 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/r/">r</a>
-                <span style="float:right;">26</span>
+                <span style="float:right;">27</span>
               
             </header>
           </article>
@@ -3381,7 +3470,7 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/estatistica/">estatistica</a>
-                <span style="float:right;">21</span>
+                <span style="float:right;">22</span>
               
             </header>
           </article>
@@ -3392,7 +3481,7 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
-                <span style="float:right;">19</span>
+                <span style="float:right;">20</span>
               
             </header>
           </article>
@@ -3425,7 +3514,7 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/machine-learning/">machine-learning</a>
-                <span style="float:right;">7</span>
+                <span style="float:right;">8</span>
               
             </header>
           </article>
@@ -3501,6 +3590,28 @@ if (!doNotTrack) {
           <article>
             <header>
               
+                <a href="https://gomesfellipe.github.io/categories/aprendizado-supervisionado/">aprendizado-supervisionado</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/">automação</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
                 <a href="https://gomesfellipe.github.io/categories/probabilidade/">probabilidade</a>
                 <span style="float:right;">4</span>
               
@@ -3513,28 +3624,6 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado/">aprendizado-não-supervisionado</a>
-                <span style="float:right;">3</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://gomesfellipe.github.io/categories/aprendizado-supervisionado/">aprendizado-supervisionado</a>
-                <span style="float:right;">3</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/">automação</a>
                 <span style="float:right;">3</span>
               
             </header>
@@ -3568,6 +3657,17 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/kaggle/">kaggle</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/">modelo-baseado-em-arvores</a>
                 <span style="float:right;">3</span>
               
             </header>
@@ -3622,6 +3722,17 @@ if (!doNotTrack) {
           <article>
             <header>
               
+                <a href="https://gomesfellipe.github.io/categories/dados-desbalanceados/">dados-desbalanceados</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
                 <a href="https://gomesfellipe.github.io/categories/infer%C3%AAncia-bayesiana/">inferência-bayesiana</a>
                 <span style="float:right;">2</span>
               
@@ -3644,7 +3755,7 @@ if (!doNotTrack) {
           <article>
             <header>
               
-                <a href="https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/">modelo-baseado-em-arvores</a>
+                <a href="https://gomesfellipe.github.io/categories/randomforest/">randomforest</a>
                 <span style="float:right;">2</span>
               
             </header>
@@ -3765,17 +3876,6 @@ if (!doNotTrack) {
           <article>
             <header>
               
-                <a href="https://gomesfellipe.github.io/categories/dados-desbalanceados/">dados-desbalanceados</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
                 <a href="https://gomesfellipe.github.io/categories/estat%C3%ADstica/">estatística</a>
                 <span style="float:right;">1</span>
               
@@ -3832,17 +3932,6 @@ if (!doNotTrack) {
             <header>
               
                 <a href="https://gomesfellipe.github.io/categories/nao-supervisionado/">nao-supervisionado</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://gomesfellipe.github.io/categories/randomforest/">randomforest</a>
                 <span style="float:right;">1</span>
               
             </header>
