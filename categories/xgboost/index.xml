@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xgboost on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/categories/xgboost/</link>
+    <description>Recent content in xgboost on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/xgboost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python)  Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon  Conclusão Referências    .column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 20%; padding: 10px; } .column8 { float: left; width: 80%; padding: 10px; } .</description>
+    </item>
+    
+  </channel>
+</rss>

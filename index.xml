@@ -6,7 +6,16 @@
     <description>Recent content on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python)  Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon  Conclusão Referências    .column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 20%; padding: 10px; } .column8 { float: left; width: 80%; padding: 10px; } .</description>
+    </item>
+    
     <item>
       <title>Otimizando pipelines que envolvem dados desbalanceados</title>
       <link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link>
@@ -32,7 +41,7 @@ O bom filho à casa torna! No dia 23 de abr. de 2021 tive o enorme prazer de apr
       <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/itemized/item4/</guid>
-      <description>Caso prefira acessar direto na plataforma, acesse: https://www.kaggle.com/gomes555/code
+      <description>[DESATUALIZADO] Caso prefira acessar direto na plataforma, acesse: https://www.kaggle.com/gomes555/code
 Notebooks públicos no Kaggle:  TPS-May2021 Stacking 🥞  Dataset: Tabular Playground Series - May 2021 Score: 1.08565 Link: https://www.kaggle.com/gomes555/tps-may2021-stacking  TPS-May2021 Optuna Tuner One x Rest  Dataset: Tabular Playground Series - May 2021 Score: 1.08765 Link: https://www.kaggle.com/gomes555/tps-may2021-optuna-tuner-one-x-rest  TPS-May2021 Optuna LightGBM TPE  Dataset: Tabular Playground Series - May 2021 Score: 1.08644 Link: https://www.kaggle.com/gomes555/tps-may2021-optuna-lightgbm-tpe  TPS-May2021 Optuna LightGBM Tuner  Dataset: Tabular Playground Series - May 2021 Score: 1.</description>
     </item>
     
