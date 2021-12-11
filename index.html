@@ -1418,7 +1418,7 @@ if (!doNotTrack) {
             <h2><a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a></h2>
         
         
-            <p>Neste post vamos coletar notícias via web scrapping, detectar entidades dos textos e criar um grafo utilizando ggplot</p>
+            <p>Neste post vamos coletar notícias via web scrapping, detectar entidades dos textos e criar um grafo utilizando ggplot2</p>
         
     </div>
     <div class="meta">
@@ -1573,8 +1573,8 @@ library(ggraph)    # plot graph</code></pre>
 </div>
 <div id="fonte-dos-dados" class="section level1">
 <h1>Fonte dos dados</h1>
-<p>Os dados utilizados neste post foram coletados via web screpping do site do <a href="https://g1.globo.com/">G1 - Globo</a>. Optei por trabalhar com textos jornalisticos neste post pois apresentam a vantagem de serem bem escritos, o que facilita na tarefa de mineração de texto.</p>
-<p>Também fiz um grafo analisando tweets sobre a cpi da pandemia <a href=".#bônus">que será apresentado como bônus no final deste post</a> e para quem tiver curiosidade de conferir <a href="https://github.com/gomesfellipe/cpi_da_pandemia">os códigos</a> vai notar que foi necessário um tratamento muito mais extensivo para corrigir os nomes de cada um dos senadores, deputados e personagens políticos detectados.</p>
+<p>Os dados utilizados neste post foram coletados via web scrapping do site do <a href="https://g1.globo.com/">G1 - Globo</a>. Optei por trabalhar com textos jornalísticos neste post pois apresentam a vantagem de serem bem escritos, o que facilita na tarefa de mineração de texto.</p>
+<p>Também fiz um grafo analisando tweets sobre a CPI da pandemia <a href=".#bônus">que será apresentado como bônus no final deste post</a> e para quem tiver curiosidade de conferir <a href="https://github.com/gomesfellipe/cpi_da_pandemia">os códigos</a> vai notar que foi necessário um tratamento muito mais extensivo para corrigir os nomes de cada um dos senadores, deputados e personagens políticos detectados.</p>
 <p>Confira abaixo todos os códigos necessários para realizar tal extração:</p>
 <details>
 <summary>
@@ -1747,7 +1747,7 @@ tidy_graph_components &lt;-
 vert &lt;- vert %&gt;% 
   left_join( as.data.frame(activate(tidy_graph_components, &quot;nodes&quot;)) %&gt;% 
                rename(word = name))</code></pre>
-<p>Finalmente, vamos criar o grafo utilizando <code>ggplot</code>:</p>
+<p>Finalmente, vamos criar o grafo utilizando <code>ggplot2</code>:</p>
 <pre class="r"><code>set.seed(1)
 subt %&gt;%
   graph_from_data_frame(vertices = vert) %&gt;%
@@ -1794,7 +1794,7 @@ subt %&gt;%
 <center>
 <img src="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/grafo2.png" style="width:95.0%" />
 </center>
-<p>Para quem tiver interesse, o código está <a href="https://github.com/gomesfellipe">disponível no github</a>!</p>
+<p>Para quem tiver interesse, o código está <a href="https://github.com/gomesfellipe/cpi_da_pandemia">disponível no github</a>!</p>
 </div>
 <div id="conclusão" class="section level1">
 <h1>Conclusão</h1>
