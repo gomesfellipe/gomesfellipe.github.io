@@ -379,11 +379,11 @@ Para quem tiver interesse, o código está [disponível no github](https://githu
 
 # Conclusão
 
-Convenhamos que, de fato, criar um grafo no R não é uma tarefa super simples. No Gelphi é possível criar grafos até mais bonitos que este, porém, no longo prazo, ganhamos em produtividade e em escalabilidade pois poderíamos reaproveitar muito código e tranquilamente desenvolver uma rotina para criar novos grafos a partir de dados streaming, por exemplo, automatizando todo o processo!
+Convenhamos que, de fato, criar um grafo no R não é uma tarefa super simples. No Gelphi é possível criar grafos até mais bonitos que este, porém, no longo prazo, ganhamos em produtividade e em escalabilidade pois poderíamos reaproveitar muito código e tranquilamente desenvolver uma rotina para criar novos grafos a partir de dados streaming, por exemplo, automatizando todo o processo! 
 
 # Outras bibliotecas para construção de grafos
 
-Depois de conversar com algumas pessoas que leram o post, achei que merecia um update com mais idéias de mais bibliotecas que poderiam ter sido utilizas:
+Depois de conversar com algumas pessoas que leram o post, achei que merecia um update com mais idéias de mais bibliotecas que poderiam ter sido utilizadas:
 
 * [cheddar](https://cran.r-project.org/web/packages/cheddar/vignettes/PlotsAndStats.pdf)
 * [bipartite](https://cran.r-project.org/web/packages/bipartite/bipartite.pdf)
