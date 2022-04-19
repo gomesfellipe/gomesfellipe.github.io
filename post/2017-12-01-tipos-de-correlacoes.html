@@ -1,0 +1,138 @@
+<script src="2017-12-01-tipos-de-correlacoes_files/header-attrs-2.6/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#correlações">Correlações</a></li>
+<li><a href="#tipos-de-variáveis">Tipos de Variáveis</a></li>
+<li><a href="#tipos-de-correlações">Tipos de Correlações</a>
+<ul>
+<li><a href="#coeficiente-de-correlação-de-pearson">Coeficiente de Correlação de Pearson</a></li>
+<li><a href="#coeficiente-de-correlação-de-spearman-rho">Coeficiente de Correlação de Spearman <span class="math inline">\(\rho\)</span></a></li>
+<li><a href="#coeficiente-de-correlação-de-kendall-tau-de-kendall">Coeficiente de Correlação de Kendall (<span class="math inline">\(\tau\)</span> de kendall)</a></li>
+<li><a href="#qui-quadrado-de-independencia">Qui-quadrado de independencia</a></li>
+<li><a href="#teste-exato-de-fisher">Teste exato de fisher</a></li>
+<li><a href="#medidas-de-associação">Medidas de associação</a>
+<ul>
+<li><a href="#phi-phi-é-o-r-de-pearson-quando-aplicado-a-tabelas-2x2"><span class="math inline">\(\phi\)</span> (phi) (é o R de pearson quando aplicado a tabelas 2x2)</a></li>
+<li><a href="#v-de-crámer">V de Crámer</a></li>
+<li><a href="#coeficiente-de-contingência">Coeficiente de contingência</a></li>
+</ul></li>
+<li><a href="#kappa">Kappa</a></li>
+</ul></li>
+<li><a href="#mãos-a-obra">Mãos a obra</a></li>
+<li><a href="#referências">Referências</a></li>
+</ul>
+</div>
+
+<!-- # Base de dados:  -->
+<!-- ```{r,echo=F} -->
+<!-- dados <- read_excel("contabilidade.xlsx") -->
+<!-- kable(dados,"html")%>% -->
+<!--   kable_styling()%>% -->
+<!--   scroll_box(width = "700px", height = "250px") -->
+<!-- ```  -->
+<!-- É possível notar que existem diversos tipos de variáveis -->
+<div id="correlações" class="section level1">
+<h1>Correlações</h1>
+<p>De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os <em>coeficientes de associação</em> ou <em>correlação</em> entre variáveis.</p>
+<p>Essas medidas descrevem por meio de um único número a associação (ou dependência) entre duas variáveis.</p>
+<p>De modo a facilitar a compreensão, esses coeficientes geralmente variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.</p>
+<p>Existem muitas medidas disponíveis para quantificar a associação entre variáveis, porém, um primeiro conceito que deve ser levado em conta é: quais são os tipos de variáveis?</p>
+</div>
+<div id="tipos-de-variáveis" class="section level1">
+<h1>Tipos de Variáveis</h1>
+<p>Existem dois tipos de variáveis que podem ser abordadas de maneiras diferentes, veja:</p>
+<p><strong>Quantitativas</strong></p>
+<ul>
+<li>Continua: Medidas (Peso, altura, renda, dinheiro, comprimento)</li>
+<li>Discreta: Contagem (qnt. de coisas)</li>
+</ul>
+<p><strong>Qualitativas</strong></p>
+<ul>
+<li>Nominais: Nomes</li>
+<li>Ordinais: Quando é possível ordenar os arquivos</li>
+</ul>
+<p>E para cada relação ou associação que buscamos calcular, existe um tipo diferente de coeficiente, mas de maneira geral, todos eles possuem tais características em comum:</p>
+</div>
+<div id="tipos-de-correlações" class="section level1">
+<h1>Tipos de Correlações</h1>
+<p>Coeficientes de correlação informam:</p>
+<ul>
+<li>Intensidade
+<ul>
+<li>Fortemente relacionadas (Valores próximos de 1 ou -1)</li>
+<li>Fracamente relacionadas (Valores próximos de 0)</li>
+</ul></li>
+<li>Direção
+<ul>
+<li>Positiva (Se ambas as variáveis crescem no mesmo sentido)</li>
+<li>Negativa (Se as variáveis crescem em sentidos opostos)</li>
+</ul></li>
+<li>Significância</li>
+</ul>
+<p>IMPORTANTE: CORRELAÇÃO NÃO INDICA RELAÇÃO DE CAUSALIDADE</p>
+<p>E além dos coeficientes de correlação, existem outras medidas de associação igualmente importantes, veja:</p>
+<div id="coeficiente-de-correlação-de-pearson" class="section level2">
+<h2>Coeficiente de Correlação de Pearson</h2>
+<p>Sejam duas variáveis X e Y, ambas quantitativas, preferencialmente contínuas. A existência de relação linear entre essas variáveis pode ser detectada com auxílio do Diagrama de Dispersão, mas, também, com auxílio do Coeficiente de Correlação Linear de Pearson.</p>
+</div>
+<div id="coeficiente-de-correlação-de-spearman-rho" class="section level2">
+<h2>Coeficiente de Correlação de Spearman <span class="math inline">\(\rho\)</span></h2>
+<p>Utilizado quando não existe normalidade e/ou não existe relação linear, deve ser usado quando não se deseja utilizar nenhuma suposição de normalidade ou da presença de qualquer outra distribuição para a variável ou para a estatística de teste.</p>
+<p>Este coeficiente se baseia nos postos das observações dentro de cada variável e se baseia sobre as diferenças entre os postos observados, nas variáveis X e Y, para um mesmo objeto de estudo.</p>
+<p>Ideal quando temos variáveis medidas apenas em uma escala ordinal.</p>
+</div>
+<div id="coeficiente-de-correlação-de-kendall-tau-de-kendall" class="section level2">
+<h2>Coeficiente de Correlação de Kendall (<span class="math inline">\(\tau\)</span> de kendall)</h2>
+<p>O coeficiente de correlação Tau de Kendall serve para verificar se existe correlação entre duas variáveis ordinais. É um método adequado quando amostras têm tamanhos reduzidos, pois o método é mais preciso. E pode ser estendido a correlações parciais, quando o efeito de uma terceira variável, que age sobre X e Y, é retirado antes de determinar se X e Y estão relacionadas.</p>
+<p>Coeficiente de Kendall é, muitas vezes, interpretado como uma medida de concordância entre dois conjuntos de classificações relativas a um conjunto de objetos de estudo.</p>
+</div>
+<div id="qui-quadrado-de-independencia" class="section level2">
+<h2>Qui-quadrado de independencia</h2>
+<p>Utiliza-se esta prova quando os dados da pesquisa se apresentam sob forma de frequências em categorias
+discretas. Pode aplicar a prova <span class="math inline">\(\chi^2\)</span> para determinar a significância de diferenças entre dois grupos independentes e conseqüentemente, com respeito a frequências relativas com que os componentes do grupo se enquadram nas diversas categorias.</p>
+<p>Suas hipóteses:</p>
+<p><span class="math display">\[
+H_0: \text{São independentes (Não associadas)} \\
+H_1: \text{Não são independentes (São associadas) }
+\]</span></p>
+</div>
+<div id="teste-exato-de-fisher" class="section level2">
+<h2>Teste exato de fisher</h2>
+<p>O teste qui-quadrado quando aplicado a amostras pequenas, como por exemplo com tamanho inferior a 20, veja:</p>
+</div>
+<div id="medidas-de-associação" class="section level2">
+<h2>Medidas de associação</h2>
+<p>os testes fornecem apenas a resposta se as variáveis estão ou não correlacionadas. Para saber a intensidade desta relação, utilizam-se medidas de associação.</p>
+<p>Considere as seguintes medidas:</p>
+<div id="phi-phi-é-o-r-de-pearson-quando-aplicado-a-tabelas-2x2" class="section level3">
+<h3><span class="math inline">\(\phi\)</span> (phi) (é o R de pearson quando aplicado a tabelas 2x2)</h3>
+<p>O coeficiente phi é uma medida de associação entre duas variáveis binárias. A interpretação é similar a de um coeficiente de correlação. Duas variáveis binárias são consideradas positivamente associadas se a maior parte dos dados (frequências) cai ao longo das células da diagonal (a e d maiores que b e c). E serão consideradas negativamente associadas se a maior parte dos dados cai fora da diagonal.</p>
+</div>
+<div id="v-de-crámer" class="section level3">
+<h3>V de Crámer</h3>
+<p>O coeficiente V de Cramer serve para medir associação em tabelas não quadradas.</p>
+</div>
+<div id="coeficiente-de-contingência" class="section level3">
+<h3>Coeficiente de contingência</h3>
+<p>O Coeficiente de Contingência C é uma medida de associação, relacionada à estatística de teste do teste qui-quadrado, e ajustada para diferentes tamanhos de amostra. Ele também está diretamente relacionado à estatística de teste do teste qui-quadrado e ao Coeficiente Phi (possui as mesmas vantagens e desvantagens de Phi).</p>
+<p>Ambos variam de 0 (ausência de associação) a 1 (associação muito forte).</p>
+</div>
+</div>
+<div id="kappa" class="section level2">
+<h2>Kappa</h2>
+<p>O coeficiente Kappa é uma medida de concordância inter observador e mede o grau de concordância além do que seria esperado só por conta do acaso. Muitas vezes é usado no lugar do teste de McNemar.</p>
+<p><strong>Obs</strong>: Também pode ser utilizado o coeficiente de Kappa ponderado</p>
+</div>
+</div>
+<div id="mãos-a-obra" class="section level1">
+<h1>Mãos a obra</h1>
+<p>É impressionante a gama de opções que já existe para avaliarmos variáveis por diversas perspectivas!</p>
+<p>É bom ressaltar que é extremamente fácil se perder no meio de tantos resultados em tantas situações possíveis, por isso meu <a href="https://gomesfellipe.github.io/post/tipos-de-relacoes-entre-variaveis/">próximo post</a> irá tratar justamente dos diferentes tipos de relações entre variáveis e quais tipos de medidas são possíveis para cada caso, até a próxima!</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<p><a href="https://www.amazon.com.br/Practical-Nonparametric-Statistics-W-Conover/dp/0471160687">CONOVER, W. J. Pratical Nonparametric Statistics</a></p>
+<p><a href="https://www.amazon.com.br/Estat%C3%ADstica-n%C3%A3o-Param%C3%A9trica-Para-Ci%C3%AAncias-Comportamento-ebook/dp/B06Y2F9NQY/ref=sr_1_2?s=books&amp;ie=UTF8&amp;qid=1515522153&amp;sr=1-2">SIEGEL, S. Estatística Não Paramétrica para as Ciências do Comportamento</a></p>
+<p><a href="https://www.amazon.com.br/Estat%C3%ADstica-B%C3%A1sica-Pedro-Morettin/dp/8502207997">BUSSAB, W. de O. ;MORETTIN, P. A. Estatística básica. 5 ed.</a></p>
+</div>
