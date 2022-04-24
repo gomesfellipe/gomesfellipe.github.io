@@ -44,7 +44,7 @@ knitr::opts_chunk$set(echo = TRUE, eval = F, warning = F, error = F, message = F
 ```
 
 
-# Introdução 
+# Introdução   
 
 No final de Janeiro desde ano (2022) o [TFUG - TensorFlow Users Group de São Paulo](https://www.meetup.com/TensorFlowSP/events/284607061/) lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - *Educação de Qualidade*.
 
