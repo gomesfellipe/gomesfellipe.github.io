@@ -3,7 +3,7 @@ title: Solução Final - ML Olympiad [2º lugar]
 author: Fellipe Gomes
 date: '2022-04-19'
 slug: []
-categories:
+categories: 
   - R
   - Python
   - Prática
@@ -46,7 +46,7 @@ knitr::opts_chunk$set(echo = TRUE, eval = F, warning = F, error = F, message = F
 
 # Introdução   
 
-No final de Janeiro desde ano (2022) o [TFUG - TensorFlow Users Group de São Paulo](https://www.meetup.com/TensorFlowSP/events/284607061/) lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - *Educação de Qualidade*.
+No final de Janeiro desde ano (2022) o [TFUG - TensorFlow Users Group de São Paulo](https://www.meetup.com/TensorFlowSP/events/284607061/) lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - *Educação de Qualidade*. 
 
 Além de divertido, o desafio foi repleto de possibilidades e bastante desafiador! Todos os competidores que trabalharam duro em pleno mês de carnaval estão de parabéns! 😅 😂
 

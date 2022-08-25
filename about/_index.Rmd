@@ -14,10 +14,31 @@ date: "1993-12-14"
 * <i class='fa fa-google'></i>  <gomes.fellipe1@gmail.com>
 * <i class='fa fa-github-alt'></i> [github.com/gomesfellipe](github.com/gomesfellipe)
 * <i class='fa fa-linkedin-square'></i>   <https://www.linkedin.com/in/gomesfellipe/>
-* <i class='fa fa-skype'></i>   <gomes.fellipe@hotmail.com>
 * <i class='fa fa-align-justify'></i>   <http://lattes.cnpq.br/2860433689709342>
 * <span class="iconify" data-icon="simple-icons:kaggle" data-inline="false"></span>  <https://www.kaggle.com/gomes555>
 * <i class='fa fa-medium'></i>  <https://medium.com/@gomesfellipe>
+
+<style>
+  .libutton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 7px;
+    text-align: center;
+    outline: none;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    width: 200px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #0A66C2;
+    font-family: "SF Pro Text", Helvetica, sans-serif;
+  }
+</style>
+
+</br>
+
+<a class="libutton" href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=gomesfellipe" target="_blank">Follow on LinkedIn</a>
 
 ## <span class="iconify" data-icon="bi:info-circle" data-inline="false"></span> Sobre mim
 
