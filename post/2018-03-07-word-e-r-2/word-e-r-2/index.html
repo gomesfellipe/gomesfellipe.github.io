@@ -1583,14 +1583,13 @@ if (!doNotTrack) {
 
   <div id="content">
     
-<script src="https://gomesfellipe.github.io/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <script src="https://gomesfellipe.github.io/rmarkdown-libs/kePrint/kePrint.js"></script>
 <link href="https://gomesfellipe.github.io/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
 
 
 <div id="relatórios-de-alta-qualidade-só-com-latex" class="section level1">
 <h1>Relatórios de alta qualidade só com <span class="math inline">\(\LaTeX\)</span>?</h1>
-<p>Como já mencionei no <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">post sobre tabelas incríveis com R</a>, a tarefa de um estatístico (ou Data Scient, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem <span class="math inline">\(\LaTeX\)</span>, mas será que ela é realmente a única opção?</p>
+<p>Como já mencionei no <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">post sobre tabelas incríveis com R</a>, a tarefa de um estatístico (ou Data Scientist, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem <span class="math inline">\(\LaTeX\)</span>, mas será que ela é realmente a única opção?</p>
 <p>A escrita para a produção de documentação técnica e científica de alta qualidade é tão importante que até o <a href="https://www.prof-edigleyalexandre.com/2017/10/agora-facebook-messenger-permite-que-voce-escreva-formulas-matematicas-basicas-laTex.html">Facebook permite usar a linguagem <span class="math inline">\(\LaTeX\)</span> no messenger</a>. Normalmente para gerar arquivos em <span class="math inline">\(\LaTeX\)</span> existem muitas opções de softwares ou mesmo opções online como o <a href="https://www.overleaf.com/">overleaf</a> ou o <a href="https://pt.sharelatex.com/">sharelatex</a> que permitem escrever os documentos online com compilação em tempo real e armazenamento automático na nuvem. Para esse tipo de relatório escrito puramente em <span class="math inline">\(\LaTeX\)</span>, as funções dos pacotes <a href="https://cran.r-project.org/web/packages/stargazer/">stargazer</a>, <a href="https://cran.r-project.org/web/packages/xtable/index.html">xtable</a>, <a href="https://cran.r-project.org/web/packages/pander/index.html">pander</a> dentre outros, podem ser muito úteis na tarefa de produzir as tabelas dos resultados obtidos das análises em R para o formato <span class="math inline">\(\LaTeX\)</span>.</p>
 <p>Além desses softwares a linguagem <span class="math inline">\(\LaTeX\)</span> pode ser utilizada diretamente de dentro do R em duas opções: O documento R Sweave e o documento Rmarkdown. Se for em Rmarkdown será necessária algumas configurações, como por exemplo algumas vezes a opção <code>results = "asis"</code> deve ser incluída nos chunks que deseja-se renderizar as tabelas <span class="math inline">\(\LaTeX\)</span>, caso seja R Sweave, pode ser que <a href="https://stat.epfl.ch/webdav/site/stat/shared/Regression/EPFL-Sweave-powerdot.pdf">essa documentação</a> ajude, pois as configurações dos chunks podem ser diferentes das configurações utilizadas em R markdown).</p>
 <p>Porém, não basta obter informação através dos dados e com técnicas específicas transformá-los em conhecimento, geralmente tal conhecimento será destinado para alguma finalidade e não necessariamente a pessoa que irá receber nossos resultados vai desejar um documento em PDF ou html, além de não trabalhar com <a href="https://www.latex-project.org/"><span class="math inline">\(\LaTeX\)</span></a> nem conhecer as linguagens de programação muito utilizadas por nós, como <a href="https://www.r-project.org/">R</a> ou <a href="https://pt.wikipedia.org/wiki/Markdown">Markdown</a>. Na verdade isso nem é mesmo uma obrigação para quem contrata serviços de analytics.</p>
@@ -1713,7 +1712,7 @@ wt
 </td>
 </tr>
 <tr>
-<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 Mazda RX4
 </td>
 <td style="text-align:left;">
@@ -1736,7 +1735,7 @@ Mazda RX4
 </td>
 </tr>
 <tr>
-<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 Mazda RX4 Wag
 </td>
 <td style="text-align:left;">
@@ -1759,7 +1758,7 @@ Mazda RX4 Wag
 </td>
 </tr>
 <tr>
-<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 Datsun 710
 </td>
 <td style="text-align:left;">
@@ -1787,7 +1786,7 @@ Datsun 710
 </td>
 </tr>
 <tr>
-<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 Hornet 4 Drive
 </td>
 <td style="text-align:left;">
@@ -1810,7 +1809,7 @@ Hornet 4 Drive
 </td>
 </tr>
 <tr>
-<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 Hornet Sportabout
 </td>
 <td style="text-align:left;">
@@ -2375,9 +2374,6 @@ End Sub</code></pre>
 
 
   
-  
-    
-  
 
 
         
@@ -2456,9 +2452,6 @@ End Sub</code></pre>
 
 
 
-  
-  
-    
   
 
 
@@ -2948,9 +2941,6 @@ End Sub</code></pre>
 
 
 
-  
-  
-    
   
 
 
