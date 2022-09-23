@@ -13,7 +13,7 @@
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>Introdução Definição do problema de negócio Análise Exploratória (em R)  Estrutura da base Ano da base de dados Target  Machine Learning (em Python)  Importar dependencias Carregar dados Modelagem  Submissão Considerações Finais   Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Estrutura da base Ano da base de dados Target Machine Learning (em Python) Importar dependencias Carregar dados Modelagem Submissão Considerações Finais Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
     </item>
     
     <item>
@@ -42,7 +42,8 @@ O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já es
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</guid>
-      <description>Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.</description>
+      <description>Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.
+Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles.</description>
     </item>
     
     <item>

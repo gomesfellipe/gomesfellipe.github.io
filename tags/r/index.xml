@@ -13,7 +13,7 @@
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>Introdução Definição do problema de negócio Análise Exploratória (em R)  Estrutura da base Ano da base de dados Target  Machine Learning (em Python)  Importar dependencias Carregar dados Modelagem  Submissão Considerações Finais   Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Estrutura da base Ano da base de dados Target Machine Learning (em Python) Importar dependencias Carregar dados Modelagem Submissão Considerações Finais Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
-      <description>Introdução e contexto  O que são Grafos? Como contruir um?  Carregar dependências Fonte dos dados NER - Named Entity Recognition Preparar dados Bônus Conclusão Outras bibliotecas para construção de grafos   Introdução e contexto Durante os anos de 2020 e 2021 fiz um MBA Executivo em Business Analytics e Big Data na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</description>
+      <description>Introdução e contexto O que são Grafos? Como contruir um? Carregar dependências Fonte dos dados NER - Named Entity Recognition Preparar dados Bônus Conclusão Outras bibliotecas para construção de grafos Introdução e contexto Durante os anos de 2020 e 2021 fiz um MBA Executivo em Business Analytics e Big Data na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</description>
     </item>
     
     <item>
@@ -31,7 +31,8 @@
       <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
-      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem  Baselines Preparar Pipeline de dados com workflowsets Benchmark  Conclusão Referências    .column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 33%; padding: 10px; } .column8 { float: left; width: 66%; padding: 10px; } .row:after { content: &#34;&#34;; display: table; clear: both; } .</description>
+      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem Baselines Preparar Pipeline de dados com workflowsets Benchmark Conclusão Referências O problema envolvendo dados desbalanceados A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:
+Detecção de fraude; Previsão de inadimplência; Identificador de spam; Busca por anomalias/outliers; Detecção de possíveis roubos/furtos/vulnerabilidades; Previsão de churn; etc Este tipo de tarefa representa um enorme desafio para modelagem preditiva pois a maioria dos algoritmos de machine learning foram projetados sob suposição de haver um número igual de exemplos para cada classe de interesse.</description>
     </item>
     
     <item>
@@ -40,7 +41,7 @@
       <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</guid>
-      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle?  Objetivo 🎯 Explorar dados 🔎  Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados  Modelagem 🚀  Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM  Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳    .</description>
+      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle? Objetivo 🎯 Explorar dados 🔎 Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados Modelagem 🚀 Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳 Qualidade de sono? 🤨 Sim, exatamente! Neste post analisaremos dados de um tracking que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.</description>
     </item>
     
     <item>
@@ -49,7 +50,8 @@
       <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</guid>
-      <description>.column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 33%; padding: 10px; } .column8 { float: left; width: 66%; padding: 10px; } .row:after { content: &#34;&#34;; display: table; clear: both; }  Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?</description>
+      <description>Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?
+Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.</description>
     </item>
     
     <item>
@@ -78,7 +80,9 @@ No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickh
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/</guid>
-      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  Análise de sobrevivência e PUBG Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.</description>
+      <description>Análise de sobrevivência e PUBG Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.
+Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.
+PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal sobreviver, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.</description>
     </item>
     
     <item>
@@ -87,7 +91,7 @@ No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickh
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</guid>
-      <description>Objetivo do post  Uma das várias maneiras de se implementar o RStudio Server e o Shiny Server é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.</description>
+      <description>Objetivo do post Uma das várias maneiras de se implementar o RStudio Server e o Shiny Server é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.</description>
     </item>
     
     <item>
@@ -115,7 +119,8 @@ O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já es
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</guid>
-      <description>Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.</description>
+      <description>Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.
+Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles.</description>
     </item>
     
     <item>
@@ -133,7 +138,8 @@ O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já es
       <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</guid>
-      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  A análise exploratória dos dados A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”.</description>
+      <description>A análise exploratória dos dados A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações
+Ao iniciar uma análise de dados, começamos pela AED para a partir dai decidir como buscar qual solução para o problema.</description>
     </item>
     
     <item>
@@ -268,7 +274,7 @@ Não é novidade que a “computação em nuvem” tem impulsionado muitos proje
       <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</guid>
-      <description>Correlações Tipos de Variáveis Tipos de Correlações  Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação  \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência  Kappa  Mãos a obra Referências   % -- % -- Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
+      <description>Correlações Tipos de Variáveis Tipos de Correlações Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência Kappa Mãos a obra Referências Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
     </item>
     
   </channel>

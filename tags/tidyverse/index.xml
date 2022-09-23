@@ -13,7 +13,7 @@
       <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
-      <description>Introdução e contexto  O que são Grafos? Como contruir um?  Carregar dependências Fonte dos dados NER - Named Entity Recognition Preparar dados Bônus Conclusão Outras bibliotecas para construção de grafos   Introdução e contexto Durante os anos de 2020 e 2021 fiz um MBA Executivo em Business Analytics e Big Data na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</description>
+      <description>Introdução e contexto O que são Grafos? Como contruir um? Carregar dependências Fonte dos dados NER - Named Entity Recognition Preparar dados Bônus Conclusão Outras bibliotecas para construção de grafos Introdução e contexto Durante os anos de 2020 e 2021 fiz um MBA Executivo em Business Analytics e Big Data na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</description>
     </item>
     
     <item>
@@ -22,7 +22,8 @@
       <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
-      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem  Baselines Preparar Pipeline de dados com workflowsets Benchmark  Conclusão Referências    .column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 33%; padding: 10px; } .column8 { float: left; width: 66%; padding: 10px; } .row:after { content: &#34;&#34;; display: table; clear: both; } .</description>
+      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem Baselines Preparar Pipeline de dados com workflowsets Benchmark Conclusão Referências O problema envolvendo dados desbalanceados A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:
+Detecção de fraude; Previsão de inadimplência; Identificador de spam; Busca por anomalias/outliers; Detecção de possíveis roubos/furtos/vulnerabilidades; Previsão de churn; etc Este tipo de tarefa representa um enorme desafio para modelagem preditiva pois a maioria dos algoritmos de machine learning foram projetados sob suposição de haver um número igual de exemplos para cada classe de interesse.</description>
     </item>
     
     <item>
@@ -31,7 +32,7 @@
       <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</guid>
-      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle?  Objetivo 🎯 Explorar dados 🔎  Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados  Modelagem 🚀  Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM  Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳    .</description>
+      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle? Objetivo 🎯 Explorar dados 🔎 Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados Modelagem 🚀 Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳 Qualidade de sono? 🤨 Sim, exatamente! Neste post analisaremos dados de um tracking que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.</description>
     </item>
     
     <item>

@@ -24,7 +24,7 @@
         "datePublished": "2020-07-17 00:00:00 \u002b0000 UTC",
         "dateModified" : "2020-07-17 00:00:00 \u002b0000 UTC",
         "url" : "https:\/\/gomesfellipe.github.io\/apps\/acompanhacoes\/",
-        "wordCount" : "1086",
+        "wordCount" : "1085",
         "keywords" : [ "Blog" ]
     }
     </script>
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.80.0" />
+        <meta name="generator" content="Hugo 0.103.1" />
         
 
 
@@ -55,24 +55,20 @@
         <meta property="og:title" content="AcompanhAções" />
 <meta property="og:description" content="Repositório contém os códigos para a execução de um dashboard para o acompanhamento automatizado de ativos." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gomesfellipe.github.io/apps/acompanhacoes/" />
+<meta property="og:url" content="https://gomesfellipe.github.io/apps/acompanhacoes/" /><meta property="article:section" content="apps" />
 <meta property="article:published_time" content="2020-07-17T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-07-17T00:00:00+00:00" />
+
 
         <meta property="og:image" content="https://gomesfellipe.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
         <meta itemprop="name" content="AcompanhAções">
-<meta itemprop="description" content="Repositório contém os códigos para a execução de um dashboard para o acompanhamento automatizado de ativos.">
-<meta itemprop="datePublished" content="2020-07-17T00:00:00+00:00" />
+<meta itemprop="description" content="Repositório contém os códigos para a execução de um dashboard para o acompanhamento automatizado de ativos."><meta itemprop="datePublished" content="2020-07-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-07-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1086">
-
-
-
+<meta itemprop="wordCount" content="1085">
 <meta itemprop="keywords" content="" />
-
         
 
         
@@ -116,7 +112,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     </head>
     <body>
 
@@ -514,9 +509,6 @@ if (!doNotTrack) {
 
 
   
-  
-    
-  
 
 
         
@@ -524,7 +516,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2021/05/img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/date2021/05/img1.png" alt="">
         </a>
     
 
@@ -1555,8 +1547,7 @@ if (!doNotTrack) {
 
   
   <div id="content">
-    <h1 id="acompanhacoes">acompanhacoes</h1>
-<p>Link do repositório no github: <a href="https://github.com/gomesfellipe/acompanhacoes">https://github.com/gomesfellipe/acompanhacoes</a></p>
+    <p>Link do repositório no github: <a href="https://github.com/gomesfellipe/acompanhacoes">https://github.com/gomesfellipe/acompanhacoes</a></p>
 <hr>
 <p>O objetivo do pacote <code>acompanhacoes</code> é permitir a portabilidade de um dashboard desenvolvido para o acompanhamento de ativos de diferentes naturezas de forma prática no dia a dia. A idéia deste shiny foi inspirada <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">neste post</a> do meu blog.</p>
 <p>O Dashboard é uma POC (<a href="https://en.wikipedia.org/wiki/Proof_of_concept">proof of concept</a>) de uma ferramenta que possibilita o acompanhamento automatizado da tabela financeira de um portifólio com a coleta de dados de cotações em tempo real, incluindo cálculo de Ganho/Perda (caso decida fazer a desmontagem no tempo atual) e análise automatizada do portifólio.</p>
@@ -1564,14 +1555,14 @@ if (!doNotTrack) {
 <p>Os dados são obtidos utilizando a função <code>quantmod::getQuote(&quot;&lt;stock&gt;&quot;)</code> para obter dados em tempo real (com defasagem de 15 minutos) e utilizando a função <code>quantmod::(&quot;&lt;stock&gt;&quot;, get = &quot;stock.prices&quot;, from = first_day_year)</code> intradiários fornecidos pela api do <a href="https://finance.yahoo.com/">Yahoo Finance</a> das cotações do dia anterior.</p>
 <h2 id="instalação">Instalação</h2>
 <p>Para instalar a versão de desenvolvimento do aplicativo execute o comando:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;gomesfellipe/acompanhacoes&#34;</span>, INSTALL_opts <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;--no-lock&#39;</span>)
-</code></pre></div><p>Ou faça o download da pasta do repositório e execute:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install</span>(<span style="color:#e6db74">&#34;/path_to/acompanhacoes&#34;</span>)
-</code></pre></div><h2 id="uso">Uso</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;gomesfellipe/acompanhacoes&#34;</span>, INSTALL_opts <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;--no-lock&#39;</span>)
+</span></span></code></pre></div><p>Ou faça o download da pasta do repositório e execute:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install</span>(<span style="color:#e6db74">&#34;/path_to/acompanhacoes&#34;</span>)
+</span></span></code></pre></div><h2 id="uso">Uso</h2>
 <p>Após instalar o pacote, execute os comandos para executar o dashboard no R:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(acompanhacoes)
-<span style="color:#a6e22e">run_app</span>()
-</code></pre></div><p>Veja como é a tela inicial do dashboard:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(acompanhacoes)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">run_app</span>()
+</span></span></code></pre></div><p>Veja como é a tela inicial do dashboard:</p>
 <p><img src="https://gomesfellipe.github.io/apps/acompanhacoes_files/tela_inicial.png" alt=""></p>
 <p>Para acessar o dashboard no meu servidor consulte: <a href="https://gomes555.shinyapps.io/acompanhacoes/">https://gomes555.shinyapps.io/acompanhacoes/</a></p>
 <p>Assim que o dashboard for aberto, serão exibidos resultados para um portfólio <strong>arbitrário</strong> fornecido como exemplo, exibindo <strong>tabelas financeiras</strong> com as seguitnes informações:</p>
@@ -1641,7 +1632,7 @@ if (!doNotTrack) {
 <p>As seções a seguir ajudarão a entender como utiliza-los.</p>
 <h3 id="1-sem-input">1. Sem input</h3>
 <p>O Dashboard carrega o conjunto de dados <code>acompanhacoes::input_exemplo</code> no momento que é inicializado com a finalidade de servir como exemplo e apresentação da ferramenta. Veja qual o formato do arquivo:</p>
-<pre><code>&gt; acompanhacoes::input_exemplo
+<pre tabindex="0"><code>&gt; acompanhacoes::input_exemplo
 # A tibble: 3 x 3
   symbol   cot_ini     qtd
   &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;
@@ -1651,7 +1642,7 @@ if (!doNotTrack) {
 </code></pre><p>Obs.: Carteira elaborada de forma <strong>arbitrária</strong> para servir como exemplo</p>
 <h3 id="2-input-manual">2. Input manual</h3>
 <p>O arquivo fornecido como input para o Dashboard precisa conter a palavra &ldquo;portfolio&rdquo; (como por exemplo: <code>input_portfolio.txt</code>) e estar no seguinte formato:</p>
-<pre><code>symbol, cot_ini, qtd
+<pre tabindex="0"><code>symbol, cot_ini, qtd
 TUPY3.SA, 24.4, 200    
 ELET3.SA, 19.7, 150
 PTBL3.SA, 5.80, 100     
@@ -1677,10 +1668,10 @@ BTC-USD, 49499.37, 0.0101
 </ul>
 <p>Um objeto R do tipo vetor que contenha um ou mais elementos que serão utilizados como chave de acesso do arquivo <code>portifolio_vip.txt</code>.</p>
 <p>Para criar o vetor defina a raíz do diretório como diretório de trabalho e execute os comandos:</p>
-<pre><code>vip &lt;- c(&quot;senha&quot;)
+<pre tabindex="0"><code>vip &lt;- c(&#34;senha&#34;)
 saveRDS(vip, vip.rds)
 </code></pre><p>Com estes dois arquivos definidos na pasta raiz do diretório do dashboard, execute os comandos para executar o Dashboard:</p>
-<pre><code>library(acompanhacoes)
+<pre tabindex="0"><code>library(acompanhacoes)
 run_app()
 </code></pre><p><img src="https://gomesfellipe.github.io/apps/acompanhacoes_files/input_vip.gif" alt=""></p>
 <p>Parabéns! Se chegou té aqui agora você possui um Dashboard com um panorama geral de informações (quase) em tempo real para auxiliar na tomada de decisão no momento da desmontagem de algum ativo!</p>
@@ -1753,9 +1744,6 @@ run_app()
       <ul class="icons">
         
           
-    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-
-
         
         
   <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
@@ -3099,6 +3087,26 @@ run_app()
 <iframe style="margin: 0px; border: 0px none; height: 610px; width: 100%; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px; background: rgb(255, 255, 255) url(&quot;https://marketplace.kony.com/static/dist/images/loader.svg&quot;) no-repeat scroll center center / 64px; transition: all 0.4s ease 0s;" src="https://www.buymeacoffee.com/widget/page/gomesfellipe?description=Support%20me%20on%20Buy%20me%20a%20coffee!&amp;color=%23FF813F"></iframe>
 
 
+</br>
+
+  
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#f4f4f4; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	 
+</style>
+<div id="mc_embed_signup">
+<form action="https://github.us19.list-manage.com/subscribe/post?u=ba1b89ab75a7b5f8a2f0c6a3f&amp;id=6bb643ba67" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Inscreva-se para acompanhar o conteúdo do blog!</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba1b89ab75a7b5f8a2f0c6a3f_6bb643ba67" tabindex="-1" value=""></div>
+    <div class="show"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
 
 
   
@@ -3838,24 +3846,6 @@ run_app()
 
 
   
-  
-<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-	#mc_embed_signup{background:#f4f4f4; clear:left; font:14px Helvetica,Arial,sans-serif; }
-	 
-</style>
-<div id="mc_embed_signup">
-<form action="https://github.us19.list-manage.com/subscribe/post?u=ba1b89ab75a7b5f8a2f0c6a3f&amp;id=6bb643ba67" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll">
-	<label for="mce-EMAIL">Inscreva-se para acompanhar o conteúdo do blog!</label>
-	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-    
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba1b89ab75a7b5f8a2f0c6a3f_6bb643ba67" tabindex="-1" value=""></div>
-    <div class="show"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-    </div>
-</form>
-</div>
-
 
 
 
@@ -3869,9 +3859,6 @@ run_app()
       <ul class="icons">
         
           
-    <li><a href="https://gomesfellipe.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-
-
         
         
   <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>

@@ -13,7 +13,7 @@
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
-      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python)  Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon  Conclusão Referências    .column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 20%; padding: 10px; } .column8 { float: left; width: 80%; padding: 10px; } .</description>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python) Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon Conclusão Referências Introdução Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</guid>
-      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle?  Objetivo 🎯 Explorar dados 🔎  Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados  Modelagem 🚀  Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM  Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳    .</description>
+      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle? Objetivo 🎯 Explorar dados 🔎 Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados Modelagem 🚀 Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳 Qualidade de sono? 🤨 Sim, exatamente! Neste post analisaremos dados de um tracking que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.</description>
     </item>
     
   </channel>

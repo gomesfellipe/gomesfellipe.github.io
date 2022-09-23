@@ -13,7 +13,7 @@
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>Introdução Definição do problema de negócio Análise Exploratória (em R)  Estrutura da base Ano da base de dados Target  Machine Learning (em Python)  Importar dependencias Carregar dados Modelagem  Submissão Considerações Finais   Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Estrutura da base Ano da base de dados Target Machine Learning (em Python) Importar dependencias Carregar dados Modelagem Submissão Considerações Finais Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
-      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python)  Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon  Conclusão Referências    .column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 20%; padding: 10px; } .column8 { float: left; width: 80%; padding: 10px; } .</description>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python) Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon Conclusão Referências Introdução Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:</description>
     </item>
     
     <item>
@@ -31,7 +31,8 @@
       <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
-      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem  Baselines Preparar Pipeline de dados com workflowsets Benchmark  Conclusão Referências    .column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 33%; padding: 10px; } .column8 { float: left; width: 66%; padding: 10px; } .row:after { content: &#34;&#34;; display: table; clear: both; } .</description>
+      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem Baselines Preparar Pipeline de dados com workflowsets Benchmark Conclusão Referências O problema envolvendo dados desbalanceados A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:
+Detecção de fraude; Previsão de inadimplência; Identificador de spam; Busca por anomalias/outliers; Detecção de possíveis roubos/furtos/vulnerabilidades; Previsão de churn; etc Este tipo de tarefa representa um enorme desafio para modelagem preditiva pois a maioria dos algoritmos de machine learning foram projetados sob suposição de haver um número igual de exemplos para cada classe de interesse.</description>
     </item>
     
     <item>
@@ -45,13 +46,13 @@ O bom filho à casa torna! No dia 23 de abr. de 2021 tive o enorme prazer de apr
     </item>
     
     <item>
-      <title>Meus Kaggle Notebooks</title>
+      <title>Kaggle Notebooks</title>
       <link>https://gomesfellipe.github.io/itemized/item4/</link>
       <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/itemized/item4/</guid>
       <description>[DESATUALIZADO] Caso prefira acessar direto na plataforma, acesse: https://www.kaggle.com/gomes555/code
-Notebooks públicos no Kaggle:  TPS-May2021 Stacking 🥞  Dataset: Tabular Playground Series - May 2021 Score: 1.08565 Link: https://www.kaggle.com/gomes555/tps-may2021-stacking  TPS-May2021 Optuna Tuner One x Rest  Dataset: Tabular Playground Series - May 2021 Score: 1.08765 Link: https://www.kaggle.com/gomes555/tps-may2021-optuna-tuner-one-x-rest  TPS-May2021 Optuna LightGBM TPE  Dataset: Tabular Playground Series - May 2021 Score: 1.08644 Link: https://www.kaggle.com/gomes555/tps-may2021-optuna-lightgbm-tpe  TPS-May2021 Optuna LightGBM Tuner  Dataset: Tabular Playground Series - May 2021 Score: 1.</description>
+Notebooks públicos no Kaggle: TPS-May2021 Stacking 🥞 Dataset: Tabular Playground Series - May 2021 Score: 1.08565 Link: https://www.kaggle.com/gomes555/tps-may2021-stacking TPS-May2021 Optuna Tuner One x Rest Dataset: Tabular Playground Series - May 2021 Score: 1.08765 Link: https://www.kaggle.com/gomes555/tps-may2021-optuna-tuner-one-x-rest TPS-May2021 Optuna LightGBM TPE Dataset: Tabular Playground Series - May 2021 Score: 1.08644 Link: https://www.kaggle.com/gomes555/tps-may2021-optuna-lightgbm-tpe TPS-May2021 Optuna LightGBM Tuner Dataset: Tabular Playground Series - May 2021 Score: 1.</description>
     </item>
     
     <item>
@@ -60,7 +61,7 @@ Notebooks públicos no Kaggle:  TPS-May2021 Stacking 🥞  Dataset: Tabular Play
       <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</guid>
-      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle?  Objetivo 🎯 Explorar dados 🔎  Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados  Modelagem 🚀  Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM  Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳    .</description>
+      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle? Objetivo 🎯 Explorar dados 🔎 Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados Modelagem 🚀 Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳 Qualidade de sono? 🤨 Sim, exatamente! Neste post analisaremos dados de um tracking que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.</description>
     </item>
     
     <item>
@@ -69,7 +70,8 @@ Notebooks públicos no Kaggle:  TPS-May2021 Stacking 🥞  Dataset: Tabular Play
       <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</guid>
-      <description>.column { float: left; width: 50%; padding: 10px; } .column4 { float: left; width: 33%; padding: 10px; } .column8 { float: left; width: 66%; padding: 10px; } .row:after { content: &#34;&#34;; display: table; clear: both; }  Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?</description>
+      <description>Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?
+Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.</description>
     </item>
     
     <item>
@@ -97,7 +99,8 @@ O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já es
       <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</guid>
-      <description>.col2 { columns: 2 200px; /* number of columns and width in pixels*/ -webkit-columns: 2 200px; /* chrome, safari */ -moz-columns: 2 200px; /* firefox */ } .col3 { columns: 3 100px; -webkit-columns: 3 100px; -moz-columns: 3 100px; }  A análise exploratória dos dados A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”.</description>
+      <description>A análise exploratória dos dados A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações
+Ao iniciar uma análise de dados, começamos pela AED para a partir dai decidir como buscar qual solução para o problema.</description>
     </item>
     
   </channel>
