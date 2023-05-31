@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data mining on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/categories/data-mining/</link>
+    <description>Recent content in Data mining on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/data-mining/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vou te provar que da para fazer Grafos bonitos em R!</title>
+      <link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link>
+      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
+      <description>Introdução e contexto O que são Grafos? Como contruir um? Carregar dependências Fonte dos dados NER - Named Entity Recognition Preparar dados Bônus Conclusão Outras bibliotecas para construção de grafos Introdução e contexto Durante os anos de 2020 e 2021 fiz um MBA Executivo em Business Analytics e Big Data na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</description>
+    </item>
+    
+    <item>
+      <title>Hackeando o R: estratégia split-apply-combine</title>
+      <link>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/</guid>
+      <description>O método split-apply-combine Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.
+No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickham descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:</description>
+    </item>
+    
+    <item>
+      <title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title>
+      <link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/</guid>
+      <description>Perguntas Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a criatividade.</description>
+    </item>
+    
+    <item>
+      <title>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</title>
+      <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</guid>
+      <description>Kaggle Segundo o Wikipédia: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.
+O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já escrevi em um post sobre gamificação e porque aprender R é tão divertido e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</description>
+    </item>
+    
+    <item>
+      <title>Brasil x Argentina, tidytext e Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/</guid>
+      <description>Brasil vs Argentina e Text Mining A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos quintilhões de bytes todos os dias, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.</description>
+    </item>
+    
+    <item>
+      <title>AED de forma rápida e um pouco de Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</guid>
+      <description>A análise exploratória dos dados A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações
+Ao iniciar uma análise de dados, começamos pela AED para a partir dai decidir como buscar qual solução para o problema.</description>
+    </item>
+    
+    <item>
+      <title>Manipulando dados com dplyr</title>
+      <link>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
+      <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
+Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
+    </item>
+    
+  </channel>
+</rss>

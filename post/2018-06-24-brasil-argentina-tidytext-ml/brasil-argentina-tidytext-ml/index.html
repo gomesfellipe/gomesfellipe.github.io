@@ -1,0 +1,5048 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https:\/\/gomesfellipe.github.io\/"
+        },
+        "articleSection" : "post",
+        "name" : "Brasil x Argentina, tidytext e Machine Learning",
+        "headline" : "Brasil x Argentina, tidytext e Machine Learning",
+        "description" : "Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-06-24 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2018-06-24 00:00:00 \u002b0000 UTC",
+        "url" : "https:\/\/gomesfellipe.github.io\/post\/2018-06-24-brasil-argentina-tidytext-ml\/brasil-argentina-tidytext-ml\/",
+        "wordCount" : "6215",
+        "keywords" : [ "Data Mining","Estatistica","gomesfellipe","twitter","modelagem","Prática","R","text mining","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Brasil x Argentina, tidytext e Machine Learning</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.103.1" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            <meta name="description" content="Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Brasil x Argentina, tidytext e Machine Learning"/>
+<meta name="twitter:description" content="Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning"/>
+<meta name="twitter:site" content="@gomesfellipe"/>
+
+        <meta property="og:title" content="Brasil x Argentina, tidytext e Machine Learning" />
+<meta property="og:description" content="Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-06-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-06-24T00:00:00+00:00" />
+
+
+        <meta property="og:image" content="https://gomesfellipe.github.io//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="Brasil x Argentina, tidytext e Machine Learning">
+<meta itemprop="description" content="Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning"><meta itemprop="datePublished" content="2018-06-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-06-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6215">
+<meta itemprop="keywords" content="Data Mining,Estatistica,gomesfellipe,twitter,modelagem,Prática,R,text mining," />
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/main.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/add-on.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-105500464-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="https://gomesfellipe.github.io/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>CV
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/post/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/apps/">
+                            <i class="fa fa-tablet">&nbsp;</i>Apps
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>CV
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/post/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/apps/">
+                            <h3>
+                                <i class="fa fa-tablet">&nbsp;</i>Apps
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/">Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2023-05-30'>
+                                    May 30, 2023</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/">Solução Final - ML Olympiad [1º lugar]</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2023-05-30'>
+                                    May 30, 2023</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2023/05/img3.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/">Gerando arte com Inteligência Artificial</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2022-08-08'>
+                                    August 8, 2022</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2022/08/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/">Solução Final - ML Olympiad [2º lugar]</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2022-04-19'>
+                                    April 19, 2022</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2022/04/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-12-03'>
+                                    December 3, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/12/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/">Solução Final - Porto Seguro Data Challenge [3º lugar]</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-11-01'>
+                                    November 1, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/11/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/">Otimizando pipelines que envolvem dados desbalanceados</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-06-28'>
+                                    June 28, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/06/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/">Ciência de Dados - Uma visão geral</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-05-24'>
+                                    May 24, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/">Prevendo a qualidade do sono utilizando Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-03-04'>
+                                    March 4, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/03/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-03-25'>
+                                    March 25, 2020</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2020/03/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/">Como automatizar relatórios longos e repetitivos com RMarkdown</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-09-13'>
+                                    September 13, 2019</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2019/09/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/">Hackeando o R: estratégia split-apply-combine</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-04-05'>
+                                    April 5, 2019</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2019/04/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/">Um ano de blog!</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-12-26'>
+                                    December 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/12/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-11-28'>
+                                    November 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/11/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/">Seu app, RStudio e Shiny Server na nuvem do Google</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-10-27'>
+                                    October 27, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/10/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-09-29'>
+                                    September 29, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/09/img1.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-31'>
+                                    August 31, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/08/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-28'>
+                                    July 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-06-24'>
+                                    June 24, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-05-26'>
+                                    May 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-04-12'>
+                                    April 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/04/gtrends-r.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-03-07'>
+                                    March 7, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-17'>
+                                    February 17, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-01'>
+                                    February 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-24'>
+                                    December 24, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-18'>
+                                    December 18, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-17'>
+                                    December 17, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;text=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;title=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></h1>
+            
+        
+        
+            <p>Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-06-24'>
+            June 24, 2018</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>30 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;text=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f&amp;title=Brasil%20x%20Argentina%2c%20tidytext%20e%20Machine%20Learning" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2018-06-24-brasil-argentina-tidytext-ml%2fbrasil-argentina-tidytext-ml%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    
+<script src="https://gomesfellipe.github.io/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="brasil-vs-argentina-e-text-mining" class="section level1">
+<h1>Brasil vs Argentina e Text Mining</h1>
+<p>A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos <a href="http://cio.com.br/noticias/2015/10/27/tome-nota-2-5-quintilhoes-de-bytes-sao-criados-todos-os-dias/">quintilhões de bytes todos os dias</a>, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.</p>
+<p>Dada a rivalidade histórica entre Brasil e Argentina achei que seria interessante avaliar como anda o comportamento das pessoas do Brasil nas mídias sociais em relação a esses dois países. Para o post não ficar muito longo, escolhi que iria recolher informações apenas do Twitter devido a praticidade, foram coletados os últimos 4.000 tweets com o termo “brasil” e os últimos “4.000” tweets com o termo “argentina” no Twitter através da sua API com o pacote os <code>twitteR</code> e <code>ROAuth</code>. O código pode ser conferido <a href="https://github.com/gomesfellipe/functions/blob/master/getting_twitter_data.R">neste link</a>.</p>
+<p>Análise de textos sempre foi um tema que me interessou muito, no final do ano de 2017 quando era estagiário me pediram para ajudar em uma pesquisa que envolvia a análise de palavras criando algumas nuvens de palavras. Pesquisando sobre técnicas de textmining descobri tantas abordagens diferentes que resolvi juntar tudo que tinha encontrado em uma única função (que será apresentada a seguir) para a confecção dessas nuvens, utilizarei esta função para ter uma primeira impressão dos dados.</p>
+<p>Além disso, como seria um problema a tarefa de criar as nuvens de palavras só poderia ser realizada por alguém com conhecimento em R, na época estava começando meus estudo sobre shiny e como treinamento desenvolvi um app que esta hospedado no link: <a href="https://gomesfellipe.shinyapps.io/appwordcloud/" class="uri">https://gomesfellipe.shinyapps.io/appwordcloud/</a> e o código esta aberto e disponível para quem se interessar no meu github <a href="https://github.com/gomesfellipe/appwordcloud/blob/master/appwordcloud.Rmd">neste link</a></p>
+<p>Porém, após ler e estudar o livro <a href="https://www.tidytextmining.com/">Text Mining with R - A Tidy Approach</a> por <span class="citation"><a href="#ref-tidytext" role="doc-biblioref">Silge; Robinson</a> (<a href="#ref-tidytext" role="doc-biblioref">2018</a>)</span> hoje em dia eu olho para trás e vejo que poderia ter feito tanto a função quanto o aplicativo de maneira muito mais eficiente portanto esse post trás alguns dos meus estudos sobre esse livro maravilhoso e também algum estudo sobre Machine Learning com o pacote <a href="https://cran.r-project.org/web/packages/caret"><code>caret</code></a></p>
+<div id="importando-a-dados" class="section level2">
+<h2>Importando a dados</h2>
+<p>Como já foi dito, a base de dados foi obtida através da API do twitter e o código pode ser obtido <a href="https://github.com/gomesfellipe/functions/blob/master/getting_twitter_data.R">neste link</a>.</p>
+<pre class="r"><code>library(dplyr)
+library(kableExtra)
+library(magrittr)
+
+base &lt;- read.csv(&quot;original_books.csv&quot;) %&gt;% as_tibble()</code></pre>
+</div>
+<div id="nuvem-de-palavras-rápida-com-função-customizada" class="section level2">
+<h2>Nuvem de palavras rápida com função customizada</h2>
+<p>Para uma primeira impressão dos dados, vejamos o que retorna uma nuvem de palavras criada com a função <a href="https://github.com/gomesfellipe/functions/blob/master/wordcloud_sentiment.R"><code>wordcloud_sentiment()</code></a> que desenvolvi antes de conhecer a “A Tidy Approach” para Text Mining:</p>
+<pre class="r"><code>devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/wordcloud_sentiment.R&quot;)
+
+# Obtendo nuvem e salvando tabela num objeto com nome teste:
+df &lt;- wordcloud_sentiment(base$text,
+                      type = &quot;text&quot;,
+                      sentiment = F,
+                      excludeWords = c(&quot;nao&quot;,letters,LETTERS),
+                      ngrams = 2,
+                      tf_idf = F,
+                      max = 100,
+                      freq = 10,
+                      horizontal = 0.9,
+                      textStemming = F,
+                      print=T)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-2-1.png" width="1056" /></p>
+<p>Não poderia esquecer, além da nuvem, a função também retorna um dataframe com a frequência das palavras:</p>
+<pre class="r"><code>df %&gt;% as_tibble()</code></pre>
+<pre><code>## # A tibble: 29,064 x 2
+##    words          freq  
+##    &lt;chr&gt;          &lt;chr&gt; 
+##  1 =              &quot;2795&quot;
+##  2 brasil copa    &quot;2061&quot;
+##  3 copa mundo     &quot;1959&quot;
+##  4 hat trick      &quot;1327&quot;
+##  5 = hoje         &quot;1248&quot;
+##  6 hoje brasil    &quot;1215&quot;
+##  7 mundo          &quot; 852&quot;
+##  8 isl ndia       &quot; 820&quot;
+##  9 pra copa       &quot; 813&quot;
+## 10 estreia brasil &quot; 782&quot;
+## # … with 29,054 more rows</code></pre>
+<p>E outra função interessante é a de criar uma nuvem a partir de um webscraping muito (muito mesmo) introdutório, para isso foi pegar todo o texto da página sobre a copa do mundo no Wikipédia, veja:</p>
+<pre class="r"><code># Obtendo nuvem e salvando tabela num objeto com nome teste:
+df_html &lt;- wordcloud_sentiment(&quot;https://pt.wikipedia.org/wiki/Copa_do_Mundo_FIFA&quot;,
+                      type = &quot;url&quot;,
+                      sentiment = F,
+                      excludeWords = c(&quot;nao&quot;,letters,LETTERS),
+                      ngrams = 2,
+                      tf_idf = F,
+                      max = 100,
+                      freq = 6,
+                      horizontal = 0.9,
+                      textStemming = F,
+                      print=T)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Essa função é bem “prematura,” existem infinitas maneiras de melhorar ela e não alterei ela ainda por falta de tempo.</p>
+</div>
+<div id="a-tidy-approach" class="section level2">
+<h2>A Tidy Approach</h2>
+<p>O formato tidy, em que cada linha corresponde a uma observação e cada coluna à uma variável, veja:</p>
+<center>
+<img src="http://garrettgman.github.io/images/tidy-1.png" style="width:70.0%" />
+</center>
+<p>Agora a tarefa será simplificada com a abordagem tidy, além das funções do livro <a href="https://www.tidytextmining.com/">Text Mining with R</a> utilizarei a função <a href="https://github.com/gomesfellipe/functions/blob/master/clean_tweets.R"><code>clean_tweets</code></a> que adaptei inspirado nesse post dessa pagina: <a href="https://sites.google.com/site/miningtwitter/home">Quick guide to mining twitter with R</a> quando estudava sobre textmining.</p>
+<div id="arrumando-e-transformando-a-base-de-dados" class="section level3">
+<h3>Arrumando e transformando a base de dados</h3>
+<p>Utilizando as funções do pacote <code>tidytext</code> em conjunto com os pacotes <code>stringr</code> e <code>abjutils</code>, será possível limpar e arrumar a base de dados.</p>
+<p>Além disso serão removidas as stop words de nossa base, com a função <code>stopwords::stopwords("pt")</code> podemos obter as stopwords da nossa língua</p>
+<pre class="r"><code>library(stringr)
+library(tidytext)
+library(abjutils)
+
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/clean_tweets.R&quot;)
+
+original_books = base %&gt;% 
+  mutate(text = clean_tweets(text) %&gt;% enc2native() %&gt;% rm_accent())
+
+#Removendo stopwords:
+excludewords=c(&quot;[:alpha:]&quot;,&quot;[:alnum:]&quot;,&quot;[:digit:]&quot;,&quot;[:xdigit:]&quot;,&quot;[:space:]&quot;,&quot;[:word:]&quot;,
+               LETTERS,letters,1:10,
+               &quot;hat&quot;,&quot;trick&quot;,&quot;bc&quot;,&quot;de&quot;,&quot;tem&quot;,&quot;twitte&quot;,&quot;fez&quot;,
+               &#39;pra&#39;,&quot;vai&quot;,&quot;ta&quot;,&quot;so&quot;,&quot;ja&quot;,&quot;rt&quot;)
+
+stop_words = data_frame(word = c(stopwords::stopwords(&quot;pt&quot;), excludewords))
+
+tidy_books &lt;- original_books %&gt;%
+  unnest_tokens(word, text) %&gt;% 
+  anti_join(stop_words)</code></pre>
+<p>Portando a base de dados após a limpeza e a remoção das stop words:</p>
+<pre class="r"><code>#Palavras mais faladas:
+tidy_books %&gt;% count(word, sort = TRUE) </code></pre>
+<pre><code>## # A tibble: 3,900 x 2
+##    word          n
+##    &lt;chr&gt;     &lt;int&gt;
+##  1 copa       6993
+##  2 brasil     4164
+##  3 argentina  3487
+##  4 mundo      2030
+##  5 hoje       1825
+##  6 letras     1562
+##  7 messi      1493
+##  8 estreia    1107
+##  9 est         866
+## 10 isl         828
+## # … with 3,890 more rows</code></pre>
+<pre class="r"><code>#Apos a limpeza, caso precise voltar as frases:
+original_books = tidy_books%&gt;%
+  group_by(book,line)%&gt;%
+  summarise(text=paste(word,collapse = &quot; &quot;))</code></pre>
+<div id="palavras-mais-frequentes" class="section level4">
+<h4>Palavras mais frequentes</h4>
+<p>Vejamos as palavras mais faladas nessa pesquisa:</p>
+<pre class="r"><code>library(ggplot2)
+
+tidy_books %&gt;%
+  count(word, sort = TRUE) %&gt;%
+  filter(n &gt; 400) %&gt;%
+  mutate(word = reorder(word, n)) %&gt;%
+  
+  ggplot(aes(word, n, fill = I(&quot;yellow&quot;), colour = I(&quot;green&quot;))) +
+  geom_col(position=&quot;dodge&quot;) +
+  xlab(NULL) +
+  labs(title = &quot;Frequencia total das palavras pesquisadas&quot;)+
+  coord_flip()+ theme(
+  panel.background = element_rect(fill = &quot;#74acdf&quot;,
+                                colour = &quot;lightblue&quot;,
+                                size = 0.5, linetype = &quot;solid&quot;),
+  panel.grid.major = element_line(size = 0.5, linetype = &#39;solid&#39;,
+                                colour = &quot;white&quot;), 
+  panel.grid.minor = element_line(size = 0.25, linetype = &#39;solid&#39;,
+                                colour = &quot;white&quot;)
+  )</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="palavras-mais-frequentes-para-cada-termo" class="section level4">
+<h4>Palavras mais frequentes para cada termo</h4>
+<p>Vejamos as nuvens de palavras mais frequentes de acordo com cada um dos termos pesquisados:</p>
+<pre class="r"><code>#Criando nuvem de palavra:
+library(wordcloud)
+
+par(mfrow=c(1,2))
+tidy_books %&gt;%
+  filter(book==&quot;br&quot;)%&gt;%
+  count(word) %&gt;%
+  with(wordcloud(word, n, max.words = 100,random.order = F,min.freq = 15,random.color = F,colors = c(&quot;#009b3a&quot;, &quot;#fedf00&quot;,&quot;#002776&quot;),scale = c(2,1),rot.per = 0.05))
+
+tidy_books %&gt;%
+  filter(book==&quot;arg&quot;)%&gt;%
+  count(word) %&gt;%
+  with(wordcloud(word, n, max.words = 100,min.freq = 15,random.order = F,random.color = F,colors = c(&quot;#75ade0&quot;, &quot;#ffffff&quot;,&quot;#f6b506&quot;),scale = c(2,1),rot.per = 0.05))</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-8-1.png" width="1056" /></p>
+<pre class="r"><code>par(mfrow=c(1,1))</code></pre>
+</div>
+</div>
+<div id="análise-de-sentimentos" class="section level3">
+<h3>Análise de sentimentos</h3>
+<p>A análise de sentimentos utilizando a abordagem tidy foi possível graças ao pacote <a href="https://cran.r-project.org/package=lexiconPT"><code>lexiconPT</code></a>, que esta disponível no CRAN e que conheci ao ler o <a href="https://sillasgonzaga.github.io/2017-09-23-sensacionalista-pt01/">post: “O Sensacionalista e Text Mining: Análise de sentimento usando o lexiconPT”</a> do blog <a href="https://sillasgonzaga.github.io/">Paixão por dados</a> que gosto tanto de acompanhar.</p>
+<pre class="r"><code># Analise de sentimentos:
+library(lexiconPT)
+
+sentiment = data.frame(word = sentiLex_lem_PT02$term ,
+                       polarity = sentiLex_lem_PT02$polarity) %&gt;% 
+  mutate(sentiment = if_else(polarity&gt;0,&quot;positive&quot;,if_else(polarity&lt;0,&quot;negative&quot;,&quot;neutro&quot;)),
+         word = as.character(word)) %&gt;% 
+  as_tibble()
+
+
+library(tidyr)
+
+book_sentiment &lt;- tidy_books %&gt;%
+  inner_join(sentiment) %&gt;%
+  count(book,word, index = line , sentiment) %&gt;%
+  spread(sentiment, n, fill = 0) %&gt;%
+  mutate(sentiment = positive - negative) %T&gt;%
+  print</code></pre>
+<pre><code>## # A tibble: 2,953 x 7
+##    book  word      index negative neutro positive sentiment
+##    &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+##  1 arg   abandonar   857        1      0        0        -1
+##  2 arg   absurdo     849        1      0        0        -1
+##  3 arg   absurdo    1863        1      0        0        -1
+##  4 arg   afogado    2275        1      0        0        -1
+##  5 arg   afogado    3659        1      0        0        -1
+##  6 arg   alegria    1134        0      0        1         1
+##  7 arg   almo        186        0      0        1         1
+##  8 arg   almo       2828        0      0        1         1
+##  9 arg   almo       3433        0      0        1         1
+## 10 arg   almo       3569        0      0        1         1
+## # … with 2,943 more rows</code></pre>
+<p>Cada palavra possui um valor associado a sua polaridade , vejamos como ficou distribuído o número de palavras de cada sentimento de acordo com cada termo escolhido para a pesquisa:</p>
+<pre class="r"><code>book_sentiment%&gt;%
+  count(sentiment,book)%&gt;%
+  arrange(book) %&gt;%
+  
+  ggplot(aes(x = factor(sentiment),y = n,fill=book))+
+  geom_bar(stat=&quot;identity&quot;,position=&quot;dodge&quot;)+
+  facet_wrap(~book) +
+  theme_bw()+ 
+    scale_fill_manual(values=c(&quot;#75ade0&quot;, &quot;#009b3a&quot;))</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div id="comparando-sentimentos-dos-termos-de-pesquisa" class="section level4">
+<h4>Comparando sentimentos dos termos de pesquisa</h4>
+<p>Para termos associados a palavra “Brasil” no twitter:</p>
+<pre class="r"><code># Nuvem de comparação:
+library(reshape2)
+
+tidy_books %&gt;%
+  filter(book==&quot;br&quot;)%&gt;%
+  inner_join(sentiment) %&gt;%
+  count(word, sentiment, sort = TRUE) %&gt;%
+  acast(word ~ sentiment, value.var = &quot;n&quot;, fill = 0) %&gt;%
+  comparison.cloud(colors = c(&quot;red&quot;, &quot;gray80&quot;,&quot;green&quot;),
+                   max.words = 200)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Para termos associados a palavra “Argentina” no twitter:</p>
+<pre class="r"><code>tidy_books %&gt;%
+  filter(book==&quot;arg&quot;)%&gt;%
+  inner_join(sentiment) %&gt;%
+  count(word, sentiment, sort = TRUE) %&gt;%
+  acast(word ~ sentiment, value.var = &quot;n&quot;, fill = 0) %&gt;%
+  comparison.cloud(colors = c(&quot;red&quot;, &quot;gray80&quot;,&quot;green&quot;),
+                   max.words = 200)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<div id="proporção-de-palavras-positivas-e-negativas-por-texto" class="section level4">
+<h4>Proporção de palavras positivas e negativas por texto</h4>
+<pre class="r"><code># Proporção de palavras negativas:
+bingnegative &lt;- sentiment %&gt;% 
+  filter(sentiment == &quot;negative&quot;)
+
+bingpositive &lt;- sentiment %&gt;% 
+  filter(sentiment == &quot;positive&quot;)
+
+wordcounts &lt;- tidy_books %&gt;%
+  group_by(book, line) %&gt;%
+  summarize(words = n())</code></pre>
+<div id="para-negativas" class="section level5">
+<h5>Para negativas;</h5>
+<pre class="r"><code>tidy_books %&gt;%
+  semi_join(bingnegative) %&gt;%
+  group_by(book, line) %&gt;%
+  summarize(negativewords = n()) %&gt;%
+  left_join(wordcounts, by = c(&quot;book&quot;, &quot;line&quot;)) %&gt;%
+  mutate(ratio = negativewords/words) %&gt;%
+  top_n(5) %&gt;%
+  ungroup() %&gt;% arrange(desc(ratio)) %&gt;% filter(book==&quot;br&quot;)</code></pre>
+<pre><code>## # A tibble: 5 x 5
+##   book   line negativewords words ratio
+##   &lt;chr&gt; &lt;int&gt;         &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 br     2003             1     3 0.333
+## 2 br     2775             1     3 0.333
+## 3 br     2580             2     7 0.286
+## 4 br      126             1     4 0.25 
+## 5 br     2335             1     4 0.25</code></pre>
+<p>A frase mais negativa do brasil e da argentina::</p>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;br&quot;,line==2580) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c() </code></pre>
+<pre><code>## $text
+## [1] &quot;um medo? \x97 de nois criar expectativa e o Brasil perder a copa https://t.co/0chcNWHh0m&quot;</code></pre>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;arg&quot;,line==572) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c()  </code></pre>
+<pre><code>## $text
+## [1] &quot;RT @DavidmeMelo: @SantiiSanchez16 @Flamengo Perder a copa para o time mais sujo e mais corrupto da argentina \xe9 assim mesmo https://t.co/zIC\x85&quot;</code></pre>
+</div>
+<div id="para-positivas" class="section level5">
+<h5>Para positivas:</h5>
+<pre class="r"><code>tidy_books %&gt;%
+  semi_join(bingpositive) %&gt;%
+  group_by(book, line) %&gt;%
+  summarize(positivewords = n()) %&gt;%
+  left_join(wordcounts, by = c(&quot;book&quot;, &quot;line&quot;)) %&gt;%
+  mutate(ratio = positivewords/words) %&gt;%
+  top_n(5) %&gt;%
+  ungroup() %&gt;% arrange(desc(ratio))</code></pre>
+<pre><code>## # A tibble: 22 x 5
+##    book   line positivewords words ratio
+##    &lt;chr&gt; &lt;int&gt;         &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+##  1 arg    2120             3     9 0.333
+##  2 br     2374             1     3 0.333
+##  3 arg    3272             2     7 0.286
+##  4 arg    2301             1     4 0.25 
+##  5 br      126             1     4 0.25 
+##  6 br      553             2     8 0.25 
+##  7 br     1499             2     8 0.25 
+##  8 br     2054             2     8 0.25 
+##  9 br     2591             1     4 0.25 
+## 10 arg    2130             1     5 0.2  
+## # … with 12 more rows</code></pre>
+<p>A frase mais positiva do brasil e da argentina:</p>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;br&quot;,line==2374) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c() </code></pre>
+<pre><code>## $text
+## [1] &quot;Tirei Brasil, \xe9 uma honra https://t.co/OgNCot4Wu0&quot;</code></pre>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;arg&quot;,line==2120) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c()  </code></pre>
+<pre><code>## $text
+## [1] &quot;@_LeoFerreiraH Quero que a Argentina passe para possivelmente enfrentar o Brasil, ganhar da Argentina j\xe1 \xe9 bom, na\x85 https://t.co/bxHJUeGVpc&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="tf-idf" class="section level2">
+<h2>TF-IDF</h2>
+<p>Segundo <span class="citation"><a href="#ref-tidytext" role="doc-biblioref">Silge; Robinson</a> (<a href="#ref-tidytext" role="doc-biblioref">2018</a>)</span> no livro <a href="https://www.tidytextmining.com/tfidf.html">tidytextminig</a>:</p>
+<blockquote>
+<p>The statistic tf-idf is intended to measure how important a word is to a document in a collection (or corpus) of documents, for example, to one novel in a collection of novels or to one website in a collection of websites.</p>
+</blockquote>
+<p>Traduzido pelo Google tradutor:</p>
+<blockquote>
+<p>A estatística tf-idf destina-se a medir a importância de uma palavra para um documento em uma coleção (ou corpus) de documentos, por exemplo, para um romance em uma coleção de romances ou para um site em uma coleção de sites.</p>
+</blockquote>
+<p>Matematicamente:</p>
+<p><span class="math display">\[
+idf(\text{term}) = \ln{\left(\frac{n_{\text{documents}}}{n_{\text{documents containing term}}}\right)}
+\]</span></p>
+<p>E que com o pacote <code>tidytext</code> podemos obter usando o comando <code>bind_tf_idf()</code>, veja:</p>
+<pre class="r"><code># Obtendo numero de palavras
+book_words &lt;- original_books %&gt;%
+  unnest_tokens(word, text) %&gt;%
+  count(book, word, sort = TRUE) %&gt;%
+  ungroup()%&gt;%
+  anti_join(stop_words)
+
+total_words &lt;- book_words %&gt;% 
+  group_by(book) %&gt;% 
+  summarize(total = sum(n))
+
+book_words &lt;- left_join(book_words, total_words)
+
+# tf-idf:
+book_words &lt;- book_words %&gt;%
+  bind_tf_idf(word, book, n)
+
+book_words %&gt;%
+  arrange(desc(tf_idf))</code></pre>
+<pre><code>## # A tibble: 4,773 x 7
+##    book  word              n total      tf   idf  tf_idf
+##    &lt;chr&gt; &lt;chr&gt;         &lt;int&gt; &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 br    letras         1562 30429 0.0513  0.693 0.0356 
+##  2 br    ansioso         688 30429 0.0226  0.693 0.0157 
+##  3 arg   classificou     666 40781 0.0163  0.693 0.0113 
+##  4 arg   segundo         654 40781 0.0160  0.693 0.0111 
+##  5 arg   especialistas   649 40781 0.0159  0.693 0.0110 
+##  6 arg   nalti           649 40781 0.0159  0.693 0.0110 
+##  7 arg   repito          649 40781 0.0159  0.693 0.0110 
+##  8 br    icon            248 30429 0.00815 0.693 0.00565
+##  9 arg   ncio            287 40781 0.00704 0.693 0.00488
+## 10 arg   penalti         284 40781 0.00696 0.693 0.00483
+## # … with 4,763 more rows</code></pre>
+<p>O que nos trás algo como: “termos mais relevantes.”</p>
+<p>Visualmente:</p>
+<pre class="r"><code>book_words %&gt;%
+  arrange(desc(tf_idf)) %&gt;%
+  mutate(word = factor(word, levels = rev(unique(word)))) %&gt;% 
+  group_by(book) %&gt;% 
+  top_n(15) %&gt;% 
+  ungroup %&gt;%
+  
+  ggplot(aes(word, tf_idf, fill = book)) +
+  geom_col(show.legend = FALSE) +
+  labs(x = NULL, y = &quot;tf-idf&quot;) +
+  facet_wrap(~book, ncol = 2, scales = &quot;free&quot;) +
+  coord_flip()+
+  theme_bw()+ 
+    scale_fill_manual(values=c(&quot;#75ade0&quot;, &quot;#009b3a&quot;))</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="bi-grams" class="section level2">
+<h2>bi grams</h2>
+<p>OS bi grams são sequencias de palavras, a seguir será procurada as sequencias de duas palavras, o que nos permite estudar um pouco melhor o contexto do seu uso.</p>
+<pre class="r"><code># Bi grams
+book_bigrams &lt;- original_books %&gt;%
+  unnest_tokens(bigram, text, token = &quot;ngrams&quot;, n = 2)
+
+book_bigrams %&gt;%
+  count(bigram, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 15,106 x 3
+## # Groups:   book [2]
+##    book  bigram                    n
+##    &lt;chr&gt; &lt;chr&gt;                 &lt;int&gt;
+##  1 br    brasil copa            2039
+##  2 br    copa mundo             1459
+##  3 br    hoje brasil            1215
+##  4 arg   argentina copa         1122
+##  5 arg   isl ndia                818
+##  6 br    estreia brasil          764
+##  7 br    ansioso estreia         684
+##  8 br    est ansioso             680
+##  9 arg   classificou argentina   660
+## 10 arg   copa segundo            649
+## # … with 15,096 more rows</code></pre>
+<p>Separando as coluna de bi grams:</p>
+<pre class="r"><code>bigrams_separated &lt;- book_bigrams %&gt;%
+  separate(bigram, c(&quot;word1&quot;, &quot;word2&quot;), sep = &quot; &quot;)
+
+bigrams_filtered &lt;- bigrams_separated %&gt;%
+  filter(!word1 %in% stop_words$word) %&gt;%
+  filter(!word2 %in% stop_words$word)
+
+# new bigram counts:
+bigram_counts &lt;- bigrams_filtered %&gt;% 
+  count(word1, word2, sort = TRUE)
+
+bigram_counts</code></pre>
+<pre><code>## # A tibble: 15,106 x 4
+## # Groups:   book [2]
+##    book  word1       word2         n
+##    &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
+##  1 br    brasil      copa       2039
+##  2 br    copa        mundo      1459
+##  3 br    hoje        brasil     1215
+##  4 arg   argentina   copa       1122
+##  5 arg   isl         ndia        818
+##  6 br    estreia     brasil      764
+##  7 br    ansioso     estreia     684
+##  8 br    est         ansioso     680
+##  9 arg   classificou argentina   660
+## 10 arg   copa        segundo     649
+## # … with 15,096 more rows</code></pre>
+<p>Caso seja preciso juntar novamente:</p>
+<pre class="r"><code>bigrams_united &lt;- bigrams_filtered %&gt;%
+  unite(bigram, word1, word2, sep = &quot; &quot;)
+
+bigrams_united</code></pre>
+<pre><code>## # A tibble: 71,208 x 2
+## # Groups:   book [2]
+##    book  bigram             
+##    &lt;chr&gt; &lt;chr&gt;              
+##  1 arg   isl ndia           
+##  2 arg   ndia pouco         
+##  3 arg   pouco mil          
+##  4 arg   mil habitantes     
+##  5 arg   habitantes montaram
+##  6 arg   montaram sele      
+##  7 arg   sele est           
+##  8 arg   est copa           
+##  9 arg   copa fizeram       
+## 10 arg   fizeram gol        
+## # … with 71,198 more rows</code></pre>
+<div id="analisando-bi-grams-com-tf-idf" class="section level3">
+<h3>Analisando bi grams com tf-idf</h3>
+<p>Também é possível aplicar a transformação <code>tf-idf</code> em bigrams, veja:</p>
+<pre class="r"><code>#bi grams com tf idf
+bigram_tf_idf &lt;- bigrams_united %&gt;%
+  count(book, bigram) %&gt;%
+  bind_tf_idf(bigram, book, n) %&gt;%
+  arrange(desc(tf_idf))
+
+bigram_tf_idf</code></pre>
+<pre><code>## # A tibble: 15,106 x 6
+## # Groups:   book [2]
+##    book  bigram                    n     tf   idf  tf_idf
+##    &lt;chr&gt; &lt;chr&gt;                 &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 br    hoje brasil            1215 0.0399 0.693 0.0277 
+##  2 br    ansioso estreia         684 0.0225 0.693 0.0156 
+##  3 br    est ansioso             680 0.0223 0.693 0.0155 
+##  4 br    letras letras           620 0.0204 0.693 0.0141 
+##  5 arg   classificou argentina   660 0.0162 0.693 0.0112 
+##  6 arg   copa segundo            649 0.0159 0.693 0.0110 
+##  7 arg   messi repito            649 0.0159 0.693 0.0110 
+##  8 arg   repito classificou      649 0.0159 0.693 0.0110 
+##  9 arg   segundo especialistas   649 0.0159 0.693 0.0110 
+## 10 br    brasil letras           313 0.0103 0.693 0.00713
+## # … with 15,096 more rows</code></pre>
+</div>
+<div id="analisando-contexto-de-palavras-negativas" class="section level3">
+<h3>Analisando contexto de palavras negativas:</h3>
+<p>Uma das abordagens interessantes ao estudar as bi-grams é a de avaliar o contexto das palavras negativas, veja:</p>
+<pre class="r"><code>bigrams_separated %&gt;%
+  filter(word1 == &quot;nao&quot;) %&gt;%
+  count(word1, word2, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 35 x 4
+## # Groups:   book [2]
+##    book  word1 word2         n
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;
+##  1 br    nao   copa         10
+##  2 arg   nao   abrir         3
+##  3 arg   nao   convoca       3
+##  4 arg   nao   ruim          3
+##  5 br    nao   acredito      2
+##  6 arg   nao   achei         1
+##  7 arg   nao   acordem       1
+##  8 arg   nao   argentina     1
+##  9 arg   nao   assisti       1
+## 10 arg   nao   compara       1
+## # … with 25 more rows</code></pre>
+<pre class="r"><code>not_words &lt;- bigrams_separated %&gt;%
+  filter(word1 == &quot;nao&quot;) %&gt;%
+  inner_join(sentiment, by = c(word2 = &quot;word&quot;)) %&gt;%
+  count(word2, sentiment, sort = TRUE) %&gt;%
+  ungroup()
+
+not_words</code></pre>
+<pre><code>## # A tibble: 3 x 4
+##   book  word2    sentiment     n
+##   &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;int&gt;
+## 1 arg   ruim     negative      3
+## 2 arg   vencer   positive      1
+## 3 br    amistoso positive      1</code></pre>
+<p>A palavra não antes de uma palavra “positiva,” como por exemplo “não gosto” pode ser anulada ao somar-se suas polaridades (“não” = - 1, “gosto” = +1 e “não gosto” = -1 + 1) o leva a necessidade de ser tomar um cuidado especial com essas palavras em uma análise de texto mais detalhada, veja de forma visual:</p>
+<pre class="r"><code>not_words %&gt;%
+  mutate(sentiment=ifelse(sentiment==&quot;positive&quot;,1,ifelse(sentiment==&quot;negative&quot;,-1,0)))%&gt;%
+  mutate(contribution = n * sentiment) %&gt;%
+  arrange(desc(abs(contribution))) %&gt;%
+  head(20) %&gt;%
+  mutate(word2 = reorder(word2, contribution)) %&gt;%
+  
+  ggplot(aes(word2, n * sentiment, fill = n * sentiment &gt; 0)) +
+  geom_col() +
+  xlab(&quot;Words preceded by \&quot;not\&quot;&quot;) +
+  ylab(&quot;Sentiment score * number of occurrences&quot;) +
+  coord_flip()+
+  theme_bw()</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="machine-learning" class="section level1">
+<h1>Machine Learning</h1>
+<p>Estava pesquisando sobre algorítimos recomendados para a análise de texto quando encontrei um artigo da data camp chamado: <a href="https://www.datacamp.com/community/tutorials/R-nlp-machine-learning"><em>Lyric Analysis with NLP &amp; Machine Learning with R</em></a>, do qual a autora expõe a seguinte tabela:</p>
+<center>
+<img src="http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1517331396/MLImage_cygwsb.jpg" style="width:60.0%" />
+</center>
+<p>Portanto resolvi fazer uma brincadeira e ajustar 4 dos modelos propostos para a tarefa supervisionada de classificação: K-NN, Tress (tentarei o ajuste do algorítimo Random Forest), Logistic Regression (Modelo estatístico) e Naive-Bayes (por meio do cálculo de probabilidades condicionais) para ver se conseguia recuperar a classificação de quais os termos de pesquisa que eu utilizei para obter esses dados</p>
+<p>Além de técnicas apresentadas no livro do pacote <code>caret</code>, por <span class="citation"><a href="#ref-caret" role="doc-biblioref">Kuhn</a> (<a href="#ref-caret" role="doc-biblioref">2018</a>)</span>, muito do que apliquei aqui foi baseado no livro “Introdução a mineração de dados” por <span class="citation"><a href="#ref-miner" role="doc-biblioref">Silva; Peres; Boscarioli</a> (<a href="#ref-miner" role="doc-biblioref">2016</a>)</span>, que foi bastante útil na minha introdução sobre o tema Machine Learning.</p>
+<p>Vou utilizar uma função chamada <code>plot_pred_type_distribution()</code>,apresentada neste post de titulo: <a href="https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/">Illustrated Guide to ROC and AUC</a> e fiz uma pequena alteração para que ela funcionasse para o dataset deste post . A função adaptada pode ser encontrada <a href="https://github.com/gomesfellipe/functions/blob/master/plot_pred_type_distribution.R">neste link</a> no meu github e a função original <a href="https://github.com/joyofdata/joyofdata-articles/blob/master/roc-auc/plot_pred_type_distribution.R">neste link do github do autor</a>.</p>
+<div id="pacote-caret" class="section level2">
+<h2>Pacote caret</h2>
+<p>Basicamente o ajuste de todos os modelos envolveram o uso do pacote <code>caret</code> e muitos dos passos aqui foram baseados nas instruções fornecidas no <a href="https://topepo.github.io/caret/index.html">livro do pacote</a>. O pacote facilita bastante o ajuste dos parâmetros no ajuste de modelos.</p>
+</div>
+<div id="transformar-e-arrumar" class="section level2">
+<h2>Transformar e arrumar</h2>
+<p>Uma <a href="https://www.kaggle.com/kailex/tidy-xgboost-glmnet-text2vec-lsa">solução do kaggle</a> para o desafio <a href="https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge">Toxic Comment Classification Challenge</a> me chamou atenção, do qual o participante da competição criou colunas que sinalizassem os caracteres especiais de cada frase, utilizarei esta técnica para o ajuste e novamente utilizarei o pacote de léxicos do apresentado no <a href="https://sillasgonzaga.github.io/2017-09-23-sensacionalista-pt01/">post do blog Paixão por dados</a></p>
+<p>Veja a base transformada e arrumada:</p>
+<pre class="r"><code># Ref: https://cfss.uchicago.edu/text_classification.html 
+# https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/plot_pred_type_distribution.R&quot;)
+
+base &lt;- base %&gt;% 
+  mutate(length = str_length(text),
+         ncap = str_count(text, &quot;[A-Z]&quot;),
+         ncap_len = ncap / length,
+         nexcl = str_count(text, fixed(&quot;!&quot;)),
+         nquest = str_count(text, fixed(&quot;?&quot;)),
+         npunct = str_count(text, &quot;[[:punct:]]&quot;),
+         nword = str_count(text, &quot;\\w+&quot;),
+         nsymb = str_count(text, &quot;&amp;|@|#|\\$|%|\\*|\\^&quot;),
+         nsmile = str_count(text, &quot;((?::|;|=)(?:-)?(?:\\)|D|P))&quot;),
+         text = clean_tweets(text) %&gt;% enc2native() %&gt;% rm_accent())%&gt;%
+  unnest_tokens(word, text) %&gt;% 
+  anti_join(stop_words)%&gt;%
+  group_by(book,line,length, ncap, ncap_len, nexcl, nquest, npunct, nword, nsymb, nsmile)%&gt;%
+  summarise(text=paste(word,collapse = &quot; &quot;)) %&gt;% 
+  select(text,everything())%T&gt;% 
+  print()</code></pre>
+<pre><code>## # A tibble: 7,995 x 12
+## # Groups:   book, line, length, ncap, ncap_len, nexcl, nquest, npunct, nword,
+## #   nsymb [7,995]
+##    text  book   line length  ncap ncap_len nexcl nquest npunct nword nsymb
+##    &lt;chr&gt; &lt;chr&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt;    &lt;dbl&gt; &lt;int&gt;  &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1 isl … arg       1     NA     7  NA          0      0      6    24     1
+##  2 pau … arg       2    108     6   0.0556     0      0      2    20     1
+##  3 mess… arg       3     NA    10  NA          0      0      3    24     1
+##  4 minu… arg       4     NA     2  NA          0      0      2    24     1
+##  5 requ… arg       5    129    23   0.178      0      0     15    21     1
+##  6 bras… arg       6     NA    11  NA          0      0     12    20     1
+##  7 dupl… arg       7    123    84   0.683      0      0      8    21     1
+##  8 mess… arg       8     NA    10  NA          0      0      3    24     1
+##  9 mess… arg       9     NA    10  NA          0      0      3    24     1
+## 10 mess… arg      10     NA    10  NA          0      0      3    24     1
+## # … with 7,985 more rows, and 1 more variable: nsmile &lt;int&gt;</code></pre>
+<p>Após arrumar e transformar as informações que serão utilizadas na classificação, será criado um corpus sem a abordagem tidy para obter a matriz de documentos e termos, e depois utilizar a coluna de classificação, veja:</p>
+<pre class="r"><code>library(tm)       #Pacote de para text mining
+corpus &lt;- Corpus(VectorSource(base$text))
+
+#Criando a matrix de termos:
+book_dtm = DocumentTermMatrix(corpus, control = list(minWordLength=2,minDocFreq=3)) %&gt;% 
+  weightTfIdf(normalize = T) %&gt;%    # Transformação tf-idf com pacote tm
+  removeSparseTerms( sparse = .95)  # obtendo matriz esparsa com pacote tm
+
+#Transformando em matrix, permitindo a manipulacao:
+matrix = as.matrix(book_dtm)
+dim(matrix)</code></pre>
+<pre><code>## [1] 7995   18</code></pre>
+<p>Pronto, agora já podemos juntar tudo em um data frame e separa em treino e teste para a classificação dos textos obtidos do twitter:</p>
+<pre class="r"><code>#Criando a base de dados:
+full=data.frame(cbind(
+  base[,&quot;book&quot;],
+  matrix,
+  base[,-c(1:3)]
+  )) %&gt;% na.omit()</code></pre>
+</div>
+<div id="treino-e-teste" class="section level2">
+<h2>Treino e teste</h2>
+<p>Será utilizado tanto o método de hold-out e de cross-validation</p>
+<pre class="r"><code>set.seed(825)
+particao = sample(1:2,nrow(full), replace = T,prob = c(0.7,0.3))
+
+train = full[particao==1,] 
+test = full[particao==2,] 
+
+library(caret)</code></pre>
+</div>
+<div id="ajustando-modelos" class="section level2">
+<h2>Ajustando modelos</h2>
+<div id="knn" class="section level3">
+<h3>KNN</h3>
+<p>É uma técnica de aprendizado baseado em instância, isto quer dizer que a classificação de uma observação com a classe desconhecida é realizada a partir da comparação com outras observações cada vez que uma observação é apresentado ao modelo e também é conhecido como “lazy evaluation,” já que um modelo não é induzido previamente.</p>
+<p>Diversas medidas de distância podem ser utilizadas, utilizarei aqui a euclideana e além disso a escolha do parâmetro <span class="math inline">\(k\)</span> (de k vizinhos mais próximos) deve ser feita com cuidado pois um <span class="math inline">\(k\)</span> pequeno pode expor o algorítimo a uma alta sensibilidade a um ruído.</p>
+<p>Utilizarei aqui o pacote <code>caret</code> como ferramenta para o ajuste deste modelo pois ela permite que eu configure que seja feita a validação cruzada em conjunto com a padronização, pois esses complementos beneficiam no ajuste de modelos que calculam distâncias.</p>
+<pre class="r"><code># knn -------
+set.seed(825)
+antes = Sys.time()
+book_knn &lt;- train(book ~.,
+                  data=train,
+                 method = &quot;knn&quot;,
+                 trControl = trainControl(method = &quot;cv&quot;,number = 10), # validacao cruzada
+                 preProc = c(&quot;center&quot;, &quot;scale&quot;))                      
+time_knn &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 2.465522 secs</code></pre>
+<pre class="r"><code>plot(book_knn)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/knn-1.png" width="672" /></p>
+<pre class="r"><code>previsao  = predict(book_knn, test)
+confusionMatrix(previsao, factor(test$book))</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction arg  br
+##        arg 105   8
+##        br    5 371
+##                                          
+##                Accuracy : 0.9734         
+##                  95% CI : (0.955, 0.9858)
+##     No Information Rate : 0.7751         
+##     P-Value [Acc &gt; NIR] : &lt;2e-16         
+##                                          
+##                   Kappa : 0.9245         
+##                                          
+##  Mcnemar&#39;s Test P-Value : 0.5791         
+##                                          
+##             Sensitivity : 0.9545         
+##             Specificity : 0.9789         
+##          Pos Pred Value : 0.9292         
+##          Neg Pred Value : 0.9867         
+##              Prevalence : 0.2249         
+##          Detection Rate : 0.2147         
+##    Detection Prevalence : 0.2311         
+##       Balanced Accuracy : 0.9667         
+##                                          
+##        &#39;Positive&#39; Class : arg            
+## </code></pre>
+<pre class="r"><code>df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/knn-2.png" width="672" /></p>
+<p>Como podemos ver, segundo a validação cruzada realizada com o pacote <code>caret</code>, o número 5 de vizinhos mais próximos foi o que apresentou o melhor resultado. Além disso o modelo apresentou uma acurácia de 97,18% e isto parece bom dado que a sensibilidade (taxa de verdadeiros positivos) e a especificidade (taxa de verdadeiros negativos) foram altas também, o que foi reforçado com o gráfico ilustrado da matriz de confusão.</p>
+<p>O tempo computacional para o ajuste do modelo foi de:2.46385908126831 segundos</p>
+</div>
+<div id="random-forest" class="section level3">
+<h3>Random Forest</h3>
+<p>O modelo de Random Forest tem se tornado muito popular devido ao seu bom desempenho e pela sua alta capacidade de se adaptar aos dados. O modelo funciona através da combinação de várias árvores de decisões e no seu ajuste alguns parâmetros precisam ser levados em conta.</p>
+<p>O parâmetro que sera levado em conta para o ajuste será apenas o <code>ntree</code>, que representa o número de árvores ajustadas. Este parâmetro deve ser escolhido com cuidado pois pode ser tão grande quanto você quiser e continua aumentando a precisão até certo ponto porém pode ser mais limitado pelo tempo computacional disponível.</p>
+<pre class="r"><code>set.seed(824)
+# Random Forest
+antes = Sys.time()
+book_rf &lt;- train(book ~.,
+                  data=train,
+                     method = &quot;rf&quot;,trace=F,
+                     ntree = 200,
+                     trControl = trainControl(method = &quot;cv&quot;,number = 10))
+time_rf &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 8.994044 secs</code></pre>
+<pre class="r"><code>library(randomForest)
+varImpPlot(book_rf$finalModel)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/rf-1.png" width="672" /></p>
+<pre class="r"><code>previsao  = predict(book_rf, test)
+confusionMatrix(previsao, factor(test$book))</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction arg  br
+##        arg 110   0
+##        br    0 379
+##                                      
+##                Accuracy : 1          
+##                  95% CI : (0.9925, 1)
+##     No Information Rate : 0.7751     
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16  
+##                                      
+##                   Kappa : 1          
+##                                      
+##  Mcnemar&#39;s Test P-Value : NA         
+##                                      
+##             Sensitivity : 1.0000     
+##             Specificity : 1.0000     
+##          Pos Pred Value : 1.0000     
+##          Neg Pred Value : 1.0000     
+##              Prevalence : 0.2249     
+##          Detection Rate : 0.2249     
+##    Detection Prevalence : 0.2249     
+##       Balanced Accuracy : 1.0000     
+##                                      
+##        &#39;Positive&#39; Class : arg        
+## </code></pre>
+<pre class="r"><code># https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/
+df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/rf-2.png" width="672" /></p>
+<p>Segundo o gráfico de importância, parece que as palavras “brasil,” “argentina,” “copa” e “messi” foram as que apresentaram maior impacto do preditor (lembrando que essa medida não é um efeito específico), o que mostra que a presença das palavras que estamos utilizando para classificar tiveram um impacto na classificação bastante superior aos demais.</p>
+<p>Quanto a acurácia, o random forest apresentou valor um pouco maior do que o do algorítimo K-NN e além disso apresentou altos valores para a sensibilidade (taxa de verdadeiros positivos) e a especificidade (taxa de verdadeiros negativos), o que foi reforçado com o gráfico ilustrado da matriz de confusão, porém o tempo computacional utilizado para ajustar este modelo foi muito maior, o que leva a questionar se esse pequeno aumento na taxa de acerto vale a pena aumentando tanto no tempo de processamento (outra alternativa seria diminuir o tamanho do número de árvores para ver se melhoraria na qualidade do ajuste).</p>
+<p>O tempo computacional para o ajuste do modelo foi de: 8.99299788475037 segundos</p>
+</div>
+<div id="naive-bayes" class="section level3">
+<h3>Naive Bayes</h3>
+<p>Este é um algorítimo que trata-se de um classificador estatístico baseado no <strong>Teorema de Bayes</strong> e recebe o nome de ingênuo (<em>naive</em>) porque pressupõe que o valor de um atributo que exerce algum efeito sobre a distribuição da variável resposta é independente do efeito que outros atributos.</p>
+<p>O cálculo para a classificação é feito por meio do cálculo de probabilidades condicionais, ou seja, probabilidade de uma observação pertencer a cada classe dado os exemplares existentes no conjunto de dados usado para o treinamento.</p>
+<pre class="r"><code># Naive Bayes ----
+set.seed(825)
+antes = Sys.time()
+book_nb &lt;- train(book ~.,
+                  data=train,
+                 method= &quot;nb&quot;,
+                 laplace =1,       
+                 trControl = trainControl(method = &quot;cv&quot;,number = 10))
+time_nb &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 7.141471 secs</code></pre>
+<pre class="r"><code>previsao  = predict(book_nb, test)
+confusionMatrix(previsao, factor(test$book))</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction arg  br
+##        arg 108   6
+##        br    2 373
+##                                          
+##                Accuracy : 0.9836         
+##                  95% CI : (0.968, 0.9929)
+##     No Information Rate : 0.7751         
+##     P-Value [Acc &gt; NIR] : &lt;2e-16         
+##                                          
+##                   Kappa : 0.9537         
+##                                          
+##  Mcnemar&#39;s Test P-Value : 0.2888         
+##                                          
+##             Sensitivity : 0.9818         
+##             Specificity : 0.9842         
+##          Pos Pred Value : 0.9474         
+##          Neg Pred Value : 0.9947         
+##              Prevalence : 0.2249         
+##          Detection Rate : 0.2209         
+##    Detection Prevalence : 0.2331         
+##       Balanced Accuracy : 0.9830         
+##                                          
+##        &#39;Positive&#39; Class : arg            
+## </code></pre>
+<pre class="r"><code># https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/
+df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/nb-1.png" width="672" /></p>
+<p>Apesar a aparente acurácia alta, o valor calculado para a especificidade (verdadeiros negativos) foi elevado o que aponta que o ajuste do modelo não se apresentou de forma eficiente</p>
+<p>O tempo computacional foi de 7.1403751373291 segundos</p>
+</div>
+<div id="glm---logit" class="section level3">
+<h3>GLM - Logit</h3>
+<p>Este é um modelo estatístico que já abordei aqui no blog no post sobre <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de machine learning</a> e seguindo a recomendação do artigo da datacamp vejamos quais resultados obtemos com o ajuste deste modelo:</p>
+<pre class="r"><code># Modelo logístico ----
+set.seed(825)
+antes = Sys.time()
+book_glm &lt;- train(book ~.,
+                  data=train,
+                  method = &quot;glm&quot;,                                         # modelo generalizado
+                  family = binomial(link = &#39;logit&#39;),                      # Familia Binomial ligacao logit
+                  trControl = trainControl(method = &quot;cv&quot;, number = 10))   # validacao cruzada
+time_glm &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 1.378149 secs</code></pre>
+<pre class="r"><code>library(ggfortify)
+
+autoplot(book_glm$finalModel, which = 1:6, data = train,
+         colour = &#39;book&#39;, label.size = 3,
+         ncol = 3) + theme_classic()</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/glm-1.png" width="672" /></p>
+<pre class="r"><code>previsao  = predict(book_glm, test)
+confusionMatrix(previsao, factor(test$book))</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction arg  br
+##        arg 109   0
+##        br    1 379
+##                                           
+##                Accuracy : 0.998           
+##                  95% CI : (0.9887, 0.9999)
+##     No Information Rate : 0.7751          
+##     P-Value [Acc &gt; NIR] : &lt;2e-16          
+##                                           
+##                   Kappa : 0.9941          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 1               
+##                                           
+##             Sensitivity : 0.9909          
+##             Specificity : 1.0000          
+##          Pos Pred Value : 1.0000          
+##          Neg Pred Value : 0.9974          
+##              Prevalence : 0.2249          
+##          Detection Rate : 0.2229          
+##    Detection Prevalence : 0.2229          
+##       Balanced Accuracy : 0.9955          
+##                                           
+##        &#39;Positive&#39; Class : arg             
+## </code></pre>
+<pre class="r"><code>df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/glm-2.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="comparando-modelos" class="section level1">
+<h1>Comparando modelos</h1>
+<p>Agora que temos 4 modelos ajustados e cada um apresentando resultados diferentes, vejamos qual deles seria o mais interessante para caso fosse necessário recuperar a classificação dos termos pesquisados através da API, veja a seguir um resumo das medidas obtidas:</p>
+<pre class="r"><code># &quot;Dados esses modelos, podemos fazer declarações estatísticas sobre suas diferenças de desempenho? Para fazer isso, primeiro coletamos os resultados de reamostragem usando resamples.&quot; - caret
+resamps &lt;- resamples(list(knn = book_knn,
+                          rf = book_rf,
+                          nb = book_nb,
+                          glm = book_glm)) 
+summary(resamps)</code></pre>
+<pre><code>## 
+## Call:
+## summary.resamples(object = resamps)
+## 
+## Models: knn, rf, nb, glm 
+## Number of resamples: 10 
+## 
+## Accuracy 
+##          Min.   1st Qu.    Median      Mean   3rd Qu. Max. NA&#39;s
+## knn 0.9553571 0.9821824 0.9823009 0.9831305 0.9889381    1    0
+## rf  0.9823009 1.0000000 1.0000000 0.9973451 1.0000000    1    0
+## nb  0.9107143 0.9623894 0.9823009 0.9768726 1.0000000    1    0
+## glm 0.9910714 0.9911504 1.0000000 0.9964523 1.0000000    1    0
+## 
+## Kappa 
+##          Min.   1st Qu.    Median      Mean   3rd Qu. Max. NA&#39;s
+## knn 0.8730734 0.9500663 0.9512773 0.9530901 0.9691458    1    0
+## rf  0.9513351 1.0000000 1.0000000 0.9926689 1.0000000    1    0
+## nb  0.7791798 0.8998204 0.9525409 0.9398109 1.0000000    1    0
+## glm 0.9752868 0.9753544 1.0000000 0.9901350 1.0000000    1    0</code></pre>
+<p>Como podemos ver, o modelo que apresentou a menor acurácia e o menor coeficiente kappa foi o Naive Bayes enquanto que o que apresentou as maiores medidas de qualidade do ajuste foi o modelo ajustado com o algorítimo Random Forest e tanto o modelo ajustado pelo algorítimo knn quanto o modelo linear generalizado com função de ligação “logit” também apresentaram acurácia e coeficiente kappa próximos do apresentado no ajuste do Random Forest.</p>
+<p>Portanto, apesar dos ajustes, caso dois modelos não apresentem diferença estatisticamente significante e o tempo computacional gasto para o ajuste de ambos for muito diferente pode ser que ser que tenhamos um modelo candidato para:</p>
+<pre class="r"><code>c( knn= time_knn,rf = time_rf,nb = time_nb,glm = time_glm)</code></pre>
+<pre><code>## Time differences in secs
+##      knn       rf       nb      glm 
+## 2.463859 8.992998 7.140375 1.377073</code></pre>
+<p>O modelo linear generalizado foi o que apresentou o menor tempo computacional e foi o que apresentou o terceiro maior registro para os as medidas de qualidade do ajuste dos modelos, portanto esse modelo será avaliado com mais cuidado em seguida para saber se ele será o modelo selecionado</p>
+<p><strong>Obs.:</strong> Sou suspeito para falar mas dentre esses modelos eu teria preferência por este modelo de qualquer maneira por não se tratar de uma “caixa preta,” da qual todos os efeitos de cada parâmetro ajustado podem ser interpretado, além de obter medidas como razões de chance que ajudam bastante na compreensão dos dados.</p>
+<p>Comparando de forma visual:</p>
+<pre class="r"><code>splom(resamps)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>Assim fica mais claro o como o ajuste dos modelos Random Forest, K-NN e GLM se destacaram quando avaliados em relação a acurácia apresentada.</p>
+<p>Vejamos a seguir como foi a distribuição dessas medidas de acordo com cada modelo através de boxplots:</p>
+<pre class="r"><code>bwplot(resamps)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p>Note que além de apresentar os ajustes com menor acurácia (e elevada taxa de falsos negativos) o algorítimo Naive Bayes foi o que apresentou a maior variação interquartil das medidas de qualidade do ajuste do modelo.</p>
+<p>Para finalizar a análise visual vamos obter as diferenças entre os modelos com a função <code>diff()</code> e em seguida conferir de maneira visual o comportamento dessas informações:</p>
+<pre class="r"><code>difValues &lt;- diff(resamps)
+
+# plot:
+bwplot(difValues)</code></pre>
+<p><img src="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p>Observe que tanto o modelo logístico quando o ajuste com o algorítimo K-NN apresentaram valores muito próximos dos valores do ajuste do Random Forest e como já vimos o Random Forest foi o modelo que levou maior tempo computacional para ser ajustado, portanto vamos conferir a seguir se existe diferença estatisticamente significante entre os valores obtidos através de cada um dos ajustes e decidir qual dos modelos se apresentou de maneira mais adequada para nosso caso:</p>
+<pre class="r"><code>resamps$values %&gt;% 
+  select_if(is.numeric) %&gt;% 
+  purrr::map(function(x) shapiro.test(x))</code></pre>
+<pre><code>## $`knn~Accuracy`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.87602, p-value = 0.1174
+## 
+## 
+## $`knn~Kappa`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.87418, p-value = 0.1118
+## 
+## 
+## $`rf~Accuracy`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.53165, p-value = 8.564e-06
+## 
+## 
+## $`rf~Kappa`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.53234, p-value = 8.727e-06
+## 
+## 
+## $`nb~Accuracy`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.80077, p-value = 0.01482
+## 
+## 
+## $`nb~Kappa`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.81793, p-value = 0.02392
+## 
+## 
+## $`glm~Accuracy`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.6429, p-value = 0.0001803
+## 
+## 
+## $`glm~Kappa`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.64123, p-value = 0.0001722</code></pre>
+<p>Como a hipótese de normalidade não foi rejeitada para nenhuma das amostras de acurácias registradas, vejamos se existe diferença estatisticamente significante entre as médias dessas medidas de qualidade para cada modelo:</p>
+<pre class="r"><code>t.test(resamps$values$`rf~Accuracy`,resamps$values$`knn~Accuracy`, paired = T)  </code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  resamps$values$`rf~Accuracy` and resamps$values$`knn~Accuracy`
+## t = 3.9961, df = 9, p-value = 0.003129
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.0061678 0.0222614
+## sample estimates:
+## mean of the differences 
+##               0.0142146</code></pre>
+<p>Rejeita a hipótese de que as médias das acurácias calculadas para o ajuste do algorítimo Random Forest e K-NN foram iguais</p>
+<pre class="r"><code>t.test(resamps$values$`rf~Accuracy`,resamps$values$`glm~Accuracy`, paired = T)  </code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  resamps$values$`rf~Accuracy` and resamps$values$`glm~Accuracy`
+## t = 0.43326, df = 9, p-value = 0.675
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.003768926  0.005554640
+## sample estimates:
+## mean of the differences 
+##            0.0008928571</code></pre>
+<p>Novamente, rejeita-se a hipótese de que as médias das acurácias calculadas para o ajuste do algorítimo Random Forest e do modelo de logístico foram iguais</p>
+<pre class="r"><code>t.test(resamps$values$`knn~Accuracy`,resamps$values$`glm~Accuracy`, paired = T)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  resamps$values$`knn~Accuracy` and resamps$values$`glm~Accuracy`
+## t = -4.0077, df = 9, p-value = 0.003074
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.020841197 -0.005802292
+## sample estimates:
+## mean of the differences 
+##             -0.01332174</code></pre>
+<p>Já para a comparação entre as médias das acurácias calculadas para o algorítimo K-NN e para o modelo logístico não houve evidências estatísticas para se rejeitas a hipótese de que ambas as médias são iguais, o que nos sugere o modelo logístico como o segundo melhor candidato como modelo de classificação para este problema com estes dados.</p>
+<p>Então a escolha ficará a critério do que é mais importante. Caso o tempo computacional fosse uma medida que tivesse mais importância do que a pequena superioridade de acurácia apresentada pelo algorítimo Random Forest, escolheria o modelo logístico, porém como neste caso os 7.61592507362366 segundos a mais para ajustar o modelo não fazem diferença para mim, fico com o modelo Random Forest.</p>
+<p>Este post trás alguns dos conceitos que venho estudado e existem muitos tópicos apresentados aqui que podem (e devem) ser estudados com mais profundidade, espero que tenha gostado!</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<p>obs.: links mensionados no corpo do texto</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-caret" class="csl-entry">
+Kuhn, Max. 2018. <em>The Caret Package</em>. <a href="https://topepo.github.io/caret/index.html">https://topepo.github.io/caret/index.html</a>.
+</div>
+<div id="ref-tidytext" class="csl-entry">
+Silge; Robinson, Julia; David. 2018. <em>Text Mining with R</em>. <em>A Tidy Approach</em>. <a href="https://www.tidytextmining.com/">https://www.tidytextmining.com/</a>.
+</div>
+<div id="ref-miner" class="csl-entry">
+Silva; Peres; Boscarioli, Leandro Augusto; Sarajane Marques; Clodis. 2016. <em>Introdução à Mineração de Dados</em>. <em>Com Aplicações Em R</em>. Vol. 3. Elsevier Editora Ltda.
+</div>
+</div>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria">Analise Exploratória</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado">Aprendizado Não Supervisionado</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/data-mining">Data mining</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/machine-learning">Machine Learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/modelagem-estatistica">Modelagem Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/text-mining">Text Mining</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sentimentos">Análise de Sentimentos</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/data-mining">Data Mining</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/estatistica">Estatistica</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/twitter">twitter</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/modelagem">modelagem</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/text-mining">text mining</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/"
+                class="button big previous">AED de forma rápida e um pouco de Machine Learning</a></li>
+    
+
+    
+        <li><a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/"
+                class="button big next">modelo bayesiano do zero</a></li>
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='https://gomesfellipe.github.io/' class="logo"><img src="https://gomesfellipe.github.io/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um cientista de dados?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/">Solução Final - ML Olympiad [1º lugar]</a>
+              </h3>
+              
+              <time class="published" datetime='2023-05-30'>
+                May 30, 2023
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2023/05/img3.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/">Gerando arte com Inteligência Artificial</a>
+              </h3>
+              
+              <time class="published" datetime='2022-08-08'>
+                August 8, 2022
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2022/08/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/">Solução Final - ML Olympiad [2º lugar]</a>
+              </h3>
+              
+              <time class="published" datetime='2022-04-19'>
+                April 19, 2022
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2022/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a>
+              </h3>
+              
+              <time class="published" datetime='2021-12-03'>
+                December 3, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/12/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/">Solução Final - Porto Seguro Data Challenge [3º lugar]</a>
+              </h3>
+              
+              <time class="published" datetime='2021-11-01'>
+                November 1, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/11/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/">Otimizando pipelines que envolvem dados desbalanceados</a>
+              </h3>
+              
+              <time class="published" datetime='2021-06-28'>
+                June 28, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/06/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/">Ciência de Dados - Uma visão geral</a>
+              </h3>
+              
+              <time class="published" datetime='2021-05-24'>
+                May 24, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/">Prevendo a qualidade do sono utilizando Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2021-03-04'>
+                March 4, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/03/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</a>
+              </h3>
+              
+              <time class="published" datetime='2020-03-25'>
+                March 25, 2020
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2020/03/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/">Como automatizar relatórios longos e repetitivos com RMarkdown</a>
+              </h3>
+              
+              <time class="published" datetime='2019-09-13'>
+                September 13, 2019
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2019/09/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/">Hackeando o R: estratégia split-apply-combine</a>
+              </h3>
+              
+              <time class="published" datetime='2019-04-05'>
+                April 5, 2019
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2019/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/">Um ano de blog!</a>
+              </h3>
+              
+              <time class="published" datetime='2018-12-26'>
+                December 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/12/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a>
+              </h3>
+              
+              <time class="published" datetime='2018-11-28'>
+                November 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/11/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/">Seu app, RStudio e Shiny Server na nuvem do Google</a>
+              </h3>
+              
+              <time class="published" datetime='2018-10-27'>
+                October 27, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/10/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-09-29'>
+                September 29, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/09/img1.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-31'>
+                August 31, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/08/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-28'>
+                July 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-06-24'>
+                June 24, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-05-26'>
+                May 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-04-12'>
+                April 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/04/gtrends-r.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-03-07'>
+                March 7, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-17'>
+                February 17, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-01'>
+                February 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-18'>
+                December 18, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-17'>
+                December 17, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/12/imagem2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/">Criando relatorios com template tufle</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-14'>
+                December 14, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes, sou Estatístico e atuo como cientista de dados. Percebi que passar para as pessoas o que é possível fazer nas diversas áreas de estudo que envolvem ciência de dados é um grande desafio. Diante disso, resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="https://gomesfellipe.github.io/about/" class="button">Learn More</a>
+    </section>
+  
+  
+  </br>
+
+
+<iframe style="margin: 0px; border: 0px none; height: 610px; width: 100%; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px; background: rgb(255, 255, 255) url(&quot;https://marketplace.kony.com/static/dist/images/loader.svg&quot;) no-repeat scroll center center / 64px; transition: all 0.4s ease 0s;" src="https://www.buymeacoffee.com/widget/page/gomesfellipe?description=Support%20me%20on%20Buy%20me%20a%20coffee!&amp;color=%23FF813F"></iframe>
+
+
+</br>
+
+  
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#f4f4f4; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	 
+</style>
+<div id="mc_embed_signup">
+<form action="https://github.us19.list-manage.com/subscribe/post?u=ba1b89ab75a7b5f8a2f0c6a3f&amp;id=6bb643ba67" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Inscreva-se para acompanhar o conteúdo do blog!</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba1b89ab75a7b5f8a2f0c6a3f_6bb643ba67" tabindex="-1" value=""></div>
+    <div class="show"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="https://gomesfellipe.github.io/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/r/">r</a>
+                <span style="float:right;">30</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
+                <span style="float:right;">25</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/estatistica/">estatistica</a>
+                <span style="float:right;">22</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/">analise-exploratória</a>
+                <span style="float:right;">13</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/machine-learning/">machine-learning</a>
+                <span style="float:right;">11</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/teoria/">teoria</a>
+                <span style="float:right;">10</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/aprendizado-supervisionado/">aprendizado-supervisionado</a>
+                <span style="float:right;">7</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/data-mining/">data-mining</a>
+                <span style="float:right;">7</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/modelagem-estatistica/">modelagem-estatistica</a>
+                <span style="float:right;">7</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/reports/">reports</a>
+                <span style="float:right;">7</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/ciencia-de-dados/">ciencia-de-dados</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/kaggle/">kaggle</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/">modelo-baseado-em-arvores</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tidyverse/">tidyverse</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/analise-mutivariada/">analise-mutivariada</a>
+                <span style="float:right;">5</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/">automação</a>
+                <span style="float:right;">5</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">5</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/probabilidade/">probabilidade</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/python/">python</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/regress%C3%A3o/">regressão</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado/">aprendizado-não-supervisionado</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bitcoin/">bitcoin</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/catboost/">catboost</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/dados-desbalanceados/">dados-desbalanceados</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/google/">google</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/rmarkdown/">rmarkdown</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/text-mining/">text-mining</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bayes/">bayes</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/cloud/">cloud</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/infer%C3%AAncia-bayesiana/">inferência-bayesiana</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/mapas/">mapas</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/randomforest/">randomforest</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/shiny/">shiny</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o/">simulação</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sentimentos/">análise-de-sentimentos</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sobreviv%C3%AAncia/">análise-de-sobrevivência</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/arvore-de-decisoes/">arvore-de-decisoes</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/big-data/">big-data</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/carreira/">carreira</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/classifica%C3%A7%C3%A3o/">classificação</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/clustering/">clustering</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/dalle2/">dalle2</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/dataart/">dataart</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/estat%C3%ADstica/">estatística</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/filosofia/">filosofia</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/gamification/">gamification</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/gan/">gan</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/ggplot/">ggplot</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/google-trends/">google-trends</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/grafo/">grafo</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/ia/">ia</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/knn/">knn</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/lightgbm/">lightgbm</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/nao-supervisionado/">nao-supervisionado</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/neural-networks/">neural-networks</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/optuna/">optuna</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/rstudio-server/">rstudio-server</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/shap/">shap</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/shiny-server/">shiny-server</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tidymodels/">tidymodels</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tuning/">tuning</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tunning/">tunning</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/utilidades/">utilidades</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/vqgan&#43;clip/">vqgan&#43;clip</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/web-scrapping/">web-scrapping</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/xgboost/">xgboost</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2023
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="https://gomesfellipe.github.io/js/util.js"></script>
+      <script src="https://gomesfellipe.github.io/js/main.js"></script>
+      <script src="https://gomesfellipe.github.io/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

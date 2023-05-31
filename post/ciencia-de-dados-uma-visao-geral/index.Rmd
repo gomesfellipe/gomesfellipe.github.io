@@ -1,0 +1,59 @@
+---
+title: Ciência de Dados - Uma visão geral
+author: Fellipe Gomes
+date: '2021-05-24'
+slug: ciencia-de-dados-uma-visao-geral
+categories:
+  - Estatistica
+  - Machine Learning
+  - Big Data
+  - Carreira
+  - Ciencia de dados
+tags:
+  - Estatistica
+  - machine learning
+  - big data
+  - carreira
+  - ciencia de dados
+description: 'Nesta apresentação tive a oportunidade de falar um pouco sobre a minha visão e cases relacionados a esta área tão extensa e incrível que é a ciência de dados!'
+featured: 'img1.png'
+featuredalt: 'Pic 26'
+featuredpath: 'date'
+linktitle: ''
+type: "post"
+---
+
+```{r, include=F}
+library("htmltools")
+library("vembedr")
+```
+
+
+Com a elevada quantidade de dados sendo produzidos a todo instante e o poder computacional cada vez maior, a ciência de dados tem ganhado muito espaço no mercado. Isso ocorre pois suas ferramentas nos permitem descobrir soluções ocultas a partir de enormes massas de dados desorganizados combinando programação, matemática, estatística e compreensão contextual.
+
+# O bom filho à casa torna! 
+
+No dia 23 de abr. de 2021 tive o enorme prazer de apresentar no [Ramo Estudantil IEEE UFF](https://edu.ieee.org/br-uff/ramo-uff/) um pouco sobre a minha visão sobre áreas que compõe a ciência de dados e apresentar alguns cases relacionados!
+
+Sou muito grato à organização por todo o cuidado e capricho do evento e muito satisfeito de poder retornar (apesar das circunstâncias do momento de pandemia) a esta universidade que mudou minha vida e poder contribuir um pouquinho para o desenvolvimento de alunos interessados em seguir na área.
+
+Conteúdos que foram (brevemente) abordados:
+
+- O que é ciência de dados
+- Estatística e Ciência de dados
+- Big Data
+- Machine Learning
+- Aplicações (e cases)
+- Dicas de Carreira
+
+Foi uma apresentação de 1 hora e esta gravada no canal do Ramo Estudantil IEEE - UFF no Youtube no link: <https://www.youtube.com/watch?v=9UWhZ1s3Ybc>
+
+```{r, echo = F, fig.align="center"}
+embed_url("https://www.youtube.com/watch?v=9UWhZ1s3Ybc")
+```
+
+Tentei tratar o assunto de forma mais leve possível, recheada de memes e linguagem acessível, espero que gostem do conteúdo!
+
+
+
+

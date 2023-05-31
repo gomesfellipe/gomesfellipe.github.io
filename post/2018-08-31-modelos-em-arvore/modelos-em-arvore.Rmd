@@ -1,0 +1,1138 @@
+---
+title: Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle
+author: Fellipe Gomes  
+date: '2018-08-31'
+slug: []
+categories:
+  - Analise Exploratória
+  - Aprendizado Supervisionado
+  - Data mining
+  - Estatistica
+  - Machine Learning
+  - Prática
+  - Probabilidade
+  - R
+  - modelo baseado em arvores
+  - kaggle
+  - Regressão
+tags:
+  - Data Mining
+  - Estatistica
+  - gomesfellipe
+  - kaggle
+  - Correlacoes
+  - modelagem
+  - modelagem estatistica
+  - Prática
+  - R
+  - regression
+  - caret
+  - xgboost
+  - random forest
+  - decisiontree
+description: 'Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando a base de dados do Kaggle para prever o preço final de casas residenciais em Ames, Iowa, utilizando uma variedade de aspectos'
+featured: 'img1.png'
+featuredalt: 'Pic 19'
+featuredpath: 'date'
+linktitle: ''
+type: "post"
+---
+
+  
+# Kaggle
+
+Segundo o [Wikipédia](https://en.wikipedia.org/wiki/Kaggle):  "Kaggle é a maior comunidade mundial de cientistas de dados e machine learning." Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado. 
+
+O Kaggle trabalha com a ideia de [gamificação](https://en.wikipedia.org/wiki/Gamification), que é um assunto do qual já escrevi em um post sobre [gamificação e porque aprender R é tão divertido](https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/) e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.
+
+A plataforma é focada em competições que envolvem modelagem preditiva, que julgam apenas o seu desempenho preditivo, embora a inteligibilidade não deixe de ser importante. Neste post farei também a modelagem descritiva com modelos de aprendizagem baseados em árvores, na qual o principal objetivo será obter informações sobre os dados para o ajuste dos modelos preditivos que iremos submeter à competição do Kaggle [House Prices: Advanced Regression Techniques ](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/).
+
+A diferença entre modelos preditivos e descritivos não é tão rigorosa assim pois algumas das técnicas podem ser utilizadas para ambos e geralmente um modelo pode servir para ambos os propósitos (mesmo que de de forma insuficiente).
+
+Além dos modelos de machine learning baseados em árvores, também será ajustado um modelo de regressão linear multivariado para compararmos os resultados dos ajustes e submeter nossas previsões no site do [kaggle](https://kaggle.com).
+
+Os pacotes que serão utilizados serão os seguintes:
+
+```{r, include=F}
+library(purrr)       # Programacao funciona
+library(broom)       # Arrumar outputs
+library(dplyr)       # Manipulacao de dados
+library(magrittr)    # pipes
+library(funModeling) # df_status()
+library(plyr)        # revalue()
+library(gridExtra)   # Juntar ggplots
+library(reshape)     # funcao melt()
+library(rpart)       # Arvore de Decisoes
+library(rpart.plot)  # Plot da Arvore de Decisoes
+library(data.table)  # aux na manipulacao do heatmap
+library(readr)       # Leitura da base de dados
+library(stringr)     # Manipulacao de strings
+library(ggplot2)     # Graficos elegantes
+library(caret)       # Machine Learning 
+library(GGally)
+library(ggfortify)
+
+options(readr.num_columns = 0, scipen = 99)
+knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
+```
+
+```{r, eval=F}
+library(purrr)       # Programacao funciona
+library(broom)       # Arrumar outputs
+library(dplyr)       # Manipulacao de dados
+library(magrittr)    # pipes
+library(funModeling) # df_status()
+library(plyr)        # revalue()
+library(gridExtra)   # Juntar ggplots
+library(reshape)     # funcao melt()
+library(rpart)       # Arvore de Decisoes
+library(rpart.plot)  # Plot da Arvore de Decisoes
+library(data.table)  # aux na manipulacao do heatmap
+library(readr)       # Leitura da base de dados
+library(stringr)     # Manipulacao de strings
+library(ggplot2)     # Graficos elegantes
+library(caret)       # Machine Learning 
+library(GGally)      # up ggplot
+library(ggfortify)   # autoplot()
+```
+
+## Base de dados 
+
+A base de dados deste post vem de uma competição ótima para estudantes de ciência de dados de dados com alguma experiência com R ou Python e noções básicas de machine learning e estatística.
+
+Pode ser útil para aqueles que desejam expandir seu conjunto de habilidades em uma tarefa de regressão, quando a variável $y$ que desejamos estimar é do tipo numérico (contínuo ou discreto).
+
+Trata-se do [conjunto de dados Ames Housing](https://ww2.amstat.org/publications/jse/v19n3/decock.pdf) que foi compilado por Dean De Cock para uso em educação de ciência de dados.
+
+```{r}
+train <- read_csv("train.csv")
+test  <- read_csv("test.csv")
+full  <- bind_rows(train, test)
+
+id    <- test$Id
+full %<>% select(-Id)
+```
+
+### Descrição da Competição
+
+Traduzido do site oficial do kaggle:
+
+"Peça a um comprador que descreva a casa dos seus sonhos, e eles provavelmente não começarão com a altura do teto do porão ou a proximidade de uma ferrovia leste-oeste. Mas o conjunto de dados desta competição de playground prova que muito mais influencia as negociações de preço do que o número de quartos ou uma cerca branca.
+
+Com 79 variáveis explicativas descrevendo (quase) todos os aspectos de casas residenciais em Ames, Iowa, esta competição desafia você a prever o preço final de cada casa."
+
+Portanto, primeiramente vamos entender o comportamento da variável resposta, depois buscar quais dessas 79 variáveis explicativas são mais importantes para representar a variação do preço de venda das casas através dos métodos baseados em árvores e por fim ajustar os modelos propostos e submeter nossas estimativas no site!
+
+# Análise exploratória dos dados
+
+Antes de pensar em ajustar algum modelo é extremamente necessário entender como se comportam os dados, portanto, tanto a variável resposta quanto as variáveis explicativas serão avaliadas.
+
+## Variável resposta:
+
+`SalePrice` - o preço de venda da propriedade em dólares. Essa é a variável de destino que estamos tentando prever.
+
+```{r,echo=F}
+g1 <-
+  train %>% 
+  ggplot(aes(x=SalePrice)) + 
+  geom_histogram(aes(y=..density..), colour="black", fill="white")+
+  geom_density(alpha=.2, fill="#F0EFD3") +
+  scale_y_continuous()+
+  labs(x=" ", y= "Densidade")+
+  geom_text(
+    aes(x = 400000, y = 0.0000075,
+        label = paste0("Valor p para teste de Kolmogorov-Smirnov : ",
+                       ks.test(SalePrice , "pnorm",mean(SalePrice), sd(SalePrice)) %>% tidy() %$% p.value)),
+    position = position_dodge(width = 1),
+    vjust = -0.5, size = 3
+  )+theme_bw()
+
+g2 <-
+  ggplot(data = train, aes(x = factor("SalePrice"), y = SalePrice, fill = SalePrice)) +
+  geom_violin( alpha=.2, fill="#F0EFD3")+
+  geom_boxplot(colour="black", fill="white",width=.1)+
+  coord_flip()+
+  labs(x=" ", y= " ")+theme_bw()
+
+
+# Normalidade:
+full %<>% 
+  mutate(SalePrice = ifelse(!is.na(SalePrice), log(SalePrice), SalePrice))
+
+train %<>% 
+  mutate(SalePrice = ifelse(!is.na(SalePrice), log(SalePrice), SalePrice))
+
+g3 <-
+  train %>% 
+  ggplot(aes(x=SalePrice)) + 
+  geom_histogram(aes(y=..density..), colour="black", fill="white")+
+  geom_density(alpha=.2, fill="#F0EFD3") +
+  scale_y_continuous()+
+  labs(x=" ", y= "Densidade")+
+  geom_text(
+    aes(x = 12, y = 1.15,
+        label = paste0("Valor p para teste de Kolmogorov-Smirnov : ",
+                       ks.test(log(SalePrice), "pnorm",mean(log(SalePrice)), sd(log(SalePrice))) %>% 
+                         tidy() %$% p.value) ),
+    position = position_dodge(width = 1),
+    vjust = -0.5, size = 3
+  )+theme_bw()
+
+g4 <-
+  ggplot(data = train, aes(x = factor("SalePrice"), y = SalePrice, fill = SalePrice)) +
+  geom_violin( alpha=.2, fill="#F0EFD3")+
+  geom_boxplot(colour="black", fill="white",width=.1)+
+  coord_flip()+
+  labs(x=" ", y= " ")+theme_bw()
+
+grid.arrange(g1, g3, g2, g4, ncol=2)
+rm(g1,g2,g3,g4)
+```
+
+Note que a distribuição dos dados referentes ao preço de venda se distribui de maneira assimétrica e não possuem evidências de normalidade dos dados. Apesar dos métodos baseados em árvore se tratarem de técnicas não paramétricas essa transformação será feita pois ao final deste post desejo comparar os resultados com um modelo de regressão linear múltipla.
+
+# Árvore de decisão
+
+Uma técnica muito popular que é mais comumente usada para resolver tarefas de classificação de dados porém a árvore conhecida como [CART (Classification and Regression Trees)(Breiman, 1986)](https://tinyurl.com/ybhlsgom) lida com todos os tipos de atributos (incluindo atributos numéricos que são tratados a partir da criação de intervalos). Para seu ajuste é possível realizar podas e produzir árvores binárias.
+
+A construção da árvore é realizada por meio do algoritmo que iterativamente analisa os atributos descritivos de um conjunto de dados previamente rotulado. Sua popularidade como apoio para a tomada de decisão se deve principalmente ao fato da fácil visualização do conhecimento gerado e o fácil entendimento.
+
+Outra característica legal da árvore de decisões é que ela permite ajustar um modelo sem um pré-processamento detalhado, pois é fácil de ajustar, aceita valores faltantes e é de fácil interpretação, veja:
+
+```{r,out.width=1200}
+library(rpart)
+
+control <- rpart.control(minsplit =10, # o número mínimo de observações em um nó
+                         cp = 0.006    # parametro de complexidade q controla o tamanho da arvore
+)
+rpartFit <- rpart(exp(SalePrice) ~ . , train, method = "anova", control = control) 
+
+rpart.plot::rpart.plot(rpartFit,cex = 0.6)
+```
+
+No topo, vemos o primeiro nó com 100% das observações, que representa o total da base (100%). Em seguida, vemos que a primeira variável que determina o preço de venda das casas `SalePrice` é a variável `OverallQual`. As casas que apresentaram `OverallQual` < 7.5 ocorrem em maior proporção do que as que tiveram `OverallQual`>7.5. A interpretação pode continuar dessa forma recursivamente.
+
+É possível notar que as variáveis `OverallQual`,`Neighborhood`,`1stFlrSF`,`2ndFlrSF`,`GrLivArea`, `BsmtFinSF1` foram as que melhor representaram os dados de acordo com os parâmetros que determinamos para ajustar esta árvore, vejamos com mais detalhes se existe relação linear e intensidade e direção dessa relação com o [coeficiente de correlação de Pearson](https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_Pearson) entre estas variáveis dois a dois e em relação à variável resposta:
+
+```{r}
+devtools::source_url("https://raw.githubusercontent.com/gomesfellipe/functions/master/correlations_for_ggpairs.R")
+
+train %>% 
+  select(SalePrice,OverallQual,`1stFlrSF`,`2ndFlrSF`,GrLivArea,BsmtFinSF1) %>% 
+  ggpairs(lower = list(continuous = my_fn))+
+  theme_bw()
+```
+
+Com esta figura temos muitas informações, destaca-se que todas essas variáveis possuem algum tipo de relação linear com a variável resposta, a menor correlação observada foi com o `BsmtFinSF1` e a variável que apresentou a maior correlação foi a `OverallQual`. Atenção para a correlação entre `SalePrice` e `OverallQual`, pois `Overallqual` parece ser uma variável ordinal e uma outra medida de correlação que melhor representaria esta relação é o [coeficiente de correlação de Spearman](https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_postos_de_Spearman), veja:
+
+```{r}
+cor(full$SalePrice, full$OverallQual, method = "spearman", use = "complete.obs")
+```
+
+Um pouco diferente do resultado da correlação de Pearson pois avalia relações lineares, já a correlação de Spearman avalia relações monótonas, sejam elas lineares ou não.
+
+## Análise exploratória e input de `NA`s {.tabset}
+
+Arrumar a base de dados é uma tarefa longa e que geralmente consome grande parte no tempo em um projeto de ciência de dados. Não adianta usar o algorítimo mais poderoso de machine learning se a base de dados não estiver arrumada de maneira que possibilite a análise dos dados.
+
+Para obter informações da amostra, confira no [link do dataset da competição no Kaggle](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data). Na página é possível conferir [a descrição da amostra](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/download/data_description.txt) e nela nota-se que alguns dos valores faltantes possuem significado, então é necessário rotulá-los para que o R possa interpretar estes valores da maneira correta.
+
+### Status da amostra 
+
+Conferindo o status da amostra com a função `df_status()` do pacote [`funModeling`](https://cran.r-project.org/web/packages/funModeling/index.html):
+
+```{r}
+full %>% 
+  df_status(print_results = F) %>% 
+  as_tibble() %>%
+  arrange(-p_na, -p_zeros)
+```
+
+Note que as variáveis problemáticas foram ordenadas de forma decrescente (maior número de dados faltantes e zeros) vamos tratar uma de cada vez partindo da variável mais crítica
+
+### Pool
+  * 
+`PoolQC` é a variável que possui mais `NA` e a descrição da base informa que:
+
+`PoolQC`: qualidade da piscina
+		
+  * Ex Excelente
+  * Gd Good
+  * TA Média / Típica
+  * Fa Pequena
+  * NA sem piscina
+
+É possível observar que se trata de uma variável ordinal, portanto vamos criar uma variável auxiliar (pois esta descrição se repete em outras variáveis):
+
+```{r}
+# Criando variável auxilar ordinal
+Qualidade <- c('None' = 0, 'Po' = 1, 'Fa' = 2, 'TA' = 3, 'Gd' = 4, 'Ex' = 5)
+
+full %<>%
+  mutate(PoolQC =  ifelse(PoolQC %>% is.na, "None", PoolQC) %>% as.factor() ) %>% 
+  mutate(PoolQC = as.integer(revalue(PoolQC, Qualidade)))
+```
+
+Além disso, existe outra variável relacionada à piscina, veja:
+
+```{r}
+full %>% 
+  select(names(full)[names(full) %>% str_detect("Pool")]) %>% 
+  table 
+
+full %>% 
+  select(names(full)[names(full) %>% str_detect("Pool")]) %>%
+  map(~sum(is.na(.x)))
+
+# Arrumando inconsistëncias:
+full %<>% 
+  mutate(PoolQC = ifelse(PoolQC == 0 & PoolArea !=0, 2, PoolQC))
+
+# Arrumando inconsistëncias:
+full %<>% 
+  mutate(Pool = ifelse(PoolQC == 0 & PoolArea ==0, "no", "yes"))
+```
+
+
+### Misc
+
+Se referem aos recursos diversos
+
+```{r}
+full %>% 
+  select(names(full)[names(full) %>% str_detect("Misc")],
+         SalePrice
+  ) %>%
+  map(~sum(is.na(.x)))
+```
+
+
+`MiscFeature`: recurso diverso não coberto em outras categorias
+
+  * Elevador elev
+  * Gar2 2nd Garage (se não for descrito na seção de garagem)
+  * Othr Outro
+  * Galpão derramado (mais de 100 SF)
+  * TenC Campo de ténis
+  * NA Nenhum
+
+Desta vez não se trata de uma variável ordinal, vejamos:
+
+```{r}
+full %<>%
+  mutate(MiscFeature =  if_else(MiscFeature %>% is.na, "None", MiscFeature) %>% as.factor) 
+
+# Breve resumo:
+g1 <- 
+  full %>% 
+  select(names(full)[names(full) %>% str_detect("Misc")], SalePrice) %>% 
+  ggplot(aes(y=MiscVal,x= reorder(MiscFeature, -MiscVal,FUN = median) ,fill=MiscFeature))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = "Recurso Diverso")
+
+g2 <- 
+  full %>% 
+  select(names(full)[names(full) %>% str_detect("Misc")], SalePrice) %>% 
+  ggplot(aes(y=SalePrice,x= reorder(MiscFeature, -MiscVal,FUN = median) ,fill=MiscFeature))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = "Preço de Venda")
+
+grid.arrange(g1, g2)
+rm(g1,g2)
+```
+
+
+Além disso, `MiscVal`: Valor do recurso variado
+
+### Alley 
+
+`Alley`: Tipo de acesso ao beco para a propriedade
+
+  * Grvl	Cascalho 
+  * Pave	pavimentado
+  * NA 	Nenhum acesso de beco
+
+Basta realizar o input:
+       
+```{r}
+full %<>% 
+  mutate(Alley = Alley %>% str_replace_na("None")) %>% 
+  mutate(Alley = as.factor(Alley))
+```
+
+```{r}
+full[!is.na(full$SalePrice),] %>% 
+  select(Alley, SalePrice) %>% 
+  ggplot(aes(y=SalePrice,x= reorder(Alley, -SalePrice,FUN = median) ,fill=Alley))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = "tipo de Acesso")
+```
+
+### Fence
+
+`Fence`: qualidade da cerca
+		
+  * GdPrv	Boa privacidade
+  * MnPrv	minima privacidade
+  * GdWo	  boa madeira
+  * MnWw	  Mínima Madeira / Fio
+  * NA     Sem cerca
+       
+Input será da seguinte forma:
+
+```{r}
+full %<>% 
+  mutate(Fence = Fence %>% str_replace_na("None"))
+```
+
+
+```{r}
+full[1:nrow(train),] %>% 
+  select(Fence, SalePrice) %>% 
+  ggplot(aes(y=SalePrice,x= reorder(Fence, -SalePrice, median) ,fill=Fence))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = "tipo de Acesso")
+
+full %<>% mutate(Fence = as.factor(Fence))
+```
+
+Aparentemente não parece existir uma relação ordinal sobre o tipo de cerca quanto ao pre;o de venda da casa, portanto foi convertida para fator
+
+### FirePlace
+
+Variáveis relacionadas com lareira. Segundo a descrição, temos:
+
+```{r}
+full %>% 
+  select(names(full)[names(full) %>% str_detect("Fireplace")], SalePrice)
+```
+
+`Fireplaces`: Numero de lareiras
+
+`FireplaceQu`: Qualidade da lareira
+
+  * Ex Excellente - Excepcional Lareira de Alvenaria
+  * Gd Boa - Lareira de alvenaria no nível principal
+  * TA Média - lareira pré-fabricada na sala principal ou Lareira de alvenaria no porão
+  * Fa Pequena - Lareira pré-fabricada no porão
+  * Po Pobre - Fogão Ben Franklin
+  * NA sem lareira
+
+Nota-se que se trata de uma variável ordinal de acordo com a qualidade, portanto:
+
+```{r}
+full %<>% 
+  mutate(FireplaceQu =  if_else(FireplaceQu %>% is.na, "None", FireplaceQu) ) %>% 
+  mutate(FireplaceQu = as.integer(revalue(FireplaceQu, Qualidade)))
+```
+
+
+Conferindo se existem inconsistências:
+
+```{r}
+full %>% 
+  select(names(full)[names(full) %>% str_detect("Fireplace")]) %>% 
+  table 
+```
+
+
+### Lot
+
+```{r}
+full %>% 
+  select(names(full)[names(full) %>% str_detect("Lot")], SalePrice) %>% 
+  map_dbl(~sum(is.na(.x)))
+```
+
+Segundo a descrição:
+
+`LotFrontage`: Ruas linearmente conectadas à propriedade
+
+`LotArea` : Tamanho do lote em pés quadrados 
+
+`LotShape`: forma geral da propriedade
+
+  * Regue Regular	
+  * IR1 ligeiramente irregular
+  * IR2 moderadamente irregular
+  * IR3 Irregular
+
+`LotConfig`: configuração de lote
+
+  * Inside	Lote muito para dentro
+  * Corner	 Canto de esquina
+  * CulDSac	Cul-de-sac
+  * FR2 Frente em 2 lados da propriedade
+  * FR3 Frente em 3 lados da propriedade
+
+Input para o `LotFrontage` será feito considerando a configuração do lote, veja:
+
+```{r}
+inputsLot <- full %>% 
+  select(LotFrontage, LotConfig) %>% 
+  group_by(LotConfig) %>%
+  dplyr::summarise(Media = mean(LotFrontage, na.rm = T),
+            Mediana = median(LotFrontage, na.rm = T))
+
+full$LotFrontage[is.na(full$LotFrontage) & full$LotConfig == inputsLot$LotConfig[1]] <- inputsLot$Mediana[1] 
+full$LotFrontage[is.na(full$LotFrontage) & full$LotConfig == inputsLot$LotConfig[2]] <- inputsLot$Mediana[2] 
+full$LotFrontage[is.na(full$LotFrontage) & full$LotConfig == inputsLot$LotConfig[3]] <- inputsLot$Mediana[3] 
+full$LotFrontage[is.na(full$LotFrontage) & full$LotConfig == inputsLot$LotConfig[4]] <- inputsLot$Mediana[4] 
+full$LotFrontage[is.na(full$LotFrontage) & full$LotConfig == inputsLot$LotConfig[5]] <- inputsLot$Mediana[5] 
+```
+
+Arrumando variáveis nominais e ordinais:
+
+```{r}
+full %<>% 
+  mutate(LotShape = as.integer(revalue(full$LotShape, c('IR3'=0, 'IR2'=1, 'IR1'=2, 'Reg'=3))))
+```
+
+### Garages
+
+Variáveis relacionadas, segundo a descrição, temos:
+
+```{r}
+full %>% 
+  select(names(full)[names(full) %>% str_detect("Garage")], SalePrice) %>% 
+  map_dbl(~sum(is.na(.x)))
+```
+
+`GarageType`: localização da garagem
+		
+  * 2Types Mais de um tipo de garagem
+  * Attchd anexa a casa
+  * Basement tipo porao
+  * BuiltIn (garagem parte da casa - normalmente tem sala acima da garagem)
+  * CarPort Porta do carro 
+  * Detchd nao anexa a casa
+  * NA Sem Garagem
+
+`GarageYrBlt`: garagem do ano foi construída
+
+`GarageFinish`: acabamento interior da garagem
+
+  * Fin Finished
+  * RFn Áspero Finalizado	
+  * Unf inacabado
+  * NA Sem Garagem
+
+`GarageCars`: Tamanho da garagem na capacidade do carro
+
+`GarageArea`: Tamanho da garagem em pés quadrados
+
+`GarageQual`: GarageQuality
+
+  * Ex Excelente
+  * Gd Good
+  * TA Típico / Médio
+  * FA Justo
+  * Po Poor
+  * NA Sem Garagem
+		
+`GarageCond`: condição de garagem
+
+  * Ex Excelente
+  * Gd Good
+  * TA Típico / Médio
+  * Fa Justo
+  * Po Poor
+  * NA Sem Garagem
+       
+```{r}
+full %<>% 
+  mutate(GarageType   =  if_else(GarageType %>% is.na, "None", GarageType) ) %>% 
+  mutate(GarageYrBlt  = if_else(GarageYrBlt %>% is.na,YearBuilt, GarageYrBlt) ) %>% 
+  mutate(GarageFinish =  if_else(GarageFinish %>% is.na, "None", GarageFinish) ) %>% 
+  mutate(GarageFinish = as.integer(revalue(GarageFinish, c('None'=0, 'Unf'=1, 'RFn'=2, 'Fin'=3)))) %>% 
+  mutate(GarageCars   = ifelse(GarageCars %>% is.na, 0, GarageCars) ) %>% 
+  mutate(GarageArea   = ifelse(GarageArea %>% is.na, 0, GarageArea)) %>% 
+  mutate(GarageQual   = if_else(GarageQual %>% is.na, "None", GarageQual)) %>% 
+  mutate(GarageQual   = as.integer(revalue(GarageQual, Qualidade))) %>% 
+  mutate(GarageCond   = if_else(GarageCond %>% is.na, "None", GarageCond)) %>% 
+  mutate(GarageCond   = as.integer(revalue(GarageCond, Qualidade))) 
+  
+table(full$GarageCond)
+```
+       
+### Bsmt
+
+```{r}
+full %>% 
+  select(names(full)[names(full) %>% str_detect("Bsmt")], SalePrice) %>% 
+  map_dbl(~sum(is.na(.x)))
+```
+
+
+`BsmtQual`: Avalia a altura do porão 
+
+  * Ex Excelente (100+ polegadas)	 
+  * Gd Bom (90-99 polegadas) 
+  * TA Típica (80-89 polegadas) 
+  * Fa Justo (70-79 polegadas) 
+  * Po Pobre (<70 polegadas 
+  * NA Sem Porão 
+		
+`BsmtCond`:  Avalia o estado geral do porão 
+
+  * Ex Excelente 
+  * Gd Bom 
+  * TA Típica - umidade ligeira permitida 
+  * Fa Razoável - umidade ou alguma rachadura ou sedimentação 
+  * Po Insuficiente - Craqueamento severo, sedimentação ou umidade 
+  * NA Sem Porão 
+	
+`BsmtExposure`: Refere-se a paralisações ou paredes no nível do jardim 
+
+  * Gd Good Exposição
+  * Av Média Exposição (níveis divididos ou foyers normalmente pontuação média ou acima)	 
+  * Mn Exposição Mínima 
+  * No Não Exposição 
+  * NA Sem porão 
+	
+`BsmtFinType1`:  Avaliação da área acabada do porão 
+
+  * GLQ Bons Viver 
+  * ALQ Média Living Quarters 
+  * BLQ Abaixo da média Living Quarters	 
+  * Rec Média Rec Room 
+  * LwQ Baixa Qualidade 
+  * Unf unfinshed 
+  * NA nenhum porão 
+		
+`BsmtFinSF1`: pes quadrados do tipo 1 terminado
+
+`BsmtFinType2`:  Avaliação do porão área terminado (se vários tipos) 
+
+  * GLQ Bons aposentos 
+  * ALQ Medianos
+  * BLQ abaixo da media
+  * Rec Aposentos média qualidade
+  * LwQ Baixa Qualidade 
+  * Unf 
+  * Não Sem Porão 
+
+`BsmtFinSF2`: Pés quadrados acabados do Tipo 2
+
+`BsmtUnfSF`: Pés quadrados inacabados da área do porão 
+
+`TotalBsmtSF`: Total pés quadrados da área do porão 
+
+Input das variáveis não numéricas com `None` e convertendo para ordinal as variáveis com relação de ordem. Para os faltantes das variáveis numéricas foram imputados o valor 0 (zeros).
+
+```{r}
+# Categóricos:
+full[,names(full)[names(full) %>% str_detect("Bsmt")]] <- 
+  full[,names(full)[names(full) %>% str_detect("Bsmt")]] %>%
+  select(names(full)[names(full) %>% str_detect("Bsmt")]) %>%
+  mutate_if( ~ !is.numeric(.x) , ~ ifelse(is.na(.x), "None", .x)) %>% 
+  mutate(BsmtQual = as.integer(revalue(BsmtQual, Qualidade))) %>% 
+  mutate(BsmtCond = as.integer(revalue(BsmtCond, Qualidade))) %>% 
+  mutate(BsmtExposure = as.integer(revalue(BsmtExposure, c('None'=0, 'No'=1, 'Mn'=2, 'Av'=3, 'Gd'=4)))) %>% 
+  mutate(BsmtFinType1 = as.integer(revalue(BsmtFinType1,c('None'=0, 'Unf'=1, 'LwQ'=2, 'Rec'=3, 'BLQ'=4, 'ALQ'=5, 'GLQ'=6)))) 
+
+# Numéricos:
+full[,names(full)[names(full) %>% str_detect("Bsmt")]] <- 
+  full[,names(full)[names(full) %>% str_detect("Bsmt")]] %>%
+  select(names(full)[names(full) %>% str_detect("Bsmt")]) %>%
+  mutate_if( ~ is.numeric(.x) , ~ ifelse(is.na(.x), 0, .x))
+```
+
+
+### MasVnr
+
+```{r}
+full %>% 
+  select(names(full)[names(full) %>% str_detect("MasVnr")], SalePrice) %>% 
+  map_dbl(~sum(is.na(.x)))
+```
+
+
+`MasVnrType`: Alvenaria tipo de verniz 
+
+  * BrkCmn Brick Common 
+  * BrkFace Face de tijolos 
+  * CBlock Bloco cinza
+  * None Nenhum 
+  * Stone Pedra 
+	
+`MasVnrArea`: Área de folheado de alvenaria em pés quadrados 
+
+```{r}
+full %<>% 
+  mutate(MasVnrType = if_else(is.na(MasVnrType), "None", MasVnrType)) %>% 
+  mutate(MasVnrType = as.integer(revalue(MasVnrType, c('None'=0, 'BrkCmn'=0, 'BrkFace'=1, 'Stone'=2)))) %>% 
+  mutate(MasVnrArea = if_else(is.na(MasVnrArea), 0, 1))
+```
+
+### Variáveis restantes com poucos `NA`
+
+A estratégia adotada para imputar estes dados será tomada de maneira arbitrária. Os valores faltantes serão preenchidos com o valor comum mais frequente daquela variável. As variáveis que restam são:
+
+```{r}
+full %>% 
+  df_status(print_results = F) %>% 
+  as_tibble() %>%
+  arrange(-p_na, -p_zeros)
+```
+
+Vejamos:
+
+`MSZoning`: Identifica a classificação geral de zoneamento da venda. 
+		
+  * Será convertida para fator, variável nominal
+       
+`KitchenQual`: Qualidade da cozinha
+
+  * Será convertida para ordinal      
+
+`Utilities`: Tipo de utilidade disponível
+		
+  * Será removida 
+       
+`Functional`: Funcionalidade doméstica
+       
+  * Será considerada como ordinal 
+  
+`Exterior1st`: revestimento Exterior em casa
+  
+  * Convertida para fator, variável nominal 
+  
+`Electrical`: Sistema elétrico 
+  
+  * Convertida para fator, variável nominal 
+  
+`SaleType`: Tipo de venda 
+
+  * Convertida para fator, variável nominal 
+
+```{r}
+full <- full %>% 
+  mutate(MSZoning    = ifelse(is.na(MSZoning),
+                            full$MSZoning %>% table %>% sort %>% names %>% last, MSZoning)) %>% 
+  mutate(MSZoning    = as.factor(MSZoning)) %>% 
+  mutate(KitchenQual = ifelse(is.na(KitchenQual),
+                            full$KitchenQual %>% 
+                              table %>% sort %>% names %>% last, KitchenQual)) %>% 
+  mutate(KitchenQual = as.integer(revalue(as.character(full$KitchenQual), Qualidade))) %>% 
+  select(-Utilities) %>% 
+  mutate(Exterior1st = ifelse(is.na(Exterior1st),
+                            full$Exterior1st %>% table %>% sort %>% names %>% last, Exterior1st)) %>% 
+  mutate(Exterior1st = as.factor(Exterior1st)) %>% 
+  mutate(Exterior2nd = ifelse(is.na(Exterior2nd),
+                            full$Exterior2nd %>% table %>% sort %>% names %>% last, Exterior2nd)) %>% 
+  mutate(Exterior2nd = as.factor(Exterior2nd)) %>% 
+  mutate(Electrical  = ifelse(is.na(Electrical),
+                            full$Electrical %>% table %>% sort %>% names %>% last, Electrical)) %>% 
+  mutate(Electrical  = as.factor(Electrical)) %>% 
+  mutate(SaleType    = ifelse(is.na(SaleType ),
+                            full$SaleType  %>% table %>% sort %>% names %>% last, SaleType )) %>% 
+  mutate(SaleType    = as.factor(SaleType )) 
+
+
+full[is.na(full$Functional),"Functional"] <- full$Functional %>% table %>% sort %>% names %>% last
+full$Functional = as.integer(revalue(full$Functional, c('Sal'=0, 'Sev'=1, 'Maj2'=2, 'Maj1'=3, 'Mod'=4, 'Min2'=5, 'Min1'=6, 'Typ'=7)))
+full[is.na(full$KitchenQual),"KitchenQual"] <- full$KitchenQual %>% table %>% sort %>% names %>% last %>% as.numeric()
+full$KitchenQual = as.integer(revalue(as.character(full$KitchenQual), Qualidade))
+# full[is.na(full$Electrical),"Electrical"] <- 3
+
+to_remove <- full %>% map(~table(.x) %>% length()) %>% .[.== 1] %>% names()
+full <- full %>% select(-one_of(to_remove))
+```
+
+Status da base no momento:
+
+```{r}
+full %>% 
+  df_status(print_results = F) %>% 
+  as_tibble() %>%
+  arrange(-p_na,-p_zeros, type)
+```
+
+Transformando o `character` para `factor`:
+
+```{r}
+full %<>% mutate_if(is.character, as.factor)
+```
+
+Transformando novamente nossa base de treino e de teste:
+
+```{r}
+train <- full[1:nrow(train),] %>% as.data.frame() 
+test  <- full[(nrow(train)+1):nrow(full),] %>% select(-SalePrice) %>% as.data.frame()
+
+# # Input Missing
+# train_miss_model = preProcess(train, "knnImpute")
+# train = predict(train_miss_model, train)
+# test = predict(train_miss_model, test)
+# 
+# train$SalePrice <- y
+
+```
+
+# Machine Learning com algorítmos de aprendizagem baseados em árvores
+
+Os métodos baseados em árvores fornecem modelos preditivos de alta precisão, estabilidade e facilidade de interpretação. Ao contrário dos modelos lineares, eles são capazes de lidar bem com relações não-lineares além de poderem ser adaptados para resolver tanto problemas de classificação quanto problemas de regressão.
+
+Algoritmos como árvores de decisão, random forest e “gradient boosting” estão sendo muito usados em todos os tipos de problemas de data science e é notável o uso desses algorítimos para resolver os desafios do [Kaggle](https://www.kaggle.com/). Para resolver este problema utilizaremos estes três algoritmos e ao final, pegando carona na seleção de variáveis para os algoritmos de árvore, será ajustado um modelo de regressão linear para compararmos e conferirmos a significância estatística de cada uma das variáveis.
+
+## VarImp com Random Forest
+
+Um dos benefícios da floresta aleatória é o poder de lidar com grande conjunto de dados com maior dimensionalidade e identificar as variáveis a importância das variáveis, que pode ser uma característica muito útil porém deve ser feita com cautela.
+
+Veja uma reflexão (traduzida) da [nota de Leo Breiman (Universidade da Califórnia em Berkeley)](https://www.stat.berkeley.edu/~breiman/RandomForests/reg_philosophy.htm)
+
+> "Uma nota filosófica: RF é um exemplo de uma ferramenta que é útil para fazer análises de dados científicos; Mas os algoritmos mais inteligentes não substituem a inteligência humana e o conhecimento dos dados do problema; Pegue a saída de florestas aleatórias não como verdade absoluta, mas como suposições geradas por um computador inteligente que podem ser úteis para levar a uma compreensão mais profunda do problema. "
+
+O ajuste da árvore será feito com o pacote `caret` e o estudo de estimativas de erro foi definido como o [Out of bag](https://en.wikipedia.org/wiki/Out-of-bag_error) que remove a necessidade de um conjunto de teste pois é o erro médio de previsão em cada amostra de treinamento $x_i$ , usando apenas as árvores que não tinham $x_i$ em sua amostra de [bootstrap](https://www.ime.usp.br/~chang/home/mae5704/aula-bootstrap.pdf).
+
+```{r}
+set.seed(1)
+control <- trainControl(method = "oob",verboseIter = F)
+
+rfFit1 <- train(SalePrice ~. ,
+      data=train,
+      method="rf",
+      metric = "Rsquared",
+      trControl = control,
+      preProcess = c("knnImpute")
+      )
+
+randomForest::varImpPlot(rfFit1$finalModel)
+
+rfFit1$finalModel$importance %>% 
+  as.data.frame %>%
+  mutate(row = rownames(.)) %>% 
+  arrange(desc(IncNodePurity)) %>% 
+  as_tibble()
+```
+
+Após inspecionar a importância das variáveis vamos selecionar as seguintes variáveis:
+
+
+```{r}
+full %<>% 
+  select(
+    SalePrice  , Neighborhood, OverallQual , GrLivArea   , YearBuilt   ,  KitchenQual, 
+    GarageCars ,  GarageArea , `1stFlrSF`  , ExterQual   , BsmtFinSF1  , FireplaceQu, 
+    BsmtQual   , `2ndFlrSF`  , CentralAir  , GarageFinish, YearRemodAdd, FullBath, 
+    GarageYrBlt, Fireplaces  , LotFrontage , BsmtUnfSF   , TotalBsmtSF , BsmtFinType1,
+    OpenPorchSF, GarageType  , BsmtExposure, OverallCond , TotalBsmtSF , LotArea
+  )
+
+```
+
+Portanto, vamos definir novamente o conjunto de dados de treino e de teste:
+
+```{r}
+train <- full[1:nrow(train),] %>% as.data.frame()
+test  <- full[(nrow(train)+1):nrow(full),-1] %>% as.data.frame()
+```
+
+
+## Variáveis numéricas
+
+Após a seleção dessas variáveis, vamos entender como elas estão correlacionadas dois a dois com o [coeficiente de correlação de pearson](https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_Pearson), exibindo a matrix em um [Heatmap](https://en.wikipedia.org/wiki/Heat_map) (ou mapa de calor ), que é uma representação gráfica de dados em que os valores individuais contidos em uma matriz representados como cores.
+
+```{r,fig.width=12,fig.height=10}
+cormat <- 
+  full %>% 
+  select(SalePrice, everything()) %>% 
+  select_if(is.numeric) %>% 
+  as.data.frame() %>% 
+  cor(use = "na.or.complete") %>% 
+  melt
+
+cormat %>%   
+  ggplot( aes(reorder(Var1,value), reorder(Var2,value), fill=value))+
+  geom_tile(color="white")+
+  scale_fill_gradient2(low="blue", high="red", mid="white", midpoint=0, limit=c(-1,1), space="Lab", name="Pearson\nCorrelation")+
+  theme_bw()+
+  theme(axis.text.x=element_text(angle=45, vjust=1, size=10, hjust=1))+
+  coord_fixed()+
+  labs(x="",y="")
+  
+```
+
+É possível notar que existem variáveis explicativas correlacionadas o que indica que a presença de algumas variáveis pode possivelmente interferir no ajuste final do modelo linear multivariado.
+
+## Variáveis categóricas
+
+Já a relação das varáveis categóricas não podem ser calculada com o coeficiente de correlação calculado anteriormente, para avaliar como elas estão associadas será calculado a medida de associação [V de Cramér](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V). Novamente a matrix dos resultados serão novamente apresentados em um [Heatmap](https://en.wikipedia.org/wiki/Heat_map) (ou mapa de calor ) que foi inspirado [neste post](http://analysingstuffs.xyz/2017/12/01/visualizing-the-correlations-between-categorical-variables-with-r-a-cramers-v-heatmap/) (neste post também é apresentada uma função para o cálculo da matrix, adaptei de forma que se tornasse mais geral e disponibilizei no meu github [neste link](https://github.com/gomesfellipe/functions/blob/master/interaction_all.R)).
+
+```{r}
+# Carrega funcao que calcula o V de Cramer:
+devtools::source_url("https://raw.githubusercontent.com/gomesfellipe/functions/master/cv_test.R")
+# Carrega a funcao que realiza as interações dos calculos dois a dois:
+devtools::source_url("https://raw.githubusercontent.com/gomesfellipe/functions/master/interaction_all.R")
+```
+
+Veja:
+
+```{r}
+cvmat <- 
+train %>%
+  select_if(~!is.numeric(.x)) %>% 
+  as.data.table() %>%
+  interaction_all(cv_test) %>% 
+  as_tibble() 
+
+cvmat %>% 
+  ggplot( aes(variable_x, variable_y, fill=v_cramer))+
+  geom_tile(color="white")+
+  scale_fill_gradient2(low="blue", high="red", mid="white", midpoint=0, limit=c(-1,1), space="Lab", name="Cramer's V")+
+  theme_bw()+
+  theme(axis.text.x=element_text(angle=45, vjust=1, size=10, hjust=1))+
+  coord_fixed()+
+  labs(x="",y="")
+```
+
+# Ajustando modelos
+
+## Arvore de decisao
+
+O modelo de árvore de decisão já foi comentado e deixei algumas referências ao final do post portanto vejamos a seguir o ajusto no R. Segundo a [documentação](https://cran.r-project.org/web/packages/rpart/rpart.pdf):
+
+`cp`: parâmetro de complexidade. No nosso caso isso significa que o [$R^2$](https://pt.wikipedia.org/wiki/R%C2%B2) total deve aumentar em cp em cada etapa. O principal papel desse parâmetro é economizar tempo de computação removendo as divisões que obviamente não valem a pena. Essencialmente, informamos ao programa que qualquer divisão que não melhore o ajuste por `cp` provavelmente será eliminada por [validação cruzada](https://pt.wikipedia.org/wiki/Valida%C3%A7%C3%A3o_cruzada), e que, portanto, o programa não precisa buscá-la.
+
+Para pesquisa de grade existem duas maneiras de ajustar um algoritmo no pacote `caret`: permitir que o sistema faça isso automaticamente ou especificar o `tuneGride` manualmente onde cada parâmetro do algoritmo pode ser especificado como um vetor de valores possíveis. Confira o ajuste manual em R:
+
+```{r}
+set.seed(1)
+
+control <- trainControl(method = "cv", number = 5,verboseIter = F)
+
+tunegrid <- expand.grid(cp=seq(0.001, 0.01, 0.001))
+
+rpartFit2 <- 
+  train(y=train$SalePrice, x=train[,-1],
+        method="rpart",
+        trControl=control,
+        tuneGrid=tunegrid,
+        metric = "Rsquared"
+  )
+rpartFit2
+```
+
+Podemos conferir os resultados novamente de maneira visual:
+ 
+```{r,out.width=1200}
+rpart.plot(rpartFit2$finalModel, cex = 0.5)
+```
+
+Gerando arquivo para submissão no kaggle:
+
+```{r}
+id %>% cbind(predict(rpartFit2, test) %>% exp) %>% 
+  `colnames<-`(c("Id", "SalePrice")) %>%
+  write.csv("rpartFit2.csv",row.names = F)
+```
+
+
+## Bagging
+
+["Bagging"](https://en.wikipedia.org/wiki/Bootstrap_aggregating) é usado quando desejamos reduzir a variação de uma árvore de decisão. Ela combina o resultado de vários modelos onde todas as variáveis são considerados para divisão um nó. Em R:
+
+```{r}
+set.seed(1)
+
+control <- trainControl(method = "cv", number = 5,verboseIter = F)
+
+treebagFit <- train(y=train$SalePrice, 
+                    x=train[,-1], 
+                    method = "treebag",
+                    metric = "Rsquared",
+                    trControl=control
+)
+treebagFit
+```
+
+Note que o $R^2$ aumentou e o [$RMSE$](https://en.wikipedia.org/wiki/Root-mean-square_deviation) diminuiu após o uso desta técnica.
+
+Resultados para enviar para o Kaggle:
+
+```{r}
+id %>% cbind(predict(treebagFit, test)%>% exp) %>% 
+  `colnames<-`(c("Id", "SalePrice")) %>%
+  write.csv("treebagFit.csv",row.names = F)
+```
+
+## Random Forest
+
+A principal diferença entre "bagging" e o algoritmo Random Forest é que em `randomForest`, apenas um subconjunto de características é selecionado aleatoriamente em cada divisão em uma árvore de decisão enquanto que no bagging todos os recursos são usados.
+
+Para pesquisa de grade especificaremos um vetor com os possíveis valores, [pois o default adotado para o parâmetro](https://cran.r-project.org/web/packages/randomForest/randomForest.pdf) `mtry` é `mtry` = p/3 (Número de variáveis amostradas aleatoriamente como candidatos em cada divisão), onde p é o número de variáveis e pode ser que o modelo se ajuste melhor aos dados ao utilizar outro valor. 
+
+Veja:
+
+```{r}
+set.seed(1)
+
+tunegrid <- expand.grid(mtry = seq(4, ncol(train) * 0.8, 2))
+
+control <- trainControl(method = "cv", number = 5,verboseIter = F)
+
+rfFit <- train(SalePrice ~. ,
+               data=train,
+               method="rf",
+               metric = "Rsquared",
+               tuneGrid=tunegrid,
+               trControl=control
+)
+rfFit
+```
+
+Note que o $R^2$ aumentou e o $RMSE$ apresentou resultados ainda mais satisfatórios.
+
+Veja visualmente a importância de ada variável:
+
+```{r}
+randomForest::varImpPlot(rfFit$finalModel)
+```
+
+Resultados para enviar para o Kaggle:
+
+```{r}
+id %>% cbind(predict(rfFit, test) %>% exp) %>% 
+  `colnames<-`(c("Id", "SalePrice")) %>%
+  write.csv("rfFit.csv",row.names = F) 
+```
+
+## GBM
+
+Diferentemente do "bagging", o "boosting" é uma técnica de ensemble (conjunto) na qual os preditores não são feitos independentemente, mas sequencialmente. Na imagem a seguir é possível ver uma representação visual dessa diferença:
+
+![](https://cdn-images-1.medium.com/max/1600/1*PaXJ8HCYE9r2MgiZ32TQ2A.png)
+
+A imagem foi obtida [neste artigo: Gradient Boosting from scratch](https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d), recomendo a leitura pois da uma boa intuição de como o algoritmo funciona.
+
+Para a pesquisa de grade vamos permitir que o sistema faça isso automaticamente configurando apenas o `tuneLength` para indicar o número de valores diferentes para cada parâmetro do algoritmo.
+
+```{r}
+set.seed(1)
+
+control <- trainControl(method = "cv", number = 5,verboseIter = F)
+
+gbmFit <- train(SalePrice~.,data=train,
+                method = "gbm",
+                trControl=control,
+                tuneLength=5,
+                metric = "Rsquared",
+                verbose = FALSE
+)
+gbmFit
+```
+
+Note que este foi o modelo que apresentou os melhores resultados quanto só $R^2$ e ao $RMSE$ em comparação com os outros modelos.
+
+Submissão para Kaggle:
+
+```{r}
+id %>% cbind(predict(gbmFit, test) %>% exp) %>%
+  `colnames<-`(c("Id", "SalePrice")) %>%
+  write.csv("gbmFit.csv", row.names = F)
+```
+
+
+## Regressão Linear
+
+Por fim faremos o ajuste de um modelo de regressão linear multivariado utilizando o pacote caret.
+
+Utilizaremos validação cruzada separando nossa amostra em 5 e utilizaremos o método `lmStepAIC` que realiza a seleção do modelo escalonado pelo critério de informação de Akaike - [AIC](https://en.wikipedia.org/wiki/Akaike_information_criterion).
+
+```{r,out.width=1500}
+set.seed(1)
+
+control <- trainControl(method = "cv", number = 5,verboseIter = F)
+
+lmFit <- train(SalePrice~.,data=train,
+               method = "lmStepAIC",
+               trControl=control,
+               metric = "Rsquared",trace=F
+)
+lmFit
+
+```
+
+Note que o ajuste do modelo se apresenta de maneira satisfatória com $R^2$ e $RMSE$ semelhantes aos modelos de `bagging` e `boosting` e além disso, diferente dos modelos baseados em árvore, com este ajuste é possível notar a significância estatística de cada parâmetro ajustado, o que possibilita tanto o uso tanto como modelo preditivo quanto como modelo descritivo. Veja:
+
+```{r}
+ggcoef(
+  lmFit$finalModel,                      #O modelo a ser conferido
+  vline_color = "red",          #Reta em zero  
+  errorbar_color = "blue",      #Cor da barra de erros
+  errorbar_height = .25,
+  shape = 18,                   #Altera o formato dos pontos centrais
+  size=2,                      #Altera o tamanho do ponto
+  color="black",
+  exclude_intercept = TRUE,                #Altera a cor do ponto
+  mapping = aes(x = estimate, y = term, size = p.value))+
+  scale_size_continuous(trans = "reverse")+ #Essa linha faz com que inverta o tamanho
+  theme_bw()
+```
+
+Note que o intercepto $\beta_0$ foi retirado da imagem pois é muito superior aos demais coeficientes. Note também que $\beta_i$ informa quão sensível é $y$, no caso `log(SalePrice)` às variações de cara umas das $x_{i,j}$ variáveis explicativas. Mais concretamente, se $x_{i,j}$ aumenta em uma unidade, o valor de $y$ varia em $\beta_1$ unidades.
+
+Uma rápida [Análise dos Resíduos](http://www.portalaction.com.br/analise-de-regressao/analise-dos-residuos):
+
+```{r,out.width=1500}
+lmFit$finalModel %>% 
+  autoplot(which = 1:2) + 
+  theme_bw()
+```
+
+É possível notar que parece haver alguns outliers em ambas as figuras. Na primeira é possível notar uma nuvem de pontos aleatórios em torno de zero porém na segunda figura nota-se que alguns valores não estão de acordo com os quantils teóricos de uma distribuição normal, o que pode prejudicar nossa interpretação dos coeficientes do modelo. Vamos encerrar o modelo por aqui mesmo e ver como ele se sai na competição do Kaggle, preparando a submissão:
+
+```{r}
+id %>% cbind(predict(lmFit, test) %>% exp ) %>% 
+  `colnames<-`(c("Id", "SalePrice")) %>%
+  write.csv("lmFit.csv",row.names = F)
+```
+
+O score obtido com esta submissão no Kaggle foi muito próximo dos modelos baseados e árvore e o tempo computacional para este ajuste foi bem menor.
+
+## Comparando ajustes
+
+Vejamos a seguir uma comparação entre estes modelos com as funções fornecidas pelo pacote `caret:.
+
+
+```{r}
+resamps <- resamples(list(rpart = rpartFit2,
+                          treebag = treebagFit,
+                          rf = rfFit,
+                          gbm = gbmFit,
+                          lm = lmFit 
+                          )) 
+bwplot(resamps)
+```
+
+Com este gráfico é possível notar que o modelo de regressão linear múltipla apresentou resultados semelhantes aos de bagging e boosting.
+
+É importante frisar que a maneira como as variáveis foram selecionadas para o modelo de regressão linear múltipla através da importância das variáveis obtida com o modelo randomForest não é um padrão e existem diversos outros modos estatísticos de se de determinar a significância e a relação das variáveis para o modelo.
+
+Um possível problema neste método é que não detecta a multicolinearidade, que ocorre quando as variáveis explicativas estão fortemente correlacionadas entre si e a análise de regressão linear pode ficar confusa e desprovida de significado, pois há dificuldade em distinguir o efeito de uma ou outra variável explicativa sobre a variável resposta $Y$ devido à variâncias muito elevadas ou sinais inconsistentes.
+
+Essa proposta de aprender se divertindo e de maneira produtiva me deixa muito empolgado, espero que tenham se divertido como eu me diverti fazendo este post! 
+
+# Referências:
+
+  * [DataCamp Course:Machine Learning with Tree-Based Models in R](https://www.datacamp.com/courses/machine-learning-with-tree-based-models-in-r)
+  * [Data Science *for* Business](https://tinyurl.com/y796aa4t)
+  * [Learn ML Algorithms by coding: Decision Trees](https://lethalbrains.com/learn-ml-algorithms-by-coding-decision-trees-439ac503c9a4)
+  * [DataCamp Tutorials: Decision Trees in R](https://www.datacamp.com/community/tutorials/decision-trees-R)
+  * [The caret Package - Max Kuhn](https://topepo.github.io/caret/)
+  * [Um tutorial completo sobre modelagem baseada em árvores de decisão (códigos R e Python)](https://www.vooo.pro/insights/um-tutorial-completo-sobre-a-modelagem-baseada-em-tree-arvore-do-zero-em-r-python/)
+  * [Tuning Machine Learning Models Using the Caret R Package](https://machinelearningmastery.com/tuning-machine-learning-models-using-the-caret-r-package/)
+  * [Gradient Boosting from scratch](https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d)
+  * [Tune Machine Learning Algorithms in R (random forest case study)](https://machinelearningmastery.com/tune-machine-learning-algorithms-in-r/)
+  * [Random Forests - Leo Breiman and Adele Cutler](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_manual.htm)
+  * [An Introduction to Recursive Partitioning Using the RPART Routines - CRAN](https://cran.r-project.org/web/packages/rpart/vignettes/longintro.pdf)
+  

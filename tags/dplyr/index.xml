@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dplyr on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/dplyr/</link>
+    <description>Recent content in Dplyr on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</title>
+      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</guid>
+      <description>Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?
+Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.</description>
+    </item>
+    
+    <item>
+      <title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title>
+      <link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/</guid>
+      <description>Perguntas Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a criatividade.</description>
+    </item>
+    
+    <item>
+      <title>Manipulando dados com dplyr</title>
+      <link>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
+      <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
+Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
+    </item>
+    
+  </channel>
+</rss>

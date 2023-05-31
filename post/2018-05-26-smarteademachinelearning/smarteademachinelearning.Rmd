@@ -1,0 +1,709 @@
+---
+title: AED de forma rápida e um pouco de Machine Learning
+author: Fellipe Gomes
+date: '2018-05-26'
+slug: []
+categories:
+  - Analise Exploratória
+  - Data mining
+  - Estatistica
+  - Modelagem Estatistica
+  - Prática
+  - R
+  - Reports
+  - Machine Learning
+  - Analise Mutivariada
+  - Aprendizado Supervisionado
+  - Aprendizado Não Supervisionado
+tags:
+  - analise multivariada
+  - Correlacoes
+  - Data Mining
+  - Estatistica
+  - gomesfellipe
+  - kmeans
+  - modelagem
+  - pca
+  - R
+  - RStudio
+description: 'Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados'
+featured: 'img1.png'
+featuredalt: 'Pic 16'
+featuredpath: 'date'
+linktitle: ''
+type: "post"
+---
+
+```{r setup, include=FALSE,warning=F}
+knitr::opts_chunk$set(echo = TRUE, warning = F, message = F, error = F)
+library(knitr)
+library(DT)
+library(dplyr)
+library(plotly)
+library(psych)
+source("functions.R")
+```
+
+<style>
+  .col2 {
+    columns: 2 200px;         /* number of columns and width in pixels*/
+    -webkit-columns: 2 200px; /* chrome, safari */
+    -moz-columns: 2 200px;    /* firefox */
+  }
+  .col3 {
+    columns: 3 100px;
+    -webkit-columns: 3 100px;
+    -moz-columns: 3 100px;
+  }
+</style>
+
+<!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários-->
+
+# A análise exploratória dos dados
+
+<div class="col2">
+
+A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma "busca por conhecimento antes da análise de dados de fato". Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações
+
+Ao iniciar uma análise  de dados, começamos pela AED para a partir dai decidir como buscar qual solução para o problema. É importante frisar que a AED e a construção de gráficos **não** são a mesma coisa, mesmo a AED sendo altamente baseada em produção de gráficos como de dispersão, histogramas, boxplots etc.
+
+Por vezes a AED no R pode envolver a produção de longos scripts utilizando funções como as do pacote `ggplot2` e mesmo sabendo que desejamos sempre criar o gráfico de maneira mais informativa e atraente possível, as vezes precisamos ter uma noção geral dos dados de forma rápida, não necessariamente tão detalhada e customizada de cara. 
+
+A vezes queremos apenas ter uma primeira impressão dos dados e em seguida pensar em quais os gráficos mais se adequariam para a entrega dos resultados que mesmo as funções base do R dependendo do caso também envolvem a confecção de longos scripts.
+
+Existem pacotes que auxiliam na hora de se fazer uma rápida análise exploratória, como o [skimr](https://github.com/ropenscilabs/skimr) e o [DataExplorer](https://github.com/boxuancui/DataExplorer). Porém estava pesquisando de existiam mais opções para uma rápida abordagem de AED e me deparei com esta [vinheta](https://cran.r-project.org/web/packages/SmartEDA/vignettes/Report_r1.html), por Dayanand, Kiran, Ravi. 
+
+Essa vinheta apresenta o pacote [`SmartEAD`](https://cran.r-project.org/web/packages/SmartEDA) que trás uma série de funções que auxiliam na AED de forma bem prática. O pacote está disponível no CRAN.
+
+Para testar o pacote foi utilizada uma base de dados do artigo [A Theory of Extramarital Affairs](http://people.stern.nyu.edu/wgreene/Lugano2013/Fair-ExtramaritalAffairs.pdf), publicado pela [The University of Chicago Press](http://www.jstor.org/publisher/ucpress).
+ 
+Gostei tanto da proposta do pacote que resolvi preparar este post que conta com a explanação de alguns tópicos apresentados pelo autor, algumas explicações da teoria estatística apresentada na análise descritiva e exploratória dos dados e  além da aplicação de algumas técnicas estatísticas e de machine learning para o entendimento da  base de dados.
+
+</div>
+
+</br>
+
+# SmartEDA
+
+Como ele pode ajudá-lo a criar uma análise de dados exploratória? O `SmartEDA` inclui várias funções personalizadas para executar uma análise exploratória inicial em qualquer dado de entrada. A saída gerada pode ser obtida em formato resumido e gráfico e os resultados também podem ser exportados como relatórios.
+
+O pacote SmartEDA ajuda a construir uma boa base de compreensão de dados, algumas de suas funcionalidades são:
+
+  * O pacote SmartEDA fará com que você seja capaz de aplicar diferentes tipos de EDA sem ter que lembre-se dos diferentes nomes dos pacotes R e escrever longos scripts R com esforço manual para preparar o relatório da EDA, permitindo o entendimento dos dados de maneira mais rápida
+  * Não há necessidade de categorizar as variáveis em caractere, numérico, fator etc. As funções do SmartEDA categorizam automaticamente todos os recursos no tipo de dados correto (caractere, numérico, fator etc.) com base nos dados de entrada.
+
+O pacote SmartEDA ajuda a obter a análise completa dos dados exploratórios apenas executando a função em vez de escrever um longo código r.
+
+## Carregando o pacote:
+
+```{r}
+# install.packages("SmartEDA")
+library("SmartEDA")
+```
+
+outros pactes que serão utilizados no post (incluindo um script com algumas funções, que estará disponível no meu github [neste link](https://github.com/gomesfellipe/gomesfellipe.github.io/blob/master/post/2018-05-26-smarteademachinelearning/functions.R)).
+
+```{r,eval=T}
+library(knitr)        # Para tabelas interativas
+library(DT)           # Para tabelas interativas
+library(dplyr)        # Para manipulacao de dados
+library(plotly)       # Para gerar uma tabela
+library(psych)        # para análise fatorial
+source("functions.R") # script com funcoes customizadas
+```
+
+
+### Base de dados utilizada:
+
+<div class="col2">
+
+Estava à procura de uma base de dados para testar as funcionalidades do pacote `SmartEAD` quando um colega de trabalho me mostrou um artigo chamado [A Theory of Extramarital Affairs](http://people.stern.nyu.edu/wgreene/Lugano2013/Fair-ExtramaritalAffairs.pdf), publicado pela [The University of Chicago Press](http://www.jstor.org/publisher/ucpress). Neste artigo é desenvolvido um [modelo pelo estimador de Tobit](https://en.wikipedia.org/wiki/Tobit_model) que explica a alocação de um tempo do indivíduo entre o trabalho e dois tipos de atividades de lazer: tempo passou com o cônjuge e tempo gasto com o amante. 
+
+Não conhecia o modelo proposto e em uma rápida pesquisa no Google notei que alguns dos dados utilizados nesse artigo estão disponíveis no pacote [AER](ftp://cran.r-project.org/pub/R/web/packages/AER) de Econometria Aplicada com R, que contém funções, conjuntos de dados, exemplos, demonstrações e vinhetas para o livro [Applied Econometrics with R](http://jrsyzx.njau.edu.cn/__local/C/94/F1/35C7CC5EDA214D4AAE7FE2BA0FD_0D3DFF32_3CDD40.pdf?e=.pdf) e como esses dados já foram tratados e estão "prontos para análise", resolvi usar essa amostra pela conveniência. 
+
+Portanto farei aqui uma análise exploratória e ao final de cada caso (*sem variável reposta*, *com variável resposta numérica* e *com variável resposta binária*), para ter uma breve intuição de como se comportam os dados irei primeiro utilizar um *algorítimo de machine learning não supervisionado* para o agrupamento das observações (sem considerar q já conhecemos a variável resposta), depois ajustar um* modelo de regressão linear simples* considerando a  variável resposta como numérica e por fim o ajuste de um *algorítimo de machine learning supervisonado de classificação* após discretizar a variável resposta.
+
+A base de dados pode ser conferida a seguir:
+
+</div>
+
+```{r}
+library(AER)
+data(Affairs)
+Affairs %>% rmarkdown::paged_table()
+```
+
+Neste post, a análise de dados será feita considerando a variável `affairs` (Quantas vezes envolvido em caso extraconjugal no último ano (aparentemente em 1977)) e a base de dados conta com as variáveis gênero, idade, anos de casado, se tem crianças, religiosidade, educação, ocupação e como avalia o casamento.
+
+Informações detalhadas podem ser conferidas na tabela a seguir, retirada do artigo apresentado:
+
+```{r,echo=F}
+values <- list(c("<b>affairs</b>", "gender", "age","yearsmarried","children","religiousness","education","occupation","rating"),
+  c("Quantas vezes envolvido em caso extraconjugal no último ano", 
+    "Sexo", 
+    "Idade", 
+    "Número de anos casado", 
+    "Crianças",
+    "Como religioso",
+    "Nível de educação",
+    "Ocupação",
+    "Como classifica o casamento"),
+  c("  0 = nenhum, \n1 = uma vez, \n2 = extraconjugal duas vezes, \n3 = 3 vezes, <7 = 4-10 vezes de relações sexuais, \n12 = mensalmente, \n12 = durante o passado semanalmente, \n12 = diariamente",
+    c("0 = feminino, \n1 = masculino"),
+    c("17,5 = menos de 20, \n22,0 = 20-24, \n27,0 = 25-29, \n32,0 = 30-34, \n37,0 = 35-39, \n42,0 = 40-44, \n47,0 = 45-49, \n52,0 = 50-54, \n57,0 = 55 ou mais"),
+    c(".125 = 3 meses ou menos, \ncasado .417 = 4-6 meses, \n0,75 = 6 meses-i ano, \n1,5 = 1-2 , \n4,0 = 3-5 anos, \n7,0 = 6-8 anos, \n10,0 = 9-11 anos, \n15,0 = 12 ou mais anos"),
+    c("0 = não, \n1 = sim"),
+    c("5 = muito, \n4 = um pouco, \n3 = um pouco, \n2 = nada, \n1 = anti"),
+    c("9,0 = ensino fundamental, \n12,0 = ensino médio, \n14,0 = alguma faculdade, \n16,0 = colégio graduação, \n17,0 = algum trabalho de pós-graduação, \n18,0 = mestrado, \n20,0 = doutorado, mestrado ou outro grau avançado"),
+    c("1-7, de acordo com a classificação Hollingshead (numeração reversa)"),
+    c("5 = muito feliz, \n4 = mais feliz que a média, \n3 = mediano, \n2 = pouco infeliz, \n1 = muito infeliz")
+    ))
+
+p <- plot_ly(
+  type = 'table',
+  columnorder = c(1,2,3),
+  columnwidth = c(90,250,450),
+  header = list(
+    values = list(list('<b>Variáveis</b><br>affairs~.'),
+                  list('<b>DESCRIÇÃO</b>'),
+                  list('<b>DETALHES</b>')),
+    line = list(color = '#9ca5a5'),
+    fill = list(color = '#9ca5a5'),
+    align = c('left'),
+    font = list(color = 'white', size = 12)
+  ),
+  cells = list(
+    values = values,
+    line = list(color = '#9ca5a5'),
+    fill = list(color = c('#f3f4f4', 'white')),
+    align = c('left', 'center'),
+    font = list(color = c('#506784'), size = 12)
+    ))
+
+```
+
+![](/post/2018-05-26-smarteademachinelearning/smarteademachinelearning_files/tab.png) 
+
+Obs.: Essa tabela foi feita com o pacote [`plotly`](https://plot.ly/r/), o código pode ser conferido [aqui](https://gist.github.com/gomesfellipe/4d1d17ca97ac6dadfabad6baef3c5539).
+
+```{r,echo=F,eval=F}
+# Teste
+Affairs = Affairs%>%
+  mutate(religiousness=as.factor(religiousness),education=as.factor(education),yearsmarried=as.factor(yearsmarried),occupation=as.factor(occupation),rating=as.factor(rating))
+levels(Affairs$religiousness)=rev(c( "muito", "um pouco",  "um pouco", "nada", "anti"))
+levels(Affairs$education)=c( "ensino fundamental", " ensino médio,  alguma faculdade",  "colégio graduação", "algum trabalho de pós-graduação, mestrado",   "doutorado", "mestrado" , "outro grau avançado")
+levels(Affairs$rating)=rev(c( "muito feliz",  "mais feliz que a média",  "mediano","pouco infeliz", "muito infeliz"))
+levels(Affairs$yearsmarried)=c( "3 meses ou menos, casado"  ,"4-6 meses",  "6 meses-1 ano",  "1-2" ,  "3-5 anos",  "6-8 anos", " 9-11 anos",  "12 ou mais anos")
+```
+
+
+# Visão geral dos dados
+
+Entendendo as dimensões do conjunto de dados, nomes de variáveis, resumo geral, variáveis ausentes e tipos de dados de cada variável com a função `ExpData()`, se o argumento Type = 1, visualização dos dados (os nomes das colunas são "Descrições", "Obs."), já se Type = 2, estrutura dos dados (os nomes das colunas são "S.no", "VarName", "VarClass", "VarType")
+:
+
+```{r}
+# Visao geral dos dados - Type = 1
+ExpData(data=Affairs, type=1) # O tipo 1 é uma visão geral dos dados
+```
+
+Conferindo o nome das variáveis e os tipos de cada uma:
+
+```{r}
+# Estrutura dos dados - Type = 2
+ExpData(data=Affairs, type=2) # O tipo 2 é a estrutura dos dados
+```
+
+Esta função fornece visão geral e estrutura dos quadros de dados.
+
+
+# Análise exploratória dos dados 
+
+As funções a seguir apresentam a saída EDA para 3 casos diferentes de análise exploratória dos dados, são elas:
+
+  * A variável de destino não está definida
+
+  * A variável alvo é contínua
+
+  * A variável de destino é categórica
+  
+Para fins ilustrativos, será feita inicialmente uma análise considerando que não existe variável resposta, em seguida será considerada a variável `affairs` como variável resposta e por fim, será feita uma transformação nesta variável resposta numérica de forma que ela seja discretizada da seguinte maneira:
+
+$$
+1 \text{ se já houve caso extraconjugal} \\
+0 \text{ se não houve caso extraconjugal}
+$$
+  
+
+# Relatório em uma linha
+
+Caso o interesse seja apenas ter uma noção geral dos dados de forma extremamente rápida, basta rodar a linha de código abaixo:
+
+```
+ExpReport(Affairs,op_file = "teste.html")
+```
+  
+Antes de começar a explanar cada um dos casos, achei que seria legal frisar que além de tudo que será apresentado, existe a opção de se obter um relatório extenso sobre a análise exploratória dos dados em apenas uma linha!   
+  
+## Exemplo para o caso 1: a variável de destino não está definida
+
+Para ilustrar o primeiro caso, onde a variável destino não é definida, vamos supor que não existe uma variável alvo na nossa base de dados e estamos interessados em simplesmente obter uma visão geral enquanto pensamos em quais técnicas estatísticas serão utilizadas para avaliar nosso dataset.
+
+### Resumo das variáveis numéricas
+
+Resumo de de todas as variáveis numéricas:
+
+```{r}
+ExpNumStat (Affairs, 
+            by = "A",       # Agrupar por A (estatísticas resumidas por Todos), G (estatísticas resumidas por grupo), GA (estatísticas resumidas por grupo e Geral)
+            gp = NULL,      # variável de destino, se houver, padrão NULL
+            MesofShape = 2, # Medidas de formas (assimetria e curtose).
+            Outlier = TRUE, # Calcular o limite inferior, o limite superior e o número de outliers
+            round = 2)      # Arredondar
+```
+
+Podemos ver que não existem variáveis negativas e a única variável que apresentou "zero" foi a variável resposta. Nenhum registro como `Inf` ou como `NA`  e além das medidas descritivas também podemos notar as medidas de `skweness` e `kurtosis`. Alguns comentários sobre essas medidas:
+
+Medidas de forma para dar uma avaliação detalhada dos dados. Explica a quantidade e a direção do desvio. 
+
+  * **Kurotsis** explica o quão alto e afiado é o pico central (Achatamento). 
+  * **Skewness** não tem unidades: mas um número, como um escore z (medida da assimetria)
+  
+Onde:
+
+[**Kurtose**](https://pt.wikipedia.org/wiki/Curtose):
+
+A curtose é uma medida de forma que caracteriza o achatamento da curva da função de distribuição de probabilidade, Assim:
+
+  * Se o valor da curtose for = 0 (ou 3, pela segunda definição), então tem o mesmo achatamento que a distribuição normal. Chama-se a estas funções de mesocúrticas
+  * Se o valor é > 0 (ou > 3), então a distribuição em questão é mais alta (afunilada) e concentrada que a distribuição normal. Diz-se que esta função probabilidade é leptocúrtica, ou que a distribuição tem caudas pesadas (o significado é que é relativamente fácil obter valores que não se aproximam da média a vários múltiplos do desvio padrão)
+  * Se o valor é < 0 (ou < 3), então a função de distribuição é mais "achatada" que a distribuição normal. Chama-se-lhe platicúrtica
+
+[**Skewness**](https://pt.wikipedia.org/wiki/Obliquidade):
+
+O Skewness mede a assimetria das caudas da distribuição. Distribuições assimétricas que tem uma cauda mais "pesada" que a outra apresentam obliquidade. Distribuições simétricas tem obliquidade zero. Assim:
+
+  * Se v>0, então a distribuição tem uma cauda direita (valores acima da média) mais pesada
+  * Se v<0, então a distribuição tem uma cauda esquerda (valores abaixo da média) mais pesada
+  * Se v=0, então a distribuição é aproximadamente simétrica (na terceira potência do desvio em relação à média).
+  
+#### Distribuições de variáveis numéricas
+
+Representação gráfica de todos os recursos numéricos com **gráfico de densidade** (uni variada):
+
+```{r}
+# Nota: Variável excluída (se o valor único da variável for menor ou igual a 10 [im = 10])
+
+ExpNumViz(Affairs,
+          Page=c(2,2), # padrão de saída. 
+          sample=NULL) # seleção aleatória de plots
+```
+
+Exibidos os gráficos com as densidades das variáveis numéricas. Como podemos ver a maioria da amostra não registrou caso extraconjugal, a maioria tem de 12 ou mais anos de casado. A média amostral da idade dos indivíduos é de aproximadamente 32 anos apresentando leve assimetria com cauda a direita. As demais variáveis podem ser conferidas visualmente.
+
+### Resumo de variáveis categóricas
+
+Essa função selecionará automaticamente variáveis categóricas e gerará frequência ou tabelas cruzadas com base nas entradas do usuário. A saída inclui contagens, porcentagens, total de linhas e total de colunas.
+
+Frequência para todas as variáveis independentes categóricas:
+
+```{r}
+ExpCTable(Affairs,
+          Target=NULL)
+```
+
+Obs.: `NA` significa `Not Applicable`
+
+### Distribuições de variáveis categóricas
+
+Essa função varre automaticamente cada variável e cria um gráfico de barras para variáveis categóricas.
+
+Gráficos de barra para todas as variáveis categóricas
+
+```{r}
+ExpCatViz(Affairs,
+          fname=NULL, # Nome do arquivo de saida, default é pdf
+          clim=10,# categorias máximas a incluir nos gráficos de barras.
+          margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
+          Page = c(2,1), # padrao de saida
+          sample=4) # seleção aleatória de plot
+```
+
+### Machine Lerning usando algorítimo não supervisionado de agrupamento
+
+Apenas para efeitos ilustrativos, como estamos supondo que não temos a variável resposta vou remover a coluna `affairs` do data set e considerarei apenas as variáveis numéricas para fazer uma análise multivariada com o algorítimo de machine learning [`kmeans`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/kmeans.html). 
+
+A função [`plot_kmeans()`](https://github.com/gomesfellipe/functions/blob/master/plot_kmeans.R) pode ser encontrada em [meu github](github.com/gomesfellipe) no [repositório aberto de funções](https://github.com/gomesfellipe/functions).
+
+Vejamos os resultados:
+
+```{r}
+plot_kmeans(Affairs[,-c(1)] %>% select_if(is.numeric) , 2)
+```
+
+Como podemos observar, foram detectados dois grupos no conjunto de dados. O ideal agora seria fazer uma AED desses clusters identificados e avaliar qual o comportamento dos grupos formados mas como essa variável foi omitida e a seguir discutiremos a avaliação da base diante de da variável resposta, deixo essas análises aos curiosos de plantão. 
+
+
+
+Mais informações sobre análise multivariava podem ser encontrada no meu post sobre [Análise Multivariada com r](https://gomesfellipe.github.io/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/) e também em um [kernel que escrevi para a plataforma kaggle](https://www.kaggle.com/gomes555/an-lise-multivariada-pca-e-kmeans).
+
+Além disso disponibilizo uma aplicação Shiny que criei a algum tempo para PCA (Análise de componentes Principais) e tarefa de machine learning com agrupamento [nenste link](https://gomesfellipe.shinyapps.io/appPCAkmeans/).
+
+
+## Exemplo para o caso 2: A variável de destino é contínua
+
+Agora vamos considerar que estamos diante de um desfecho onde a variável alvo é contínua, para isso será considerada a variável `affairs` como variável alvo.
+
+### Resumo da variável dependente contínua
+
+Descrição da variável affairs:
+
+```{r}
+summary(Affairs[,"affairs"])
+```
+
+### Resumo das variáveis numéricas
+
+Estatísticas de resumo quando a variável dependente é contínua Preço.
+
+```{r}
+ExpNumStat(Affairs,
+           by="A", # Agrupar por A (estatísticas resumidas por Todos), G (estatísticas resumidas por grupo), GA (estatísticas resumidas por grupo e Geral)
+           Qnt=seq(0,1,0.1), # padrão NULL. Quantis especificados [c (0,25,0,75) encontrarão os percentis 25 e 75]
+           MesofShape=1, # Medidas de formas (assimetria e curtose)
+           Outlier=TRUE, # Calcular limite superior , inferior e numero de outliers
+           round=2) # Arredondamento
+
+#Se a variável de destino for contínua, as estatísticas de resumo adicionarão a coluna de correlação (Correlação entre a variável de destino e todas as variáveis independentes)
+```
+
+####  Distribuições de variáveis numéricas
+
+Representação gráfica de todas as variáveis numéricas com gráficos de dispersão (bivariada)
+
+Gráfico de dispersão entre todas as variáveis numéricas e a variável de destino affairs. Esta trama ajuda a examinar quão bem uma variável alvo está correlacionada com variáveis dependentes.
+
+Variável dependente é affairs (contínuo).
+
+```{r}
+ExpNumViz(Affairs,
+            target="affairs", # Variavel alvo
+            nlim=4, # a variável numérica com valor exclusivo é maior que 4
+            Page=c(2,2), # formato de saida
+            sample=NULL) # selecionado aleatoriamente 8 gráficos de dispersão
+```
+
+### Resumo de variáveis categóricas
+
+Resumo de variáveis categóricas de acordo com a frequência para todas as variáveis independentes categóricas por Affairs 
+```{r}
+##bin=4, descretized 4 categories based on quantiles
+ExpCTable(Affairs, Target="affairs")
+```
+
+#### Distribuições de variáveis categóricas
+
+Essa função varre automaticamente cada variável e cria um gráfico de barras para variáveis categóricas.
+
+Gráficos de barra para todas as variáveis categóricas
+
+```{r}
+ExpCatViz(Affairs,
+          target="affairs", # Variavel target
+          fname=NULL, # Nome do arquivo de saida, default é pdf
+          clim=10,# categorias máximas a incluir nos gráficos de barras.
+          margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
+          Page = c(2,1), # padrao de saida
+          sample=4) # seleção aleatória de plot
+```
+
+### Avaliando a correlação entre as variáveis
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(GGally)
+data("Affairs")
+#Correlaçoes cruzadas
+Affairs%>%
+  select(age:rating,affairs)%>%
+ggpairs(lower = list(continuous = my_fn,combo=wrap("facethist", binwidth=1), 
+                                       continuous=wrap(my_bin, binwidth=0.25)),aes(fill=affairs))+theme_bw()
+```
+
+
+```{r}
+ggcorr(Affairs,label = T,nbreaks = 5,label_round = 4)
+```
+
+### Modelo de regressão linear usando stepwiseAIC
+
+Por fim, vamos ajustar um modelo de regressão linear para entender quais são as variáveis significativas para explicar a variação da variável resposta e qual o efeito de cada uma dessas variáveis explicativas no nosso desfecho.
+
+Com o R base é possível ajustar um modelo de regressão linear simples utilizando a função `lm()` e em seguida usar a função `step()` para utilizar técnicas como [stepwise](https://en.wikipedia.org/wiki/Stepwise_regression), porém como quero utilizar também a técnica de [validação cruzada](https://pt.wikipedia.org/wiki/Valida%C3%A7%C3%A3o_cruzada). Para isso vou utilizar o pacote [`caret`](https://cran.r-project.org/web/packages/caret/caret.pdf), muito famoso por facilitar o ajuste de modelos de machine learning (ou mesmo modelos estatísticos tradicionais). 
+
+Além disso estou usando as transformações [`center()`](https://www.rdocumentation.org/packages/caret/versions/6.0-79/topics/preProcess), que subtrai a média dos dados e [`scale()`](https://www.rdocumentation.org/packages/caret/versions/6.0-79/topics/preProcess) divide pelo desvio padrão.
+
+```{r}
+data("Affairs")
+library(caret)
+set.seed(123)
+index <- sample(1:2,nrow(Affairs),replace=T,prob=c(0.8,0.2))
+train = Affairs[index==1,] %>%as.data.frame()
+test = Affairs[index==2,] %>%as.data.frame()
+
+# Setando os parâmetros para o controle do ajuste do modelo:
+fitControl <- trainControl(method = "repeatedcv",         # 10fold cross validation
+                     number = 10, repeats=5							# do 5 repititições of cv
+                     )
+
+# Regressão Linear com Stepwise
+set.seed(825)
+lmFit <- train(affairs ~ ., data = train,
+                method = "lmStepAIC", 
+                trControl = fitControl,
+                preProc = c("center", "scale"),trace=F)
+summary(lmFit)
+
+```
+
+Como podemos ver as variáveis Idade, Anos de casado, religiosidade, ocupação e como avaliam o próprio relacionamento se apresentaram significantes
+
+Como o $R^2=0,144$, conclui-se que $14,4%$ da variação da quantidade de vezes que foi envolvida em caso extraconjugal no último ano é explicada pelo modelo ajustado.
+
+Observando a coluna das estimativas, podemos notar o quanto varia a quantidade de vezes que foi envolvido em caso extraconjugal ao aumentar em 1 unidade cada uma das variáveis explicativas.
+
+Além disso o valor p obtido através da estatística F foi menor do que $\alpha = 0.05$, o que implica que pelo menos uma das variáveis explicativas tem relação significativa com a variável resposta.
+
+Selecionando apenas as variáveis selecionadas com o ajuste do modelo:
+
+```{r}
+train=as.data.frame(train[,c(1,3,4,6,8,9)])
+test=as.data.frame(test[,c(1,3,4,6,8,9)])
+```
+
+#### Diagnóstico do modelo
+
+Existem varias formas e técnicas de se avaliar o ajuste de um modelo e como o foco deste post é apresentar as utilidades do pacote `SmartEAD` irei fazer uma avaliação muito breve sobre os resíduos, apresento mais algumas maneiras no post sobre [pacotes do R para avaliar o ajuste de modelos](https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/).
+
+##### Avaliando residuos
+
+```{r}
+library(GGally)
+# calculate all residuals prior to display
+residuals <- lapply(train[2:ncol(train)], function(x) {
+  summary(lm(affairs ~ x, data = train))$residuals
+})
+
+# add a 'fake' column
+train$Residual <- seq_len(nrow(train))
+
+# calculate a consistent y range for all residuals
+y_range <- range(unlist(residuals))
+
+# plot the data
+ggduo(
+  train,
+  2:6, c(1,7),
+  types = list(continuous = lm_or_resid)
+)+ theme_bw()
+train=train%>%
+  select(-Residual)
+```
+
+Neste gráfico é possível observar como se comportam os ajustes de modelos lineares de cada variável explicativa em relação à variável resposta e além disso na segunda linha é possível notar o comportamento dos resíduos no modelo. 
+
+Uma das suposições do ajuste de um modelo linear normal é de que $\epsilon \sim N(0,\sigma^2)$ e visualmente parece que essa condição não deve ser atendida, pois esperaríamos algo como uma "nuvem" aleatória de pontos em torno de zero.
+
+##### Residuos e medidas de influencia
+
+Além da suposição da normalidade dos resíduos, existem ainda mais detalhes do comportamento desses erros, uma breve apresentação no gráfico a seguir:
+
+```{r}
+library(ggfortify)
+
+autoplot(lmFit$finalModel, which = 1:6, data = train,
+         colour = 'affairs', label.size = 3,
+         ncol = 3)+theme_classic()
+```
+
+Pelo que parece no gráfico com título "Normal Q-Q", as variáveis associadas à variável resposta com valores acima de 6 se comportam de forma inesperadas quando comparadas com os quantis teóricos.
+
+## Exemplo para o caso 3: a variável de destino é categórica
+
+Para finalizar a avaliação da base de dados, a Variável alvo será discretizado de tal forma:
+
+$$
+1 = \text{se affairs} > 0\\
+0 = c.c.
+$$
+
+Essa transformação será utilizada apenas com fins ilustrativos do algorítimo de árvore de decisões, que está ficando muito comum na ciência de dados como uma tarefa supervisionada de machine learning.
+
+```{r}
+Affairs = Affairs %>% 
+  mutate(daffairs = ifelse(Affairs$affairs!=0,1,0)) %>% 
+  mutate(daffairs = as.factor(daffairs))%>% 
+  select(-affairs)
+levels(Affairs$daffairs) = c("Não", "Sim")
+```
+
+
+### Resumo das variáveis numéricas
+
+Resumo de todas as variáveis numéricas
+
+```{r}
+ExpNumStat(Affairs,
+           by="A", # Agrupar por A (estatísticas resumidas por Todos), G (estatísticas resumidas por grupo), GA (estatísticas resumidas por grupo e Geral)
+           gp="daffairs", # Variavel alvo
+           Qnt=seq(0,1,0.1), # padrão NULL. Quantis especificados [c (0,25,0,75) encontrarão os percentis 25 e 75]
+           MesofShape=1, # Medidas de formas (assimetria e curtose)
+           Outlier=TRUE, # Calcular limite superior , inferior e numero de outliers
+           round=2) # Arredondamento
+```
+
+#### Distribuições de variáveis numéricas
+
+Box plots para todas as variáveis numéricas vs variável dependente categórica - Comparação bivariada apenas com categorias
+
+Boxplot para todos os atributos numéricos por cada categoria de affair
+
+```{r}
+ExpNumViz(Affairs, target="daffairs") # amostra de variaveis para o resumo
+
+```
+
+
+### Resumo das variáveis categóricas
+
+Tabulação cruzada com variável de destino com tabelas customizadas entre todas as variáveis independentes categóricas e a variável de destino `daffairs`:
+
+```{r}
+ExpCTable(Affairs,
+          Target="daffairs", # variavel alvo
+          margin=1, # 1 para proporcoes por linha, 2 para colunas
+          clim=10, # maximo de categorias consideradas por frequencia/ custom table
+          round=2, # arredondar
+          per=F) # valores percentuais. Tabela padrão dará contagens.
+```
+
+
+#### Distribuições de variáveis categóricas
+
+Gráfico de barras empilhadas com barras verticais ou horizontais para todas as variáveis categóricas
+
+```{r}
+ExpCatViz(Affairs,
+          target="daffairs",
+          fname=NULL, # Nome do arquivo de saida, default é pdf
+          clim=10,# categorias máximas a incluir nos gráficos de barras.
+          margin=2,# índice, 1 para proporções baseadas em linha e 2 para proporções baseadas em colunas
+          Page = c(2,1), # padrao de saida
+          sample=4) # seleção aleatória de plot
+```
+
+
+### Valor da informação
+
+`IV` é o peso da evidência e valores da informação, $ln(odss) \times(pct0 - pct1)$ onde  $pct1 =\frac{\text{"boas observações"}}{\text{"total boas observações"}}$; $pct0 = \frac{"\text{observações ruins"} }{ \text{"total de observações ruins"}}$ e  $odds = \frac{pct1}{pct0} $
+
+```{r}
+ExpCatStat(Affairs %>% mutate(daffairs = if_else(daffairs=="Não", 0, 1)) ,
+           Target="daffairs",
+           result = "IV") %>% 
+  select(-one_of("Target","Ref_1","Ref_0"))
+```
+
+### Testes estatísticos 
+
+Além de toda a informação visual e das estatísticas descritivas, ainda contamos com alguma função que fornece estatísticas resumidas para todas as colunas de caracteres ou categóricas no data frame
+
+```{r}
+ExpCatStat(Affairs %>% mutate(daffairs = if_else(daffairs=="Não", 0, 1)),
+           Target="daffairs", # variavel alvo
+           result = "Stat") # resumo de estatisticas
+```
+
+Os critérios usados para classificação de poder preditivo variável categórico são
+
+  * Se o valor da informação for <0,03, então, poder de previsão = "Não Preditivo"
+
+  * Se o valor da informação é de 0,3 a 0,1, então o poder preditivo = "um pouco preditivo"
+
+  * Se o valor da informação for de 0,1 a 0,3, então, poder preditivo = "Medium Predictive"
+
+  * Se o valor da informação for> 0.3, então, poder preditivo = "Altamente Preditivo"
+
+Nota para a variável `rating` que segundo essas regras, demonstrou alto poder preditivo.
+
+### Machine Learning com Random Forest
+
+O algorítimo supervisionado de machine learning conhecido como [Random Forest ](https://www.stat.berkeley.edu/~breiman/RandomForests/) é uma grande caixa preta. Apresenta resultados muito robustos pois combina o resultado de várias árvores de decisões e pode ser facilmente aplicada com o pacote `caret`.
+
+[No livro do pacote caret](https://topepo.github.io/caret/variable-importance.html) o algorítimo é apresentado da seguinte maneira: "segundo o pacote do R: Para cada árvore, a precisão da previsão na parte fora do saco dos dados é registrada. Então, o mesmo é feito após a permutação de cada variável preditora. A diferença entre as duas precisões é calculada pela média de todas as árvores e normalizada pelo erro padrão. Para a regressão, o MSE é calculado nos dados fora da bolsa para cada árvore e, em seguida, o mesmo é computado após a permutação de uma variável. As diferenças são calculadas e normalizadas pelo erro padrão. Se o erro padrão é igual a 0 para uma variável, a divisão não é feita."
+
+Não entrarei em muitos detalhes sobre o algorítimo pois esta parte é apenas um demonstrativo dos diferentes cenários de análise exploratória dos dados. Serão comentadas apenas algumas métricas utilizadas.
+
+Ajuste com o algorítimo Random Forest:
+
+```{r}
+library(caret)
+set.seed(1)
+index <- sample(1:2,nrow(Affairs),replace=T,prob=c(0.8,0.2))
+train = Affairs[index==1,] %>%as.data.frame()
+test = Affairs[index==2,] %>%as.data.frame()
+
+
+# Setando os parâmetros para o controle do ajuste do modelo:
+fitControl <- trainControl(method = "repeatedcv",         # 10fold cross validation
+                     number = 10
+                     )
+
+# Random Forest
+set.seed(825)
+antes = Sys.time()
+rfFit <- train(daffairs ~ ., data = train,
+                method = "rf", 
+                trControl = fitControl,
+                trace=F,
+                preProc = c("center", "scale"))
+
+antes - Sys.time() # Para saber quanto tempo durou o ajuste
+
+```
+
+Resultados do ajuste:
+
+```{r}
+rfFit
+```
+
+**Accurary e Kappa**
+
+Essas são as métricas padrão usadas para avaliar algoritmos em conjuntos de dados de classificação binária.
+
+  * [**Accuray**](https://en.wikipedia.org/wiki/Accuracy_and_precision): é a porcentagem de classificar corretamente as instâncias fora de todas as instâncias. É mais útil em uma classificação binária do que problemas de classificação de várias classes, porque pode ser menos claro exatamente como a precisão é dividida entre essas classes (por exemplo, você precisa ir mais fundo com uma matriz de confusão).
+  * [**Kappa ou Kappa de Cohen**](https://en.wikipedia.org/wiki/Cohen%27s_kappa) é como a precisão da classificação, exceto que é normalizado na linha de base da chance aleatória em seu conjunto de dados. É uma medida mais útil para usar em problemas que têm um desequilíbrio nas classes (por exemplo, divisão de 70 a 30 para as classes 0 e 1 e você pode atingir 70% de precisão prevendo que todas as instâncias são para a classe 0).
+  
+A seguir a "Variable Importance" de cada variável:
+
+```{r}
+rfImp = varImp(rfFit);rfImp
+```
+
+```{r}
+plot(rfImp)
+```
+
+
+A função dimensiona automaticamente as pontuações de importância entre 0 e 100, os escores de importância da variável em Random Forest são medidas agregadas. Eles apenas quantificam o impacto do preditor, não o efeito específico, para isso utilizamos o ajuste um modelo paramétrico onde conseguimos estimar termos estruturais.
+
+É claro que existem muitos adentos a serem feitos tanto na forma como os dados foram apresentados no ajuste do modelo linear e no Random Forest, mas como a finalidade do post continua sendo apresentar o pacote SmartEAD, encerrarei a avaliação por aqui.
+
+Caso alguém queira entender com mais detalhes a avaliação de modelos de machine learning, talvez [o livro do pacote caret](https://topepo.github.io/caret/measuring-performance.html) seja uma alternativa interessante para ter uma noção geral.
+
+> *Todos os modelos estão errados, alguns são úteis - George Box*
+
+Não conseguimos nenhum modelo útil que quantificasse as incertezas nas modelagens deste post mas conseguimos executar praticamente todas as funções do pacote `SmartEAD` e foi muito útil para conhecer a base em poucas linhas, obrigado Dayanand Ubrangala, Kiran R. e Ravi Prasad Kondapalli! 
+

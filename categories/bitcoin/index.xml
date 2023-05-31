@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bitcoin on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/categories/bitcoin/</link>
+    <description>Recent content in Bitcoin on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/bitcoin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</title>
+      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</guid>
+      <description>Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?
+Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.</description>
+    </item>
+    
+    <item>
+      <title>Seu app, RStudio e Shiny Server na nuvem do Google</title>
+      <link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</guid>
+      <description>Objetivo do post Uma das várias maneiras de se implementar o RStudio Server e o Shiny Server é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.</description>
+    </item>
+    
+    <item>
+      <title>Analisando o mercado de cryptomoedas com R</title>
+      <link>https://gomesfellipe.github.io/post/analisando-o-mercado-de-cryptomoedas-com-r/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
+      <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
+Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
+Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
+    </item>
+    
+  </channel>
+</rss>

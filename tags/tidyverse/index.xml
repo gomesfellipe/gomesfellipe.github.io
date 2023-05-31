@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tidyverse on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/tidyverse/</link>
+    <description>Recent content in Tidyverse on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vou te provar que da para fazer Grafos bonitos em R!</title>
+      <link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link>
+      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
+      <description>Introdução e contexto O que são Grafos? Como contruir um? Carregar dependências Fonte dos dados NER - Named Entity Recognition Preparar dados Bônus Conclusão Outras bibliotecas para construção de grafos Introdução e contexto Durante os anos de 2020 e 2021 fiz um MBA Executivo em Business Analytics e Big Data na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</description>
+    </item>
+    
+    <item>
+      <title>Otimizando pipelines que envolvem dados desbalanceados</title>
+      <link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
+      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem Baselines Preparar Pipeline de dados com workflowsets Benchmark Conclusão Referências O problema envolvendo dados desbalanceados A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:
+Detecção de fraude; Previsão de inadimplência; Identificador de spam; Busca por anomalias/outliers; Detecção de possíveis roubos/furtos/vulnerabilidades; Previsão de churn; etc Este tipo de tarefa representa um enorme desafio para modelagem preditiva pois a maioria dos algoritmos de machine learning foram projetados sob suposição de haver um número igual de exemplos para cada classe de interesse.</description>
+    </item>
+    
+    <item>
+      <title>Prevendo a qualidade do sono utilizando Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</guid>
+      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle? Objetivo 🎯 Explorar dados 🔎 Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados Modelagem 🚀 Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳 Qualidade de sono? 🤨 Sim, exatamente! Neste post analisaremos dados de um tracking que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.</description>
+    </item>
+    
+    <item>
+      <title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title>
+      <link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/</guid>
+      <description>Perguntas Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a criatividade.</description>
+    </item>
+    
+    <item>
+      <title>Manipulando dados com dplyr</title>
+      <link>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
+      <description>o pacote dplyr: A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise gastro é muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do R.
+Existem diversos pacotes para as mais variadas necessidades dos cientistas de dados (ou qualquer pessoa que precise fazer alguma análise ou programação estatística) disponíveis no CRAN e hoje quero registrar aqui algumas das funcionalidades do pacote dplyr que são muito úteis.</description>
+    </item>
+    
+  </channel>
+</rss>

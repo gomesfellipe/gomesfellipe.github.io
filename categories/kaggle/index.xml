@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kaggle on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/categories/kaggle/</link>
+    <description>Recent content in kaggle on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/kaggle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solução Final - ML Olympiad [1º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
+      <description>Introdução Definição do problema de negócio Soluções Estratégia analítica Decisões sobre a target Processamento dos Dados Dados Externos Feature Engineering Modelos Ensemble Post Processing Considerações Finais Sobre o Autor Introdução O TFUG - TensorFlow Users Group de São Paulo lançou uma nova competição no Kaggle onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Boa saúde e bem-estar.</description>
+    </item>
+    
+    <item>
+      <title>Solução Final - ML Olympiad [2º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Estrutura da base Ano da base de dados Target Machine Learning (em Python) Importar dependencias Carregar dados Modelagem Submissão Considerações Finais Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
+    </item>
+    
+    <item>
+      <title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python) Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon Conclusão Referências Introdução Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:</description>
+    </item>
+    
+    <item>
+      <title>Kaggle Notebooks</title>
+      <link>https://gomesfellipe.github.io/itemized/item4/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/itemized/item4/</guid>
+      <description>[DESATUALIZADO] Caso prefira acessar direto na plataforma, acesse: https://www.kaggle.com/gomes555/code
+Notebooks públicos no Kaggle: TPS-May2021 Stacking 🥞 Dataset: Tabular Playground Series - May 2021 Score: 1.08565 Link: https://www.kaggle.com/gomes555/tps-may2021-stacking TPS-May2021 Optuna Tuner One x Rest Dataset: Tabular Playground Series - May 2021 Score: 1.08765 Link: https://www.kaggle.com/gomes555/tps-may2021-optuna-tuner-one-x-rest TPS-May2021 Optuna LightGBM TPE Dataset: Tabular Playground Series - May 2021 Score: 1.08644 Link: https://www.kaggle.com/gomes555/tps-may2021-optuna-lightgbm-tpe TPS-May2021 Optuna LightGBM Tuner Dataset: Tabular Playground Series - May 2021 Score: 1.</description>
+    </item>
+    
+    <item>
+      <title>Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</title>
+      <link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/</guid>
+      <description>Análise de sobrevivência e PUBG Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.
+Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.
+PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal sobreviver, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.</description>
+    </item>
+    
+    <item>
+      <title>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</title>
+      <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</guid>
+      <description>Kaggle Segundo o Wikipédia: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.
+O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já escrevi em um post sobre gamificação e porque aprender R é tão divertido e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</description>
+    </item>
+    
+  </channel>
+</rss>

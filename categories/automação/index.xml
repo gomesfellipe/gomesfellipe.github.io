@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automação on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/</link>
+    <description>Recent content in Automação on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vou te provar que da para fazer Grafos bonitos em R!</title>
+      <link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link>
+      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
+      <description>Introdução e contexto O que são Grafos? Como contruir um? Carregar dependências Fonte dos dados NER - Named Entity Recognition Preparar dados Bônus Conclusão Outras bibliotecas para construção de grafos Introdução e contexto Durante os anos de 2020 e 2021 fiz um MBA Executivo em Business Analytics e Big Data na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</description>
+    </item>
+    
+    <item>
+      <title>Otimizando pipelines que envolvem dados desbalanceados</title>
+      <link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
+      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem Baselines Preparar Pipeline de dados com workflowsets Benchmark Conclusão Referências O problema envolvendo dados desbalanceados A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:
+Detecção de fraude; Previsão de inadimplência; Identificador de spam; Busca por anomalias/outliers; Detecção de possíveis roubos/furtos/vulnerabilidades; Previsão de churn; etc Este tipo de tarefa representa um enorme desafio para modelagem preditiva pois a maioria dos algoritmos de machine learning foram projetados sob suposição de haver um número igual de exemplos para cada classe de interesse.</description>
+    </item>
+    
+    <item>
+      <title>Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</title>
+      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</guid>
+      <description>Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?
+Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.</description>
+    </item>
+    
+    <item>
+      <title>Como automatizar relatórios longos e repetitivos com RMarkdown</title>
+      <link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</guid>
+      <description>Problema de negócio Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passsar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.
+Com a linguagem R, escrever relatórios estatísticos utilizando RMarkdown acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.</description>
+    </item>
+    
+    <item>
+      <title>Gerenciando arquivos do Dropbox com R</title>
+      <link>https://gomesfellipe.github.io/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/</guid>
+      <description>O Dropbox Armazenar arquivos na nuvem é uma prática muito comum nos dias de hoje. O Dropbox é um dos muitos exemplos de repositórios baseados no conceito de “computação em nuvem”, que oferece o serviço para compartilhar e armazenar arquivos.
+Não é novidade que a “computação em nuvem” tem impulsionado muitos projetos, em especial projetos de Big Data ocorrendo em diversos setores e existe um volume absurdo de dados sendo gerados.</description>
+    </item>
+    
+  </channel>
+</rss>

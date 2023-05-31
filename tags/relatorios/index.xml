@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>relatorios on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/relatorios/</link>
+    <description>Recent content in relatorios on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/relatorios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Como automatizar relatórios longos e repetitivos com RMarkdown</title>
+      <link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</guid>
+      <description>Problema de negócio Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passsar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.
+Com a linguagem R, escrever relatórios estatísticos utilizando RMarkdown acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.</description>
+    </item>
+    
+  </channel>
+</rss>

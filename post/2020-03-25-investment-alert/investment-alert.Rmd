@@ -1,0 +1,770 @@
+---
+title: "Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos"
+author: Fellipe Gomes
+date: '2020-03-25'
+slug: []
+categories:
+  - Analise Exploratória
+  - Automação
+  - Bitcoin
+  - Cloud
+  - Estatistica
+  - Machine Learning
+  - Prática
+  - R
+  - Reports
+  - RMarkdown
+  - Séries Temporais
+  - Shiny
+tags:
+  - bitcoin
+  - Correlacoes
+  - Dplyr
+  - Estatistica
+  - gomesfellipe
+  - machine learning
+  - modelagem
+  - R
+  - reports
+  - Séries Temporais
+  - RStudio
+  - Tabelas
+  - bolsa de valores
+  - prophet
+description: 'Entenda a lógica de como montar uma carteira, coletar dados de finança em tempo real, treinar um modelo de Machine Learning com Prophet (Facebook Open Source) e receber análises automatizadas no Smartphone'
+featured: 'img1.png'
+featuredalt: 'Pic 24'
+featuredpath: 'date'
+linktitle: ''
+type: "post"
+---
+
+
+<style>
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column4 {
+  float: left;
+  width: 33%;
+  padding: 10px;
+}
+
+.column8 {
+  float: left;
+  width: 66%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, fig.align = "center", fig.width = 10)
+
+# Carregar pacotes:
+library(dplyr)         # manipulacao de dados
+library(purrr)         # programacao funcional
+library(knitr)         # tabela
+library(kableExtra)    # formatar tabela
+library(formattable)   # extrasformatar tabela
+library(prophet)       # ml
+library(alphavantager) # api bovespa
+
+AV_API_KEY = Sys.getenv("AV_API_KEY")
+av_api_key(AV_API_KEY)
+
+ggplot2::theme_set(ggplot2::theme_bw())
+
+kable2 <- function(x){
+  x %>% 
+    kable(format = "html", escape = F) %>%
+    kable_styling(c("striped", "bordered", "hover", "responsive"), full_width = F) 
+}
+
+source("https://raw.githubusercontent.com/gomesfellipe/functions/master/inicio_e_fim_da_base.R")
+source("https://raw.githubusercontent.com/gomesfellipe/functions/master/moeda_real.R")
+```
+
+# Por que investir?
+
+Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?
+
+Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.
+
+<center>![](/post/2020-03-25-investment-alert/investment-alert_files/noticia_poupanca.png){width=50%} <br><small>Fonte: <https://noticias.r7.com/economia/economize/poupanca-em-baixa-exige-busca-por-novos-investimentos-em-2020-25122019></small></center></br>
+
+Com a finalidade de fomentar um pouco a discussão sobre investimentos, trouxe nesse post algumas sugestões e idéias de como elaborar uma carteira e otimizar as escolhas para equilibrar risco em novos investimentos combinando elementos de estatística, machine learning e programação em R.
+
+Ao final do post criaremos um [robô no telegram](https://core.telegram.org/bots) que coletará os dados das cotações adquiridas, aplicará o modelo [Prophet do Facebook](https://facebook.github.io/prophet/docs/quick_start.html) para forecast e analisará a desmontagem da carteira segundo os critérios estabelecidos e enviará mensagens para nós com uma tabela financeira automatizada via Telegram como mostra na animação:
+
+</br>
+
+<div class="row">
+<div class="column4">
+<center>![](/post/2020-03-25-investment-alert/investment-alert_files/watch.png)</center> 
+</div> 
+<div class="column8"> 
+![](/post/2020-03-25-investment-alert/investment-alert_files/report_stocks.gif){width=90%}
+</div> 
+</div>
+
+</br>
+
+<div class="w3-panel w3-pale-red w3-border">
+<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  **AVISO**: Este post **não** tem como finalidade ser um guia de investimentos (Já existem muitas consultorias especializadas nisso por ai). Todos as decisões tomadas como diversificação da carteira, seleção de ações e critérios para desmontagem da carteira são **exemplos** e servem para ilustrar algumas **possibilidades** que um cientista de dados têm na hora de desenvolver ferramentas para auxiliar à tomada de decisão.
+</div>
+
+
+
+</br>
+
+## Diferença de poupar e investir
+
+De acordo com um [especialista entrevistado pela InfoMoney](https://www.infomoney.com.br/minhas-financas/brasileiros-nao-sabem-a-diferenca-entre-poupar-e-investir-afirma-especialista-2/): 
+
+> “Poupar é guardar dinheiro para usar no futuro, comprar alguma coisa com ele. Investimento é juntar dinheiro, não mexer nele, para que este gere rendimentos e aí sim, usar os lucros mais para frente. É o recomendado para quem quer viver de renda no futuro, por exemplo” (...)
+<div align="right"><font size="1">InfoMoney - Ago 2015</font></div>
+
+Ou seja, poupar é acumular agora para utilizar depois, e normalmente envolve mudança de hábitos, pois requer uma redução nos gastos pessoais e familiares, já investir é usar esse dinheiro poupado em aplicações que rendam.
+
+Como todo mundo sabe, não existe investimento sem risco e este risco deve ser controlado e utilizado a nosso favor de forma que gere alguma segurança financeira.
+
+# Montagem da carteira
+
+<div class="row">
+<div class="column8">
+
+Não colocar todos os ovos na mesma cesta significa que você deve diversificar o seu investimento. Provavelmente você já ouviu essa frase alguma vez na vida e ela certamente faz sentido! 
+
+Diversificar a carteira irá proteger seus investimentos diminuindo o risco pois, imagine só, você investe todo o seu dinheiro em uma empresa e ela passa por alguma crise assim seu dinheiro estará todo comprometido! 
+
+Existem diversos motivos para se diversificar a carteira mas acho que essa metáfora dos ovos já resume bem pois acredito que ninguém queira perder tudo em uma queda.
+
+</div> 
+<div class="column4">
+![](/post/2020-03-25-investment-alert/investment-alert_files/ovos_mesm_cesta.png){width=90%}
+</div> 
+</div>
+
+## Como dividir a carteira?
+
+Dependendo do risco que você deseja se expor existem muitas formas de preparar a carteira mas a idéias principal consiste em atingir um equilíbrio entre dois tipos de investimento:
+
+* Renda fixa: Menor exposição, menor risco  (ex.: CDI, Selic e TR)
+* Renda variável: Maior exposição, maior risco (ex: Ações, Commodities, Imóveis)
+
+Para ajudar a dividir a carteira de investimentos neste post utilizaremos a chamada [Regra (ou Lei) dos 80](https://www.btgpactualdigital.com/blog/coluna-gustavo-cerbasi/defina-sua-estrategia-entre-renda-fixa-ou-variavel). A estratégia é a seguinte: subtraia da sua idade o número 80. O resultado dessa conta vai indicar o percentual a ser investido em [renda variável](https://pt.wikipedia.org/wiki/Renda_vari%C3%A1vel). Por exemplo, no meu caso: tenho 26 anos, portanto $80-26 = 54\%$ deverá ser investido em renda variável. Aos 53 anos esse percentual vai cairá para a metade, $27\%$.
+
+A idéias principal por trás desta regra que é que a cada ano que passa, 1% do montante da renda variável deva ser direcionado para a [renda fixa](https://pt.wikipedia.org/wiki/Renda_fixa).
+
+Para testar diferentes valores seguindo esta regra desenvolvi uma função que se chama [`montagem80()` (que já está disponível no github)](https://gist.github.com/gomesfellipe/a74710a63b3c8637166b538ad2f460f5). Vejamos alguns resultados para diferentes cenários e vamos selecionar um para seguir com a montagem da carteira:
+
+```{r}
+# https://gist.github.com/gomesfellipe/a74710a63b3c8637166b538ad2f460f5
+devtools::source_gist("a74710a63b3c8637166b538ad2f460f5", quiet = T)
+```
+
+<div class="row">
+<div class="column">
+1. Entrada de R$20.000,00 <big>👈</big>
+```{r}
+montagem80(entrada = 20000, idade = 26)
+```
+</div>
+<div class="column">
+2. R$ 5.000,00 em acoes 
+```{r}
+montagem80(variavel = 10800, idade = 53)
+```
+</div>
+</div>
+
+Utilizaremos a primeira (1.) configuração que esta assinalada em vermelho como exemplo, onde:
+
+* Entrada: `r moeda_real(montagem80(entrada = 20000, idade = 26, return = T)[1])`
+* Renda fixa: `r moeda_real(montagem80(entrada = 20000, idade = 26, return = T)[2])`
+* Renda Variável (Acoes): `r moeda_real(montagem80(entrada = 20000, idade = 26, return = T)[3]*.9)`
+* Renda Variável (Crypt): `r moeda_real(montagem80(entrada = 20000, idade = 26, return = T)[3]*.1)` 
+
+Note que a entrada deve ser o dobro na segunda (2.) configuração caso deseje investir `r moeda_real(10800)` (que é o valor sugerido aos 26 anos para uma entrada de `r moeda_real(20000)`) 
+
+Após definir a quantidade a ser investida é hora de planejar a próxima etapa: a diversificação.
+
+
+## Diversificação da carteira
+
+<div class="row">
+<div class="column8">
+
+A diversificação é uma técnica para gestão do risco que visa distribuir o capital investido em uma variedade de investimentos dentro de da nossa carteira.
+
+Assim, o risco do portfólio é consideravelmente reduzido pois reduzimos a volatividade e criamos um equilíbrio onde um desempenho positivo de um ativo neutraliza as baixas ocorridas em outras aplicações. Além disso a diversificação pode ser tanto coma renda variável quanto com a renda fixa.
+
+Mas lembre-se, não existe uma receita mais eficiente! 
+
+</div> 
+<div class="column4">
+</br>
+<iframe src="https://giphy.com/embed/qJkRbWM1MfVjq" width="100%" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/eggs-qJkRbWM1MfVjq">via GIPHY</a></p>
+</div> 
+</div>
+
+### Renda fixa
+
+Normalmente, também diversificamos nossa renda fixa porém como gostaria de focar nas análises de renda variável utilizaremos o simulador disponível no site <https://verios.com.br/> neste [link](https://simulador-tesouro-direto.verios.com.br/) para selecionar apenas um título:
+
+<center>
+![](/post/2020-03-25-investment-alert/investment-alert_files/tesouro_direto.png){width=80%}
+<small></br>Fonte: <https://simulador-tesouro-direto.verios.com.br/></small>
+</center>
+</br>
+
+Como exemplo, escolhi o Tesouro Prefixado 2015 (LTN), note que com essa escolha o lucro planejado seria de quase 3 mil reais nos próximos 5 anos.
+
+<div class="w3-panel w3-pale-red w3-border">
+<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **AVISO**: Lembrando que esta seleção é apenas um exemplo e existem diversas informações a serem levadas em conta ao se fazer esta escolha além de se poder diversificar também. Convido o leitor a procurar saber mais sobre os tipos, prós e contras do Tesouro Direto.
+</div>
+
+### Renda variável
+
+Para elaboração da parte da renda variável da carteira selecionei duas ações que são inversamente correlacionadas (de forma totalmente arbitrária)  baseado no excelente post \"[Estudo de correlação entre ações da Bolsa de Valores de São Paulo](https://www.tradingcomdados.com/post/2017/07/09/estudo-de-correla%C3%A7%C3%A3o-entre-a%C3%A7%C3%B5es-da-bolsa-de-valores-de-s%C3%A3o-paulo)\" escrito por Victor Gomes onde o autor faz um estudo de correlações das séries históricas de ações de diferentes setores.
+
+Além disso, o Bitcoin será selecionado para completar a carteira de renda variável como um ativo de alto risco com bastante volatividade. Mas você deve estar se perguntando, por que assumir este risco? 
+
+Existem muitas histórias de pessoas que ficaram milionárias com o Bitcoin pela sua valorização inesperada ao longo do tempo, como por exemplo o [adolescente que ficou milionário aos 18 anos usando bitcoins após fazer aposta com os pais](https://www.infomoney.com.br/mercados/adolescente-fica-milionario-aos-18-anos-usando-bitcoins-apos-fazer-aposta-com-os-pais/).  
+
+Então **eu** acho que 10% dessa nossa carteira (não esqueça que podemos ter mais de uma carteira) é um risco que pode valer a pena correr e por isso vou incluí-lo.
+
+Portanto, para este exemplo consideramos:
+
+* TUPY3.SA: [Tupy](https://www.google.com/search?q=tupy3&oq=tupy3&aqs=chrome..69i57.7273j0j4&sourceid=chrome&ie=UTF-8)
+* ELET3.SA: [Centrais Eletricas Brasileiras SA](https://www.google.com/search?ei=-dxuXtuyNIbR5OUPxY2m8AE&q=ELET3.SA&oq=ELET3.SA&gs_l=psy-ab.3..0.40045.41040..41701...0.2..0.123.237.0j2......0....2j1..gws-wiz.......0i71.a2fjObIM6cM&ved=0ahUKEwibk86a8p3oAhWGKLkGHcWGCR4Q4dUDCAs&uact=5)
+* BTC-USD: [Bitcoin](https://www.google.com/search?ei=JN1uXsDJLJm55OUPj8-c8As&q=bitcoin&oq=bitcoin&gs_l=psy-ab.3.0.0i131i70i258j0i131i67j0i131j0i67j0j0i67j0i131j0i67j0j0i131.25383.26281..27215...0.0..0.175.1147.1j8......0....1..gws-wiz.xu0EQx1CnXI) 
+
+```{r}
+portifolio = c("TUPY3.SA","ELET3.SA", "BTC-USD")
+```
+
+<div class="w3-panel w3-pale-red w3-border">
+<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **AVISO**: Volto a frisar que as escolhas das ações foram feitas de forma arbitrária. Estamos em tempos de incerteza atualmente por conta do corona vírus (espero que todos fiquem bem) o que leva algumas escolhas à serem ainda mais complexas e imprevisíveis. 
+</div>
+
+#### Obter dados
+
+A aquisição das série históricas das cotações destes ativos desde 01/01/2016 foram obtidas utilizando o pacote [`tidyquant`](https://github.com/business-science/tidyquant) que nos retorna os dados das cotações das ações informadas em formato "arrumado" (ou seja, familiar com funções do [tidyverse](https://www.tidyverse.org/)), veja:
+
+```{r, eval = T}
+library(tidyquant) # aquisicao de dados financeiros
+stocks <-map_df(portifolio, ~tq_get(.x, get = "stock.prices", from = " 2016-01-01"))
+saveRDS(stocks, "stocks.rds")
+```
+
+```{r, echo = F, eval = T}
+stocks <- readRDS("stocks.rds")
+```
+
+Veja as linhas iniciais do dataset obtido:
+
+```{r}
+stocks %>% head() %>% kable2()
+```
+
+Existem uma série de vantagens de se trabalhar com os dados neste formato em R, veremos o porque nas próximas seções.
+
+#### Arrumar dataset
+
+O formato  [`tsibble`](https://github.com/tidyverts/tsibble) é um formato moderno para se trabalhar com séries temporais trazendo a filosofia do `tidyverse` para os dados de séries temporais facilitando o  [fluxo de trabalho](https://blog.earo.me/2018/12/20/reintro-tsibble/). 
+
+Diversos outros pacotes podem ser combinados utilizando os dados no formato do pacote `tsibble` como os pacotes [`fable`](https://robjhyndman.com/hyndsight/fable/) e o [`prophet`](https://github.com/mitchelloharawild/fable.prophet) (sugiro a leitura para quem nao conhece) para aplicação de modelagem de séries temporais.
+
+Veja como é o fluxo ao trabalhar com objetos do tipo `tsibble`
+
+<center>
+![](/post/2020-03-25-investment-alert/investment-alert_files/ds-pipeline.png){width=60%}
+</br>
+<small>Fonte: <https://blog.earo.me/2018/12/20/reintro-tsibble/></small>
+</center>
+
+</br>
+
+```{r}
+library(tsibble) # series temporais arrumadas
+tbl_stocks <- stocks %>% as_tsibble(key = symbol, index = date) 
+```
+
+Após importar e arrumar o dataset, seguimos para os próximos passos.
+
+#### Transformar
+
+Após converter para `tsibble`, vamos preencher alguns gaps da bolsa como por exemplo os finais de semana (quando a bolsa de valores fica fechada) com o mesmo valor do dia anterior (Para este exemplo vamos fazer esse preenchimento dos gaps do final de semana mas não é sempre é necessário):
+
+```{r}
+tbl_stocks <- 
+  tbl_stocks %>% 
+  fill_gaps() %>% 
+  tidyr::fill(c(open, high, low, close, volume, adjusted),.direction = "down")
+```
+
+Com os dados arrumados vamos a algumas visualizações.
+
+#### Visualizar
+
+Vejamos qual foi o comportamento das séries históricas que coletamos desde o início de 2016:
+
+```{r}
+library(forecast) # series temporais
+library(fpp3)     # series temporais
+d2 <- 
+  tbl_stocks %>% 
+  group_by(symbol) %>% 
+  summarise(y = mean(close))
+
+autoplot(tbl_stocks)+
+  geom_line(aes(group = symbol), color = "black", show.legend = F) + 
+  facet_wrap(~symbol, scales = "free_y", ncol = 1)+
+  geom_ma(n=6*30, color = "red") + 
+  theme(legend.position = "none")+
+  labs(subtitle = "média móvel n = 6 meses",
+       caption = "gomesfellipe.github.io")
+```
+
+Note que a série do Bitcoin é a mais imprevisível, houve um pico em 2018 mas após isso não houve nenhum grande pico como aquele. Em breve ocorrerá o [Halving](https://www.infomoney.com.br/onde-investir/halving-conheca-o-processo-que-pode-levar-o-bitcoin-a-uma-nova-explosao-de-preco/) (a contagem regressiva pode acompanhada [neste link](https://www.bitcoinblockhalf.com/)) que é um processo de choque de oferta e ocorre aproximadamente a cada 4 anos e pode ser uma boa oportunidade de retorno.
+
+As duas séries da bolsa de valores não parecem ter uma correlação muito forte, os picos ocorrem de forma alternada e isto pode ser uma característica boa para a carteira pois caso uma delas entre em crise a outra poderá estar em uma fase boa.
+
+<div class="w3-panel w3-pale-blue w3-border">
+<i class="fa fa-ambulance" aria-hidden="true"></i>  Nota: Esta queda abrupta que ocorreu na bolsa no início de 2020 é o reflexo da [Pandemia CODVID-19](https://pt.wikipedia.org/wiki/Pandemia_de_COVID-19_no_Brasil) que já começou a apresentar alguns casos no Brasil e isso certamente tem gerando muita incerteza na bolsa de valores. Nem eu nem ninguém sabe o que pode acontecer, estou na torcida para que todos fiquem bem e pelo sucesso na contenção desse vírus! <i class="fas fa-praying-hands"></i> 
+</div>
+
+#### Correlações
+
+Para estudar melhor as conjecturas formadas ao observar o comportamento das séries histórias (de que os picos e vales se alternam) vamos conferir olhada nos gráficos de dispersão e coeficientes de [correlação de Spearman](https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_postos_de_Spearman):
+
+```{r, fig.height=4, fig.width=5, fig.align="center"}
+points_loess <- function(data, mapping){
+  ggplot(data = data, mapping = mapping) + 
+    geom_point(alpha = 0.3,size=0.5) + 
+    geom_smooth(method = "loess")
+}
+
+tbl_stocks %>%
+  as_tibble() %>% 
+  select(symbol, date, close) %>% 
+  spread(key = symbol, value = close) %>%
+  GGally::ggpairs(columns = 2:4,
+                  upper = list(continuous = GGally::wrap("cor", method = "spearman")),
+                  lower = list(continuous =  points_loess))
+```
+
+Note que a relação entre TUPY3 e ELET3 não é linear e além disso essa correlação é fraca, o que pode ser benéfico para o portfólio pois uma possível queda em uma não parece não ter tanto impacto na outra.
+
+Além disso note que a correlação do BTC-USD com TUPY3 e ELET3 é moderada e mesmo apresentando este valores numéricos, o Bitcoin é um ativo negociado em escala global e é de um setor totalmente diferente das outras ações.
+
+<div class="w3-panel w3-pale-red w3-border">
+<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **AVISO**: Essa análise meramente numérica não é o suficiente para detectar uma relação de causa, pois correlação não implica causalidade. Isto que dizer que poda haver uma causa em comum para ambas ou que seja uma [correlação espúria](https://pt.wikipedia.org/wiki/Regress%C3%A3o_esp%C3%BAria). Quando se trata da bolsa de valores é necessário também conhecer um pouco sobre a situação e história da empresa na qual se investe.
+</div>
+
+#### Forecast com Prophet do Facebook
+
+Poderíamos utilizar uma série de modelos estatísticos, econométricos e de machine learning utilizando tanto as funções nativas do R base ou pacote forecast quanto as funções desenvolvidas para trabalhar de maneira "arrumada" com tsibble mas resolvi fazer uma abordagem diferente neste post escolhendo o modelo disponibilizado pelo Facebook.
+
+<div class="row">
+<div class="column">
+</br>
+O [Prophet](https://facebook.github.io/prophet/) é um software de código aberto disponibilizado pela equipe de [Data Science do Facebook](https://research.fb.com/category/data-science/) que fornece um procedimento para realização de previsões de dados de séries temporais.
+
+</div>
+<div class="column"> 
+![](/post/2020-03-25-investment-alert/investment-alert_files/prophet_logo.png){width=80%}
+</br><small>Fonte: <https://facebook.github.io/prophet/></small>
+</div> 
+</div>
+
+Segundo a [documentação oficial](https://facebook.github.io/prophet/), (em tradução livre): 
+
+> O Prophet tem como "base em um modelo aditivo no qual tendências não lineares se ajustam à sazonalidade anual, semanal e diária, além de efeitos de férias. Funciona melhor com séries temporais que têm fortes efeitos sazonais e várias temporadas de dados históricos. O Profeta é robusto para a falta de dados e mudanças na tendência, e geralmente lida bem com outliers".
+
+Este modelo me pareceu uma boa opção para exemplificar a etapa da modelagem de séries temporais deste post. Vamos ver o que o modelo do Facebook tem a nos dizer sobre o futuro das nossas ações.
+
+##### Divisão entre treino e teste em séries temporais
+
+Assim como em uma tarefa de machine learning que não envolvem dados temporais, no caso de séries temporais, quando desejamos avaliar o ajuste do nosso modelo também dividimos o dataset em treino e teste porém utilizamos a data como índice.
+
+```{r, echo = F}
+h = 30 * 2
+data_split <- Sys.Date() - h
+```
+
+Veja como serão divididas nossas séries históricas: 
+
+* treino: inicio da série até `r format(data_split, "%d/%m/%y")`;
+* teste: de `r format(data_split, "%d/%m/%Y")` até o final da série histórica (2 meses atrás)
+
+```{r}
+h = 30 * 2
+data_split <- Sys.Date() - h
+
+tbl_stocks_train <-  
+  tbl_stocks %>% 
+  filter(date <= data_split) %>% 
+  select(symbol, date, close)
+
+tbl_stocks_test <- 
+  tbl_stocks %>%
+  filter(date > data_split) %>% 
+  select(symbol, date, close)
+```
+
+Após dividir os dados em treino e teste já estamos habilitados à utilizar o modelo. Note que, por default, o modelo espera duas colunas nomeadas como `ds`: data da série e `y`: variável target da série.
+
+Além disso faremos uma previsão 6 meses a frente dos dados de teste para entender qual a tendência o modelo estaria adotando.
+
+```{r}
+library(prophet)
+
+prophet_results <- 
+  tbl_stocks_train %>% 
+  rename(ds = date, y = close) %>% 
+  nest(data = c(ds, y)) %>% 
+  mutate(pmodel = map(data, ~ prophet(.x, daily.seasonality=TRUE))
+  )%>% 
+  mutate(pprediction = map(pmodel, ~.x %>%  
+                             make_future_dataframe(periods = h + 30*6) %>%
+                             predict(.x,.))) 
+```
+
+Veja os resultados do ajuste do modelo:
+
+```{r, fig.height=7}
+library(patchwork)
+
+pmap(list(
+  x = prophet_results$pprediction,
+  y = split(tbl_stocks_train, tbl_stocks_train$symbol),
+  z = split(tbl_stocks_test, tbl_stocks_test$symbol),
+  w = prophet_results$symbol
+),function(x, y, z, w){
+  x %>% 
+    as_tibble() %>%
+    mutate(ds=as_date(ds)) %>%
+    select(ds, trend, yhat, yhat_lower, yhat_upper) %>% 
+    ggplot() + 
+    geom_line(aes(x=ds, y=yhat, color="blue"), show.legend = F) +
+    geom_line(data=y, aes(x=date, y=close, color="black"), show.legend = F) +
+    geom_line(data=z, aes(x=date, y=close, color="red"), show.legend = T) +
+    geom_ribbon(aes(x=ds, ymin=yhat_lower, ymax=yhat_upper), alpha=0.2)  +
+    scale_x_date(#limits = c(as.Date("2018-06-01"), Sys.Date() + 30*12), 
+      date_breaks = "6 month", date_labels = "%m/%Y") +
+    theme_bw()+
+    labs(y = w, x = "", caption = "gomesfellipe.github.io")+
+    scale_colour_manual(values=c("black","blue","red"), name="", labels=c("treino","modelo","teste"))+
+    theme(legend.position = c(1-0.8,1-0.2), 
+          legend.background = element_rect(fill=alpha('lightgrey', 0.2)),
+          legend.direction = "horizontal")
+}
+) %>% {.[[1]] / .[[2]] / .[[3]]}
+
+ggsave("phophet.png") # salvar para o bot retornar este resultado!
+```
+
+Parece interessante..
+
+Veja que a linha azul (modelo ajustado) se ajusta bem à linha preta (dados de treino) acompanhando a série histórica e captando algumas tendências não lineares. 
+
+Porém note que a linha azul se perde completamente da linha vermelha (dados de teste) no início de 2020 e acho isso muito razoável pois dificilmente algum modelo iria prever os efeitos de uma Pandemia utilizando apenas a série histórica do ativo.
+
+Note ainda que a linha azul se estende até o final de 2020 (previsões para os próximos 6 meses) o que sugere que a série possuía esta tendencia positiva ao longo dos anos, segundo o modelo Prophet .
+
+<div class="w3-panel w3-pale-yellow w3-border">
+<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **Aviso**: Existem várias maneiras de estudar e melhorar a qualidade do ajuste deste modelo mas como o objetivo deste post não é este deixo como aviso para o leitor.
+</div>
+
+Com a interpretação dos resultados concluída.. vamos às compras!
+
+# Comprando ações
+
+Após toda essa exemplificação de como podem ser feitas as análises para a elaboração da carteira chegou a hora das compras.
+
+Suponha que tivéssemos realizado nossas compra no fechamento do dia **2018-12-01**, quando os valores de <font color="blue">**fechamento**</font> das cotações eram as seguintes:
+
+```{r}
+tbl_stocks %>% 
+  filter(date == "2018-12-01") %>% 
+  mutate(close = cell_spec(moeda_real(close), "html", color = "blue", bold = T)) %>% 
+  mutate_at(c(3:5, 8), ~moeda_real(.x)) %>% 
+  kable2()
+
+```
+
+```{r, echo = F}
+cot_inicio = filter(tbl_stocks, date == "2018-12-01", symbol != "BTC-USD") %>% pull(close)
+qtd_inicio = c(elet = 200, tupy = 150)
+```
+
+Neste dia a cotação para ELET3 era `r moeda_real(cot_inicio)[1]` e TUPY3 era `r moeda_real(cot_inicio)[2]` e suponha que tenhamos comprado `r qtd_inicio[1]` lotes de ELET3 e `r qtd_inicio[2]` fracionários de TUPY, totalizando `r moeda_real(sum(qtd_inicio * cot_inicio))` (próximo ao que tinhaamos planejado no inicio do estudo)
+
+Vamos guardar estes valores:
+
+```{r}
+cot_inicio = filter(tbl_stocks, date == "2018-12-01", symbol != "BTC-USD") %>% pull(close)
+qtd_inicio = c(elet = 200, tupy = 150)
+```
+
+Note que o valor do Bitcoin está em dólares, para obter o valor em reais (R$) daquele dia vamos utilizar a [API do Mercado Bitcoin](https://www.mercadobitcoin.net/api/BTC/day-summary/2020/01/09/). Como não existe nenhum pacote que forneça estes dados diretamente no R, a requisição será feita normalmente via API com o pacote `jsonlite`:
+
+```{r}
+library(jsonlite) # requisicao de api
+url <- glue::glue("https://www.mercadobitcoin.net/api/BTC/day-summary/2019/12/01/")
+safe_fromJSON <- purrr:::safely(fromJSON, as.numeric(NA)) 
+consulta <- safe_fromJSON(url)$result %>% map_dfc(~.x)
+
+consulta %>%
+  select(-date) %>% 
+  mutate_all(~moeda_real(.x)) %>%
+  mutate(closing = cell_spec(closing, "html", color = "blue")) %>% 
+  kable2()
+```
+
+O preço de fechamento foi de `r moeda_real(consulta$closing)` e suponhamos que tenha sido este o valor pago no dia. (Parece que neste dia o dólar estava em torno de `r moeda_real(consulta$closing / (tbl_stocks %>% filter(date == "2020-01-09") %>% pull(close) %>% .[1]))`)
+
+Para completar esta carteira fictícia vamos adquirir 0,0032 do valor de um Bitcoin
+
+```{r}
+cot_inicio[3] <- consulta$closing
+qtd_inicio[3] <- 0.032
+```
+
+Portanto, ao valor de `r moeda_real(cot_inicio[3])` compramos `r qtd_inicio[3]` Bitcoin totalizando `r moeda_real(cot_inicio[3] * qtd_inicio[3])` completando nossa carteira.
+
+## Tabela financeira
+
+Semelhante a uma planilha financeira, criaremos uma tabela financeira automatizada que receberá como input os valores da montagem e calculará automaticamente os valores do desmontagem no tempo atual utilizando dados de APIs abertas.
+
+> “Aquilo que não se pode medir, não se pode melhorar”.
+<div align="right"><font size="1">Físico irlandês William Thomson</font></div>
+
+Primeiro é necessário obter os valores mais recentes das cotações das acoes que compramos na bolsa e para isto será necessário utilizar outro pacote pois o `tidyquant` só fornece os dados em frequência diária.
+
+Utilizaremos portanto, o pacote [alphavantager](https://www.business-science.io/code-tools/2017/09/03/alphavantager-0-1-0.html) que fornece dados de finanças da API gratuita [Alpha Vantage](https://www.alphavantage.co/) no formato arrumados e também foi desenvolvida pela [Business Science](https://github.com/business-science) (mesmo criados do pacote `tidyquant`).
+
+<div class="w3-panel w3-pale-yellow w3-border">
+<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **Aviso**: Na [documentação da api do Alphavantage](https://www.alphavantage.co/support/#api-key) recomenda-se a solicitações de API com moderação, suportando até 5 solicitações de API por minuto e 500 solicitações por dia para obter o melhor desempenho no servidor. Caso deseje segmentar um volume maior de chamadas da API, confira a [associação premium.](https://www.alphavantage.co/premium/).
+</div>
+
+Já para a coleta da cotação em tempo real do Bitcoin em reais (R$), utilizaremos novamente a [api do mercado bitcoin](https://www.mercadobitcoin.com.br/api-doc/?).
+
+```{r, eval = F}
+# Importar dados da bolsa de valores ==================================
+
+library(alphavantager) # api streaming bovespa
+
+AV_API_KEY = Sys.getenv("AV_API_KEY")
+av_api_key(AV_API_KEY)
+
+consulta_acoes <- map_df(portifolio[1:2], ~{
+  alphavantager::av_get(symbol = .x,
+         av_fun = "TIME_SERIES_INTRADAY",
+         interval = "1min",  # "1min", "5min", "15min", "30min" ou "60min"
+         outputsize = "compact") %>%  # "full"
+    bind_cols(stock = rep(.x, nrow(.)))
+})
+
+# Impotar dados do bitcoin ============================================
+
+coin <- "BTC"
+method <- "ticker"
+url <- glue::glue("https://www.mercadobitcoin.net/api/{coin}/{method}/")
+
+safe_fromJSON <- safely(fromJSON, as.numeric(NA)) 
+consulta_bitcoin <- 
+  safe_fromJSON(url)$result$ticker %>% 
+  as_tibble() %>% 
+  transmute(timestamp = lubridate::ymd_hms(as.POSIXct(date, origin="1970-01-01")),
+            open, high, low, close = sell, volume = NA, stock = "BTC.BR") %>% 
+  mutate_at(c('open', 'high', 'low', 'close'), ~as.numeric(.x))
+
+# Combinar resultados das consultas ==================================
+
+consulta_atual <- 
+  bind_rows(
+    consulta_acoes %>% 
+      group_by(stock) %>% 
+      filter(timestamp == last(timestamp)),
+    consulta_bitcoin
+  ) 
+
+# Salvar consulta ====================================================
+saveRDS(consulta_atual, "consulta_atual.rds")
+```
+
+```{r, echo = F, eval = T}
+consulta_atual <- readRDS("consulta_atual.rds")
+```
+
+Resultados da consulta atual (após combinar a requisição da bolsa de valores e do Mercado Bitcoin):
+
+```{r}
+consulta_atual  %>%
+  mutate_at(2:4, ~moeda_real(.x)) %>% 
+  mutate_if(is.numeric, ~ifelse(is.na(.x), "-", format(.x, digits = 2))) %>% 
+  mutate(close = cell_spec(moeda_real(close), "html", color = "blue")) %>% 
+  kable2()
+```
+
+Com os valores da Montagem organizados e os valores da Desmontagem coletados em tempo real já podemos construir nossa tabela financeira automatizada. 
+
+A tabela contém:
+
+* Valores de cotação e quantidade adquiridas de cada uma no momento da montagem da carteira;
+* Valores de cada cotação no momento atual com suas respectivas quantidades disponíveis;
+* Resultados de o ganho (ou perda) seguido do resultado bruto caso realize a venda agora;
+* Última coluna indica se vale a pena vender ou não aquela cotação considerando que o valor de venda é superior ao valor de compra.
+
+<div class="w3-panel w3-pale-yellow w3-border">
+<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **Aviso**: Essa operação de vender o ativo caso o preço da venda seja maior que o da compra é apenas um exemplo. Poderíamos utilizar diversas estatísticas para determinar o momento da operação porém adotei esta apenas para ilustrar o funcionamento da tabela financeira, o limite de opções é a sua criatividade!
+</div>
+
+Veja a tabela final com os resultados atualizados em tempo real:
+
+```{r}
+porcentagem <- function(x){paste0(round(x,2), "%")} # Funcao auxiliar
+
+# Tabela resultado
+financas <- 
+  tibble(
+    ativo = portifolio,
+    cot_inicio = cot_inicio,
+    qtd_inicio = qtd_inicio,
+    vol_inicio = cot_inicio * qtd_inicio,
+    cot_atual = consulta_atual$close,
+    qtd_atual = qtd_inicio,
+    vol_atual = cot_atual * qtd_atual,
+    ganho_perda = vol_atual - vol_inicio,
+    resultado_bruto = ganho_perda / vol_inicio * 100
+  ) 
+
+
+tabela <- 
+  financas %>% 
+  mutate(
+    cot_inicio = moeda_real(cot_inicio),
+    cot_atual = moeda_real(cot_atual),
+    vol_inicio = moeda_real(vol_inicio),
+    vol_atual = moeda_real(vol_atual),
+    qtd_inicio = round(qtd_inicio,4),
+    qtd_atual = round(qtd_atual,4),
+    ` ` = ifelse(ganho_perda > 0,"\u2713", "\u2718") ,
+    cot_atual = cell_spec(cot_atual, "html", color = "blue"),
+    ganho_perda = cell_spec(moeda_real(ganho_perda), "html",
+                            color = ifelse(ganho_perda > 0, 
+                                           "green", "red")),
+    resultado_bruto = cell_spec(porcentagem(resultado_bruto), "html",
+                                color = ifelse(resultado_bruto > 0, 
+                                               "green", "red"))) %>% 
+  `colnames<-`(stringr::str_replace_all(colnames(.), "(_|[[:space:]])", "\n")) %>% 
+  # Exibicao
+  kable(format = "html", escape = F) %>%
+  kable_styling(c("striped", "bordered", "hover", "responsive"), full_width = T, font_size = 12) %>%
+  add_header_above(c(" ", "Montagem" = 3,
+                     "Desmontagem / Atual" = 3, "Resultado" = 3))
+
+tabela
+```
+
+Agora que já possuímos nossa requisição completa e arrumada em tempo real precisamos ter acesso a esta informação de forma dinâmica também e para isso utilizaremos o bot do Telegram.
+
+# Bot Telegram
+
+Depois de muitas decisões tomadas enfim chegamos ao bot! Espero que tenha notado que montar uma carteira não é uma tarefa fácil pois envolve exposição ao risco e também exige certo acompanhamento do mercado.
+
+<div class="row">
+<div class="column8">
+</br>
+Para criar um bot no Telegram basta seguir os passos do [readme](https://github.com/lbraglia/telegram) do pacote [`telegram`](https://github.com/lbraglia/telegram) disponibilizado no Github ou seguir os passos desse excelente [post do curso-r](https://www.curso-r.com/blog/2017-08-19-r-telegram-bitcoin/) que me inspirou a uns anos atras e hoje me auxiliou novamente para criar este bot. Ao concluir a etapa de configuração teremos um novo contado no Telegram, o nosso bot!
+
+Com a configuração no aplicativo do Telegram concluída, o primeiro passo para configurar as ações do bot no R é iniciar um objeto TGBot declarando o id do seu bot. No meu caso o bot se chama *Stocks* e o id é *fgstockbot*.
+</div>
+<div class="column4">
+</br>
+<center>![](/post/2020-03-25-investment-alert/investment-alert_files/bot_telegram.png){width=99%}</center>
+</div>
+</div>
+
+Com o R conectado ao bot do Telegram já somos capazes de criar um conjunto de regras de forma que o bot nos retorne as informações que desejamos. 
+
+Desenvolveremos a função `report_stocks()` que programa o bot para realizar o seguinte algoritmo:
+
+0. Carregar dependências e conectar chaves de acesso
+1. Conferir se a bolsa de valores esta aberta 
+2. Requisição das cotações da bolsa de valores em *real-time*
+3. Requisição da cotação do Bitcoin em *real-time*
+4. Combinar resultados
+5. Inserir resultados da coleta na tabela financeira
+6. Se o valor de algum volume atual seja maior que o volume inicial:
+    * Calcular valores de desmontagem
+    * Preparar layout da tabela financeira
+    * Salvar resultados 
+    * Enviar via Telegram
+7. Aguardar 20 minutos para a próxima requisição
+8. Repetir todo o processo
+
+Parece complicado mas é tranquilo pois todos os códigos de cada uma destas tarefas já foram desenvolvidos nas seções anteriores e serão apenas combinados. A função [`report_stocks()` já esta  disponível no github](https://gist.github.com/gomesfellipe/357af0735d2aedca60146a7655e33929), veja a baixo:
+
+(A frequência adotata como default pela função tenta fazer a requisição com a maior frequência possível na api do Alphavantage)
+
+<script src="https://gist.github.com/gomesfellipe/357af0735d2aedca60146a7655e33929.js"></script>
+
+Após todas as devidas configurações, basta carregar a função e executar para obter o seguinte resultado:
+
+```{r, eval = F}
+# https://gist.github.com/gomesfellipe/357af0735d2aedca60146a7655e33929
+devtools::source_gist("357af0735d2aedca60146a7655e33929",quiet = T)
+
+# Executar
+bot_report_stocks(portifolio = portifolio, 
+                  cot_inicio = cot_inicio,
+                  qtd_inicio = qtd_inicio)
+```
+
+<center>![](/post/2020-03-25-investment-alert/investment-alert_files/report_stocks.gif){width=70%}</center>
+</br>
+E assim obtemos um feedback através do nosso Smartphone ou Smartwatch em tempo real sobre o desempenho da nossa carteira! 
+
+# Conclusão e próximos passos
+
+Neste post criamos um bot que coleta os dados e faz análises disponibilizando-as em tempo real no Telegram. Porém vimos também o quão difícil pode ser a montagem de uma carteira e as análises envolvendo séries históricas de ativos. 
+
+Diante dos resultados obtidos aqui existe uma grande gama de opções de inovações para trabalhos futuros como:
+
+* Programar o bot para responder a uma [menssagem rápida no smartwatch](https://support.apple.com/pt-br/guide/watch/apd92a90f882/watchos) com o valor de uma previsão;
+* Desenvolver um Shiny parametrizando o bot para consultar análises em tempo real;
+* Hospedar a rotina em um servidor para operacionalizar o bot (caso tenha dúvidas de como se iniciar um RStudio Server u um Shiny Server [consulte este post do blog](https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/));
+* Criar uma API com [plumber](https://www.rplumber.io) para fornecer os resultados;
+* Treinar modelo utilizando mais dados, mais variáveis explicativas e tuning dos parâmetros;
+* Criar pacote com um robô mais geral para responder diferentes consultas.
+
+Espero que tenha gostado qualquer dúvida deixe nos comentários!
+
+# Referências
+
+* <https://www.infomoney.com.br/minhas-financas/brasileiros-nao-sabem-a-diferenca-entre-poupar-e-investir-afirma-especialista-2/>
+* <https://www.btgpactualdigital.com/blog/investimentos/diversificacao-de-investimentos>
+* <https://www.btgpactualdigital.com/blog/coluna-gustavo-cerbasi/defina-sua-estrategia-entre-renda-fixa-ou-variavel>
+* <https://blog.earo.me/2018/12/20/reintro-tsibble/>
+* <https://www.tradingcomdados.com/post/2017/07/09/estudo-de-correla%C3%A7%C3%A3o-entre-a%C3%A7%C3%B5es-da-bolsa-de-valores-de-s%C3%A3o-paulo>
+* <https://www.business-science.io/code-tools/2017/10/28/demo_week_h2o.html>
+* <https://www.infomoney.com.br/mercados/adolescente-fica-milionario-aos-18-anos-usando-bitcoins-apos-fazer-aposta-com-os-pais/>
+* <https://www.infomoney.com.br/onde-investir/halving-conheca-o-processo-que-pode-levar-o-bitcoin-a-uma-nova-explosao-de-preco/>
+* <https://cran.r-project.org/web/packages/telegram/README.html>
+* <https://otexts.com/fpp2/>
+<https://www.curso-r.com/blog/2017-08-19-r-telegram-bitcoin/>
+* <https://www.curso-r.com/blog/2017-08-19-r-telegram-bitcoin/>

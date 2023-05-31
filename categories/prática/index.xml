@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prática on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</link>
+    <description>Recent content in Prática on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solução Final - ML Olympiad [1º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
+      <description>Introdução Definição do problema de negócio Soluções Estratégia analítica Decisões sobre a target Processamento dos Dados Dados Externos Feature Engineering Modelos Ensemble Post Processing Considerações Finais Sobre o Autor Introdução O TFUG - TensorFlow Users Group de São Paulo lançou uma nova competição no Kaggle onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Boa saúde e bem-estar.</description>
+    </item>
+    
+    <item>
+      <title>Gerando arte com Inteligência Artificial</title>
+      <link>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</link>
+      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</guid>
+      <description>Introdução DALL·E 2 Instruções de Uso Parâmetros Exemplos DALL·E Mini e Stable Diffusion Exemplos Opções Alternativas VQGAN+CLIP Mais Parâmetros Mais Exemplos Discussão Filosófica Conclusão Referências Introdução Você já deve ter ouvido falar sobre uma inteligência artificial que gera artes super-realistas a partir de textos e imagens. Hoje em dia já existem algumas opções como DALL·E 2 (da OpenAI/Google) e a Make-A-Scene (da Meta), e essas ferramentas são capazes de gerar versões e estilos diferentes de uma dada imagem ou ainda criar uma imagem com apenas uma breve descrição do resultado desejado.</description>
+    </item>
+    
+    <item>
+      <title>Solução Final - ML Olympiad [2º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Estrutura da base Ano da base de dados Target Machine Learning (em Python) Importar dependencias Carregar dados Modelagem Submissão Considerações Finais Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
+    </item>
+    
+    <item>
+      <title>Vou te provar que da para fazer Grafos bonitos em R!</title>
+      <link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link>
+      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
+      <description>Introdução e contexto O que são Grafos? Como contruir um? Carregar dependências Fonte dos dados NER - Named Entity Recognition Preparar dados Bônus Conclusão Outras bibliotecas para construção de grafos Introdução e contexto Durante os anos de 2020 e 2021 fiz um MBA Executivo em Business Analytics e Big Data na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</description>
+    </item>
+    
+    <item>
+      <title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python) Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon Conclusão Referências Introdução Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:</description>
+    </item>
+    
+    <item>
+      <title>Otimizando pipelines que envolvem dados desbalanceados</title>
+      <link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
+      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem Baselines Preparar Pipeline de dados com workflowsets Benchmark Conclusão Referências O problema envolvendo dados desbalanceados A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:
+Detecção de fraude; Previsão de inadimplência; Identificador de spam; Busca por anomalias/outliers; Detecção de possíveis roubos/furtos/vulnerabilidades; Previsão de churn; etc Este tipo de tarefa representa um enorme desafio para modelagem preditiva pois a maioria dos algoritmos de machine learning foram projetados sob suposição de haver um número igual de exemplos para cada classe de interesse.</description>
+    </item>
+    
+    <item>
+      <title>Prevendo a qualidade do sono utilizando Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</guid>
+      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle? Objetivo 🎯 Explorar dados 🔎 Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados Modelagem 🚀 Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳 Qualidade de sono? 🤨 Sim, exatamente! Neste post analisaremos dados de um tracking que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.</description>
+    </item>
+    
+    <item>
+      <title>Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</title>
+      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</guid>
+      <description>Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?
+Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.</description>
+    </item>
+    
+    <item>
+      <title>Como automatizar relatórios longos e repetitivos com RMarkdown</title>
+      <link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</guid>
+      <description>Problema de negócio Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passsar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.
+Com a linguagem R, escrever relatórios estatísticos utilizando RMarkdown acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.</description>
+    </item>
+    
+    <item>
+      <title>Hackeando o R: estratégia split-apply-combine</title>
+      <link>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/</guid>
+      <description>O método split-apply-combine Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.
+No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickham descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:</description>
+    </item>
+    
+    <item>
+      <title>Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</title>
+      <link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/</guid>
+      <description>Análise de sobrevivência e PUBG Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.
+Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.
+PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal sobreviver, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.</description>
+    </item>
+    
+    <item>
+      <title>Seu app, RStudio e Shiny Server na nuvem do Google</title>
+      <link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</guid>
+      <description>Objetivo do post Uma das várias maneiras de se implementar o RStudio Server e o Shiny Server é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.</description>
+    </item>
+    
+    <item>
+      <title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title>
+      <link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/</guid>
+      <description>Perguntas Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a criatividade.</description>
+    </item>
+    
+    <item>
+      <title>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</title>
+      <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</guid>
+      <description>Kaggle Segundo o Wikipédia: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.
+O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já escrevi em um post sobre gamificação e porque aprender R é tão divertido e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</description>
+    </item>
+    
+    <item>
+      <title>Brasil x Argentina, tidytext e Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/</guid>
+      <description>Brasil vs Argentina e Text Mining A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos quintilhões de bytes todos os dias, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.</description>
+    </item>
+    
+    <item>
+      <title>AED de forma rápida e um pouco de Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</guid>
+      <description>A análise exploratória dos dados A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações
+Ao iniciar uma análise de dados, começamos pela AED para a partir dai decidir como buscar qual solução para o problema.</description>
+    </item>
+    
+    <item>
+      <title>Séries temporais com Google Trends e R</title>
+      <link>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/</link>
+      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/</guid>
+      <description>Google Trends O Google Trends é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.
+Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.
+Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.</description>
+    </item>
+    
+    <item>
+      <title>Produzindo e formatando um documento Word direto em R</title>
+      <link>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/</guid>
+      <description>Relatórios de alta qualidade só com \(\LaTeX\)? Como já mencionei no post sobre tabelas incríveis com R, a tarefa de um estatístico (ou Data Scientist, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem \(\LaTeX\), mas será que ela é realmente a única opção?</description>
+    </item>
+    
+    <item>
+      <title>O que são CheatSheets, gamificação e por que aprender R é tão divertido?</title>
+      <link>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/</link>
+      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/</guid>
+      <description>Você costuma ler o manual? Quando eramos crianças geralmente não tinhamos o costume de ler o manual das coisas não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois. Adorava buscar entender como as coisas se encaixavam ao montar os brinquedinhos do kinder-ovo sem ler as instruções ou criar diferentes combinações com lego customizados, por exemplo. Acredito que isso seja da natureza de toda criança!</description>
+    </item>
+    
+    <item>
+      <title>Carnaval e mapas interativos com R</title>
+      <link>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/</guid>
+      <description>Onde estão os blocos? Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.
+Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes ggmap e leaflet para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar</description>
+    </item>
+    
+    <item>
+      <title>Tabelas incriveis com R</title>
+      <link>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/</guid>
+      <description>Importâcia da apresentação dos dados O trabalho do estatístico vai muito além do planejamento, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. O processo de analises deve ser tratado na etapa final de todo projeto ou pesquisa que envolva apresentação dos resultados, não é atoa que já até existem áreas dentro da ciência de dados focada nesta tarefa, recebendo o título de “Data Artist”.</description>
+    </item>
+    
+    <item>
+      <title>Manipulação de Strings e Text Mining</title>
+      <link>https://gomesfellipe.github.io/post/2017-12-17-string/string/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2017-12-17-string/string/</guid>
+      <description>Manipulação de strings e Text mining Estudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo string.
+Uma variável do tipo string é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.</description>
+    </item>
+    
+    <item>
+      <title>Criando relatorios com template tufle</title>
+      <link>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/</guid>
+      <description>Focando no conteúdo Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico.
+Como disse Khalil Gibran; é preciso transformar em palavras aquilo que já conhecemos em pensamentos. Ninguém quer perder tempo precioso de análises em formatações de documentos.
+Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos.</description>
+    </item>
+    
+    <item>
+      <title>Analisando o mercado de cryptomoedas com R</title>
+      <link>https://gomesfellipe.github.io/post/analisando-o-mercado-de-cryptomoedas-com-r/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
+      <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
+Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
+Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
+    </item>
+    
+    <item>
+      <title>Gerenciando arquivos do Dropbox com R</title>
+      <link>https://gomesfellipe.github.io/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/</guid>
+      <description>O Dropbox Armazenar arquivos na nuvem é uma prática muito comum nos dias de hoje. O Dropbox é um dos muitos exemplos de repositórios baseados no conceito de “computação em nuvem”, que oferece o serviço para compartilhar e armazenar arquivos.
+Não é novidade que a “computação em nuvem” tem impulsionado muitos projetos, em especial projetos de Big Data ocorrendo em diversos setores e existe um volume absurdo de dados sendo gerados.</description>
+    </item>
+    
+  </channel>
+</rss>

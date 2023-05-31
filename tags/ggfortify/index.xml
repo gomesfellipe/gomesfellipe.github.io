@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ggfortify on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/ggfortify/</link>
+    <description>Recent content in ggfortify on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/ggfortify/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pacotes do R para avaliar o ajuste de modelos</title>
+      <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</link>
+      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</guid>
+      <description>Funções do R para avaliar o ajuste de modelos Traduzindo:
+“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
+Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
+Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
+    </item>
+    
+  </channel>
+</rss>

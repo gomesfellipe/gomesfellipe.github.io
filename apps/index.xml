@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apps on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/apps/</link>
+    <description>Recent content in Apps on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/apps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>diaversario</title>
+      <link>https://gomesfellipe.github.io/apps/diaversario/</link>
+      <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/apps/diaversario/</guid>
+      <description>Link do app publicado: https://gomes555.shinyapps.io/diaversario/
+Link do repositório no github: https://github.com/gomesfellipe/diaversario
+App simples para calcular quantidade de dias de vida.
+Para utiliza-lo basta inserir a data do nascimento como mostra a imagem:
+How to Códigos para calcular as medidas:
+R : born &amp;lt;- as.Date(&amp;#34;1993-12-14&amp;#34;) today &amp;lt;- Sys.Date() # Quantos dias de vida difftime(today, born) # Completa 10.000 dias de vida em: born+days(10000) # Faltam difftime(born+days(10000), today) Python: from datetime import datetime, timedelta today = datetime.</description>
+    </item>
+    
+    <item>
+      <title>AcompanhAções</title>
+      <link>https://gomesfellipe.github.io/apps/acompanhacoes/</link>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/apps/acompanhacoes/</guid>
+      <description>Link do repositório no github: https://github.com/gomesfellipe/acompanhacoes
+O objetivo do pacote acompanhacoes é permitir a portabilidade de um dashboard desenvolvido para o acompanhamento de ativos de diferentes naturezas de forma prática no dia a dia. A idéia deste shiny foi inspirada neste post do meu blog.
+O Dashboard é uma POC (proof of concept) de uma ferramenta que possibilita o acompanhamento automatizado da tabela financeira de um portifólio com a coleta de dados de cotações em tempo real, incluindo cálculo de Ganho/Perda (caso decida fazer a desmontagem no tempo atual) e análise automatizada do portifólio.</description>
+    </item>
+    
+    <item>
+      <title>App ações (simples)</title>
+      <link>https://gomesfellipe.github.io/apps/app_acoes/</link>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/apps/app_acoes/</guid>
+      <description>Link do repositório no github: https://github.com/gomesfellipe/app_acoes
+Aplicativo para visualizar acoes com os pacotes highcharter e quantmod
+Demonstração: Fonte de dados Os simbolos foram coletados com a função stockSymbols() e também foram acrescentadas outros simbolos manualmente, são eles:
+BTC-USD ETH-USD LTC-USD XRP-USD ADA-USD CIEL3F.SA ITSA4.SA PETR4.SA BBDC4F.SA PCAR4F.SA ABEV3.SA BVMF3.SA Próximos passos Conseguir de forma automática os simbolos de todas as ações IBOVESPA</description>
+    </item>
+    
+    <item>
+      <title>Aplicativo para construir Wordcloud</title>
+      <link>https://gomesfellipe.github.io/apps/appwordcloud/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/apps/appwordcloud/</guid>
+      <description>Link do repositório no github: https://github.com/gomesfellipe/appwordcloud
+Link de acesso ao app: https://gomesfellipe.shinyapps.io/appwordcloud/
+NOVA VERSÃO DA NUVEM DE PALAVRAS!!
+Nova versão conta agora com a tabela de frequências dos termos identificados na análise!
+Esta pasta conta com os seguintes arquivos:
+Base de dados (obtida através do social searcher):
+base.csv - exemplo de base de dados como input do aplicativo (obs.: codificação UTF-8) Complementos:
+wordcloud_sentiment.R - Função criada para gerar nuvens de palavras com tecnicas textmining de maneira simples e facil install_packages.</description>
+    </item>
+    
+    <item>
+      <title>Aplicativo para análise multivariada</title>
+      <link>https://gomesfellipe.github.io/apps/apppcakmeans/</link>
+      <pubDate>Fri, 02 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/apps/apppcakmeans/</guid>
+      <description>Link do repositório no github: https://github.com/gomesfellipe/appPCAkmeans
+Link de acesso do app : https://gomesfellipe.shinyapps.io/appPCAkmeans/
+Esta pasta conta com os seguintes arquivos:
+Base de dados iris (base de dados nativa do R)
+base-iris.csv - exemplo de base de dados como imput do aplicativo Código do aplicativo:
+appPCAkmeans.Rmd - Script do código responsável por rodar o aplicativo Agrupamento - Machine Learning A análise de componentes principais e a busca por clusters é uma tarefa muito comum quando não conhecemos a classificação.</description>
+    </item>
+    
+    <item>
+      <title>Dashboard com textmining de mídias sociais</title>
+      <link>https://gomesfellipe.github.io/apps/dashboard-text-mining-1/</link>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/apps/dashboard-text-mining-1/</guid>
+      <description>Dashboard text mining v1 Link do repositório no github: https://github.com/gomesfellipe/dashboard-text-mining-1
+Link de acesso ao dashboard : https://gomesfellipe.shinyapps.io/dashboard-text-mining-1/
+Motivação Elaborar este dashboard foi uma tarefa que decidi executar pois me foi perguntado se era possível &amp;ldquo;alguma coisa&amp;rdquo; com os dados obtidos através da ferramenta Social Searcher responsável por captar informações de diferentes mídias sociais sob algum tópico de interesse.
+Decidi então praticar a criação de dashboards com R e juntei algumas abordagens simples de text mining em um dashboard produzido através do pacote flexdashboard, disponível no CRAN.</description>
+    </item>
+    
+  </channel>
+</rss>

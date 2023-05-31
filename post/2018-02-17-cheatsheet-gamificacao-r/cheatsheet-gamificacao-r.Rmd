@@ -1,0 +1,216 @@
+---
+title: O que são CheatSheets, gamificação e por que aprender R é tão divertido?
+author: Fellipe Gomes
+date: '2018-02-17'
+slug: []
+categories:
+  - Estatistica
+  - Prática
+  - R
+  - Teoria
+tags:
+  - Estatistica
+  - Prática
+  - R
+  - RStudio
+  - cheatsheets
+  - kaggle
+  - datacamp
+  - gomesfellipe
+  - gamification
+  - gamificacao
+description: 'Você costuma ler o manual de instruções? Veja como equipes têm trabalhado para contribuir e facilitar o aprendizado da linguagem R ampliando a intersecção entre a curiosidade de nossa infancia e o amadurecimento. Programar se torna uma tarefa divertida e prática mas sem abandonar o manual de instruções escrito por quem sabe do que esta falando!'
+featured: 'img2.png'
+featuredalt: 'Pic 12'
+featuredpath: 'date'
+linktitle: ''
+type: post
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
+```
+
+# Você costuma ler o manual?
+
+Quando eramos crianças geralmente não tinhamos o costume de ler o manual das coisas não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois. Adorava buscar entender como as coisas se encaixavam ao montar os brinquedinhos do kinder-ovo sem ler as instruções ou criar diferentes combinações com lego customizados, por exemplo. Acredito que isso seja da natureza de toda criança!
+
+<div class="col2"> 
+
+Acontece que com o passar dos anos vamos adquirindo conhecimento e começamos a perceber que quanto mais aprendemos maior a quantidade de coisas novas que ainda temos a aprender. 
+
+Especialmente ao ler noticias do tipo: ["Einstein estava certo a cem anos atrás!"](http://www.jornalciencia.com/einstein-estava-certo-cientistas-detectam-ondas-gravitacionais-comprovando-a-teoria-da-relatividade-geral/) depois de ele já ter tomado nota das ondas gravitacionais a tantos anos.. Um dever de casa que durou 100 anos foi deixado por um gênio e isso serve para nos lembra como somos "pequenos", o quanto é importante seguir boas referências nos apoiando em ombros de gigantes para enxergar mais longe!
+
+(Quem ai aos 22 anos, desenvolveu o cálculo infinitesimal, as bases da teoria das cores, contribuiu com o estudo da ótica, formulou conceitos sobre as leis do movimento planetário e virou lenda com um famoso incidente da maçã que levou a formular a teoria da gravidade? Será que [Isaac Newton](https://www.oficinadanet.com.br/post/15839-isaac-newton-o-maior-genio-de-todos-os-tempos) conhece alguem?)
+
+![](http://i.giphy.com/IZ4EXtpPkamXe.gif)
+
+</div>
+
+Isso faz pensar em como é importante ouvir (ou ler) quem entende do assunto para darmos nossos próximos passos
+
+# Mas o R tem manual?
+
+Seja estudando estatística, programação em R, qualquer outra matéria ou mesmo configurando seu relógio, montando um daqueles móveis complicados ou que seja montando um avião! Nem tudo precisa ser um quebra cabeça, não importa o quão ávido por saber, consultar o manual (ou um livro se torna uma tarefa fundamental para darmos o próximo passo!
+
+A medida que vamos avançando no aprendendizado da linguagem R, mais consultas ao ["Help"](https://www.r-project.org/help.html) vão sendo realizadas. Isso ocorre também quando avançamos no estudo de qualquer área, acaba sendo natural elevar o número de consultas ao "manual".
+
+Acontece que nem sempre encontramos explicações detalhadas ou suficientes no Help para solucionar nossos problemas e em busca de mais detalhes e referencias quase sempre podemos encontrar [vignettes](http://r-pkgs.had.co.nz/vignettes.html) (que são guias longos para os pacotes, geralmente com exemplos reprodutíveis e algumas dicas para o uso) em uma breve pesquisa escrevendo: "Nome do pacote" + "CRAN" na busca do Google e geralmente logo no inicio já existe uma ou mais referências além do Help do RStudio no [CRAN](https://cran.r-project.org/) disponibilizado pelos desenvolvedores dos pacotes.
+
+# Aprendendo com a prática
+
+Algo muito legal disponibilizado pela RStudio dentre os [recursos em seu site oficial](https://www.rstudio.com/resources) são as [CheatSheets](https://www.rstudio.com/resources/cheatsheets/) e a [aprendizagem online](https://www.rstudio.com/online-learning/) onde é apresentada a [DataCamp](https://www.datacamp.com/) que tornam fácil aprender e usar alguns dos pacotes mais utilizados unindo a ideia da "consulta ao manual" e a ideia de se aprender na prática.
+
+Além desses recursos ainda existe [kaggle](https://www.kaggle.com/) que funciona quase como uma plataforma de "jogos com a ciência de dados" onde competidores comparam resultados dos ajustes de seus modelos, análises descrtias e relatórios valendo premios em dinheiro!
+
+Divertido como quando eramos crianças!
+
+Veja a seguir uma breve explicação e referências para acessar esses recursos
+
+
+## Cheatsheets
+
+Ao longo do tempo novas cheatsheets vão sendo adicionadas e todas elas estão disponíveis para download, além disso qualquer pessoa que quiser contribuir com a comunidade é [convidado pelos desenvolvedores](https://www.rstudio.com/resources/cheatsheets/how-to-contribute-a-cheatsheet/) a enviar suas próprias CheatSheets!
+
+Todas as CheatSheets apresentadas abaixo estão disponíveis no [repositório de CheatSheets](https://www.rstudio.com/resources/cheatsheets/) :
+
+### Exemplos do básico:
+
+Informações básicas e fundamentais para o uso da IDE do RStudio e o uso da linguagem  podem ser encontrados nessas CheatSheets:
+
+<div class="row">
+
+<div class="col-sm-4">
+![RStudio IDE](https://image.slidesharecdn.com/rstudio-ide-cheatsheet-170605180146/95/rstudio-idecheatsheet-1-638.jpg?cb=1496686097)
+</div>
+
+<div class="col-sm-4">
+![Basics R](https://s2.studylib.es/store/data/008818835_1-c476932320d9a4cd7e891da23012aaa1.png)
+</div>
+
+<div class="col-sm-4">
+![Advanced R](https://i.pinimg.com/originals/d7/34/13/d734131229a11252c34f954df1fbd511.png)
+</div>
+
+</div>
+
+### Exemplos de recursos:
+
+Existem também algumas CheatSheets para auxiliar no uso dos recursos oferecidos pela RStudio como por exemplo a para RMarkdown e Shinny:
+
+<div class="row">
+<div class="col-sm-4">
+![RMarkdown](https://d33wubrfki0l68.cloudfront.net/65dffd1bdcaa0025006262164d98e8068e8b4387/c3895/wp-content/uploads/2018/08/rmarkdown-2.0.png)
+</div>
+<div class="col-sm-4">
+![Guia de Referencia para RMarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference-guide.png)
+</div>
+<div class="col-sm-4">
+![Shiny](https://mcmoutletonline.com/pics/shiny-cheat-sheet.png)
+</div>
+</div>
+
+### Exemplos de utilidades
+
+Além das funcionalidades e recursos básicos disponíveis pela equipe da RStudio ainda contamos com uma enorme quantidade de pacotes que estão sendo desenvolvidos a todo momento com a finalidade de melhorar o desempenho de nossos programas e projetos, a seguir alguns exemplos de CheatSheets de pacotes que são bastante úteis no dia a dia do programador estatístico:
+
+#### Exemplos de fornecidos pela RStudio
+
+<div class="row">
+<div class="col-sm-4">
+![stringr -  Para facilitar a manipulação de strings](https://d33wubrfki0l68.cloudfront.net/ed91b01c08afed41e2df36b805e32c2c46e48857/21514/wp-content/uploads/2018/08/strings.png)
+</div>
+<div class="col-sm-4">
+![purrr - Pacote com ferramentas de programação funcional](https://d33wubrfki0l68.cloudfront.net/3ae77f446a7470730f3dbb7b6489525494ac8bd5/57024/wp-content/uploads/2018/08/purrr.png) 
+</div> 
+<div class="col-sm-4">
+![dplyr - Para facilidade e velocidade na manipulação de dados](https://d33wubrfki0l68.cloudfront.net/db69c3d03699d395475d2ac14d64f611054fa9a4/e98f3/wp-content/uploads/2018/08/data-transformation.png) 
+</div> 
+</div>
+
+</br>
+
+<div class="row">
+<div class="col-sm-4">
+![ggplot2 - Para apresentações visuais elegantes e práticas](https://d33wubrfki0l68.cloudfront.net/21d683072b0c21cbd9b41fc0e37a587ad26b9525/cbf41/wp-content/uploads/2018/08/data-visualization-2.1.png)
+</div>
+<div class="col-sm-4">
+![readr - Para facilitar a tarefa de importar arquivos](https://miro.medium.com/max/4582/1*W08jooOkrVu7iok96jsJpA.jpeg)
+</div>
+<div class="col-sm-4">
+![devtools - Possibilitando o usuário criar seus próprios pacotes](https://image.slidesharecdn.com/devtools-cheatsheet-170605180143/95/devtools-cheatsheet-1-638.jpg?cb=1496685956)
+</div>
+</div>
+
+Dentre muitos outros disponíveis no [link para galeria de CheatSheets](https://www.rstudio.com/resources/cheatsheets/)
+
+#### Exemplos fornecidos por contribuidores
+
+Como mostrado anteriormente, o pacote [`devtools`](https://cran.r-project.org/web/packages/devtools/index.html) possibilita que qualquer usuário crie e disponibilize seus próprios pacotes, então além dos pacotes a comunidade também contribuiu com diversas cheatsheets, veja algumas delas:
+
+<div class="row">
+<div class="col-sm-4">
+![caret - Pacote muito famoso quando o assunto é Machine Learning](https://d33wubrfki0l68.cloudfront.net/ad16acdb544c1a9ca00c7dd175312a52f45e8979/7e9a2/wp-content/uploads/2015/01/caret-cheatsheet.png)
+</div>
+<div class="col-sm-4">
+![leaflet - Para criar mapas interativos com facilidade](https://d33wubrfki0l68.cloudfront.net/1267e8f809560bdbad86d15763be08302a471fb5/138a1/wp-content/uploads/2015/01/leaflet-cheatsheet-1.png)
+</div>
+<div class="col-sm-4">
+![ $\LaTeX$ - Linguagem muito útil e fácil para escrever muitos tipos de documentos](https://wch.github.io/latexsheet/latexsheet-0.png)
+</div>
+</div>
+
+Como podemos ver são muitas opções para consulta, ao encontrar o que nos torna mais confortável enquanto aprendemos a linguagem torna-se possível dar passos mais largos
+
+# Aprendizagem Online e a gamificação
+
+A [gamificação](https://en.wikipedia.org/wiki/Gamification) é um conceito que vem sendo introduzido após a introdução da tecnologia na história. A idéia de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a idéia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir. 
+
+## DataCamp
+
+<center>
+![](https://nhorton.people.amherst.edu/rstudio/datacamp.png)
+</center>
+
+No site oficial da [RStudio](https://www.rstudio.com/) encontramos além das cheatsheets, dentre seus recursos existe a opção de [aprendizagem online](https://www.rstudio.com/online-learning/) onde é apresentada a [DataCamp](https://www.datacamp.com/) que é o primeiro e um dos mais importantes líderes em divulgar e ensinar Data Science, oferecendo treinamento baseado em habilidades, inovação técnica pioneira e cursos oferecidos pelos melhores educadores do mundo em data science!(Descrição deles no [site](https://www.datacamp.com/about))
+
+Apesar do site ser pago, existem diversas opções de cursos gratuitos para quem esta começando e é muito simples e fácil aprender pelo site. Ao cumprir com exercícios e terminar os cursos o usuário ganha xp (pontos de experiencia) que registram sua evolução. Pode ser um ótimo investimento para aprender com os melhores do mundo e o legal de tudo isso é que nunca fica fácil!
+
+## Kaggle
+
+<center>
+<div style="width:300px; height=200px">
+![](https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png)
+</div>
+</center>
+
+O [kaggle](https://www.kaggle.com/) é um playground para cientistas de dados, nele existem diversas modalidades e dentre elas uma das das que eu acho mais interessante são as competições de machine learning onde pessoas e empresas interessadas em adquirir ou até comparar seus resultados com os modelos feitos por uma enorme comunidade programando em diferentes linguagens estão testando para saber quem treina o modelo mais preciso e é possível acompanhar o código e o raciocínio de cientistas de dados do mundo inteiro de maneira muito simples!
+
+
+
+
+
+Também existe a recompensa com pontos de experiencia para passar de nível, congratulação com medalhas dentre outras recopensas semelhantes ao dos games. 
+
+Existem os famosos [datasets](https://www.kaggle.com/datasets) que são os bancos de dados fornecidos pelos usuários da plataforma e os [kernels](https://www.kaggle.com/kernels) é um ótimo lugar para  compartilhar seu trabalho e debater sobre resultados de projetos e idéias de aplicações de outras pessoas
+
+Ao contrário da DataCamp, o Kaggle é gratuito e existem competições pagando até $100.000,00 para a pesosa (ou equipe) que apresentar os resultados mais satisfatórios!!
+
+# Para refletir..
+
+<div class="col2">
+
+<center>
+<div style="width:150px; height=300px">
+![](https://cdn.pensador.com/img/authors/co/nf/confucio-2-l.jpg)
+</div>
+</center>
+
+> "Há três métodos de ganhar sabedoria: primeiro, por reflexão, que é o mais nobre; segundo, por imitação, que é o mais fácil; e o terceiro, por experiência, que é o mais amargo."
+- Confúcio
+
+
+</div>
+
+Essa passagem de Confúcio deixa claro que não existe só um jeito de se aprender, com um mix de maneiras de se obter conhecimento fica um pouco menos difícil encontrar a sabedoria: estudar, exercitar e praticar se torna divertido quando se trata de programar em R!
+

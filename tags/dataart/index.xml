@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dataart on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/dataart/</link>
+    <description>Recent content in dataart on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/dataart/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gerando arte com Inteligência Artificial</title>
+      <link>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</link>
+      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</guid>
+      <description>Introdução DALL·E 2 Instruções de Uso Parâmetros Exemplos DALL·E Mini e Stable Diffusion Exemplos Opções Alternativas VQGAN+CLIP Mais Parâmetros Mais Exemplos Discussão Filosófica Conclusão Referências Introdução Você já deve ter ouvido falar sobre uma inteligência artificial que gera artes super-realistas a partir de textos e imagens. Hoje em dia já existem algumas opções como DALL·E 2 (da OpenAI/Google) e a Make-A-Scene (da Meta), e essas ferramentas são capazes de gerar versões e estilos diferentes de uma dada imagem ou ainda criar uma imagem com apenas uma breve descrição do resultado desejado.</description>
+    </item>
+    
+  </channel>
+</rss>

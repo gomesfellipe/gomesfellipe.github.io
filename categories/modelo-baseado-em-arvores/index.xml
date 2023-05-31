@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>modelo baseado em arvores on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/</link>
+    <description>Recent content in modelo baseado em arvores on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solução Final - ML Olympiad [1º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
+      <description>Introdução Definição do problema de negócio Soluções Estratégia analítica Decisões sobre a target Processamento dos Dados Dados Externos Feature Engineering Modelos Ensemble Post Processing Considerações Finais Sobre o Autor Introdução O TFUG - TensorFlow Users Group de São Paulo lançou uma nova competição no Kaggle onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Boa saúde e bem-estar.</description>
+    </item>
+    
+    <item>
+      <title>Solução Final - ML Olympiad [2º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Estrutura da base Ano da base de dados Target Machine Learning (em Python) Importar dependencias Carregar dados Modelagem Submissão Considerações Finais Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
+    </item>
+    
+    <item>
+      <title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python) Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon Conclusão Referências Introdução Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:</description>
+    </item>
+    
+    <item>
+      <title>Otimizando pipelines que envolvem dados desbalanceados</title>
+      <link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
+      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem Baselines Preparar Pipeline de dados com workflowsets Benchmark Conclusão Referências O problema envolvendo dados desbalanceados A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:
+Detecção de fraude; Previsão de inadimplência; Identificador de spam; Busca por anomalias/outliers; Detecção de possíveis roubos/furtos/vulnerabilidades; Previsão de churn; etc Este tipo de tarefa representa um enorme desafio para modelagem preditiva pois a maioria dos algoritmos de machine learning foram projetados sob suposição de haver um número igual de exemplos para cada classe de interesse.</description>
+    </item>
+    
+    <item>
+      <title>Prevendo a qualidade do sono utilizando Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</guid>
+      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle? Objetivo 🎯 Explorar dados 🔎 Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados Modelagem 🚀 Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳 Qualidade de sono? 🤨 Sim, exatamente! Neste post analisaremos dados de um tracking que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.</description>
+    </item>
+    
+    <item>
+      <title>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</title>
+      <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</guid>
+      <description>Kaggle Segundo o Wikipédia: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.
+O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já escrevi em um post sobre gamificação e porque aprender R é tão divertido e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</description>
+    </item>
+    
+  </channel>
+</rss>

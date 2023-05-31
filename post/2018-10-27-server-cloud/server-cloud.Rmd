@@ -1,0 +1,318 @@
+---
+title: Seu app, RStudio e Shiny Server na nuvem do Google
+author: Fellipe Gomes
+date: '2018-10-27'
+slug: []
+categories:
+  - Estatistica
+  - Google
+  - Prática
+  - R
+  - Shiny
+  - Shiny Server
+  - Séries Temporais
+  - RStudio Server
+  - Cloud
+  - Bitcoin
+tags:
+  - Estatistica
+  - gomesfellipe
+  - Google
+  - Google Cloud
+  - Prática
+  - R
+  - RStudio
+  - RStudio Server
+  - Shiny server
+  - shiny
+  - Séries Temporais
+  - servidor
+  - bitcoin
+description: 'Uma maneira prática de hospedar o app desenvolvido no post no Shiny Server e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu 16.04.'
+featured: 'img1.png'
+featuredalt: 'Pic 19'
+featuredpath: 'date'
+linktitle: ''   
+type: "post"
+---
+
+
+# Objetivo do post <i class="fa fa-rocket"></i> 
+
+Uma das várias maneiras de se implementar o [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/) e o [Shiny Server](https://www.rstudio.com/products/shiny/download-server/) é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.
+
+No final deste post teremos além do nosso próprio RStudio Server, esse app no Shiny Server que exibe em um gráfico das cotações encontradas via função  função  [`quantmod::stockSymbols()`](https://www.rdocumentation.org/packages/TTR/versions/0.23-4/topics/stockSymbols) com os pacotes [`highcharter`](http://jkunst.com/highcharter/) e [`quantmod`](https://www.quantmod.com/):
+
+![](/post/2018-10-27-server-cloud/server-cloud_files/demoapp.gif)
+
+**Nota**: Algum conhecimento em Linux e Git pode ser útil, particularmente ainda tenho muito a aprender sobre ambos e devem existir outras maneiras mais eficientes de se realizar estas tarefas. Essa é uma forma relativamente simples  e ao final do post deixarei os links que utilizei como referência para escrever este post.
+
+**Nota²**, segundo o desenvolvedor do pacote `highcharter`: "*Highcharts (www.highcharts.com) é um produto de software da Highsoft que não é livre para uso comercial e governamental*".
+
+# Gloogle cloud <i class="fa fa-cloud"></i>
+
+A serviço que escolhi para este exemplo foi o [Google Cloud](https://cloud.google.com/), que oferece um [período de um ano de Teste Grátis com $300](https://cloud.google.com/free/docs/frequently-asked-questions) para utilizar nos serviços [dentre outras opções](https://cloud.google.com/free/docs/frequently-asked-questions?hl=pt_BR&_ga=2.209128081.-2022746393.1538697551&_gac=1.3934980.1540514862.EAIaIQobChMImJjS9vCi3gIVEgaRCh0j3ArWEAAYASAAEgJ8AfD_BwE#always-free), mas isso não quer dizer que seja a melhor de todas, sinta-se a vontade para utilizar os mesmos passos apresentados aqui nos demais serviços, entendendo, claro, suas peculiaridades.
+
+Dentre algumas vantagens sobre o uso de nuvem, temos:
+
+  * Maior produtividade, pois possibilita rápido acesso à sua área de trabalho;
+  * Permite o desenvolvedor trabalhar de qualquer lugar com acesso à internet;
+  * Permite colaboração rápida, pois os membros da equipe podem contribuir e acessar projetos ao mesmo tempo em que os dados são armazenados na nuvem em vez de em seus computadores
+  * Protegido pelos principais especialistas segurança do Google;
+  * Controle e flexibilidade, o desenvolvedor tem controle sobre a tecnologia que deseja usar, sobre os dados e caso decida não usar mais o serviço, é possível retirar seus dados da nuvem do Google.
+  
+## Compute Engine  ![](/post/2018-10-27-server-cloud/server-cloud_files/compute_engine.png){width=5%}
+  
+Compute Engine é um dos produtos oferecidos pelo Google. Também conhecido como [infraestrutura como serviço (IaaS)](https://pt.wikipedia.org/wiki/Infraestrutura_como_servi%C3%A7o), pode ser usada para executar altas cargas de trabalho em larga escala em máquinas virtuais, no nosso caso este produto que possibilita o uso das máquinas virtuais.
+
+# Iniciar uma instância na Google Cloud Platform
+
+Primeiramente, acesse <https://cloud.google.com/> e se inscreva no recurso de nuvem, após isso acesse <https://console.cloud.google.com> e percorra o caminho:
+
+`Menu de navegação` → `Compute Engine` → `Instâncias de VMs`
+
+Nesta página existe o ![](/post/2018-10-27-server-cloud/server-cloud_files/button_criar_instancia.png), clique nele para iniciar a configuração da VM. Na página que abrir será solicitado a dar um nome a sua VM (pode ser qualquer nome que te agrade). O Google tem data centers em quase todo o mundo e para este caso selecionei a `Região` *us-east1 (Carolina do Sul)* e a `Zona` deixei o default *us-east1-b*.["saiba mais" do Google](https://cloud.google.com/free/docs/frequently-asked-questions?hl=pt_BR&_ga=2.183970469.-2022746393.1538697551&_gac=1.36440980.1540514862.EAIaIQobChMImJjS9vCi3gIVEgaRCh0j3ArWEAAYASAAEgJ8AfD_BwE#always-free).
+
+Dependendo de quão poderoso o servidor precisa ser é possível selecionar a capacidade da RAM e do disco rígido na seção `Tipo de Máquina`, como este é um exemplo para prova de conceito selecionei a opção *micro(1 vCPU compartilhado) - 0.6 GB de memória, f1-micro* pois custa cerca de $ 0,006 por hora e as "primeiras 744 horas para uso da instância de tipo f1-micro são gratuitas", segundo o Google. No `Disco de inicialização` selecionei a `Imagen do SO` *Ubuntu 16.04 LTS* que tenho um pouco mais de familiaridade e não mexi nas demais configurações dessa seção, mas antes de finalizar, selecione a opção *Permitir tráfego HTTP* na opção de `Firewall` e clique no botão `criar`.
+
+Segundo o guia [Acessando o RStudio Server Open-Source](https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started) e o  [Guia do Administrador - Shiny Server Open Source v0.4.1 ](http://rstudio.github.io/shiny-server/os/0.4.0/)o RStudio Server e o Shiny Server serão escutados nas portas 8787 e 3838 respectivamente, portanto, antes de começar a usar a VM é necessário Configurando regras de firewall para permitir acesso através destas portas.
+
+Navegue até a seção `Rede VPC` e selecione a opção `Regras de firewall`. Clique em ![](/post/2018-10-27-server-cloud/server-cloud_files/criar_firewall.png). No formulário que abrir dê um nome e uma descrição à regra do firewall ('rstudio' está bom), deixe os botões de opção `Direção de tráfego` e `Ação ao corresponder` como padrão (*Entrada* e *Permitir*). Para a opção `Destinos`, escolhi  *Conta de serviço especificado*, sendo a `Conta de serviço de destino` *Compute Engine default service account*. Se você quiser filtrar os IPs que podem acessar o aplicativo, insira-o no campo `Intervalos de IP de origem`, como estamos sob uma prova de conceito, inseri a rota quad-zero: 0.0.0.0/0, o que permite acesso de todos os IPs em todas as portas nessa máquina. Na opção `Protocolos e Portos` selecione o botão de opção *Protocolos e portas específicas* e no campo digite o tcp: 8787. Por fim, clique no botão `criar`.
+ 
+Faça o procedimento exatamente da mesma maneira, mas com um novo nome ('shiny' está bom) e digite 'tcp: 3838' em vez de 'tcp: 8787'. Clique em `criar` e note que agora abrimos duas portas para usar no aplicativo.
+
+Nota: *Os passos para iniciar uma instância na Cloud do Google foram inspirados no seguinte post:* <https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data>  
+
+ 
+# Inicie a máquina virtual <i class="fa fa-desktop"></i>
+
+Ótimo! Agora a VM já deve estar pronta para uso e o jeito mais simples de utilizá-la é clicando no botão ![](/post/2018-10-27-server-cloud/server-cloud_files/ssh.png) na página de `Instâncias de VMs` e aguardar a máquina iniciar
+
+<center>![](/post/2018-10-27-server-cloud/server-cloud_files/vm_on.gif){width=80%} </center>
+  
+Vamos às configurações!
+
+## Obter senha para super usuário
+
+O primeiro passo será obter a senha para usuário `root`
+
+```
+sudo passwd
+```
+
+Após determinar a senha, alterne para este usuário e conceda a permissão de super usuário para evitar trabalhar como `root`:
+
+```
+su root
+passwd gomes_fellipe1
+gpasswd -a gomes_fellipe1 sudo
+su gomes_fellipe1
+```
+
+Agora meu usuário tem permissão de super usuário e uma senha para utilizar para acessar o RStudio Server.
+
+## Exibir sua VM em um navegador
+
+Se você utilizar o comando
+
+```
+curl ipinfo.io/ip
+```
+
+o endereço IP externo será exibido no console, porém se digitar este caminho no browser ainda não será possível acessar sua máquina. Para isso, instale o [Nginx](https://www.nginx.com/) (que é um servidor web leve) com os comandos:
+
+```
+sudo apt-get update
+sudo apt-get -y install nginx
+```
+
+Agora se você digitar o endereço IP externo da sua máquina no browser será possível ver a tela de saudação do nginx!
+
+## Criar um arquivo swap
+
+Seguindo a recomendação do post [Implantando um servidor Shiny Server e RStudio seguro em uma máquina virtual gratuita do Google Cloud](http://www.simoncoulombe.com/2018/05/07/protected_free_shiny/) e as instruções do link <https://digitizor.com/create-swap-file-ubuntu-linux/>, podemos criar um arquivo [swap](https://pt.wikipedia.org/wiki/Mem%C3%B3ria_virtual) pois a instância *f1-micro* não tem RAM suficiente e pode ser que alguns pacotes não possam ser instalados por falta de memória.
+
+```
+cd /
+sudo dd if=/dev/zero of=swapfile bs=1M count=3000
+sudo mkswap swapfile
+sudo swapon swapfile
+sudo nano etc/fstab
+
+# Adicione a linha a seguir no arquivo que abrir
+/swapfile none swap sw 0 0 
+cat /proc/meminfo
+```
+
+## Instalar o R
+
+Para instalar o R apenas segui os passos apresentados em <https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/> com os códigos:
+
+```
+sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
+
+gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+gpg -a --export E084DAB9 | sudo apt-key add -
+
+sudo apt-get update
+sudo apt-get -y install r-base
+```
+
+Agora o R está pronto para uso, basta escrever `R` no console para iniciá-lo.
+
+<center>![](/post/2018-10-27-server-cloud/server-cloud_files/R.png)</center>
+
+### Dependências e pacotes
+
+Antes de instalar outros pacotes podemos iniciar instalando o `devtools` pois esse pacote permite instalar a versão do desenvolvedores de alguns pacotes do R que estão disponíveis no GitHub. Para instalar as dependências do `devtools`:
+
+```
+sudo apt-get -y install libcurl4-gnutls-dev libxml2-dev libssl-dev
+```
+
+Tudo certo, agora já é possível instalar pacotes tanto do [CRAN](https://cran.r-project.org/) quando do [GitHub](www.github.com). Além do `devtools` instalaremos mais dois pacotes que serão utilizados pelo aplicativo exemplo deste post:
+
+```
+sudo su - -c "R -e \"install.packages(c('devtools','rmarkdown', 'quantmod'), repos='http://cran.rstudio.com/')\""
+sudo su - -c "R -e \"devtools::install_github("jbkunst/highcharter")\""
+```
+
+**Importante:** Note que ao instalar os pacotes do R no terminal os pacotes são instalados como usuário `root`, o que significa que os pacotes serão instalados em uma biblioteca global e estarão disponíveis para todos os usuários da máquina.
+
+## Instalar o RStudio Server
+
+Neste ponto já temos uma máquina virtual como R instalado e estamos preparados para dar início ao nosso **RStudio Server**! Para instalar entre na página de download do RStudio em: <https://www.rstudio.com/products/rstudio/download-server/> e siga os passos de instalação. No meu caso bastou rodar:
+
+```
+sudo apt-get install gdebi-core
+wget https://download2.rstudio.org/rstudio-server-1.1.456-amd64.deb
+sudo gdebi rstudio-server-1.1.456-amd64.deb
+```
+Pronto, agora já possuímos nosso próprio RStudio Server na nuvem! Para acessá-lo basta utilizar a porta `8787` através de seu IP externo (que pode ser obtido com o comando: `curl ipinfo.io/ip`, como mencionado anteriormente). Portanto, acesse algo como: <http://35.237.234.123:8787> (este link direcionará para a máquina virtual que criei no exemplo deste post) e você será direcionado para uma tela de login:
+
+<center>![](/post/2018-10-27-server-cloud/server-cloud_files/rstudioserver.png){width=80%}</center>
+
+É possível fazer o login no RStudio Server com qualquer usuário que esteja cadastrado em sua máquina virtual, no meu caso eu faço o login com o nome de usuário `gomes_fellipe1` e a senha que defini para meu usuário ao criar a máquina.
+
+É possível criar um novo usuário para acessar o RStudio Server via terminal da máquina virtual com:
+
+```
+adduser novo_usuario
+```
+
+Caso seu objetivo seja apenas o de ter seu próprio RStudio Server Parabéns! Já está disponível e pronto para uso! A seguir trataremos de como instalar e como efetuar algumas configurações básicas de um Shiny Server, mesmo que você não seja desenvolvedor desse tipo de app sugiro que instale o servidor mesmo assim pois ele também pode ser usado para hospedar seus documentos interativos como arquivos Rmarkdown!
+
+## Instalar o Shiny Server
+
+Aplicativos Shiny são incríveis e sua aplicabilidade é tamanha que poderia dedicar uma série de posts exclusivamente para falar sobre essa ferramenta. Dedico uma enorme parte do meu tempo de trabalho atualmente no desenvolvimento de aplicativos Shiny e ao terminar todas as etapas de um ["típico projeto de ciencia de dados"](http://r4ds.had.co.nz/introduction.html) a etapa da **entrega** dos resultados pode ser bastante crítica  e um aplicativo Shiny é capaz de trazer interatividade às suas análises.
+
+Existem diversas opções de entrega, entre elas:
+
+  * Fazer um rápido deploy no <http://www.shinyapps.io/>;
+  * Hospedar no now, como apresentado na página do [curso-r](https://www.curso-r.com/) em: <https://www.curso-r.com/blog/2018-03-05-shiny-now/>;
+  * Dockerizar o app com a imagem <https://hub.docker.com/u/rocker/> e disponibilizá-lo na rede interna de sua empresa;
+  * Criar um executável via R e Inno Setup (um instalador para programas do Windows), como ilustrado em: <https://www.ficonsulting.com/filabs/RInno>;
+  * Dentre tantas outras...
+  
+No caso deste post, estamos criando nosso próprio servidor e assim teremos controle tanto do desempenho da máquina hospedada quanto do uso do Shiny Server propriamente dito.
+
+Consulte a página de download do Shiny Server em: <https://www.rstudio.com/products/shiny/download-server/> para saber qual a versão mais recente para instalar no seu computador (note que será necessário instalar o pacote do shiny como mencionado anteriormente), no meu caso foi:
+
+```
+sudo su - -c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
+sudo apt-get install gdebi-core
+wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.9.923-amd64.deb
+sudo gdebi shiny-server-1.5.9.923-amd64.deb
+```
+
+O Shiny Server está agora instalado e em execução. Supondo que correu tudo bem você já poderá acessar a página inicial padrão do Shiny Server, que inclui algumas instruções e dois aplicativos Shiny, veja em (na minha máquina de exemplo): <http://35.237.234.123:3838> (Note que eu não configurei um IP externo fixo neste app por se tratar de uma prova de conceito, como ele pode alterar para um IP aleatório quando eu reiniciar a máquina então fiz um backup no <http://www.shinyapps.io/> no endereço: <https://gomesfellipe.shinyapps.io/app_acoes/> para manter este DEMO no caso dessa máquina específica não estar mais no ar futuramente)
+
+![](/post/2018-10-27-server-cloud/server-cloud_files/shinyserver.png)
+
+Alguns comandos úteis para configurar o status do servidor:
+
+```
+sudo systemctl start shiny-server
+sudo systemctl stop shiny-server
+sudo systemctl restart shiny-server
+```
+
+**Importante**:
+
+  * O arquivo de configuração do servidor está em: `/etc/shiny-server/shiny-server.conf`;
+  * A página inicial do Shiny Server estará em:  `/srv/shiny-server/index.html` (normalmente removemos esta página ou incluir um outro html para customizá-la);
+  * Todos aplicativos Shiny com o nome `app.R` que você colocar em `/srv/shiny-server/` serão entendidos pelo servidor como um aplicativo Shiny;
+  * Todos aplicativos serão executados como usuário `shiny` o que implica que qualquer pacote necessário em um aplicativo shiny deverá estar na biblioteca global ou na biblioteca do usuário `shiny`. Existem diversas formas de lidar com esse aspecto da configuração inicial do servidor então deixarei algumas referências ao final do post para quem tiver a necessidade de maior customização e controle do servidor;
+  * Para visualizar os logs durante o desenvolvimento do aplicativo será necessário adicionar as linhas `preserve_logs true;`e `sanitize_errors false;` ao arquivo de configuração do servidor (e reiniciar o servidor em seguida) e assim os logs do servidor estarão disponíveis em `/var/log/shiny-server.log`.
+  
+## Adicionar aplicativos ao Shiny Server via Github
+
+Como já foi dito, qualquer aplicativo Shiny colocado na pasta `/srv/shiny-server/` será automaticamente exibido como um Shiny app na página principal do servidor. Além da opção de desenvolver um um aplicativo diretamente pelo RStudio Server e salvar nesta pasta podemos clonar algum app hospedado no [GitHub](https://github.com/) ou no [BitBucket](https://bitbucket.org) para esta pasta.
+
+Primeiramente vamos instalar o git e realizar as configurações iniciais:
+
+```
+sudo apt-get -y install git
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
+Agora vamos nos deslocar para a pasta `srv/shiny-server/` e remover a página `index.html` pois não estamos mais interessados em ver a página de exemplo do Shiny Server:
+
+```
+cd /srv/shiny-server
+sudo rm index.html
+```
+
+Em seguida já é possível clonar seu repositório do [GitHub](https://github.com/) ou do [BitBucket](https://bitbucket.org) diretamente para esta pasta (Lembrete: o arquivo que executa o app deve ser nomeado como `app.R`!), veja:
+
+```
+sudo git clone https://github.com/gomesfellipe/app_acoes.git
+```
+
+O legal de administrar suas aplicações via [GitHub](https://github.com/) ou do [BitBucket](https://bitbucket.org) é que o código hospedado pode ser trabalhado e "commitado" de qualquer outro lugar do mundo e para atualizar no servidor basta utilizar o comando `sudo git pull` na pasta do app que o diretório local será atualizado com as modificações realizadas no repositório remoto.
+
+Pronto, se utilizar o comando `ls` já será possível ver a pasta clonada no diretório local:
+
+<center>![](/post/2018-10-27-server-cloud/server-cloud_files/ls.png)</center>
+
+Ao acessar o app teremos:
+
+<center>
+<iframe width="100%" height="725" scrolling="no" frameborder="no"  src="https://gomesfellipe.shinyapps.io/app_acoes/" > </iframe></center>
+
+O código para gerar este app é:
+
+<script src="https://gist.github.com/gomesfellipe/f1f6469884bff2d2dce8729fd8bce719.js"></script>
+
+**Nota¹**: O código do app e as dependências podem ser obtidas em: <https://github.com/gomesfellipe/app_acoes> e para executá-lo diretamente do seu terminal basta utilizar o comando:
+
+```{r,eval=F}
+shiny::runGitHub("gomesfellipe/app_acoes")
+```
+
+**Nota²**: Caso queira incluir seu aplicativo Shiny em alguma página Web ou relatório é simples, utilizando um pouco de html é só o incluí no seu arquivo RMarkdown utilizando algo parecido com:
+
+```
+<iframe width="450" height="400" scrolling="no" frameborder="no" src="sua_url"> </iframe>
+```
+
+# Tudo Pronto? <i class="fa fa-exclamation-triangle"></i>
+
+Definitivamente não! Implementamos um app bem básico mas existem intermináveis desafios que não foram abordados nesse rápido post como a instalação do Latex para o Shiny Server, o uso de contêineres Docker, senha para os aplicativos shiny, definir um IP estático, todas as outras dependências que podem ser requisitadas na instalação de pacotes específicos etc.. É aquela história, quanto mais a gente estuda mais coisa aparece para estudar mas esse é justamente o legal de tudo, que nunca fica fácil!
+
+# Referências e sugestões:
+
+  * <https://cloud.google.com/getting-started/?hl=pt-br>
+  * <https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started>
+  * <http://rstudio.github.io/shiny-server/os/0.4.0/>
+  * <https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/>
+  * <https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data>
+  * <https://shiny.rstudio.com/gallery/authentication-and-database.html>
+  * <http://www.simoncoulombe.com/2018/05/07/protected_free_shiny/>
+  * <https://www.brettory.com/2018/02/embedding-a-shiny-app-in-blogdown/>
+  * <https://www.keycdn.com/support/413-request-entity-too-large>
+  * <https://auth0.com/blog/adding-authentication-to-shiny-server/>
+  * <https://gist.github.com/jjesusfilho/6a3ec38016f7e120e9a2cf2b49e42962>
+  * <https://gist.github.com/jjesusfilho/7b7001745cbb8f7b1ad36e7bfe5d43e8>
+  * <https://curso-r.github.io/auth0/>

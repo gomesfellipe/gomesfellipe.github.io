@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>modelagem on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/modelagem/</link>
+    <description>Recent content in modelagem on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/modelagem/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solução Final - ML Olympiad [1º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
+      <description>Introdução Definição do problema de negócio Soluções Estratégia analítica Decisões sobre a target Processamento dos Dados Dados Externos Feature Engineering Modelos Ensemble Post Processing Considerações Finais Sobre o Autor Introdução O TFUG - TensorFlow Users Group de São Paulo lançou uma nova competição no Kaggle onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Boa saúde e bem-estar.</description>
+    </item>
+    
+    <item>
+      <title>Solução Final - ML Olympiad [2º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
+      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Estrutura da base Ano da base de dados Target Machine Learning (em Python) Importar dependencias Carregar dados Modelagem Submissão Considerações Finais Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
+    </item>
+    
+    <item>
+      <title>Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</title>
+      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</guid>
+      <description>Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?
+Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.</description>
+    </item>
+    
+    <item>
+      <title>Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</title>
+      <link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/</guid>
+      <description>Análise de sobrevivência e PUBG Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.
+Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.
+PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal sobreviver, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.</description>
+    </item>
+    
+    <item>
+      <title>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</title>
+      <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</guid>
+      <description>Kaggle Segundo o Wikipédia: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.
+O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já escrevi em um post sobre gamificação e porque aprender R é tão divertido e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</description>
+    </item>
+    
+    <item>
+      <title>modelo bayesiano do zero</title>
+      <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</guid>
+      <description>Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.
+Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles.</description>
+    </item>
+    
+    <item>
+      <title>Brasil x Argentina, tidytext e Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/</guid>
+      <description>Brasil vs Argentina e Text Mining A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos quintilhões de bytes todos os dias, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.</description>
+    </item>
+    
+    <item>
+      <title>AED de forma rápida e um pouco de Machine Learning</title>
+      <link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/</guid>
+      <description>A análise exploratória dos dados A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro Exploratory Data Analysis em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações
+Ao iniciar uma análise de dados, começamos pela AED para a partir dai decidir como buscar qual solução para o problema.</description>
+    </item>
+    
+    <item>
+      <title>O paradoxo dos aniversários com simulação e probabilidade</title>
+      <link>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/</guid>
+      <description>Curiosidades sobre a teoria das probabilidades O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.
+Os conceitos de chances e de incertezas são tão antigos quando a própria civilização.</description>
+    </item>
+    
+    <item>
+      <title>Pacotes do R para avaliar o ajuste de modelos</title>
+      <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</link>
+      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</guid>
+      <description>Funções do R para avaliar o ajuste de modelos Traduzindo:
+“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
+Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
+Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
+    </item>
+    
+    <item>
+      <title>Ajustando Modelos Bayesianos com JAGS</title>
+      <link>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</link>
+      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</guid>
+      <description>Inferência bayesiana Imagem da Internet
+Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.
+Para isso devemos utilizar toda informação disponível, seja ela objetiva ou subjetiva (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)
+Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao teorema de bayes.
+Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa “crença” será representada por uma distribuição de probabilidade (ou modelo probabilístico)</description>
+    </item>
+    
+  </channel>
+</rss>

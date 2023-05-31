@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>split aply combine on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/split-aply-combine/</link>
+    <description>Recent content in split aply combine on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/split-aply-combine/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hackeando o R: estratégia split-apply-combine</title>
+      <link>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/</guid>
+      <description>O método split-apply-combine Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.
+No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickham descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:</description>
+    </item>
+    
+  </channel>
+</rss>

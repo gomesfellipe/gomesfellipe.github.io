@@ -1,0 +1,86 @@
+---
+title: Criando relatorios com template tufle
+author: Fellipe Gomes
+date: '2017-12-14'
+slug: []
+categories:
+  - R
+  - Prática
+  - Reports
+tags:
+  - R
+  - gomesfellipe
+  - Prática
+  - R Markdown
+  - RStudio
+  - Tufle
+description: ''
+featured: ''
+featuredalt: ''
+featuredpath: ''
+linktitle: ''
+type: post
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Focando no conteúdo
+
+Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico. 
+
+Como disse Khalil Gibran; é preciso *transformar em palavras aquilo que já conhecemos em pensamentos*. Ninguém quer perder tempo precioso de análises em formatações de documentos.
+
+Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos. Busquei alguma solução que de alguma forma fosse útil na página do [RStudio](https://www.rstudio.com/) e me deparei com o pacote `tufle` disponível no [CRAN](https://cran.r-project.org).
+
+Este pacote fornece um template interessante para a elaboração de arquivos rmarkdown para converter para PDF, a apresentação é apresentada no manual mais ou menos dessa maneira:
+
+![Imagem do manual](http://rmarkdown.rstudio.com/images/tufte-handout.png)
+
+# Instalando o pacote
+
+Para instalar o pacote, basta rodar a linha de comando:
+
+```{r,eval=F}
+install.packages("tufte")
+```
+
+# Criando um documento documento
+
+Para criar um documento com o novo template, basta acessar `File>New File>R Markdown...` e selecionar o templante:
+
+![Imagem do [manual do pacote](http://rmarkdown.rstudio.com/tufte_handout_format.html#overview)](http://rmarkdown.rstudio.com/images/new-tufte-handout.png)
+
+Um novo documento será aberto, caso deseje fazer alguma alteração no preâmbulo, existem essas opções apresentadas no [manual do pacote no CRAN](https://cran.r-project.org/web/packages/tufte/tufte.pdf):
+
+# Preâmbulo do documento
+
+```{r,eval=F}
+---
+title: "Título"
+subtitle: "Subtitulo"
+author: "Autor"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_html: default
+  tufte::tufte_handout:
+    keep_tex: false #true
+    highlight: tango #“default”, “pygments”, “kate”, “monochrome”, “espresso”, “zenburn”, and “haddock”
+    fig_width: 4
+    fig_height: 4
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: skeleton.bib
+link-citations: yes
+---
+```
+
+Agora basta formatar e organizar os resultados de acordo com seu interesse nas análises sem grandes preocupações com a formatação, deixando da maneira que seja mais conveiente. 
+
+O que sempre foi possível em latex agora já pode ser adapato para quem gosta de trabalhar diretamente no RStudio!
+
