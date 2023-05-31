@@ -27,8 +27,8 @@ tags:
   - ciencia de dados
   - catboost 
 description: 'Confira a estratégia aplicada para esta competição'
-featured: 'img3.png'
-featuredalt: 'Pic 33'
+featured: 'img4.png'
+featuredalt: 'Pic 34'
 featuredpath: 'date'
 linktitle: ''
 type: "post"
@@ -36,7 +36,7 @@ output:
   blogdown::html_page:
     toc: true
     toc_depth: 2 
-image_preview: 'img3.png'
+image_preview: 'img4.png' 
 ---
   
 ```{r setup, include=FALSE}
