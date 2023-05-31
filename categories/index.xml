@@ -6,13 +6,103 @@
     <description>Recent content in Categories on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analise Exploratória</title>
+      <link>https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aprendizado Supervisionado</title>
+      <link>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>catboost</title>
+      <link>https://gomesfellipe.github.io/categories/catboost/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/catboost/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Ciencia de dados</title>
       <link>https://gomesfellipe.github.io/categories/ciencia-de-dados/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/ciencia-de-dados/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Classificação</title>
+      <link>https://gomesfellipe.github.io/categories/classifica%C3%A7%C3%A3o/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/classifica%C3%A7%C3%A3o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kaggle</title>
+      <link>https://gomesfellipe.github.io/categories/kaggle/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/kaggle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://gomesfellipe.github.io/categories/machine-learning/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modelo baseado em arvores</title>
+      <link>https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prática</title>
+      <link>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://gomesfellipe.github.io/categories/python/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://gomesfellipe.github.io/categories/r/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/r/</guid>
       <description></description>
     </item>
     
@@ -62,92 +152,11 @@
     </item>
     
     <item>
-      <title>Prática</title>
-      <link>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://gomesfellipe.github.io/categories/python/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>vqgan&#43;clip</title>
       <link>https://gomesfellipe.github.io/categories/vqgan&#43;clip/</link>
       <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/vqgan&#43;clip/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Analise Exploratória</title>
-      <link>https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Aprendizado Supervisionado</title>
-      <link>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>catboost</title>
-      <link>https://gomesfellipe.github.io/categories/catboost/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/catboost/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kaggle</title>
-      <link>https://gomesfellipe.github.io/categories/kaggle/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/kaggle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://gomesfellipe.github.io/categories/machine-learning/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>modelo baseado em arvores</title>
-      <link>https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://gomesfellipe.github.io/categories/r/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/r/</guid>
       <description></description>
     </item>
     
