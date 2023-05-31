@@ -28,7 +28,7 @@ tags:
   - catboost 
 description: 'Confira a estratégia aplicada para esta competição'
 featured: 'img1.png'
-featuredalt: 'Pic 31'
+featuredalt: 'Pic 32'
 featuredpath: 'date'
 linktitle: ''
 type: "post"
@@ -36,7 +36,6 @@ output:
   blogdown::html_page:
     toc: true
     toc_depth: 2
-image_preview: 'img1.png'
 ---
 
 ```{r setup, include=FALSE}
