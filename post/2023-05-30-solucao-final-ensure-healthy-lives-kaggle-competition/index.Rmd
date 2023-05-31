@@ -36,6 +36,7 @@ output:
   blogdown::html_page:
     toc: true
     toc_depth: 2 
+image_preview: 'img3.png'
 ---
   
 ```{r setup, include=FALSE}
