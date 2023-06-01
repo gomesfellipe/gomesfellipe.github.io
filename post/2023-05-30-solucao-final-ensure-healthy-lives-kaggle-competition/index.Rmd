@@ -40,7 +40,12 @@ image_preview: 'img1.png'
 ---
   
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = F, warning = F, error = F, message = F)
+knitr::opts_chunk$set(echo = TRUE, eval = T, warning = F, error = F, message = F)
+```
+
+```{r, include=F}
+library("htmltools")
+library("vembedr")
 ```
 
 # Introdução
@@ -75,6 +80,11 @@ Ambas soluções (minha e do Kaike) foram compartilhadas no Kaggle:
 - [ML Olypiads - 1º Lugar - LightGBM Binary Ensemble](https://www.kaggle.com/code/kaikewreis/ml-olypiads-1-lugar-lightgbm-binary-ensemble) (Kaike)
 - [ML Olympiad - 1º Lugar - Blending](https://www.kaggle.com/code/gomes555/ml-olympiad-1-lugar-blending) (combinação das soluções em um emsemble)
 
+Disponibilizamos também a solução em formato de vídeo, gravado em um meetup com duração de 1 hora e meia para o canal do [TensorFlow UGSP](https://www.youtube.com/@tensorflowugsp) no Youtube no link: <https://youtu.be/6HPJn38NF3w>
+
+```{r, echo = F, fig.align="center"}
+embed_url("https://youtu.be/6HPJn38NF3w")
+```
 
 # Estratégia analítica
 
