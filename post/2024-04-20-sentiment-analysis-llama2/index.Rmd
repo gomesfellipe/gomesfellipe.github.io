@@ -29,7 +29,7 @@ tags:
   - GAM
   - Llama2
 description: 'Como executar localmente o LLM pré-treinado de código aberto Llama2 para realizar uma análise de sentimentos em Python'
-featured: 'img1.png'
+featured: 'img2.png'
 featuredalt: 'Pic 36'
 featuredpath: 'date'
 linktitle: ''
@@ -38,7 +38,7 @@ output:
   blogdown::html_page:
     toc: true
     toc_depth: 2 
-image_preview: 'img1.png' 
+image_preview: 'img2.png' 
 ---
 
 <style>
@@ -79,7 +79,7 @@ A abordagem comum para resolver problemas de NLP envolviam a aplicação de *tex
 
 Já no cenário atual de modelos pré-treinados, o *BERT (Bidirectional Encoder Representations from Transformers)* também teve bastante destaque nesse domínio antes da ascensão do *ChatGPT*, demonstrando a viabilidade como um método gerador de texto e mostraram o poder que as redes neurais têm para gerar longas sequências de texto que antes pareciam inatingíveis.
 
-<center>
+<center> 
 
 ![](/post/2024-04-20-sentiment-analysis-llama2/parameters_transformer_based_language_models.png){width=70%}</br>
 <small>[GPT-3 supera seus antecessores em termos de contagem de parâmetros](https://www.techtarget.com/searchenterpriseai/definition/GPT-3)</small>
