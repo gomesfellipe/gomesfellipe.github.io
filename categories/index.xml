@@ -6,11 +6,20 @@
     <description>Recent content in Categories on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Análise de Sentimentos</title>
+      <link>https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sentimentos/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sentimentos/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Analise Exploratória</title>
       <link>https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/</guid>
       <description></description>
@@ -19,9 +28,90 @@
     <item>
       <title>Aprendizado Supervisionado</title>
       <link>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ChatGPT</title>
+      <link>https://gomesfellipe.github.io/categories/chatgpt/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/chatgpt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ciencia de dados</title>
+      <link>https://gomesfellipe.github.io/categories/ciencia-de-dados/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/ciencia-de-dados/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GAM</title>
+      <link>https://gomesfellipe.github.io/categories/gam/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/gam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IA</title>
+      <link>https://gomesfellipe.github.io/categories/ia/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/ia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Llama2</title>
+      <link>https://gomesfellipe.github.io/categories/llama2/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/llama2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>https://gomesfellipe.github.io/categories/llm/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://gomesfellipe.github.io/categories/machine-learning/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>neural networks</title>
+      <link>https://gomesfellipe.github.io/categories/neural-networks/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/neural-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://gomesfellipe.github.io/categories/python/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/categories/python/</guid>
       <description></description>
     </item>
     
@@ -31,15 +121,6 @@
       <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/catboost/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ciencia de dados</title>
-      <link>https://gomesfellipe.github.io/categories/ciencia-de-dados/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/ciencia-de-dados/</guid>
       <description></description>
     </item>
     
@@ -62,15 +143,6 @@
     </item>
     
     <item>
-      <title>machine learning</title>
-      <link>https://gomesfellipe.github.io/categories/machine-learning/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>modelo baseado em arvores</title>
       <link>https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/</link>
       <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
@@ -85,15 +157,6 @@
       <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://gomesfellipe.github.io/categories/python/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/python/</guid>
       <description></description>
     </item>
     
@@ -130,24 +193,6 @@
       <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/gan/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>IA</title>
-      <link>https://gomesfellipe.github.io/categories/ia/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/ia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>neural networks</title>
-      <link>https://gomesfellipe.github.io/categories/neural-networks/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/neural-networks/</guid>
       <description></description>
     </item>
     
@@ -535,15 +580,6 @@
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Análise de Sentimentos</title>
-      <link>https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sentimentos/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sentimentos/</guid>
       <description></description>
     </item>
     
