@@ -274,7 +274,7 @@ plt.show()
 Coletei uma amostra aleatória simples de tamanho n=100 de todas as reviews que contém aproximadamente metade de cada sentimento para diminuir o tempo computacional de execução no meu computador.
 </div>
 
-### Palavras mais frequêntes para cada sentimento {.tabset}
+### Palavras mais frequentes para cada sentimento {.tabset}
 
 Núvens de palavras das resenhas dos filmes que foram anotadas como positivos e como negativos nas duas linguas disponíveis no dataset:
 
@@ -410,15 +410,15 @@ Bons em correspondência de padrões e algum conhecimento básico do mundo (como
 
 <big>**10 Bilhões**:</big>
 
-Maior conhecimento mundial, conhecem mais fatos exotéricos sobre o mundo e melhoram em seguir instruções basicas (bom para chatbot para pedidos de comida);
+Maior conhecimento mundial, conhecem mais fatos esotéricos  sobre o mundo e melhoram em seguir instruções básicas  (bom para chatbot para pedidos de comida);
 
 </div> 
-
+ 
 <div class="column4"> 
 
 <big>**100+ Bilhões**: </big>
 
-Muito grandes, com conhecimento mundial muito rico, saberão coisas sobre fisica, filosofia, ciência e assim por diante e serão melhores em raciocinios complexos (tarefas que envolvem conhecimento profundo ou raciocinio complexo, parceiro para brainstorming)
+Muito grandes, com conhecimento mundial muito rico, saberão coisas sobre física, filosofia, ciência e assim por diante e serão melhores em raciocínios  complexos (tarefas que envolvem conhecimento profundo ou raciocínio  complexo, parceiro para brainstorming)
 
 </div> 
 </div>
@@ -526,7 +526,7 @@ llama_model = load_llama_model(language='en')
 ## llama_new_context_with_model: compute buffer total size =  295.35 MB
 ```
 
-Após instânciar o modelo, basta aplicá-lo em nossa base de dados. (apliquei o mesmo modelo tanto para as reviews e portugues quanto em inglês).
+Após instanciar o modelo, basta aplicá-lo em nossa base de dados. (apliquei o mesmo modelo tanto para as reviews e português quanto em inglês).
 
 ```{python, eval=F}
 df['sentiment_llm_en'] = df.text_en.progress_apply(lambda x: classify_sentiment_llama(x, llama_model))

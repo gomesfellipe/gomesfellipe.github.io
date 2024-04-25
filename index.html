@@ -95,6 +95,21 @@
   
 
 
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105500464-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-105500464-2');
+</script>
+
+
+
+
+
       
 <script type="application/javascript">
 var doNotTrack = false;
@@ -1817,8 +1832,8 @@ plt.show()</code></pre>
 Coletei uma amostra aleatória simples de tamanho n=100 de todas as reviews que contém aproximadamente metade de cada sentimento para diminuir o tempo computacional de execução no meu computador.</p>
 </div>
 </div>
-<div id="palavras-mais-frequêntes-para-cada-sentimento" class="section level3 tabset">
-<h3>Palavras mais frequêntes para cada sentimento</h3>
+<div id="palavras-mais-frequentes-para-cada-sentimento" class="section level3 tabset">
+<h3>Palavras mais frequentes para cada sentimento</h3>
 <p>Núvens de palavras das resenhas dos filmes que foram anotadas como positivos e como negativos nas duas linguas disponíveis no dataset:</p>
 <details>
 <summary>
@@ -1933,11 +1948,11 @@ Como esperado, mesmo com a mudança na língua, a frequência das palavras é ex
 </div>
 <div class="column4">
 <p><big><strong>10 Bilhões</strong>:</big></p>
-<p>Maior conhecimento mundial, conhecem mais fatos exotéricos sobre o mundo e melhoram em seguir instruções basicas (bom para chatbot para pedidos de comida);</p>
+<p>Maior conhecimento mundial, conhecem mais fatos esotéricos sobre o mundo e melhoram em seguir instruções básicas (bom para chatbot para pedidos de comida);</p>
 </div>
 <div class="column4">
 <p><big><strong>100+ Bilhões</strong>: </big></p>
-<p>Muito grandes, com conhecimento mundial muito rico, saberão coisas sobre fisica, filosofia, ciência e assim por diante e serão melhores em raciocinios complexos (tarefas que envolvem conhecimento profundo ou raciocinio complexo, parceiro para brainstorming)</p>
+<p>Muito grandes, com conhecimento mundial muito rico, saberão coisas sobre física, filosofia, ciência e assim por diante e serão melhores em raciocínios complexos (tarefas que envolvem conhecimento profundo ou raciocínio complexo, parceiro para brainstorming)</p>
 </div>
 </div>
 <p>Para uma análise de sentimentos simples, não é necessário um modelo com 100 bilhões de parâmetros. Modelos menores, como os com 7 bilhões de parâmetros, podem ser suficientes e menos computacionalmente exigentes.</p>
@@ -2020,7 +2035,7 @@ llama_model = load_llama_model(language=&#39;en&#39;)</code></pre>
 ## llama_model_load_internal: mem required  = 2733.66 MB (+ 2160.00 MB per state)
 ## llama_new_context_with_model: kv self size  = 2160.00 MB
 ## llama_new_context_with_model: compute buffer total size =  295.35 MB</code></pre>
-<p>Após instânciar o modelo, basta aplicá-lo em nossa base de dados. (apliquei o mesmo modelo tanto para as reviews e portugues quanto em inglês).</p>
+<p>Após instanciar o modelo, basta aplicá-lo em nossa base de dados. (apliquei o mesmo modelo tanto para as reviews e português quanto em inglês).</p>
 <pre class="python"><code>df[&#39;sentiment_llm_en&#39;] = df.text_en.progress_apply(lambda x: classify_sentiment_llama(x, llama_model))</code></pre>
 <p><img src="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/load_en.png" /></p>
 <p>Como este modelo é o mais básico e não alteramos nenhum parâmetro (como por exemplo <code>temperature</code>, que determina se o output será mais aleatório ou mais previsível) pode ser que a saída não saia padronizada e necessite de algum pós-processamento. Vejamos como foram os outputs do LLM:</p>
