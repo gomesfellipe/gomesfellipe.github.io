@@ -42,15 +42,13 @@ output:
 image_preview: 'img1.png' 
 ---
  
-<meta name="image" property="og:image" content="https://gomesfellipe.github.io/img/2024/04/img1.png">
- 
 <style>
 .column4 {
   float: left;
   width: 33%;
   padding: 10px;
 }
-
+ 
 .column8 {
   float: left;
   width: 66%;

@@ -81,9 +81,9 @@ Ambas soluções (minha e do Kaike) foram compartilhadas no Kaggle:
 
 Disponibilizamos também a solução em formato de vídeo, gravado em um meetup com duração de 1 hora e meia para o canal do [TensorFlow UGSP](https://www.youtube.com/@tensorflowugsp) no Youtube no link: <https://youtu.be/6HPJn38NF3w>
 
-<!-- ```{r, echo = F, fig.align="center"} -->
-<!-- embed_url("https://youtu.be/6HPJn38NF3w") -->
-<!-- ``` -->
+```{r, echo = F, fig.align="center"}
+embed_url("https://youtu.be/6HPJn38NF3w")
+```
 
 # Estratégia analítica
 
