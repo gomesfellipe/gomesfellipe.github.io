@@ -29,16 +29,16 @@ tags:
   - GAM
   - Llama2
 description: 'Como executar localmente o LLM pré-treinado de código aberto Llama2 para realizar uma análise de sentimentos em Python'
-featured: 'img2.png'
-featuredalt: 'Pic 36'
+featured: 'img1.png'
+featuredalt: 'Pic 38'
 featuredpath: 'date'
 linktitle: ''
-type: "post" 
-output: 
+type: "post"
+image_preview: 'img1.png'
+output:
   blogdown::html_page:
     toc: true
-    toc_depth: 2 
-image_preview: 'img2.png' 
+    toc_depth: 2
 ---
 
 <style>
