@@ -256,9 +256,11 @@ example_selector = SemanticSimilarityExampleSelector.from_examples(
     examples = examples,
     embeddings = embeddings,
     vectorstore_cls = Chroma,
-    k=5,
+    k=3,
 )
 ```
+
+Aumentar o número de vizinhos mais próximos não garantirá necessariamente resultados melhores. Normalmente k=6 no máximo já é suficiente. Se não conseguir bons resultados assim, já seria mais indicado realizar um ajuste fino mesmo.
 
 ## Preparar o `FewShotPromptTemplate`
 
@@ -297,12 +299,6 @@ print(prompt.format(tweet=valid.head(1).text.values[0]))
 ## 
 ## Tweet: caralho eu tenho q fazer alguma coisa mt importante mas eu esqueci o que é então n deve ser importante
 ## Label: 1
-## 
-## Tweet: caralho eu tenho q fazer alguma coisa mt importante mas eu esqueci o que é então n deve ser importante
-## Label: 1
-## 
-## Tweet: caralho as pessoas fazem me sentir a pessoa mais bosta e odiada possível eu tô bem
-## Label: 0
 ## 
 ## Tweet: caralho as pessoas fazem me sentir a pessoa mais bosta e odiada possível eu tô bem
 ## Label: 0
