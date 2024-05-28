@@ -715,6 +715,9 @@ if (!doNotTrack) {
 
 
   
+  
+    
+  
 
 
         
@@ -751,6 +754,9 @@ if (!doNotTrack) {
 
 
   
+  
+    
+  
 
 
         
@@ -758,7 +764,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/" class="image featured">
-            <img src="https://gomesfellipe.github.io/date2019/09/img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2019/09/img1.png" alt="">
         </a>
     
 
@@ -786,6 +792,9 @@ if (!doNotTrack) {
 
 
 
+  
+  
+    
   
 
 
@@ -823,6 +832,9 @@ if (!doNotTrack) {
 
 
   
+  
+    
+  
 
 
         
@@ -830,7 +842,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img//img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/12/img1.png" alt="">
         </a>
     
 
@@ -869,7 +881,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/112018/11/img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/11/img1.png" alt="">
         </a>
     
 
@@ -908,7 +920,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/102018/10/img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/10/img1.png" alt="">
         </a>
     
 
@@ -986,7 +998,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/082018/08/img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/08/img1.png" alt="">
         </a>
     
 
@@ -1103,7 +1115,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/052018/05/img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/05/img1.png" alt="">
         </a>
     
 
@@ -1142,7 +1154,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/042018/04/gtrends-r.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/04/gtrends-r.png" alt="">
         </a>
     
 
@@ -1298,7 +1310,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/012018/01/modelagem-probabilidade2.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
         </a>
     
 
@@ -1337,7 +1349,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/012018/01/tabelas-incriveis2.jpg" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg" alt="">
         </a>
     
 
@@ -1376,7 +1388,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2018/012018/01/multivariada-fatorial-cluster-R.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png" alt="">
         </a>
     
 
@@ -1415,7 +1427,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2017/122017/12/diag-modelo.jpg" alt="">
+            <img src="https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg" alt="">
         </a>
     
 
@@ -1727,8 +1739,9 @@ example_prompt = PromptTemplate(
     examples = examples,
     embeddings = embeddings,
     vectorstore_cls = Chroma,
-    k=5,
+    k=3,
 )</code></pre>
+<p>Aumentar o número de vizinhos mais próximos não garantirá necessariamente resultados melhores. Normalmente k=6 no máximo já é suficiente. Se não conseguir bons resultados assim, já seria mais indicado realizar um ajuste fino mesmo.</p>
 </div>
 <div id="preparar-o-fewshotprompttemplate" class="section level2">
 <h2>Preparar o <code>FewShotPromptTemplate</code></h2>
@@ -1739,7 +1752,7 @@ toxic language as 1 and non-toxic language as 0. \n\
 Here are some examples:&quot;&quot;&quot;
 
 suffix = &quot;&quot;&quot;
-Tweet: {tweet}
+Tweet: {tweet} 
 Label: &quot;&quot;&quot;
 
 prompt = FewShotPromptTemplate(
@@ -1758,12 +1771,6 @@ prompt = FewShotPromptTemplate(
 ## 
 ## Tweet: caralho eu tenho q fazer alguma coisa mt importante mas eu esqueci o que é então n deve ser importante
 ## Label: 1
-## 
-## Tweet: caralho eu tenho q fazer alguma coisa mt importante mas eu esqueci o que é então n deve ser importante
-## Label: 1
-## 
-## Tweet: caralho as pessoas fazem me sentir a pessoa mais bosta e odiada possível eu tô bem
-## Label: 0
 ## 
 ## Tweet: caralho as pessoas fazem me sentir a pessoa mais bosta e odiada possível eu tô bem
 ## Label: 0

@@ -24,7 +24,7 @@
         "datePublished": "2024-05-26 00:00:00 \u002b0000 UTC",
         "dateModified" : "2024-05-26 00:00:00 \u002b0000 UTC",
         "url" : "https:\/\/gomesfellipe.github.io\/post\/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain\/",
-        "wordCount" : "1546",
+        "wordCount" : "1532",
         "keywords" : [ "twitter","prophet","neural networks","machine learning","LLM","kaggle","Google","classification","ciencia de dados","gomesfellipe","AI","analise de sentimentos","Gemma","ChatGPT","Blog" ]
     }
     </script>
@@ -68,7 +68,7 @@
         <meta itemprop="name" content="Detecção de Linguagem Tóxica com o LLM Gemma e LangChain">
 <meta itemprop="description" content="Neste post utilizaremos o modelo Gemma de IA generativa do Google com framework LangChain auxiliando na tarefa de prompt engineering"><meta itemprop="datePublished" content="2024-05-26T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-05-26T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1546">
+<meta itemprop="wordCount" content="1532">
 <meta itemprop="keywords" content="twitter,prophet,neural networks,machine learning,LLM,kaggle,Google,classification,ciencia de dados,gomesfellipe,AI,analise de sentimentos,Gemma,ChatGPT," />
         
 
@@ -368,6 +368,9 @@ if (!doNotTrack) {
 
 
 
+  
+  
+    
   
 
 
@@ -1800,8 +1803,9 @@ example_prompt = PromptTemplate(
     examples = examples,
     embeddings = embeddings,
     vectorstore_cls = Chroma,
-    k=5,
+    k=3,
 )</code></pre>
+<p>Aumentar o número de vizinhos mais próximos não garantirá necessariamente resultados melhores. Normalmente k=6 no máximo já é suficiente. Se não conseguir bons resultados assim, já seria mais indicado realizar um ajuste fino mesmo.</p>
 </div>
 <div id="preparar-o-fewshotprompttemplate" class="section level2">
 <h2>Preparar o <code>FewShotPromptTemplate</code></h2>
@@ -1812,7 +1816,7 @@ toxic language as 1 and non-toxic language as 0. \n\
 Here are some examples:&quot;&quot;&quot;
 
 suffix = &quot;&quot;&quot;
-Tweet: {tweet}
+Tweet: {tweet} 
 Label: &quot;&quot;&quot;
 
 prompt = FewShotPromptTemplate(
@@ -1831,12 +1835,6 @@ prompt = FewShotPromptTemplate(
 ## 
 ## Tweet: caralho eu tenho q fazer alguma coisa mt importante mas eu esqueci o que é então n deve ser importante
 ## Label: 1
-## 
-## Tweet: caralho eu tenho q fazer alguma coisa mt importante mas eu esqueci o que é então n deve ser importante
-## Label: 1
-## 
-## Tweet: caralho as pessoas fazem me sentir a pessoa mais bosta e odiada possível eu tô bem
-## Label: 0
 ## 
 ## Tweet: caralho as pessoas fazem me sentir a pessoa mais bosta e odiada possível eu tô bem
 ## Label: 0
@@ -2797,9 +2795,6 @@ plt.show()</code></pre>
 
 
 
-  
-  
-    
   
 
 

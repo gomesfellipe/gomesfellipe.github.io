@@ -273,7 +273,7 @@ toxic language as 1 and non-toxic language as 0. \n\
 Here are some examples:"""
 
 suffix = """
-Tweet: {tweet}
+Tweet: {tweet} 
 Label: """
 
 prompt = FewShotPromptTemplate(
