@@ -6,7 +6,16 @@
     <description>Recent content in Ciencia de dados on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/ciencia-de-dados/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/ciencia-de-dados/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</title>
+      <link>https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/</link>
+      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/</guid>
+      <description>Caso de Uso de IA Generativa: Detecção de Linguagem Tóxica em Mídias Sociais Setup Carregar dados Carregar Modelo Prompt Engineering Conclusão Referencias Caso de Uso de IA Generativa: Detecção de Linguagem Tóxica em Mídias Sociais Neste post, realizaremos a tarefa de detecção de linguagem tóxica em mídias sociais usando o modelo Gemma de IA generativa do Google com o framework LangChain. Vamos explorar como o texto de entrada afeta a saída do modelo e faremos alguma engenharia de prompts para direcioná-lo à tarefa necessária.</description>
+    </item>
+    
     <item>
       <title>Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</title>
       <link>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</link>
