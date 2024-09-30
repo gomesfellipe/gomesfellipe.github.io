@@ -1,0 +1,4688 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https:\/\/gomesfellipe.github.io\/"
+        },
+        "articleSection" : "post",
+        "name" : "Extração de informações de imagens com IA Generativa",
+        "headline" : "Extração de informações de imagens com IA Generativa",
+        "description" : "Neste post, exploraremos como utilizar o modelo Llava para gerar rótulos descritivos de imagens, usando dados do conjunto COCO-2017.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2024",
+        "datePublished": "2024-09-27 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2024-09-27 00:00:00 \u002b0000 UTC",
+        "url" : "https:\/\/gomesfellipe.github.io\/post\/2024-09-27-image-text-to-text\/",
+        "wordCount" : "2385",
+        "keywords" : [ "text mining","Python","neural networks","machine learning","LLM","Llama2","IA","gomesfellipe","ciencia de dados","ChatGPT","AI","Llama","LMM","GenAI","Transformers","Vision","Llava","Vicuna","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Extração de informações de imagens com IA Generativa</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.103.1" />
+        
+
+
+        
+            <meta name="author" content="Fellipe Gomes">
+        
+        
+            <meta name="description" content="Neste post, exploraremos como utilizar o modelo Llava para gerar rótulos descritivos de imagens, usando dados do conjunto COCO-2017.">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Extração de informações de imagens com IA Generativa"/>
+<meta name="twitter:description" content="Neste post, exploraremos como utilizar o modelo Llava para gerar rótulos descritivos de imagens, usando dados do conjunto COCO-2017."/>
+<meta name="twitter:site" content="@gomesfellipe"/>
+
+        <meta property="og:title" content="Extração de informações de imagens com IA Generativa" />
+<meta property="og:description" content="Neste post, exploraremos como utilizar o modelo Llava para gerar rótulos descritivos de imagens, usando dados do conjunto COCO-2017." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-09-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-09-27T00:00:00+00:00" />
+
+
+        
+        <meta property="og:image" content="https://gomesfellipe.github.io//img/2024/09/img1.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="Extração de informações de imagens com IA Generativa">
+<meta itemprop="description" content="Neste post, exploraremos como utilizar o modelo Llava para gerar rótulos descritivos de imagens, usando dados do conjunto COCO-2017."><meta itemprop="datePublished" content="2024-09-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-09-27T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2385">
+<meta itemprop="keywords" content="text mining,Python,neural networks,machine learning,LLM,Llama2,IA,gomesfellipe,ciencia de dados,ChatGPT,AI,Llama,LMM,GenAI,Transformers,Vision,Llava,Vicuna," />
+        
+
+        
+            
+         
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/main.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/add-on.css">
+            <link rel="stylesheet" href="https://gomesfellipe.github.io/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105500464-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-105500464-2');
+</script>
+
+
+
+
+
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-105500464-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="https://gomesfellipe.github.io/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/">
+                            <i class="fa fa-home">&nbsp;</i>setwd()
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>CV
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/post/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/apps/">
+                            <i class="fa fa-tablet">&nbsp;</i>Apps
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/itemized/">
+                            <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categorias
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://gomesfellipe.github.io/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="https://gomesfellipe.github.io/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>setwd()
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>CV
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/post/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/apps/">
+                            <h3>
+                                <i class="fa fa-tablet">&nbsp;</i>Apps
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/itemized/">
+                            <h3>
+                                <i class="fa fa-puzzle-piece">&nbsp;</i>Extras
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categorias
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://gomesfellipe.github.io/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contato
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/">Extração de informações de imagens com IA Generativa</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2024-09-27'>
+                                    September 27, 2024</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2024/09/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/">Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2024-09-27'>
+                                    September 27, 2024</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2024-05-26'>
+                                    May 26, 2024</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2024/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/">Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2024-04-20'>
+                                    April 20, 2024</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2024/04/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/">Solução Final - ML Olympiad [1º lugar]</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2023-05-30'>
+                                    May 30, 2023</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2023/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/">Gerando arte com Inteligência Artificial</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2022-08-08'>
+                                    August 8, 2022</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2022/08/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/">Solução Final - ML Olympiad [2º lugar]</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2022-04-19'>
+                                    April 19, 2022</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2022/04/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-12-03'>
+                                    December 3, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/12/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/">Solução Final - Porto Seguro Data Challenge [3º lugar]</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-11-01'>
+                                    November 1, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/11/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/">Otimizando pipelines que envolvem dados desbalanceados</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-06-28'>
+                                    June 28, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/06/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/">Ciência de Dados - Uma visão geral</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-05-24'>
+                                    May 24, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/">Prevendo a qualidade do sono utilizando Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-03-04'>
+                                    March 4, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/03/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-03-25'>
+                                    March 25, 2020</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2020/03/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/">Como automatizar relatórios longos e repetitivos com RMarkdown</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-09-13'>
+                                    September 13, 2019</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2019/09/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/">Hackeando o R: estratégia split-apply-combine</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-04-05'>
+                                    April 5, 2019</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2019/04/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/">Um ano de blog!</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-12-26'>
+                                    December 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/12/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-11-28'>
+                                    November 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/11/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/">Seu app, RStudio e Shiny Server na nuvem do Google</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-10-27'>
+                                    October 27, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/10/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-09-29'>
+                                    September 29, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/09/img1.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-31'>
+                                    August 31, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/08/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-28'>
+                                    July 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-06-24'>
+                                    June 24, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-05-26'>
+                                    May 26, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-04-12'>
+                                    April 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/date2018/04/gtrends-r.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-03-07'>
+                                    March 7, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-17'>
+                                    February 17, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-01'>
+                                    February 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-20'>
+                                    January 20, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-12'>
+                                    January 12, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/">Análise Multivariada com R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-01-04'>
+                                    January 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/012018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2024-09-27-image-text-to-text%2f&amp;text=Extra%c3%a7%c3%a3o%20de%20informa%c3%a7%c3%b5es%20de%20imagens%20com%20IA%20Generativa&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2024-09-27-image-text-to-text%2f&amp;title=Extra%c3%a7%c3%a3o%20de%20informa%c3%a7%c3%b5es%20de%20imagens%20com%20IA%20Generativa" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2024-09-27-image-text-to-text%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/">Extração de informações de imagens com IA Generativa</a></h1>
+            
+        
+        
+            <p>Neste post, exploraremos como utilizar o modelo Llava para gerar rótulos descritivos de imagens, usando dados do conjunto COCO-2017.</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2024-09-27'>
+            September 27, 2024</time>
+        <span class="author">Fellipe Gomes</span>
+        
+            <p>12 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2024-09-27-image-text-to-text%2f&amp;text=Extra%c3%a7%c3%a3o%20de%20informa%c3%a7%c3%b5es%20de%20imagens%20com%20IA%20Generativa&amp;via=gomesfellipe" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2024-09-27-image-text-to-text%2f&amp;title=Extra%c3%a7%c3%a3o%20de%20informa%c3%a7%c3%b5es%20de%20imagens%20com%20IA%20Generativa" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Fellipe%20Gomes&amp;body=https%3a%2f%2fgomesfellipe.github.io%2fpost%2f2024-09-27-image-text-to-text%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2024/09/img1.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    
+
+<div id="TOC">
+<ul>
+<li><a href="#caso-de-uso-de-ia-generativa-extra%C3%A7%C3%A3o-de-informa%C3%A7%C3%B5es-de-imagens-com-o-modelo-llava" id="toc-caso-de-uso-de-ia-generativa-extração-de-informações-de-imagens-com-o-modelo-llava">Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava</a></li>
+<li><a href="#preparando-o-ambiente" id="toc-preparando-o-ambiente">Preparando o Ambiente</a></li>
+<li><a href="#carregar-dados" id="toc-carregar-dados">Carregar dados</a></li>
+<li><a href="#carregar-modelo" id="toc-carregar-modelo">Carregar modelo</a></li>
+<li><a href="#prompt-engineering" id="toc-prompt-engineering">Prompt Engineering</a></li>
+<li><a href="#infer%C3%AAncia" id="toc-inferência">Inferência</a></li>
+<li><a href="#avaliar-modelo" id="toc-avaliar-modelo">Avaliar modelo</a></li>
+<li><a href="#conclus%C3%A3o" id="toc-conclusão">Conclusão</a></li>
+<li><a href="#refer%C3%AAncias" id="toc-referências">Referências</a></li>
+</ul>
+</div>
+
+<div id="caso-de-uso-de-ia-generativa-extração-de-informações-de-imagens-com-o-modelo-llava" class="section level1">
+<h1>Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava</h1>
+<p>GenAI refere-se a modelos de inteligência artificial capazes de gerar conteúdo novo e criativo a partir de dados de entrada. Seu uso está revolucionando a maneira como processamos dados não estruturados, como imagens, áudios, textos, vídeos, etc. Trabalhar com modelos pré-treinados (i.e., que já foram treinados com grandes conjuntos de dados) e adaptá-los para necessidades específicas tem sido um divisor de águas.</p>
+<p>Neste post, vamos explorar a utilização do modelo Llava (Large Language and Vision Assistant) para extrair rótulos descritivos de imagens e também discutir como comparar a qualidade das previsões geradas com métricas específicas para avaliar a performance desse tipo de modelo.</p>
+<div id="por-que-o-modelo-llava" class="section level2">
+<h2>Por que o Modelo Llava?</h2>
+<p>O modelo <a href="https://llava-vl.github.io/">Llava</a> é uma alternativa de código aberto ao <a href="https://chat-gpt-5.ai/capabilities-of-gpt-4v/">GPT-4 Vision</a> da OpenAI (que se destaca neste domínio, mas sua aplicação é restrita devido sua natureza proprietária e comercial) que foi treinado em grandes conjuntos de dados multimodais, sendo capaz de compreender e gerar descrições textuais para imagens.</p>
+<p>Essa capacidade de “conversar com imagens” tendo o mesmo “poder” de um LLM, possibilita seu uso em muitas soluções desenvolvidas por cientistas de dados no mundo real, como:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Classificação de produtos em e-commerce</strong>: geração de descrições detalhadas de roupas, acessórios, eletrônicos, etc.</li>
+<li><strong>Detecção de defeitos em linhas de produção</strong>: identificação de falhas em produtos para automação e controle de qualidade.</li>
+<li><strong>Diagnóstico médico por imagens</strong>: auxiliar na detecção precoce de doenças a partir de descrições detalhadas de imagens médicas.</li>
+<li><strong>Reconhecimento de placas de carros</strong>: transcrição automática de textos de placas e características de veículos.</li>
+<li><strong>Identificação de sinais de trânsito</strong>: aplicação em veículos autônomos para navegação e identificação de sinais.</li>
+<li><strong>Análise de alimentos para calcular nutrição</strong>: extração automática de informações nutricionais de fotos ou rótulos de alimentos.</li>
+<li><strong>Identificação de animais em câmeras de vida selvagem</strong>: gerar descrições detalhadas de animais detectados, ajudando pesquisadores a automatizar o monitoramento da vida selvagem.</li>
+<li><strong>Detecção de aglomerações em eventos</strong>: analisar imagens de câmeras de segurança para identificar a presença de grandes grupos de pessoas em eventos ou lugares públicos, útil em gestão de multidões ou para questões de segurança.</li>
+</ol>
+</div>
+<div id="dataset-coco-2017" class="section level2">
+<h2>Dataset COCO-2017</h2>
+<p>O <a href="https://cocodataset.org/">COCO</a> (Common Objects in Context) é um dataset amplamente utilizado em visão computacional. Ele é um dos maiores conjuntos de imagens do dia a dia com objetos em diferentes contextos, com anotações detalhadas fornecidas por humanos como tags, caixa delimitadora, polígono que segmenta a imagem detectando objetos bem como sua descrição. Isso o torna ideal para testar o desempenho desse tipo de modelo para geração de legendas.</p>
+<center>
+<div style="display: flex; width: 100%;">
+<div style="width: 50%;">
+<p><img src="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/coco1.png" alt="Imagem 2" style="width: 100%;"></p>
+</div>
+<div style="width: 50%;">
+<p><img src="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/coco2.png" alt="Imagem 2" style="width: 100%;"></p>
+</div>
+</div>
+<center>
+<small>
+Imagem do COCO Dataset com e sem anotação obtida na <a href="https://cocodataset.org/#explore">seção exploratória</a> das imagens
+</small>
+</center>
+</center>
+</div>
+</div>
+<div id="preparando-o-ambiente" class="section level1">
+<h1>Preparando o Ambiente</h1>
+<p>Utilizei o ambiente do Kaggle para desenvolvimento deste notebook, que disponibiliza a utilização de GPUs. Através do Hardware Accelerator utilizaremos a <a href="https://www.kaggle.com/docs/efficient-gpu-usage">NVIDIA TESLA P100 GPU</a>.</p>
+<details>
+<summary>
+<em>Expandir código</em>
+</summary>
+<pre><code>%%capture
+!pip -qqq install bitsandbytes accelerate rouge-score pycocoevalcap bert_score
+!pip install -U nltk
+
+import os
+import re
+import json
+import pandas as pd
+import numpy as np
+from tqdm import tqdm
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+from PIL import Image
+import requests
+from io import BytesIO
+from IPython.display import HTML
+import base64
+
+import torch
+from transformers import pipeline, AutoProcessor, BitsAndBytesConfig
+
+from nltk.translate.bleu_score import sentence_bleu
+from rouge_score import rouge_scorer
+from bert_score import score as bert_score
+from nltk.translate.meteor_score import meteor_score
+
+from transformers import logging
+import warnings
+
+logging.set_verbosity_error()
+warnings.filterwarnings(&quot;ignore&quot;, &quot;use_inf_as_na&quot;)</code></pre>
+</details>
+<p><br></p>
+</div>
+<div id="carregar-dados" class="section level1">
+<h1>Carregar dados</h1>
+<p>Por fins de praticidade para este post, selecionei uma amostra de 10 imagens aleatórias do dataset COCO - (Common Objects in Context) no site <a href="https://cocodataset.org" class="uri">https://cocodataset.org</a> (onde é possível ter uma descrição detalhada do conjunto de dados, incluindo seu <a href="https://arxiv.org/abs/1405.0312">paper</a> para aprofundamento), para avaliar o desempenho do modelo.</p>
+<details>
+<summary>
+<em>Expandir código</em>
+</summary>
+<pre class="python"><code>df_sample = pd.DataFrame({
+  &#39;coco_url&#39;: [
+    &#39;http://images.cocodataset.org/train2017/000000058822.jpg&#39;,
+    &#39;http://images.cocodataset.org/train2017/000000530396.jpg&#39;,
+    &#39;http://images.cocodataset.org/train2017/000000097916.jpg&#39;,
+    &#39;http://images.cocodataset.org/train2017/000000418492.jpg&#39;,
+    &#39;http://images.cocodataset.org/train2017/000000022304.jpg&#39;,
+    &#39;http://images.cocodataset.org/train2017/000000295999.jpg&#39;,
+    &#39;http://images.cocodataset.org/train2017/000000406616.jpg&#39;,
+    &#39;http://images.cocodataset.org/train2017/000000370926.jpg&#39;,
+    &#39;http://images.cocodataset.org/train2017/000000005612.jpg&#39;,
+    &#39;http://images.cocodataset.org/train2017/000000146436.jpg&#39;
+  ],
+  &#39;caption&#39;: [
+    &#39;A laptop sitting on a desk with a cell phone and mouse.&#39;,
+    &#39;A black bear walking through the grass field.&#39;,
+    &#39;a person who is surfing in the ocean.&#39;,
+    &#39;A young boy standing on a sandy beach holding a flag.&#39;,
+    &#39;A man surfing on a wave in the ocean.&#39;,
+    &#39;A herd of cows, grazing in a field.&#39;,
+    &#39;There is a cutting board and knife with chopped apples and carrots.&#39;,
+    &#39;A long yellow school bus is parked on a city street.\n&#39;,
+    &#39;A black and white horse standing in the middle of a field.&#39;,
+    &#39;A man in a red jacket looking at his phone.&#39;
+    ]})
+    
+# Função para verificar se o caminho é uma URL
+def is_url(path):
+    return path.startswith(&#39;http://&#39;) or path.startswith(&#39;https://&#39;)
+
+# Função simplificada para gerar o thumbnail e convertê-lo em base64 diretamente
+def process_image(path):
+    try:
+        if is_url(path):
+            # Se for uma URL, baixar a imagem
+            response = requests.get(path)
+            response.raise_for_status()  # Verifica se houve algum erro no download
+            image = Image.open(BytesIO(response.content))  # Abrir a imagem do conteúdo da resposta
+        else:
+            # Se for um caminho local, abrir a imagem diretamente
+            image = Image.open(path)
+        
+        # Criar uma miniatura da imagem (thumbnail) com tamanho máximo de 150x150
+        image.thumbnail((150, 150), Image.LANCZOS)
+        
+        # Salvar a imagem em um buffer de memória e convertê-la para base64
+        with BytesIO() as buffer:
+            image.save(buffer, &#39;jpeg&#39;)
+            image_base64 = base64.b64encode(buffer.getvalue()).decode()
+        
+        # Retornar a string HTML com a imagem embutida no formato base64
+        return f&#39;&lt;img src=&quot;data:image/jpeg;base64,{image_base64}&quot;&gt;&#39;
+    
+    except Exception as e:
+        # Em caso de erro, retornar uma string vazia ou uma mensagem de erro
+        return f&quot;&lt;p&gt;Erro ao carregar imagem: {e}&lt;/p&gt;&quot;
+
+# Aplicar o processamento de imagens diretamente no DataFrame
+df_sample[&#39;image&#39;] = df_sample[&#39;coco_url&#39;].map(process_image)  # Pode ser URL ou caminho local
+
+# Exibir as legendas e imagens formatadas em HTML
+HTML(df_sample[[&#39;image&#39;, &#39;coco_url&#39;, &#39;caption&#39;]].head().to_html(escape=False))</code></pre>
+</details>
+<p><br></p>
+<p><img src="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/df1.png" style="width: 100%;"></p>
+<p>Caso você precise de mais imagens para testar, também é possível encontrar uma <a href="https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset/data">versão disponibilizada no Kaggle</a> .</p>
+</div>
+<div id="carregar-modelo" class="section level1">
+<h1>Carregar modelo</h1>
+<p>Utilizaremos uma versão de 7 bilhões de parâmetros do modelo <a href="https://huggingface.co/llava-hf/llava-1.5-7b-hf">“LLaVA 1.5”</a> (Language and Vision Assistant), disponível no HuggingFace (Uma plataforma onde a comunidade de Machine Learning colabora com modelos, dados e aplicações) treinada para tarefas de geração de texto a partir de imagens.</p>
+<pre class="python"><code>%%time
+
+model_id = &quot;llava-hf/llava-1.5-7b-hf&quot;
+
+# Configuração de quantização do modelo, que permite reduzir o uso de memória sem 
+# comprometer muito a precisão. Aqui estamos configurando para usar quantização em 4 bits.
+quantization_config = BitsAndBytesConfig(
+    load_in_4bit=True,  
+    bnb_4bit_use_double_quant=True,  
+    bnb_4bit_quant_type=&quot;nf4&quot;,  
+    bnb_4bit_compute_dtype=torch.bfloat16  
+)
+
+# Criação de um pipeline de processamento de imagens para geração de texto
+# O pipeline é configurado para a tarefa &quot;image-to-text&quot;
+pipe = pipeline(
+    &quot;image-to-text&quot;, 
+    model=model_id, 
+    model_kwargs={
+        &quot;quantization_config&quot;: quantization_config,
+        &quot;low_cpu_mem_usage&quot;: True
+    }
+)
+
+# Carregar o processador associado responsável por pré-processar
+# as imagens de entrada e preparar os dados para serem inseridos no modelo
+processor = AutoProcessor.from_pretrained(model_id)</code></pre>
+<pre><code>CPU times: user 28.7 s, sys: 28.1 s, total: 56.8 s
+Wall time: 6min 26s</code></pre>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Nota:</strong> A quantização é uma técnica para reduzir o tamanho do modelo, perdendo um pouco de performance para otimizar o desempenho e rodar em máquinas com memória limitada.</p>
+</div>
+</div>
+<div id="prompt-engineering" class="section level1">
+<h1>Prompt Engineering</h1>
+<p>Uma ampla variedade de <a href="https://www.promptingguide.ai/pt">técnicas</a> poderiam ser aplicadas para desenvolver <a href="https://python.langchain.com/docs/how_to/multimodal_prompts/">prompts</a> mais eficazes (inclusive com <a href="https://python.langchain.com/docs/introduction/">LangChain</a>, como fiz no <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">último post</a>) ou especializar o modelo com ajuste fino visando obter resultados otimizados. No entanto, como este não é o foco do post, usarei um prompt simples e direto para estabelecer um baseline para avaliar as capacidades do modelo com o mínimo de esforço.</p>
+<pre class="python"><code># Cada valor em &quot;content&quot; tem que ser uma lista de dicionário com os tipos (&quot;text&quot;, &quot;image&quot;) 
+conversation = [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: [
+          {&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;Describe this image in a few words:&quot;},
+          {&quot;type&quot;: &quot;image&quot;},
+        ]
+    },
+]
+
+# Formata a conversa (que pode incluir texto e imagens) no formato correto que o modelo entende.
+prompt = processor.apply_chat_template(conversation, add_generation_prompt=True)</code></pre>
+<p>O <a href="https://colab.research.google.com/drive/1qsl6cd2c8gGtEW1xV5io7S8NHh-Cp1TV?usp=sharing#scrollTo=JvvtplWDRvfu">prompt</a> deve ser especificado no seguinte formato:</p>
+<pre><code>USER: &lt;image&gt;
+&lt;prompt&gt;
+ASSISTANT:</code></pre>
+</div>
+<div id="inferência" class="section level1">
+<h1>Inferência</h1>
+<p>Com o modelo devidamente configurado e o prompt ajustado, estamos prontos para executar o pipeline de inferência. A vantagem de utilizar <a href="https://huggingface.co/docs/transformers/main_classes/pipelines#multimodal">pipelines</a> é que eles abstraem boa parte da codificação complexa, proporcionando uma interface simples e eficiente. Essa API versátil é dedicada a várias tarefas, como NER (Reconhecimento de Entidades), Análise de Sentimentos, Extração de Features e Question Answering.</p>
+<pre class="python"><code>for i in tqdm(range(df_sample.shape[0])):
+    
+    # preparar objetos do loop
+    coco_url = df_sample.iloc[i][&#39;coco_url&#39;]
+    caption = df_sample.iloc[i][&#39;caption&#39;]
+    index = df_sample.iloc[i].name
+    
+    # Obter imagem
+    response = requests.get(coco_url)
+    image = Image.open(BytesIO(response.content))
+    
+    # Realizar a inferência usando o pipeline e o prompt gerado
+    outputs = pipe(image, prompt=prompt, generate_kwargs={&quot;max_new_tokens&quot;: 32})
+    
+    # Processar o texto gerado para extrair a parte relevante
+    result = outputs[0][&#39;generated_text&#39;].split(&#39;ASSISTANT:&#39;, 1)[1].strip()
+    
+    # Adicionar o resultado da inferência à nova coluna &#39;llm&#39; do DataFrame
+    df_sample.loc[index, &#39;llm&#39;] = result</code></pre>
+<pre><code>100%|██████████| 10/10 [00:41&lt;00:00,  4.20s/it]</code></pre>
+<p>Após a execução do modelo, veja como ficaram os resultados:</p>
+<details>
+<summary>
+<em>Expandir código</em>
+</summary>
+<pre class="python"><code># Função para destacar as palavras
+def highlight_diff(caption, llm):
+    # Divide as frases em palavras
+    caption_words = caption.replace(&quot;.&quot;, &quot;&quot;).split()
+    llm_words = llm.replace(&quot;.&quot;, &quot;&quot;).split()
+    
+    # Converte as palavras em conjuntos para encontrar a interseção
+    caption_set = set(caption_words)
+    llm_set = set(llm_words)
+    
+    # Calcula as palavras que não estão na interseção
+    caption_highlighted = &quot; &quot;.join([f&#39;&lt;span style=&quot;color:red&quot;&gt;{word}&lt;/span&gt;&#39; if word not in llm_set else word for word in caption_words])
+    llm_highlighted = &quot; &quot;.join([f&#39;&lt;span style=&quot;color:red&quot;&gt;{word}&lt;/span&gt;&#39; if word not in caption_set else word for word in llm_words])
+    
+    return caption_highlighted, llm_highlighted
+
+# Aplica a função a cada linha do DataFrame e cria novas colunas
+df_sample[&#39;highlighted_caption&#39;], df_sample[&#39;highlighted_llm&#39;] = zip(*df_sample.apply(lambda row: highlight_diff(row[&#39;caption&#39;], row[&#39;llm&#39;]), axis=1))
+
+# Exibir o DataFrame formatado com HTML
+HTML(df_sample[[&#39;image&#39;, &#39;highlighted_caption&#39;, &#39;highlighted_llm&#39;]].to_html(escape=False))</code></pre>
+</details>
+<p><br></p>
+<p><img src="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/df2.png" alt="extração de rótulos descritivos de imagens com Llava" style="width: 100%;"></p>
+<p>Destaquei em vermelho as palavras que diferem entre a legenda original do dataset e a previsão gerada pelo nosso modelo de linguagem.</p>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  💭 Apesar de algumas diferenças sutis entre as duas versões, como ‘looking at his phone’ e ‘looking at his <span style="color:red;">cell</span> phone’, a ideia principal permanece bastante coerente com o que vemos nas imagens. Em alguns casos, como no item 3, a descrição gerada pelo modelo, ‘holding a <span style="color:red;">kite</span>’, parece até mais apropriada do que a fornecida pelo dataset, ‘holding a <span style="color:red;">flag</span>’.</p>
+</div>
+<p>Agora, o próximo passo será quantificar essas diferenças de maneira numérica.</p>
+</div>
+<div id="avaliar-modelo" class="section level1">
+<h1>Avaliar modelo</h1>
+<p>Para medir a precisão das legendas geradas, aplicaremos quatro métricas amplamente usadas:</p>
+<ul>
+<li><strong><a href="https://aclanthology.org/P02-1040.pdf">BLEU</a> (Bilingual Evaluation Understudy Score)</strong>: Amplamente utilizada para medir a qualidade de traduções automáticas, mede a <strong>sobreposição de n-gramas</strong> entre a tradução gerada por um modelo e as traduções de referência, atribuindo uma pontuação que varia de 0 a 1 (aplica também um fator de penalização para evitar que traduções curtas sejam favorecidas);</li>
+<li><strong><a href="https://aclanthology.org/W04-1013.pdf">ROUGE-L</a> (Recall-Oriented Understudy for Gisting Evaluation)</strong>: Muito utilizado em tarefa de sumarização de textos, considera a sequência mais longa de palavras que aparecem em ambas as referências e previsões, medindo a capacidade de preservar a <strong>ordem das palavras</strong>;</li>
+<li><strong><a href="https://www.cs.cmu.edu/~alavie/METEOR/">METEOR</a> (Metric for Evaluation of Translation with Explicit ORdering)</strong>: Baseada na média harmônica da precisão e recall de n-gramas, com recall ponderado mais alto do que a precisão. Essa métrica METEOR foi projetada para corrigir alguns dos problemas (como encontrar sinônimos) nas métricas BLEU e ROGUE;</li>
+<li><strong><a href="https://huggingface.co/spaces/evaluate-metric/bertscore">BERTScore</a></strong>: Usa embeddings (representações semânticas) obtidas a partir do modelo BERT para comparar a similaridade semântica entre as descrições geradas e as de referência.</li>
+</ul>
+<details>
+<summary>
+<em>Expandir código</em>
+</summary>
+<pre class="python"><code># Funções para calcular as métricas
+def calcular_bleu(referencias, previsao):
+    return sentence_bleu([referencias.split(&quot; &quot;)], previsao.split(&quot; &quot;),weights = [1])
+
+def calcular_rouge(referencias, previsao):
+    scorer = rouge_scorer.RougeScorer([&#39;rougeL&#39;], use_stemmer=True)
+    return scorer.score(referencias, previsao)[&#39;rougeL&#39;].fmeasure
+
+def calcular_meteor(referencias, previsao):
+    return meteor_score([referencias.split(&quot; &quot;)], previsao.split(&quot; &quot;))
+
+def calcular_bertscore(referencias, previsao):
+    P, R, F1 = bert_score([previsao], [referencias], lang=&quot;en&quot;, verbose=True)
+    return F1.mean().item()</code></pre>
+</details>
+<p><br></p>
+<pre class="python"><code>%%capture
+
+# Avaliar as amostras no DataFrame
+resultados = []
+for i, row in df_sample.iterrows():
+    
+    referencias = row[&#39;caption&#39;].replace(&quot;.&quot;, &quot;&quot;)
+    previsao = row[&#39;llm&#39;].replace(&quot;.&quot;, &quot;&quot;)
+    
+    bleu = calcular_bleu(referencias, previsao)
+    rouge = calcular_rouge(referencias, previsao)
+    meteor = calcular_meteor(referencias, previsao)
+    bert = calcular_bertscore(referencias, previsao)
+    
+    resultados.append([referencias, previsao, bleu, rouge, meteor, bert])
+
+# Converter os resultados para um DataFrame
+df_resultados = pd.DataFrame(resultados, columns=[&#39;caption&#39;, &#39;llm&#39;, &#39;BLEU&#39;, &#39;ROUGE&#39;, &#39;METEOR&#39;, &#39;BERTScore&#39;])</code></pre>
+<p>Vejamos os resultados:</p>
+<details>
+<summary>
+<em>Expandir código</em>
+</summary>
+<pre class="python"><code># Configurar o tema do Seaborn
+sns.set_theme(style=&quot;white&quot;, rc={&quot;axes.facecolor&quot;: (0, 0, 0, 0)})
+
+# Reformatar o DataFrame para o formato long
+df_long = df_resultados[[&#39;BLEU&#39;, &#39;ROUGE&#39;, &#39;METEOR&#39;, &#39;BERTScore&#39;]].melt(var_name=&quot;Métrica&quot;, value_name=&quot;Valor&quot;)
+
+# Calcular a média de cada métrica
+mean_values = df_long.groupby(&#39;Métrica&#39;)[&#39;Valor&#39;].mean().reset_index()
+
+# Inicializar o objeto FacetGrid
+pal = sns.cubehelix_palette(len(df_long[&#39;Métrica&#39;].unique()), rot=-.25, light=.7)
+g = sns.FacetGrid(df_long, row=&quot;Métrica&quot;, hue=&quot;Métrica&quot;, aspect=6, height=1.5, palette=pal)
+
+# Desenhar as densidades
+g.map(sns.kdeplot, &quot;Valor&quot;, 
+      bw_adjust=.5, clip_on=False, 
+      fill=True, alpha=1, linewidth=1.5)
+g.map(sns.kdeplot, &quot;Valor&quot;, clip_on=False, color=&quot;w&quot;, lw=2, bw_adjust=.5)
+
+# Adicionar linha de referência
+g.refline(y=0, linewidth=2, linestyle=&quot;-&quot;, color=None, clip_on=False)
+
+# Função para rotular o gráfico
+def label(x, color, label):
+    ax = plt.gca()
+    # Localizar a média correspondente à métrica
+    mean_value = mean_values[mean_values[&#39;Métrica&#39;] == label][&#39;Valor&#39;].values[0]
+    ax.text(0, .4, f&quot;{label} (Média: {mean_value:.2f})&quot;, fontweight=&quot;bold&quot;, color=color,
+            ha=&quot;left&quot;, va=&quot;center&quot;, transform=ax.transAxes, fontsize=20)
+
+g.map(label, &quot;Valor&quot;)
+
+# Ajustar espaçamento entre subplots manualmente
+g.figure.subplots_adjust(hspace=0.2)
+
+# Remover detalhes desnecessários dos eixos
+g.set_titles(&quot;&quot;)
+g.set(yticks=[], ylabel=&quot;&quot;)
+g.despine(bottom=True, left=True)
+
+# Configurar o eixo x
+g.set(xlim=(0.4, 1), xticks=np.arange(0.4, 1.05, 0.1))  # Limites e ticks do eixo x
+
+# Remover rótulos do eixo x em cada subplot
+for ax in g.axes.flat:
+    ax.set_xlabel(&quot;&quot;)  # Remover rótulo do eixo x
+    ax.tick_params(axis=&#39;x&#39;, labelsize=16)  # Aumentar o tamanho da fonte dos ticks do eixo x
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<p><br></p>
+<center>
+<img src="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/metrics.png" alt="metricas da extração de rótulos descritivos de imagens com Llava" style="width: 80%;">
+</center>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  <strong>📌 Insights ao Avaliar as Métricas do Modelo: </strong></p>
+<ul>
+<li><p>As métricas baseadas em <strong>n-grams e na correspondência de palavras</strong> mostraram desempenho <strong>subestimado</strong>. Embora o modelo tenha apresentado algumas variações na escolha das palavras, as frases geradas mantiveram um sentido geral muito semelhante ao que é retratado nas imagens.</p></li>
+<li><p>Por outro lado, a métrica baseada em <strong>embeddings</strong>, que avalia o significado <strong>semântico</strong> das frases, apresentou resultados <strong>significativamente superiores</strong>. Essa abordagem se mostrou mais congruente em avaliar a similaridade das descrições geradas e a descrição informada do conteúdo visual das imagens.</p></li>
+<li><p>É importante ressaltar que nosso <strong>prompt</strong> foi mantido na forma <strong>mais simples possível</strong> e que o conjunto de dados abrange um <strong>escopo bastante amplo</strong>. Com isso, acredito que o modelo ainda tem muito potencial para oferecer resultados ainda mais robustos, sem a necessidade de ajustes finos, em tarefas mais específicas.</p></li>
+</ul>
+</div>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<p>O uso da GenAI com o modelo Llava oferece uma solução eficiente para a extração de features de imagens em Python, possibilitando a criação de descrições ricas e detalhadas. Ao comparar a qualidade das saídas com métricas como BLEU, podemos garantir que o modelo esteja oferecendo resultados satisfatórios para as necessidades do projeto.</p>
+<p>Se você deseja automatizar processos de análise de imagens, explorar a criação de modelos customizados ou otimizar a organização de dados visuais, a utilização de GenAI com modelos como o Llava pode ser um divisor de águas em seus projetos.</p>
+<p>Se este conteúdo foi útil, continue acompanhando o blog para mais tutoriais sobre inteligência artificial e Python!</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<ul>
+<li><a href="https://huggingface.co/llava-hf/llava-1.5-7b-hf" class="uri">https://huggingface.co/llava-hf/llava-1.5-7b-hf</a></li>
+<li><a href="https://github.com/haotian-liu/LLaVA" class="uri">https://github.com/haotian-liu/LLaVA</a></li>
+<li><a href="https://colab.research.google.com/drive/1qsl6cd2c8gGtEW1xV5io7S8NHh-Cp1TV?usp=sharing#scrollTo=6Bx8iu9jOssW" class="uri">https://colab.research.google.com/drive/1qsl6cd2c8gGtEW1xV5io7S8NHh-Cp1TV?usp=sharing#scrollTo=6Bx8iu9jOssW</a></li>
+<li><a href="https://cocodataset.org/#explore" class="uri">https://cocodataset.org/#explore</a></li>
+<li><a href="https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset/" class="uri">https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset/</a></li>
+</ul>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/python">Python</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/pr%C3%A1tica">Prática</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/neural-networks">neural networks</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/machine-learning">Machine Learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/llm">LLM</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/ia">IA</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/chatgpt">ChatGPT</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/ciencia-de-dados">Ciencia de dados</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o">Automação</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/llama">Llama</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/lmm">LMM</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/genai">GenAI</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/transformers">Transformers</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/vision">Vision</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/llava">Llava</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/categories/vicuna">Vicuna</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/text-mining">text mining</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/python">Python</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/neural-networks">neural networks</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/machine-learning">machine learning</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/llm">LLM</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/llama2">Llama2</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/ia">IA</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/gomesfellipe">gomesfellipe</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/ciencia-de-dados">ciencia de dados</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/chatgpt">ChatGPT</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/ai">AI</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/llama">Llama</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/lmm">LMM</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/genai">GenAI</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/transformers">Transformers</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/vision">Vision</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/llava">Llava</a></li>
+                
+                
+                <li><a class="article-category-link" href="https://gomesfellipe.github.io/tags/vicuna">Vicuna</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/"
+                class="button big previous">Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</a></li>
+    
+
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='https://gomesfellipe.github.io/' class="logo"><img src="https://gomesfellipe.github.io/img/main/logo1.jpg" alt="Fellipe Gomes" /></a>
+      
+    
+    
+      <header>
+        <h2>Fellipe Gomes</h2>
+        <p>O que faz um cientista de dados?  <i class='fa fa-crosshairs'></i></p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/">Extração de informações de imagens com IA Generativa</a>
+              </h3>
+              
+              <time class="published" datetime='2024-09-27'>
+                September 27, 2024
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2024/09/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</a>
+              </h3>
+              
+              <time class="published" datetime='2024-05-26'>
+                May 26, 2024
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2024/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/">Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</a>
+              </h3>
+              
+              <time class="published" datetime='2024-04-20'>
+                April 20, 2024
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2024/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/">Solução Final - ML Olympiad [1º lugar]</a>
+              </h3>
+              
+              <time class="published" datetime='2023-05-30'>
+                May 30, 2023
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2023/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/">Gerando arte com Inteligência Artificial</a>
+              </h3>
+              
+              <time class="published" datetime='2022-08-08'>
+                August 8, 2022
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2022/08/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/">Solução Final - ML Olympiad [2º lugar]</a>
+              </h3>
+              
+              <time class="published" datetime='2022-04-19'>
+                April 19, 2022
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2022/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a>
+              </h3>
+              
+              <time class="published" datetime='2021-12-03'>
+                December 3, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/12/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/">Solução Final - Porto Seguro Data Challenge [3º lugar]</a>
+              </h3>
+              
+              <time class="published" datetime='2021-11-01'>
+                November 1, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/11/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/">Otimizando pipelines que envolvem dados desbalanceados</a>
+              </h3>
+              
+              <time class="published" datetime='2021-06-28'>
+                June 28, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/06/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/">Ciência de Dados - Uma visão geral</a>
+              </h3>
+              
+              <time class="published" datetime='2021-05-24'>
+                May 24, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/">Prevendo a qualidade do sono utilizando Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2021-03-04'>
+                March 4, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2021/03/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</a>
+              </h3>
+              
+              <time class="published" datetime='2020-03-25'>
+                March 25, 2020
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2020/03/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/">Como automatizar relatórios longos e repetitivos com RMarkdown</a>
+              </h3>
+              
+              <time class="published" datetime='2019-09-13'>
+                September 13, 2019
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2019/09/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/">Hackeando o R: estratégia split-apply-combine</a>
+              </h3>
+              
+              <time class="published" datetime='2019-04-05'>
+                April 5, 2019
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2019/04/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/">Um ano de blog!</a>
+              </h3>
+              
+              <time class="published" datetime='2018-12-26'>
+                December 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/12/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a>
+              </h3>
+              
+              <time class="published" datetime='2018-11-28'>
+                November 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/11/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/">Seu app, RStudio e Shiny Server na nuvem do Google</a>
+              </h3>
+              
+              <time class="published" datetime='2018-10-27'>
+                October 27, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/10/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-09-29'>
+                September 29, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/09/img1.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-31'>
+                August 31, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/08/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-28'>
+                July 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/07/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-06-24'>
+                June 24, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/06/img.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a>
+              </h3>
+              
+              <time class="published" datetime='2018-05-26'>
+                May 26, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/05/img1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-04-12'>
+                April 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/04/gtrends-r.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-03-07'>
+                March 7, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/03/Word-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-17'>
+                February 17, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/img2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-01'>
+                February 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/02/carnaval2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-20'>
+                January 20, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-12'>
+                January 12, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/date2018/01/tabelas-incriveis2.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/">Análise Multivariada com R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-01-04'>
+                January 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2018/012018/01/multivariada-fatorial-cluster-R.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-24'>
+                December 24, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/" class="image featured">
+            <img src="https://gomesfellipe.github.io/img/2017/122017/12/diag-modelo.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>Meu nome é Fellipe Gomes, sou Estatístico e atuo como cientista de dados. Percebi que passar para as pessoas o que é possível fazer nas diversas áreas de estudo que envolvem ciência de dados é um grande desafio. Diante disso, resolvi criar este blog com o propósito de passar de maneira prática e descontraída algumas brincadeiras e ferramentas que temos acesso e estou me divertindo muito! Além disso posso compartilhar minha evolução, técnicas e curiosidades, bem como interagir com pessoas que se interessem pela Ciência de Dados. Espero que aproveite o conteúdo!</p>
+      <a href="https://gomesfellipe.github.io/about/" class="button">Learn More</a>
+    </section>
+  
+  
+  </br>
+
+
+<iframe style="margin: 0px; border: 0px none; height: 610px; width: 100%; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px; background: rgb(255, 255, 255) url(&quot;https://marketplace.kony.com/static/dist/images/loader.svg&quot;) no-repeat scroll center center / 64px; transition: all 0.4s ease 0s;" src="https://www.buymeacoffee.com/widget/page/gomesfellipe?description=Support%20me%20on%20Buy%20me%20a%20coffee!&amp;color=%23FF813F"></iframe>
+
+
+</br>
+
+  
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#f4f4f4; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	 
+</style>
+<div id="mc_embed_signup">
+<form action="https://github.us19.list-manage.com/subscribe/post?u=ba1b89ab75a7b5f8a2f0c6a3f&amp;id=6bb643ba67" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Inscreva-se para acompanhar o conteúdo do blog!</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba1b89ab75a7b5f8a2f0c6a3f_6bb643ba67" tabindex="-1" value=""></div>
+    <div class="show"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="https://gomesfellipe.github.io/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/r/">r</a>
+                <span style="float:right;">30</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">prática</a>
+                <span style="float:right;">27</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/estatistica/">estatistica</a>
+                <span style="float:right;">22</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/">analise-exploratória</a>
+                <span style="float:right;">14</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/machine-learning/">machine-learning</a>
+                <span style="float:right;">13</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/teoria/">teoria</a>
+                <span style="float:right;">10</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/ciencia-de-dados/">ciencia-de-dados</a>
+                <span style="float:right;">9</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/aprendizado-supervisionado/">aprendizado-supervisionado</a>
+                <span style="float:right;">8</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/data-mining/">data-mining</a>
+                <span style="float:right;">7</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/modelagem-estatistica/">modelagem-estatistica</a>
+                <span style="float:right;">7</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/python/">python</a>
+                <span style="float:right;">7</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/reports/">reports</a>
+                <span style="float:right;">7</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/">automação</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/kaggle/">kaggle</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/">modelo-baseado-em-arvores</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tidyverse/">tidyverse</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/analise-mutivariada/">analise-mutivariada</a>
+                <span style="float:right;">5</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/">séries-temporais</a>
+                <span style="float:right;">5</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/google/">google</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/ia/">ia</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/probabilidade/">probabilidade</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/regress%C3%A3o/">regressão</a>
+                <span style="float:right;">4</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sentimentos/">análise-de-sentimentos</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado/">aprendizado-não-supervisionado</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bitcoin/">bitcoin</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/catboost/">catboost</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/chatgpt/">chatgpt</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/dados-desbalanceados/">dados-desbalanceados</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/llm/">llm</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/neural-networks/">neural-networks</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/rmarkdown/">rmarkdown</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/text-mining/">text-mining</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/bayes/">bayes</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/classifica%C3%A7%C3%A3o/">classificação</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/cloud/">cloud</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/infer%C3%AAncia-bayesiana/">inferência-bayesiana</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/mapas/">mapas</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/randomforest/">randomforest</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/shiny/">shiny</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o/">simulação</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sobreviv%C3%AAncia/">análise-de-sobrevivência</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/arvore-de-decisoes/">arvore-de-decisoes</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/big-data/">big-data</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/carreira/">carreira</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/clustering/">clustering</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/dalle2/">dalle2</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/dataart/">dataart</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/estat%C3%ADstica/">estatística</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/filosofia/">filosofia</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/gam/">gam</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/gamification/">gamification</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/gan/">gan</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/gemma/">gemma</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/genai/">genai</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/ggplot/">ggplot</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/google-trends/">google-trends</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/grafo/">grafo</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/knn/">knn</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/lightgbm/">lightgbm</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/llama/">llama</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/llama2/">llama2</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/llava/">llava</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/lmm/">lmm</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/nao-supervisionado/">nao-supervisionado</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/optuna/">optuna</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/rstudio-server/">rstudio-server</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/shap/">shap</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/shiny-server/">shiny-server</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tidymodels/">tidymodels</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/transformers/">transformers</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tuning/">tuning</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/tunning/">tunning</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/twitter/">twitter</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/utilidades/">utilidades</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/vicuna/">vicuna</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/vision/">vision</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/vqgan&#43;clip/">vqgan&#43;clip</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/web-scrapping/">web-scrapping</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://gomesfellipe.github.io/categories/xgboost/">xgboost</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+        
+        
+  <li><a href="//github.com/gomesfellipe" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/9756163" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+  <li><a href="//bitbucket.com/gomesfellipe" target="_blank" title="Bitbucket" class="fa fa-bitbucket"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//medium.com/@@gomesfellipe" target="_blank" title="Medium" class="fa fa-medium"></a></li>
+
+
+
+  <li><a href="//linkedin.com/in/gomesfellipe" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//api.whatsapp.com/send?phone=21%20992099067" target="_blank" title="WhatsApp" class="fa fa-whatsapp"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/gomesfellipe" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:gomes.fellipe1@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2024
+        
+          Fellipe Gomes
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="https://gomesfellipe.github.io/js/util.js"></script>
+      <script src="https://gomesfellipe.github.io/js/main.js"></script>
+      <script src="https://gomesfellipe.github.io/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

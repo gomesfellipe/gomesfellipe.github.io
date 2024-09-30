@@ -6,7 +6,16 @@
     <description>Recent content in ChatGPT on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Extração de informações de imagens com IA Generativa</title>
+      <link>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</link>
+      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</guid>
+      <description>Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava Preparando o Ambiente Carregar dados Carregar modelo Prompt Engineering Inferência Avaliar modelo Conclusão Referências Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava GenAI refere-se a modelos de inteligência artificial capazes de gerar conteúdo novo e criativo a partir de dados de entrada. Seu uso está revolucionando a maneira como processamos dados não estruturados, como imagens, áudios, textos, vídeos, etc.</description>
+    </item>
+    
     <item>
       <title>Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</title>
       <link>https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/</link>

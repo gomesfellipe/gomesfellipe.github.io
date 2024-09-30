@@ -155,7 +155,7 @@ test['text'] = test.text.apply(lambda x: clean_tweet(x))
 Neste notebook, faremos uso de um modelo da família [Gemma](https://ai.google.dev/gemma?hl=pt-br), desenvolvida pelo Google, que consiste em modelos leves e de código aberto construídos com base em pesquisas e tecnologias empregadas no desenvolvimento dos modelos [Gemini](https://gemini.google.com/)
 
 <div class="w3-panel w3-pale-yellow w3-border">
-&nbsp; **📌 Nota:** Para utilizar o modelo é necessário concentir com a [licença do Gemma](https://www.kaggle.com/models/google/gemma/license/consent?returnUrl=%2Fmodels%2Fgoogle%2Fgemma%2Ftransformers) com o preenchimento de um formulário disponível na [página do modelo](https://www.kaggle.com/models/google/gemma).
+&nbsp; **📌 Nota:** Para utilizar o modelo é necessário consentir com a [licença do Gemma](https://www.kaggle.com/models/google/gemma/license/consent?returnUrl=%2Fmodels%2Fgoogle%2Fgemma%2Ftransformers) com o preenchimento de um formulário disponível na [página do modelo](https://www.kaggle.com/models/google/gemma).
 </div>
 
 Utilizaremos a implementação do [Gemma-7b-instruct](https://huggingface.co/google/gemma-7b-it), que é uma variante ajustada por instrução (IT) que pode ser usada para bate-papo e/ou seguir instruções.
@@ -212,11 +212,11 @@ llm = HuggingFacePipeline(pipeline=pipe)
 
 ---
 
-Para resolver este problema, criaremos um template de prompt que utiliza a estratégia few-shot, que pode ser contruído a partir de um conjunto de exemplos. O conjunto de exemplos será dinâmico, sendo contruído com base em tweets que possuem a maior similaridade semantica com o tweet de entrada.
+Para resolver este problema, criaremos um template de prompt que utiliza a estratégia few-shot, que pode ser construído a partir de um conjunto de exemplos. O conjunto de exemplos será dinâmico, sendo construído com base em tweets que possuem a maior similaridade semantica com o tweet de entrada.
 
 ## Preparar exemplos
 
-Selecionaremos os exemplos candidatos do conjunto de dados de treino que não estejam no dataset de validação. Cada exemplo de entrada deve ser um dicionario onde:
+Selecionaremos os exemplos candidatos do conjunto de dados de treino que não estejam no dataset de validação. Cada exemplo de entrada deve ser um dicionário onde:
 
 - `key`: o nome das variáveis de inputs do prompt;
 - `values`: os valores dos inputs.
@@ -322,7 +322,7 @@ def parse(response):
 
 ## Definir Cadeira LangChain
 
-[Chains](https://python.langchain.com/v0.1/docs/modules/chains/) referem-se à sequências de chamadas - seja para um LLM, uma etapa de pré-processamento de dados, [tools](https://python.langchain.com/v0.1/docs/modules/tools/), ou ainda etapas de pós-processamento do output gerado pelo modelo. As cadeias construídas desta forma são boas porque oferecem suporte nativo a streaming, assincrono e inferência em batchs para uso.
+[Chains](https://python.langchain.com/v0.1/docs/modules/chains/) referem-se à sequências de chamadas - seja para um LLM, uma etapa de pré-processamento de dados, [tools](https://python.langchain.com/v0.1/docs/modules/tools/), ou ainda etapas de pós-processamento do output gerado pelo modelo. As cadeias construídas desta forma são boas porque oferecem suporte nativo a streaming, assíncrono e inferência em batchs para uso.
 
 ```{python}
 chain = prompt | llm | parse
