@@ -189,7 +189,7 @@ communicate.save_sync("audiobook.mp3")
 Após executar o modelo o arquivo de áudio `audiobook.mp3` estará pronto e disponível no seu diretório de trabalho!
 
 <audio controls>
-<source src="audiobook.mp3" type="audio/mpeg"> 
+<source src="/post/2025-02-02-book-to-audiobook/audiobook.mp3" type="audio/mpeg"> 
 Your browser does not support this audio format.
 </audio> 
 
