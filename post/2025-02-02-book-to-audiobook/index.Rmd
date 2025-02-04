@@ -1,0 +1,233 @@
+---
+title: 'Criando Audiobooks com Inteligência Artificial: book-to-audiobook'
+author: Fellipe Gomes
+date: '2025-02-02'
+slug: [book-to-audiobook]
+categories:
+  - Python
+  - Inteligência Artificial
+  - text-to-speech
+  - Tradução Automática
+  - Automação
+  - Web scraping
+  - Áudio
+tags:
+  - audiobook
+  - audiobooks
+  - audio
+  - livro
+  - book
+  - book-to-audiobook
+  - inteligência artificial
+  - text-to-speech 
+  - conversao de texto em áudio 
+  - automação 
+  - deep learning 
+  - tradução automática
+  - Python 
+  - edge-tts 
+  - audiobook grátis
+  - tecnologia 
+  - acessibilidade 
+  - IA 
+  - processamento de linguagem natural
+  - aprendizado de máquina
+  - web scraping
+  - gomesfellipe
+description: 'Transforme qualquer texto em audiobook de forma gratuita e automatizada com IA para conversão, tradução e síntese de voz.'
+featured: 'img1.png'
+featuredalt: 'Criação de audiobooks gratuitos'
+featuredpath: 'date'
+linktitle: ''
+type: "post" 
+output: 
+  blogdown::html_page:
+    toc: true
+    toc_depth: 2
+image_preview: 'img1.png' 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# Por que Audiobooks?
+
+Pela sua forma conveniente de consumir conhecimento e entretenimento, os audiobooks estão se tornando cada vez mais populares. Conforme a última [pesquisa](https://g1.globo.com/pop-arte/noticia/2024/01/08/como-audiolivros-devem-crescer-ainda-mais-em-2024-e-podem-virar-prioridade-nas-editoras.ghtml) da Câmara Brasileira do Livro, os livros digitais cresceram 15% de 2021 para 2022. Dentre os 13 mil títulos digitais publicados em 2022, 12% eram audiolivros. Embora o livro físico sempre vá existir, nem sempre temos o tempo necessário para ler todas as obras de nossa lista.  
+
+Adquiri o hábito de ouvir audiobooks há quase 10 anos, especialmente enquanto realizo tarefas que não exigem atenção plena, como dirigir, pedalar, malhar ou até mesmo em tarefas domésticas. Hoje em dia existem muitas opções de plataformas para consumir conteúdo em áudio no mercado, incluindo opções gratuitas disponíveis na internet. No entanto, com o passar do tempo, já me peguei diversas vezes escolhendo um título aleatório, pois não encontrava os livros que realmente queria ouvir. Entendo que para criar um audiobook de qualidade pode ser um processo caro e demorado, mas, felizmente, os avanços da inteligência artificial (IA) trouxeram novas possibilidades e foi então que comecei a pesquisar formas acessíveis e eficientes de converter livros do meu interesse em audiobooks utilizando IA.  
+
+Neste post, compartilharei o método mais eficaz que encontrei após extensas pesquisas sobre como transformar qualquer texto em um áudio com alta qualidade, utilizando ferramentas de IA gratuitas. Abordaremos um mini-projeto desde a preparação do arquivo de texto até a geração do áudio final.
+
+# O Que São Audiobooks Criados com IA?
+
+Audiobooks gerados com IA utilizam ferramentas de *text-to-speech* (TTS) para converter texto em áudio. Diferentemente das gravações tradicionais, que dependem de narradores humanos, os audiobooks com IA são criados digitalmente por meio de modelos avançados que geram vozes cada vez mais naturais. Essa abordagem apresenta algumas vantagens e desvantagens em relação às gravações convencionais:
+
+<div class="w3-panel w3-pale-green w3-border">
+&nbsp; **✅ Vantagens:** 
+
+- **Economia de tempo**: O processo é automatizado e muito mais rápido
+- **Acessibilidade**: Permite adaptar conteúdos para diferentes idiomas e públicos, como pessoas com deficiência visual tenham acesso a mais conteúdo
+- **Personalização**: Possibilidade de escolher vozes que melhor atendam ao estilo ou objetivo da leitura
+
+</div>
+
+<div class="w3-panel w3-pale-red w3-border">
+&nbsp; **❌ Desvantagens:** 
+
+- **Falta de emoção e naturalidade**: Podem soar robóticas ou sem a entonação expressiva de um narrador humano
+- **Dificuldade com palavras complexas e entonação**: Pronuncias de nomes próprios, termos técnicos ou palavras estrangeiras de forma inadequada
+- **Limitações na adaptação do texto**: Narrativas que exigem pausas dramáticas ou interpretações específicas, a IA pode não captar nuances essenciais para a experiência do ouvinte
+
+</div>
+
+Embora os audiobooks gerados por IA sejam uma solução prática e acessível, eles ainda não substituem completamente a qualidade e a emoção transmitidas por um narrador profissional. A escolha entre um audiobook tradicional ou criado por IA dependerá da sua necessidade e da disponibilidade.
+
+# Como criar seu audiobook com IA
+
+O primeiro passo para criar um audiobook é organizar o conteúdo que será convertido em áudio, garantindo que esteja bem formatado. Os formatos de arquivo mais comuns incluem:
+
+  - **PDF**: Formato mais comum de livros e também o que pode ser o mais trabalhoso por conter elementos como rodapés, numeração de páginas e títulos que precisam ser tratados de maneira diferente para cada livro.
+  - **EPUB**: Formato mais comum para eBooks que contém formatação rica e relativamente padronizada, o que facilita na reciclagem de códigos para importação e tratamento
+  - **HTML**: Pode ser que exista uma versão do livro gratuita na internet então com técnicas de webscrapping podemos capturar o conteúdo do livro e transforma-lo em um audio-book
+
+<div class="w3-panel w3-pale-yellow w3-border">
+&nbsp; **📌 Dica importante:** Antes de gerar o áudio, revise o conteúdo extraído para garantir que títulos, subtítulos, parágrafos e listas estejam formatados corretamente, para ter uma experiência de escuta mais fluida.
+
+</div>
+
+## Preparar o arquivo de texto
+
+Cada formato de arquivo exige um pré-processamento específico. Para este exemplo, utilizarei o livro [*Fairness and Machine Learning: Limitations and Opportunities*](https://fairmlbook.org/), pois, além de estar disponível gratuitamente na internet sob a licença [Creative Commons BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/), é uma excelente leitura sobre as implicações sociais e éticas das decisões automatizadas—um conhecimento essencial para profissionais de IA e dados. (Inclusive, fiz um [post no LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7240017653648572416/) sobre esse livro no último ano.)
+
+Vamos carregar o código que desenvolvi para realizar o scraping do conteúdo:
+
+```{python}
+%%capture
+!wget -O scraper_fairmlbook.py "https://gist.githubusercontent.com/gomesfellipe/91a76531858e51fd69e72fb862499a67/raw/f1ae0374268b3190b41480e937c966cab793aa51/scraper_fairmlbook.py"
+import scraper_fairmlbook
+```
+
+Agora, utilizamos a função para extrair o conteúdo:
+
+```{python}
+book = scraper_fairmlbook.extrair_conteudo_livro('https://fairmlbook.org/')
+book
+```
+
+```
+{'introduction': 'Introduction\n\nOur success, happiness, and wellbeing are neve...
+ 'legitimacy': "When is automated decision making legitimate?\n\nThese three sce...
+ 'classification': 'Classification\n\nThe goal of classification is to leverage ...
+ 'relative': "Relative notions of fairness\n\nIn Chapter 3, we considered a rang...
+ 'causal': 'Causality\n\nOur starting point is the difference between an observa...
+ 'legal': 'Understanding United States anti-discrimination law\n\nIn this chapte...
+ 'testing': 'Testing discrimination in practice\n\nIn previous chapters, we have...
+ 'broader-view': 'A broader view of discrimination\n\nMachine learning systems d...
+ 'datasets': 'Datasets\n\nIt’s become commonplace to point out that machine lear...
+
+```
+
+Utilizarei apenas as 5 primeiras linhas do livro como exemplo mas note que nesse ponto qualquer objeto do tipo `string`  já possibilita a execução do restante do mini-projeto.
+
+```{python}
+# Obter as primeiras 5 linhas do texto de introdução
+text = "\n".join(book['introduction'].split('\n')[0:5]) + "\n\n..."
+print(text)
+```
+
+```
+Introduction
+
+Our success, happiness, and wellbeing are never fully of our own making. Others’ decisions can profoundly affect the course of our lives: whether to admit us to a particular school, offer us a job, or grant us a mortgage. Arbitrary, inconsistent, or faulty decision-making thus raises serious concerns because it risks limiting our ability to achieve the goals that we have set for ourselves and access the opportunities for which we are qualified.
+
+So how do we ensure that these decisions are made the right way and for the right reasons? While there’s much to value in fixed rules, applied consistently, good decisions take available evidence into account. We expect admissions, employment, and lending decisions to rest on factors that are relevant to the outcome of interest.
+
+...
+```
+
+## Traduzir conteúdo para PT-BR (opcional)
+
+Caso o texto original esteja em qualquer outro idioma que não dominamos, a tradução para português pode ser uma forma de ampliar seu público-alvo. Para isso, utilizaremos a ferramenta de tradução baseada em IA [deep-translator](https://github.com/nidhaloff/deep-translator) que é uma ferramenta flexível, gratuita e ilimitada para traduzir entre diferentes idiomas usando vários tradutores. Obtive bons resultados com a API do Google Tradutor, bastando dividir o texto em blocos menores para atender ao limite de caracteres da API. 
+
+```{python}
+from deep_translator import GoogleTranslator
+
+tradutor = GoogleTranslator(source='auto', target='portuguese')
+texto = tradutor.translate(text)
+print(texto)
+```
+
+```
+Introdução
+
+Nosso sucesso, felicidade e bem-estar nunca são totalmente de nossa responsabilidade. As decisões dos outros podem afetar profundamente o curso de nossas vidas: seja para nos admitir em uma escola específica, nos oferecer um emprego ou nos conceder uma hipoteca. A tomada de decisões arbitrária, inconsistente ou falha, portanto, levanta sérias preocupações porque corre o risco de limitar nossa capacidade de atingir as metas que definimos para nós mesmos e acessar as oportunidades para as quais estamos qualificados.
+
+Então, como garantimos que essas decisões sejam tomadas da maneira certa e pelos motivos certos? Embora haja muito a valorizar em regras fixas, aplicadas consistentemente, boas decisões levam em consideração as evidências disponíveis. Esperamos que as decisões de admissão, emprego e empréstimo se baseiem em fatores que sejam relevantes para o resultado do interesse.
+
+...
+```
+
+## Convertendo o Texto em Áudio com IA
+
+Com o texto pronto, é hora de usar ferramentas de **text-to-speech** (TTS) para gerar o áudio. Existem diversas opções disponíveis, como:
+
+- [Hugging Face](https://huggingface.co/models?pipeline_tag=text-to-speech&sort=trending) que é uma plataforma colaborativa que democratiza o acesso à recursos de IA
+- [gTTS](https://github.com/pndurette/gTTS) (Google Text-to-Speech)
+- [tts-OpenAI](https://ttsopenai.com/) que cobra [$15 para cada 1 Milhão](https://openai.com/api/pricing/) de tokens (**opnião**: eu esperava mais qualidade pelo preço que eles cobram)
+- [edge-tts](https://github.com/rany2/edge-tts) que permite usar a função de text-to-speech do Microsoft Edge utilizando código Python
+
+Para este mini-projeto utilizaremos o `edge-tts`, que é conhecida por sua alta qualidade e vozes naturais. IMHO, essa biblioteca foi a que apresentou os melhores resultados de forma gratuita. A voz escolhida foi [`pt-BR-AntonioNeural`](https://github.com/playht/text-to-speech-api/blob/master/Voices.md), que proporciona uma leitura bem fluida e não é tão robótica. Tenho certeza que você já ouviu a [voz desse modelo](https://media.play.ht/full_-MWbnKJy-MVB1Vcn6Ijh.mp3) em algum lugar.
+
+```{python}
+import edge_tts
+
+communicate = edge_tts.Communicate(texto, "pt-BR-AntonioNeural")
+communicate.save_sync("audiobook.mp3")
+```
+
+Após executar o modelo o arquivo de áudio `audiobook.mp3` estará pronto e disponível no seu diretório de trabalho!
+
+<audio controls>
+<source src="audiobook.mp3" type="audio/mpeg"> 
+Your browser does not support this audio format.
+</audio> 
+
+<!-- <style> -->
+<!-- audio { width: 10%; display: block;} -->
+<!-- </style> -->
+
+## FAQ
+
+Para garantir uma boa experiência, seguem algumas dicas para melhorar a qualidade final do audiobook:
+
+- Faça a revisão do áudio para identificar possíveis erros das etapas anteriores
+- Pós-processamentos:
+  - Eliminar ruídos
+  - Ajustar volumes
+  - Ajustar velocidade
+  - Adicionar música de fundo (Escolha músicas isentas de direitos autorais para enriquecer a narrativa)
+
+Caso esteja recebendo o erro `ConnectionTimeoutError`, existem algumas formar de tentar contornar como:
+
+- Reinstalar o pacote para a versão mais recente e aguardar alguns minutos para tentar novamente
+- Dividir o texto em trechos com menos caracteres para gerar os segmentos do áudio e combiná-los depois
+- Aguardar algumas horas e tentar novamente
+
+# Questões de Ética e Legalidade
+
+Antes de converter qualquer livro em áudio, garante que você tem as devidas permissões para utilizá-lo dessa forma. Muitos livros estão protegidos por direitos autorais e sua reprodução ou adaptação sem autorização pode infringir leis de propriedade intelectual. Para evitar problemas legais:
+
+- **Prefira conteúdos de domínio público**: Livros cujos direitos autorais já expiraram podem ser utilizados livremente. Projetos como o [Domínio Público](https://www.dominiopublico.gov.br/) e o [Project Gutenberg](https://www.gutenberg.org/) oferecem acervos gratuitos.
+- **Consulte os termos de uso**: Alguns eBooks permitem a conversão para audiobooks apenas para fins pessoais, enquanto outros proíbem essa prática. Verifique sempre as regras do autor ou da editora.
+- **Obtenha autorização do detentor dos direitos**: Caso um livro esteja protegido por direitos autorais, entre em contato com o autor ou a editora para solicitar permissão antes de convertê-lo.
+
+Ainda não que a IA pode substituir 100% os narradores humanos profissionais, pois apesar dos avanços, vozes sintéticas ainda carecem de emoção e expressividade. Para determinados gêneros literários, como romances ou poesias, a narração humana pode proporcionar uma experiência mais envolvente.
+
+# Conclusão
+
+Criar audiobooks com inteligência artificial é uma maneira revolucionária de otimizar o tempo e ampliar o acesso ao conhecimento e histórias. A combinação de ferramentas gratuitas, como edge-tts e Google Translate API, permitem que qualquer um transforme livros e artigos em áudio.
+
+No entanto, precisamos equilibrar os benefícios da inovação com a responsabilidade ética e legal. Respeitar os direitos autorais, considerar o impacto no mercado de narradores profissionais e garantir que o conteúdo gerado tenha qualidade e integridade são passos fundamentais para o uso consciente da tecnologia.
+
+Se utilizada de maneira responsável, a IA pode ser uma poderosa aliada na democratização do conhecimento, proporcionando novas formas de aprendizado e entretenimento para um público cada vez maior.

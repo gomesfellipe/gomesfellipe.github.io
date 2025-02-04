@@ -35,13 +35,14 @@ tags:
   - Llama
   - LMM
   - GenAI
+  - IA Generativa
   - Transformers
   - Vision
   - Llava
   - Vicuna
 description: "Neste post, exploraremos como utilizar o modelo Llava para gerar rótulos descritivos de imagens, usando dados do conjunto COCO-2017."
 featured: 'img1.png'
-featuredalt: 'Pic 39'
+featuredalt: 'Extração de informações de imagens com GenAI com o modelo Llava'
 featuredpath: 'date'
 linktitle: ''
 type: "post" 
