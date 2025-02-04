@@ -148,7 +148,7 @@ So how do we ensure that these decisions are made the right way and for the righ
 
 ## Traduzir conteúdo para PT-BR (opcional)
 
-Caso o texto original esteja em qualquer outro idioma que não dominamos, a tradução para português pode ser uma forma de ampliar seu público-alvo. Para isso, utilizaremos a ferramenta de tradução baseada em IA [deep-translator](https://github.com/nidhaloff/deep-translator) que é uma ferramenta flexível, gratuita e ilimitada para traduzir entre diferentes idiomas usando vários tradutores. Obtive bons resultados com a API do Google Tradutor, bastando dividir o texto em blocos menores para atender ao limite de caracteres da API. 
+Este livro está em inglês mas caso o texto original esteja em qualquer outro idioma que não dominamos, a tradução para português pode ser uma forma de ampliar seu acesso. Para isso, utilizaremos a ferramenta de tradução baseada em IA [deep-translator](https://github.com/nidhaloff/deep-translator) que é uma ferramenta flexível, gratuita e ilimitada para traduzir entre diferentes idiomas usando vários tradutores. Obtive bons resultados com a API do Google Tradutor, bastando dividir o texto em blocos menores para atender ao limite de caracteres da API. 
 
 ```{python}
 from deep_translator import GoogleTranslator
@@ -177,7 +177,7 @@ Com o texto pronto, é hora de usar ferramentas de **text-to-speech** (TTS) para
 - [tts-OpenAI](https://ttsopenai.com/) que cobra [$15 para cada 1 Milhão](https://openai.com/api/pricing/) de tokens (**opnião**: eu esperava mais qualidade pelo preço que eles cobram)
 - [edge-tts](https://github.com/rany2/edge-tts) que permite usar a função de text-to-speech do Microsoft Edge utilizando código Python
 
-Para este mini-projeto utilizaremos o `edge-tts`, que é conhecida por sua alta qualidade e vozes naturais. IMHO, essa biblioteca foi a que apresentou os melhores resultados de forma gratuita. A voz escolhida foi [`pt-BR-AntonioNeural`](https://github.com/playht/text-to-speech-api/blob/master/Voices.md), que proporciona uma leitura bem fluida e não é tão robótica. Tenho certeza que você já ouviu a [voz desse modelo](https://media.play.ht/full_-MWbnKJy-MVB1Vcn6Ijh.mp3) em algum lugar.
+Para este mini-projeto utilizaremos o `edge-tts`, que é conhecida por sua alta qualidade e vozes naturais. IMHO, dos que eu testei, essa biblioteca foi a que apresentou os melhores resultados. A voz escolhida foi [`pt-BR-AntonioNeural`](https://github.com/playht/text-to-speech-api/blob/master/Voices.md), que proporciona uma leitura bem fluida e não é tão robótica. Tenho certeza que você já ouviu a [voz desse modelo](https://media.play.ht/full_-MWbnKJy-MVB1Vcn6Ijh.mp3) em algum lugar.
 
 ```{python}
 import edge_tts
@@ -228,6 +228,8 @@ Ainda não que a IA pode substituir 100% os narradores humanos profissionais, po
 
 Criar audiobooks com inteligência artificial é uma maneira revolucionária de otimizar o tempo e ampliar o acesso ao conhecimento e histórias. A combinação de ferramentas gratuitas, como edge-tts e Google Translate API, permitem que qualquer um transforme livros e artigos em áudio.
 
-No entanto, precisamos equilibrar os benefícios da inovação com a responsabilidade ética e legal. Respeitar os direitos autorais, considerar o impacto no mercado de narradores profissionais e garantir que o conteúdo gerado tenha qualidade e integridade são passos fundamentais para o uso consciente da tecnologia.
+No entanto, precisamos equilibrar os benefícios da inovação com a responsabilidade ética e legal. Respeitar os direitos autorais, considerar o impacto no mercado de narradores profissionais e garantir que o conteúdo gerado tenha qualidade e integridade para o uso consciente da tecnologia.
 
-Se utilizada de maneira responsável, a IA pode ser uma poderosa aliada na democratização do conhecimento, proporcionando novas formas de aprendizado e entretenimento para um público cada vez maior.
+Se utilizada de maneira responsável, a IA pode ser uma poderosa aliada na acessibilidade do conhecimento, proporcionando novas formas de aprendizado e entretenimento para um público cada vez maior.
+
+

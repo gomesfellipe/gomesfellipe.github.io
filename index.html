@@ -1377,6 +1377,9 @@ if (!doNotTrack) {
 
 
   
+  
+    
+  
 
 
         
@@ -1860,7 +1863,7 @@ if (!doNotTrack) {
         
 
         <a href="https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img//img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/img/2025/02/img1.png" alt="">
         </a>
     
 
@@ -1956,7 +1959,7 @@ So how do we ensure that these decisions are made the right way and for the righ
 </div>
 <div id="traduzir-conteúdo-para-pt-br-opcional" class="section level2">
 <h2>Traduzir conteúdo para PT-BR (opcional)</h2>
-<p>Caso o texto original esteja em qualquer outro idioma que não dominamos, a tradução para português pode ser uma forma de ampliar seu público-alvo. Para isso, utilizaremos a ferramenta de tradução baseada em IA <a href="https://github.com/nidhaloff/deep-translator">deep-translator</a> que é uma ferramenta flexível, gratuita e ilimitada para traduzir entre diferentes idiomas usando vários tradutores. Obtive bons resultados com a API do Google Tradutor, bastando dividir o texto em blocos menores para atender ao limite de caracteres da API.</p>
+<p>Este livro está em inglês mas caso o texto original esteja em qualquer outro idioma que não dominamos, a tradução para português pode ser uma forma de ampliar seu acesso. Para isso, utilizaremos a ferramenta de tradução baseada em IA <a href="https://github.com/nidhaloff/deep-translator">deep-translator</a> que é uma ferramenta flexível, gratuita e ilimitada para traduzir entre diferentes idiomas usando vários tradutores. Obtive bons resultados com a API do Google Tradutor, bastando dividir o texto em blocos menores para atender ao limite de caracteres da API.</p>
 <pre class="python"><code>from deep_translator import GoogleTranslator
 
 tradutor = GoogleTranslator(source=&#39;auto&#39;, target=&#39;portuguese&#39;)
@@ -1979,7 +1982,7 @@ Então, como garantimos que essas decisões sejam tomadas da maneira certa e pel
 <li><a href="https://ttsopenai.com/">tts-OpenAI</a> que cobra <a href="https://openai.com/api/pricing/">$15 para cada 1 Milhão</a> de tokens (<strong>opnião</strong>: eu esperava mais qualidade pelo preço que eles cobram)</li>
 <li><a href="https://github.com/rany2/edge-tts">edge-tts</a> que permite usar a função de text-to-speech do Microsoft Edge utilizando código Python</li>
 </ul>
-<p>Para este mini-projeto utilizaremos o <code>edge-tts</code>, que é conhecida por sua alta qualidade e vozes naturais. IMHO, essa biblioteca foi a que apresentou os melhores resultados de forma gratuita. A voz escolhida foi <a href="https://github.com/playht/text-to-speech-api/blob/master/Voices.md"><code>pt-BR-AntonioNeural</code></a>, que proporciona uma leitura bem fluida e não é tão robótica. Tenho certeza que você já ouviu a <a href="https://media.play.ht/full_-MWbnKJy-MVB1Vcn6Ijh.mp3">voz desse modelo</a> em algum lugar.</p>
+<p>Para este mini-projeto utilizaremos o <code>edge-tts</code>, que é conhecida por sua alta qualidade e vozes naturais. IMHO, dos que eu testei, essa biblioteca foi a que apresentou os melhores resultados. A voz escolhida foi <a href="https://github.com/playht/text-to-speech-api/blob/master/Voices.md"><code>pt-BR-AntonioNeural</code></a>, que proporciona uma leitura bem fluida e não é tão robótica. Tenho certeza que você já ouviu a <a href="https://media.play.ht/full_-MWbnKJy-MVB1Vcn6Ijh.mp3">voz desse modelo</a> em algum lugar.</p>
 <pre class="python"><code>import edge_tts
 
 communicate = edge_tts.Communicate(texto, &quot;pt-BR-AntonioNeural&quot;)
@@ -2027,8 +2030,8 @@ communicate.save_sync(&quot;audiobook.mp3&quot;)</code></pre>
 <div id="conclusão" class="section level1">
 <h1>Conclusão</h1>
 <p>Criar audiobooks com inteligência artificial é uma maneira revolucionária de otimizar o tempo e ampliar o acesso ao conhecimento e histórias. A combinação de ferramentas gratuitas, como edge-tts e Google Translate API, permitem que qualquer um transforme livros e artigos em áudio.</p>
-<p>No entanto, precisamos equilibrar os benefícios da inovação com a responsabilidade ética e legal. Respeitar os direitos autorais, considerar o impacto no mercado de narradores profissionais e garantir que o conteúdo gerado tenha qualidade e integridade são passos fundamentais para o uso consciente da tecnologia.</p>
-<p>Se utilizada de maneira responsável, a IA pode ser uma poderosa aliada na democratização do conhecimento, proporcionando novas formas de aprendizado e entretenimento para um público cada vez maior.</p>
+<p>No entanto, precisamos equilibrar os benefícios da inovação com a responsabilidade ética e legal. Respeitar os direitos autorais, considerar o impacto no mercado de narradores profissionais e garantir que o conteúdo gerado tenha qualidade e integridade para o uso consciente da tecnologia.</p>
+<p>Se utilizada de maneira responsável, a IA pode ser uma poderosa aliada na acessibilidade do conhecimento, proporcionando novas formas de aprendizado e entretenimento para um público cada vez maior.</p>
 </div>
 
   </div>
@@ -2443,9 +2446,6 @@ communicate.save_sync(&quot;audiobook.mp3&quot;)</code></pre>
 
 
   
-  
-    
-  
 
 
         
@@ -2453,7 +2453,7 @@ communicate.save_sync(&quot;audiobook.mp3&quot;)</code></pre>
         
 
         <a href="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/" class="image featured">
-            <img src="https://gomesfellipe.github.io/img/2024/09/img1.png" alt="">
+            <img src="https://gomesfellipe.github.io/date2024/09/img1.png" alt="">
         </a>
     
 
