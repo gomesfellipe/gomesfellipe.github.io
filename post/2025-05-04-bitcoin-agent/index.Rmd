@@ -1,0 +1,576 @@
+---
+title: Construindo uma Equipe Multiagente de IA para Análise do Mercado Bitcoin
+author: Fellipe Gomes
+date: '2025-05-04'
+slug: []
+categories:
+  - Python
+  - Prática
+  - LLM
+  - IA
+  - Agentes
+  - LangChain
+  - LangGraph
+  - LangSmith
+  - Bitcoin
+  - Análise de Dados
+  - Mercado Financeiro
+  - OpenAI
+tags:
+  - LLM
+  - LangChain
+  - LangGraph
+  - LangSmith
+  - Python
+  - AI
+  - Bitcoin
+  - Crypto
+  - AgentAI
+  - AnaliseDeDados
+  - MercadoFinanceiro
+  - gomesfellipe
+  - OpenAI
+description: 'Neste post, exploramos a criação de uma equipe de agentes de IA usando Python, LangChain, LangGraph e LangSmith para automatizar e monitorar a análise do mercado de Bitcoin, desde a coleta de dados até a geração de relatórios automatizados.'
+featured: 'img3.jpg'
+featuredalt: 'Equipe de agentes IA analisando dados do Bitcoin em interface holográfica'
+featuredpath: 'date'
+linktitle: ''
+type: "post"
+output: 
+  blogdown::html_page:
+    toc: true
+    toc_depth: 1 
+image_preview: 'img2.jpg' 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+<!-- Neste post, vamos mergulhar na criação de uma equipe de agentes de Inteligência Artificial (IA) que trabalham juntos para coletar dados, analisar tendências e decidir se é hora de alertar sobre oportunidades de investimento no Bitcoin. Utilizaremos Python, o framework LangChain e sua extensão LangGraph para orquestrar esses agentes, além de técnicas de Prompt Engineering para garantir que cada "membro" da equipe execute sua função com precisão.  -->
+
+<!-- Você já se perguntou como acompanhar o volátil mercado de Bitcoin sem passar horas analisando gráficos e indicadores complexos?  -->
+
+<!-- Prepare-se para descobrir como a IA generativa pode se tornar sua aliada na análise de criptomoedas! -->
+
+## Por que Analisar o Mercado Bitcoin com Agentes de IA?
+
+O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, **nunca revelou sua identidade**. Além disso o bitcoin foi a [primeira e ainda é a mais conhecida aplicação da tecnologia **Blockchain**](https://www.mgcholding.com.br/blog/blockchain-bitcoin-e-ativos-virtuais-entenda-a-relacao/#:~:text=O%20blockchain%2C%20em%20sua%20ess%C3%AAncia,conhecida%20aplica%C3%A7%C3%A3o%20da%20tecnologia%20blockchain.), que revolucionou a forma como lidamos com registros digitais e segurança dos dados. Sua **natureza descentralizada** e sua notória **volatilidade** o tornam um ativo único. 
+
+Quem não se lembra da história das [pizzas compradas por 10.000 BTC](https://www.binance.com/pt-BR/square/post/17395016879858), que hoje valeriam uma fortuna? Mesmo que variações dessa magnitude sejam improváveis, eventos programados como o [**Halving**](https://www.binance.com/pt-BR/events/bitcoin-halving) – que reduz pela metade a emissão de novas moedas a cada quatro anos, simulando a escassez de metais preciosos – continuam a impactar significativamente sua oferta e, historicamente, seu preço.
+
+Mas como saber o momento certo de comprar ou vender? A resposta não é simples. O preço do Bitcoin é influenciado por uma miríade de fatores: dados **on-chain** (movimentações na própria blockchain), o cenário **macroeconômico** global (inflação, taxas de juros), o **sentimento do mercado** e a **análise técnica** tradicional (padrões gráficos e indicadores). Analisar isoladamente qualquer um desses aspectos oferece uma visão incompleta. A verdadeira compreensão exige uma abordagem holística, **combinando diferentes perspectivas**.
+
+Foi pensando nisso, e inspirado pelos recentes avanços em modelos de linguagem grandes (**LLMs**) e frameworks de **agentes**, que surgiu a ideia: **E se eu delegar essa tarefa repetitiva e complexa a uma equipe de assistentes de IA?** E se a IA pudesse não apenas coletar e analisar os dados, mas também **interpretar o cenário** e **sugerir ações** alinhadas a uma estratégia de investimento de longo prazo, como a acumulação gradual de Bitcoin?
+
+É aqui que entram os Agentes de IA. Pense neles como sistemas autônomos que utilizam um **LLM** (como os modelos GPT da OpenAI) como seu "cérebro" ou motor de raciocínio. Eles podem interagir com **ferramentas**, processar informações e **tomar decisões** para atingir um **objetivo específico**. Em nosso caso, o objetivo será fornecer uma análise de mercado inteligente e automatizada, transformando dados brutos em insights acionáveis de alto nível.
+
+## Arquitetura da Solução: Uma Equipe de Agentes de IA Generativa
+
+Em vez de um único agente monolítico tentando fazer tudo, o trabalho foi dividido em etapas lógicas, cada uma atribuída a um agente com um papel bem definido. Essa abordagem modular não só organiza melhor o processo, mas também facilita a manutenção e a evolução de cada componente:
+
+*   **Data Fetcher**: Coleta dados brutos de diversas APIs (cotações, on-chain, macro, técnicos).
+*   **Data Analyst**: Interpreta os dados brutos e gera um relatório técnico formatado.
+*   **Market Strategist**: Sintetiza a análise técnica, identifica tendências e gera recomendações táticas.
+*   **Client Manager**: Avalia a estratégia sob a ótica do objetivo do "cliente" (acumulação de longo prazo) e decide se um alerta é necessário.
+
+Esses agentes utilizam `tools` (funções Python) para acessar APIs como [Blockchain.com](https://www.blockchain.com/explorer/api), [Yahoo Finance](https://pypi.org/project/yfinance/), [CoinGecko](https://www.coingecko.com/en/api/documentation), [FRED](https://fred.stlouisfed.org/), etc. A  orquestração é feita com o **[GitHub Actions](https://github.com/features/actions)** que aciona a execução de todo o fluxo de trabalho todo dia - a cada 4 horas - executando o projeto que foi todo escrito em **Python**, **LangChain** (para os blocos de construção dos agentes), **LangGraph** (para o fluxo de trabalho), usando **GPT-4o-mini** como motor de raciocínio, **[Telegram](https://telegram.me/BotFather)** como um canal para envio de alertas e **LangSmith** para monitoramento e depuração de cada passo da execução dos agentes. 
+
+<p style="text-align: left; font-style: italic;">📌 Clique [aqui](https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/) para ler meu post sobre como criar bots no Telegram.</p>
+
+<center>
+
+<div style="width: 90%;">
+<img src="/post/2025-05-04-bitcoin-agent/full_workflow.png" alt="prompt chaining workflow" style="width: 100%;">
+</div> 
+<p style="text-align: center; font-style: italic;">Fluxo de trabalho completo</p>
+
+</center>
+
+## Construindo o Workflow com LangGraph
+
+Para orquestrar a interação entre os agentes de forma robusta, foi utilizado o **LangGraph**, uma biblioteca sobre o LangChain para criar aplicações LLM *stateful* e com *múltiplos atores*. Ele permite definir fluxos de trabalho como grafos, controlando explicitamente a sequência e permitindo futuras ramificações ou ciclos.
+
+<div class="w3-panel w3-pale-blue w3-border">
+&nbsp; 📌 Os conceitos básicos são:
+
+*   **Nós (Nodes)**: As unidades de trabalho (nossos agentes).
+*   **Arestas (Edges)**: As conexões que definem o fluxo de dados e controle entre os nós.
+
+</div>
+
+
+
+Montar o grafo envolve definir o estado compartilhado, adicionar os nós e conectar as arestas. LangGraph oferece diferentes maneiras de definir essa estrutura. Abaixo, tem um exemplo conceitual usando tanto a a **GraphAPI**, que é bastante explícita, quanto a **Functional API**, que é mais direta ao ponto:
+
+<!-- Tabs HTML Structure -->
+<div class="tabs">
+  <button class="tablink" onclick="openCode(event, 'GraphAPI')" id="defaultOpen">Graph API (Conceitual)</button>
+  <button class="tablink" onclick="openCode(event, 'FunctionalAPI')">Functional API (Conceitual)</button>
+</div>
+
+<div id="GraphAPI" class="tabcontent">
+
+```{python}
+from langgraph.graph import StateGraph, START, END
+from typing_extensions import TypedDict
+
+# Definir o Estado do Grafo
+class State(TypedDict):
+    topic: str # Input do Data Fetcher
+    raw_data: str # Saída do Data Fetcher
+    analysis_report: str # Saída do Data Analyst
+    strategy_synthesis: str # Saída do Market Strategist
+    manager_decision: str # Saída do Client Manager
+
+# Definir os Nós (Agentes/Funções)
+# Supondo que as funções já foram definidas
+def data_fetcher(state: State):
+    # ... 
+    return {"raw_data": "dados coletados..."}
+
+def data_analyst(state: State): ...
+def market_strategist(state: State): ...
+def client_manager(state: State): ...
+def send_telegram_message(message_body): ...
+
+# Construir o Grafo
+workflow = StateGraph(State)
+
+# Adicionar os nós
+workflow.add_node("fetcher", data_fetcher)
+workflow.add_node("analyst", data_analyst)
+workflow.add_node("strategist", market_strategist)
+workflow.add_node("manager", client_manager)
+
+# Definir Arestas (o fluxo sequencial)
+workflow.add_edge(START, "fetcher")
+workflow.add_edge("fetcher", "analyst")
+workflow.add_edge("analyst", "strategist")
+workflow.add_conditional_edges("strategist", manager_decision, {
+  "ALERTAR_CLIENTE": "send_telegram_message",
+  "NAO_ALERTAR": END
+  })
+
+# Compilar o grafo em um objeto executável
+chain = workflow.compile()
+
+# Executar (exemplo)
+state = chain.invoke({"topic": "btc"})
+```
+
+</div>
+
+<div id="FunctionalAPI" class="tabcontent">
+
+```{python}
+from langgraph.func import entrypoint, task
+
+# Tasks/Agents
+
+@task
+def data_fetcher(topic: str) -> dict: ...
+  
+@task 
+def data_analyst(state: State): ...
+
+@task
+def market_strategist(state: State): ...
+
+@task
+def client_manager(state: State): ...
+
+def plot_btc_analysis(message_body): ...
+def send_telegram_photo(message_body): ...
+def send_telegram_message(message_body): ...
+
+# Exemplo conceitual com abordagem funcional (usando decoradores)
+@entrypoint()
+def chaining_workflow(topic: str):
+    data_fetched = data_fetcher(topic).result()
+    analyst_report = data_analyst(data_fetched).result()
+    strategist_report = market_strategist(analyst_report).result()
+    
+    if 'ALERTAR' in client_manager(strategist_report).result():
+        fig = plot_btc_analysis()
+        asyncio.run(send_telegram_photo(fig))
+        asyncio.run(send_telegram_message(strategist_report))
+        return "Entrar em contato"
+    return "Não entrar em contato"
+
+def run_chaining_workflow(topic: str, stream_mode: str = "updates"):
+    return chaining_workflow.stream(topic, stream_mode=stream_mode)
+
+# Invoke
+logger.info("Iniciando o workflow...\n")
+for step in run_chaining_workflow("", stream_mode="updates"):
+    for key, value in step.items():
+        logger.info(f"[ {key} ]\n{'=' * 80}\n{value}\n")
+logger.info("Workflow finalizado.")
+        
+```
+
+</div>
+
+<!-- Script para funcionalidade das abas -->
+<script>
+function openCode(evt, codeName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(codeName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+// Abre a primeira aba por padrão
+document.getElementById("defaultOpen").click();
+</script>
+
+<!-- Estilos básicos para as abas (adicione ao CSS do seu blog) -->
+<style>
+.tabs { overflow: hidden; border-bottom: 1px solid #ccc; margin-bottom: 10px; }
+.tablink { background-color: #f1f1f1; float: left; border: none; outline: none; cursor: pointer; padding: 8px 16px; font-size: 1rem; transition: 0.3s; }
+.tablink:hover { background-color: #ddd; }
+.tablink.active { background-color: #ccc; }
+.tabcontent { display: none; padding: 6px 0px; border-top: none; animation: fadeEffect 1s; }
+@keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+</style>
+
+Este controle fino do fluxo, seja pela API explícita ou por abordagens mais funcionais, é uma das grandes vantagens do LangGraph para sistemas multi-agentes, que ainda permite uma integração com o LangSmith para acompanhamento detalhado do fluxo de "raciocínio" dos agentes. Para mais detalhes, consulte a [documentação oficial](https://langchain-ai.github.io/langgraph/).
+
+## Mergulhando nos Agentes: Prompts e Ferramentas
+
+Vamos ver rapidamente como cada agente funciona, focando nos prompts e ferramentas:
+
+### Agente 1: Data Fetcher (O Pesquisador)
+
+<center>
+
+<div style="width: 90%;">
+<img src="/post/2025-05-04-bitcoin-agent/01.png" alt="data fetcher agent" style="width: 100%;">
+</div> 
+<p style="text-align: center; font-style: italic;">Fluxo de trabalho do Data Researcher</p>
+
+</center>
+
+<details>
+<summary>*Ver código*</summary>
+```{python}
+from pydantic import BaseModel, Field
+from langchain.schema.messages import HumanMessage, ToolMessage
+from langgraph.func import task
+from langchain_openai import ChatOpenAI
+
+from tools.fetch_data_btc import fetch_data_btc
+from tools.fetch_data_onchain import fetch_data_onchain
+from tools.fetch_data_macroeconomic import fetch_data_macroeconomic
+from tools.fetch_data_market import fetch_data_market
+from tools.fetch_data_tecnical import fetch_data_tecnical
+
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+
+@task
+def data_fetcher(topic: str):
+  
+  class StructuredJsonOutput(BaseModel):
+    btc_data: str = Field(None, description="Bitcoin data and USD to BRL exchange rate")
+    onchain_data: str = Field(None, description="On-chain Bitcoin data")
+    macroeconomic_data: str = Field(None, description="Macroeconomic data")
+    market_data: str = Field(None, description="Market sentiment and Bitcoin-related metrics")
+    tecnical_data: str = Field(None, description="technical analysis indicators for Bitcoin")
+
+  structured_llm = llm.with_structured_output(StructuredJsonOutput)
+
+  instructions = "Você é um pesquisador responsável por coletar dados de diferentes fontes sobre o mercado de Bitcoin e gerar um output no formato json."
+
+  tools = [
+      fetch_data_btc,
+      fetch_data_onchain,
+      fetch_data_macroeconomic,
+      fetch_data_market,
+      fetch_data_tecnical
+      ]
+
+  tools_by_name = {tool.name: tool for tool in tools}
+
+  llm_with_tools = llm.bind_tools(tools)
+
+  messages = [HumanMessage(instructions)]
+  ai_msg = llm_with_tools.invoke(messages)
+  messages.append(ai_msg)
+
+  for tool_call in ai_msg.tool_calls:
+      selected_tool = tools_by_name[tool_call["name"].lower()]
+      tool_output = selected_tool.invoke(tool_call["args"])
+      messages.append(ToolMessage(tool_output, tool_call_id=tool_call["id"]))
+
+  messages.append(structured_llm.invoke(messages))
+
+  return messages[-1].model_dump_json(indent=3)
+```
+
+</details>
+
+*   **Objetivo**: Coletar dados brutos e atualizados de diversas fontes sobre o Bitcoin, abrangendo cotações, indicadores on-chain, dados macroeconômicos e técnicos.
+*   **Funcionamento**: Este agente não calcula nem interpreta, ele apenas orquestra a chamada de várias `tools` (funções Python que interagem com APIs externas). Essa função do LangChain permite que o LLM, ao receber a instrução inicial ("colete os dados sobre o mercado de Bitcoin"), analise as ferramentas disponíveis e decida quais delas chamar e com quais argumentos. Após as ferramentas retornarem seus resultados, usamos `llm.with_structured_output(StructuredJsonOutput)` para instruir o LLM a consolidar todas as informações coletadas em um único objeto **JSON estruturado**. Isso garante que a saída do Data Fetcher seja consistente e fácil de processar pelo próximo agente.
+
+### Agente 2: Data Analyst (O Intérprete)
+
+<center>
+
+<div style="width: 90%;">
+<img src="/post/2025-05-04-bitcoin-agent/02.png" alt="data analyst agent" style="width: 100%;">
+</div> 
+<p style="text-align: center; font-style: italic;">Fluxo de trabalho do Data Analyst</p>
+
+</center>
+
+<details>
+<summary>*Ver código*</summary>
+```{python}
+from langgraph.func import task
+from langchain.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
+from langchain_openai import ChatOpenAI
+
+from prompts.data_analyst_example import input_example, output_example
+
+llm = ChatOpenAI(model="gpt-4", temperature=0.7)
+
+@task
+def data_analyst(report: str):
+
+  input = f"""
+  Você é um analista financeiro experiente em Cryptomoedas e especialista em Bitcoin.
+  Analise as tendências do cenário do Bitcoin hoje com base no json \
+  delimitado por três crases (```):
+
+  \```
+  {report}
+  \```
+
+  Siga rigorosamente as instruções abaixo:
+
+  - ...
+  """
+
+  examples = [
+      {"input": input_example, "output": output_example},
+       ]
+
+  example_prompt = ChatPromptTemplate.from_messages([
+      ("human", "{input}"),
+      ("ai", "{output}"),
+      ])
+
+  few_shot_prompt = FewShotChatMessagePromptTemplate(
+      example_prompt=example_prompt,
+      examples=examples,
+      )
+
+  prompt_system = "Você é um analista financeiro experiente em Criptomoedas e especialista em Bitcoin."
+
+  final_prompt = ChatPromptTemplate.from_messages([
+    ("system", prompt_system),
+    few_shot_prompt,
+    ("human", "{input}"),
+    ])
+
+  chain = final_prompt | llm
+
+  msg = chain.invoke(input=input)
+
+  return msg.content
+```
+
+</details>
+
+*   **Objetivo**: Receber o JSON de dados brutos do Data Fetcher e transformá-lo em um relatório analítico coeso, formatado em Markdown, interpretando cada indicador e explicando seu possível impacto.
+*   **Prompt Engineering em Ação**: Este agente é um ótimo exemplo de como guiar um LLM para tarefas complexas de formatação e interpretação.
+    *   **Instruções Detalhadas**: O prompt define explicitamente o papel do agente ("analista financeiro experiente"), o formato desejado (Markdown, bullet points, negrito), o tom ("equilibrado e menos técnico"), e regras específicas (mencionar preços em USD e BRL, usar sinal de menos para variações negativas, seguir a estrutura do exemplo).
+    *   **Estratégia Few-Shot**: Para garantir que o LLM siga o formato e o estilo de interpretação desejados, utilizamos a técnica Few-Shot (semelhante como fiz em um [post anterior](https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/)). Fornecemos um exemplo completo de um input (um JSON de dados similar ao que o Data Fetcher produziria) e o output correspondente (o relatório em Markdown formatado e interpretado). Isso é feito usando `FewShotChatMessagePromptTemplate` do LangChain, que insere o exemplo diretamente no contexto do prompt final.
+    *   **Cadeia LCEL**: O prompt final é construído usando a LangChain Expression Language (LCEL), combinando o prompt do sistema (definindo o papel), o prompt Few-Shot (com o exemplo) e o prompt humano (contendo as instruções e o JSON de dados brutos atual).
+
+### Agente 3: Market Strategist (O Conselheiro)
+
+<center>
+
+<div style="width: 80%;">
+<img src="/post/2025-05-04-bitcoin-agent/03.png" alt="market strategist agent" style="width: 100%;">
+</div> 
+<p style="text-align: center; font-style: italic;">Fluxo de trabalho do Market Strategist</p>
+
+</center>
+
+<details>
+<summary>*Ver código*</summary>
+```{python}
+from langgraph.func import task
+from langchain.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(temperature=0.7)
+
+@task
+def market_strategist(analyst_report: str):
+    """
+    Gera recomendações de posicionamento com base na análise do Data Analyst.
+    """
+  
+    input = f"""
+    Seu papel é analisar o relatório técnico fornecido no formatado em Markdown e transformar\
+    em uma síntese estratégica e executiva, com alertas, insights e orientações táticas de alto nível.
+  
+    \``` markdown
+    {analyst_report}
+    \```
+  
+    Siga rigorosamente as instruções abaixo:
+  
+    - ...
+    """
+  
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", "Você é um estrategista de mercado sênior, com ampla experiência em ativos digitais e especialização em Bitcoin."),
+        ("human", "{input}")
+    ])
+  
+    chain = prompt | llm
+    msg = chain.invoke(input=input)
+    return msg.content
+
+```
+
+</details>
+
+*   **Objetivo**: Ler o relatório técnico detalhado do Data Analyst e interpretar as informações em uma síntese estratégica e executiva. O foco é identificar a tendência geral, destacar sinais chave e fornecer recomendações táticas claras.
+*   **Prompt**: O prompt para este agente é crucial para mudar o nível da análise. Ele instrui o LLM a agir como um "estrategista de mercado sênior", focando em:
+    *   **Resumo**: Extrair os pontos mais críticos.
+    *   **Tendência**: Classificar o mercado (alta, baixa, neutro).
+    *   **Sinais**: Identificar indicadores de otimismo ou cautela.
+    *   **Recomendações**: Gerar orientações práticas e acionáveis ("isso indica que...", "logo, é prudente...").
+    *   **Raciocínio**: Explicitar o processo de pensamento com **CoT** (**Chain-of-Thought**) que levou às conclusões antes de apresentar a síntese final.
+    *   **Tom**: Consultivo, direto e profissional.
+
+### Agente 4: Client Manager (O Porteiro)
+
+<center>
+
+<div style="width: 80%;">
+<img src="/post/2025-05-04-bitcoin-agent/04.png" alt="client manager agent" style="width: 100%;">
+</div> 
+<p style="text-align: center; font-style: italic;">Fluxo de trabalho do Client Manager</p>
+
+</center>
+
+<details>
+<summary>*Ver código*</summary>
+```{python}
+from langgraph.func import task
+from langchain.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(temperature=0.7)
+
+@task
+def client_manager(final_report: str):
+    """
+    Avalia o relatório estratégico e decide se deve ou não alertar o cliente.
+    A decisão final é binária: ALERTAR_CLIENTE ou NÃO_ALERTAR.
+    """
+
+    input = f"""
+    Objetivo do cliente: Acumular Bitcoins no longo prazo, investindo mensalmente nas melhores janelas de oportunidade.
+
+    Seu papel é avaliar o relatório abaixo e decidir se há motivos suficientes para alertar o cliente:
+
+    \``` markdown
+    {final_report}
+    \```
+
+    Siga rigorosamente as instruções abaixo:
+
+    - ...
+    """
+
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", "Você é um Client Manager, especializado em comunicação estratégica com clientes de alto valor."),
+        ("human", "{input}")
+    ])
+
+    chain = prompt | llm
+    msg = chain.invoke(input=input)
+    return msg.content
+
+
+```
+
+</details>
+
+*   **Objetivo**: Avaliar a síntese estratégica do Market Strategist à luz do objetivo específico do cliente (acumulação de longo prazo) e tomar uma decisão binária: a situação atual justifica um alerta ou não?
+*   **Prompt**: Este prompt é focado na tomada de decisão.
+    *   **Contexto do Cliente**: Define claramente o objetivo ("Acumular Bitcoins no longo prazo, investindo mensalmente nas melhores janelas de oportunidade.").
+    *   **Critérios de Alerta**: Especifica o que procurar (mudança relevante de tendência, risco/oportunidade claros, indicadores extremos, recomendações urgentes).
+    *   **Raciocínio Obrigatório**: Exige que o agente explique seu processo de pensamento **CoT** (**Chain-of-Thought**) antes da decisão final.
+    *   **Output Binário**: A resposta final deve ser *apenas* a palavra `ALERTAR` ou `NÃO_ALERTAR` em maiúsculas, precedida pelo raciocínio.
+
+## Desafios, Aprendizados e Observabilidade
+
+Construir agentes envolve desafios:
+
+*   **Prompt Engineering**: É uma arte iterativa. Clareza, exemplos (Few-Shot) e estrutura são essenciais.
+*   **Orquestração (LangGraph)**: Gerenciar o estado e o fluxo entre nós exige atenção.
+*   **Integração de Ferramentas**: Descrições claras das `tools` são vitais para o LLM usá-las corretamente.
+*   **Observabilidade**: Identificar falhas em fluxos complexos pode ser difícil. 
+
+Ferramentas como o **LangSmith** são extremamente úteis na monitoramento dos agentes, permitindo rastrear e depurar cada passo de sua execução, chamadas de LLM e uso de ferramentas. Ele oferece uma visão clara do que está acontecendo "por baixo dos panos", facilitando a identificação de gargalos ou erros.
+
+<center>
+
+<div style="width: 90%;">
+<img src="/post/2025-05-04-bitcoin-agent/langsmith-exemplo.png" alt="langsmith" style="width: 100%;">
+</div> 
+<p style="text-align: center; font-style: italic;">Print da tela do LangSmith do projeto</p>
+
+</center>
+
+## Conclusão
+
+Criamos uma equipe de agentes IA capaz de automatizar a complexa análise do mercado Bitcoin, usando LangChain e LangGraph para orquestração. O sistema coleta dados, interpreta, gera estratégias e decide sobre alertas, transformando dados brutos em insights acionáveis. Veja como é o alerta recebido no Telegram:
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+
+<center>
+
+  <img src="/post/2025-05-04-bitcoin-agent/telegram1.PNG" alt="Report no Telegram 1" style="width: 80%;">
+
+</center>
+
+<center>
+
+  <img src="/post/2025-05-04-bitcoin-agent/telegram2.PNG" alt="Report no Telegram 2" style="width: 80%;">
+  
+</center>
+  
+</div>
+<p style="text-align: center; font-style: italic;">Print das telas do bot no Telegram.</p>
+
+Este projeto demonstra o potencial dos agentes para automatizar tarefas repetitivas que envolvem a tomada de decisões com um certo "raciocínio". Os próximos passos podem envolver refinar prompts, adicionar mais ferramentas, integrar mais visualizações ou implementar notificações ativas.
+
+
+
+## Referências
+
+*   [LangChain - Documentação](https://python.langchain.com/)
+*   [LangGraph - Documentação](https://langchain-ai.github.io/langgraph/)
+*   [LangSmith - Documentação](https://smith.langchain.com/)
+*   [OpenAI API Plataform](https://openai.com/api/)
+*   [OpenAI - Prompt Engineering Guide](https://github.com/openai/openai-cookbook/blob/main/examples/gpt4-1_prompting_guide.ipynb)
+*   [OpenAI - A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
+*   [LangGraph Tutorial - Building Agentic Workflows](https://langchain-ai.github.io/langgraph/tutorials/workflows/)
+*   [LangChain Blog - How to think about agent frameworks](https://blog.langchain.dev/how-to-think-about-agent-frameworks/)
+
