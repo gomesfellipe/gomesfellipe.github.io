@@ -1,0 +1,580 @@
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>apps on Fellipe Gomes - Data Science Blog</title>
+    <link>https://gomesfellipe.github.io/categories/apps/</link>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Thu, 04 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/categories/apps/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>diaversario</title>
+      <link>https://gomesfellipe.github.io/apps/diaversario/</link>
+      <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/apps/diaversario/</guid>
+      <description>Calcule quantos dias de vida você tem em 1 segundo!</description>
+      <content:encoded>&lt;![CDATA[
+        <p>Link do app publicado: <a href="https://gomes555.shinyapps.io/diaversario/">https://gomes555.shinyapps.io/diaversario/</a></p>
+<p>Link do repositório no github: <a href="https://github.com/gomesfellipe/diaversario">https://github.com/gomesfellipe/diaversario</a></p>
+<p>App simples para calcular quantidade de dias de vida.</p>
+<p>Para utiliza-lo basta inserir a data do nascimento como mostra a imagem:</p>
+<p><img src="/apps/diaversario_files/app.gif" alt=""></p>
+<h1 id="how-to">How to</h1>
+<p>Códigos para calcular as medidas:</p>
+<ul>
+<li>R :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>born  <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.Date</span>(<span style="color:#e6db74">&#34;1993-12-14&#34;</span>) 
+</span></span><span style="display:flex;"><span>today <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">Sys.Date</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Quantos dias de vida</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">difftime</span>(today, born)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Completa 10.000 dias de vida em:</span>
+</span></span><span style="display:flex;"><span>born<span style="color:#f92672">+</span><span style="color:#a6e22e">days</span>(<span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Faltam</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">difftime</span>(born<span style="color:#f92672">+</span><span style="color:#a6e22e">days</span>(<span style="color:#ae81ff">10000</span>), today)
+</span></span></code></pre></div><ul>
+<li>Python:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timedelta
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>today <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>today()
+</span></span><span style="display:flex;"><span>born <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>strptime(<span style="color:#e6db74">&#39;1993-12-14&#39;</span>, <span style="color:#e6db74">&#39;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Quantos dias de vida</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Time difference of&#34;</span>, str((today<span style="color:#f92672">-</span>born)<span style="color:#f92672">.</span>days), <span style="color:#e6db74">&#34;days&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Completa 10.000 dias de vida em:</span>
+</span></span><span style="display:flex;"><span>str(born <span style="color:#f92672">+</span> timedelta(days<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Faltam</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Time difference of&#34;</span>,str((born <span style="color:#f92672">+</span> timedelta(days<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>) <span style="color:#f92672">-</span> today)<span style="color:#f92672">.</span>days), <span style="color:#e6db74">&#34;days&#34;</span>)
+</span></span></code></pre></div>
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/apps/diaversario/">diaversario</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category></category>
+    </item>
+    <item>
+      <title>AcompanhAções</title>
+      <link>https://gomesfellipe.github.io/apps/acompanhacoes/</link>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/apps/acompanhacoes/</guid>
+      <description>Repositório contém os códigos para a execução de um dashboard para o acompanhamento automatizado de ativos.</description>
+      <content:encoded>&lt;![CDATA[
+        <p>Link do repositório no github: <a href="https://github.com/gomesfellipe/acompanhacoes">https://github.com/gomesfellipe/acompanhacoes</a></p>
+<hr>
+<p>O objetivo do pacote <code>acompanhacoes</code> é permitir a portabilidade de um dashboard desenvolvido para o acompanhamento de ativos de diferentes naturezas de forma prática no dia a dia. A idéia deste shiny foi inspirada <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">neste post</a> do meu blog.</p>
+<p>O Dashboard é uma POC (<a href="https://en.wikipedia.org/wiki/Proof_of_concept">proof of concept</a>) de uma ferramenta que possibilita o acompanhamento automatizado da tabela financeira de um portifólio com a coleta de dados de cotações em tempo real, incluindo cálculo de Ganho/Perda (caso decida fazer a desmontagem no tempo atual) e análise automatizada do portifólio.</p>
+<p>O app shiny foi desenvolvido utilizando o framework <a href="https://thinkr-open.github.io/golem/index.html"><code>golem</code></a> que trás uma série de configurações e facilitam na hora de implementar o app em produção. O app possui um script <a href="https://github.com/gomesfellipe/acompanhacoes/blob/master/Dockerfile">Dockerfile</a> que é gerado automaticamente utilizando a função <code>golem::add_dockerfile()</code>.</p>
+<p>Os dados são obtidos utilizando a função <code>quantmod::getQuote(&quot;&lt;stock&gt;&quot;)</code> para obter dados em tempo real (com defasagem de 15 minutos) e utilizando a função <code>quantmod::(&quot;&lt;stock&gt;&quot;, get = &quot;stock.prices&quot;, from = first_day_year)</code> intradiários fornecidos pela api do <a href="https://finance.yahoo.com/">Yahoo Finance</a> das cotações do dia anterior.</p>
+<h2 id="instalação">Instalação</h2>
+<p>Para instalar a versão de desenvolvimento do aplicativo execute o comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;gomesfellipe/acompanhacoes&#34;</span>, INSTALL_opts <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;--no-lock&#39;</span>)
+</span></span></code></pre></div><p>Ou faça o download da pasta do repositório e execute:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install</span>(<span style="color:#e6db74">&#34;/path_to/acompanhacoes&#34;</span>)
+</span></span></code></pre></div><h2 id="uso">Uso</h2>
+<p>Após instalar o pacote, execute os comandos para executar o dashboard no R:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(acompanhacoes)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">run_app</span>()
+</span></span></code></pre></div><p>Veja como é a tela inicial do dashboard:</p>
+<p><img src="/apps/acompanhacoes_files/tela_inicial.png" alt=""></p>
+<p>Para acessar o dashboard no meu servidor consulte: <a href="https://gomes555.shinyapps.io/acompanhacoes/">https://gomes555.shinyapps.io/acompanhacoes/</a></p>
+<p>Assim que o dashboard for aberto, serão exibidos resultados para um portfólio <strong>arbitrário</strong> fornecido como exemplo, exibindo <strong>tabelas financeiras</strong> com as seguitnes informações:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Campo</th>
+<th style="text-align:left">Subcampo</th>
+<th style="text-align:left">Descrição</th>
+<th style="text-align:left">Medotologia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">Montagem</td>
+<td style="text-align:left">Cotação inicio</td>
+<td style="text-align:left">Valor no momento da compra</td>
+<td style="text-align:left"><em>input</em></td>
+</tr>
+<tr>
+<td style="text-align:right">Montagem</td>
+<td style="text-align:left">Quantidade</td>
+<td style="text-align:left">Quantidade de lotes comprados</td>
+<td style="text-align:left"><em>input</em></td>
+</tr>
+<tr>
+<td style="text-align:right">Montagem</td>
+<td style="text-align:left">Volume Inicio</td>
+<td style="text-align:left">Volume total da compra</td>
+<td style="text-align:left"><code>cot_ini * qtd</code></td>
+</tr>
+<tr>
+<td style="text-align:right">Desmontagem</td>
+<td style="text-align:left">Cotacao Atual</td>
+<td style="text-align:left">Valor do ativo no momento atual</td>
+<td style="text-align:left"><em>real-time</em></td>
+</tr>
+<tr>
+<td style="text-align:right">Desmontagem</td>
+<td style="text-align:left">Volume Atual</td>
+<td style="text-align:left">Volume total atual</td>
+<td style="text-align:left"><code>cot_atual * qtd</code></td>
+</tr>
+<tr>
+<td style="text-align:right">Resultado</td>
+<td style="text-align:left">Ganho/Perda</td>
+<td style="text-align:left">Valor de ganho/perda caso venda hoje</td>
+<td style="text-align:left"><code>vol_atual - vol_ini</code></td>
+</tr>
+<tr>
+<td style="text-align:right">Resultado</td>
+<td style="text-align:left">Resultado Bruno</td>
+<td style="text-align:left">Porcentagem de lucro</td>
+<td style="text-align:left"><code>ganho_perda / vol_ini * 100</code></td>
+</tr>
+</tbody>
+</table>
+<p>A próxima seção trará as informações necessárias para se realizar a carga no Dashboad.</p>
+<h2 id="input">Input</h2>
+<p>O dashboard tem 3 abordagens quanto ao input dos dados:</p>
+<ol>
+<li><strong>Sem input</strong>: O dashboard vai carregar a carteira exemplo que utilizei <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">neste post</a> do meu blog;</li>
+<li><strong>Input manual</strong>: O dashboard vai exibir as estatísticas baseadas no input do usuário;</li>
+<li><strong>Usuário vip</strong>: O dashboard vai exibir a carteira &ldquo;reservada&rdquo;, pré-definida pelo desenvolvedor, após fornecer sua chave de acesso.</li>
+</ol>
+<p>Sempre que alguma dessas três ações forem executadas, os dados das cotações informadas no input serão coletados utilizando funções do pacote <a href="https://cran.r-project.org/web/packages/quantmod/"><code>quantmod</code></a>, que fornecem as cotações via api do <a href="https://finance.yahoo.com/">Yahoo Finance</a>.</p>
+<p>As seções a seguir ajudarão a entender como utiliza-los.</p>
+<h3 id="1-sem-input">1. Sem input</h3>
+<p>O Dashboard carrega o conjunto de dados <code>acompanhacoes::input_exemplo</code> no momento que é inicializado com a finalidade de servir como exemplo e apresentação da ferramenta. Veja qual o formato do arquivo:</p>
+<pre tabindex="0"><code>&gt; acompanhacoes::input_exemplo
+# A tibble: 3 x 3
+  symbol   cot_ini     qtd
+  &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;
+1 TUPY3.SA    24.4 200
+2 ELET3.SA    19.7 150
+3 BTC-USD  31747.    0.032
+</code></pre><p>Obs.: Carteira elaborada de forma <strong>arbitrária</strong> para servir como exemplo</p>
+<h3 id="2-input-manual">2. Input manual</h3>
+<p>O arquivo fornecido como input para o Dashboard precisa conter a palavra &ldquo;portfolio&rdquo; (como por exemplo: <code>input_portfolio.txt</code>) e estar no seguinte formato:</p>
+<pre tabindex="0"><code>symbol, cot_ini, qtd
+TUPY3.SA, 24.4, 200
+ELET3.SA, 19.7, 150
+PTBL3.SA, 5.80, 100
+MGLU3.SA, 35.33, 100
+TOTS3.SA, 19.28, 200
+BTC-USD, 28000, 0.01
+BTC-USD, 31747, 0.032
+BTC-USD, 49499.37, 0.0101
+</code></pre><p>Após definir sua cateira com os valores pagos no momento da compra e informar a quantidade comprada clique na lupa 🔎  para buscar o arquivo ou arraste para o campo indicado:</p>
+<p><img src="/apps/acompanhacoes_files/input_manual.gif" alt=""></p>
+<p>Sendo assim, os resultados serão exibidos em tempo real de forma automática.</p>
+<p>Obs.: O exemplo apresentado no gif é do arquivo <a href="https://github.com/gomesfellipe/acompanhacoes/blob/master/portfolio_vip.txt"><code>portfolio_vip.txt</code></a>, que é carteira elaborada de forma <strong>arbitrária</strong> para servir como exemplo.</p>
+<h3 id="3-usuário-vip---opcional">3. Usuário vip! ⭐  (Opcional)</h3>
+<p>Para habilitar o vip talvez pareça um pouco mais complicado porém pode ser um recurso muito útil para ajudar a acompanhar o investimentos pois possui a vantagem de permitir o acesso ao portfolio de forma protegida (eu mesmo tenho usado no meu dia a dia e aceito sugestões de melhora nesse mecanismo para facilitar a experiência do usuário). Trata-se de configurar dois arquivos no diretório raiz de modo que o dashboard só irá carregar caso seja informada a senha de acesso.</p>
+<p>Os dois arquivos de configuração são:</p>
+<ul>
+<li><code>portifolio_vip.txt</code>:</li>
+</ul>
+<p>Um arquivo na extensão <code>txt</code> com informações da cotação no momento da compra e a quantidade adquirida. Existe um <a href="https://github.com/gomesfellipe/acompanhacoes/blob/master/portfolio_vip.txt">arquivo de exemplo</a> no repositório de forma que o desenvolvedor possa adaptar para sua carteira.</p>
+<p><strong>Dica</strong>: Sugiro que o inclua o <code>.txt</code> no seu <code>.gitignore</code> caso deseje manter a privacidade da sua carteira na hora de fazer o versionamento);</p>
+<ul>
+<li><code>vip.rds</code>:</li>
+</ul>
+<p>Um objeto R do tipo vetor que contenha um ou mais elementos que serão utilizados como chave de acesso do arquivo <code>portifolio_vip.txt</code>.</p>
+<p>Para criar o vetor defina a raíz do diretório como diretório de trabalho e execute os comandos:</p>
+<pre tabindex="0"><code>vip &lt;- c(&#34;senha&#34;)
+saveRDS(vip, vip.rds)
+</code></pre><p>Com estes dois arquivos definidos na pasta raiz do diretório do dashboard, execute os comandos para executar o Dashboard:</p>
+<pre tabindex="0"><code>library(acompanhacoes)
+run_app()
+</code></pre><p><img src="/apps/acompanhacoes_files/input_vip.gif" alt=""></p>
+<p>Parabéns! Se chegou té aqui agora você possui um Dashboard com um panorama geral de informações (quase) em tempo real para auxiliar na tomada de decisão no momento da desmontagem de algum ativo!</p>
+<p><strong>Dica</strong>: Caso queria publicar esse dashboard com 1 linha de código basta criar um usuário no site <a href="https://www.shinyapps.io/">https://www.shinyapps.io/</a>, seguir a instruções e subir a aplicação utilizando <code>rsconnect::deployApp()</code>.</p>
+<h2 id="estatísticas-da-carteira">Estatísticas da carteira</h2>
+<p>Esta seção ainda esta em desenvolvimento e totalmente aberta à sugestões. Veja como é a tela de Estatísticas da carteira:</p>
+<p><img src="/apps/acompanhacoes_files/analytics.gif" alt=""></p>
+<p>(Em desenvolvimento)</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>Os arquivos aqui apresentados não representam meu portfólio e também não estou sugerindo estas opções de carteiras. Para saber a origem deste input consulte o <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">post do meu blog</a> onde utilizo estes ativos como exemplo na construção de uma portfólio fictício. A idéia é que o usuário entre com os dados do seu portfólio para cada compra efetuada.</p>
+<p>A responsabilidade de manter a privacidade da carteira é totalmente do usuário, mantenha o arquivo <code>portifolio_vip.txt</code> salvo em seu computador local e caso use controle de versões inclua este arquivo no seu arquivo <code>.gitignore</code>.</p>
+<p>Nenhum arquivo inputado será persistido.</p>
+<h2 id="próximos-passos">Próximos passos</h2>
+<p>Para saber quais serão os próximos passos e saber como você pode contribuir com o desenvolvimento deste pacote consulte a aba de <a href="https://github.com/gomesfellipe/acompanhacoes/projects">Projects</a> do github.</p>
+<p>O pacote ainda esta em fase de desenvolvimento e quando estiver completo será submetido ao CRAN!</p>
+<h2 id="licença">Licença</h2>
+<p>Sinta-se a vontade para utilizar, reproduzir e modificar o código respeitando os <a href="https://github.com/gomesfellipe/acompanhacoes/blob/master/LICENSE.md">termos da licença</a>.</p>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/apps/acompanhacoes/">AcompanhAções</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>apps</category>
+      <category domain="tag">dashboard</category>
+      <category domain="tag">acoes</category>
+      <category domain="tag">financas</category>
+    </item>
+    <item>
+      <title>App ações (simples)</title>
+      <link>https://gomesfellipe.github.io/apps/app_acoes/</link>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/apps/app_acoes/</guid>
+      <description>Aplicativo para visualizar ações com os pacotes highcharter e quantmod</description>
+      <content:encoded>&lt;![CDATA[
+        <p>Link do repositório no github: <a href="https://github.com/gomesfellipe/app_acoes">https://github.com/gomesfellipe/app_acoes</a></p>
+<hr>
+<p>Aplicativo para visualizar acoes com os pacotes highcharter e quantmod</p>
+<h1 id="demonstração">Demonstração:</h1>
+<p><img src="/apps/app_acoes_files/app.gif" alt=""></p>
+<h1 id="fonte-de-dados">Fonte de dados</h1>
+<p>Os simbolos foram coletados com a função <code>stockSymbols()</code> e também foram acrescentadas outros simbolos manualmente, são eles:</p>
+<ul>
+<li>BTC-USD</li>
+<li>ETH-USD</li>
+<li>LTC-USD</li>
+<li>XRP-USD</li>
+<li>ADA-USD</li>
+<li>CIEL3F.SA</li>
+<li>ITSA4.SA</li>
+<li>PETR4.SA</li>
+<li>BBDC4F.SA</li>
+<li>PCAR4F.SA</li>
+<li>ABEV3.SA</li>
+<li>BVMF3.SA</li>
+</ul>
+<h1 id="próximos-passos">Próximos passos</h1>
+<p>Conseguir de forma automática os simbolos de todas as ações IBOVESPA</p>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/apps/app_acoes/">App ações (simples)</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category></category>
+    </item>
+    <item>
+      <title>Aplicativo para construir Wordcloud</title>
+      <link>https://gomesfellipe.github.io/apps/appwordcloud/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/apps/appwordcloud/</guid>
+      <description>Crie sua própria núvem de palavras!</description>
+      <content:encoded>&lt;![CDATA[
+        <p><a href="https://gomesfellipe.shinyapps.io/appPCAkmeans/"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=my-website&amp;style=for-the-badge" alt="Website"></a> <img src="https://img.shields.io/npm/l/express.svg?style=for-the-badge" alt="npm"></p>
+<p>Link do repositório no github: <a href="https://github.com/gomesfellipe/appwordcloud">https://github.com/gomesfellipe/appwordcloud</a></p>
+<p>Link de acesso ao app: <a href="https://gomesfellipe.shinyapps.io/appwordcloud/">https://gomesfellipe.shinyapps.io/appwordcloud/</a></p>
+<hr>
+<p>NOVA VERSÃO DA NUVEM DE PALAVRAS!!</p>
+<p>Nova versão conta agora com a tabela de frequências dos termos identificados na análise!</p>
+<p><img src="/apps/appwordcloud_files/shiny4.png" alt=""></p>
+<p>Esta pasta conta com os seguintes arquivos:</p>
+<p>Base de dados (obtida através do <a href="https://www.social-searcher.com/">social searcher</a>):</p>
+<ul>
+<li>base.csv                            - exemplo de base de dados como input do aplicativo (obs.: codificação UTF-8)</li>
+</ul>
+<p>Complementos:</p>
+<ul>
+<li>wordcloud_sentiment.R - Função criada para gerar nuvens de palavras com tecnicas textmining de maneira simples e facil</li>
+<li>install_packages.R - Script para auxiliar na instalação dos pacotes necessários para rodar o aplicativo</li>
+</ul>
+<p>Código do aplicativo:</p>
+<ul>
+<li>appwordcloud.Rmd - Este é o código responsável por rodar o aplicativo</li>
+</ul>
+<h1 id="motivação-para-o-aplicativo">Motivação para o aplicativo</h1>
+<p>Inicialmente uma função foi desenvolvida com finalidade de se criar nuvens de palavras em conjunto com técnicas de textmining de forma dinâmica, o nome da função é <code>wordcloud_sentiment()</code> e seu código e os parâmetros para seu uso podem ser conferidos no arquivo <code>wordcloud_sentiment.R</code>.</p>
+<p>Com essa função foi possível que a criação de nuvens de palavras com técnicas de textmining se tornasse uma tarefa mais ágil, porém o conhecimento prévio de R para sua implementação seria recomendado caso necessite de alguma manutenção. Diante disto a ideia de uma abordagem mais interativa mostrou-se interessante, a seguir é possível conferir como foi sua implementação.</p>
+<h1 id="pacotes-utilizados">Pacotes utilizados:</h1>
+<p>Os pacotes utilizados incluindo algumas referências:</p>
+<ul>
+<li><code>flexdashboard</code>: Pacote para gerar o aplicativo como dashboard ( <a href="https://rmarkdown.rstudio.com/flexdashboard/">manual do pacote</a> )</li>
+<li><code>stringr</code>:       Pacote para manipulação de strings (<a href="http://material.curso-r.com/stringr/">bom manual para manipular strings</a>  )</li>
+<li><code>dplyr</code>:         Pacote para manipulação de dados (<a href="http://tidy.ws/29i5Kq">Cheat Sheet para Data Wrangling</a>)</li>
+<li><code>tm</code>:            Pacote de para text mining (<a href="http://tidy.ws/29i5Lr">manual do CRAN</a>)</li>
+<li><code>wordcloud</code>:     Pacote para nuvem de palavras (<a href="http://tidy.ws/29i5UO">bom manual para text mining, wordcloud e sentimentos</a>)</li>
+<li><code>readxl</code>:        Pacote para leitura de dados Excel (<a href="https://github.com/tidyverse/readxl">github tidyverse</a> )</li>
+<li><code>tidytext</code>:      Manipulação de textos (<a href="https://www.tidytextmining.com/">e-book tidytextmining</a>)</li>
+<li><code>reshape2</code>:      Manipulação de dados ( <a href="https://github.com/hadley/reshape">github do hadley</a> )</li>
+<li><code>lexiconPT</code>:     Importar palavras de sentimentos ( <a href="http://tidy.ws/29i5QU">CRAN</a>     )</li>
+<li><code>memoise</code>:       Cache resultados de uma função (<a href="https://github.com/r-lib/memoise">github memoise</a>)</li>
+<li><code>SnowballC</code>:     Para steamming (<a href="http://tidy.ws/29i61a">manual do CRAN </a>)</li>
+<li><code>purrr</code>:         Ferramentas de programação funcional (<a href="http://tidy.ws/29i5WN">cheat Sheet para funcoes apply</a>)</li>
+<li><code>DT</code>:            Renderizar tabela ( <a href="https://rstudio.github.io/DT/">manual do pacote</a>  )</li>
+<li><code>ngram</code>:         Busca por sequencias de palavras (<a href="http://tidy.ws/29i607">guia para ngram no R</a>   )</li>
+</ul>
+<h1 id="instalando-os-pacotes">Instalando os pacotes</h1>
+<p>A instalação de todos esses pacotes pode ser realizada em apenas 1 passo, para mais informações consultar o documento <code>install_packages.R</code> e seguir as instruções de instalação</p>
+<h1 id="instruções">Instruções</h1>
+<p>Obs.: As funções da nova versão são basicamente as mesmas da versão antiga. A novidade está na tabela de frequências dos termos identificados com disponibilidade para download.</p>
+<h2 id="input-da-base-de-dados">Input da base de dados</h2>
+<p><img src="/apps/appwordcloud_files/gif/f1.gif" alt=""></p>
+<p>Para dar início a construção da nuvem de palavras selecione o arquivo (em formato csv com codificação UTF-8) que contenha apenas duas colunas em que:</p>
+<pre><code>* Coluna1: usuario
+* Coluna2: texto
+</code></pre>
+<p><a href="https://github.com/gomesfellipe/appwordcloud/blob/master/base.csv">exemplo de base</a></p>
+<h2 id="stopwords">Stopwords</h2>
+<p><img src="/apps/appwordcloud_files/gif/f2.gif" alt=""></p>
+<p>Para remover palavras da nuvem de palavras (chamadas de stopwords), basta inseri-las, separadas por vírgula, na caixa &ldquo;<strong>Removendo palavras</strong>&rdquo;. Exemplo de como devem ser incluidas as palavras:</p>
+<pre><code> nao, dele, dela, nos
+</code></pre>
+<h2 id="sentimentos">Sentimentos</h2>
+<p><img src="/apps/appwordcloud_files/gif/f3.gif" alt=""></p>
+<p>Na opção &ldquo;<strong>Marque se deseja usar cor para sentimentos</strong>&rdquo; a cor da nuvem é baseada em um dicionário léxico do qual um conjunto de palavras já foram pré-classificadas como positiva, negativa ou neutra. Por default a nuvem já começa com esta opção marcada.</p>
+<h2 id="textsteamming-remover-sufixos">TextSteamming (remover sufixos)</h2>
+<p>Com a opção &ldquo;Marque se deseja usar &lsquo;Text Steamming&rsquo;(remover sufixos)&rdquo; marcada, a função <code> SnowballC::wordStem(x,lang=&quot;portuguese)</code> será utilizada de forma que as palavras em portugues do Brasil tenham seus sufixos removidos, o que influencia na análise de forma que, por exemplo, as palavras &ldquo;conhecimento&rdquo;, &ldquo;conhecer&rdquo;, &ldquo;conhecemos&rdquo;, &ldquo;conheci&rdquo; sejam agregadas em um único termo: &ldquo;conhec&rdquo;, veja:</p>
+<p><img src="/apps/appwordcloud_files/gif/f4.gif" alt=""></p>
+<p>Obs.: Para efetuar a mudança, clique em &ldquo;Atualizar nuvem&rdquo;</p>
+<h2 id="tf-idf">TF-IDF</h2>
+<p>A opção &ldquo;Marque se deseja usar a transformação tf-idf&rdquo; realizará q <a href="https://pt.wikipedia.org/wiki/Tf%E2%80%93idf">transformação if-idf</a> na matriz de termos que não considera mais a frequência (ou contagem) de termos de modo que as palavras tenham &ldquo;pesos&rdquo; atribuídos que levam em consideração não só a frequência das palavras no corpus, mas também a frequência das palavras nos diferentes documentos (cada linha da base de dados). Este valor agora será encarregado de fornecer a &ldquo;relevância&rdquo; daquele termo no corpus.</p>
+<p><img src="/apps/appwordcloud_files/gif/f5.gif" alt=""></p>
+<p>Obs.: Para efetuar a mudança, clique em &ldquo;Atualizar nuvem&rdquo;</p>
+<h2 id="salvando-a-wordcloud">Salvando a Wordcloud</h2>
+<p>Para salvar, basta clicar sobre a imagem e salvar, veja:</p>
+<p><img src="/apps/appwordcloud_files/gif/f6.gif" alt=""></p>
+<h2 id="fazendo-o-download-novidade">Fazendo o Download (novidade!)</h2>
+<p>Agora o usuário pode baixar também a tabela de frequência dos termos identificados clicanco no botão <code>download</code></p>
+<hr>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/apps/appwordcloud/">Aplicativo para construir Wordcloud</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category></category>
+    </item>
+    <item>
+      <title>Aplicativo para análise multivariada</title>
+      <link>https://gomesfellipe.github.io/apps/apppcakmeans/</link>
+      <pubDate>Fri, 02 Mar 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/apps/apppcakmeans/</guid>
+      <description>Faça uma análise de tarefa não supervisioada (PCA e kmeans) com apenas alguns clicks</description>
+      <content:encoded>&lt;![CDATA[
+        <p><a href="https://gomesfellipe.shinyapps.io/appPCAkmeans/"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=my-website&amp;style=for-the-badge" alt="Website"></a> <img src="https://img.shields.io/npm/l/express.svg?style=for-the-badge" alt="npm"></p>
+<p>Link do repositório no github: <a href="https://github.com/gomesfellipe/appPCAkmeans">https://github.com/gomesfellipe/appPCAkmeans</a></p>
+<p>Link de acesso do app : <a href="https://gomesfellipe.shinyapps.io/appPCAkmeans/">https://gomesfellipe.shinyapps.io/appPCAkmeans/</a></p>
+<hr>
+<p><img src="/apps/appPCAkmeans_files/gif-plotly.gif" alt=""></p>
+<p>Esta pasta conta com os seguintes arquivos:</p>
+<p>Base de dados iris (base de dados nativa do R)</p>
+<ul>
+<li>base-iris.csv - exemplo de base de dados como imput do aplicativo</li>
+</ul>
+<p>Código do aplicativo:</p>
+<ul>
+<li>appPCAkmeans.Rmd - Script do código responsável por rodar o aplicativo</li>
+</ul>
+<h1 id="agrupamento---machine-learning">Agrupamento - Machine Learning</h1>
+<p>A análise de componentes principais e a busca por clusters é uma tarefa muito comum quando <strong>não conhecemos a classificação</strong>.</p>
+<p>A tarefa de agrupamento (muitas vezes também chamada de <em>clustering</em>) pode ser compreendida como um processo que torna possível descobrir relações entre exemplares de um conjunto de dados que contam com uma série de características (atributos descritivos) porém não há presença de um rótulo associado (classe) a cada exemplar.</p>
+<p>De maneira geral as análises realizadas por algorítimos de machine learning que implementam técnicas de agrupamento buscam por diferenças ou por similaridades entre exemplares, quantificadas por meio de medidas de distância (quanto menor a distância entre dois exemplares, maior será a similaridade), portanto uma estrutura de grupos é formada de maneira que a similaridade intragrupos tenha sido maximizada, e a similaridade intergrupos tenha sido minimizada.</p>
+<p>Quando esse processo de minimização é feito por um algorítimo de Machine Learning, é considerado um processo indutivo e não supervisionado - também conhecido como <em>treinamento não supervisionado</em> ou ainda como <em>aprendizado não supervisionado</em></p>
+<p>Referência: <a href="https://www.amazon.com.br/Introdu%C3%A7%C3%A3o-Minera%C3%A7%C3%A3o-Dados-Leandro-Augusto/dp/853528446X?tag=goog0ef-20&amp;smid=A1ZZFT5FULY4LN&amp;ascsubtag=bdfe9782-28b5-4343-ba3d-5f55b6703059">Introdução a Mineração de Dados com aplicações em R</a></p>
+<p>Obs.: Aqui nesse github existe um repósitório chamado <a href="https://github.com/gomesfellipe/Livro_Introducao_a_Mineracao_de_Dados">Livro_Introducao_a_Mineracao_de_Dados</a> que contém algumas das funções e idéias adquiridas ao estudar esse livro.</p>
+<p>Além do post no meu blog que falo sobre <a href="https://gomesfellipe.github.io/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise multivariada em R</a></p>
+<h1 id="pacotes-utilizados">Pacotes utilizados:</h1>
+<p>Pacotes utilizados no app:</p>
+<ul>
+<li>library(shiny)        - Renderizar o aplicativo</li>
+<li>library(ggplot2)      - Criar gráficos elegantes</li>
+<li>library(ggfortify)    - Criar gráficos de análises com ggplot</li>
+<li>library(DT)           - Renderizar tabelas elegantes e práticas</li>
+<li>library(plotly)       - Transforma ggplot em interativo</li>
+</ul>
+<h1 id="instruções">Instruções</h1>
+<h2 id="carregamento">Carregamento</h2>
+<p>Este aplicativo permite que usuário selecione qualquer base pessoal para realizar a análise de componentes principais e executar o agrupamento de dados por partição Kmeans. Pode ser um arquivo do tipo csv, txt ou mesmo excel, caso seja um arquivo excel é necessário informar em qual planílha se encotram os dados</p>
+<p><img src="/apps/appPCAkmeans_files/gif-carregamento.gif" alt=""></p>
+<h2 id="análise-de-componentes-principais">Análise de componentes principais</h2>
+<p>A análsie de componentes principais foi realizada com a função <code>prcomp()</code>, para mais informações sobre seu uso <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/prcomp.html">consultar o manual</a>.</p>
+<p>A análise é basicamente a mesma que a executada com a função <code>princomp</code>, porém o retorno da função é diferente, veja:</p>
+<table>
+<thead>
+<tr>
+<th>prcomp()</th>
+<th>princomp()</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sdev</td>
+<td>sdev</td>
+<td>Desvios-padrão dos principais componentes</td>
+</tr>
+<tr>
+<td>rotation</td>
+<td>loadings</td>
+<td>A matriz de loadinds (carregamentos) das variáveis (as colunas são eigenvectors)</td>
+</tr>
+<tr>
+<td>center</td>
+<td>center</td>
+<td>A variável means (significa que foram resgatados)</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>scale</td>
+<td>Escala aplicada a cada variável</td>
+</tr>
+<tr>
+<td>x</td>
+<td>scores</td>
+<td>As coordenadas dos indivíduos (observações) nos componentes principais</td>
+</tr>
+</tbody>
+</table>
+<p>Seu uso no aplicativo:</p>
+<p><img src="/apps/appPCAkmeans_files/gif-pca.gif" alt=""></p>
+<h2 id="método-não-hierárquico-de-agrupamento-k-means">Método não hierárquico de agrupamento K-means</h2>
+<p>Esta é uma das mais populares abordagens de agrupamento de dados por partição. A partir de uma escolha inicial para os centróides, o algorítmo procede verificando quais exemplares são mais similares a quais centroides.</p>
+<h2 id="vantagens">Vantagens:</h2>
+<ul>
+<li>Tendem a maximizar a dispersão entre os centros de gravidade dos clusters (mantem os clusters bem separados)</li>
+<li>Simplicidade de cálculo, calcula somente as distâncias entre os objetos e os centros de gravidade dos clusters</li>
+</ul>
+<h2 id="desvantagens">Desvantagens:</h2>
+<ul>
+<li>Depende dos conjuntos de sementes iniciais, principalmente se a seleção das sementes é aleatória</li>
+<li>Não há garantias de um agrupamento ótimo dos objetos</li>
+</ul>
+<p><img src="/apps/appPCAkmeans_files/gif-kmeans.gif" alt=""></p>
+<h3 id="clustes">Clustes</h3>
+<p>Note que é possível variar o número de clusters de interesse</p>
+<p><img src="/apps/appPCAkmeans_files/gif-clusters.gif" alt=""></p>
+<h2 id="download">Download</h2>
+<p>Para fazer o download da versão estatica dos gráficos do aplicativo basta clicar no botão de Download</p>
+<p><img src="/apps/appPCAkmeans_files/gif-download.gif" alt=""></p>
+<h1 id="avaliando-os-resultados-com-clvalidclvalid">Avaliando os resultados com <code>clvalid::clvalid()</code></h1>
+<p><img src="/apps/appPCAkmeans_files/gif-valid.gif" alt=""></p>
+<p>Este pacote faz os calculos das medidas que avaliam se os clusters são compactos, bem separados e estáveis.</p>
+<p>Vejamos os tipos de medidas:</p>
+<p><strong>Medidas de validação</strong>:</p>
+<ol>
+<li>conectividade: relativa ao grau de vizinhança entre objetos em um mesmo cluster, varia
+entre 0 e infinito e quanto menor melhor.</li>
+<li>silhueta: homogeneidade interna, assume valores entre -1 e 1 e quanto mais próximo de 1
+melhor.</li>
+<li>índice de Dunn: quantifica a separação entre os agrupamentos, assume valores entre 0 e 1 e
+quanto maior melhor.</li>
+</ol>
+<p><strong>Medidas de estabilidade</strong>:</p>
+<ol>
+<li>APN - average proportion of non-overlap: proporção média de observações não
+classificadas no mesmo cluster nos casos com dados completos e incompletos. Assume valor
+no intervalo [0,1], próximos de 0 indicam agrupamentos consistentes.</li>
+<li>AD - average distance: distância média entre observações classificadas no mesmo cluster
+nos casos com dados completos e incompletos. Assume valores não negativos, sendo
+preferíveis valores próximos de zero.</li>
+<li>ADM - average distance between means: distância média entre os centroides quando as
+observações estão em um mesmo cluster. Assume valores não negativos, sendo preferíveis
+valores próximos de zero.</li>
+<li>FOM - figure of merit: medida do erro cometido ao usar os centroides como estimativas das
+observações na coluna removida. Assume valores não negativos, sendo preferíveis valores
+próximos de zero.</li>
+</ol>
+<p>Referências:</p>
+<ul>
+<li>
+<p><a href="http://www.jstatsoft.org/v25/i04/paper">http://www.jstatsoft.org/v25/i04/paper</a></p>
+</li>
+<li>
+<p><a href="http://cran.r-project.org/web/packages/clValid/clValid.pdf">http://cran.r-project.org/web/packages/clValid/clValid.pdf</a></p>
+</li>
+<li>
+<p><a href="https://www.amazon.com.br/Introdu%C3%A7%C3%A3o-Minera%C3%A7%C3%A3o-Dados-Leandro-Augusto/dp/853528446X?tag=goog0ef-20&amp;smid=A1ZZFT5FULY4LN&amp;ascsubtag=bdfe9782-28b5-4343-ba3d-5f55b6703059">Introdução a Mineração de Dados com aplicações em R</a></p>
+</li>
+</ul>
+<p>Mais informações sobre a avaliação dos resultados do agrupamento podem ser conferidas em um post que falo sobre <a href="https://gomesfellipe.github.io/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/">Análise multivariada em R</a></p>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/apps/apppcakmeans/">Aplicativo para análise multivariada</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category></category>
+    </item>
+    <item>
+      <title>Dashboard com textmining de mídias sociais</title>
+      <link>https://gomesfellipe.github.io/apps/dashboard-text-mining-1/</link>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/apps/dashboard-text-mining-1/</guid>
+      <description>Códigos para gerar o painel que criei para auxiliar no estudo de dados do tipo string enquanto era estagiário. Executa mineração de texto, análise exploratória e análise de sentimentos de banco de dados de rede social adquiridos com o software Social Search.</description>
+      <content:encoded>&lt;![CDATA[
+        <h1 id="dashboard-text-mining-v1">Dashboard text mining v1</h1>
+<p>Link do repositório no github: <a href="https://github.com/gomesfellipe/dashboard-text-mining-1">https://github.com/gomesfellipe/dashboard-text-mining-1</a></p>
+<p>Link de acesso ao dashboard : <a href="https://gomesfellipe.shinyapps.io/dashboard-text-mining-1/">https://gomesfellipe.shinyapps.io/dashboard-text-mining-1/</a></p>
+<hr>
+<h2 id="motivação">Motivação</h2>
+<p>Elaborar este dashboard foi uma tarefa que decidi executar pois me foi perguntado se era possível &ldquo;alguma coisa&rdquo; com os dados obtidos através da ferramenta <a href="https://www.social-searcher.com/">Social Searcher</a> responsável por captar informações  de diferentes mídias sociais sob algum tópico de interesse.</p>
+<p>Decidi então praticar a criação de dashboards com R e juntei algumas abordagens simples de text mining em um dashboard produzido através do pacote <a href="http://rmarkdown.rstudio.com/flexdashboard/">flexdashboard</a>, disponível no CRAN.</p>
+<p>Portanto este dashboard não foi programado para funcionar de maneira genérica, as diversas funcionalidades devem ser adaptadas caso seja utilizado para analisar novas bases.</p>
+<h2 id="arquivos">Arquivos</h2>
+<p>Esta pasta contém os seguintes arquivos:</p>
+<ul>
+<li>
+<p>Código responsável por gerar o dashboard</p>
+<ul>
+<li>dashboard-text-mining-1.Rmd</li>
+</ul>
+</li>
+<li>
+<p>Bases:</p>
+<ul>
+<li>
+<p>base.xlsx - exemplo de dados obtidos com a ferramenta <a href="https://www.social-searcher.com/">Social Searcher</a></p>
+</li>
+<li>
+<p>sentimentos.csv - base com classificação de sentimentos (lexical)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Funções:</p>
+<ul>
+<li>catch_error.R</li>
+<li>cleanTweets.R</li>
+<li>cleanTweetsAndRemoveNAs.R</li>
+<li>html_to_text.R</li>
+<li>plot_kmeans.R</li>
+<li>rm_accent.R</li>
+<li>rquery_wordcloud.R</li>
+<li>score.sentiment.R</li>
+</ul>
+</li>
+</ul>
+<p>Mais informações sobre funções de textmining podem ser obtidas <a href="https://sites.google.com/site/miningtwitter/home">neste link</a> ou no <a href="https://github.com/gastonstat/Mining_Twitter">repositório deste guia no github</a></p>
+<h2 id="dashboard">Dashboard</h2>
+<p>Este dashboard conta com 5 abas. Além da base de dados obtida com o <a href="https://www.social-searcher.com/">Social Searcher</a>, também foi utilizada o pacote <a href="https://cran.r-project.org/web/packages/lexiconPT/index.html">lexiconPT</a> que conta com alguns datasets léxicos para  análise de texto em português. Com essa duas bases foi computada a interseção e os sentimentos de cada palavra foram registrados (qualquer nova palavra pode ser adicionada ao dicionário léxico posteriormente para enriquecer a apresentação visual).</p>
+<h4 id="sem-remover-sufixos">&ldquo;Sem remover sufixos&rdquo;</h4>
+<p>A primeira parte do dashboard apresenta 4 nuvens de palavras, na parte superior a primeira nuvem não foi feita a transformação <a href="https://pt.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a>, já na nuvem a direita essa transformação foi feita e ambas dispostas lado a lado para avaliar o efeito da transformação no shape da nuvem.</p>
+<p>Já as nuvens da parte inferior são versões das nuvens acima, realizando a análise lexical.</p>
+<p><img src="/apps/dashboard-text-mining-1_files/gif1.gif" alt=""></p>
+<p>Com os botões é possível controlar a frequência minima e o número máximo de palavras na nuvem.</p>
+<p>Além disso, ao lado da barra lateral dos botões é possível conferir a frequência de palavras únicas e também sequencias de palavras, que foram computadas com a ajuda do pacote <a href="https://cran.r-project.org/package=RWeka">RWeka</a> (ferramenta interessante para aplicações de machine learning e data mining).</p>
+<p><img src="fig/gif2.gif" alt="Conferindo sequencias de palavras"></p>
+<h4 id="removendo-sufixos">&ldquo;Removendo sufixos&rdquo;</h4>
+<p>A segunda aba possui basicamente as mesmas características da primeira, porém nesta seção foi realizada a retirada dos radicais com a função <code>SnowballC::wordStem()</code>, veja:</p>
+<p><img src="/apps/dashboard-text-mining-1_files/fig2.png" alt=""></p>
+<h4 id="associação-entre-palavras">&ldquo;Associação entre palavras&rdquo;</h4>
+<p>A terceira aba é responsável por trazer o resultados do comando <code>tm::findAssocs</code> que busca associações entre palavras em um <code>document-term</code> ou  uma <code>term-document</code>, do pacote <a href="https://cran.r-project.org/web/packages/tm">tm</a>, muito famoso quando o assunto é text mining.</p>
+<p><img src="/apps/dashboard-text-mining-1_files/fig1.png" alt=""></p>
+<h4 id="agrupamento">&ldquo;Agrupamento&rdquo;</h4>
+<p>Para efeito de ilustração do que pode ser feito, nesta aba foi feita uma análise de clusters calculando a distância euclideana e agrupando os dados de acordo com o método de Ward.</p>
+<p>O dendograma pode ser apresentado de muitas formas diferentes, então nesta apresentação coloquei à direita a representação convencional e à direita o mesmo dendograma é apresentado de maneira &ldquo;aberta&rdquo; e colorida, facilitando a visualização dos grupos formados.</p>
+<p><img src="/apps/dashboard-text-mining-1_files/gif3.gif" alt=""></p>
+<h4 id="k-means">&ldquo;k-means&rdquo;</h4>
+<p>Na última aba foi apresentado uma aplicação do algorítimo k-means, uma técnica simples de agrupamento utilizado em procedimentos não supervisionados de machine learning.</p>
+<p>Em conjunto com a função <code>ggplotly</code> do pacote <a href="https://cran.r-project.org/web/packages/plotly">plotly</a> fica muito simples tornar esta imagem interativa, veja:</p>
+<p><img src="/apps/dashboard-text-mining-1_files/gif4.gif" alt=""></p>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/apps/dashboard-text-mining-1/">Dashboard com textmining de mídias sociais</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category></category>
+    </item>
+  </channel>
+</rss>

@@ -4,28 +4,40 @@ author: Fellipe Gomes
 date: '2018-01-12'
 slug: []
 categories:
-  - Estatistica
-  - Analise Mutivariada
-  - Reports
-  - Prática
-  - Analise Exploratória
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Programação e Ferramentas
 tags:
-  - Estatistica
-  - Data Mining
-  - gomesfellipe
-  - Prática
-  - analise multivariada
-  - R Markdown
-  - Tabelas
-description: 'Alguns pacotes que serão bem úteis na hora de criar tabelas lindas e informativas!'
-featured: 'tabelas-incriveis2.jpg'
-featuredalt: 'Pic 8'
-featuredpath: 'date'
-linktitle: ''
+- analise-multivariada
+- data-mining
+- estatistica
+- pratica
+- rmarkdown
+- tabelas
+description: Alguns pacotes que serão bem úteis na hora de criar tabelas lindas e
+  informativas!
+featured: tabelas-incriveis2.jpg
+featuredalt: Ilustração sobre tabelas incriveis com r
+featuredpath: date
 type: post
+image_preview: tabelas-incriveis2.jpg
+schema_type: TechArticle
+educational_level: Beginner
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg
+keywords: analise-multivariada, data-mining, estatistica, pratica, rmarkdown, tabelas,
+  data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
 ```

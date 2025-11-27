@@ -4,36 +4,46 @@ author: Fellipe Gomes
 date: '2018-05-26'
 slug: []
 categories:
-  - Analise Exploratória
-  - Data mining
-  - Estatistica
-  - Modelagem Estatistica
-  - Prática
-  - R
-  - Reports
-  - Machine Learning
-  - Analise Mutivariada
-  - Aprendizado Supervisionado
-  - Aprendizado Não Supervisionado
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
+- Texto e NLP
 tags:
-  - analise multivariada
-  - Correlacoes
-  - Data Mining
-  - Estatistica
-  - gomesfellipe
-  - kmeans
-  - modelagem
-  - pca
-  - R
-  - RStudio
-description: 'Veja como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística para ilustrar alguns possíveis cenários da analise da dados'
-featured: 'img1.png'
-featuredalt: 'Pic 16'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
+- analise-multivariada
+- correlacao
+- data-mining
+- estatistica
+- kmeans
+- modelagem
+- pca
+- r
+- rstudio
+description: Veja como é possível realizar a AED de forma muito rápida com o pacote
+  SmartEAD, além de uma breve aplicação de técnicas de machine learning e estatística
+  para ilustrar alguns possíveis cenários da analise da dados
+featured: img1.png
+featuredalt: Ilustração sobre aed de forma rápida e um pouco de machine learning
+featuredpath: date
+type: post
+image_preview: img1.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/05/img1.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/05/img1.png
+keywords: analise-multivariada, correlacao, data-mining, estatistica, kmeans, modelagem,
+  pca, r, rstudio, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 ```{r setup, include=FALSE,warning=F}
 knitr::opts_chunk$set(echo = TRUE, warning = F, message = F, error = F)
 library(knitr)

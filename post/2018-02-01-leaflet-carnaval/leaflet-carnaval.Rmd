@@ -1,32 +1,46 @@
 ---
-title: 'Carnaval e mapas interativos com R'
+title: Carnaval e mapas interativos com R
 author: Fellipe Gomes
 date: '2018-02-01'
 slug: []
 categories:
-  - R
-  - Prática
-  - Google
-  - Mapas
-  - Analise Mutivariada
-  - Reports
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Programação e Ferramentas
 tags:
-  - gomesfellipe
-  - Estatistica
-  - Google
-  - Prática
-  - R
-  - RStudio
-  - Mapa
-  - leaflet
-description: 'Carnaval esta começando e muita gente quer saber: "Onde tem bloco??" Para ajudar a responder essa pergunta e orientar os foliões hoje vou mostrar como podemos obter referencias geograficas a partir de endereços e criar mapas interativos usando R!'
-featured: 'carnaval2.png'
-featuredalt: 'Pic 10'
-featuredpath: 'date'
-linktitle: ''
-type: "post" 
+- estatistica
+- google
+- leaflet
+- mapa
+- pratica
+- r
+- rstudio
+description: 'Carnaval esta começando e muita gente quer saber: "Onde tem bloco??"
+  Para ajudar a responder essa pergunta e orientar os foliões hoje vou mostrar como
+  podemos obter referencias geograficas a partir de endereços e criar mapas interativos
+  usando R!'
+featured: carnaval2.png
+featuredalt: Ilustração sobre carnaval e mapas interativos com r
+featuredpath: date
+type: post
+image_preview: carnaval2.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/02/carnaval2.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/02/carnaval2.png
+keywords: estatistica, google, leaflet, mapa, pratica, r, rstudio, data science, machine
+  learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
 

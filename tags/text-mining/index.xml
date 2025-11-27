@@ -1,48 +1,1702 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>text mining on Fellipe Gomes</title>
+    <title>text mining on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/text-mining/</link>
-    <description>Recent content in text mining on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 27 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/text-mining/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Extração de informações de imagens com IA Generativa</title>
-      <link>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</guid>
-      <description>Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava Preparando o Ambiente Carregar dados Carregar modelo Prompt Engineering Inferência Avaliar modelo Conclusão Referências Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava GenAI refere-se a modelos de inteligência artificial capazes de gerar conteúdo novo e criativo a partir de dados de entrada. Seu uso está revolucionando a maneira como processamos dados não estruturados, como imagens, áudios, textos, vídeos, etc.</description>
-    </item>
-    
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/text-mining/" rel="self" type="application/rss+xml" />
     <item>
       <title>Vou te provar que da para fazer Grafos bonitos em R!</title>
       <link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link>
       <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
-      <description>Introdução e contexto O que são Grafos? Como contruir um? Carregar dependências Fonte dos dados NER - Named Entity Recognition Preparar dados Bônus Conclusão Outras bibliotecas para construção de grafos Introdução e contexto Durante os anos de 2020 e 2021 fiz um MBA Executivo em Business Analytics e Big Data na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</description>
-    </item>
+      <description>Neste post vamos coletar notícias via web scrapping, detectar entidades dos textos e criar um grafo utilizando ggplot2</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#introdu%C3%A7%C3%A3o-e-contexto" id="toc-introdução-e-contexto">Introdução e contexto</a>
+<ul>
+<li><a href="#o-que-s%C3%A3o-grafos" id="toc-o-que-são-grafos">O que são Grafos?</a></li>
+<li><a href="#como-contruir-um" id="toc-como-contruir-um">Como contruir um?</a></li>
+</ul></li>
+<li><a href="#carregar-depend%C3%AAncias" id="toc-carregar-dependências">Carregar dependências</a></li>
+<li><a href="#fonte-dos-dados" id="toc-fonte-dos-dados">Fonte dos dados</a></li>
+<li><a href="#ner---named-entity-recognition" id="toc-ner---named-entity-recognition">NER - Named Entity Recognition</a></li>
+<li><a href="#preparar-dados" id="toc-preparar-dados">Preparar dados</a></li>
+<li><a href="#b%C3%B4nus" id="toc-bônus">Bônus</a></li>
+<li><a href="#conclus%C3%A3o" id="toc-conclusão">Conclusão</a></li>
+<li><a href="#outras-bibliotecas-para-constru%C3%A7%C3%A3o-de-grafos" id="toc-outras-bibliotecas-para-construção-de-grafos">Outras bibliotecas para construção de grafos</a></li>
+</ul>
+</div>
+
+<div id="introdução-e-contexto" class="section level1">
+<h1>Introdução e contexto</h1>
+<p>Durante os anos de 2020 e 2021 fiz um <a href="https://educacao-executiva.fgv.br/df/brasilia/cursos/mba-pos-graduacao/mba-presencial/mba-executivo-em-business-analytics-e-big-data">MBA Executivo em Business Analytics e Big Data</a> na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</p>
+<p>No trabalho final fomos desafiados a extrair dados da internet via api ou scraping, aplicar a metodologia apropriada para extrair informações de interesse e contruir um Grafo.</p>
+<p>Como esse gráfico deu mais de trabalho do que eu esperava e fiquei bem satisfeito com o resultado final, resolvi fazer uma nova análise para praticar e publicar aqui no blog, espero que gostem!</p>
+<div id="o-que-são-grafos" class="section level2">
+<h2>O que são Grafos?</h2>
+<p>📎 Segundo o Wikipedia:</p>
+<blockquote>
+<p>“A teoria dos grafos é um ramo da matemática que estuda as relações entre os objetos de um determinado conjunto”</p>
+</blockquote>
+<p>São muito úteis para análises de redes sociais, redes de amizades ou qualquer rede com relações de dependências. Existem muitos tipos de grafos como conectados, desconectados, esparsos, densos, direcionados, não direcionados e por ai vai…</p>
+<p>Além disso existe toda uma nomenclatura específica, mas não entrarei em detalhes teóricos neste post pois também estou estudado sobre o tema! Caso queira aprofundar na teoria por trás recomendo <a href="http://faculty.ucr.edu/~hanneman/nettext/index.html">este material</a> gratuito muito bom!</p>
+</div>
+<div id="como-contruir-um" class="section level2">
+<h2>Como contruir um?</h2>
+<p>No curso que fiz aprendemos a mexer no <a href="https://gephi.org/">Gephi</a> para a contrução desses Grafos (ferramenta incrível, diga-se de passagem) porém ouvi dizer diversas vezes, tanto dentro quanto fora da FGV, que R e Python eram muito limitados para construção de Grafos bonitos e que esse software sempre a melhor opção.</p>
+<p>Apesar do enorme potencial do Gephi, fiquei um pouco entediado estudando-o pois não sou grande fã de ferramentas <em>point-and-click</em> e quando o professor falou que a escolha da ferramenta para a construção do Grafo era livre, resolvi tentar fazê-lo em R!</p>
+</div>
+</div>
+<div id="carregar-dependências" class="section level1">
+<h1>Carregar dependências</h1>
+<p>Pacotes utilizados neste post:</p>
+<pre class="r"><code>library(rvest)     # web scrapping
+library(dplyr)     # manipulate data
+library(purrr)     # functional prog
+library(stringr)   # str toolkit
+library(spacyr)    # ner
+library(igraph)    # base graph
+library(tidygraph) # tidy graph
+library(ggraph)    # plot graph</code></pre>
+</div>
+<div id="fonte-dos-dados" class="section level1">
+<h1>Fonte dos dados</h1>
+<p>Os dados utilizados neste post foram coletados via web scrapping do site do <a href="https://g1.globo.com/">G1 - Globo</a>. Optei por trabalhar com textos jornalísticos neste post pois apresentam a vantagem de serem bem escritos, o que facilita na tarefa de mineração de texto.</p>
+<p>Também fiz um grafo analisando tweets sobre a CPI da pandemia <a href=".#b%C3%B4nus">que será apresentado como bônus no final deste post</a> e para quem tiver curiosidade de conferir <a href="https://github.com/gomesfellipe/cpi_da_pandemia">os códigos</a> vai notar que foi necessário um tratamento muito mais extensivo para corrigir os nomes de cada um dos senadores, deputados e personagens políticos detectados.</p>
+<p>Confira abaixo todos os códigos necessários para realizar tal extração:</p>
+<details>
+<summary>
+(<em>Clique aqui para exibir as funções <code>scrape_post_links</code> e <code>scrape_post_body</code> </em>)
+</summary>
+<pre class="r"><code># Funcao para coletar os links de cada noticia
+scrape_post_links &lt;- function(site) {
+  cat(paste0(site, &quot;\n&quot;))
+  
+  source_html &lt;- read_html(site)
+  
+  links &lt;- source_html %&gt;%
+    html_nodes(&quot;div.widget--info__text-container&quot;) %&gt;%
+    html_nodes(&quot;a&quot;) %&gt;%
+    html_attr(&quot;href&quot;)
+  
+  links &lt;- links[!is.na(links)]
+  
+  return(links)
+}
+
+# Funcao para coletar o texto da materia em cada link
+scrape_post_body &lt;- function(site) { 
+  
+  text &lt;- tryCatch({
+    cat(paste0(site, &quot;\n&quot;))
+    body &lt;- site %&gt;%
+      read_html %&gt;%
+      html_nodes(&quot;article&quot;) %&gt;%
+      html_nodes(&quot;p.content-text__container&quot;)  %&gt;%
+      html_text %&gt;% 
+      paste(collapse = &#39;&#39;)
     
+  }, error = function(e){
+    cat(paste(&quot;ERRO 404&quot;, &quot;\n&quot;))
+    body &lt;- NA
+  })
+  
+  return(body)
+}
+
+# criar matriz de adjacencias
+get_adjacent_list &lt;- function(edge_list) {
+  gtools::combinations(length(edge_list), 2, edge_list)  
+}</code></pre>
+</details>
+<p> </p>
+<pre class="r"><code># raiz
+root &lt;- &quot;https://g1.globo.com/busca/?q=economia+brasil&quot;
+
+# gerar links das proximas 100 paginas
+all_pages &lt;- c(root, paste0(root, &quot;&amp;page=&quot;, 1:50))
+
+# coletar os links dos posts de cada pagina
+all_links &lt;- map(all_pages, scrape_post_links) %&gt;% unlist()
+
+# extrair urls
+cleaned_links &lt;- map_chr(all_links, ~{
+  .x %&gt;% 
+    urltools::param_get() %&gt;% 
+    pull(u) %&gt;% 
+    urltools::url_decode()
+})
+
+# reter apenas links que falam de economia
+cleaned_links &lt;- cleaned_links %&gt;% .[str_detect(.,  &quot;g1.globo.com/economia&quot;)]
+
+# nao reter links do globoplay
+cleaned_links &lt;- cleaned_links %&gt;% .[!str_detect(.,  &quot;globoplay&quot;)]
+
+# coletar conteudo de cada link
+data &lt;- map_chr(cleaned_links, scrape_post_body) %&gt;% unique()</code></pre>
+</div>
+<div id="ner---named-entity-recognition" class="section level1">
+<h1>NER - Named Entity Recognition</h1>
+<p>Utilizaremos um modelo de reconhecimento de entidades pré-treinado fornecido pela <a href="https://spacy.io/">Spacy</a> (que fornece essa e muitas outras soluções interessantes quando se trata de processamento de linguagem natural).</p>
+<p>Primeiramente vamos configurar o <code>spacyr</code> na máquina para utilizar o modelo pré treinado para reconhecimento de entidades em português:</p>
+<pre class="r"><code># Executar apenas 1 vez
+spacyr::spacy_install()
+spacy_download_langmodel(&quot;pt_core_news_sm&quot;)</code></pre>
+<p>Inicializar modelo pré-treinado em português:</p>
+<pre class="r"><code>spacy_initialize(model=&quot;pt_core_news_sm&quot;)</code></pre>
+<p>Aplicar modelo carregado para o reconhecimento de entidades:</p>
+<pre class="r"><code>entities &lt;- spacy_extract_entity(data)</code></pre>
+<p>Filtrar apenas entidades cujo tipo são <strong>pessoas</strong> ou <strong>organizações</strong>:</p>
+<pre class="r"><code>filtered_entities &lt;- 
+  entities %&gt;% 
+  filter(ent_type==&#39;ORG&#39;| ent_type==&#39;PER&#39;)</code></pre>
+</div>
+<div id="preparar-dados" class="section level1">
+<h1>Preparar dados</h1>
+<p>Precisamos criar uma lista de arestas:</p>
+<pre class="r"><code>edges &lt;- 
+  filtered_entities %&gt;%
+  group_by(doc_id) %&gt;%
+  summarise(entities = paste(text, collapse = &quot;,&quot;)) %&gt;% 
+  pull(entities) %&gt;% 
+  str_split(&quot;,&quot;) %&gt;% 
+  map(~unique(unlist(.x))) %&gt;% 
+  .[map_dbl(., length) != 1]</code></pre>
+<p>Agora criaremos a matriz de adjacências, que envolvem todas as combinações 2 a 2 das entidades detectadas em cada notícia:</p>
+<pre class="r"><code>adjacent_matrix &lt;-
+  map_dfr(edges, ~ as.data.frame(get_adjacent_list(.x))) %&gt;% 
+  as_tibble() %&gt;% 
+  set_names(c(&#39;item1&#39;, &#39;item2&#39;))</code></pre>
+<p>Aplicaremos algum tratamento para padronizar as entidades, reter apenas combinações que aconteceram pelo menos 3 vezes e remover algum resíduo que veio no processo de NER:</p>
+<pre class="r"><code># Padronizar entidades
+adjacent_matrix &lt;- adjacent_matrix %&gt;% 
+  mutate_all(~.x %&gt;% 
+               str_replace_all(&quot;Fundação Getulio Vargas&quot;, &quot;FGV&quot;) %&gt;% 
+               str_replace_all(&quot;FMI&quot;, &quot;Fundo Monetário Internacional&quot;) %&gt;% 
+               str_replace_all(&quot;Paulo Guedes&quot;, &quot;Guedes&quot;) %&gt;% 
+               str_replace_all(&quot;Estados Unidos( da Am[ée]rica)?&quot;, &quot;EUA&quot;) %&gt;% 
+               str_replace_all(&quot;Donald Trump&quot;, &quot;Trump&quot;) %&gt;% 
+               str_replace_all(&quot;CEF&quot;, &quot;Caixa Econômica Federal&quot;) %&gt;% 
+               str_replace_all(&quot;CMN&quot;, &quot;Conselho Monetário Nacional&quot;) %&gt;% 
+               str_replace_all(&quot;Cl[áa]udio Considera&quot;, &quot;Cláudio&quot;) %&gt;% 
+               str_replace_all(&quot;OCDE&quot;, &quot;Organização para a Cooperação e
+                               Desenvolvimento Econômico&quot;) %&gt;% 
+               str_replace_all(&quot;(André )?Brandão&quot;, &quot;André Brandão&quot;) %&gt;% 
+               str_replace_all(&quot;(Maur[ií]cio )?Macri&quot;, &quot;Mauricio Macri&quot;) %&gt;% 
+               str_remove_all(&quot;^(?i)(no|de)\\s&quot;)
+             
+             )
+
+# remover residuos
+{
+  entities_to_drop &lt;- c(&quot;Assine&quot;, &quot;Google Podcasts&quot;, &quot;Spotify&quot;, &quot;Focus do&quot;,
+                        &quot;Focus&quot;, &quot;Segundo&quot;, &quot;Ninguém&quot;, &quot;Haverá&quot;, &quot;G1&quot;,
+                        &quot;Começa&quot;, &quot;LEIA&quot;, &quot;R$&quot;, &quot;Considera&quot;, &quot;Caixa Aqui&quot;)
+  
+  weighted_edgelist &lt;- adjacent_matrix %&gt;%
+    filter_at(1:2, ~ !.x %in% entities_to_drop) %&gt;% 
+    group_by(item1, item2) %&gt;%
+    summarise(n=n()) %&gt;% 
+    ungroup() %&gt;% 
+    filter(n&gt;3) 
+}</code></pre>
+<p>Definir alguns objetos para o grafo:</p>
+<pre class="r"><code># Instanciar objeto das setas
+a &lt;- grid::arrow(type = &quot;closed&quot;, length = unit(.15, &quot;inches&quot;))
+
+# Definir pesos conforme numero de ocorrencias
+subt &lt;- weighted_edgelist
+
+# Instanciar objeto dos vertices
+vert &lt;- subt %&gt;% 
+  tidyr::gather(item, word, item1, item2) %&gt;%
+  group_by(word) %&gt;% 
+  summarise(n = sum(n))
+
+# Obter componentes para colorir os clusters do grafo
+tidy_graph_components &lt;- 
+  subt  %&gt;%
+  select(item1, item2) %&gt;% 
+  as.matrix() %&gt;%
+  graph.edgelist(directed = FALSE)  %&gt;%
+  as_tbl_graph() %&gt;% 
+  activate(&quot;edges&quot;) %&gt;% 
+  # definir pesos como numero de ocorrencias
+  mutate(weight = subt$n) %&gt;% 
+  activate(&quot;nodes&quot;) %&gt;% 
+  # obter clusters:
+  mutate(component = as.factor(tidygraph::group_edge_betweenness()))
+  # outros tipos de agrupamentos:
+  # tidygraph.data-imaginist.com/reference/group_graph.html 
+  
+# Atualizar vertice para incluir grupos
+vert &lt;- vert %&gt;% 
+  left_join( as.data.frame(activate(tidy_graph_components, &quot;nodes&quot;)) %&gt;% 
+               rename(word = name))</code></pre>
+<p>Finalmente, vamos criar o grafo utilizando <code>ggplot2</code>:</p>
+<pre class="r"><code>set.seed(1)
+subt %&gt;%
+  graph_from_data_frame(vertices = vert) %&gt;%
+  # https://www.data-imaginist.com/2017/ggraph-introduction-layouts/ # layouts
+  ggraph(layout = &quot;fr&quot;) +
+  geom_edge_link(aes(edge_alpha = n, edge_width = n), show.legend = FALSE,
+                 arrow = a, end_cap = circle(.07, &#39;inches&#39;), color = &quot;#D9D9D9A0&quot;) +
+  geom_node_point() + 
+  geom_node_text(aes(label = name, size = n, alpha = n, color = component),# color = &quot;#EAFF00&quot;,
+                 repel = TRUE, point.padding = unit(0.2, &quot;lines&quot;),
+                 show.legend = F) +
+  scale_size(range = c(2,10)) +
+  scale_alpha(range = c(0.5,1))+ 
+  theme_dark() + 
+  theme(
+    panel.background = element_rect(fill = &quot;#2D2D2D&quot;),
+    legend.key = element_rect(fill = &quot;#2D2D2D&quot;)
+  ) +
+  theme_graph(background = &quot;black&quot;)</code></pre>
+<center>
+<img src="/post/2021-12-03-grafos-em-r/grafo.png" style="width:95.0%" />
+</center>
+<p>📌 Interpretação</p>
+<p>Este grafo resume algumas informações interessantes sobre como o cenário da economia no brasil estava no dia 30 de novembro de 2021. Vejamos alguns pontos relevantes que podem ser envontrados no cenário atual:</p>
+<div class="w3-panel w3-pale-green w3-border">
+<p>  ☞ Bolsa familia</p>
+<p>O Auxílio Brasil é referido como o “Novo Bolsa Família” pelos jornais e por isso deve ter sido criada tal relação no Grafo. Já a Caixa Econômica Federal é o agente que executa os pagamentos.</p>
+</div>
+<div class="w3-panel w3-pale-red w3-border">
+<p>  ☞ Guedes</p>
+<p>Paulo Guedes é nosso atual ministro da economia e envolta de seu nome aparecem diversos assuntos que estão em pauta atualmente como a PEC dos precatórios, (a privatização da) Petrobrás, Copom, IPCA, Auxílio Brasil dentre outros.</p>
+</div>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  ☞ Fundo Monetário Internacional</p>
+<p>O FMI <a href="https://pt.wikipedia.org/wiki/Fundo_Monet%C3%A1rio_Internacional">trabalha para melhorar as economias dos países</a> e além da Argentina estar endividada e em acordo com o FMI, é época de eleição, o que explica haver alguns personagens de sua política relacionados.</p>
+</div>
+<p>Salvar localmente em alta resolução:</p>
+<pre class="r"><code>ggsave(filename = &#39;grafo.png&#39;, width = 8, height = 6, device=&#39;png&#39;, dpi=700)</code></pre>
+<p>O legal de salvar em alta resolução é poder dar zoom e navegar pelo grafo!</p>
+</div>
+<div id="bônus" class="section level1">
+<h1>Bônus</h1>
+<p>Antes de criar este post trabalhei em um <a href="https://github.com/gomesfellipe/cpi_da_pandemia">outro grafo</a> com banco de dados de aproximadamente 27GB de tweets coletados e fornecidos gentilmente pelo <a href="https://twitter.com/trifenol">Janderson Toth</a> (Para quem não o conheçe, recomendo fortemente <a href="https://br.linkedin.com/in/trifenol">segui-lo no linkedin</a> pois ele tem compartilhado uma série de posts com insights obtidos destes dados!)</p>
+<center>
+<img src="/post/2021-12-03-grafos-em-r/grafo2.png" style="width:95.0%" />
+</center>
+<p>Para quem tiver interesse, o código está <a href="https://github.com/gomesfellipe/cpi_da_pandemia">disponível no github</a>!</p>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<p>Convenhamos que, de fato, criar um grafo no R não é uma tarefa super simples. No Gelphi é possível criar grafos até mais bonitos que este, porém, no longo prazo, ganhamos em produtividade e em escalabilidade pois poderíamos reaproveitar muito código e tranquilamente desenvolver uma rotina para criar novos grafos a partir de dados streaming, por exemplo, automatizando todo o processo!</p>
+</div>
+<div id="outras-bibliotecas-para-construção-de-grafos" class="section level1">
+<h1>Outras bibliotecas para construção de grafos</h1>
+<p>Depois de conversar com algumas pessoas que leram o post, achei que merecia um update com mais idéias de mais bibliotecas que poderiam ter sido utilizadas:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/cheddar/vignettes/PlotsAndStats.pdf">cheddar</a></li>
+<li><a href="https://cran.r-project.org/web/packages/bipartite/bipartite.pdf">bipartite</a></li>
+<li><a href="https://pedroj.github.io/bipartite_plots/">ggbipart</a></li>
+<li><a href="https://rich-iannone.github.io/DiagrammeR/">diagrameR</a></li>
+<li><a href="https://cran.r-project.org/web/packages/visNetwork/vignettes/Introduction-to-visNetwork.html">visNetwork</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">ggplot2</category>
+      <category domain="tag">grafo</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
+      <category domain="tag">strings</category>
+      <category domain="tag">text-mining</category>
+      <category domain="tag">tidyverse</category>
+      <category domain="tag">web-scrappnig</category>
+    </item>
     <item>
       <title>Brasil x Argentina, tidytext e Machine Learning</title>
       <link>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/</guid>
-      <description>Brasil vs Argentina e Text Mining A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos quintilhões de bytes todos os dias, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.</description>
+      <description>Aplicando técnincas de Text Mining como pacote tidy text para explorar a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos pode ser divertida além de possíveis aplicações de machine learning</description>
+      <content:encoded>&lt;![CDATA[
+        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="brasil-vs-argentina-e-text-mining" class="section level1">
+<h1>Brasil vs Argentina e Text Mining</h1>
+<p>A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos <a href="http://cio.com.br/noticias/2015/10/27/tome-nota-2-5-quintilhoes-de-bytes-sao-criados-todos-os-dias/">quintilhões de bytes todos os dias</a>, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.</p>
+<p>Dada a rivalidade histórica entre Brasil e Argentina achei que seria interessante avaliar como anda o comportamento das pessoas do Brasil nas mídias sociais em relação a esses dois países. Para o post não ficar muito longo, escolhi que iria recolher informações apenas do Twitter devido a praticidade, foram coletados os últimos 4.000 tweets com o termo “brasil” e os últimos “4.000” tweets com o termo “argentina” no Twitter através da sua API com o pacote os <code>twitteR</code> e <code>ROAuth</code>. O código pode ser conferido <a href="https://github.com/gomesfellipe/functions/blob/master/getting_twitter_data.R">neste link</a>.</p>
+<p>Análise de textos sempre foi um tema que me interessou muito, no final do ano de 2017 quando era estagiário me pediram para ajudar em uma pesquisa que envolvia a análise de palavras criando algumas nuvens de palavras. Pesquisando sobre técnicas de textmining descobri tantas abordagens diferentes que resolvi juntar tudo que tinha encontrado em uma única função (que será apresentada a seguir) para a confecção dessas nuvens, utilizarei esta função para ter uma primeira impressão dos dados.</p>
+<p>Além disso, como seria um problema a tarefa de criar as nuvens de palavras só poderia ser realizada por alguém com conhecimento em R, na época estava começando meus estudo sobre shiny e como treinamento desenvolvi um app que esta hospedado no link: <a href="https://gomesfellipe.shinyapps.io/appwordcloud/" class="uri">https://gomesfellipe.shinyapps.io/appwordcloud/</a> e o código esta aberto e disponível para quem se interessar no meu github <a href="https://github.com/gomesfellipe/appwordcloud/blob/master/appwordcloud.Rmd">neste link</a></p>
+<p>Porém, após ler e estudar o livro <a href="https://www.tidytextmining.com/">Text Mining with R - A Tidy Approach</a> por <span class="citation"><a href="#ref-tidytext" role="doc-biblioref">Silge; Robinson</a> (<a href="#ref-tidytext" role="doc-biblioref">2018</a>)</span> hoje em dia eu olho para trás e vejo que poderia ter feito tanto a função quanto o aplicativo de maneira muito mais eficiente portanto esse post trás alguns dos meus estudos sobre esse livro maravilhoso e também algum estudo sobre Machine Learning com o pacote <a href="https://cran.r-project.org/web/packages/caret"><code>caret</code></a></p>
+<div id="importando-a-dados" class="section level2">
+<h2>Importando a dados</h2>
+<p>Como já foi dito, a base de dados foi obtida através da API do twitter e o código pode ser obtido <a href="https://github.com/gomesfellipe/functions/blob/master/getting_twitter_data.R">neste link</a>.</p>
+<pre class="r"><code>library(dplyr)
+library(kableExtra)
+library(magrittr)
+
+base &lt;- read.csv(&quot;original_books.csv&quot;) %&gt;% as_tibble()</code></pre>
+</div>
+<div id="nuvem-de-palavras-rápida-com-função-customizada" class="section level2">
+<h2>Nuvem de palavras rápida com função customizada</h2>
+<p>Para uma primeira impressão dos dados, vejamos o que retorna uma nuvem de palavras criada com a função <a href="https://github.com/gomesfellipe/functions/blob/master/wordcloud_sentiment.R"><code>wordcloud_sentiment()</code></a> que desenvolvi antes de conhecer a “A Tidy Approach” para Text Mining:</p>
+<pre class="r"><code>devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/wordcloud_sentiment.R&quot;)
+
+# Obtendo nuvem e salvando tabela num objeto com nome teste:
+df &lt;- wordcloud_sentiment(base$text,
+                      type = &quot;text&quot;,
+                      sentiment = F,
+                      excludeWords = c(&quot;nao&quot;,letters,LETTERS),
+                      ngrams = 2,
+                      tf_idf = F,
+                      max = 100,
+                      freq = 10,
+                      horizontal = 0.9,
+                      textStemming = F,
+                      print=T)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-2-1.png" width="1056" /></p>
+<p>Não poderia esquecer, além da nuvem, a função também retorna um dataframe com a frequência das palavras:</p>
+<pre class="r"><code>df %&gt;% as_tibble()</code></pre>
+<pre><code>## # A tibble: 29,064 x 2
+##    words          freq  
+##    &lt;chr&gt;          &lt;chr&gt; 
+##  1 =              &quot;2795&quot;
+##  2 brasil copa    &quot;2061&quot;
+##  3 copa mundo     &quot;1959&quot;
+##  4 hat trick      &quot;1327&quot;
+##  5 = hoje         &quot;1248&quot;
+##  6 hoje brasil    &quot;1215&quot;
+##  7 mundo          &quot; 852&quot;
+##  8 isl ndia       &quot; 820&quot;
+##  9 pra copa       &quot; 813&quot;
+## 10 estreia brasil &quot; 782&quot;
+## # … with 29,054 more rows</code></pre>
+<p>E outra função interessante é a de criar uma nuvem a partir de um webscraping muito (muito mesmo) introdutório, para isso foi pegar todo o texto da página sobre a copa do mundo no Wikipédia, veja:</p>
+<pre class="r"><code># Obtendo nuvem e salvando tabela num objeto com nome teste:
+df_html &lt;- wordcloud_sentiment(&quot;https://pt.wikipedia.org/wiki/Copa_do_Mundo_FIFA&quot;,
+                      type = &quot;url&quot;,
+                      sentiment = F,
+                      excludeWords = c(&quot;nao&quot;,letters,LETTERS),
+                      ngrams = 2,
+                      tf_idf = F,
+                      max = 100,
+                      freq = 6,
+                      horizontal = 0.9,
+                      textStemming = F,
+                      print=T)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Essa função é bem “prematura,” existem infinitas maneiras de melhorar ela e não alterei ela ainda por falta de tempo.</p>
+</div>
+<div id="a-tidy-approach" class="section level2">
+<h2>A Tidy Approach</h2>
+<p>O formato tidy, em que cada linha corresponde a uma observação e cada coluna à uma variável, veja:</p>
+<center>
+<img src="http://garrettgman.github.io/images/tidy-1.png" style="width:70.0%" />
+</center>
+<p>Agora a tarefa será simplificada com a abordagem tidy, além das funções do livro <a href="https://www.tidytextmining.com/">Text Mining with R</a> utilizarei a função <a href="https://github.com/gomesfellipe/functions/blob/master/clean_tweets.R"><code>clean_tweets</code></a> que adaptei inspirado nesse post dessa pagina: <a href="https://sites.google.com/site/miningtwitter/home">Quick guide to mining twitter with R</a> quando estudava sobre textmining.</p>
+<div id="arrumando-e-transformando-a-base-de-dados" class="section level3">
+<h3>Arrumando e transformando a base de dados</h3>
+<p>Utilizando as funções do pacote <code>tidytext</code> em conjunto com os pacotes <code>stringr</code> e <code>abjutils</code>, será possível limpar e arrumar a base de dados.</p>
+<p>Além disso serão removidas as stop words de nossa base, com a função <code>stopwords::stopwords("pt")</code> podemos obter as stopwords da nossa língua</p>
+<pre class="r"><code>library(stringr)
+library(tidytext)
+library(abjutils)
+
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/clean_tweets.R&quot;)
+
+original_books = base %&gt;% 
+  mutate(text = clean_tweets(text) %&gt;% enc2native() %&gt;% rm_accent())
+
+#Removendo stopwords:
+excludewords=c(&quot;[:alpha:]&quot;,&quot;[:alnum:]&quot;,&quot;[:digit:]&quot;,&quot;[:xdigit:]&quot;,&quot;[:space:]&quot;,&quot;[:word:]&quot;,
+               LETTERS,letters,1:10,
+               &quot;hat&quot;,&quot;trick&quot;,&quot;bc&quot;,&quot;de&quot;,&quot;tem&quot;,&quot;twitte&quot;,&quot;fez&quot;,
+               &#39;pra&#39;,&quot;vai&quot;,&quot;ta&quot;,&quot;so&quot;,&quot;ja&quot;,&quot;rt&quot;)
+
+stop_words = data_frame(word = c(stopwords::stopwords(&quot;pt&quot;), excludewords))
+
+tidy_books &lt;- original_books %&gt;%
+  unnest_tokens(word, text) %&gt;% 
+  anti_join(stop_words)</code></pre>
+<p>Portando a base de dados após a limpeza e a remoção das stop words:</p>
+<pre class="r"><code>#Palavras mais faladas:
+tidy_books %&gt;% count(word, sort = TRUE) </code></pre>
+<pre><code>## # A tibble: 3,900 x 2
+##    word          n
+##    &lt;chr&gt;     &lt;int&gt;
+##  1 copa       6993
+##  2 brasil     4164
+##  3 argentina  3487
+##  4 mundo      2030
+##  5 hoje       1825
+##  6 letras     1562
+##  7 messi      1493
+##  8 estreia    1107
+##  9 est         866
+## 10 isl         828
+## # … with 3,890 more rows</code></pre>
+<pre class="r"><code>#Apos a limpeza, caso precise voltar as frases:
+original_books = tidy_books%&gt;%
+  group_by(book,line)%&gt;%
+  summarise(text=paste(word,collapse = &quot; &quot;))</code></pre>
+<div id="palavras-mais-frequentes" class="section level4">
+<h4>Palavras mais frequentes</h4>
+<p>Vejamos as palavras mais faladas nessa pesquisa:</p>
+<pre class="r"><code>library(ggplot2)
+
+tidy_books %&gt;%
+  count(word, sort = TRUE) %&gt;%
+  filter(n &gt; 400) %&gt;%
+  mutate(word = reorder(word, n)) %&gt;%
+  
+  ggplot(aes(word, n, fill = I(&quot;yellow&quot;), colour = I(&quot;green&quot;))) +
+  geom_col(position=&quot;dodge&quot;) +
+  xlab(NULL) +
+  labs(title = &quot;Frequencia total das palavras pesquisadas&quot;)+
+  coord_flip()+ theme(
+  panel.background = element_rect(fill = &quot;#74acdf&quot;,
+                                colour = &quot;lightblue&quot;,
+                                size = 0.5, linetype = &quot;solid&quot;),
+  panel.grid.major = element_line(size = 0.5, linetype = &#39;solid&#39;,
+                                colour = &quot;white&quot;), 
+  panel.grid.minor = element_line(size = 0.25, linetype = &#39;solid&#39;,
+                                colour = &quot;white&quot;)
+  )</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="palavras-mais-frequentes-para-cada-termo" class="section level4">
+<h4>Palavras mais frequentes para cada termo</h4>
+<p>Vejamos as nuvens de palavras mais frequentes de acordo com cada um dos termos pesquisados:</p>
+<pre class="r"><code>#Criando nuvem de palavra:
+library(wordcloud)
+
+par(mfrow=c(1,2))
+tidy_books %&gt;%
+  filter(book==&quot;br&quot;)%&gt;%
+  count(word) %&gt;%
+  with(wordcloud(word, n, max.words = 100,random.order = F,min.freq = 15,random.color = F,colors = c(&quot;#009b3a&quot;, &quot;#fedf00&quot;,&quot;#002776&quot;),scale = c(2,1),rot.per = 0.05))
+
+tidy_books %&gt;%
+  filter(book==&quot;arg&quot;)%&gt;%
+  count(word) %&gt;%
+  with(wordcloud(word, n, max.words = 100,min.freq = 15,random.order = F,random.color = F,colors = c(&quot;#75ade0&quot;, &quot;#ffffff&quot;,&quot;#f6b506&quot;),scale = c(2,1),rot.per = 0.05))</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-8-1.png" width="1056" /></p>
+<pre class="r"><code>par(mfrow=c(1,1))</code></pre>
+</div>
+</div>
+<div id="análise-de-sentimentos" class="section level3">
+<h3>Análise de sentimentos</h3>
+<p>A análise de sentimentos utilizando a abordagem tidy foi possível graças ao pacote <a href="https://cran.r-project.org/package=lexiconPT"><code>lexiconPT</code></a>, que esta disponível no CRAN e que conheci ao ler o <a href="https://sillasgonzaga.github.io/2017-09-23-sensacionalista-pt01/">post: “O Sensacionalista e Text Mining: Análise de sentimento usando o lexiconPT”</a> do blog <a href="https://sillasgonzaga.github.io/">Paixão por dados</a> que gosto tanto de acompanhar.</p>
+<pre class="r"><code># Analise de sentimentos:
+library(lexiconPT)
+
+sentiment = data.frame(word = sentiLex_lem_PT02$term ,
+                       polarity = sentiLex_lem_PT02$polarity) %&gt;% 
+  mutate(sentiment = if_else(polarity&gt;0,&quot;positive&quot;,if_else(polarity&lt;0,&quot;negative&quot;,&quot;neutro&quot;)),
+         word = as.character(word)) %&gt;% 
+  as_tibble()
+
+
+library(tidyr)
+
+book_sentiment &lt;- tidy_books %&gt;%
+  inner_join(sentiment) %&gt;%
+  count(book,word, index = line , sentiment) %&gt;%
+  spread(sentiment, n, fill = 0) %&gt;%
+  mutate(sentiment = positive - negative) %T&gt;%
+  print</code></pre>
+<pre><code>## # A tibble: 2,953 x 7
+##    book  word      index negative neutro positive sentiment
+##    &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+##  1 arg   abandonar   857        1      0        0        -1
+##  2 arg   absurdo     849        1      0        0        -1
+##  3 arg   absurdo    1863        1      0        0        -1
+##  4 arg   afogado    2275        1      0        0        -1
+##  5 arg   afogado    3659        1      0        0        -1
+##  6 arg   alegria    1134        0      0        1         1
+##  7 arg   almo        186        0      0        1         1
+##  8 arg   almo       2828        0      0        1         1
+##  9 arg   almo       3433        0      0        1         1
+## 10 arg   almo       3569        0      0        1         1
+## # … with 2,943 more rows</code></pre>
+<p>Cada palavra possui um valor associado a sua polaridade , vejamos como ficou distribuído o número de palavras de cada sentimento de acordo com cada termo escolhido para a pesquisa:</p>
+<pre class="r"><code>book_sentiment%&gt;%
+  count(sentiment,book)%&gt;%
+  arrange(book) %&gt;%
+  
+  ggplot(aes(x = factor(sentiment),y = n,fill=book))+
+  geom_bar(stat=&quot;identity&quot;,position=&quot;dodge&quot;)+
+  facet_wrap(~book) +
+  theme_bw()+ 
+    scale_fill_manual(values=c(&quot;#75ade0&quot;, &quot;#009b3a&quot;))</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div id="comparando-sentimentos-dos-termos-de-pesquisa" class="section level4">
+<h4>Comparando sentimentos dos termos de pesquisa</h4>
+<p>Para termos associados a palavra “Brasil” no twitter:</p>
+<pre class="r"><code># Nuvem de comparação:
+library(reshape2)
+
+tidy_books %&gt;%
+  filter(book==&quot;br&quot;)%&gt;%
+  inner_join(sentiment) %&gt;%
+  count(word, sentiment, sort = TRUE) %&gt;%
+  acast(word ~ sentiment, value.var = &quot;n&quot;, fill = 0) %&gt;%
+  comparison.cloud(colors = c(&quot;red&quot;, &quot;gray80&quot;,&quot;green&quot;),
+                   max.words = 200)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Para termos associados a palavra “Argentina” no twitter:</p>
+<pre class="r"><code>tidy_books %&gt;%
+  filter(book==&quot;arg&quot;)%&gt;%
+  inner_join(sentiment) %&gt;%
+  count(word, sentiment, sort = TRUE) %&gt;%
+  acast(word ~ sentiment, value.var = &quot;n&quot;, fill = 0) %&gt;%
+  comparison.cloud(colors = c(&quot;red&quot;, &quot;gray80&quot;,&quot;green&quot;),
+                   max.words = 200)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<div id="proporção-de-palavras-positivas-e-negativas-por-texto" class="section level4">
+<h4>Proporção de palavras positivas e negativas por texto</h4>
+<pre class="r"><code># Proporção de palavras negativas:
+bingnegative &lt;- sentiment %&gt;% 
+  filter(sentiment == &quot;negative&quot;)
+
+bingpositive &lt;- sentiment %&gt;% 
+  filter(sentiment == &quot;positive&quot;)
+
+wordcounts &lt;- tidy_books %&gt;%
+  group_by(book, line) %&gt;%
+  summarize(words = n())</code></pre>
+<div id="para-negativas" class="section level5">
+<h5>Para negativas;</h5>
+<pre class="r"><code>tidy_books %&gt;%
+  semi_join(bingnegative) %&gt;%
+  group_by(book, line) %&gt;%
+  summarize(negativewords = n()) %&gt;%
+  left_join(wordcounts, by = c(&quot;book&quot;, &quot;line&quot;)) %&gt;%
+  mutate(ratio = negativewords/words) %&gt;%
+  top_n(5) %&gt;%
+  ungroup() %&gt;% arrange(desc(ratio)) %&gt;% filter(book==&quot;br&quot;)</code></pre>
+<pre><code>## # A tibble: 5 x 5
+##   book   line negativewords words ratio
+##   &lt;chr&gt; &lt;int&gt;         &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 br     2003             1     3 0.333
+## 2 br     2775             1     3 0.333
+## 3 br     2580             2     7 0.286
+## 4 br      126             1     4 0.25 
+## 5 br     2335             1     4 0.25</code></pre>
+<p>A frase mais negativa do brasil e da argentina::</p>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;br&quot;,line==2580) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c() </code></pre>
+<pre><code>## $text
+## [1] &quot;um medo? \x97 de nois criar expectativa e o Brasil perder a copa https://t.co/0chcNWHh0m&quot;</code></pre>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;arg&quot;,line==572) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c()  </code></pre>
+<pre><code>## $text
+## [1] &quot;RT @DavidmeMelo: @SantiiSanchez16 @Flamengo Perder a copa para o time mais sujo e mais corrupto da argentina \xe9 assim mesmo https://t.co/zIC\x85&quot;</code></pre>
+</div>
+<div id="para-positivas" class="section level5">
+<h5>Para positivas:</h5>
+<pre class="r"><code>tidy_books %&gt;%
+  semi_join(bingpositive) %&gt;%
+  group_by(book, line) %&gt;%
+  summarize(positivewords = n()) %&gt;%
+  left_join(wordcounts, by = c(&quot;book&quot;, &quot;line&quot;)) %&gt;%
+  mutate(ratio = positivewords/words) %&gt;%
+  top_n(5) %&gt;%
+  ungroup() %&gt;% arrange(desc(ratio))</code></pre>
+<pre><code>## # A tibble: 22 x 5
+##    book   line positivewords words ratio
+##    &lt;chr&gt; &lt;int&gt;         &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+##  1 arg    2120             3     9 0.333
+##  2 br     2374             1     3 0.333
+##  3 arg    3272             2     7 0.286
+##  4 arg    2301             1     4 0.25 
+##  5 br      126             1     4 0.25 
+##  6 br      553             2     8 0.25 
+##  7 br     1499             2     8 0.25 
+##  8 br     2054             2     8 0.25 
+##  9 br     2591             1     4 0.25 
+## 10 arg    2130             1     5 0.2  
+## # … with 12 more rows</code></pre>
+<p>A frase mais positiva do brasil e da argentina:</p>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;br&quot;,line==2374) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c() </code></pre>
+<pre><code>## $text
+## [1] &quot;Tirei Brasil, \xe9 uma honra https://t.co/OgNCot4Wu0&quot;</code></pre>
+<pre class="r"><code>base %&gt;%
+  filter(book==&quot;arg&quot;,line==2120) %&gt;% mutate(text = as.character(text))%&gt;% select(text) %&gt;% c()  </code></pre>
+<pre><code>## $text
+## [1] &quot;@_LeoFerreiraH Quero que a Argentina passe para possivelmente enfrentar o Brasil, ganhar da Argentina j\xe1 \xe9 bom, na\x85 https://t.co/bxHJUeGVpc&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="tf-idf" class="section level2">
+<h2>TF-IDF</h2>
+<p>Segundo <span class="citation"><a href="#ref-tidytext" role="doc-biblioref">Silge; Robinson</a> (<a href="#ref-tidytext" role="doc-biblioref">2018</a>)</span> no livro <a href="https://www.tidytextmining.com/tfidf.html">tidytextminig</a>:</p>
+<blockquote>
+<p>The statistic tf-idf is intended to measure how important a word is to a document in a collection (or corpus) of documents, for example, to one novel in a collection of novels or to one website in a collection of websites.</p>
+</blockquote>
+<p>Traduzido pelo Google tradutor:</p>
+<blockquote>
+<p>A estatística tf-idf destina-se a medir a importância de uma palavra para um documento em uma coleção (ou corpus) de documentos, por exemplo, para um romance em uma coleção de romances ou para um site em uma coleção de sites.</p>
+</blockquote>
+<p>Matematicamente:</p>
+<p><span class="math display">\[
+idf(\text{term}) = \ln{\left(\frac{n_{\text{documents}}}{n_{\text{documents containing term}}}\right)}
+\]</span></p>
+<p>E que com o pacote <code>tidytext</code> podemos obter usando o comando <code>bind_tf_idf()</code>, veja:</p>
+<pre class="r"><code># Obtendo numero de palavras
+book_words &lt;- original_books %&gt;%
+  unnest_tokens(word, text) %&gt;%
+  count(book, word, sort = TRUE) %&gt;%
+  ungroup()%&gt;%
+  anti_join(stop_words)
+
+total_words &lt;- book_words %&gt;% 
+  group_by(book) %&gt;% 
+  summarize(total = sum(n))
+
+book_words &lt;- left_join(book_words, total_words)
+
+# tf-idf:
+book_words &lt;- book_words %&gt;%
+  bind_tf_idf(word, book, n)
+
+book_words %&gt;%
+  arrange(desc(tf_idf))</code></pre>
+<pre><code>## # A tibble: 4,773 x 7
+##    book  word              n total      tf   idf  tf_idf
+##    &lt;chr&gt; &lt;chr&gt;         &lt;int&gt; &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 br    letras         1562 30429 0.0513  0.693 0.0356 
+##  2 br    ansioso         688 30429 0.0226  0.693 0.0157 
+##  3 arg   classificou     666 40781 0.0163  0.693 0.0113 
+##  4 arg   segundo         654 40781 0.0160  0.693 0.0111 
+##  5 arg   especialistas   649 40781 0.0159  0.693 0.0110 
+##  6 arg   nalti           649 40781 0.0159  0.693 0.0110 
+##  7 arg   repito          649 40781 0.0159  0.693 0.0110 
+##  8 br    icon            248 30429 0.00815 0.693 0.00565
+##  9 arg   ncio            287 40781 0.00704 0.693 0.00488
+## 10 arg   penalti         284 40781 0.00696 0.693 0.00483
+## # … with 4,763 more rows</code></pre>
+<p>O que nos trás algo como: “termos mais relevantes.”</p>
+<p>Visualmente:</p>
+<pre class="r"><code>book_words %&gt;%
+  arrange(desc(tf_idf)) %&gt;%
+  mutate(word = factor(word, levels = rev(unique(word)))) %&gt;% 
+  group_by(book) %&gt;% 
+  top_n(15) %&gt;% 
+  ungroup %&gt;%
+  
+  ggplot(aes(word, tf_idf, fill = book)) +
+  geom_col(show.legend = FALSE) +
+  labs(x = NULL, y = &quot;tf-idf&quot;) +
+  facet_wrap(~book, ncol = 2, scales = &quot;free&quot;) +
+  coord_flip()+
+  theme_bw()+ 
+    scale_fill_manual(values=c(&quot;#75ade0&quot;, &quot;#009b3a&quot;))</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="bi-grams" class="section level2">
+<h2>bi grams</h2>
+<p>OS bi grams são sequencias de palavras, a seguir será procurada as sequencias de duas palavras, o que nos permite estudar um pouco melhor o contexto do seu uso.</p>
+<pre class="r"><code># Bi grams
+book_bigrams &lt;- original_books %&gt;%
+  unnest_tokens(bigram, text, token = &quot;ngrams&quot;, n = 2)
+
+book_bigrams %&gt;%
+  count(bigram, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 15,106 x 3
+## # Groups:   book [2]
+##    book  bigram                    n
+##    &lt;chr&gt; &lt;chr&gt;                 &lt;int&gt;
+##  1 br    brasil copa            2039
+##  2 br    copa mundo             1459
+##  3 br    hoje brasil            1215
+##  4 arg   argentina copa         1122
+##  5 arg   isl ndia                818
+##  6 br    estreia brasil          764
+##  7 br    ansioso estreia         684
+##  8 br    est ansioso             680
+##  9 arg   classificou argentina   660
+## 10 arg   copa segundo            649
+## # … with 15,096 more rows</code></pre>
+<p>Separando as coluna de bi grams:</p>
+<pre class="r"><code>bigrams_separated &lt;- book_bigrams %&gt;%
+  separate(bigram, c(&quot;word1&quot;, &quot;word2&quot;), sep = &quot; &quot;)
+
+bigrams_filtered &lt;- bigrams_separated %&gt;%
+  filter(!word1 %in% stop_words$word) %&gt;%
+  filter(!word2 %in% stop_words$word)
+
+# new bigram counts:
+bigram_counts &lt;- bigrams_filtered %&gt;% 
+  count(word1, word2, sort = TRUE)
+
+bigram_counts</code></pre>
+<pre><code>## # A tibble: 15,106 x 4
+## # Groups:   book [2]
+##    book  word1       word2         n
+##    &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
+##  1 br    brasil      copa       2039
+##  2 br    copa        mundo      1459
+##  3 br    hoje        brasil     1215
+##  4 arg   argentina   copa       1122
+##  5 arg   isl         ndia        818
+##  6 br    estreia     brasil      764
+##  7 br    ansioso     estreia     684
+##  8 br    est         ansioso     680
+##  9 arg   classificou argentina   660
+## 10 arg   copa        segundo     649
+## # … with 15,096 more rows</code></pre>
+<p>Caso seja preciso juntar novamente:</p>
+<pre class="r"><code>bigrams_united &lt;- bigrams_filtered %&gt;%
+  unite(bigram, word1, word2, sep = &quot; &quot;)
+
+bigrams_united</code></pre>
+<pre><code>## # A tibble: 71,208 x 2
+## # Groups:   book [2]
+##    book  bigram             
+##    &lt;chr&gt; &lt;chr&gt;              
+##  1 arg   isl ndia           
+##  2 arg   ndia pouco         
+##  3 arg   pouco mil          
+##  4 arg   mil habitantes     
+##  5 arg   habitantes montaram
+##  6 arg   montaram sele      
+##  7 arg   sele est           
+##  8 arg   est copa           
+##  9 arg   copa fizeram       
+## 10 arg   fizeram gol        
+## # … with 71,198 more rows</code></pre>
+<div id="analisando-bi-grams-com-tf-idf" class="section level3">
+<h3>Analisando bi grams com tf-idf</h3>
+<p>Também é possível aplicar a transformação <code>tf-idf</code> em bigrams, veja:</p>
+<pre class="r"><code>#bi grams com tf idf
+bigram_tf_idf &lt;- bigrams_united %&gt;%
+  count(book, bigram) %&gt;%
+  bind_tf_idf(bigram, book, n) %&gt;%
+  arrange(desc(tf_idf))
+
+bigram_tf_idf</code></pre>
+<pre><code>## # A tibble: 15,106 x 6
+## # Groups:   book [2]
+##    book  bigram                    n     tf   idf  tf_idf
+##    &lt;chr&gt; &lt;chr&gt;                 &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 br    hoje brasil            1215 0.0399 0.693 0.0277 
+##  2 br    ansioso estreia         684 0.0225 0.693 0.0156 
+##  3 br    est ansioso             680 0.0223 0.693 0.0155 
+##  4 br    letras letras           620 0.0204 0.693 0.0141 
+##  5 arg   classificou argentina   660 0.0162 0.693 0.0112 
+##  6 arg   copa segundo            649 0.0159 0.693 0.0110 
+##  7 arg   messi repito            649 0.0159 0.693 0.0110 
+##  8 arg   repito classificou      649 0.0159 0.693 0.0110 
+##  9 arg   segundo especialistas   649 0.0159 0.693 0.0110 
+## 10 br    brasil letras           313 0.0103 0.693 0.00713
+## # … with 15,096 more rows</code></pre>
+</div>
+<div id="analisando-contexto-de-palavras-negativas" class="section level3">
+<h3>Analisando contexto de palavras negativas:</h3>
+<p>Uma das abordagens interessantes ao estudar as bi-grams é a de avaliar o contexto das palavras negativas, veja:</p>
+<pre class="r"><code>bigrams_separated %&gt;%
+  filter(word1 == &quot;nao&quot;) %&gt;%
+  count(word1, word2, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 35 x 4
+## # Groups:   book [2]
+##    book  word1 word2         n
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;
+##  1 br    nao   copa         10
+##  2 arg   nao   abrir         3
+##  3 arg   nao   convoca       3
+##  4 arg   nao   ruim          3
+##  5 br    nao   acredito      2
+##  6 arg   nao   achei         1
+##  7 arg   nao   acordem       1
+##  8 arg   nao   argentina     1
+##  9 arg   nao   assisti       1
+## 10 arg   nao   compara       1
+## # … with 25 more rows</code></pre>
+<pre class="r"><code>not_words &lt;- bigrams_separated %&gt;%
+  filter(word1 == &quot;nao&quot;) %&gt;%
+  inner_join(sentiment, by = c(word2 = &quot;word&quot;)) %&gt;%
+  count(word2, sentiment, sort = TRUE) %&gt;%
+  ungroup()
+
+not_words</code></pre>
+<pre><code>## # A tibble: 3 x 4
+##   book  word2    sentiment     n
+##   &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;int&gt;
+## 1 arg   ruim     negative      3
+## 2 arg   vencer   positive      1
+## 3 br    amistoso positive      1</code></pre>
+<p>A palavra não antes de uma palavra “positiva,” como por exemplo “não gosto” pode ser anulada ao somar-se suas polaridades (“não” = - 1, “gosto” = +1 e “não gosto” = -1 + 1) o leva a necessidade de ser tomar um cuidado especial com essas palavras em uma análise de texto mais detalhada, veja de forma visual:</p>
+<pre class="r"><code>not_words %&gt;%
+  mutate(sentiment=ifelse(sentiment==&quot;positive&quot;,1,ifelse(sentiment==&quot;negative&quot;,-1,0)))%&gt;%
+  mutate(contribution = n * sentiment) %&gt;%
+  arrange(desc(abs(contribution))) %&gt;%
+  head(20) %&gt;%
+  mutate(word2 = reorder(word2, contribution)) %&gt;%
+  
+  ggplot(aes(word2, n * sentiment, fill = n * sentiment &gt; 0)) +
+  geom_col() +
+  xlab(&quot;Words preceded by \&quot;not\&quot;&quot;) +
+  ylab(&quot;Sentiment score * number of occurrences&quot;) +
+  coord_flip()+
+  theme_bw()</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="machine-learning" class="section level1">
+<h1>Machine Learning</h1>
+<p>Estava pesquisando sobre algorítimos recomendados para a análise de texto quando encontrei um artigo da data camp chamado: <a href="https://www.datacamp.com/community/tutorials/R-nlp-machine-learning"><em>Lyric Analysis with NLP &amp; Machine Learning with R</em></a>, do qual a autora expõe a seguinte tabela:</p>
+<center>
+<img src="http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1517331396/MLImage_cygwsb.jpg" style="width:60.0%" />
+</center>
+<p>Portanto resolvi fazer uma brincadeira e ajustar 4 dos modelos propostos para a tarefa supervisionada de classificação: K-NN, Tress (tentarei o ajuste do algorítimo Random Forest), Logistic Regression (Modelo estatístico) e Naive-Bayes (por meio do cálculo de probabilidades condicionais) para ver se conseguia recuperar a classificação de quais os termos de pesquisa que eu utilizei para obter esses dados</p>
+<p>Além de técnicas apresentadas no livro do pacote <code>caret</code>, por <span class="citation"><a href="#ref-caret" role="doc-biblioref">Kuhn</a> (<a href="#ref-caret" role="doc-biblioref">2018</a>)</span>, muito do que apliquei aqui foi baseado no livro “Introdução a mineração de dados” por <span class="citation"><a href="#ref-miner" role="doc-biblioref">Silva; Peres; Boscarioli</a> (<a href="#ref-miner" role="doc-biblioref">2016</a>)</span>, que foi bastante útil na minha introdução sobre o tema Machine Learning.</p>
+<p>Vou utilizar uma função chamada <code>plot_pred_type_distribution()</code>,apresentada neste post de titulo: <a href="https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/">Illustrated Guide to ROC and AUC</a> e fiz uma pequena alteração para que ela funcionasse para o dataset deste post . A função adaptada pode ser encontrada <a href="https://github.com/gomesfellipe/functions/blob/master/plot_pred_type_distribution.R">neste link</a> no meu github e a função original <a href="https://github.com/joyofdata/joyofdata-articles/blob/master/roc-auc/plot_pred_type_distribution.R">neste link do github do autor</a>.</p>
+<div id="pacote-caret" class="section level2">
+<h2>Pacote caret</h2>
+<p>Basicamente o ajuste de todos os modelos envolveram o uso do pacote <code>caret</code> e muitos dos passos aqui foram baseados nas instruções fornecidas no <a href="https://topepo.github.io/caret/index.html">livro do pacote</a>. O pacote facilita bastante o ajuste dos parâmetros no ajuste de modelos.</p>
+</div>
+<div id="transformar-e-arrumar" class="section level2">
+<h2>Transformar e arrumar</h2>
+<p>Uma <a href="https://www.kaggle.com/kailex/tidy-xgboost-glmnet-text2vec-lsa">solução do kaggle</a> para o desafio <a href="https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge">Toxic Comment Classification Challenge</a> me chamou atenção, do qual o participante da competição criou colunas que sinalizassem os caracteres especiais de cada frase, utilizarei esta técnica para o ajuste e novamente utilizarei o pacote de léxicos do apresentado no <a href="https://sillasgonzaga.github.io/2017-09-23-sensacionalista-pt01/">post do blog Paixão por dados</a></p>
+<p>Veja a base transformada e arrumada:</p>
+<pre class="r"><code># Ref: https://cfss.uchicago.edu/text_classification.html 
+# https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/plot_pred_type_distribution.R&quot;)
+
+base &lt;- base %&gt;% 
+  mutate(length = str_length(text),
+         ncap = str_count(text, &quot;[A-Z]&quot;),
+         ncap_len = ncap / length,
+         nexcl = str_count(text, fixed(&quot;!&quot;)),
+         nquest = str_count(text, fixed(&quot;?&quot;)),
+         npunct = str_count(text, &quot;[[:punct:]]&quot;),
+         nword = str_count(text, &quot;\\w+&quot;),
+         nsymb = str_count(text, &quot;&amp;|@|#|\\$|%|\\*|\\^&quot;),
+         nsmile = str_count(text, &quot;((?::|;|=)(?:-)?(?:\\)|D|P))&quot;),
+         text = clean_tweets(text) %&gt;% enc2native() %&gt;% rm_accent())%&gt;%
+  unnest_tokens(word, text) %&gt;% 
+  anti_join(stop_words)%&gt;%
+  group_by(book,line,length, ncap, ncap_len, nexcl, nquest, npunct, nword, nsymb, nsmile)%&gt;%
+  summarise(text=paste(word,collapse = &quot; &quot;)) %&gt;% 
+  select(text,everything())%T&gt;% 
+  print()</code></pre>
+<pre><code>## # A tibble: 7,995 x 12
+## # Groups:   book, line, length, ncap, ncap_len, nexcl, nquest, npunct, nword,
+## #   nsymb [7,995]
+##    text  book   line length  ncap ncap_len nexcl nquest npunct nword nsymb
+##    &lt;chr&gt; &lt;chr&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt;    &lt;dbl&gt; &lt;int&gt;  &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1 isl … arg       1     NA     7  NA          0      0      6    24     1
+##  2 pau … arg       2    108     6   0.0556     0      0      2    20     1
+##  3 mess… arg       3     NA    10  NA          0      0      3    24     1
+##  4 minu… arg       4     NA     2  NA          0      0      2    24     1
+##  5 requ… arg       5    129    23   0.178      0      0     15    21     1
+##  6 bras… arg       6     NA    11  NA          0      0     12    20     1
+##  7 dupl… arg       7    123    84   0.683      0      0      8    21     1
+##  8 mess… arg       8     NA    10  NA          0      0      3    24     1
+##  9 mess… arg       9     NA    10  NA          0      0      3    24     1
+## 10 mess… arg      10     NA    10  NA          0      0      3    24     1
+## # … with 7,985 more rows, and 1 more variable: nsmile &lt;int&gt;</code></pre>
+<p>Após arrumar e transformar as informações que serão utilizadas na classificação, será criado um corpus sem a abordagem tidy para obter a matriz de documentos e termos, e depois utilizar a coluna de classificação, veja:</p>
+<pre class="r"><code>library(tm)       #Pacote de para text mining
+corpus &lt;- Corpus(VectorSource(base$text))
+
+#Criando a matrix de termos:
+book_dtm = DocumentTermMatrix(corpus, control = list(minWordLength=2,minDocFreq=3)) %&gt;% 
+  weightTfIdf(normalize = T) %&gt;%    # Transformação tf-idf com pacote tm
+  removeSparseTerms( sparse = .95)  # obtendo matriz esparsa com pacote tm
+
+#Transformando em matrix, permitindo a manipulacao:
+matrix = as.matrix(book_dtm)
+dim(matrix)</code></pre>
+<pre><code>## [1] 7995   18</code></pre>
+<p>Pronto, agora já podemos juntar tudo em um data frame e separa em treino e teste para a classificação dos textos obtidos do twitter:</p>
+<pre class="r"><code>#Criando a base de dados:
+full=data.frame(cbind(
+  base[,&quot;book&quot;],
+  matrix,
+  base[,-c(1:3)]
+  )) %&gt;% na.omit()</code></pre>
+</div>
+<div id="treino-e-teste" class="section level2">
+<h2>Treino e teste</h2>
+<p>Será utilizado tanto o método de hold-out e de cross-validation</p>
+<pre class="r"><code>set.seed(825)
+particao = sample(1:2,nrow(full), replace = T,prob = c(0.7,0.3))
+
+train = full[particao==1,] 
+test = full[particao==2,] 
+
+library(caret)</code></pre>
+</div>
+<div id="ajustando-modelos" class="section level2">
+<h2>Ajustando modelos</h2>
+<div id="knn" class="section level3">
+<h3>KNN</h3>
+<p>É uma técnica de aprendizado baseado em instância, isto quer dizer que a classificação de uma observação com a classe desconhecida é realizada a partir da comparação com outras observações cada vez que uma observação é apresentado ao modelo e também é conhecido como “lazy evaluation,” já que um modelo não é induzido previamente.</p>
+<p>Diversas medidas de distância podem ser utilizadas, utilizarei aqui a euclideana e além disso a escolha do parâmetro <span class="math inline">\(k\)</span> (de k vizinhos mais próximos) deve ser feita com cuidado pois um <span class="math inline">\(k\)</span> pequeno pode expor o algorítimo a uma alta sensibilidade a um ruído.</p>
+<p>Utilizarei aqui o pacote <code>caret</code> como ferramenta para o ajuste deste modelo pois ela permite que eu configure que seja feita a validação cruzada em conjunto com a padronização, pois esses complementos beneficiam no ajuste de modelos que calculam distâncias.</p>
+<pre class="r"><code># knn -------
+set.seed(825)
+antes = Sys.time()
+book_knn &lt;- train(book ~.,
+                  data=train,
+                 method = &quot;knn&quot;,
+                 trControl = trainControl(method = &quot;cv&quot;,number = 10), # validacao cruzada
+                 preProc = c(&quot;center&quot;, &quot;scale&quot;))                      
+time_knn &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 2.465522 secs</code></pre>
+<pre class="r"><code>plot(book_knn)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/knn-1.png" width="672" /></p>
+<pre class="r"><code>previsao  = predict(book_knn, test)
+confusionMatrix(previsao, factor(test$book))</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction arg  br
+##        arg 105   8
+##        br    5 371
+##                                          
+##                Accuracy : 0.9734         
+##                  95% CI : (0.955, 0.9858)
+##     No Information Rate : 0.7751         
+##     P-Value [Acc &gt; NIR] : &lt;2e-16         
+##                                          
+##                   Kappa : 0.9245         
+##                                          
+##  Mcnemar&#39;s Test P-Value : 0.5791         
+##                                          
+##             Sensitivity : 0.9545         
+##             Specificity : 0.9789         
+##          Pos Pred Value : 0.9292         
+##          Neg Pred Value : 0.9867         
+##              Prevalence : 0.2249         
+##          Detection Rate : 0.2147         
+##    Detection Prevalence : 0.2311         
+##       Balanced Accuracy : 0.9667         
+##                                          
+##        &#39;Positive&#39; Class : arg            
+## </code></pre>
+<pre class="r"><code>df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/knn-2.png" width="672" /></p>
+<p>Como podemos ver, segundo a validação cruzada realizada com o pacote <code>caret</code>, o número 5 de vizinhos mais próximos foi o que apresentou o melhor resultado. Além disso o modelo apresentou uma acurácia de 97,18% e isto parece bom dado que a sensibilidade (taxa de verdadeiros positivos) e a especificidade (taxa de verdadeiros negativos) foram altas também, o que foi reforçado com o gráfico ilustrado da matriz de confusão.</p>
+<p>O tempo computacional para o ajuste do modelo foi de:2.46385908126831 segundos</p>
+</div>
+<div id="random-forest" class="section level3">
+<h3>Random Forest</h3>
+<p>O modelo de Random Forest tem se tornado muito popular devido ao seu bom desempenho e pela sua alta capacidade de se adaptar aos dados. O modelo funciona através da combinação de várias árvores de decisões e no seu ajuste alguns parâmetros precisam ser levados em conta.</p>
+<p>O parâmetro que sera levado em conta para o ajuste será apenas o <code>ntree</code>, que representa o número de árvores ajustadas. Este parâmetro deve ser escolhido com cuidado pois pode ser tão grande quanto você quiser e continua aumentando a precisão até certo ponto porém pode ser mais limitado pelo tempo computacional disponível.</p>
+<pre class="r"><code>set.seed(824)
+# Random Forest
+antes = Sys.time()
+book_rf &lt;- train(book ~.,
+                  data=train,
+                     method = &quot;rf&quot;,trace=F,
+                     ntree = 200,
+                     trControl = trainControl(method = &quot;cv&quot;,number = 10))
+time_rf &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 8.994044 secs</code></pre>
+<pre class="r"><code>library(randomForest)
+varImpPlot(book_rf$finalModel)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/rf-1.png" width="672" /></p>
+<pre class="r"><code>previsao  = predict(book_rf, test)
+confusionMatrix(previsao, factor(test$book))</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction arg  br
+##        arg 110   0
+##        br    0 379
+##                                      
+##                Accuracy : 1          
+##                  95% CI : (0.9925, 1)
+##     No Information Rate : 0.7751     
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16  
+##                                      
+##                   Kappa : 1          
+##                                      
+##  Mcnemar&#39;s Test P-Value : NA         
+##                                      
+##             Sensitivity : 1.0000     
+##             Specificity : 1.0000     
+##          Pos Pred Value : 1.0000     
+##          Neg Pred Value : 1.0000     
+##              Prevalence : 0.2249     
+##          Detection Rate : 0.2249     
+##    Detection Prevalence : 0.2249     
+##       Balanced Accuracy : 1.0000     
+##                                      
+##        &#39;Positive&#39; Class : arg        
+## </code></pre>
+<pre class="r"><code># https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/
+df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/rf-2.png" width="672" /></p>
+<p>Segundo o gráfico de importância, parece que as palavras “brasil,” “argentina,” “copa” e “messi” foram as que apresentaram maior impacto do preditor (lembrando que essa medida não é um efeito específico), o que mostra que a presença das palavras que estamos utilizando para classificar tiveram um impacto na classificação bastante superior aos demais.</p>
+<p>Quanto a acurácia, o random forest apresentou valor um pouco maior do que o do algorítimo K-NN e além disso apresentou altos valores para a sensibilidade (taxa de verdadeiros positivos) e a especificidade (taxa de verdadeiros negativos), o que foi reforçado com o gráfico ilustrado da matriz de confusão, porém o tempo computacional utilizado para ajustar este modelo foi muito maior, o que leva a questionar se esse pequeno aumento na taxa de acerto vale a pena aumentando tanto no tempo de processamento (outra alternativa seria diminuir o tamanho do número de árvores para ver se melhoraria na qualidade do ajuste).</p>
+<p>O tempo computacional para o ajuste do modelo foi de: 8.99299788475037 segundos</p>
+</div>
+<div id="naive-bayes" class="section level3">
+<h3>Naive Bayes</h3>
+<p>Este é um algorítimo que trata-se de um classificador estatístico baseado no <strong>Teorema de Bayes</strong> e recebe o nome de ingênuo (<em>naive</em>) porque pressupõe que o valor de um atributo que exerce algum efeito sobre a distribuição da variável resposta é independente do efeito que outros atributos.</p>
+<p>O cálculo para a classificação é feito por meio do cálculo de probabilidades condicionais, ou seja, probabilidade de uma observação pertencer a cada classe dado os exemplares existentes no conjunto de dados usado para o treinamento.</p>
+<pre class="r"><code># Naive Bayes ----
+set.seed(825)
+antes = Sys.time()
+book_nb &lt;- train(book ~.,
+                  data=train,
+                 method= &quot;nb&quot;,
+                 laplace =1,       
+                 trControl = trainControl(method = &quot;cv&quot;,number = 10))
+time_nb &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 7.141471 secs</code></pre>
+<pre class="r"><code>previsao  = predict(book_nb, test)
+confusionMatrix(previsao, factor(test$book))</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction arg  br
+##        arg 108   6
+##        br    2 373
+##                                          
+##                Accuracy : 0.9836         
+##                  95% CI : (0.968, 0.9929)
+##     No Information Rate : 0.7751         
+##     P-Value [Acc &gt; NIR] : &lt;2e-16         
+##                                          
+##                   Kappa : 0.9537         
+##                                          
+##  Mcnemar&#39;s Test P-Value : 0.2888         
+##                                          
+##             Sensitivity : 0.9818         
+##             Specificity : 0.9842         
+##          Pos Pred Value : 0.9474         
+##          Neg Pred Value : 0.9947         
+##              Prevalence : 0.2249         
+##          Detection Rate : 0.2209         
+##    Detection Prevalence : 0.2331         
+##       Balanced Accuracy : 0.9830         
+##                                          
+##        &#39;Positive&#39; Class : arg            
+## </code></pre>
+<pre class="r"><code># https://www.r-bloggers.com/illustrated-guide-to-roc-and-auc/
+df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/nb-1.png" width="672" /></p>
+<p>Apesar a aparente acurácia alta, o valor calculado para a especificidade (verdadeiros negativos) foi elevado o que aponta que o ajuste do modelo não se apresentou de forma eficiente</p>
+<p>O tempo computacional foi de 7.1403751373291 segundos</p>
+</div>
+<div id="glm---logit" class="section level3">
+<h3>GLM - Logit</h3>
+<p>Este é um modelo estatístico que já abordei aqui no blog no post sobre <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de machine learning</a> e seguindo a recomendação do artigo da datacamp vejamos quais resultados obtemos com o ajuste deste modelo:</p>
+<pre class="r"><code># Modelo logístico ----
+set.seed(825)
+antes = Sys.time()
+book_glm &lt;- train(book ~.,
+                  data=train,
+                  method = &quot;glm&quot;,                                         # modelo generalizado
+                  family = binomial(link = &#39;logit&#39;),                      # Familia Binomial ligacao logit
+                  trControl = trainControl(method = &quot;cv&quot;, number = 10))   # validacao cruzada
+time_glm &lt;- Sys.time() - antes 
+Sys.time() - antes</code></pre>
+<pre><code>## Time difference of 1.378149 secs</code></pre>
+<pre class="r"><code>library(ggfortify)
+
+autoplot(book_glm$finalModel, which = 1:6, data = train,
+         colour = &#39;book&#39;, label.size = 3,
+         ncol = 3) + theme_classic()</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/glm-1.png" width="672" /></p>
+<pre class="r"><code>previsao  = predict(book_glm, test)
+confusionMatrix(previsao, factor(test$book))</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction arg  br
+##        arg 109   0
+##        br    1 379
+##                                           
+##                Accuracy : 0.998           
+##                  95% CI : (0.9887, 0.9999)
+##     No Information Rate : 0.7751          
+##     P-Value [Acc &gt; NIR] : &lt;2e-16          
+##                                           
+##                   Kappa : 0.9941          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 1               
+##                                           
+##             Sensitivity : 0.9909          
+##             Specificity : 1.0000          
+##          Pos Pred Value : 1.0000          
+##          Neg Pred Value : 0.9974          
+##              Prevalence : 0.2249          
+##          Detection Rate : 0.2229          
+##    Detection Prevalence : 0.2229          
+##       Balanced Accuracy : 0.9955          
+##                                           
+##        &#39;Positive&#39; Class : arg             
+## </code></pre>
+<pre class="r"><code>df = cbind(fit = if_else(previsao==&quot;br&quot;,1,0), class = if_else(test$book==&quot;br&quot;,1,0)) %&gt;% as.data.frame()
+plot_pred_type_distribution(df,0.5)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/glm-2.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="comparando-modelos" class="section level1">
+<h1>Comparando modelos</h1>
+<p>Agora que temos 4 modelos ajustados e cada um apresentando resultados diferentes, vejamos qual deles seria o mais interessante para caso fosse necessário recuperar a classificação dos termos pesquisados através da API, veja a seguir um resumo das medidas obtidas:</p>
+<pre class="r"><code># &quot;Dados esses modelos, podemos fazer declarações estatísticas sobre suas diferenças de desempenho? Para fazer isso, primeiro coletamos os resultados de reamostragem usando resamples.&quot; - caret
+resamps &lt;- resamples(list(knn = book_knn,
+                          rf = book_rf,
+                          nb = book_nb,
+                          glm = book_glm)) 
+summary(resamps)</code></pre>
+<pre><code>## 
+## Call:
+## summary.resamples(object = resamps)
+## 
+## Models: knn, rf, nb, glm 
+## Number of resamples: 10 
+## 
+## Accuracy 
+##          Min.   1st Qu.    Median      Mean   3rd Qu. Max. NA&#39;s
+## knn 0.9553571 0.9821824 0.9823009 0.9831305 0.9889381    1    0
+## rf  0.9823009 1.0000000 1.0000000 0.9973451 1.0000000    1    0
+## nb  0.9107143 0.9623894 0.9823009 0.9768726 1.0000000    1    0
+## glm 0.9910714 0.9911504 1.0000000 0.9964523 1.0000000    1    0
+## 
+## Kappa 
+##          Min.   1st Qu.    Median      Mean   3rd Qu. Max. NA&#39;s
+## knn 0.8730734 0.9500663 0.9512773 0.9530901 0.9691458    1    0
+## rf  0.9513351 1.0000000 1.0000000 0.9926689 1.0000000    1    0
+## nb  0.7791798 0.8998204 0.9525409 0.9398109 1.0000000    1    0
+## glm 0.9752868 0.9753544 1.0000000 0.9901350 1.0000000    1    0</code></pre>
+<p>Como podemos ver, o modelo que apresentou a menor acurácia e o menor coeficiente kappa foi o Naive Bayes enquanto que o que apresentou as maiores medidas de qualidade do ajuste foi o modelo ajustado com o algorítimo Random Forest e tanto o modelo ajustado pelo algorítimo knn quanto o modelo linear generalizado com função de ligação “logit” também apresentaram acurácia e coeficiente kappa próximos do apresentado no ajuste do Random Forest.</p>
+<p>Portanto, apesar dos ajustes, caso dois modelos não apresentem diferença estatisticamente significante e o tempo computacional gasto para o ajuste de ambos for muito diferente pode ser que ser que tenhamos um modelo candidato para:</p>
+<pre class="r"><code>c( knn= time_knn,rf = time_rf,nb = time_nb,glm = time_glm)</code></pre>
+<pre><code>## Time differences in secs
+##      knn       rf       nb      glm 
+## 2.463859 8.992998 7.140375 1.377073</code></pre>
+<p>O modelo linear generalizado foi o que apresentou o menor tempo computacional e foi o que apresentou o terceiro maior registro para os as medidas de qualidade do ajuste dos modelos, portanto esse modelo será avaliado com mais cuidado em seguida para saber se ele será o modelo selecionado</p>
+<p><strong>Obs.:</strong> Sou suspeito para falar mas dentre esses modelos eu teria preferência por este modelo de qualquer maneira por não se tratar de uma “caixa preta,” da qual todos os efeitos de cada parâmetro ajustado podem ser interpretado, além de obter medidas como razões de chance que ajudam bastante na compreensão dos dados.</p>
+<p>Comparando de forma visual:</p>
+<pre class="r"><code>splom(resamps)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>Assim fica mais claro o como o ajuste dos modelos Random Forest, K-NN e GLM se destacaram quando avaliados em relação a acurácia apresentada.</p>
+<p>Vejamos a seguir como foi a distribuição dessas medidas de acordo com cada modelo através de boxplots:</p>
+<pre class="r"><code>bwplot(resamps)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p>Note que além de apresentar os ajustes com menor acurácia (e elevada taxa de falsos negativos) o algorítimo Naive Bayes foi o que apresentou a maior variação interquartil das medidas de qualidade do ajuste do modelo.</p>
+<p>Para finalizar a análise visual vamos obter as diferenças entre os modelos com a função <code>diff()</code> e em seguida conferir de maneira visual o comportamento dessas informações:</p>
+<pre class="r"><code>difValues &lt;- diff(resamps)
+
+# plot:
+bwplot(difValues)</code></pre>
+<p><img src="/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p>Observe que tanto o modelo logístico quando o ajuste com o algorítimo K-NN apresentaram valores muito próximos dos valores do ajuste do Random Forest e como já vimos o Random Forest foi o modelo que levou maior tempo computacional para ser ajustado, portanto vamos conferir a seguir se existe diferença estatisticamente significante entre os valores obtidos através de cada um dos ajustes e decidir qual dos modelos se apresentou de maneira mais adequada para nosso caso:</p>
+<pre class="r"><code>resamps$values %&gt;% 
+  select_if(is.numeric) %&gt;% 
+  purrr::map(function(x) shapiro.test(x))</code></pre>
+<pre><code>## $`knn~Accuracy`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.87602, p-value = 0.1174
+## 
+## 
+## $`knn~Kappa`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.87418, p-value = 0.1118
+## 
+## 
+## $`rf~Accuracy`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.53165, p-value = 8.564e-06
+## 
+## 
+## $`rf~Kappa`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.53234, p-value = 8.727e-06
+## 
+## 
+## $`nb~Accuracy`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.80077, p-value = 0.01482
+## 
+## 
+## $`nb~Kappa`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.81793, p-value = 0.02392
+## 
+## 
+## $`glm~Accuracy`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.6429, p-value = 0.0001803
+## 
+## 
+## $`glm~Kappa`
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.64123, p-value = 0.0001722</code></pre>
+<p>Como a hipótese de normalidade não foi rejeitada para nenhuma das amostras de acurácias registradas, vejamos se existe diferença estatisticamente significante entre as médias dessas medidas de qualidade para cada modelo:</p>
+<pre class="r"><code>t.test(resamps$values$`rf~Accuracy`,resamps$values$`knn~Accuracy`, paired = T)  </code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  resamps$values$`rf~Accuracy` and resamps$values$`knn~Accuracy`
+## t = 3.9961, df = 9, p-value = 0.003129
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.0061678 0.0222614
+## sample estimates:
+## mean of the differences 
+##               0.0142146</code></pre>
+<p>Rejeita a hipótese de que as médias das acurácias calculadas para o ajuste do algorítimo Random Forest e K-NN foram iguais</p>
+<pre class="r"><code>t.test(resamps$values$`rf~Accuracy`,resamps$values$`glm~Accuracy`, paired = T)  </code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  resamps$values$`rf~Accuracy` and resamps$values$`glm~Accuracy`
+## t = 0.43326, df = 9, p-value = 0.675
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.003768926  0.005554640
+## sample estimates:
+## mean of the differences 
+##            0.0008928571</code></pre>
+<p>Novamente, rejeita-se a hipótese de que as médias das acurácias calculadas para o ajuste do algorítimo Random Forest e do modelo de logístico foram iguais</p>
+<pre class="r"><code>t.test(resamps$values$`knn~Accuracy`,resamps$values$`glm~Accuracy`, paired = T)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  resamps$values$`knn~Accuracy` and resamps$values$`glm~Accuracy`
+## t = -4.0077, df = 9, p-value = 0.003074
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.020841197 -0.005802292
+## sample estimates:
+## mean of the differences 
+##             -0.01332174</code></pre>
+<p>Já para a comparação entre as médias das acurácias calculadas para o algorítimo K-NN e para o modelo logístico não houve evidências estatísticas para se rejeitas a hipótese de que ambas as médias são iguais, o que nos sugere o modelo logístico como o segundo melhor candidato como modelo de classificação para este problema com estes dados.</p>
+<p>Então a escolha ficará a critério do que é mais importante. Caso o tempo computacional fosse uma medida que tivesse mais importância do que a pequena superioridade de acurácia apresentada pelo algorítimo Random Forest, escolheria o modelo logístico, porém como neste caso os 7.61592507362366 segundos a mais para ajustar o modelo não fazem diferença para mim, fico com o modelo Random Forest.</p>
+<p>Este post trás alguns dos conceitos que venho estudado e existem muitos tópicos apresentados aqui que podem (e devem) ser estudados com mais profundidade, espero que tenha gostado!</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<p>obs.: links mensionados no corpo do texto</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-caret" class="csl-entry">
+Kuhn, Max. 2018. <em>The Caret Package</em>. <a href="https://topepo.github.io/caret/index.html">https://topepo.github.io/caret/index.html</a>.
+</div>
+<div id="ref-tidytext" class="csl-entry">
+Silge; Robinson, Julia; David. 2018. <em>Text Mining with R</em>. <em>A Tidy Approach</em>. <a href="https://www.tidytextmining.com/">https://www.tidytextmining.com/</a>.
+</div>
+<div id="ref-miner" class="csl-entry">
+Silva; Peres; Boscarioli, Leandro Augusto; Sarajane Marques; Clodis. 2016. <em>Introdução à Mineração de Dados</em>. <em>Com Aplicações Em R</em>. Vol. 3. Elsevier Editora Ltda.
+</div>
+</div>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Analise Exploratória</category>
+      <category>Aprendizado Não Supervisionado</category>
+      <category>Data mining</category>
+      <category>Estatistica</category>
+      <category>Machine Learning</category>
+      <category>Modelagem Estatistica</category>
+      <category>Prática</category>
+      <category>R</category>
+      <category>Text Mining</category>
+      <category>Análise de Sentimentos</category>
+      <category domain="tag">Data Mining</category>
+      <category domain="tag">Estatistica</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">twitter</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">Prática</category>
+      <category domain="tag">R</category>
+      <category domain="tag">text mining</category>
     </item>
-    
     <item>
       <title>Manipulação de Strings e Text Mining</title>
       <link>https://gomesfellipe.github.io/post/2017-12-17-string/string/</link>
       <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-17-string/string/</guid>
-      <description>Manipulação de strings e Text mining Estudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo string.
-Uma variável do tipo string é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.</description>
+      <description>Algumas dicas e truques úteis de pacotes especiais para a manipulação e tratamento de strings</description>
+      <content:encoded>&lt;![CDATA[
+        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="manipulação-de-strings-e-text-mining" class="section level1">
+<h1>Manipulação de strings e Text mining</h1>
+<!-- ![](/img/2017-12-17-string/imagem2.png) -->
+<p>Estudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo <em>string</em>.</p>
+<p>Uma variável do tipo <em>string</em> é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.</p>
+<p>Desde modificações em nomes de colunas em data.frames até as mais espertas aplicações de text mining com corpus, a limpeza e manipulação de strings é quase sempre necessária</p>
+</div>
+<div id="criando-funções" class="section level1">
+<h1>Criando funções</h1>
+<p>Antes de apresentar alguns pacotes com funções úteis para manipular strings, gostaria de comentar que pode ser bem útil desenvolvermos funções para nosso próprio uso, não é raro realizarmos o mesmo procedimento em diferentes etapas das análises, o que pode tornar o código desorganizado ou poluído com tantas linhas repetidas.</p>
+<p>Trago aqui de exemplo uma função que encontrei recentemente para remover acentos no <a href="https://pt.stackoverflow.com/questions/46473/remover-acentos">stackoverflow</a> que já me ajudou bastante, veja a função:</p>
+<pre class="r"><code>rm_accent &lt;- function(str,pattern=&quot;all&quot;) {
+  # Rotinas e funções úteis V 1.0
+  # rm.accent - REMOVE ACENTOS DE PALAVRAS
+  # Função que tira todos os acentos e pontuações de um vetor de strings.
+  # Parâmetros:
+  # str - vetor de strings que terão seus acentos retirados.
+  # patterns - vetor de strings com um ou mais elementos indicando quais acentos deverão ser retirados.
+  #            Para indicar quais acentos deverão ser retirados, um vetor com os símbolos deverão ser passados.
+  #            Exemplo: pattern = c(&quot;´&quot;, &quot;^&quot;) retirará os acentos agudos e circunflexos apenas.
+  #            Outras palavras aceitas: &quot;all&quot; (retira todos os acentos, que são &quot;´&quot;, &quot;`&quot;, &quot;^&quot;, &quot;~&quot;, &quot;¨&quot;, &quot;ç&quot;)
+  if(!is.character(str))
+    str &lt;- as.character(str)
+  
+  pattern &lt;- unique(pattern)
+  
+  if(any(pattern==&quot;Ç&quot;))
+    pattern[pattern==&quot;Ç&quot;] &lt;- &quot;ç&quot;
+  
+  symbols &lt;- c(
+    acute = &quot;áéíóúÁÉÍÓÚýÝ&quot;,
+    grave = &quot;àèìòùÀÈÌÒÙ&quot;,
+    circunflex = &quot;âêîôûÂÊÎÔÛ&quot;,
+    tilde = &quot;ãõÃÕñÑ&quot;,
+    umlaut = &quot;äëïöüÄËÏÖÜÿ&quot;,
+    cedil = &quot;çÇ&quot;
+  )
+  
+  nudeSymbols &lt;- c(
+    acute = &quot;aeiouAEIOUyY&quot;,
+    grave = &quot;aeiouAEIOU&quot;,
+    circunflex = &quot;aeiouAEIOU&quot;,
+    tilde = &quot;aoAOnN&quot;,
+    umlaut = &quot;aeiouAEIOUy&quot;,
+    cedil = &quot;cC&quot;
+  )
+  
+  accentTypes &lt;- c(&quot;´&quot;,&quot;`&quot;,&quot;^&quot;,&quot;~&quot;,&quot;¨&quot;,&quot;ç&quot;)
+  
+  if(any(c(&quot;all&quot;,&quot;al&quot;,&quot;a&quot;,&quot;todos&quot;,&quot;t&quot;,&quot;to&quot;,&quot;tod&quot;,&quot;todo&quot;)%in%pattern)) # opcao retirar todos
+    return(chartr(paste(symbols, collapse=&quot;&quot;), paste(nudeSymbols, collapse=&quot;&quot;), str))
+  
+  for(i in which(accentTypes%in%pattern))
+    str &lt;- chartr(symbols[i],nudeSymbols[i], str)
+  
+  return(str)
+}</code></pre>
+<p>Criar nossas próprias funções é muito simples em R e eu encorajo a todos a começarem a trabalhar com funções próprias também (além das nativas do R), pois o programa fica muito mais dinâmico e limpo.</p>
+</div>
+<div id="o-pacote-stringr" class="section level1">
+<h1>O pacote <code>stringr</code></h1>
+<p>Além do pacote <code>dplyr</code>, mais uma vez <a href="https://github.com/hadley">Hadley Wickham</a> trás uma solução bastante útil para facilitar nossa vida de programador estatístico (ou cientista de dados se preferir, seguindo as “tendências da moda” de “data scientist”) com o pacote <code>stringr</code>, que possui uma sintaxe consistente, permitindo a manipulação de textos com muito mais facilidade.</p>
+<p>Seu uso consiste em uma variedade de utilidades que podem ser consultadas diretamente de dentro do R ao escrever <code>str_</code> (após carregar o pacote) e aguardar um instante que a seguinte lista de funções será exibida:</p>
+<div class="figure">
+<img src="/img/2017-12-17-string/imagem1.png" alt="" />
+<p class="caption">Note que essa aplicação funciona para qualquer pacote do R</p>
+</div>
+<p>Portanto, inicialmente vamos carregar o pacote:</p>
+<pre class="r"><code>library(stringr)</code></pre>
+<p>Com o pacote carregado já podemos fazer o uso de algumas das funções que são bem úteis.</p>
+<div id="arrumando-titulos-de-base-de-dados" class="section level2">
+<h2>Arrumando titulos de base de dados</h2>
+<p>É muito comum que os cabeçalhos de uma base de dados venha repleta de caracteres especiais como este exemplo:</p>
+<pre class="r"><code>nomes=c(&#39;Aniversário&#39;, &#39;Situação&#39;, &#39;Raça&#39;, &#39;IMC&#39;, &#39;Tipo físico&#39;, &#39;tabaco por dia (cig/dia)&#39;, &#39;Alcool (dose/semana)&#39;, &#39;Drogas/g&#39;, &#39;Café/dia&#39;, &#39;Suco/dia&#39;);nomes</code></pre>
+<pre><code>##  [1] &quot;Aniversário&quot;              &quot;Situação&quot;                
+##  [3] &quot;Raça&quot;                     &quot;IMC&quot;                     
+##  [5] &quot;Tipo físico&quot;              &quot;tabaco por dia (cig/dia)&quot;
+##  [7] &quot;Alcool (dose/semana)&quot;     &quot;Drogas/g&quot;                
+##  [9] &quot;Café/dia&quot;                 &quot;Suco/dia&quot;</code></pre>
+<p>Unindo as funções deste pacote com a sintaxe do pacote <code>dplyr</code> podemos elaborar uma função que irá facilitar bastante nas chamadas das colunas do data.frame na hora da análise, veja:</p>
+<pre class="r"><code>ajustar_nomes=function(x){
+  x%&gt;%
+    stringr::str_trim() %&gt;%                        #Remove espaços em branco sobrando
+    stringr::str_to_lower() %&gt;%                    #Converte todas as strings para minusculo
+    rm_accent() %&gt;%                                #Remove os acentos com a funcao criada acima
+    stringr::str_replace_all(&quot;[/&#39; &#39;.()]&quot;, &quot;_&quot;) %&gt;% #Substitui os caracteres especiais por &quot;_&quot;
+    stringr::str_replace_all(&quot;_+&quot;, &quot;_&quot;) %&gt;%        #Substitui os caracteres especiais por &quot;_&quot;   
+    stringr::str_replace(&quot;_$&quot;, &quot;&quot;)                 #Substitui o caracter especiais por &quot;_&quot;
+}
+nomes=ajustar_nomes(nomes)
+nomes</code></pre>
+<pre><code>##  [1] &quot;aniversario&quot;            &quot;situacao&quot;               &quot;raca&quot;                  
+##  [4] &quot;imc&quot;                    &quot;tipo_fisico&quot;            &quot;tabaco_por_dia_cig_dia&quot;
+##  [7] &quot;alcool_dose_semana&quot;     &quot;drogas_g&quot;               &quot;cafe_dia&quot;              
+## [10] &quot;suco_dia&quot;</code></pre>
+<div id="função-str_replace-e-str_replace_all" class="section level3">
+<h3>Função str_replace() e str_replace_all()</h3>
+<p>Esse é o tipo de função que é utilizada com frequência. Utilizada para substituir ou remover uma (ou todas) as ocorrências de determinado carácter no objeto, suponha a seguinte situação:</p>
+<pre class="r"><code>exemplo &lt;- c(&quot;o esperto&quot;, &quot;o doido&quot;, &quot;o normal&quot;)</code></pre>
+<p>Para remover a primeira vogal de cada string:</p>
+<pre class="r"><code>str_replace(exemplo, &quot;[aeiou]&quot;, &quot;&quot;) </code></pre>
+<pre><code>## [1] &quot; esperto&quot; &quot; doido&quot;   &quot; normal&quot;</code></pre>
+<p>Para substitui todas as vogais por "_"</p>
+<pre class="r"><code>str_replace_all(exemplo, &quot;[aeiou]&quot;, &quot;_&quot;) </code></pre>
+<pre><code>## [1] &quot;_ _sp_rt_&quot; &quot;_ d__d_&quot;   &quot;_ n_rm_l&quot;</code></pre>
+<p>Considere este novo exemplo:</p>
+<pre class="r"><code>exemplo2 &lt;- &quot;O-    ffffzx2, faifavuvuifoovvv fovvo&quot;</code></pre>
+<p>Para substitui o primeiro f (ou f’s) por “v”:</p>
+<pre class="r"><code>exemplo2 &lt;- str_replace(exemplo2, &quot;f+&quot;, &quot;v&quot;)
+exemplo2</code></pre>
+<pre><code>## [1] &quot;O-    vzx2, faifavuvuifoovvv fovvo&quot;</code></pre>
+<p>Para substituir todos os v’s (em sequência ou não) por “c”:</p>
+<pre class="r"><code>exemplo2 &lt;- str_replace_all(exemplo2, &quot;v+&quot;, &quot;c&quot;) 
+exemplo2</code></pre>
+<pre><code>## [1] &quot;O-    czx2, faifacucuifooc foco&quot;</code></pre>
+</div>
+<div id="função-str_split-e-str_split_fixed" class="section level3">
+<h3>Função str_split() e str_split_fixed()</h3>
+<p>Essas funções separam uma string em várias de acordo com um separador.</p>
+<pre class="r"><code>frase &lt;- &#39;Analisar palavras é muito legal. Apesar de todos os desafios as informações que podemos extrair podem revelar informações incrívelmente úteis. Esse exemplo esta sendo escrito pois vamos retirar cada frase desse paragrafo separadamente.&#39;
+
+str_split(frase, fixed(&#39;.&#39;))</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;Analisar palavras é muito legal&quot;                                                                              
+## [2] &quot; Apesar de todos os desafios as informações que podemos extrair podem revelar informações incrívelmente úteis&quot;
+## [3] &quot; Esse exemplo esta sendo escrito pois vamos retirar cada frase desse paragrafo separadamente&quot;                 
+## [4] &quot;&quot;</code></pre>
+</div>
+<div id="função-str_sub" class="section level3">
+<h3>Função <code>str_sub()</code></h3>
+<p>Para obter uma parte fixa de uma string podemos utilizar o comando <code>str_sub()</code> da seguinte maneira:</p>
+<pre class="r"><code>#Suponha as seguintes palavras:
+words=c(&quot;00-casados&quot;, &quot;01-casamento&quot;, &quot;02-emprego&quot;, &quot;03-empregado&quot;)</code></pre>
+<p>Selecionado apenas do quarto até o último caracteres da string:</p>
+<pre class="r"><code>str_sub(words, start = 4) # começa no 4 caractere</code></pre>
+<pre><code>## [1] &quot;casados&quot;   &quot;casamento&quot; &quot;emprego&quot;   &quot;empregado&quot;</code></pre>
+<p>Selecionando apenas os dois primeiros caracteres da string:</p>
+<pre class="r"><code>str_sub(words, end = 2) # termina no 2 caractere</code></pre>
+<pre><code>## [1] &quot;00&quot; &quot;01&quot; &quot;02&quot; &quot;03&quot;</code></pre>
+<p>Para obter caracteres utilizando o sinal de negação <code>-</code></p>
+<pre class="r"><code>#Suponha:
+words &lt;- c(&quot;casamento-01&quot;, &quot;emprego-02&quot;, &quot;empregado-03&quot;)
+str_sub(words, end = -4)   #Seleciona todos os valores menos os últimos 3</code></pre>
+<pre><code>## [1] &quot;casamento&quot; &quot;emprego&quot;   &quot;empregado&quot;</code></pre>
+<pre class="r"><code>str_sub(words, start = -2) #Seleciona todos os valores até o segundo valor</code></pre>
+<pre><code>## [1] &quot;01&quot; &quot;02&quot; &quot;03&quot;</code></pre>
+<p>Também é possível utilizar os argumentos <code>end</code> e <code>start</code> conjuntamente, veja</p>
+<pre class="r"><code>#É possível usar os argumentos start e end conjuntamente.
+words &lt;- c(&quot;__casamento__&quot;, &quot;__emprego__&quot;, &quot;__empregado__&quot;)
+str_sub(words, start=3, end=-3)</code></pre>
+<pre><code>## [1] &quot;casamento&quot; &quot;emprego&quot;   &quot;empregado&quot;</code></pre>
+<p>A manipulação de strings é uma tarefa bem trabalhosa e algumas vezes até complexa porém cada desafio que surge ajuda bastante a entender esse mecanismo para manipulação de strings.</p>
+</div>
+</div>
+</div>
+<div id="pacote-tm" class="section level1">
+<h1>Pacote <code>tm</code></h1>
+<p>O pacote <code>tm</code> é um clássico para o text mining em R, quando os dados se apresentam de forma não estrutura, necessitam de uma preparação prévia que pode ser considerada um tipo de pré-processamento.</p>
+<p>Inicialmente, carregando o pacote:</p>
+<pre class="r"><code>library(tm)</code></pre>
+<p>Em bases de dados textuais, conhecidos como <em>corpus</em> ou <em>corpora</em> são tratado como “documentos” e cada “documento” em um <em>corpus</em> pode assumir diferentes características em relação ao tamanho do texto (sequências de caracteres), tipo de conteúdo (assunto abordado), língua na qual é escrito ou tipo de linguagem adotada dentro outros exemplos.</p>
+<p>A transformação de um <em>corpus</em> em um conjunto de dados que possa ser submetido à procedimentos de análise consiste em um processo que gera uma representação capaz de descrever cada documento em termos de suas características.</p>
+<p>Para criar um <em>corpus</em> a partir de um <code>data.frame</code> basta utilizar o seguinte comando:</p>
+<pre class="r"><code>#Criando o corpus para o tratamento das variaveis com pacote library(tm): 
+corpus &lt;- Corpus(DataframeSource(x))</code></pre>
+<p>A seguir veremos algumas dos possíveis procedimentos para a manipulação de dados em um <em>corpus</em>.</p>
+<div id="limpeza-de-um-corpus" class="section level2">
+<h2>Limpeza de um corpus</h2>
+<p>Uma sequência de comando interessantes para a limpeza de um <em>corpus</em> que já utilizei bastante é a seguinte:</p>
+<pre class="r"><code>#Realizando a limpeza da base de dados:
+#Acrescentar mais stopwords para retirada;
+#novas=c()
+
+#Tratamento do corpus
+tratar_corpus=function(x){
+  x%&gt;% 
+    tm_map(stripWhitespace)%&gt;%                                #remover excessos de espaços em branco
+    tm_map(removePunctuation)%&gt;%                              #remover pontuacao
+    tm_map(removeNumbers)%&gt;%                                  #remover numeros
+    tm_map(removeWords, c(stopwords(&quot;portuguese&quot;),novas))%&gt;%  #remmover as stopwords,crie um vetor chamado &quot;novas&quot; para incluir novas stopwords 
+    tm_map(stripWhitespace)%&gt;%                                #remover excessos de espaços em branco novamente
+    tm_map(removeNumbers)                                 #remover numeros novamente
+  # tm_map(content_transformer(tolower))%&gt;%                   #colocar todos caracteres como minusculo
+  #tm_map(stemDocument)                                      #Extraindo os radicais
+}                                   
+corpus=tratar_corpus(corpus)
+#inspect(corpus[[3]]) #Leitura de algum documento específico</code></pre>
+<p>Para criar a matriz de termos podemos utilizar o comando:</p>
+<pre class="r"><code>#Criando a matrix de termos:
+corpus_tf=TermDocumentMatrix(corpus, control = list(minWordLength=2,minDocFreq=5))</code></pre>
+<p>Caso precise trabalhar com a transformação <code>tf-idf</code> basta utilizar:</p>
+<pre class="r"><code>#Caso precise utilizar a medida tf-idf em um corpus:
+corpus_tf_idf=weightTfIdf(corpus_tf,normalize=T)</code></pre>
+</div>
+<div id="obtendo-uma-matriz-de-frequências-a-partir-de-um-corpos" class="section level2">
+<h2>Obtendo uma matriz de frequências a partir de um corpos</h2>
+<p>Criando uma matriz para facilitar a manipulação dos dados</p>
+<pre class="r"><code>#Transformando em matrix para permitir a manipulação:
+matriz = as.matrix(corpus_tf)
+
+#organizar os dados de forma decrescente
+matriz = sort(rowSums(matriz), decreasing=T)
+
+#criando um data.frame para a matriz
+matriz = data.frame(word=names(matriz), freq = matriz)</code></pre>
+<p>Caso seja necessário conferir visualmente as palavras mais mencionadas, também podemos utilizar gráficos, como por exemplo:</p>
+<pre class="r"><code>#Vejamos os primeiros 10 registros:
+head(matriz, n=10)</code></pre>
+<pre><code>##              word freq
+## anos         anos  242
+## pra           pra  226
+## site         site  156
+## cadastro cadastro  134
+## faz           faz  124
+## fazer       fazer  124
+## ver           ver  114
+## todo         todo  110
+## consegue consegue  102
+## gente       gente  100</code></pre>
+<pre class="r"><code>#Vejamos visualmente:
+head(matriz, n=10) %&gt;%
+  ggplot(aes(word, freq)) +
+  geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, fill = &quot;#87CEFA&quot;) +
+  geom_text(aes(hjust = 1.3, label = freq)) + 
+  coord_flip() + 
+  labs(title = &quot;20 Palavras mais mensionadas&quot;,  x = &quot;Palavras&quot;, y = &quot;Número de usos&quot;)</code></pre>
+<p><img src="/post/2017-12-17-string/string_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+</div>
+</div>
+<div id="n-gram-dictionary-com-rweka" class="section level1">
+<h1>N-gram Dictionary com <code>RWeka</code></h1>
+<p>Embora a análise de palavras realizada neste documento seja útil para a exploração inicial, o cientista de dados precisará construir um dicionário de bigrams, trigrams e quatro grams, coletivamente chamados de n-grams, que são frases de n palavras.</p>
+<p>“O <a href="https://www.cs.waikato.ac.nz/ml/weka/">Weka</a> tem como objectivo agregar algoritmos provenientes de diferentes abordagens/paradigmas na sub-área da inteligência artificial dedicada ao estudo de aprendizagem de máquina.”-<a href="https://pt.wikipedia.org/wiki/Weka">Wikipedia</a></p>
+<p>Carregando o pacote <code>RWeka</code>:</p>
+<pre class="r"><code>library(rJava)
+suppressMessages(library(RWeka)) 
+BigramTokenizer &lt;- function(x) NGramTokenizer(x, Weka_control(min = 2, max = 2))
+TrigramTokenizer &lt;- function(x) NGramTokenizer(x, Weka_control(min = 3, max = 3))
+FourgramTokenizer &lt;- function(x) NGramTokenizer(x, Weka_control(min = 4, max = 4))</code></pre>
+<p>Como exemplo, criaremos um dicionário de trigrams (frases de três palavras) e a função para construir um dicionário de n-gramas utilizando o pacote <code>tm</code> e o <code>RWeka</code> é:</p>
+<pre class="r"><code># tokenize into tri-grams
+trigram.Tdm &lt;- tm::TermDocumentMatrix(corpus, control = list(tokenize = TrigramTokenizer))</code></pre>
+<p>Criando uma matriz para facilitar a manipulação dos dados</p>
+<pre class="r"><code>#Transformando em matrix para permitir a manipulação:
+matriz = as.matrix(trigram.Tdm)
+
+#organizar os dados de forma decrescente
+matriz = sort(rowSums(matriz), decreasing=T)
+
+#criando um data.frame para a matriz
+matriz = data.frame(word=names(matriz), freq = matriz)</code></pre>
+<pre class="r"><code>#Vejamos os primeiros 20 registros:
+head(matriz, n=10)
+
+#Vejamos visualmente:
+head(matriz, n=10) %&gt;%
+  ggplot(aes(word, freq)) +
+  geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, fill = &quot;#87CEFA&quot;) +
+  geom_text(aes(hjust = 1.3, label = freq)) + 
+  coord_flip() + 
+  labs(title = &quot;20 frases mais mensionadas&quot;,  x = &quot;Palavras&quot;, y = &quot;Número de usos&quot;)</code></pre>
+<p>Parece que este pacote parou de funcionar temporariamente, uma alternativa a este pacote pode ser o <code>ngram</code> e seu uso pode ser da seguinte forma:</p>
+<pre class="r"><code>library(ngram)
+ngrams=3
+temp=ngram::ngram(ngram::concatenate(corpus),ngrams)      # Objeto temporario recebe objeto que guarda sequencias
+temp=get.phrasetable(temp)                                  # Obtendo tabela de sequencias do objeto acima
+
+temp$ngrams=temp$ngrams%&gt;%                                  # Limpeza das sequencias obtidas:
+  str_replace_all(pattern = &quot;^([A-Za-z] [A-Za-z])+&quot;,&quot;&quot;)%&gt;%  # Remover sequencias de apenas 1 letras 
+  str_replace_all(pattern = &quot;[:punct:]&quot;,&quot;&quot;)%&gt;%              # Remover caracteres especiais
+  str_replace_all(pattern = &quot;\n&quot;,&quot;&quot;)%&gt;%                     # Remover o marcador de &quot;nova linha&quot;
+  str_trim()                                                # Remover espaços em branco sobrando
+
+#Apos a limpeza..
+
+temp=temp[temp$ngrams!=&quot;&quot;,]                                 # Selecionando apenas as linhas que contenham informacao
+
+temp=temp%&gt;%                                                # Novamente manipulando o objeto que contem a tabela de sequencias
+  group_by(ngrams) %&gt;%                                      # Agrupando por &quot;ngrams&quot; (sequencias obtidas)
+  summarise(freq=sum(freq))%&gt;%                              # Resumir as linhas repetidas pela soma das frequencias
+  arrange(desc(freq))%&gt;%                                    # Organizando da maior para a menos frequencia
+  as.matrix()                                               # Alterando o tipo de objeto para matrix
+
+rownames(temp)=str_c(temp[,1])                              # O nome das linhas passa a ser a sequencia correspondente
+v=sort(temp[,2],decreasing = T)                               # Retorna um objeto com as frequencias em ordem decrescente e linhas nomeadas
+data.frame(words = names(v),freq=v)%&gt;%
+  head(n=25)%&gt;%
+  ggplot(aes(words, freq)) +
+  geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, fill = &quot;#87CEFA&quot;) +
+  geom_text(aes(hjust = 1.3, label = freq)) + 
+  coord_flip() + 
+  labs(title = &quot;25 frases mais mensionadas&quot;,  x = &quot;Palavras&quot;, y = &quot;Número de usos&quot;)</code></pre>
+<p><img src="/post/2017-12-17-string/string_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div id="package-snowballc" class="section level2">
+<h2>Package ‘SnowballC’</h2>
+<p>Caso seja necessário retirar o radical de um vetor de strings podemos utilizar a função ´wordStem´ do pacote <code>SnowballC</code>, caso queria conferir, existe o <a href="https://cran.r-project.org/web/packages/SnowballC/SnowballC.pdf">manual do pacote</a> no <a href="https://cran.r-project.org/web/packages/SnowballC">CRAN</a></p>
+<pre class="r"><code>words=c(&quot;casados&quot;, &quot;casamento&quot;, &quot;emprego&quot;, &quot;empregado&quot;)
+SnowballC::getStemLanguages()</code></pre>
+<pre><code>##  [1] &quot;arabic&quot;     &quot;basque&quot;     &quot;catalan&quot;    &quot;danish&quot;     &quot;dutch&quot;     
+##  [6] &quot;english&quot;    &quot;finnish&quot;    &quot;french&quot;     &quot;german&quot;     &quot;greek&quot;     
+## [11] &quot;hindi&quot;      &quot;hungarian&quot;  &quot;indonesian&quot; &quot;irish&quot;      &quot;italian&quot;   
+## [16] &quot;lithuanian&quot; &quot;nepali&quot;     &quot;norwegian&quot;  &quot;porter&quot;     &quot;portuguese&quot;
+## [21] &quot;romanian&quot;   &quot;russian&quot;    &quot;spanish&quot;    &quot;swedish&quot;    &quot;tamil&quot;     
+## [26] &quot;turkish&quot;</code></pre>
+<pre class="r"><code>SnowballC::wordStem(words, language = &quot;portuguese&quot;)</code></pre>
+<pre><code>## [1] &quot;cas&quot;      &quot;casament&quot; &quot;empreg&quot;   &quot;empreg&quot;</code></pre>
+</div>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>R</category>
+      <category>Prática</category>
+      <category>Text Mining</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">R</category>
+      <category domain="tag">RStudio</category>
+      <category domain="tag">text mining</category>
+      <category domain="tag">strings</category>
     </item>
-    
   </channel>
 </rss>

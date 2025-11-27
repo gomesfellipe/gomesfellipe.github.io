@@ -1,0 +1,367 @@
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Recommendations on Fellipe Gomes - Data Science Blog</title>
+    <link>https://gomesfellipe.github.io/recommendations/</link>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Sun, 08 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/recommendations/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Canais do YouTube para Cientistas de Dados</title>
+      <link>https://gomesfellipe.github.io/recommendations/item4/</link>
+      <pubDate>Sun, 08 Jun 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/recommendations/item4/</guid>
+      <description>Minha seleção dos melhores canais do YouTube para quem quer aprender Data Science, Machine Learning e programação em 2025</description>
+      <content:encoded>&lt;![CDATA[
+        <p>O YouTube virou uma universidade gratuita para quem quer aprender Data Science. Compilei aqui os canais que realmente fazem a diferença na jornada de aprendizado, desde conceitos básicos até técnicas avançadas.</p>
+<h2 id="matemática-e-conceitos-fundamentais">Matemática e Conceitos Fundamentais</h2>
+<p><strong><a href="https://www.youtube.com/@3blue1brown">3Blue1Brown</a></strong>
+O melhor canal para entender matemática de forma visual. Grant Sanderson tem um talento único para explicar conceitos complexos de álgebra linear, cálculo e estatística de forma intuitiva. Essencial para quem quer entender o &ldquo;por que&rdquo; por trás dos algoritmos.</p>
+<p><strong><a href="https://www.youtube.com/@statquest">StatQuest with Josh Starmer</a></strong>
+Josh consegue explicar estatística e machine learning de forma que qualquer pessoa entende. Os vídeos são curtos, diretos e com exemplos práticos. Perfeito para revisar conceitos ou aprender algo novo sem complicação.</p>
+<h2 id="programação-e-implementação">Programação e Implementação</h2>
+<p><strong><a href="https://www.youtube.com/@sentdex">Sentdex</a></strong>
+Harrison foca em Python aplicado a machine learning e finanças. Ótimos tutoriais práticos, desde pandas básico até redes neurais. Ideal para quem quer ver código funcionando na prática.</p>
+<p><strong><a href="https://www.youtube.com/@coreyms">Corey Schafer</a></strong>
+Se você está começando com Python, esse canal é obrigatório. Corey explica desde o básico até tópicos avançados com uma didática excepcional. Seus tutoriais de pandas e matplotlib são referência.</p>
+<p><strong><a href="https://www.youtube.com/@codebasics">Codebasics</a></strong>
+Canal indiano com conteúdo muito sólido sobre fundamentos de data science. Dhanraj explica tanto teoria quanto prática, sempre com projetos reais. Boa variedade de linguagens e ferramentas.</p>
+<h2 id="análise-e-business-intelligence">Análise e Business Intelligence</h2>
+<p><strong><a href="https://www.youtube.com/@AlexTheAnalyst">Alex The Analyst</a></strong>
+Focado no lado mais business de data science. Excelente para SQL, Power BI, Tableau e análise de dados. Alex mostra como trabalhar com dados em ambientes corporativos reais.</p>
+<p><strong><a href="https://www.youtube.com/@Analyticsvidhya">Analytics Vidhya</a></strong>
+Canal da plataforma Analytics Vidhya com tutoriais variados sobre analytics e data science. Bom para ficar atualizado com trends e novas ferramentas do mercado.</p>
+<h2 id="machine-learning-avançado">Machine Learning Avançado</h2>
+<p><strong><a href="https://www.youtube.com/@krishnaik06">Krish Naik</a></strong>
+Krish oferece bootcamps completos de machine learning e deep learning. Conteúdo denso e bem estruturado, ideal para quem quer se aprofundar nos algoritmos e técnicas mais avançadas.</p>
+<p><strong><a href="https://www.youtube.com/@TwoMinutePapers">Two Minute Papers</a></strong>
+Dr. Károly Zsolnai-Fehér apresenta as pesquisas mais recentes em IA de forma acessível. Perfeito para acompanhar o estado da arte e ver o que está sendo desenvolvido nos laboratórios.</p>
+<h2 id="conteúdo-motivacional-e-trends">Conteúdo Motivacional e Trends</h2>
+<p><strong><a href="https://www.youtube.com/@SirajRaval">Siraj Raval</a></strong>
+Siraj mistura conteúdo técnico com motivação e visão de futuro da IA. Bom para entender o panorama geral da área e se manter inspirado durante os estudos.</p>
+<h2 id="dicas-de-consumo">Dicas de Consumo</h2>
+<p>Algumas estratégias que uso para aproveitar melhor esses canais:</p>
+<p><strong>Para iniciantes:</strong>
+Comece com Corey Schafer (Python básico) → StatQuest (conceitos) → Sentdex (prática)</p>
+<p><strong>Para quem já programa:</strong>
+3Blue1Brown (fundamentos) → Krish Naik (ML) → Two Minute Papers (atualização)</p>
+<p><strong>Para o mercado de trabalho:</strong>
+Alex The Analyst → Analytics Vidhya → Codebasics</p>
+<p><strong>Pontos importantes:</strong></p>
+<ul>
+<li>Assista em 1.25x ou 1.5x para otimizar tempo</li>
+<li>Pause para fazer anotações dos conceitos principais</li>
+<li>Tente reproduzir os códigos mostrados</li>
+<li>Use os vídeos como complemento, não substituição de prática</li>
+</ul>
+<p>O YouTube é uma ferramenta poderosa, mas o segredo está na consistência. Melhor assistir 20 minutos por dia do que 3 horas no fim de semana.</p>
+<p>Todos esses canais são em inglês, o que também ajuda a melhorar o idioma - fundamental na carreira de dados.</p>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/recommendations/item4/">Canais do YouTube para Cientistas de Dados</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>datascience</category>
+      <category>youtube</category>
+      <category>aprendizado</category>
+      <category domain="tag">youtube</category>
+      <category domain="tag">datascience</category>
+      <category domain="tag">machinelearning</category>
+      <category domain="tag">python</category>
+      <category domain="tag">r</category>
+    </item>
+    <item>
+      <title>Bancos de dados públicos</title>
+      <link>https://gomesfellipe.github.io/recommendations/item2/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/recommendations/item2/</guid>
+      <description> Apresentando alguns sites que disponibilizam dados públicos</description>
+      <content:encoded>&lt;![CDATA[
+        <p>Esses são alguns sites que podem ser utilizados como fontes de dados públicos:</p>
+<h2 id="brasileiros">Brasileiros:</h2>
+<ul>
+<li><a href="http://www.ipeadata.gov.br/">IPEA DATA</a></li>
+<li><a href="https://www.ibge.gov.br/">IBGE</a></li>
+<li><a href="https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries">Banco de Informações Econômicas e Financeiras do Banco Central</a></li>
+<li><a href="http://datasus.saude.gov.br/">Datasus</a></li>
+<li><a href="http://transparencia.gov.br/">Portal da transparência</a></li>
+<li><a href="http://www.pf.gov.br/institucional/acessoainformacao/acesso-a-informacao">Polícia federal - Ministério da justiça e segurança pública</a></li>
+<li><a href="http://sistemas.cultura.gov.br/comparar/salicnet/salicnet.php">Ministério da Cultura</a></li>
+<li><a href="http://dados.gov.br/dataset">Portal brasileiro de dados abertos</a></li>
+<li><a href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados">Microdados do ENEM</a></li>
+<li><a href="https://basedosdados.org/dataset/br-sp-alesp">Dados Abertos da ALESP</a></li>
+<li><a href="https://www.kaggle.com/gustavomodelli/forest-fires-in-brazil">Forest Fires in Brazil</a></li>
+<li><a href="https://dadosabertos.bndes.gov.br/pt_PT/dataset/indicadores-financeiros">Indicadores Financeiros BNDES</a></li>
+<li><a href="https://www.kaggle.com/datasets/inquisitivecrow/crime-data-in-brazil">Crime Data in Brazil</a></li>
+</ul>
+<h2 id="estrangeiros">Estrangeiros:</h2>
+<ul>
+<li><a href="https://www.kaggle.com/rodolfomendes/abalone-dataset">Age of Abalone shell</a></li>
+<li><a href="https://data.world/nrippner/ols-regression-challenge">Cancer death rate</a></li>
+<li><a href="https://www.kaggle.com/kumarajarshi/life-expectancy-who/">Life expectancy (World Health Organization)</a></li>
+<li><a href="https://www.kaggle.com/nehalbirla/vehicle-dataset-from-cardekho?ref=hackernoon.com&amp;select=Car+details+v3.csv">Car prices</a></li>
+<li><a href="https://data.world/exercises/logistic-regression-exercise-1">NBA rookie stats</a></li>
+<li><a href="https://www.kaggle.com/fedesoriano/stroke-prediction-dataset">Stroke prediction</a></li>
+<li><a href="https://www.kaggle.com/adityakadiwal/water-potability">Water potability</a></li>
+<li><a href="https://www.kaggle.com/pcbreviglieri/smart-grid-stability">Smart grid stability</a></li>
+<li><a href="https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset">IBM HR analytics &amp; employee attrition</a></li>
+<li><a href="https://www.kaggle.com/uciml/mushroom-classification">Can I eat this mushroom?</a></li>
+<li><a href="https://www.kaggle.com/ritesaluja/bank-note-authentication-uci-data">Banknote authentication</a></li>
+<li><a href="https://www.kaggle.com/wenruliu/adult-income-dataset">Adult income dataset</a></li>
+<li><a href="https://www.openml.org/search?type=data&amp;sort=runs&amp;id=181">Yeast classification</a></li>
+<li><a href="https://archive.ics.uci.edu/ml/datasets.php">UCI Machine Learning Repository Center para Machine Learning e Sistemas inteligentes</a></li>
+<li><a href="https://www.kaggle.com/datasets">Kaggle</a></li>
+<li><a href="https://www.quandl.com/">Quandl: Financial, Economic and Alternative Data</a></li>
+<li><a href="https://www.kdd.org/kdd-cup">Copa KDD - Arquivos da competição Data Mining e Knowledge Discovery</a></li>
+<li><a href="https://www.drivendata.org/">Data Driven Datasets</a></li>
+<li><a href="http://datasf.org">Dados sobre as cidades americanas</a></li>
+<li><a href="http://open.canada.ca">Dados do Governo do Canadá</a></li>
+<li><a href="https://data.gov.uk">Dados do Governo do Reino Unido</a></li>
+<li><a href="http://open-data.europa.eu/en/data">Dados da União Europeia</a></li>
+<li><a href="http://www.census.gov">Dados do Censo dos EUA</a></li>
+<li><a href="https://www.kaggle.com/docs/kernels?utm_medium=social&amp;utm_source=linkedin.com&amp;utm_campaign=kaggle-kernel-doc">Kaggle Kernels</a></li>
+<li><a href="https://ai.google/tools/datasets/">Datasets – Google AI</a></li>
+<li><a href="https://www.data.gov/">U.S. Government’s open data</a></li>
+<li><a href="http://stats.oecd.org/Index.aspx">OECD - Organization for Economic Co-operation and Development</a></li>
+<li><a href="https://robjhyndman.com/TSDL/">Time Series Data Library</a></li>
+<li><a href="https://fgn.unisg.ch/eumacro/macrodata/macroeconomic-time-series.html">Macroeconomic Time Series</a></li>
+<li><a href="https://www.ngdc.noaa.gov/stp/stp.html">NOAA - National Environmental Satellite, Data and Information Center</a></li>
+<li><a href="https://fisher.osu.edu/academic-departments/department-finance">Financial Data Finder - The Ohio State University</a></li>
+<li><a href="http://www.stats.uwo.ca/faculty/aim/epubs/mhsets/">Repository of time series data</a></li>
+<li><a href="https://data.giss.nasa.gov/">NASA</a></li>
+<li><a href="https://www.bls.gov/data/">U.S. Department of Labor (Bureau of Labor Statistics)</a></li>
+<li><a href="http://www.econstats.com/">ECONSTATS - Global Economic Data</a></li>
+<li><a href="http://www.nber.org/data/">The National Bureau of Economic Research</a></li>
+<li><a href="http://www.economagic.com/">Economagic.com: Economic Time Series Page</a></li>
+<li><a href="http://www.stats.uwo.ca/faculty/aim/1994Book/default.htm">Time Series Modelling of Water Resources and Environmental Systems</a></li>
+<li><a href="http://data.worldbank.org">Dados do Banco Mundial</a></li>
+<li><a href="http://www.healthdata.gov">Dados sobre a saúde</a></li>
+<li><a href="http://aws.amazon.com/datasets">Dados públicos da Amazon</a></li>
+<li><a href="http://knoema.com">Knoema - Dados sobre diversos países</a></li>
+<li><a href="https://www.google.com/trends">Google Trends</a></li>
+<li><a href="https://www.google.com/finance">Google Finance</a></li>
+<li><a href="http://www.gapminder.org/data">Gapminder</a></li>
+<li><a href="https://aws.amazon.com/datasets/million-song-dataset">Million Song Dataset</a></li>
+<li><a href="http://www.freebase.com">Freebase</a></li>
+<li><a href="http://wiki.dbpedia.org/">DBpedia</a></li>
+<li><a href="http://opendatamonitor.eu">Open Data Monitor</a></li>
+<li><a href="http://www.opendatanetwork.com">Open Data Network</a></li>
+<li><a href="http://www.stats4stem.org/data-sets.html">R Datasets</a></li>
+<li><a href="http://www.statsci.org/datasets.html">R Dataset packages</a></li>
+<li><a href="http://www.sttista.com">Portal de Estatística</a></li>
+<li><a href="http://www.data360.org">Data 360</a></li>
+<li><a href="http://www.face-rec.org/databases">Reconhecimento de Faces</a></li>
+<li><a href="http://snap.stanford.edu/data">Stanford Large Network Dataset Collection</a></li>
+<li><a href="http://datahub.io/dataset">Datahub</a></li>
+<li><a href="https://github.com/niderhoff/nlp-datasets">NLP Datasets</a></li>
+<li><a href="https://www.paperswithcode.com/datasets">Paperswithcode</a></li>
+<li><a href="https://www.kaggle.com/datasets/jhonatanslopes/companies-invested-in-shark-tank-brazil">Companies Invested in Shark Tank Brazil</a></li>
+<li><a href="https://www.kaggle.com/datasets/felipepolo/brazilian-legal-proceedings/data">Brazilian Legal Proceedings</a></li>
+</ul>
+<h2 id="datasets-para-crianças">Datasets para crianças</h2>
+<p>Lista obtida <a href="https://www.littlemissdata.com/blog/10-datasets-kids">neste post</a>:</p>
+<ul>
+<li><a href="https://www.kaggle.com/shivamb/disney-movies-and-tv-shows">Disney Plus Shows</a></li>
+<li><a href="https://worldhappiness.report/">World Happiness Report</a></li>
+<li><a href="https://www.kaggle.com/infamouscoder/bigfoot-sightings">Strange Sightings with Bigfoot and UFO</a> / <a href="https://www.kaggle.com/NUFORC/ufo-sightings">UFO Sightings</a></li>
+<li><a href="https://www.rdocumentation.org/packages/yarrr/versions/0.1.5">YaRrr!</a></li>
+<li><a href="https://www.kaggle.com/abcsds/pokemon">Pokemon</a></li>
+<li><a href="https://cran.r-project.org/web/packages/babynames/index.html">Baby Names</a></li>
+<li><a href="https://www.kaggle.com/crawford/80-cereals">Cereal</a></li>
+<li><a href="https://www.kaggle.com/zaheenhamidani/spotify-dataset-19212020-160k-tracks">Spotify</a></li>
+<li><a href="https://allisonhorst.github.io/palmerpenguins/">Palmer Penguins</a></li>
+<li><a href="https://www.autodeskresearch.com/publications/samestats">Datasaurus</a></li>
+</ul>
+<h2 id="visão-computacional">Visão computacional:</h2>
+<ul>
+<li><a href="http://6.869.csail.mit.edu/fa17/miniplaces.html">MiniPlaces</a></li>
+<li><a href="https://www.kaggle.com/datasets/yamaerenay/100-images-of-top-50-car-brands">The car brands dataset</a></li>
+<li><a href="https://www.kaggle.com/competitions/planet-understanding-the-amazon-from-space/data">The Planet dataset: Understanding the Amazon</a></li>
+<li><a href="https://muratkoklu.com/datasets/">Fruit datasets</a></li>
+<li><a href="https://www.kaggle.com/datasets/deepcontractor/is-that-santa-image-classification">Santa or not dataset</a> (<a href="https://colab.research.google.com/drive/1VHjkumbJToxHBCrtYhzFQ0QHYoAeKH3W?usp=sharing">code</a>)</li>
+</ul>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/recommendations/item2/">Bancos de dados públicos</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>estatística</category>
+      <category>utilidades</category>
+    </item>
+    <item>
+      <title>Plataformas para encontrar trabalho remoto</title>
+      <link>https://gomesfellipe.github.io/recommendations/item3/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/recommendations/item3/</guid>
+      <description>Lista curada das melhores plataformas para quem busca oportunidades de trabalho remoto, desde freelancers iniciantes até profissionais experientes</description>
+      <content:encoded>&lt;![CDATA[
+        <p>O trabalho remoto deixou de ser tendência e virou realidade. Se você está buscando novas oportunidades ou quer fazer a transição para o home office, compilei uma lista das melhores plataformas disponíveis hoje.</p>
+<p>Organizei por categorias para facilitar sua busca, seja você iniciante ou já experiente no mercado remoto.</p>
+<h2 id="plataformas-brasileiras">Plataformas Brasileiras</h2>
+<p>Começando pelo nosso mercado nacional, essas são as principais opções para quem quer trabalhar remotamente sem sair do Brasil:</p>
+<p><strong><a href="https://remotar.com.br/">Remotar</a></strong>
+A primeira plataforma 100% dedicada ao trabalho remoto no Brasil. Conecta profissionais e empresas que já abraçaram essa modalidade. Ideal para quem quer trabalhar para empresas brasileiras sem limitação geográfica.</p>
+<p><strong><a href="https://trampos.co/">Trampos</a></strong>
+Portal focado em vagas de tecnologia, com um filtro específico para trabalho remoto. Muito popular entre desenvolvedores e profissionais de TI brasileiros.</p>
+<p><strong><a href="https://vagas.com.br/">Vagas.com</a></strong>
+Portal tradicional que expandiu para incluir vagas remotas. Boa variedade de áreas profissionais além de tech.</p>
+<h2 id="freelancing-internacional">Freelancing Internacional</h2>
+<p>Essas plataformas conectam freelancers com clientes do mundo todo. Prepare-se para trabalhar em inglês e lidar com diferentes fusos horários:</p>
+<p><strong><a href="https://www.upwork.com/">Upwork</a></strong>
+A maior plataforma de freelancing do mundo. Aqui você encontra desde projetos pequenos até contratos de longo prazo. Taxa de 5-20% sobre os ganhos, mas o volume de oportunidades compensa.</p>
+<p><strong><a href="https://www.toptal.com/">Toptal</a></strong>
+Para os &ldquo;top 3%&rdquo; do mercado. Processo seletivo rigoroso, mas quem passa tem acesso aos melhores projetos e salários mais altos. Focado em desenvolvedores, designers e consultores financeiros.</p>
+<p><strong><a href="https://br.fiverr.com/">Fiverr</a></strong>
+Marketplace onde você oferece serviços específicos (os famosos &ldquo;gigs&rdquo;). Ideal para quem tem habilidades bem definidas como design, tradução, edição de vídeo.</p>
+<p><strong><a href="https://99designs.com.br/">99designs</a></strong>
+Especializada em design. Se você é designer gráfico, web designer ou ilustrador, vale a pena conferir.</p>
+<h2 id="vagas-clt-e-contratos-remotos">Vagas CLT e Contratos Remotos</h2>
+<p>Para quem prefere a estabilidade de um emprego fixo, mas com a liberdade do trabalho remoto:</p>
+<p><strong><a href="https://remoteok.com/">Remote OK</a></strong>
+Agregador de vagas remotas atualizado diariamente. Interface simples e foco em tecnologia, mas também tem outras áreas.</p>
+<p><strong><a href="https://landing.jobs/">Landing Jobs</a></strong>
+Plataforma europeia com excelentes oportunidades para o mercado de tecnologia. Muitas vagas aceitam brasileiros.</p>
+<p><strong><a href="https://weworkremotely.com/">We Work Remotely</a></strong>
+Uma das maiores comunidades de trabalho remoto. Além de vagas, tem muito conteúdo sobre cultura remota.</p>
+<p><strong><a href="https://angel.co/jobs">AngelList</a></strong>
+Focada em startups. Se você quer trabalhar em empresas inovadoras e não se importa com um pouco mais de risco, é uma ótima opção.</p>
+<h2 id="plataformas-especializadas">Plataformas Especializadas</h2>
+<p>Cada nicho tem suas particularidades. Essas plataformas focam em áreas específicas:</p>
+<p><strong><a href="https://www.italki.com/pt">italki</a></strong>
+Para professores de idiomas. Se você fala português, inglês ou qualquer outro idioma fluentemente, pode dar aulas online.</p>
+<p><strong><a href="https://www.utest.com/">Utest</a></strong>
+Especializada em testes de software. Ideal para quem tem experiência em QA (Quality Assurance) ou quer entrar nessa área.</p>
+<p><strong><a href="https://crossover.com/">Crossover</a></strong>
+Focada em vagas full-time remotas para empresas americanas. Processo seletivo criterioso, mas salários competitivos em dólar.</p>
+<p><strong><a href="https://www.virtualvocations.com/">Virtual Vocations</a></strong>
+Curadoria de vagas remotas em diversas áreas. Tem versão gratuita e premium.</p>
+<p><strong><a href="https://authenticjobs.com/">Authentic Jobs</a></strong>
+Para profissionais criativos: designers, desenvolvedores, profissionais de marketing digital.</p>
+<h2 id="outras-opções-relevantes">Outras Opções Relevantes</h2>
+<p><strong><a href="https://workingnomads.co/">Working Nomads</a></strong>
+Newsletter diária com vagas remotas curadas. Boa para quem quer receber oportunidades por email.</p>
+<p><strong><a href="https://br.jobatus.com/">Jobatus Brasil</a></strong>
+Agregador que inclui vagas remotas no Brasil.</p>
+<p><strong><a href="https://remote.com/">Remote.com</a></strong>
+Mais focada em serviços para empresas, mas também lista vagas.</p>
+<h2 id="dicas-importantes">Dicas Importantes</h2>
+<p>Algumas coisas que aprendi navegando nesse universo remoto:</p>
+<ul>
+<li><strong>Tenha um portfólio online atualizado</strong> - Seja no GitHub, Behance ou um site próprio</li>
+<li><strong>Invista na comunicação escrita</strong> - No remoto, saber se expressar por texto é fundamental</li>
+<li><strong>Defina seus horários de trabalho</strong> - Flexibilidade não significa estar disponível 24/7</li>
+<li><strong>Cuidado com golpes</strong> - Nunca pague para conseguir trabalho</li>
+<li><strong>Use contratos claros</strong> - Principalmente para freelances, formalize tudo por escrito</li>
+</ul>
+<p>O mercado remoto está em expansão constante. Vale a pena testar várias plataformas até encontrar a que melhor se adapta ao seu perfil profissional.</p>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/recommendations/item3/">Plataformas para encontrar trabalho remoto</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>homeoffice</category>
+      <category>remoto</category>
+      <category>freelance</category>
+      <category domain="tag">trabalho</category>
+      <category domain="tag">remoto</category>
+      <category domain="tag">freelance</category>
+      <category domain="tag">tech</category>
+    </item>
+    <item>
+      <title>Sobre ombros de gigantes</title>
+      <link>https://gomesfellipe.github.io/recommendations/item1/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/recommendations/item1/</guid>
+      <description>Algumas frases de pensadores que me inspiram</description>
+      <content:encoded>&lt;![CDATA[
+        <p>Essas são algumas das frases que me impactaram de alguma forma e que eu carrego para a minha vida:</p>
+<ul>
+<li>
+<p>&ldquo;<em>Com organização e tempo, acha-se o segredo de fazer tudo e bem feito.</em>&rdquo; - Pitágoras</p>
+</li>
+<li>
+<p>&ldquo;<em>A imaginação é mais importante que o conhecimento.</em>&rdquo; - Albert Einstein</p>
+</li>
+<li>
+<p>&ldquo;<em>Na vida, não existe nada a temer, mas a entender.</em>&rdquo; - Marie Curie</p>
+</li>
+<li>
+<p>&ldquo;<em>A matemática foi o alfabeto com o qual Deus escreveu o universo.</em>&rdquo;- Galileu Galilei</p>
+</li>
+<li>
+<p>&ldquo;<em>Quem sou eu? Ora, é impossível responder porque o tempo todo e preciso tornar-se quem se é!</em>&rdquo; - Friedrich Nietzsche</p>
+</li>
+<li>
+<p>&ldquo;<em>Há verdadeiramente duas coisas diferentes: saber e crer que se sabe. A ciência consiste em saber; em crer que se sabe reside a ignorância.</em>&rdquo; - Hipócrates</p>
+</li>
+<li>
+<p>&ldquo;<em>Faça as coisas o mais simples que você puder, porém não restrinja às mais simples.</em>&rdquo; - Albert Einstein</p>
+</li>
+<li>
+<p>&ldquo;<em>Pouco conhecimento faz com que as pessoas se sintam orgulhosas. Muito conhecimento, com que se sintam humildes.</em>&rdquo; - Lonardo da Vinci</p>
+</li>
+<li>
+<p>&ldquo;<em>De todos os animais selvagens, o homem jovem é o mais difícil de domar.</em>&rdquo; - Platão</p>
+</li>
+<li>
+<p>&ldquo;<em>Ajuda o teu semelhante a levantar a carga, mas não a levá-la.</em>&rdquo; - Pitágoras</p>
+</li>
+<li>
+<p>&ldquo;<em>É preciso cuidar do que é permanente, não só com o corpo mas também com a mente</em>&rdquo; - Vinícius de Moraes</p>
+</li>
+<li>
+<p>“<em>A melhor maneira de ser feliz é contribuir para a felicidade dos outros.</em>” - Robert Baden-Powell</p>
+</li>
+<li>
+<p>&ldquo;<em>Você não pode ensinar nada a ninguem, mas pode ajudar as pessoas a descobrirem por si mesmas.</em>&rdquo; - Galileu Galilei</p>
+</li>
+<li>
+<p>&ldquo;<em>Conhece-te a ti mesmo.</em>&rdquo; - Sócrates</p>
+</li>
+<li>
+<p>&ldquo;<em>Aquele que ousa perder uma hora de seu tempo não sabe o valor da vida.</em>&rdquo; - Charles Darwin</p>
+</li>
+<li>
+<p>&ldquo;<em>Em algum lugar, alguma coisa incrível está esperando para ser descoberta.</em>&rdquo; - Carl Sagan</p>
+</li>
+<li>
+<p>&ldquo;<em>Ninguém que é curioso é idiota. As pessoas que não perguntam permanecem ignorantes para o resto de suas vidas.</em>&rdquo; - Neil DeGrasse Tyson</p>
+</li>
+<li>
+<p>&ldquo;<em>Muitas pessoas devem a grandeza de suas vidas aos problemas que tiveram de vencer.</em>&rdquo; ― Robert Baden-Powell</p>
+</li>
+<li>
+<p>&ldquo;<em>Construímos muros demais e pontes de menos.</em>&rdquo; - Issac Newton</p>
+</li>
+<li>
+<p>&ldquo;<em>É muito comum que as pessoas trabalhem duro na coisa errada. Trabalhar na coisa certa é, provavelmente, mais importante do que trabalhar duro</em>&rdquo; - Caterina Fake</p>
+</li>
+<li>
+<p>&ldquo;<em>Deixe o mundo um pouco melhor do que encontrou.</em>&rdquo; - Robert Baden-Powell</p>
+</li>
+<li>
+<p>&quot; <em>Daria tudo que sei em troca da metade do que ignoro</em> &quot; - Descartes</p>
+</li>
+<li>
+<p>&ldquo;<em>Podemos julgar o coração de um homem pela forma como ele trata os animais.</em>&rdquo; - Immanuel Kant</p>
+</li>
+<li>
+<p>&ldquo;<em>A melhor maneira de prever o futuro é criá-lo</em>&rdquo; - Peter Drucker</p>
+</li>
+<li>
+<p>&ldquo;<em>O talento nos é dado, mas é o trabalho que o transforma em genialidade</em>&rdquo; - Anna Pavlova</p>
+</li>
+</ul>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/recommendations/item1/">Sobre ombros de gigantes</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>filosofia</category>
+    </item>
+  </channel>
+</rss>

@@ -4,36 +4,45 @@ author: Fellipe Gomes
 date: '2018-07-28'
 slug: []
 categories:
-  - Aprendizado Não Supervisionado
-  - Bayes
-  - Inferência Bayesiana
-  - Estatistica
-  - Modelagem Estatistica
-  - Probabilidade
-  - R
-  - Simulação
-  - Teoria
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - bayes
-  - Estatistica
-  - gomesfellipe
-  - jags
-  - modelagem
-  - modelagem estatistica
-  - modelos generalizados
-  - modelos lineares
-  - probabilidade
-  - R
-  - regression
-  - Teoria
-description: 'Um pouco sobre as duas grandes escolas de inferência, contas e implementação de um modelo linear bayesiano na mão para dados simulados e para dados reais'
-featured: 'img1.png'
-featuredalt: 'Pic 18'
-featuredpath: 'date'
-linktitle: ''  
-type: "post"
+- bayes
+- estatistica
+- jags
+- modelagem
+- modelagem-estatistica
+- modelos-generalizados
+- modelos-lineares
+- probabilidade
+- r
+- regressao
+description: Um pouco sobre as duas grandes escolas de inferência, contas e implementação
+  de um modelo linear bayesiano na mão para dados simulados e para dados reais
+featured: img1.png
+featuredalt: Ilustração sobre modelo bayesiano do zero
+featuredpath: date
+type: post
+image_preview: img1.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/07/img1.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/07/img1.png
+keywords: bayes, estatistica, jags, modelagem, modelagem-estatistica, modelos-generalizados,
+  modelos-lineares, probabilidade, r, regressao, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,warning = F, message = F, error = F)
 ```

@@ -1,21 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>carreira on Fellipe Gomes</title>
+    <title>carreira on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/carreira/</link>
-    <description>Recent content in carreira on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 24 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/carreira/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Mon, 24 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/carreira/" rel="self" type="application/rss+xml" />
     <item>
       <title>Ciência de Dados - Uma visão geral</title>
-      <link>https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/</link>
+      <link>https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/</link>
       <pubDate>Mon, 24 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/ciencia-de-dados-uma-visao-geral/</guid>
-      <description>Com a elevada quantidade de dados sendo produzidos a todo instante e o poder computacional cada vez maior, a ciência de dados tem ganhado muito espaço no mercado. Isso ocorre pois suas ferramentas nos permitem descobrir soluções ocultas a partir de enormes massas de dados desorganizados combinando programação, matemática, estatística e compreensão contextual.
-O bom filho à casa torna! No dia 23 de abr. de 2021 tive o enorme prazer de apresentar no Ramo Estudantil IEEE UFF um pouco sobre a minha visão sobre áreas que compõe a ciência de dados e apresentar alguns cases relacionados!</description>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/</guid>
+      <description>Nesta apresentação tive a oportunidade de falar um pouco sobre a minha visão e cases relacionados a esta área tão extensa e incrível que é a ciência de dados!</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<p>Com a elevada quantidade de dados sendo produzidos a todo instante e o poder computacional cada vez maior, a ciência de dados tem ganhado muito espaço no mercado. Isso ocorre pois suas ferramentas nos permitem descobrir soluções ocultas a partir de enormes massas de dados desorganizados combinando programação, matemática, estatística e compreensão contextual.</p>
+<div id="o-bom-filho-à-casa-torna" class="section level1">
+<h1>O bom filho à casa torna!</h1>
+<p>No dia 23 de abr. de 2021 tive o enorme prazer de apresentar no <a href="https://edu.ieee.org/br-uff/ramo-uff/">Ramo Estudantil IEEE UFF</a> um pouco sobre a minha visão sobre áreas que compõe a ciência de dados e apresentar alguns cases relacionados!</p>
+<p>Sou muito grato à organização por todo o cuidado e capricho do evento e muito satisfeito de poder retornar (apesar das circunstâncias do momento de pandemia) a esta universidade que mudou minha vida e poder contribuir um pouquinho para o desenvolvimento de alunos interessados em seguir na área.</p>
+<p>Conteúdos que foram (brevemente) abordados:</p>
+<ul>
+<li>O que é ciência de dados</li>
+<li>Estatística e Ciência de dados</li>
+<li>Big Data</li>
+<li>Machine Learning</li>
+<li>Aplicações (e cases)</li>
+<li>Dicas de Carreira</li>
+</ul>
+<p>Foi uma apresentação de 1 hora e esta gravada no canal do Ramo Estudantil IEEE - UFF no Youtube no link: <a href="https://www.youtube.com/watch?v=9UWhZ1s3Ybc" class="uri">https://www.youtube.com/watch?v=9UWhZ1s3Ybc</a></p>
+<div style="text-align:center;">
+<p><iframe width="560" height="315"
+    src="https://www.youtube.com/embed/9UWhZ1s3Ybc"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe></p>
+</div>
+<p>Tentei tratar o assunto de forma mais leve possível, recheada de memes e linguagem acessível, espero que gostem do conteúdo!</p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/">Ciência de Dados - Uma visão geral</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">big-data</category>
+      <category domain="tag">carreira</category>
+      <category domain="tag">data-science</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">machine-learning</category>
     </item>
-    
   </channel>
 </rss>

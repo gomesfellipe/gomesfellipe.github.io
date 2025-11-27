@@ -4,33 +4,45 @@ author: Fellipe Gomes
 date: '2017-12-24'
 slug: []
 categories:
-  - Estatistica
-  - Modelagem Estatistica
-  - R
-  - Teoria
-  - Tidyverse
+- Fundamentos de Data Science
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - gomesfellipe
-  - R
-  - modelagem
-  - modelagem estatistica
-  - Estatistica
-  - Correlacoes
-  - R Markdown
-  - regression
-  - Teoria
-  - modelos lineares
-  - modelos generalizados
-  - ggfortify
-  - GGally
-description: 'Alguns pacotes úteis para avaliar o ajuste do modelo de forma rápida, precisa e elegante'
-featured: 'diag-modelo.jpg'
-featuredalt: 'Pic 2'
-featuredpath: 'date'
-linktitle: ''
+- correlacao
+- estatistica
+- ggally
+- ggfortify
+- modelagem
+- modelagem-estatistica
+- modelos-generalizados
+- modelos-lineares
+- r
+- regressao
+description: Alguns pacotes úteis para avaliar o ajuste do modelo de forma rápida,
+  precisa e elegante
+featured: diag-modelo.jpg
+featuredalt: Ilustração sobre pacotes do r para avaliar o ajuste de modelos
+featuredpath: date
 type: post
+image_preview: diag-modelo.jpg
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2017/12/diag-modelo.jpg
+keywords: correlacao, estatistica, ggally, ggfortify, modelagem, modelagem-estatistica,
+  modelos-generalizados, modelos-lineares, r, regressao, data science, machine learning,
+  analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
 ```

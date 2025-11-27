@@ -4,41 +4,47 @@ author: Fellipe Gomes
 date: '2018-10-27'
 slug: []
 categories:
-  - Estatistica
-  - Google
-  - Prática
-  - R
-  - Shiny
-  - Shiny Server
-  - Séries Temporais
-  - RStudio Server
-  - Cloud
-  - Bitcoin
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Programação e Ferramentas
 tags:
-  - Estatistica
-  - gomesfellipe
-  - Google
-  - Google Cloud
-  - Prática
-  - R
-  - RStudio
-  - RStudio Server
-  - Shiny server
-  - shiny
-  - Séries Temporais
-  - servidor
-  - bitcoin
-description: 'Uma maneira prática de hospedar o app desenvolvido no post no Shiny Server e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu 16.04.'
-featured: 'img1.png'
-featuredalt: 'Pic 19'
-featuredpath: 'date'
-linktitle: ''   
-type: "post"
+- bitcoin
+- estatistica
+- google
+- google-cloud
+- pratica
+- r
+- rstudio
+- rstudio-server
+- series-temporais
+- servidor
+description: Uma maneira prática de hospedar o app desenvolvido no post no Shiny Server
+  e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu
+  16.04.
+featured: img1.png
+featuredalt: Ilustração sobre seu app rstudio e shiny server na nuvem do google
+featuredpath: date
+type: post
+image_preview: img1.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/10/img1.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/10/img1.png
+keywords: bitcoin, estatistica, google, google-cloud, pratica, r, rstudio, rstudio-server,
+  series-temporais, servidor, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 # Objetivo do post <i class="fa fa-rocket"></i> 
-
+ 
 Uma das várias maneiras de se implementar o [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/) e o [Shiny Server](https://www.rstudio.com/products/shiny/download-server/) é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.
 
 No final deste post teremos além do nosso próprio RStudio Server, esse app no Shiny Server que exibe em um gráfico das cotações encontradas via função  função  [`quantmod::stockSymbols()`](https://www.rdocumentation.org/packages/TTR/versions/0.23-4/topics/stockSymbols) com os pacotes [`highcharter`](http://jkunst.com/highcharter/) e [`quantmod`](https://www.quantmod.com/):

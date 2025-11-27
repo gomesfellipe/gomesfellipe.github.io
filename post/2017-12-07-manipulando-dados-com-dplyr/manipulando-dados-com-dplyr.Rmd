@@ -4,28 +4,39 @@ author: Fellipe Gomes
 date: '2017-12-07'
 slug: []
 categories:
-  - Estatistica
-  - R
-  - Teoria
-  - Tidyverse
-  - Data mining
+- Fundamentos de Data Science
+- Programação e Ferramentas
+- Texto e NLP
 tags:
-  - Estatistica
-  - gomesfellipe
-  - R
-  - Prática
-  - Dplyr
-  - Tidyverse
-  - Data Mining
-description: 'Manipular bases de dados nunca foi tão simples'
-featuredalt: 'Pic 3'
-featured: 'dplyr.png'
-featuredpath: 'date'
-linktitle: ''
+- data-mining
+- dplyr
+- estatistica
+- pratica
+- r
+- tidyverse
+description: Manipular bases de dados nunca foi tão simples
+featuredalt: Ilustração sobre manipulando dados com dplyr
+featured: dplyr.png
+featuredpath: date
 type: post
+image_preview: dplyr.png
+schema_type: BlogPosting
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2017/12/dplyr.png
+og_type: article
+article_section: Programming
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2017/12/dplyr.png
+keywords: data-mining, dplyr, estatistica, pratica, r, tidyverse, data science, machine
+  learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
 ```

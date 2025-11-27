@@ -1,20 +1,998 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>LangChain on Fellipe Gomes</title>
+    <title>langchain on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/langchain/</link>
-    <description>Recent content in LangChain on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/langchain/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Wed, 26 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/langchain/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agente para análise interpretativa de ligações de telemarketing</title>
+      <link>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</link>
+      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</guid>
+      <description>Neste post vamos criar um agente para extrair insights estruturados de ligações de telemarketing, transformando gravações de áudio em um relatório analítico</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<div id="por-que-analisar-ligações-de-telemarketing-com-ia" class="section level1">
+<h1>Por que analisar ligações de telemarketing com IA?</h1>
+<p>Quem nunca recebeu aquela ligação de telemarketing no momento mais inoportuno? Seja oferecendo um cartão de crédito, cobrando uma dívida ou tentando vender internet, essas ligações fazem parte do nosso cotidiano. Mas você já parou para pensar na quantidade de informações valiosas que existem nessas conversas?</p>
+<p>Para empresas que operam call centers, analisar essas ligações manualmente é uma tarefa hercúlea. Imagine ter que ouvir centenas ou milhares de ligações por dia para:</p>
+<ul>
+<li>Avaliar a qualidade do atendimento</li>
+<li>Identificar problemas recorrentes</li>
+<li>Detectar possíveis fraudes</li>
+<li>Treinar equipes com base em casos reais</li>
+<li>Garantir compliance e conformidade legal</li>
+</ul>
+</div>
+<div id="o-desafio-vai-além-da-transcrição-de-textos" class="section level1">
+<h1>O desafio vai além da transcrição de textos</h1>
+<p>Analisar ligações de telemarketing apresenta desafios que vão muito além da simples transcrição de áudio para texto. O grande volume de dados, a necessidade de identificar corretamente quem está falando em áudios mono (onde todas as vozes estão em um único canal) e a extração de informações relevantes a partir de conversas não estruturadas tornam o processo complexo e exigem soluções especializadas.</p>
+<p>Entre os principais obstáculos técnicos estão: converter fala em texto com precisão mesmo diante de sotaques e ruídos, diarizar os speakers (diferenciar atendente e cliente), transformar transcrições em dados estruturados (como sentimento, tipo de ligação e problemas), além de garantir escalabilidade para processar milhares de ligações de forma eficiente, preferencialmente utilizando recursos como GPU.</p>
+</div>
+<div id="solução-técnica-abordagem-em-4-etapas" class="section level1">
+<h1>Solução técnica: Abordagem em 4 etapas</h1>
+<p>Enquanto estudava para trablhar em um projeto com desafio semelhante, desenvolvi um pipeline em Python integrando três tecnologias de ponta, com foco em soluções gratuitas para estudo e prova de conceito. O projeto abrangeu desde a aquisição das ligações até a extração de insights estruturados, utilizando recursos pagos em ambiente de produção, mas priorizando ferramentas acessíveis para pesquisa e validação.</p>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-10-26-telemarketing-agent/workflow.png" alt="agent telemarketing analysis workflow" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho completo
+</p>
+</center>
+<p>As etapas principais foram:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Coleta e preparação dos dados</strong>: Download e segmentação dos áudios com <code>yt_dlp</code>, <code>pydub</code> e <code>ffmpeg</code>.</li>
+<li><strong>Transcrição dos áudios</strong>:
+<ul>
+<li><strong>Diarização/segmentação por locutor</strong>: Utilizando o modelo de diarização do <a href="https://github.com/pyannote/pyannote-audio">Pyannote.audio</a></li>
+<li><strong>Reconhecimento automático de fala (ASR)</strong>: Modelos gratuitos do <a href="https://openai.com/research/whisper">Whisper da OpenAI</a> hospedados na Hugging Face.</li>
+</ul></li>
+<li><strong>Análise interpretativa</strong>: Extração de informações estruturadas com GPT da OpenAI e o framework <a href="https://python.langchain.com/">LangChain</a> .</li>
+<li><strong>Abordagem analítica</strong>: Exploração dos dados, criação de dashboards e, eventualmente, construção de modelos preditivos (por exemplo, prever se a venda foi concluída).</li>
+</ol>
+<p>Tecnologias Utilizadas:</p>
+<ul>
+<li><strong><a href="https://openai.com/research/whisper">Whisper (OpenAI)</a></strong>: Modelo state-of-the-art para transcrição de áudio</li>
+<li><strong><a href="https://github.com/pyannote/pyannote-audio">Pyannote.audio</a></strong>: Framework especializado em diarização de speakers</li>
+<li><strong><a href="https://python.langchain.com/">LangChain</a></strong>: Framework de LLMs para extração estruturada</li>
+<li><strong>Python</strong>: Orquestração de todo o pipeline</li>
+<li><strong>Google Colab</strong>: Ambiente com GPU gratuita</li>
+</ul>
+<p>Este post vai cobrir apenas a terceira etapa do pipeline: a análise interpretativa das transcrições. Vamos mostrar como transformar o texto bruto das ligações em informações estruturadas e acionáveis usando agentes de GenAI, detalhando o processo de extração automática de sentimentos, problemas, resultados e respostas criativas a partir das conversas.</p>
+<div id="dados-utilizados" class="section level2">
+<h2>Dados utilizados</h2>
+<p>Para este experimento, selecionei alguns vídeos de esquetes de comédia sobre telemarketing <a href="https://www.youtube.com/watch?v=AJVpdNuLdv4">disponíveis no YouTube</a> e extraí um arquivo de áudio para cada ligação, segmentando as conversas individualmente. Veja um exemplo:</p>
+<center>
+<audio controls>
+<source src="/post/2025-10-26-telemarketing-agent/audio_00.mp3" type="audio/mpeg">
+Seu navegador não suporta áudio.
+</audio>
+</center>
+<p>A transcrição dos áudios foi realizada utilizando <a href="https://huggingface.co/openai/whisper-large-v3">Whisper</a> para reconhecimento de fala e <a href="https://huggingface.co/pyannote/speaker-diarization-3.1">Pyannote</a> para diarização dos locutores. Desenvolvi um script que integra essas ferramentas utilizando recursos de GPU em ambientes como Kaggle e Google Colab, o que permite processar grandes volumes de áudio gratuitamente.</p>
+<p>Veja como ficou o resultado após a atribuição dos speakers no pós-processamento:</p>
+<pre><code>SPEAKER_00: Eu gostaria de falar com o Eliel Clayton de Oliveira.
+SPEAKER_01: Ele não tá, tá pra fazenda. Liga amanhã, ele deixou o celular.
+SPEAKER_00: Ah, tudo bem. Eu posso deixar o telefone pra contato com ele no internet? Quem é você? Você é namorada dele? Não, eu sou uma da assessoria de cobrança.
+SPEAKER_01: Da onde? Da outra fazenda? Da fazenda Bonança?
+SPEAKER_00: Não, senhora. Eu sou da assessoria da bebê financeira. Ah, estavam então da Bahia, né? Vou falar pra ele que ligaram pra ele então, tá?
+SPEAKER_01: É da bebê financeira, assessoria da bebê financeira.
+SPEAKER_00: Você teve um bebê com ele? Aonde você tá, minha filha? Não, senhora, assessoria da bebê financeira.
+SPEAKER_01: Estão falando que tem uma mulher que tem um bebê do Eliel.
+SPEAKER_00: Acho melhor você ligar amanhã então, pra ver com ele, pra ver o DNA.</code></pre>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  ⚠️ Naturalmente, todo modelo de transcrição apresenta uma taxa de acerto que pode variar de acordo com a qualidade do áudio, sotaques e presença de ruídos.</p>
+</div>
+<p>Neste post o foco está na construção do agente de análise interpretativa, assumindo que as transcrições já estão disponíveis e prontas para uso. Na versão do projeto que foi para produção, utilizamos uma ferramenta diferente para a etapa de transcrição, mas como prova de conceito até que achei o resultado bem descente.</p>
+</div>
+</div>
+<div id="análise-estruturada-com-agente-de-genai" class="section level1">
+<h1>Análise estruturada com Agente de GenAI</h1>
+<p>É aqui que a mágica realmente acontece: com o poder do <a href="https://www.langchain.com/">LangChain</a> e o recurso de <strong>Structured Output</strong>, conseguimos transformar transcrições brutas de ligações em dados estruturados e acionáveis. Em vez de apenas ler textos longos e desorganizados, extraímos automaticamente sentimentos, problemas, resultados e até respostas criativas. Tudo pronto para análise, visualização ou integração com sistemas de negócio.</p>
+<p>A ideia central se baseia no conceito de saída estruturada (<a href="https://pydantic-docs.helpmanual.io/">Pydantic</a> models) para fornecer ferramentas que forçam o modelo a devolver um JSON consistente que depois é facilmente consumido por pipelines e dashboards.</p>
+<details>
+<summary>
+<b>Schema Pydantic <i>(Ver código)</i></b>
+</summary>
+<pre class="python"><code># Análise de Sentimento
+class SentimentoLigacao(BaseModel):
+    &quot;&quot;&quot;Análise de sentimento da ligação.&quot;&quot;&quot;
+    sentimento_cliente: Literal[&quot;positivo&quot;, &quot;neutro&quot;, &quot;negativo&quot;, &quot;irritado&quot;]
+    sentimento_atendente: Literal[&quot;profissional&quot;, &quot;neutro&quot;, &quot;agressivo&quot;, &quot;impaciente&quot;]
+    nivel_conflito: Literal[&quot;baixo&quot;, &quot;medio&quot;, &quot;alto&quot;]
+
+# Informações da Ligação
+class InformacaoLigacao(BaseModel):
+  &quot;&quot;&quot;Informações extraídas da ligação.&quot;&quot;&quot;
+  tipo_ligacao: Literal[&quot;cobranca&quot;, &quot;oferta_produto&quot;, &quot;suporte&quot;, &quot;pesquisa&quot;, &quot;fraude&quot;]
+  empresa_mencionada: Optional[str] = None
+  produto_servico: Optional[str] = None
+  resultado_ligacao: Literal[&quot;sucesso&quot;, &quot;recusa&quot;, &quot;desligou&quot;, &quot;nao_resolvido&quot;, &quot;fraude_detectada&quot;]
+  cliente_interessado: bool
+
+# Identificação de Problemas
+class ProblemaIdentificado(BaseModel):
+    &quot;&quot;&quot;Problemas identificados na ligação.&quot;&quot;&quot;
+    tem_problema: bool
+    tipo_problema: Optional[Literal[&quot;cobranca_indevida&quot;, &quot;cancelamento&quot;,
+                                    &quot;atendimento_ruim&quot;, &quot;fraude&quot;, &quot;outro&quot;]] = None
+    descricao_problema: Optional[str] = None
+    requer_followup: bool
+
+# Respostas Criativas
+class RespostasCriativas(BaseModel):
+    &quot;&quot;&quot;Respostas criativas ou inusitadas do cliente.&quot;&quot;&quot;
+    teve_resposta_criativa: bool
+    tipo_resposta: Optional[Literal[&quot;humor&quot;, &quot;desculpa_criativa&quot;,
+                                    &quot;contra_ataque&quot;, &quot;confusao_proposital&quot;]] = None
+    citacao: Optional[str] = None
+
+# Schema agregador: um único resultado que engloba todos
+class RelatorioLigacao(BaseModel):
+    &quot;&quot;&quot;Relatório consolidado da ligação. Preencha apenas os blocos aplicáveis.&quot;&quot;&quot;
+    sentimento: Optional[SentimentoLigacao] = None
+    informacao: Optional[InformacaoLigacao] = None
+    problema: Optional[ProblemaIdentificado] = None
+    respostas_criativas: Optional[RespostasCriativas] = None</code></pre>
+</details>
+<p>Para criar o agente de análise interpretativa, encapsulamos toda a configuração do modelo de linguagem, defindo o schema de saída estruturada e estabelecendo as instruções para que o agente atue como um verdadeiro especialista em ligações de telemarketing. Com essa abordagem, garantimos que apenas informações realmente presentes na transcrição sejam extraídas, tornando o processo robusto, auditável e pronto para uso em escala, ou seja, para protótipos ou aplicações em produção.</p>
+<p>Instanciando o agente (exemplo)</p>
+<pre class="python"><code>def instance_agent(api_key: str):
+    model = ChatOpenAI(model=&quot;gpt-4o&quot;, api_key=api_key, temperature=0)
+
+    agent = create_agent(
+        model=model,
+        tools=[],
+        response_format=ToolStrategy(
+            schema=RelatorioLigacao,
+            handle_errors=True
+        ),
+        system_prompt=(
+            &quot;Você é um especialista em análise de ligações de telemarketing.\n&quot;
+            &quot;Dado uma transcrição, preencha somente os blocos do relatório que fizerem sentido.\n&quot;
+            &quot;- Se não houver problema, deixe &#39;problema&#39; como null.\n&quot;
+            &quot;- Se não houver respostas criativas, deixe &#39;respostas_criativas&#39; como null.\n&quot;
+            &quot;- Seja conservador: só preencha quando tiver evidência no texto.&quot;
+        ),
+    )
+    return agent
+
+agent = instance_agent(api_key=OPENAI_API_KEY)
+
+result = agent.invoke({
+    &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: transcriptions[&#39;audio_00&#39;]}]
+})
+
+result[&quot;structured_response&quot;].model_dump()</code></pre>
+<p>Veja qual foi a saída obtida aplicando no nosso exemplo de áudio:</p>
+<pre class="text"><code>{
+ &#39;sentimento&#39;: {
+   &#39;sentimento_cliente&#39;: &#39;irritado&#39;,
+   &#39;sentimento_atendente&#39;: &#39;impaciente&#39;,
+   &#39;nivel_conflito&#39;: &#39;alto&#39;
+ },
+ &#39;informacao&#39;: {
+   &#39;tipo_ligacao&#39;: &#39;cobranca&#39;,
+   &#39;empresa_mencionada&#39;: None,
+   &#39;produto_servico&#39;: None,
+   &#39;resultado_ligacao&#39;: &#39;nao_resolvido&#39;,
+   &#39;cliente_interessado&#39;: False
+ },
+ &#39;problema&#39;: None,
+ &#39;respostas_criativas&#39;: {
+   &#39;teve_resposta_criativa&#39;: True,
+   &#39;tipo_resposta&#39;: &#39;humor&#39;,
+   &#39;citacao&#39;: &#39;Eu agora, eu tô tomando é uma Heineken, uma hora dessa. Tá entendendo?&#39;
+ }
+}</code></pre>
+<details>
+<summary>
+Loop para processar todos os áudios <i>(Ver código)</i>
+</summary>
+<pre class="python"><code>extractions = {}
+for file_name, transcription in transcriptions.items():
+    analysis = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: transcription}]})
+    structured = analysis.get(&quot;structured_response&quot;)
+    extracted = structured.model_dump() if structured is not None else None
+    extractions[file_name] = extracted
+    # Salvar cache da execução
+    with open(os.path.join(path_extractions, f&quot;{file_name}.json&quot;), &quot;w&quot;, encoding=&quot;utf-8&quot;) as fh:
+        json.dump(extracted, fh, ensure_ascii=False, indent=2)</code></pre>
+</details>
+<p></br></p>
+</div>
+<div id="insights-estruturados" class="section level1">
+<h1>Insights estruturados</h1>
+Após processar todos os áudios podemos criar um dashboard que transforma as extrações em KPIs acionáveis, permitindo visualizar rapidamente métricas como taxa de ligações não resolvidas, distribuição dos tipos de ligação, níveis de conflito, frequência de respostas criativas e outros indicadores essenciais para tomada de decisão e melhoria contínua dos processos.
+<details>
+<summary>
+<i>Ver código do Dashboard</i>
+</summary>
+<pre class="python"><code>import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.patches import Rectangle
+import numpy as np
+
+# criar DataFrame a partir do dicionário de extrações
+df = pd.DataFrame.from_dict(extractions, orient=&#39;index&#39;)
+
+# garantir que campos nulos sejam tratados como dicts vazios para normalização
+for col in [&#39;sentimento&#39;, &#39;informacao&#39;, &#39;problema&#39;, &#39;respostas_criativas&#39;]:
+  df[col] = df[col].apply(lambda x: x if isinstance(x, dict) else {})
+
+# normalizar cada bloco e juntar
+sent_df = pd.json_normalize(df[&#39;sentimento&#39;]).add_prefix(&#39;sentimento_&#39;)
+info_df = pd.json_normalize(df[&#39;informacao&#39;]).add_prefix(&#39;informacao_&#39;)
+prob_df = pd.json_normalize(df[&#39;problema&#39;]).add_prefix(&#39;problema_&#39;)
+resp_df = pd.json_normalize(df[&#39;respostas_criativas&#39;]).add_prefix(&#39;respostas_&#39;)
+
+df_extractions = pd.concat([sent_df, info_df, prob_df, resp_df], axis=1)
+df_extractions.index = df.index
+df_extractions.index.name = &#39;file&#39;
+df_extractions.reset_index(inplace=True)
+
+# Configurar estilo
+sns.set_style(&quot;white&quot;)
+plt.rcParams.update({
+  &#39;figure.facecolor&#39;: &#39;white&#39;,
+  &#39;axes.facecolor&#39;: &#39;white&#39;,
+  &#39;savefig.facecolor&#39;: &#39;white&#39;
+})
+sns.set_palette(&quot;husl&quot;)
+
+# Criar figura com subplots
+fig = plt.figure(figsize=(14, 12))
+gs = fig.add_gridspec(4, 4, hspace=0.4, wspace=0.4)
+
+# Cores personalizadas
+colors_main = [&#39;#FF6B6B&#39;, &#39;#4ECDC4&#39;, &#39;#45B7D1&#39;, &#39;#FFA07A&#39;, &#39;#98D8C8&#39;, &#39;#F7DC6F&#39;]
+colors_sentiment = {&#39;neutro&#39;: &#39;#95E1D3&#39;, &#39;irritado&#39;: &#39;#F38181&#39;, &#39;profissional&#39;: &#39;#4A90E2&#39;}
+colors_conflict = {&#39;baixo&#39;: &#39;#A8E6CF&#39;, &#39;medio&#39;: &#39;#FFD93D&#39;, &#39;alto&#39;: &#39;#FF6B6B&#39;}
+
+# ============= TÍTULO PRINCIPAL =============
+fig.suptitle(&#39;Análise de Ligações de Telemarketing com Agent&#39;,
+             fontsize=28, fontweight=&#39;bold&#39;, y=0.9)
+
+# ============= 1. MÉTRICAS PRINCIPAIS (agora vem primeiro) =============
+ax7 = fig.add_subplot(gs[0, :])
+ax7.axis(&#39;off&#39;)
+
+# Calcular métricas
+total_ligacoes = len(df_extractions)
+taxa_criatividade = (df_extractions[&#39;respostas_teve_resposta_criativa&#39;].sum() / total_ligacoes) * 100
+taxa_irritacao = (df_extractions[&#39;sentimento_sentimento_cliente&#39;] == &#39;irritado&#39;).sum() / total_ligacoes * 100
+taxa_nao_resolvido = (df_extractions[&#39;informacao_resultado_ligacao&#39;] == &#39;nao_resolvido&#39;).sum() / total_ligacoes * 100
+taxa_conflito_alto = (df_extractions[&#39;sentimento_nivel_conflito&#39;] == &#39;alto&#39;).sum() / total_ligacoes * 100
+
+# Criar caixas de métricas
+metrics = [
+    (&#39;Total de Ligações&#39;, f&#39;{total_ligacoes}&#39;, &#39;#4A90E2&#39;),
+    (&#39;Taxa de Criatividade&#39;, f&#39;{taxa_criatividade:.1f}%&#39;, &#39;#4ECDC4&#39;),
+    (&#39;Taxa de Irritação&#39;, f&#39;{taxa_irritacao:.1f}%&#39;, &#39;#FF6B6B&#39;),
+    (&#39;Não Resolvidos&#39;, f&#39;{taxa_nao_resolvido:.1f}%&#39;, &#39;#FFA07A&#39;),
+    (&#39;Conflito Alto&#39;, f&#39;{taxa_conflito_alto:.1f}%&#39;, &#39;#F38181&#39;)
+]
+
+x_positions = np.linspace(0.05, 0.85, len(metrics))
+for i, (label, value, color) in enumerate(metrics):
+    rect = Rectangle((x_positions[i], 0.25), 0.15, 0.5,
+                     facecolor=color, linewidth=3,
+                     transform=ax7.transAxes, zorder=2)
+    ax7.add_patch(rect)
+
+    ax7.text(x_positions[i] + 0.075, 0.58, value,
+             ha=&#39;center&#39;, va=&#39;center&#39;, fontsize=22, fontweight=&#39;bold&#39;,
+             color=&#39;white&#39;, transform=ax7.transAxes, zorder=3)
+    ax7.text(x_positions[i] + 0.075, 0.18, label,
+             ha=&#39;center&#39;, va=&#39;center&#39;, fontsize=11, fontweight=&#39;bold&#39;,
+             transform=ax7.transAxes, zorder=3, wrap=True)
+
+# ============= 2. SENTIMENTO DO CLIENTE =============
+ax1 = fig.add_subplot(gs[1, 0:2])
+sentimento_counts = df_extractions[&#39;sentimento_sentimento_cliente&#39;].value_counts()
+# usar cinza para &quot;neutro&quot; (case-insensitive), caso contrário usar palette existente
+neutral_color = &#39;#B0B0B0&#39;
+colors_sent = [
+  neutral_color if str(x).strip().lower() == &#39;neutro&#39; else colors_sentiment.get(x, &#39;#95E1D3&#39;)
+  for x in sentimento_counts.index
+]
+sent_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in sentimento_counts.index]
+bars1 = ax1.bar(sent_labels, sentimento_counts.values, color=colors_sent, linewidth=2)
+ax1.set_title(&#39;Sentimento do Cliente&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax1.set_ylabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax1.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for bar in bars1:
+  height = bar.get_height()
+  ax1.text(bar.get_x() + bar.get_width()/2., height,
+     f&#39;{int(height)}&#39;,
+     ha=&#39;center&#39;, va=&#39;bottom&#39;, fontsize=14, fontweight=&#39;bold&#39;)
+ax1.grid(axis=&#39;y&#39;, alpha=0.3)
+# aumentar limite do eixo y em 5%
+max_h1 = max(bar.get_height() for bar in bars1)
+ax1.set_ylim(0, max_h1 * 1.15)
+
+# ============= 3. NÍVEL DE CONFLITO =============
+ax2 = fig.add_subplot(gs[1, 2:4])
+conflito_counts = df_extractions[&#39;sentimento_nivel_conflito&#39;].value_counts()
+colors_conf = [colors_conflict.get(x, &#39;#A8E6CF&#39;) for x in conflito_counts.index]
+conf_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in conflito_counts.index]
+bars2 = ax2.bar(conf_labels, conflito_counts.values, color=colors_conf, linewidth=2)
+ax2.set_title(&#39;Nível de Conflito&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax2.set_ylabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax2.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for bar in bars2:
+  height = bar.get_height()
+  ax2.text(bar.get_x() + bar.get_width()/2., height,
+       f&#39;{int(height)}&#39;,
+       ha=&#39;center&#39;, va=&#39;bottom&#39;, fontsize=14, fontweight=&#39;bold&#39;)
+ax2.grid(axis=&#39;y&#39;, alpha=0.3)
+# aumentar limite do eixo y em 5%
+if len(bars2) &gt; 0:
+    max_h2 = max(bar.get_height() for bar in bars2)
+    ax2.set_ylim(0, max_h2 * 1.15)
+
+# ============= 4. TIPO DE LIGAÇÃO =============
+ax3 = fig.add_subplot(gs[2, 0:2])
+tipo_counts = df_extractions[&#39;informacao_tipo_ligacao&#39;].value_counts()
+explode = [0.05 if i == 0 else 0 for i in range(len(tipo_counts))]
+wedges, texts, autotexts = ax3.pie(tipo_counts.values, labels=tipo_counts.index, autopct=&#39;%1.1f%%&#39;,
+                                     colors=colors_main, explode=explode, startangle=90,
+                                     textprops={&#39;fontsize&#39;: 11})
+ax3.set_title(&#39;Tipo de Ligação&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+for autotext in autotexts:
+    autotext.set_color(&#39;white&#39;)
+    autotext.set_fontsize(12)
+
+# ============= 5. RESULTADO DA LIGAÇÃO =============
+ax4 = fig.add_subplot(gs[2, 2:4])
+resultado_counts = df_extractions[&#39;informacao_resultado_ligacao&#39;].value_counts()
+res_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in resultado_counts.index]
+bars4 = ax4.barh(res_labels, resultado_counts.values, color=colors_main[:len(resultado_counts)], linewidth=2)
+ax4.set_title(&#39;Resultado da Ligação&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax4.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for i, bar in enumerate(bars4):
+  width = bar.get_width()
+  ax4.text(width, bar.get_y() + bar.get_height()/2.,
+       f&#39; {int(width)}&#39;,
+       ha=&#39;left&#39;, va=&#39;center&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax4.grid(axis=&#39;x&#39;, alpha=0.3)
+
+# ============= 6. RESPOSTAS CRIATIVAS =============
+ax5 = fig.add_subplot(gs[3, 0:2])
+criativas_counts = df_extractions[&#39;respostas_teve_resposta_criativa&#39;].fillna(False).astype(bool).value_counts()
+counts5 = [criativas_counts.get(True, 0), criativas_counts.get(False, 0)]
+labels5 = [&#39;Com Resposta\nCriativa&#39;, &#39;Sem Resposta\nCriativa&#39;]
+colors_criativas = [&#39;#4ECDC4&#39;, &#39;#FF6B6B&#39;]
+
+wedges5, texts5, autotexts5 = ax5.pie(counts5,
+                    labels=labels5,
+                    autopct=&#39;%1.1f%%&#39;,
+                    colors=colors_criativas,
+                    startangle=90,
+                    textprops={&#39;fontsize&#39;: 12})
+ax5.set_title(&#39;Respostas Criativas&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+for autotext in autotexts5:
+    autotext.set_color(&#39;white&#39;)
+    autotext.set_fontsize(13)
+
+# ============= 7. TIPOS DE RESPOSTA CRIATIVA =============
+ax6 = fig.add_subplot(gs[3, 2:4])
+tipo_resposta = df_extractions[&#39;respostas_tipo_resposta&#39;].dropna().value_counts()
+tipo_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in tipo_resposta.index]
+bars6 = ax6.barh(tipo_labels, tipo_resposta.values, color=colors_main[:len(tipo_resposta)], linewidth=2)
+ax6.set_title(&#39;Tipos de Resposta Criativa&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax6.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for i, bar in enumerate(bars6):
+  width = bar.get_width()
+  ax6.text(width, bar.get_y() + bar.get_height()/2.,
+       f&#39; {int(width)}&#39;,
+       ha=&#39;left&#39;, va=&#39;center&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax6.grid(axis=&#39;x&#39;, alpha=0.3)
+
+plt.show()</code></pre>
+</details>
+<p></br></p>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-10-26-telemarketing-agent/dashboard.png" alt="agent telemarketing analysis workflow" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho completo
+</p>
+</center>
+<div id="benefícios-práticos-e-roi-mensurável" class="section level2">
+<h2>Benefícios Práticos e ROI Mensurável</h2>
+<p>Para equipes que operam call centers e compliance, os ganhos são claros:</p>
+<ul>
+<li><strong>Automação de QA</strong> (Análise de 100% das ligações vs. amostragem manual);</li>
+<li>Redução drástica no <strong>tempo de análise</strong>;</li>
+<li><strong>Detecção precoce</strong> de problemas e fraudes;</li>
+<li><strong>Treinamento</strong> baseado em casos reais e dados;</li>
+<li>Evidências estruturadas para <strong>auditoria</strong>;</li>
+<li>KPIs em tempo real e otimização de scripts (<strong>A/B testing</strong>).</li>
+</ul>
+<p>Para empresas, isso significa decisões mais rápidas, menos custos com retrabalho e ROI tangível na operação.</p>
+</div>
+<div id="ética-licença-e-privacidade" class="section level2">
+<h2>Ética, licença e privacidade</h2>
+<p>O dataset aqui usado é público (sketches de comédia) e foi apenas para fins pessoal/educacional. Para qualquer uso comercial:</p>
+<ul>
+<li>Verifique licença dos materiais originais;</li>
+<li>Obtenha consentimento quando necessário;</li>
+<li>Anonimizar dados pessoais;</li>
+<li>Adotar práticas de privacidade e conformidade (LGPD / GDPR).</li>
+</ul>
+</div>
+</div>
+<div id="conclusão-o-futuro-da-análise-de-conversas" class="section level1">
+<h1>Conclusão: O futuro da análise de conversas</h1>
+<p>O que começou como um experimento com ligações de telemarketing se transformou em uma demonstração poderosa do que é possível quando combinamos as melhores tecnologias de IA disponíveis hoje. <strong>Em menos de 4 minutos, processamos 13 ligações e extraímos insights que levariam horas para analistas humanos descobrirem.</strong></p>
+<div id="recursos-adicionais" class="section level2">
+<h2>Recursos adicionais</h2>
+<p>Tutoriais Complementares:</p>
+<ul>
+<li><a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/">Meu post sobre Agentes Multiagente</a> - LangChain em ação</li>
+<li><a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">Detecção de Linguagem Tóxica</a> - LLMs para análise de texto</li>
+<li><a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/">Análise de Sentimentos com LLM</a> - Processamento de linguagem natural</li>
+</ul>
+</div>
+</div>
+<div id="sobre-o-autor" class="section level1">
+<h1>Sobre o autor</h1>
+<p><em>Me chamo Fellipe Gomes, sou formado em estatística e atuo como cientista de dados desde 2018. Compartilho meus estudos e evolução por meio de artigos, tutoriais e projetos de código aberto. Se quiser saber mais sobre meu trabalho, sinta-se à vontade para entrar em contato através das minhas redes sociais <a href="https://www.linkedin.com/in/gomesfellipe/">LinkedIn</a>, <a href="https://github.com/gomesfellipe">GitHub</a> e <a href="https://www.kaggle.com/gomes555">Kaggle</a>.</em></p>
+<p><em>Gostou do conteúdo? Compartilhe e deixe suas dúvidas nos comentários. Sua experiência e feedback são fundamentais para continuar criando conteúdo de qualidade!</em></p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/">Agente para análise interpretativa de ligações de telemarketing</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">call-center</category>
+      <category domain="tag">gpt-4</category>
+      <category domain="tag">langchain</category>
+      <category domain="tag">nlp</category>
+      <category domain="tag">python</category>
+      <category domain="tag">sentiment-analysis</category>
+      <category domain="tag">speech-to-text</category>
+      <category domain="tag">telemarketing</category>
+      <category domain="tag">voice-analytics</category>
+      <category domain="tag">whisper</category>
+    </item>
     <item>
       <title>Construindo uma Equipe Multiagente de IA para Análise do Mercado Bitcoin</title>
       <link>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</link>
       <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</guid>
-      <description>Por que Analisar o Mercado Bitcoin com Agentes de IA? O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, nunca revelou sua identidade. Além disso o bitcoin foi a primeira e ainda é a mais conhecida aplicação da tecnologia Blockchain, que revolucionou a forma como lidamos com registros digitais e segurança dos dados.</description>
-    </item>
+      <description>Neste post, exploramos a criação de uma equipe de agentes de IA usando Python, LangChain, LangGraph e LangSmith para automatizar e monitorar a análise do mercado de Bitcoin, desde a coleta de dados até a geração de relatórios automatizados.</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<!-- Neste post, vamos mergulhar na criação de uma equipe de agentes de Inteligência Artificial (IA) que trabalham juntos para coletar dados, analisar tendências e decidir se é hora de alertar sobre oportunidades de investimento no Bitcoin. Utilizaremos Python, o framework LangChain e sua extensão LangGraph para orquestrar esses agentes, além de técnicas de Prompt Engineering para garantir que cada "membro" da equipe execute sua função com precisão.  -->
+<!-- Você já se perguntou como acompanhar o volátil mercado de Bitcoin sem passar horas analisando gráficos e indicadores complexos?  -->
+<!-- Prepare-se para descobrir como a IA generativa pode se tornar sua aliada na análise de criptomoedas! -->
+<div id="por-que-analisar-o-mercado-bitcoin-com-agentes-de-ia" class="section level2">
+<h2>Por que Analisar o Mercado Bitcoin com Agentes de IA?</h2>
+<p>O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, <strong>nunca revelou sua identidade</strong>. Além disso o bitcoin foi a <a href="https://www.mgcholding.com.br/blog/blockchain-bitcoin-e-ativos-virtuais-entenda-a-relacao/#:~:text=O%20blockchain%2C%20em%20sua%20ess%C3%AAncia,conhecida%20aplica%C3%A7%C3%A3o%20da%20tecnologia%20blockchain.">primeira e ainda é a mais conhecida aplicação da tecnologia <strong>Blockchain</strong></a>, que revolucionou a forma como lidamos com registros digitais e segurança dos dados. Sua <strong>natureza descentralizada</strong> e sua notória <strong>volatilidade</strong> o tornam um ativo único.</p>
+<p>Quem não se lembra da história das <a href="https://www.binance.com/pt-BR/square/post/17395016879858">pizzas compradas por 10.000 BTC</a>, que hoje valeriam uma fortuna? Mesmo que variações dessa magnitude sejam improváveis, eventos programados como o <a href="https://www.binance.com/pt-BR/events/bitcoin-halving"><strong>Halving</strong></a> – que reduz pela metade a emissão de novas moedas a cada quatro anos, simulando a escassez de metais preciosos – continuam a impactar significativamente sua oferta e, historicamente, seu preço.</p>
+<p>Mas como saber o momento certo de comprar ou vender? A resposta não é simples. O preço do Bitcoin é influenciado por uma miríade de fatores: dados <strong>on-chain</strong> (movimentações na própria blockchain), o cenário <strong>macroeconômico</strong> global (inflação, taxas de juros), o <strong>sentimento do mercado</strong> e a <strong>análise técnica</strong> tradicional (padrões gráficos e indicadores). Analisar isoladamente qualquer um desses aspectos oferece uma visão incompleta. A verdadeira compreensão exige uma abordagem holística, <strong>combinando diferentes perspectivas</strong>.</p>
+<p>Foi pensando nisso, e inspirado pelos recentes avanços em modelos de linguagem grandes (<strong>LLMs</strong>) e frameworks de <strong>agentes</strong>, que surgiu a ideia: <strong>E se eu delegar essa tarefa repetitiva e complexa a uma equipe de assistentes de IA?</strong> E se a IA pudesse não apenas coletar e analisar os dados, mas também <strong>interpretar o cenário</strong> e <strong>sugerir ações</strong> alinhadas a uma estratégia de investimento de longo prazo, como a acumulação gradual de Bitcoin?</p>
+<p>É aqui que entram os Agentes de IA. Pense neles como sistemas autônomos que utilizam um <strong>LLM</strong> (como os modelos GPT da OpenAI) como seu “cérebro” ou motor de raciocínio. Eles podem interagir com <strong>ferramentas</strong>, processar informações e <strong>tomar decisões</strong> para atingir um <strong>objetivo específico</strong>. Em nosso caso, o objetivo será fornecer uma análise de mercado inteligente e automatizada, transformando dados brutos em insights acionáveis de alto nível.</p>
+</div>
+<div id="arquitetura-da-solução-uma-equipe-de-agentes-de-ia-generativa" class="section level2">
+<h2>Arquitetura da Solução: Uma Equipe de Agentes de IA Generativa</h2>
+<p>Em vez de um único agente monolítico tentando fazer tudo, o trabalho foi dividido em etapas lógicas, cada uma atribuída a um agente com um papel bem definido. Essa abordagem modular não só organiza melhor o processo, mas também facilita a manutenção e a evolução de cada componente:</p>
+<ul>
+<li><strong>Data Fetcher</strong>: Coleta dados brutos de diversas APIs (cotações, on-chain, macro, técnicos).</li>
+<li><strong>Data Analyst</strong>: Interpreta os dados brutos e gera um relatório técnico formatado.</li>
+<li><strong>Market Strategist</strong>: Sintetiza a análise técnica, identifica tendências e gera recomendações táticas.</li>
+<li><strong>Client Manager</strong>: Avalia a estratégia sob a ótica do objetivo do “cliente” (acumulação de longo prazo) e decide se um alerta é necessário.</li>
+</ul>
+<p>Esses agentes utilizam <code>tools</code> (funções Python) para acessar APIs como <a href="https://www.blockchain.com/explorer/api">Blockchain.com</a>, <a href="https://pypi.org/project/yfinance/">Yahoo Finance</a>, <a href="https://www.coingecko.com/en/api/documentation">CoinGecko</a>, <a href="https://fred.stlouisfed.org/">FRED</a>, etc. A orquestração é feita com o <strong><a href="https://github.com/features/actions">GitHub Actions</a></strong> que aciona a execução de todo o fluxo de trabalho todo dia - a cada 4 horas - executando o projeto que foi todo escrito em <strong>Python</strong>, <strong>LangChain</strong> (para os blocos de construção dos agentes), <strong>LangGraph</strong> (para o fluxo de trabalho), usando <strong>GPT-4o-mini</strong> como motor de raciocínio, <strong><a href="https://telegram.me/BotFather">Telegram</a></strong> como um canal para envio de alertas e <strong>LangSmith</strong> para monitoramento e depuração de cada passo da execução dos agentes.</p>
+<p style="text-align: left; font-style: italic;">
+📌 Clique <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">aqui</a> para ler meu post sobre como criar bots no Telegram.
+</p>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/full_workflow.png" alt="prompt chaining workflow" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho completo
+</p>
+</center>
+</div>
+<div id="construindo-o-workflow-com-langgraph" class="section level2">
+<h2>Construindo o Workflow com LangGraph</h2>
+<p>Para orquestrar a interação entre os agentes de forma robusta, foi utilizado o <strong>LangGraph</strong>, uma biblioteca sobre o LangChain para criar aplicações LLM <em>stateful</em> e com <em>múltiplos atores</em>. Ele permite definir fluxos de trabalho como grafos, controlando explicitamente a sequência e permitindo futuras ramificações ou ciclos.</p>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  📌 Os conceitos básicos são:</p>
+<ul>
+<li><strong>Nós (Nodes)</strong>: As unidades de trabalho (nossos agentes).</li>
+<li><strong>Arestas (Edges)</strong>: As conexões que definem o fluxo de dados e controle entre os nós.</li>
+</ul>
+</div>
+<p>Montar o grafo envolve definir o estado compartilhado, adicionar os nós e conectar as arestas. LangGraph oferece diferentes maneiras de definir essa estrutura. Abaixo, tem um exemplo conceitual usando tanto a a <strong>GraphAPI</strong>, que é bastante explícita, quanto a <strong>Functional API</strong>, que é mais direta ao ponto:</p>
+<!-- Tabs HTML Structure -->
+<div class="tabs">
+<p><button class="tablink" onclick="openCode(event, 'GraphAPI')" id="defaultOpen">Graph API (Conceitual)</button>
+<button class="tablink" onclick="openCode(event, 'FunctionalAPI')">Functional API (Conceitual)</button></p>
+</div>
+<div id="GraphAPI" class="tabcontent">
+<pre class="python"><code>from langgraph.graph import StateGraph, START, END
+from typing_extensions import TypedDict
+
+# Definir o Estado do Grafo
+class State(TypedDict):
+    topic: str # Input do Data Fetcher
+    raw_data: str # Saída do Data Fetcher
+    analysis_report: str # Saída do Data Analyst
+    strategy_synthesis: str # Saída do Market Strategist
+    manager_decision: str # Saída do Client Manager
+
+# Definir os Nós (Agentes/Funções)
+# Supondo que as funções já foram definidas
+def data_fetcher(state: State):
+    # ... 
+    return {&quot;raw_data&quot;: &quot;dados coletados...&quot;}
+
+def data_analyst(state: State): ...
+def market_strategist(state: State): ...
+def client_manager(state: State): ...
+def send_telegram_message(message_body): ...
+
+# Construir o Grafo
+workflow = StateGraph(State)
+
+# Adicionar os nós
+workflow.add_node(&quot;fetcher&quot;, data_fetcher)
+workflow.add_node(&quot;analyst&quot;, data_analyst)
+workflow.add_node(&quot;strategist&quot;, market_strategist)
+workflow.add_node(&quot;manager&quot;, client_manager)
+
+# Definir Arestas (o fluxo sequencial)
+workflow.add_edge(START, &quot;fetcher&quot;)
+workflow.add_edge(&quot;fetcher&quot;, &quot;analyst&quot;)
+workflow.add_edge(&quot;analyst&quot;, &quot;strategist&quot;)
+workflow.add_conditional_edges(&quot;strategist&quot;, manager_decision, {
+  &quot;ALERTAR_CLIENTE&quot;: &quot;send_telegram_message&quot;,
+  &quot;NAO_ALERTAR&quot;: END
+  })
+
+# Compilar o grafo em um objeto executável
+chain = workflow.compile()
+
+# Executar (exemplo)
+state = chain.invoke({&quot;topic&quot;: &quot;btc&quot;})</code></pre>
+</div>
+<div id="FunctionalAPI" class="tabcontent">
+<pre class="python"><code>from langgraph.func import entrypoint, task
+
+# Tasks/Agents
+
+@task
+def data_fetcher(topic: str) -&gt; dict: ...
+  
+@task 
+def data_analyst(state: State): ...
+
+@task
+def market_strategist(state: State): ...
+
+@task
+def client_manager(state: State): ...
+
+def plot_btc_analysis(): ...
+def send_telegram_photo(fig): ...
+def send_telegram_message(message_body): ...
+
+# Exemplo conceitual com abordagem funcional (usando decoradores)
+@entrypoint()
+def chaining_workflow(topic: str):
+    data_fetched = data_fetcher(topic).result()
+    analyst_report = data_analyst(data_fetched).result()
+    strategist_report = market_strategist(analyst_report).result()
     
+    if &#39;ALERTAR&#39; in client_manager(strategist_report).result():
+        fig = plot_btc_analysis()
+        asyncio.run(send_telegram_photo(fig))
+        asyncio.run(send_telegram_message(strategist_report))
+        return &quot;Entrar em contato&quot;
+    return &quot;Não entrar em contato&quot;
+
+def run_chaining_workflow(topic: str, stream_mode: str = &quot;updates&quot;):
+    return chaining_workflow.stream(topic, stream_mode=stream_mode)
+
+# Invoke
+logger.info(&quot;Iniciando o workflow...\n&quot;)
+for step in run_chaining_workflow(&quot;&quot;, stream_mode=&quot;updates&quot;):
+    for key, value in step.items():
+        logger.info(f&quot;[ {key} ]\n{&#39;=&#39; * 80}\n{value}\n&quot;)
+logger.info(&quot;Workflow finalizado.&quot;)
+        </code></pre>
+</div>
+<!-- Script para funcionalidade das abas -->
+<script>
+function openCode(evt, codeName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(codeName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+// Abre a primeira aba por padrão
+document.getElementById("defaultOpen").click();
+</script>
+<!-- Estilos básicos para as abas (adicione ao CSS do seu blog) -->
+<style>
+.tabs { overflow: hidden; border-bottom: 1px solid #ccc; margin-bottom: 10px; }
+.tablink { background-color: #f1f1f1; float: left; border: none; outline: none; cursor: pointer; padding: 8px 16px; font-size: 1rem; transition: 0.3s; }
+.tablink:hover { background-color: #ddd; }
+.tablink.active { background-color: #ccc; }
+.tabcontent { display: none; padding: 6px 0px; border-top: none; animation: fadeEffect 1s; }
+@keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+</style>
+<p>Este controle fino do fluxo, seja pela API explícita ou por abordagens mais funcionais, é uma das grandes vantagens do LangGraph para sistemas multi-agentes, que ainda permite uma integração com o LangSmith para acompanhamento detalhado do fluxo de “raciocínio” dos agentes. Para mais detalhes, consulte a <a href="https://langchain-ai.github.io/langgraph/">documentação oficial</a>.</p>
+</div>
+<div id="mergulhando-nos-agentes-prompts-e-ferramentas" class="section level2">
+<h2>Mergulhando nos Agentes: Prompts e Ferramentas</h2>
+<p>Vamos ver rapidamente como cada agente funciona, focando nos prompts e ferramentas:</p>
+<div id="agente-1-data-fetcher-o-pesquisador" class="section level3">
+<h3>Agente 1: Data Fetcher (O Pesquisador)</h3>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/01.png" alt="data fetcher agent" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho do Data Researcher
+</p>
+</center>
+<details>
+<summary>
+<em>Ver código</em>
+</summary>
+<pre class="python"><code>from pydantic import BaseModel, Field
+from langchain.schema.messages import HumanMessage, ToolMessage
+from langgraph.func import task
+from langchain_openai import ChatOpenAI
+
+from tools.fetch_data_btc import fetch_data_btc
+from tools.fetch_data_onchain import fetch_data_onchain
+from tools.fetch_data_macroeconomic import fetch_data_macroeconomic
+from tools.fetch_data_market import fetch_data_market
+from tools.fetch_data_tecnical import fetch_data_tecnical
+
+llm = ChatOpenAI(model=&quot;gpt-4o-mini&quot;, temperature=0)
+
+@task
+def data_fetcher(topic: str):
+  
+  class StructuredJsonOutput(BaseModel):
+    btc_data: str = Field(None, description=&quot;Bitcoin data and USD to BRL exchange rate&quot;)
+    onchain_data: str = Field(None, description=&quot;On-chain Bitcoin data&quot;)
+    macroeconomic_data: str = Field(None, description=&quot;Macroeconomic data&quot;)
+    market_data: str = Field(None, description=&quot;Market sentiment and Bitcoin-related metrics&quot;)
+    tecnical_data: str = Field(None, description=&quot;technical analysis indicators for Bitcoin&quot;)
+
+  structured_llm = llm.with_structured_output(StructuredJsonOutput)
+
+  instructions = &quot;Você é um pesquisador responsável por coletar dados de diferentes fontes sobre o mercado de Bitcoin e gerar um output no formato json.&quot;
+
+  tools = [
+      fetch_data_btc,
+      fetch_data_onchain,
+      fetch_data_macroeconomic,
+      fetch_data_market,
+      fetch_data_tecnical
+      ]
+
+  tools_by_name = {tool.name: tool for tool in tools}
+
+  llm_with_tools = llm.bind_tools(tools)
+
+  messages = [HumanMessage(instructions)]
+  ai_msg = llm_with_tools.invoke(messages)
+  messages.append(ai_msg)
+
+  for tool_call in ai_msg.tool_calls:
+      selected_tool = tools_by_name[tool_call[&quot;name&quot;].lower()]
+      tool_output = selected_tool.invoke(tool_call[&quot;args&quot;])
+      messages.append(ToolMessage(tool_output, tool_call_id=tool_call[&quot;id&quot;]))
+
+  messages.append(structured_llm.invoke(messages))
+
+  return messages[-1].model_dump_json(indent=3)</code></pre>
+</details>
+<ul>
+<li><strong>Objetivo</strong>: Coletar dados brutos e atualizados de diversas fontes sobre o Bitcoin, abrangendo cotações, indicadores on-chain, dados macroeconômicos e técnicos.</li>
+<li><strong>Funcionamento</strong>: Este agente não calcula nem interpreta, ele apenas orquestra a chamada de várias <code>tools</code> (funções Python que interagem com APIs externas). Essa função do LangChain permite que o LLM, ao receber a instrução inicial (“colete os dados sobre o mercado de Bitcoin”), analise as ferramentas disponíveis e decida quais delas chamar e com quais argumentos. Após as ferramentas retornarem seus resultados, usamos <code>llm.with_structured_output(StructuredJsonOutput)</code> para instruir o LLM a consolidar todas as informações coletadas em um único objeto <strong>JSON estruturado</strong>. Isso garante que a saída do Data Fetcher seja consistente e fácil de processar pelo próximo agente.</li>
+</ul>
+</div>
+<div id="agente-2-data-analyst-o-intérprete" class="section level3">
+<h3>Agente 2: Data Analyst (O Intérprete)</h3>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/02.png" alt="data analyst agent" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho do Data Analyst
+</p>
+</center>
+<details>
+<summary>
+<em>Ver código</em>
+</summary>
+<pre class="python"><code>from langgraph.func import task
+from langchain.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
+from langchain_openai import ChatOpenAI
+
+from prompts.data_analyst_example import input_example, output_example
+
+llm = ChatOpenAI(model=&quot;gpt-4&quot;, temperature=0.7)
+
+@task
+def data_analyst(report: str):
+
+  input = f&quot;&quot;&quot;
+  Você é um analista financeiro experiente em Cryptomoedas e especialista em Bitcoin.
+  Analise as tendências do cenário do Bitcoin hoje com base no json \
+  delimitado por três crases (```):
+
+  \```
+  {report}
+  \```
+
+  Siga rigorosamente as instruções abaixo:
+
+  - ...
+  &quot;&quot;&quot;
+
+  examples = [
+      {&quot;input&quot;: input_example, &quot;output&quot;: output_example},
+       ]
+
+  example_prompt = ChatPromptTemplate.from_messages([
+      (&quot;human&quot;, &quot;{input}&quot;),
+      (&quot;ai&quot;, &quot;{output}&quot;),
+      ])
+
+  few_shot_prompt = FewShotChatMessagePromptTemplate(
+      example_prompt=example_prompt,
+      examples=examples,
+      )
+
+  prompt_system = &quot;Você é um analista financeiro experiente em Criptomoedas e especialista em Bitcoin.&quot;
+
+  final_prompt = ChatPromptTemplate.from_messages([
+    (&quot;system&quot;, prompt_system),
+    few_shot_prompt,
+    (&quot;human&quot;, &quot;{input}&quot;),
+    ])
+
+  chain = final_prompt | llm
+
+  msg = chain.invoke(input=input)
+
+  return msg.content</code></pre>
+</details>
+<ul>
+<li><strong>Objetivo</strong>: Receber o JSON de dados brutos do Data Fetcher e transformá-lo em um relatório analítico coeso, formatado em Markdown, interpretando cada indicador e explicando seu possível impacto.</li>
+<li><strong>Prompt Engineering em Ação</strong>: Este agente é um ótimo exemplo de como guiar um LLM para tarefas complexas de formatação e interpretação.
+<ul>
+<li><strong>Instruções Detalhadas</strong>: O prompt define explicitamente o papel do agente (“analista financeiro experiente”), o formato desejado (Markdown, bullet points, negrito), o tom (“equilibrado e menos técnico”), e regras específicas (mencionar preços em USD e BRL, usar sinal de menos para variações negativas, seguir a estrutura do exemplo).</li>
+<li><strong>Estratégia Few-Shot</strong>: Para garantir que o LLM siga o formato e o estilo de interpretação desejados, utilizamos a técnica Few-Shot (semelhante como fiz em um <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">post anterior</a>). Fornecemos um exemplo completo de um input (um JSON de dados similar ao que o Data Fetcher produziria) e o output correspondente (o relatório em Markdown formatado e interpretado). Isso é feito usando <code>FewShotChatMessagePromptTemplate</code> do LangChain, que insere o exemplo diretamente no contexto do prompt final.</li>
+<li><strong>Cadeia LCEL</strong>: O prompt final é construído usando a LangChain Expression Language (LCEL), combinando o prompt do sistema (definindo o papel), o prompt Few-Shot (com o exemplo) e o prompt humano (contendo as instruções e o JSON de dados brutos atual).</li>
+</ul></li>
+</ul>
+</div>
+<div id="agente-3-market-strategist-o-conselheiro" class="section level3">
+<h3>Agente 3: Market Strategist (O Conselheiro)</h3>
+<center>
+<div style="width: 80%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/03.png" alt="market strategist agent" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho do Market Strategist
+</p>
+</center>
+<details>
+<summary>
+<em>Ver código</em>
+</summary>
+<pre class="python"><code>from langgraph.func import task
+from langchain.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(temperature=0.7)
+
+@task
+def market_strategist(analyst_report: str):
+    &quot;&quot;&quot;
+    Gera recomendações de posicionamento com base na análise do Data Analyst.
+    &quot;&quot;&quot;
+  
+    input = f&quot;&quot;&quot;
+    Seu papel é analisar o relatório técnico fornecido no formatado em Markdown e transformar\
+    em uma síntese estratégica e executiva, com alertas, insights e orientações táticas de alto nível.
+  
+    \``` markdown
+    {analyst_report}
+    \```
+  
+    Siga rigorosamente as instruções abaixo:
+  
+    - ...
+    &quot;&quot;&quot;
+  
+    prompt = ChatPromptTemplate.from_messages([
+        (&quot;system&quot;, &quot;Você é um estrategista de mercado sênior, com ampla experiência em ativos digitais e especialização em Bitcoin.&quot;),
+        (&quot;human&quot;, &quot;{input}&quot;)
+    ])
+  
+    chain = prompt | llm
+    msg = chain.invoke(input=input)
+    return msg.content
+</code></pre>
+</details>
+<ul>
+<li><strong>Objetivo</strong>: Ler o relatório técnico detalhado do Data Analyst e interpretar as informações em uma síntese estratégica e executiva. O foco é identificar a tendência geral, destacar sinais chave e fornecer recomendações táticas claras.</li>
+<li><strong>Prompt</strong>: O prompt para este agente é crucial para mudar o nível da análise. Ele instrui o LLM a agir como um “estrategista de mercado sênior”, focando em:
+<ul>
+<li><strong>Resumo</strong>: Extrair os pontos mais críticos.</li>
+<li><strong>Tendência</strong>: Classificar o mercado (alta, baixa, neutro).</li>
+<li><strong>Sinais</strong>: Identificar indicadores de otimismo ou cautela.</li>
+<li><strong>Recomendações</strong>: Gerar orientações práticas e acionáveis (“isso indica que…”, “logo, é prudente…”).</li>
+<li><strong>Raciocínio</strong>: Explicitar o processo de pensamento com <strong>CoT</strong> (<strong>Chain-of-Thought</strong>) que levou às conclusões antes de apresentar a síntese final.</li>
+<li><strong>Tom</strong>: Consultivo, direto e profissional.</li>
+</ul></li>
+</ul>
+</div>
+<div id="agente-4-client-manager-o-porteiro" class="section level3">
+<h3>Agente 4: Client Manager (O Porteiro)</h3>
+<center>
+<div style="width: 80%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/04.png" alt="client manager agent" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho do Client Manager
+</p>
+</center>
+<details>
+<summary>
+<em>Ver código</em>
+</summary>
+<pre class="python"><code>from langgraph.func import task
+from langchain.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(temperature=0.7)
+
+@task
+def client_manager(final_report: str):
+    &quot;&quot;&quot;
+    Avalia o relatório estratégico e decide se deve ou não alertar o cliente.
+    A decisão final é binária: ALERTAR_CLIENTE ou NÃO_ALERTAR.
+    &quot;&quot;&quot;
+
+    input = f&quot;&quot;&quot;
+    Objetivo do cliente: Acumular Bitcoins no longo prazo, investindo mensalmente nas melhores janelas de oportunidade.
+
+    Seu papel é avaliar o relatório abaixo e decidir se há motivos suficientes para alertar o cliente:
+
+    \``` markdown
+    {final_report}
+    \```
+
+    Siga rigorosamente as instruções abaixo:
+
+    - ...
+    &quot;&quot;&quot;
+
+    prompt = ChatPromptTemplate.from_messages([
+        (&quot;system&quot;, &quot;Você é um Client Manager, especializado em comunicação estratégica com clientes de alto valor.&quot;),
+        (&quot;human&quot;, &quot;{input}&quot;)
+    ])
+
+    chain = prompt | llm
+    msg = chain.invoke(input=input)
+    return msg.content
+</code></pre>
+</details>
+<ul>
+<li><strong>Objetivo</strong>: Avaliar a síntese estratégica do Market Strategist à luz do objetivo específico do cliente (acumulação de longo prazo) e tomar uma decisão binária: a situação atual justifica um alerta ou não?</li>
+<li><strong>Prompt</strong>: Este prompt é focado na tomada de decisão.
+<ul>
+<li><strong>Contexto do Cliente</strong>: Define claramente o objetivo (“Acumular Bitcoins no longo prazo, investindo mensalmente nas melhores janelas de oportunidade.”).</li>
+<li><strong>Critérios de Alerta</strong>: Especifica o que procurar (mudança relevante de tendência, risco/oportunidade claros, indicadores extremos, recomendações urgentes).</li>
+<li><strong>Raciocínio Obrigatório</strong>: Exige que o agente explique seu processo de pensamento <strong>CoT</strong> (<strong>Chain-of-Thought</strong>) antes da decisão final.</li>
+<li><strong>Output Binário</strong>: A resposta final deve ser <em>apenas</em> a palavra <code>ALERTAR</code> ou <code>NÃO_ALERTAR</code> em maiúsculas, precedida pelo raciocínio.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="desafios-aprendizados-e-observabilidade" class="section level2">
+<h2>Desafios, Aprendizados e Observabilidade</h2>
+<p>Construir agentes envolve desafios:</p>
+<ul>
+<li><strong>Prompt Engineering</strong>: É uma arte iterativa. Clareza, exemplos (Few-Shot) e estrutura são essenciais.</li>
+<li><strong>Orquestração (LangGraph)</strong>: Gerenciar o estado e o fluxo entre nós exige atenção.</li>
+<li><strong>Integração de Ferramentas</strong>: Descrições claras das <code>tools</code> são vitais para o LLM usá-las corretamente.</li>
+<li><strong>Observabilidade</strong>: Identificar falhas em fluxos complexos pode ser difícil.</li>
+</ul>
+<p>Ferramentas como o <strong>LangSmith</strong> são extremamente úteis na monitoramento dos agentes, permitindo rastrear e depurar cada passo de sua execução, chamadas de LLM e uso de ferramentas. Ele oferece uma visão clara do que está acontecendo “por baixo dos panos”, facilitando a identificação de gargalos ou erros.</p>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/langsmith-exemplo.png" alt="langsmith" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Print da tela do LangSmith do projeto
+</p>
+</center>
+</div>
+<div id="conclusão" class="section level2">
+<h2>Conclusão</h2>
+<p>Criamos uma equipe de agentes IA capaz de automatizar a complexa análise do mercado Bitcoin, usando LangChain e LangGraph para orquestração. O sistema coleta dados, interpreta, gera estratégias e decide sobre alertas, transformando dados brutos em insights acionáveis. Veja como é o alerta recebido no Telegram:</p>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<center>
+<p><img src="/post/2025-05-04-bitcoin-agent/telegram1.PNG" alt="Report no Telegram 1" style="width: 80%;"></p>
+</center>
+<center>
+<p><img src="/post/2025-05-04-bitcoin-agent/telegram2.PNG" alt="Report no Telegram 2" style="width: 80%;"></p>
+</center>
+</div>
+<p style="text-align: center; font-style: italic;">
+Print das telas do bot no Telegram.
+</p>
+<p>Este projeto demonstra o potencial dos agentes para automatizar tarefas repetitivas que envolvem a tomada de decisões com um certo “raciocínio”. Os próximos passos podem envolver refinar prompts, adicionar mais ferramentas, integrar mais visualizações ou implementar notificações ativas.</p>
+</div>
+<div id="referências" class="section level2">
+<h2>Referências</h2>
+<ul>
+<li><a href="https://python.langchain.com/">LangChain - Documentação</a></li>
+<li><a href="https://langchain-ai.github.io/langgraph/">LangGraph - Documentação</a></li>
+<li><a href="https://smith.langchain.com/">LangSmith - Documentação</a></li>
+<li><a href="https://openai.com/api/">OpenAI API Plataform</a></li>
+<li><a href="https://github.com/openai/openai-cookbook/blob/main/examples/gpt4-1_prompting_guide.ipynb">OpenAI - Prompt Engineering Guide</a></li>
+<li><a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf">OpenAI - A Practical Guide to Building Agents</a></li>
+<li><a href="https://langchain-ai.github.io/langgraph/tutorials/workflows/">LangGraph Tutorial - Building Agentic Workflows</a></li>
+<li><a href="https://blog.langchain.dev/how-to-think-about-agent-frameworks/">LangChain Blog - How to think about agent frameworks</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/">Construindo uma Equipe Multiagente de IA para Análise do Mercado Bitcoin</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">agent-ai</category>
+      <category domain="tag">analise-dados</category>
+      <category domain="tag">bitcoin</category>
+      <category domain="tag">crypto</category>
+      <category domain="tag">inteligencia-artificial</category>
+      <category domain="tag">langchain</category>
+      <category domain="tag">langgraph</category>
+      <category domain="tag">langsmith</category>
+      <category domain="tag">llm</category>
+      <category domain="tag">mercado-financeiro</category>
+    </item>
   </channel>
 </rss>

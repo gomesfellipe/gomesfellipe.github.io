@@ -4,30 +4,42 @@ author: Fellipe Gomes
 date: '2018-01-04'
 slug: []
 categories:
-  - Estatistica
-  - R
-  - Teoria
-  - Analise Mutivariada
-  - Nao supervisionado
-  - Clustering
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - Estatistica
-  - gomesfellipe
-  - R Markdown
-  - R
-  - Teoria
-  - pca
-  - kmeans
-  - clustering
-  - analise multivariada
-description: ''
-featured: 'multivariada-fatorial-cluster-R.png'
-featuredalt: 'Pic 9'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
+- analise-multivariada
+- clustering
+- estatistica
+- kmeans
+- pca
+- r
+- rmarkdown
+- teoria
+description: '[Imagem do Wikpedia](https://commons.wikimedia.org/wiki/File:Multivariate_Gaussian.png)'
+featured: multivariada-fatorial-cluster-R.png
+featuredalt: Ilustração sobre análise multivariada com r
+featuredpath: date
+type: post
+image_preview: multivariada-fatorial-cluster-R.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/01/multivariada-fatorial-cluster-R.png
+keywords: analise-multivariada, clustering, estatistica, kmeans, pca, r, rmarkdown,
+  teoria, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
 ```

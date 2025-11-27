@@ -4,26 +4,41 @@ author: Fellipe Gomes
 date: '2018-12-26'
 slug: []
 categories:
-  - Estatistica
-  - R
+- Fundamentos de Data Science
+- Programação e Ferramentas
 tags:
-  - shiny
-  - RStudio
-  - rmarkdown
-  - machine learning
-  - kaggle
-  - Estatistica
-  - gomesfellipe
-  - retrospectiva
-description: 'Este post traz uma retrospectiva do que aconteceu por aqui em 1 ano de blog, foi muito empolgante o término do desafio que fiz a mim mesmo e a animação para novos desafios continua!'
-featured: 'img1.png'
-featuredalt: 'Pic 21'
-featuredpath: 'date'
-linktitle: '' 
-type: "post"
+- estatistica
+- kaggle
+- machine-learning
+- retrospectiva
+- rmarkdown
+- rstudio
+- shiny
+description: Este post traz uma retrospectiva do que aconteceu por aqui em 1 ano de
+  blog, foi muito empolgante o término do desafio que fiz a mim mesmo e a animação
+  para novos desafios continua!
+featured: img1.png
+featuredalt: Ilustração sobre um ano de blog
+featuredpath: date
+type: post
+image_preview: img1.png
+schema_type: BlogPosting
+educational_level: Advanced
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/12/img1.png
+og_type: article
+article_section: Programming
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/12/img1.png
+keywords: estatistica, kaggle, machine-learning, retrospectiva, rmarkdown, rstudio,
+  shiny, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 ```{css, echo=F}
 .column-left{
   float: left;
@@ -61,7 +76,7 @@ type: "post"
 ```
 
 
-
+ 
 
 ## Até que um dia..
 

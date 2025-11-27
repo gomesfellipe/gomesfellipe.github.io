@@ -1,830 +1,274 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Categories on Fellipe Gomes</title>
+    <title>Categories on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/categories/</link>
-    <description>Recent content in Categories on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Agentes</title>
-      <link>https://gomesfellipe.github.io/categories/agentes/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/agentes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Análise de Dados</title>
-      <link>https://gomesfellipe.github.io/categories/an%C3%A1lise-de-dados/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/an%C3%A1lise-de-dados/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bitcoin</title>
-      <link>https://gomesfellipe.github.io/categories/bitcoin/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/bitcoin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>IA</title>
-      <link>https://gomesfellipe.github.io/categories/ia/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/ia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LangChain</title>
-      <link>https://gomesfellipe.github.io/categories/langchain/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/langchain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LangGraph</title>
-      <link>https://gomesfellipe.github.io/categories/langgraph/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/langgraph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LangSmith</title>
-      <link>https://gomesfellipe.github.io/categories/langsmith/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/langsmith/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LLM</title>
-      <link>https://gomesfellipe.github.io/categories/llm/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mercado Financeiro</title>
-      <link>https://gomesfellipe.github.io/categories/mercado-financeiro/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/mercado-financeiro/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OpenAI</title>
-      <link>https://gomesfellipe.github.io/categories/openai/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/openai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Prática</title>
-      <link>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://gomesfellipe.github.io/categories/python/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Áudio</title>
-      <link>https://gomesfellipe.github.io/categories/%C3%A1udio/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/%C3%A1udio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Automação</title>
-      <link>https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/</guid>
-      <description></description>
-    </item>
-    
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Wed, 26 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/categories/" rel="self" type="application/rss+xml" />
     <item>
       <title>Inteligência Artificial</title>
       <link>https://gomesfellipe.github.io/categories/intelig%C3%AAncia-artificial/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      
+      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/categories/intelig%C3%AAncia-artificial/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/intelig%C3%AAncia-artificial/">Inteligência Artificial</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>text-to-speech</title>
-      <link>https://gomesfellipe.github.io/categories/text-to-speech/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/text-to-speech/</guid>
+      <title>Programação e Ferramentas</title>
+      <link>https://gomesfellipe.github.io/categories/programa%C3%A7%C3%A3o-e-ferramentas/</link>
+      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/programa%C3%A7%C3%A3o-e-ferramentas/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/programa%C3%A7%C3%A3o-e-ferramentas/">Programação e Ferramentas</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Tradução Automática</title>
-      <link>https://gomesfellipe.github.io/categories/tradu%C3%A7%C3%A3o-autom%C3%A1tica/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/tradu%C3%A7%C3%A3o-autom%C3%A1tica/</guid>
+      <title>Texto e NLP</title>
+      <link>https://gomesfellipe.github.io/categories/texto-e-nlp/</link>
+      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/texto-e-nlp/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/texto-e-nlp/">Texto e NLP</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Web scraping</title>
-      <link>https://gomesfellipe.github.io/categories/web-scraping/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/web-scraping/</guid>
+      <title>aprendizado</title>
+      <link>https://gomesfellipe.github.io/categories/aprendizado/</link>
+      <pubDate>Sun, 08 Jun 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/aprendizado/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/aprendizado/">aprendizado</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>ChatGPT</title>
-      <link>https://gomesfellipe.github.io/categories/chatgpt/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/chatgpt/</guid>
+      <title>datascience</title>
+      <link>https://gomesfellipe.github.io/categories/datascience/</link>
+      <pubDate>Sun, 08 Jun 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/datascience/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/datascience/">datascience</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Ciencia de dados</title>
-      <link>https://gomesfellipe.github.io/categories/ciencia-de-dados/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/ciencia-de-dados/</guid>
+      <title>youtube</title>
+      <link>https://gomesfellipe.github.io/categories/youtube/</link>
+      <pubDate>Sun, 08 Jun 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/youtube/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/youtube/">youtube</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>GenAI</title>
-      <link>https://gomesfellipe.github.io/categories/genai/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/genai/</guid>
+      <title>Fundamentos de Data Science</title>
+      <link>https://gomesfellipe.github.io/categories/fundamentos-de-data-science/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/fundamentos-de-data-science/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/fundamentos-de-data-science/">Fundamentos de Data Science</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Llama</title>
-      <link>https://gomesfellipe.github.io/categories/llama/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/llama/</guid>
+      <title>legal</title>
+      <link>https://gomesfellipe.github.io/categories/legal/</link>
+      <pubDate>Tue, 26 Nov 2024 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/legal/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/legal/">legal</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
-    <item>
-      <title>Llava</title>
-      <link>https://gomesfellipe.github.io/categories/llava/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/llava/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LMM</title>
-      <link>https://gomesfellipe.github.io/categories/lmm/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/lmm/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Machine Learning</title>
       <link>https://gomesfellipe.github.io/categories/machine-learning/</link>
       <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/categories/machine-learning/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/machine-learning/">Machine Learning</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>neural networks</title>
-      <link>https://gomesfellipe.github.io/categories/neural-networks/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/neural-networks/</guid>
+      <title>contato</title>
+      <link>https://gomesfellipe.github.io/categories/contato/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/contato/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/contato/">contato</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Transformers</title>
-      <link>https://gomesfellipe.github.io/categories/transformers/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/transformers/</guid>
+      <title>apps</title>
+      <link>https://gomesfellipe.github.io/categories/apps/</link>
+      <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/apps/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/apps/">apps</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
-    <item>
-      <title>Vicuna</title>
-      <link>https://gomesfellipe.github.io/categories/vicuna/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/vicuna/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vision</title>
-      <link>https://gomesfellipe.github.io/categories/vision/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/vision/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Análise de Sentimentos</title>
-      <link>https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sentimentos/</link>
-      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sentimentos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Classificação</title>
-      <link>https://gomesfellipe.github.io/categories/classifica%C3%A7%C3%A3o/</link>
-      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/classifica%C3%A7%C3%A3o/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gemma</title>
-      <link>https://gomesfellipe.github.io/categories/gemma/</link>
-      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/gemma/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google</title>
-      <link>https://gomesfellipe.github.io/categories/google/</link>
-      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/google/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kaggle</title>
-      <link>https://gomesfellipe.github.io/categories/kaggle/</link>
-      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/kaggle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>twitter</title>
-      <link>https://gomesfellipe.github.io/categories/twitter/</link>
-      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/twitter/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Analise Exploratória</title>
       <link>https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/</link>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/analise-explorat%C3%B3ria/">Analise Exploratória</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
-    <item>
-      <title>Aprendizado Supervisionado</title>
-      <link>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</link>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GAM</title>
-      <link>https://gomesfellipe.github.io/categories/gam/</link>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/gam/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Llama2</title>
-      <link>https://gomesfellipe.github.io/categories/llama2/</link>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/llama2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>catboost</title>
-      <link>https://gomesfellipe.github.io/categories/catboost/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/catboost/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>modelo baseado em arvores</title>
-      <link>https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://gomesfellipe.github.io/categories/r/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dalle2</title>
-      <link>https://gomesfellipe.github.io/categories/dalle2/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/dalle2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dataart</title>
-      <link>https://gomesfellipe.github.io/categories/dataart/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/dataart/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gan</title>
-      <link>https://gomesfellipe.github.io/categories/gan/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/gan/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vqgan&#43;clip</title>
-      <link>https://gomesfellipe.github.io/categories/vqgan&#43;clip/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/vqgan&#43;clip/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Regressão</title>
-      <link>https://gomesfellipe.github.io/categories/regress%C3%A3o/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/regress%C3%A3o/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Analise Mutivariada</title>
-      <link>https://gomesfellipe.github.io/categories/analise-mutivariada/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/analise-mutivariada/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Data mining</title>
       <link>https://gomesfellipe.github.io/categories/data-mining/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/categories/data-mining/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/data-mining/">Data mining</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
-    <item>
-      <title>ggplot</title>
-      <link>https://gomesfellipe.github.io/categories/ggplot/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/ggplot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>grafo</title>
-      <link>https://gomesfellipe.github.io/categories/grafo/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/grafo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Text Mining</title>
-      <link>https://gomesfellipe.github.io/categories/text-mining/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/text-mining/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tidyverse</title>
-      <link>https://gomesfellipe.github.io/categories/tidyverse/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/tidyverse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web scrapping</title>
-      <link>https://gomesfellipe.github.io/categories/web-scrapping/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/web-scrapping/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dados Desbalanceados</title>
-      <link>https://gomesfellipe.github.io/categories/dados-desbalanceados/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/dados-desbalanceados/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>knn</title>
-      <link>https://gomesfellipe.github.io/categories/knn/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/knn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>optuna</title>
-      <link>https://gomesfellipe.github.io/categories/optuna/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/optuna/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shap</title>
-      <link>https://gomesfellipe.github.io/categories/shap/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/shap/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tuning</title>
-      <link>https://gomesfellipe.github.io/categories/tuning/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/tuning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>xgboost</title>
-      <link>https://gomesfellipe.github.io/categories/xgboost/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/xgboost/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Estatistica</title>
-      <link>https://gomesfellipe.github.io/categories/estatistica/</link>
-      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/estatistica/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>randomforest</title>
-      <link>https://gomesfellipe.github.io/categories/randomforest/</link>
-      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/randomforest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Big Data</title>
-      <link>https://gomesfellipe.github.io/categories/big-data/</link>
-      <pubDate>Mon, 24 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/big-data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Carreira</title>
-      <link>https://gomesfellipe.github.io/categories/carreira/</link>
-      <pubDate>Mon, 24 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/carreira/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>arvore de decisoes</title>
-      <link>https://gomesfellipe.github.io/categories/arvore-de-decisoes/</link>
-      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/arvore-de-decisoes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>lightgbm</title>
-      <link>https://gomesfellipe.github.io/categories/lightgbm/</link>
-      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/lightgbm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tidymodels</title>
-      <link>https://gomesfellipe.github.io/categories/tidymodels/</link>
-      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/tidymodels/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tunning</title>
-      <link>https://gomesfellipe.github.io/categories/tunning/</link>
-      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/tunning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cloud</title>
-      <link>https://gomesfellipe.github.io/categories/cloud/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/cloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Reports</title>
-      <link>https://gomesfellipe.github.io/categories/reports/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/reports/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RMarkdown</title>
-      <link>https://gomesfellipe.github.io/categories/rmarkdown/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/rmarkdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Séries Temporais</title>
-      <link>https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Shiny</title>
-      <link>https://gomesfellipe.github.io/categories/shiny/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/shiny/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Análise de Sobrevivência</title>
-      <link>https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sobreviv%C3%AAncia/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/an%C3%A1lise-de-sobreviv%C3%AAncia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gamification</title>
-      <link>https://gomesfellipe.github.io/categories/gamification/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/gamification/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Modelagem Estatistica</title>
-      <link>https://gomesfellipe.github.io/categories/modelagem-estatistica/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/modelagem-estatistica/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Probabilidade</title>
-      <link>https://gomesfellipe.github.io/categories/probabilidade/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/probabilidade/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Teoria</title>
-      <link>https://gomesfellipe.github.io/categories/teoria/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/teoria/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RStudio Server</title>
-      <link>https://gomesfellipe.github.io/categories/rstudio-server/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/rstudio-server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Shiny Server</title>
-      <link>https://gomesfellipe.github.io/categories/shiny-server/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/shiny-server/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Mapas</title>
       <link>https://gomesfellipe.github.io/categories/mapas/</link>
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/categories/mapas/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/mapas/">Mapas</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Aprendizado Não Supervisionado</title>
-      <link>https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/aprendizado-n%C3%A3o-supervisionado/</guid>
+      <title>Prática</title>
+      <link>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/pr%C3%A1tica/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/pr%C3%A1tica/">Prática</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Bayes</title>
-      <link>https://gomesfellipe.github.io/categories/bayes/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/bayes/</guid>
+      <title>R</title>
+      <link>https://gomesfellipe.github.io/categories/r/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/r/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/r/">R</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Inferência Bayesiana</title>
-      <link>https://gomesfellipe.github.io/categories/infer%C3%AAncia-bayesiana/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/infer%C3%AAncia-bayesiana/</guid>
+      <title>Regressão</title>
+      <link>https://gomesfellipe.github.io/categories/regress%C3%A3o/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/regress%C3%A3o/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/regress%C3%A3o/">Regressão</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Simulação</title>
-      <link>https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/simula%C3%A7%C3%A3o/</guid>
+      <title>Séries Temporais</title>
+      <link>https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/s%C3%A9ries-temporais/">Séries Temporais</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Google Trends</title>
-      <link>https://gomesfellipe.github.io/categories/google-trends/</link>
-      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/google-trends/</guid>
+      <title>Tidyverse</title>
+      <link>https://gomesfellipe.github.io/categories/tidyverse/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/tidyverse/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/tidyverse/">Tidyverse</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
     <item>
-      <title>Clustering</title>
-      <link>https://gomesfellipe.github.io/categories/clustering/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/clustering/</guid>
+      <title>Aprendizado Supervisionado</title>
+      <link>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/categories/aprendizado-supervisionado/</guid>
       <description></description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/categories/aprendizado-supervisionado/">Aprendizado Supervisionado</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
     </item>
-    
-    <item>
-      <title>Nao supervisionado</title>
-      <link>https://gomesfellipe.github.io/categories/nao-supervisionado/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/nao-supervisionado/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>estatística</title>
-      <link>https://gomesfellipe.github.io/categories/estat%C3%ADstica/</link>
-      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/estat%C3%ADstica/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>filosofia</title>
-      <link>https://gomesfellipe.github.io/categories/filosofia/</link>
-      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/filosofia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>utilidades</title>
-      <link>https://gomesfellipe.github.io/categories/utilidades/</link>
-      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/categories/utilidades/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

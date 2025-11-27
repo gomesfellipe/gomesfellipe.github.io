@@ -1,22 +1,861 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>ggplot2 on Fellipe Gomes</title>
+    <title>ggplot2 on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/ggplot2/</link>
-    <description>Recent content in ggplot2 on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 02 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/ggplot2/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vou te provar que da para fazer Grafos bonitos em R!</title>
+      <link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link>
+      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
+      <description>Neste post vamos coletar notícias via web scrapping, detectar entidades dos textos e criar um grafo utilizando ggplot2</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#introdu%C3%A7%C3%A3o-e-contexto" id="toc-introdução-e-contexto">Introdução e contexto</a>
+<ul>
+<li><a href="#o-que-s%C3%A3o-grafos" id="toc-o-que-são-grafos">O que são Grafos?</a></li>
+<li><a href="#como-contruir-um" id="toc-como-contruir-um">Como contruir um?</a></li>
+</ul></li>
+<li><a href="#carregar-depend%C3%AAncias" id="toc-carregar-dependências">Carregar dependências</a></li>
+<li><a href="#fonte-dos-dados" id="toc-fonte-dos-dados">Fonte dos dados</a></li>
+<li><a href="#ner---named-entity-recognition" id="toc-ner---named-entity-recognition">NER - Named Entity Recognition</a></li>
+<li><a href="#preparar-dados" id="toc-preparar-dados">Preparar dados</a></li>
+<li><a href="#b%C3%B4nus" id="toc-bônus">Bônus</a></li>
+<li><a href="#conclus%C3%A3o" id="toc-conclusão">Conclusão</a></li>
+<li><a href="#outras-bibliotecas-para-constru%C3%A7%C3%A3o-de-grafos" id="toc-outras-bibliotecas-para-construção-de-grafos">Outras bibliotecas para construção de grafos</a></li>
+</ul>
+</div>
+
+<div id="introdução-e-contexto" class="section level1">
+<h1>Introdução e contexto</h1>
+<p>Durante os anos de 2020 e 2021 fiz um <a href="https://educacao-executiva.fgv.br/df/brasilia/cursos/mba-pos-graduacao/mba-presencial/mba-executivo-em-business-analytics-e-big-data">MBA Executivo em Business Analytics e Big Data</a> na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</p>
+<p>No trabalho final fomos desafiados a extrair dados da internet via api ou scraping, aplicar a metodologia apropriada para extrair informações de interesse e contruir um Grafo.</p>
+<p>Como esse gráfico deu mais de trabalho do que eu esperava e fiquei bem satisfeito com o resultado final, resolvi fazer uma nova análise para praticar e publicar aqui no blog, espero que gostem!</p>
+<div id="o-que-são-grafos" class="section level2">
+<h2>O que são Grafos?</h2>
+<p>📎 Segundo o Wikipedia:</p>
+<blockquote>
+<p>“A teoria dos grafos é um ramo da matemática que estuda as relações entre os objetos de um determinado conjunto”</p>
+</blockquote>
+<p>São muito úteis para análises de redes sociais, redes de amizades ou qualquer rede com relações de dependências. Existem muitos tipos de grafos como conectados, desconectados, esparsos, densos, direcionados, não direcionados e por ai vai…</p>
+<p>Além disso existe toda uma nomenclatura específica, mas não entrarei em detalhes teóricos neste post pois também estou estudado sobre o tema! Caso queira aprofundar na teoria por trás recomendo <a href="http://faculty.ucr.edu/~hanneman/nettext/index.html">este material</a> gratuito muito bom!</p>
+</div>
+<div id="como-contruir-um" class="section level2">
+<h2>Como contruir um?</h2>
+<p>No curso que fiz aprendemos a mexer no <a href="https://gephi.org/">Gephi</a> para a contrução desses Grafos (ferramenta incrível, diga-se de passagem) porém ouvi dizer diversas vezes, tanto dentro quanto fora da FGV, que R e Python eram muito limitados para construção de Grafos bonitos e que esse software sempre a melhor opção.</p>
+<p>Apesar do enorme potencial do Gephi, fiquei um pouco entediado estudando-o pois não sou grande fã de ferramentas <em>point-and-click</em> e quando o professor falou que a escolha da ferramenta para a construção do Grafo era livre, resolvi tentar fazê-lo em R!</p>
+</div>
+</div>
+<div id="carregar-dependências" class="section level1">
+<h1>Carregar dependências</h1>
+<p>Pacotes utilizados neste post:</p>
+<pre class="r"><code>library(rvest)     # web scrapping
+library(dplyr)     # manipulate data
+library(purrr)     # functional prog
+library(stringr)   # str toolkit
+library(spacyr)    # ner
+library(igraph)    # base graph
+library(tidygraph) # tidy graph
+library(ggraph)    # plot graph</code></pre>
+</div>
+<div id="fonte-dos-dados" class="section level1">
+<h1>Fonte dos dados</h1>
+<p>Os dados utilizados neste post foram coletados via web scrapping do site do <a href="https://g1.globo.com/">G1 - Globo</a>. Optei por trabalhar com textos jornalísticos neste post pois apresentam a vantagem de serem bem escritos, o que facilita na tarefa de mineração de texto.</p>
+<p>Também fiz um grafo analisando tweets sobre a CPI da pandemia <a href=".#b%C3%B4nus">que será apresentado como bônus no final deste post</a> e para quem tiver curiosidade de conferir <a href="https://github.com/gomesfellipe/cpi_da_pandemia">os códigos</a> vai notar que foi necessário um tratamento muito mais extensivo para corrigir os nomes de cada um dos senadores, deputados e personagens políticos detectados.</p>
+<p>Confira abaixo todos os códigos necessários para realizar tal extração:</p>
+<details>
+<summary>
+(<em>Clique aqui para exibir as funções <code>scrape_post_links</code> e <code>scrape_post_body</code> </em>)
+</summary>
+<pre class="r"><code># Funcao para coletar os links de cada noticia
+scrape_post_links &lt;- function(site) {
+  cat(paste0(site, &quot;\n&quot;))
+  
+  source_html &lt;- read_html(site)
+  
+  links &lt;- source_html %&gt;%
+    html_nodes(&quot;div.widget--info__text-container&quot;) %&gt;%
+    html_nodes(&quot;a&quot;) %&gt;%
+    html_attr(&quot;href&quot;)
+  
+  links &lt;- links[!is.na(links)]
+  
+  return(links)
+}
+
+# Funcao para coletar o texto da materia em cada link
+scrape_post_body &lt;- function(site) { 
+  
+  text &lt;- tryCatch({
+    cat(paste0(site, &quot;\n&quot;))
+    body &lt;- site %&gt;%
+      read_html %&gt;%
+      html_nodes(&quot;article&quot;) %&gt;%
+      html_nodes(&quot;p.content-text__container&quot;)  %&gt;%
+      html_text %&gt;% 
+      paste(collapse = &#39;&#39;)
+    
+  }, error = function(e){
+    cat(paste(&quot;ERRO 404&quot;, &quot;\n&quot;))
+    body &lt;- NA
+  })
+  
+  return(body)
+}
+
+# criar matriz de adjacencias
+get_adjacent_list &lt;- function(edge_list) {
+  gtools::combinations(length(edge_list), 2, edge_list)  
+}</code></pre>
+</details>
+<p> </p>
+<pre class="r"><code># raiz
+root &lt;- &quot;https://g1.globo.com/busca/?q=economia+brasil&quot;
+
+# gerar links das proximas 100 paginas
+all_pages &lt;- c(root, paste0(root, &quot;&amp;page=&quot;, 1:50))
+
+# coletar os links dos posts de cada pagina
+all_links &lt;- map(all_pages, scrape_post_links) %&gt;% unlist()
+
+# extrair urls
+cleaned_links &lt;- map_chr(all_links, ~{
+  .x %&gt;% 
+    urltools::param_get() %&gt;% 
+    pull(u) %&gt;% 
+    urltools::url_decode()
+})
+
+# reter apenas links que falam de economia
+cleaned_links &lt;- cleaned_links %&gt;% .[str_detect(.,  &quot;g1.globo.com/economia&quot;)]
+
+# nao reter links do globoplay
+cleaned_links &lt;- cleaned_links %&gt;% .[!str_detect(.,  &quot;globoplay&quot;)]
+
+# coletar conteudo de cada link
+data &lt;- map_chr(cleaned_links, scrape_post_body) %&gt;% unique()</code></pre>
+</div>
+<div id="ner---named-entity-recognition" class="section level1">
+<h1>NER - Named Entity Recognition</h1>
+<p>Utilizaremos um modelo de reconhecimento de entidades pré-treinado fornecido pela <a href="https://spacy.io/">Spacy</a> (que fornece essa e muitas outras soluções interessantes quando se trata de processamento de linguagem natural).</p>
+<p>Primeiramente vamos configurar o <code>spacyr</code> na máquina para utilizar o modelo pré treinado para reconhecimento de entidades em português:</p>
+<pre class="r"><code># Executar apenas 1 vez
+spacyr::spacy_install()
+spacy_download_langmodel(&quot;pt_core_news_sm&quot;)</code></pre>
+<p>Inicializar modelo pré-treinado em português:</p>
+<pre class="r"><code>spacy_initialize(model=&quot;pt_core_news_sm&quot;)</code></pre>
+<p>Aplicar modelo carregado para o reconhecimento de entidades:</p>
+<pre class="r"><code>entities &lt;- spacy_extract_entity(data)</code></pre>
+<p>Filtrar apenas entidades cujo tipo são <strong>pessoas</strong> ou <strong>organizações</strong>:</p>
+<pre class="r"><code>filtered_entities &lt;- 
+  entities %&gt;% 
+  filter(ent_type==&#39;ORG&#39;| ent_type==&#39;PER&#39;)</code></pre>
+</div>
+<div id="preparar-dados" class="section level1">
+<h1>Preparar dados</h1>
+<p>Precisamos criar uma lista de arestas:</p>
+<pre class="r"><code>edges &lt;- 
+  filtered_entities %&gt;%
+  group_by(doc_id) %&gt;%
+  summarise(entities = paste(text, collapse = &quot;,&quot;)) %&gt;% 
+  pull(entities) %&gt;% 
+  str_split(&quot;,&quot;) %&gt;% 
+  map(~unique(unlist(.x))) %&gt;% 
+  .[map_dbl(., length) != 1]</code></pre>
+<p>Agora criaremos a matriz de adjacências, que envolvem todas as combinações 2 a 2 das entidades detectadas em cada notícia:</p>
+<pre class="r"><code>adjacent_matrix &lt;-
+  map_dfr(edges, ~ as.data.frame(get_adjacent_list(.x))) %&gt;% 
+  as_tibble() %&gt;% 
+  set_names(c(&#39;item1&#39;, &#39;item2&#39;))</code></pre>
+<p>Aplicaremos algum tratamento para padronizar as entidades, reter apenas combinações que aconteceram pelo menos 3 vezes e remover algum resíduo que veio no processo de NER:</p>
+<pre class="r"><code># Padronizar entidades
+adjacent_matrix &lt;- adjacent_matrix %&gt;% 
+  mutate_all(~.x %&gt;% 
+               str_replace_all(&quot;Fundação Getulio Vargas&quot;, &quot;FGV&quot;) %&gt;% 
+               str_replace_all(&quot;FMI&quot;, &quot;Fundo Monetário Internacional&quot;) %&gt;% 
+               str_replace_all(&quot;Paulo Guedes&quot;, &quot;Guedes&quot;) %&gt;% 
+               str_replace_all(&quot;Estados Unidos( da Am[ée]rica)?&quot;, &quot;EUA&quot;) %&gt;% 
+               str_replace_all(&quot;Donald Trump&quot;, &quot;Trump&quot;) %&gt;% 
+               str_replace_all(&quot;CEF&quot;, &quot;Caixa Econômica Federal&quot;) %&gt;% 
+               str_replace_all(&quot;CMN&quot;, &quot;Conselho Monetário Nacional&quot;) %&gt;% 
+               str_replace_all(&quot;Cl[áa]udio Considera&quot;, &quot;Cláudio&quot;) %&gt;% 
+               str_replace_all(&quot;OCDE&quot;, &quot;Organização para a Cooperação e
+                               Desenvolvimento Econômico&quot;) %&gt;% 
+               str_replace_all(&quot;(André )?Brandão&quot;, &quot;André Brandão&quot;) %&gt;% 
+               str_replace_all(&quot;(Maur[ií]cio )?Macri&quot;, &quot;Mauricio Macri&quot;) %&gt;% 
+               str_remove_all(&quot;^(?i)(no|de)\\s&quot;)
+             
+             )
+
+# remover residuos
+{
+  entities_to_drop &lt;- c(&quot;Assine&quot;, &quot;Google Podcasts&quot;, &quot;Spotify&quot;, &quot;Focus do&quot;,
+                        &quot;Focus&quot;, &quot;Segundo&quot;, &quot;Ninguém&quot;, &quot;Haverá&quot;, &quot;G1&quot;,
+                        &quot;Começa&quot;, &quot;LEIA&quot;, &quot;R$&quot;, &quot;Considera&quot;, &quot;Caixa Aqui&quot;)
+  
+  weighted_edgelist &lt;- adjacent_matrix %&gt;%
+    filter_at(1:2, ~ !.x %in% entities_to_drop) %&gt;% 
+    group_by(item1, item2) %&gt;%
+    summarise(n=n()) %&gt;% 
+    ungroup() %&gt;% 
+    filter(n&gt;3) 
+}</code></pre>
+<p>Definir alguns objetos para o grafo:</p>
+<pre class="r"><code># Instanciar objeto das setas
+a &lt;- grid::arrow(type = &quot;closed&quot;, length = unit(.15, &quot;inches&quot;))
+
+# Definir pesos conforme numero de ocorrencias
+subt &lt;- weighted_edgelist
+
+# Instanciar objeto dos vertices
+vert &lt;- subt %&gt;% 
+  tidyr::gather(item, word, item1, item2) %&gt;%
+  group_by(word) %&gt;% 
+  summarise(n = sum(n))
+
+# Obter componentes para colorir os clusters do grafo
+tidy_graph_components &lt;- 
+  subt  %&gt;%
+  select(item1, item2) %&gt;% 
+  as.matrix() %&gt;%
+  graph.edgelist(directed = FALSE)  %&gt;%
+  as_tbl_graph() %&gt;% 
+  activate(&quot;edges&quot;) %&gt;% 
+  # definir pesos como numero de ocorrencias
+  mutate(weight = subt$n) %&gt;% 
+  activate(&quot;nodes&quot;) %&gt;% 
+  # obter clusters:
+  mutate(component = as.factor(tidygraph::group_edge_betweenness()))
+  # outros tipos de agrupamentos:
+  # tidygraph.data-imaginist.com/reference/group_graph.html 
+  
+# Atualizar vertice para incluir grupos
+vert &lt;- vert %&gt;% 
+  left_join( as.data.frame(activate(tidy_graph_components, &quot;nodes&quot;)) %&gt;% 
+               rename(word = name))</code></pre>
+<p>Finalmente, vamos criar o grafo utilizando <code>ggplot2</code>:</p>
+<pre class="r"><code>set.seed(1)
+subt %&gt;%
+  graph_from_data_frame(vertices = vert) %&gt;%
+  # https://www.data-imaginist.com/2017/ggraph-introduction-layouts/ # layouts
+  ggraph(layout = &quot;fr&quot;) +
+  geom_edge_link(aes(edge_alpha = n, edge_width = n), show.legend = FALSE,
+                 arrow = a, end_cap = circle(.07, &#39;inches&#39;), color = &quot;#D9D9D9A0&quot;) +
+  geom_node_point() + 
+  geom_node_text(aes(label = name, size = n, alpha = n, color = component),# color = &quot;#EAFF00&quot;,
+                 repel = TRUE, point.padding = unit(0.2, &quot;lines&quot;),
+                 show.legend = F) +
+  scale_size(range = c(2,10)) +
+  scale_alpha(range = c(0.5,1))+ 
+  theme_dark() + 
+  theme(
+    panel.background = element_rect(fill = &quot;#2D2D2D&quot;),
+    legend.key = element_rect(fill = &quot;#2D2D2D&quot;)
+  ) +
+  theme_graph(background = &quot;black&quot;)</code></pre>
+<center>
+<img src="/post/2021-12-03-grafos-em-r/grafo.png" style="width:95.0%" />
+</center>
+<p>📌 Interpretação</p>
+<p>Este grafo resume algumas informações interessantes sobre como o cenário da economia no brasil estava no dia 30 de novembro de 2021. Vejamos alguns pontos relevantes que podem ser envontrados no cenário atual:</p>
+<div class="w3-panel w3-pale-green w3-border">
+<p>  ☞ Bolsa familia</p>
+<p>O Auxílio Brasil é referido como o “Novo Bolsa Família” pelos jornais e por isso deve ter sido criada tal relação no Grafo. Já a Caixa Econômica Federal é o agente que executa os pagamentos.</p>
+</div>
+<div class="w3-panel w3-pale-red w3-border">
+<p>  ☞ Guedes</p>
+<p>Paulo Guedes é nosso atual ministro da economia e envolta de seu nome aparecem diversos assuntos que estão em pauta atualmente como a PEC dos precatórios, (a privatização da) Petrobrás, Copom, IPCA, Auxílio Brasil dentre outros.</p>
+</div>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  ☞ Fundo Monetário Internacional</p>
+<p>O FMI <a href="https://pt.wikipedia.org/wiki/Fundo_Monet%C3%A1rio_Internacional">trabalha para melhorar as economias dos países</a> e além da Argentina estar endividada e em acordo com o FMI, é época de eleição, o que explica haver alguns personagens de sua política relacionados.</p>
+</div>
+<p>Salvar localmente em alta resolução:</p>
+<pre class="r"><code>ggsave(filename = &#39;grafo.png&#39;, width = 8, height = 6, device=&#39;png&#39;, dpi=700)</code></pre>
+<p>O legal de salvar em alta resolução é poder dar zoom e navegar pelo grafo!</p>
+</div>
+<div id="bônus" class="section level1">
+<h1>Bônus</h1>
+<p>Antes de criar este post trabalhei em um <a href="https://github.com/gomesfellipe/cpi_da_pandemia">outro grafo</a> com banco de dados de aproximadamente 27GB de tweets coletados e fornecidos gentilmente pelo <a href="https://twitter.com/trifenol">Janderson Toth</a> (Para quem não o conheçe, recomendo fortemente <a href="https://br.linkedin.com/in/trifenol">segui-lo no linkedin</a> pois ele tem compartilhado uma série de posts com insights obtidos destes dados!)</p>
+<center>
+<img src="/post/2021-12-03-grafos-em-r/grafo2.png" style="width:95.0%" />
+</center>
+<p>Para quem tiver interesse, o código está <a href="https://github.com/gomesfellipe/cpi_da_pandemia">disponível no github</a>!</p>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<p>Convenhamos que, de fato, criar um grafo no R não é uma tarefa super simples. No Gelphi é possível criar grafos até mais bonitos que este, porém, no longo prazo, ganhamos em produtividade e em escalabilidade pois poderíamos reaproveitar muito código e tranquilamente desenvolver uma rotina para criar novos grafos a partir de dados streaming, por exemplo, automatizando todo o processo!</p>
+</div>
+<div id="outras-bibliotecas-para-construção-de-grafos" class="section level1">
+<h1>Outras bibliotecas para construção de grafos</h1>
+<p>Depois de conversar com algumas pessoas que leram o post, achei que merecia um update com mais idéias de mais bibliotecas que poderiam ter sido utilizadas:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/cheddar/vignettes/PlotsAndStats.pdf">cheddar</a></li>
+<li><a href="https://cran.r-project.org/web/packages/bipartite/bipartite.pdf">bipartite</a></li>
+<li><a href="https://pedroj.github.io/bipartite_plots/">ggbipart</a></li>
+<li><a href="https://rich-iannone.github.io/DiagrammeR/">diagrameR</a></li>
+<li><a href="https://cran.r-project.org/web/packages/visNetwork/vignettes/Introduction-to-visNetwork.html">visNetwork</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">ggplot2</category>
+      <category domain="tag">grafo</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
+      <category domain="tag">strings</category>
+      <category domain="tag">text-mining</category>
+      <category domain="tag">tidyverse</category>
+      <category domain="tag">web-scrappnig</category>
+    </item>
     <item>
       <title>Tipos de relações entre variáveis</title>
       <link>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</link>
       <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</guid>
       <description>Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.
 Já sabemos que esses coeficientes variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.
 Porém o que fazer com tantas métricas? Qual o cálculo mais aconselhado para as relações dois a dois de cada tipo de variáveis (medidas, quantidades, nomes, classes com algum tipo de ordem ou hierarquia)?</description>
+      <content:encoded>&lt;![CDATA[
+        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="tipos-de-relações" class="section level1">
+<h1>Tipos de relações</h1>
+<p>Vimos no <a href="https://gomesfellipe.github.io/post/tipos-de-correlacoes/">último post</a> sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.</p>
+<p>Já sabemos que esses coeficientes variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.</p>
+<p>Porém o que fazer com tantas métricas? Qual o cálculo mais aconselhado para as relações dois a dois de cada tipo de variáveis (medidas, quantidades, nomes, classes com algum tipo de ordem ou hierarquia)?</p>
+<p>Não basta chegar no R e fazer um <code>pairs(dados)</code> junto com <code>cor(dados)</code> e olhar aquele monte de números sem saber se eles apresentam algum resultado realmente relevante embasado na teoria estatística.</p>
+<p>Vejamos então os tipos de relações possíveis e quais tipos de medidas podem ser utilizadas a seguir.</p>
+</div>
+<div id="numérica-x-numérica" class="section level1">
+<h1>Numérica x Numérica</h1>
+<p>Tipos de medidas que podem ser utilizadas:</p>
+<ul>
+<li>Pearson (Intensidade de relacionamento linear)</li>
+<li>Spearman (Relação monotônica entre dados emparelhados)</li>
+<li>Kendall (Correlação entre duas variáveis ordinais de amostras pequenas)</li>
+</ul>
+<div id="graficamente" class="section level2">
+<h2>Graficamente</h2>
+<p>Um jeito informal e intuitivo de avaliar a relação é verificar se existe relação linear entre as variáveis, além de identificar se esta relação é positiva, negativa ou inexistente.</p>
+<div id="duas-variaveis" class="section level3">
+<h3>Duas variaveis</h3>
+<p>Algumas opções de como avaliar graficamente duas variáveis:</p>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-1-1.png" width="672" /><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+</div>
+<div id="mais-de-duas-variáveis" class="section level3">
+<h3>Mais de duas variáveis</h3>
+<p>Quando existe a presença de mais de duas variáveis em estudo podemos utilizar outras características gráficas além do eixo x e y para identificar padrões, veja:</p>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-2-1.png" width="672" /><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-2-2.png" width="672" /><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
+</div>
+</div>
+<div id="normalidade" class="section level2">
+<h2>Normalidade</h2>
+<p>A suposição de normalidade é amplamente utilizada na estatística.</p>
+<div id="graficamente-1" class="section level3">
+<h3>Graficamente</h3>
+<p>Avaliando a normalidade de forma visual com alguns comandos do ggplot:</p>
+<pre class="r"><code>### Verificando a Normalidade Através do Histograma
+
+# Criando um painel com o espaço de 4 gráficos
+par(mfrow=c(2,2))
+
+#preenchendo os quatro espaços com 4 histogramas (um para cada variável)
+histogram=function(x){
+  hist(x,prob=T)
+  lines(density(x),col=&quot;red&quot;)
+  curve(dnorm(x,mean(x), sd(x)),add=T,col=&quot;blue&quot;)
+}
+histogram(dados$GASTEDU)
+histogram(dados$GASAUDE)
+histogram(dados$GASLAZER)
+histogram(dados$IDADE)</code></pre>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="qq-plot" class="section level3">
+<h3>QQ-plot</h3>
+<p>Compara os quantis dos dados com os quantis de uma normal padrão</p>
+<pre class="r"><code>par(mfrow=c(2,2))
+### Verificando a Normalidade Através do QQplot
+qq = function(x){
+  qqnorm(x,main = &quot;&quot;, xlab = &quot;Quantis teóricos N(0,1)&quot;, pch = 20)
+qqline(x, lty = 1, col = &quot;red&quot;)
+}
+
+qq(dados$IDADE)
+qq(dados$GASAUDE)
+qq(dados$GASLAZER)
+qq(dados$GASTEDU)</code></pre>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="qq-plot-com-envelope" class="section level3">
+<h3>QQ plot com envelope</h3>
+<p>Incluindo uma região de aceitação, para cada ponto constroi o intervalo de confiança</p>
+<pre class="r"><code>#Envelope
+envelope&lt;-function(x){
+  n &lt;- length(x)
+  nsim &lt;- 100 # Número de simulações
+  conf &lt;- 0.95 # Coef. de confiança
+  # Dados simulados ~ normal
+  dadossim &lt;- matrix(rnorm(n*nsim, mean = mean(x), sd = sd(x)), nrow = n)
+  dadossim &lt;- apply(dadossim,2,sort)
+  # Limites da banda e média
+  infsup&lt;-apply(dadossim,1,quantile, probs = c((1 - conf) / 2,(1 + conf) / 2))
+  xbsim &lt;- rowMeans(dadossim)
+  faixay &lt;- range(x, dadossim)
+  qq0 &lt;- qqnorm(x, main = &quot;&quot;, xlab = &quot;Quantis teóricos N(0,1)&quot;, pch = 20, ylim = faixay)
+  eixox &lt;- sort(qq0$x)
+  lines(eixox, xbsim)
+  lines(eixox, infsup[1,], col = &quot;red&quot;)
+  lines(eixox, infsup[2,], col = &quot;red&quot;)
+}
+
+par(mfrow=c(2,2))
+envelope(dados$GASTEDU)
+envelope(dados$GASAUDE)
+envelope(dados$GASLAZER)
+envelope(dados$IDADE)</code></pre>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="testes" class="section level3">
+<h3>Testes</h3>
+<p>A seguir, diversos testes de hipóteses para avaliar:</p>
+<p><span class="math display">\[
+H_0: \text{Dados Normais} \\
+H_1: \text{Dados Não Normais} 
+\]</span></p>
+<p>A seguir uma função que criei colocando logo uma variedade de testes para fornecer diferentes evidências para nossa hipótese:</p>
+<pre class="r"><code>normalidade&lt;-function(x){
+t1 &lt;- ks.test(x, &quot;pnorm&quot;,mean(x), sd(x)) # KS  
+t2 &lt;- lillie.test(x) # Lilliefors
+t3 &lt;- cvm.test(x) # Cramér-von Mises
+t4 &lt;- shapiro.test(x) # Shapiro-Wilk 
+t5 &lt;- sf.test(x) # Shapiro-Francia
+t6 &lt;- ad.test(x) # Anderson-Darling
+t7&lt;-pearson.test(x) # Pearson Test of Normality
+
+testes &lt;- c(t1$method, t2$method, t3$method, t4$method, t5$method,t6$method,t7$method)
+valorp &lt;- c(t1$p.value, t2$p.value, t3$p.value, t4$p.value, t5$p.value,t6$p.value,t7$p.value)
+
+resultados &lt;- cbind(valorp)
+rownames(resultados) &lt;- testes
+print(resultados, digits = 4)
+
+}
+
+normalidade(dados$GASAUDE)</code></pre>
+<pre><code>##                                                valorp
+## One-sample Kolmogorov-Smirnov test             0.9238
+## Lilliefors (Kolmogorov-Smirnov) normality test 0.6494
+## Cramer-von Mises normality test                0.6605
+## Shapiro-Wilk normality test                    0.6297
+## Shapiro-Francia normality test                 0.6286
+## Anderson-Darling normality test                0.6346
+## Pearson chi-square normality test              0.3249</code></pre>
+</div>
+</div>
+<div id="dados-normais-relação-linear" class="section level2">
+<h2>Dados normais + Relação linear</h2>
+<p>Quando os dados são normais e a relação entre variáveis é linear, podemos utilizar os mesmos testes já comentados:</p>
+<ul>
+<li>Pearson</li>
+<li>Spearman (amostras maiores)</li>
+<li>Kendall (amostras pequenas)</li>
+</ul>
+<div id="coeficiente-de-correlação-de-pearson-rho" class="section level3">
+<h3>Coeficiente de Correlação de Pearson <span class="math inline">\(\rho\)</span></h3>
+<p>No R:</p>
+<pre class="r"><code>#Matriz de correlações:
+cor(dados$GASTEDU,dados$GASAUDE)</code></pre>
+<pre><code>## [1] 0.77825</code></pre>
+<p>Como saber se a correlação é significativa?</p>
+<p><span class="math display">\[
+H_0: \text{Não existe correlação} \\
+H_1: \text{Existe correlação} 
+\]</span></p>
+<p>Aplicando o teste:</p>
+<pre class="r"><code>#Teste de correlação:
+cor.test(dados$GASTEDU,dados$GASAUDE,method = &quot;pearson&quot;)</code></pre>
+</div>
+</div>
+<div id="dados-não-normais-eou-sem-relação-linear" class="section level2">
+<h2>Dados não normais e/ou sem relação linear</h2>
+<p>Quando os dados não se apresentam conforme a distribuição normal ou não apresentam relação linear, temos disponíveis o cálculo das seguintes correlações:</p>
+<ul>
+<li>Spearman (amostras maiores)</li>
+<li>kendall (amostras pequenas)</li>
+</ul>
+<div id="coeficiente-de-correlação-de-spearman-rho" class="section level3">
+<h3>Coeficiente de Correlação de Spearman <span class="math inline">\(\rho\)</span></h3>
+<p>Ideal quando temos variáveis medidas apenas em uma escala ordinal.</p>
+<p>Executando no R:</p>
+<pre class="r"><code>#Teste de correlação:
+cor.test(dados$GASTEDU,dados$GASAUDE,method = &quot;spearman&quot;)</code></pre>
+</div>
+<div id="coeficiente-de-correlação-de-kendall-tau-de-kendall" class="section level3">
+<h3>Coeficiente de Correlação de Kendall (<span class="math inline">\(\tau\)</span> de kendall)</h3>
+<p>Coeficiente de Kendall é, muitas vezes, interpretado como uma medida de concordância entre dois conjuntos de classificações relativas a um conjunto de objetos de estudo.</p>
+<p>Vamos considerar apenas os 20 primeiros elementos da amostra:</p>
+<p>Aplicação no R:</p>
+<pre class="r"><code>#Teste de correlação:
+cor.test(dados2$IDADE,dados2$GASAUDE,method = &quot;kendall&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div id="ordinal-x-ordinal" class="section level1">
+<h1>Ordinal x Ordinal</h1>
+<p>Tipos de correlações possíveis para calcular:</p>
+<ul>
+<li>Spearman (amostras maiores)</li>
+<li>kendall (amostras pequenas)</li>
+</ul>
+<p>Exemplo de uso de Spearman no R:</p>
+<pre class="r"><code>cor(dados$ESCOLAR, dados$RENDA, method = &quot;spearman&quot;)
+cor.test(dados$ESCOLAR, dados$RENDA, method = &quot;spearman&quot;)</code></pre>
+<p>Exemplo de uso de Kendall com uma amostra menor:</p>
+<pre class="r"><code>cor(dados2$ESCOLAR, dados2$RENDA, method = &quot;kendall&quot;)
+cor.test(dados2$ESCOLAR, dados2$RENDA, method = &quot;kendall&quot;)</code></pre>
+</div>
+<div id="numérica-x-ordinal" class="section level1">
+<h1>Numérica x Ordinal</h1>
+<p>Independente de ser normal ou não</p>
+<ul>
+<li>Spearman (amostras maiores)</li>
+<li>Kendall (amostras pequenas)</li>
+<li>Comparações de grupos (Testes de Hipóteses)</li>
+</ul>
+<p>Exemplo de uso de Spearman no R:</p>
+<pre class="r"><code>cor(dados$IDADE, dados$RENDA, method = &quot;spearman&quot;)
+cor.test(dados$IDADE, dados$RENDA, method = &quot;spearman&quot;)</code></pre>
+<p>Exemplo de uso de Kendall com uma amostra menor:</p>
+<pre class="r"><code>cor(dados2$IDADE, dados2$RENDA, method = &quot;kendall&quot;)
+cor.test(dados2$IDADE, dados2$RENDA, method = &quot;kendall&quot;)</code></pre>
+</div>
+<div id="nominal-x-nominal" class="section level1">
+<h1>Nominal x Nominal</h1>
+<p>Os termos nível nominal de
+medida ou escala nominal são utilizadas para se referir
+a àqueles dados que só podem ser categorizados. No
+sentido estrito, não existe uma medida ou escala envolvida,
+o que existe é apenas uma contagem.</p>
+<p>Vamos avaliar a profissão e o estado civil primeiramente, precisamos da tabela de contingência.</p>
+<p>Tabelas de Contingência (ou tabelas de freqüência de dupla entrada) são tabelas em que as frequências correspondem a duas classificações, uma classificação está nas linhas da tabela e a outra está nas colunas. Veja:</p>
+<pre class="r"><code>tab=ftable(as.factor(dados$PROFI),
+      as.factor(dados$ESTCIVIL),
+      dnn=c(&quot;Profissão&quot;, &quot;EStado Civil&quot;))
+tab</code></pre>
+<pre><code>##           EStado Civil  1  2  3  4
+## Profissão                         
+## 1                      26 13 29  1
+## 2                      24  6 21  0</code></pre>
+<div id="qui-quadrado-de-independencia" class="section level2">
+<h2>Qui-quadrado de independencia</h2>
+<p><span class="math display">\[
+H_0: \text{São independentes (Não associadas)} \\
+H_1: \text{Não são independentes (São associadas) }
+\]</span></p>
+<p>Executando o teste:</p>
+<pre class="r"><code>chisq.test(dados$PROFI, dados$ESTCIVIL)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  dados$PROFI and dados$ESTCIVIL
+## X-squared = 2.2905, df = 3, p-value = 0.5143</code></pre>
+<p><strong>OBS</strong>: Correção de YAKES quando existe alguma frequência esperada menor do que 5, veja:</p>
+</div>
+<div id="teste-exato-de-fisher" class="section level2">
+<h2>Teste exato de fisher</h2>
+<p>O teste qui-quadrado quando aplicado a amostras pequenas, como por exemplo com tamanho inferior a 20, veja:</p>
+<pre class="r"><code>fisher.test(dados2$PROFI, dados2$ESTCIVIL)</code></pre>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  dados2$PROFI and dados2$ESTCIVIL
+## p-value = 0.5226
+## alternative hypothesis: two.sided</code></pre>
+</div>
+<div id="medidas-de-associação" class="section level2">
+<h2>Medidas de associação</h2>
+<p>os testes fornecem apenas a resposta se as variáveis estão ou não correlacionadas. Para saber a intensidade desta relação, utilizam-se medidas de associação.</p>
+<p>Considere as seguintes medidas:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{\phi}\)</span> <strong>(phi)</strong> (é o R de pearson quando aplicado a tabelas 2x2)</li>
+<li><strong>V de Crámer</strong></li>
+<li><strong>Coeficiente de contingência</strong></li>
+</ul>
+<p>Ambos variam de 0 (ausência de associação) a 1 (associação muito forte).</p>
+<pre class="r"><code>#Comando para tabela cruzada:
+tab &lt;- xtabs(~ PROFI + ESTCIVIL, data = dados)
+
+#Calcular as medidas de associação da tabela:
+summary(assocstats(tab))</code></pre>
+<pre><code>## 
+## Call: xtabs(formula = ~PROFI + ESTCIVIL, data = dados)
+## Number of cases in table: 120 
+## Number of factors: 2 
+## Test for independence of all factors:
+##  Chisq = 2.2905, df = 3, p-value = 0.5143
+##  Chi-squared approximation may be incorrect
+##                     X^2 df P(&gt; X^2)
+## Likelihood Ratio 2.6823  3  0.44324
+## Pearson          2.2905  3  0.51435
+## 
+## Phi-Coefficient   : NA 
+## Contingency Coeff.: 0.137 
+## Cramer&#39;s V        : 0.138</code></pre>
+<pre class="r"><code>#phi  (r aplicado na Tabela de 2x2 --&gt; Phi)
+cor(dados$PROFI,dados$ESTCIVIL)  </code></pre>
+<pre><code>## [1] -0.06972599</code></pre>
+</div>
+<div id="kappa" class="section level2">
+<h2>Kappa</h2>
+<p>É uma medida de concordância.</p>
+<p><strong>Obs</strong>: Também pode ser utilizado o coeficiente de Kappa ponderado (pesquisar)</p>
+<pre class="r"><code>#Kappa
+medico1&lt;-sample(0:1,10, replace=T)
+medico2&lt;-sample(0:1,10, replace=T)
+
+#Kappa.test(x, y=NULL, conf.level=0.95)
+
+fmsb::Kappa.test(medico1,medico2)</code></pre>
+<pre><code>## $Result
+## 
+##  Estimate Cohen&#39;s kappa statistics and test the null hypothesis that
+##  the extent of agreement is same as random (kappa=0)
+## 
+## data:  medico1 and medico2
+## Z = -1.2649, p-value = 0.897
+## 95 percent confidence interval:
+##  -0.9680515  0.1680515
+## sample estimates:
+## [1] -0.4
+## 
+## 
+## $Judgement
+## [1] &quot;No agreement&quot;</code></pre>
+</div>
+</div>
+<div id="nominal-x-ordinal" class="section level1">
+<h1>Nominal x Ordinal</h1>
+<p>Vamos avaliar a profissão e o estado civil primeiramente, precisamos da tabela de contingência:</p>
+<pre class="r"><code>tab=ftable(as.factor(dados$PROFI),
+      as.factor(dados$RENDA),
+      dnn=c(&quot;Profissão&quot;, &quot;Renda&quot;))
+tab</code></pre>
+<pre><code>##           Renda  1  2  3  4
+## Profissão                  
+## 1                4 52  9  4
+## 2                0 30 17  4</code></pre>
+<div id="qui-quadrado-de-independencia-1" class="section level2">
+<h2>Qui-quadrado de independencia</h2>
+<p><span class="math display">\[
+H_0: \text{São independentes (Não associadas)} \\
+H_1: \text{Não são independentes (São associadas) }
+\]</span></p>
+<p>Executando o teste:</p>
+<pre class="r"><code>chisq.test(dados$PROFI, dados$RENDA)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  dados$PROFI and dados$RENDA
+## X-squared = 9.8864, df = 3, p-value = 0.01956</code></pre>
+<p><strong>OBS</strong>: Correção de YAKES quando existe alguma frequência esperada menor do que 5, veja:</p>
+</div>
+<div id="teste-exato-de-fisher-1" class="section level2">
+<h2>Teste exato de fisher</h2>
+<p>O teste qui-quadrado quando aplicado a amostras pequenas, como por exemplo com tamanho inferior a 20, veja:</p>
+<pre class="r"><code>fisher.test(dados2$PROFI, dados2$RENDA)</code></pre>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  dados2$PROFI and dados2$RENDA
+## p-value = 1
+## alternative hypothesis: two.sided</code></pre>
+</div>
+<div id="medidas-de-associação-1" class="section level2">
+<h2>Medidas de associação</h2>
+<p>os testes fornecem apenas a resposta se as variáveis estão ou não correlacionadas. Para saber a intensidade desta relação, utilizam-se medidas de associação.</p>
+<p>Considere as seguintes medidas:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{\phi}\)</span> <strong>(phi) </strong> (é o R de pearson quando aplicado a tabelas 2x2)</li>
+<li><strong>V de Crámer</strong></li>
+<li><strong>Coeficiente de contingência</strong></li>
+</ul>
+<p>Ambos variam de 0 (ausência de associação) a 1 (associação muito forte).</p>
+<pre class="r"><code>#Comando para tabela cruzada:
+tab &lt;- xtabs(~ PROFI + RENDA, data = dados)
+
+#Calcular as medidas de associação da tabela:
+summary(assocstats(tab))</code></pre>
+<pre><code>## 
+## Call: xtabs(formula = ~PROFI + RENDA, data = dados)
+## Number of cases in table: 120 
+## Number of factors: 2 
+## Test for independence of all factors:
+##  Chisq = 9.886, df = 3, p-value = 0.01956
+##  Chi-squared approximation may be incorrect
+##                      X^2 df P(&gt; X^2)
+## Likelihood Ratio 11.3123  3 0.010152
+## Pearson           9.8864  3 0.019557
+## 
+## Phi-Coefficient   : NA 
+## Contingency Coeff.: 0.276 
+## Cramer&#39;s V        : 0.287</code></pre>
+<pre class="r"><code>#phi  (r aplicado na Tabela de 2x2 --&gt; Phi)
+cor(dados$PROFI,dados$RENDA)  </code></pre>
+<pre><code>## [1] 0.231198</code></pre>
+</div>
+<div id="kappa-1" class="section level2">
+<h2>Kappa</h2>
+<p>Testa a concordância entre duas pessoas (a hipótese nula é de que a concordância é zero)</p>
+<pre class="r"><code>#Kappa
+medico1&lt;-sample(0:1,10, replace=T)
+medico2&lt;-sample(0:1,10, replace=T)
+
+#Kappa.test(x, y=NULL, conf.level=0.95)
+
+fmsb::Kappa.test(medico1,medico2)</code></pre>
+<pre><code>## $Result
+## 
+##  Estimate Cohen&#39;s kappa statistics and test the null hypothesis that
+##  the extent of agreement is same as random (kappa=0)
+## 
+## data:  medico1 and medico2
+## Z = 0.2538, p-value = 0.3998
+## 95 percent confidence interval:
+##  -0.4998102  0.6479584
+## sample estimates:
+## [1] 0.07407407
+## 
+## 
+## $Judgement
+## [1] &quot;Slight agreement&quot;</code></pre>
+</div>
+</div>
+<div id="dicotônica-x-ordinal" class="section level1">
+<h1>Dicotônica x Ordinal</h1>
+<p>Uma variável dicotômica é uma variável qualitativa que só possui duas categorias.</p>
+<p>Portanto a mesma abordagem utilizada em:</p>
+<p>Dicotômica x Ordinal = Nominal x Ordinal = Nominal x Nominal</p>
+</div>
+<div id="nominal-x-numérca" class="section level1">
+<h1>Nominal x Numérca</h1>
+<div id="r2-do-ajuste-de-modelos-lineares" class="section level2">
+<h2><span class="math inline">\(R^2\)</span> do ajuste de modelos lineares</h2>
+<p>Pode-se ajustar um modelo de regressão linear simples e avaliar seu coeficiente de determinação, veja:</p>
+<pre class="r"><code>#R2:
+summary(lm(dados$GASAUDE~dados$ESTCIVIL))$r.squared</code></pre>
+<pre><code>## [1] 0.0001015817</code></pre>
+</div>
+<div id="bisserial-pearson" class="section level2">
+<h2>Bisserial = Pearson</h2>
+<p>O pearson aplicada em uma relação de variável dicotômica com uma variável ordinal</p>
+</div>
+<div id="comparações-de-grupos" class="section level2">
+<h2>Comparações de Grupos</h2>
+<p>Quando por exemplo, trabalha-se com “renda por grupo”, existem muitas abordagens como o teste t ou anova como opções de testes paramétricos e muito mais</p>
+</div>
+</div>
+<div id="correlação-parcial" class="section level1">
+<h1>Correlação parcial</h1>
+<div id="controlando-variável-numérica" class="section level2">
+<h2>Controlando variável numérica</h2>
+<p>Pode ser que queremos estudar a correlação entre x e y, porém existem uma variável z que também está correlacionada com alguma das duas variáveis, veja:</p>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<pre><code>## [1] 0.7821115</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
+<pre><code>## [1] 0.7476177</code></pre>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-27-3.png" width="672" /></p>
+<pre><code>## [1] 0.7821115</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-27-4.png" width="672" /></p>
+<pre><code>## [1] 0.77825</code></pre>
+<p>Isto implica que a variável educação é uma variável de confusão, veja as correlações:</p>
+<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
+##   method from   
+##   +.gg   ggplot2</code></pre>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>O que acontece com a associação entre lazer e saúde quando controlamos a variável de confusão educação?</p>
+<pre class="r"><code># correlação LAZER vc SAÚDE controlando o EDUCAÇÃO (correlação parcial de primeira ordem = um variável para controlar)
+rp&lt;-ggm::pcor(c(&quot;GASLAZER&quot;, &quot;GASAUDE&quot;, &quot;GASTEDU&quot;),var(dados))  #controlando A EDUCAÇÃO
+
+#Significância da Correlação Parcial
+
+#Coeficiente de Determinação com base no Coef. de Pearson
+r&lt;-cor(dados$GASLAZER,dados$GASAUDE) #sem controlar o lazer
+
+#Coeficiente de Determinação com base na correlação parcial
+pcor.test(rp,1,length(dados$GASAUDE))  #&quot;1&quot; porque só usamos uma variável de controle</code></pre>
+<pre><code>## $tval
+## [1] 5.922106
+## 
+## $df
+## [1] 117
+## 
+## $pvalue
+## [1] 3.259388e-08</code></pre>
+<pre class="r"><code>data.frame(&quot;Sem correção&quot;=r^2, &quot;Com correção&quot;=rp^2)</code></pre>
+<pre><code>##   Sem.correção Com.correção
+## 1    0.6116985    0.2306242</code></pre>
+</div>
+<div id="controlando-variável-qualitativa" class="section level2">
+<h2>Controlando variável Qualitativa</h2>
+<p>A variável de controle (ou qualquer uma delas) pode ser dicotômica (categórica)</p>
+<pre class="r"><code>#Visualmente:
+ggplot(data = dados, aes(x = GASLAZER, y = GASAUDE,colour = as.factor(PROFI))) + geom_point()</code></pre>
+<p><img src="/post/2017-12-02-tipos-de-relacoes-entre-variaveis_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<pre class="r"><code>#Sem controlar:
+r=cor(dados$GASLAZER, dados$GASAUDE)
+rp&lt;-pcor(c(&quot;GASLAZER&quot;, &quot;GASAUDE&quot;, &quot;PROFI&quot;),var(dados))
+data.frame(&quot;Sem correção&quot;=r^2, &quot;Com correção&quot;=rp^2)</code></pre>
+<pre><code>##   Sem.correção Com.correção
+## 1    0.6116985    0.6162497</code></pre>
+</div>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<p><a href="https://www.amazon.com.br/Practical-Nonparametric-Statistics-W-Conover/dp/0471160687">CONOVER, W. J. Pratical Nonparametric Statistics</a></p>
+<p><a href="https://www.amazon.com.br/Estat%C3%ADstica-n%C3%A3o-Param%C3%A9trica-Para-Ci%C3%AAncias-Comportamento-ebook/dp/B06Y2F9NQY/ref=sr_1_2?s=books&amp;ie=UTF8&amp;qid=1515522153&amp;sr=1-2">SIEGEL, S. Estatística Não Paramétrica para as Ciências do Comportamento</a></p>
+<p><a href="https://www.amazon.com.br/Estat%C3%ADstica-B%C3%A1sica-Pedro-Morettin/dp/8502207997">BUSSAB, W. de O.;MORETTIN, P. A. Estatística básica. 5 ed.</a></p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Estatistica</category>
+      <category>R</category>
+      <category>Teoria</category>
+      <category domain="tag">correlacoes</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">ggplot2</category>
+      <category domain="tag">r</category>
+      <category domain="tag">gomesfellipe</category>
     </item>
-    
   </channel>
 </rss>

@@ -3,46 +3,52 @@ title: Solução Final - ML Olympiad [2º lugar]
 author: Fellipe Gomes
 date: '2022-04-19'
 slug: []
-categories: 
-  - R
-  - Python
-  - Prática
-  - Regressão
-  - modelo baseado em arvores
-  - Machine Learning
-  - kaggle
-  - catboost
-  - Ciencia de dados
-  - Aprendizado Supervisionado
-  - Analise Exploratória
+categories:
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - regression
-  - R
-  - Prática
-  - modelagem
-  - machine learning
-  - kaggle
-  - gomesfellipe
-  - Data Mining
-  - ciencia de dados
-  - catboost
-description: 'Confira a estratégia aplicada para esta competição'
-featured: 'img1.png'
-featuredalt: 'Pic 29'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
+- catboost
+- data-mining
+- data-science
+- kaggle
+- machine-learning
+- modelagem
+- pratica
+- r
+- regressao
+description: Confira a estratégia aplicada para esta competição
+featured: img.png
+featuredalt: Ilustração sobre solução final  ml olympiad 2º lugar
+featuredpath: date
+type: post
 output:
   blogdown::html_page:
     toc: true
     toc_depth: 2
-image_preview: 'img1.png'
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Advanced
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2022/04/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2022/04/img.png
+keywords: catboost, data-mining, data-science, kaggle, machine-learning, modelagem,
+  pratica, r, regressao, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = F, warning = F, error = F, message = F)
+knitr::opts_chunk$set(python.reticulate = FALSE, echo = TRUE, eval = F, warning = F, error = F, message = F)
 ```
-
 
 # Introdução   
 

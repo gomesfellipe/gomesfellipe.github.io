@@ -1,30 +1,289 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>shiny on Fellipe Gomes</title>
+    <title>shiny on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/shiny/</link>
-    <description>Recent content in shiny on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/shiny/" rel="self" type="application/rss+xml" />
     <item>
       <title>Um ano de blog!</title>
       <link>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/</link>
       <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/</guid>
-      <description>Até que um dia.. Agora em dezembro encerro um desafio pessoal de fazer pelo menos um post por mês durante o ano de 2018 e estou muito animado com o término deste ciclo! Espero ter contribuído um pouquinho com a comunidade de Estatística e Ciência de Dados que está maior a cada dia e cada vez mais importante.
-A ideia de fazer um blog começou quando me deparei que tinha muitos scripts e rotinas guardados de alguns estudos sobre programação e estatística tanto sobre os assuntos da faculdade quanto sobre estudos avulsos de programação em R.</description>
+      <description>Este post traz uma retrospectiva do que aconteceu por aqui em 1 ano de blog, foi muito empolgante o término do desafio que fiz a mim mesmo e a animação para novos desafios continua!</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<style type="text/css">
+.column-left{
+  float: left;
+  width: 33%;
+  text-align: center;
+}
+.column-center{
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+}
+.column-right{
+  float: right;
+  width: 33%;
+  text-align: center;
+}
+
+# left {
+#   left:-8.33%;
+#   text-align: left;
+#   float: left;
+#   width:50%;
+#   z-index:-10;
+# }
+# 
+# right {
+#   left:31.25%;
+#   top: 75px;
+#   float: right;
+#   text-align: right;
+#   z-index:-10;
+#   width:50%;
+# }
+
+</style>
+<div id="até-que-um-dia.." class="section level2">
+<h2>Até que um dia..</h2>
+<p>Agora em dezembro encerro um desafio pessoal de fazer pelo menos um post por mês durante o ano de 2018 e estou muito animado com o término deste ciclo! Espero ter contribuído um pouquinho com a comunidade de Estatística e Ciência de Dados que está maior a cada dia e cada vez mais importante.</p>
+<p>A ideia de fazer um blog <strong>começou</strong> quando me deparei que tinha muitos scripts e rotinas guardados de alguns estudos sobre programação e estatística tanto sobre os assuntos da faculdade quanto sobre estudos avulsos de programação em R. Guardar os scripts de maneira organizada para relembrar e tentar fixar melhor alguns conceitos já vistos pode ser uma boa idéia acelerando o processo de busca por soluções para problemas computacionais do dia a dia.</p>
+<p>Desde o início da graduação tomei o hábito de guardar todos meus arquivos no Dropbox (que é excelente ferramenta, inclusive porque é possível <a href="https://gomesfellipe.github.io/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/">integrar com o R/Shiny</a>). <strong>Até que um dia</strong> me dei conta de que estava acumulando cada vez mais scripts e relatórios em meu dropbox e além de não ser muito prático o acesso aos scripts, acaba não sendo muito dinâmico no compartilhamento com os membros da equipe, então passei a utilizar o <a href="https://github.com/gomesfellipe">Github</a> para hospedar meus códigos, projetos, funções e estudos que poderiam tornar-se públicos e assim facilitar na hora de compartilhar algum código ou receber algum feedback.</p>
+<p>Além do <a href="https://github.com/gomesfellipe">Github</a>, o <a href="%5BGithub%5D(https://github.com/gomesfellipe)">RPubs</a> também foi útil para publicação de alguns trabalhos/projetos durante a graduação e alguns <a href="https://www.kaggle.com/gomes555">testes e contribuições nas competições e conjuntos de dados do Kaggle</a> (além de bisbilhotar as resoluções dos top players) para aprender de uma maneira diferente um pouquinho mais a cada dia. Já no caso de trabalhos privados (solo ou em equipe), o <a href="https://bitbucket.org/">Bitbucket</a> também tem se mostrado uma ótima ferramenta.</p>
+<p>Passei a receber feedback sobre meus códigos, sugestões de melhorias e isso me motivou a <strong>continuar</strong> e <strong>persistir</strong> nos posts independente de monografia, estágio, trabalho, ou qualquer outro compromisso super importante. Firmei esse desafio pessoal e abaixo será possível conferir um pouco de como foi minha evolução, algumas técnicas e curiosidades que aprendi e achei que valia a pena compartilhar com a comunidade.</p>
+<p><br></p>
+<hr />
+<div id="análise-de-sobrevivência-com-dados-do-jogo-pubg-disponíveis-no-kaggle" class="section level4 column-left">
+<h4>Análise de sobrevivência com dados do jogo pubg disponíveis no kaggle</h4>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/nov.png" title="Análise de sobrevivência com dados do jogo pubg disponíveis no kaggle" style="width:80.0%" alt="nov" /></a></p>
+<p>Calcular a probabilidade de um indivíduo sobreviver e também encontrar fatores de risco de morte em um intervalo de tempo. Foram realizadas estatísticas descritivas e o ajuste de modelos de sobrevivência como o de Kaplan-Meier e o Modelo de regressão de riscos proporcionais de Cox.</p>
+</div>
+<div id="seu-app-rstudio-e-shiny-server-na-nuvem-do-google" class="section level4 column-center">
+<h4>Seu app, RStudio e Shiny Server na nuvem do Google</h4>
+<p><a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/out.png" title="Seu app, RStudio e Shiny Server na nuvem do Google" style="width:80.0%" alt="out" /></a></p>
+<p><br></p>
+<p>Aprendemos como dar início à uma máquina virtual rodando Linux Ubuntu 16.04 no servidor do Google Cloud. Com nossa máquina virtual na configuração desejada somos capazes de dar início ao nosso próprio RStudio Server e também nosso Shiny Server para facilitar a entrega de nossas aplicações, como a que foi criada de exemplo no post para acompanhar as cotações e algumas ações de bolsas de valores americanas.</p>
+</div>
+<div id="com-que-frequência-ocorrem-acidentes-na-ponte-rio-niteroi" class="section level4 column-right">
+<h4>Com que frequência ocorrem acidentes na ponte rio-niteroi?</h4>
+<p><a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi.md/freq-acidente-ponte-rio-niteroi/"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/set.jpg" title="Com que frequência ocorrem acidentes na ponte rio-niteroi?" style="width:80.0%" alt="set" /></a></p>
+<p><br></p>
+<p>Neste post utilizamos os dados públicos fornecidos pela polícia rodoviária federal para responder algumas perguntas relacionadas à ocorrência de acidentes. Será que o número de acidentes vem diminuindo? Será que a instalação de câmeras de segurança reduziu o número de acidentes? Uma breve análise de caráter descritivo irá ajudar a entender o comportamento dos dados e permitir novas reflexões.</p>
+</div>
+<p><br></p>
+<hr />
+<div id="um-estudo-sobre-modelos-de-aprendizagem-baseados-em-árvores-com-desafio-do-kaggle" class="section level3 column-left">
+<h3>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do kaggle</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/img/2018/08/img1.png"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/jul.png" title="Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do kaggle" style="width:80.0%" /></a></p>
+<p>Utilizamos a base de dados da competição do Kaggle <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/">House Prices: Advanced Regression Techniques</a> para colocar em prática alguns dos conhecimentos adquiridos estudando sobre algoritmos como árvore de decisão, random forest, gradient boost machine e por fim uma regressão linear para comparar os resultados obtidos</p>
+</div>
+<div id="ajustando-um-modelo-de-regressão-linear-bayesiano-do-zero" class="section level3 column-center">
+<h3>Ajustando um modelo de regressão linear bayesiano do zero</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/img/2018/07/img1.png"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/jun.png" title="Ajustando um modelo de regressão linear bayesiano do zero" style="width:80.0%" /></a></p>
+<p>Neste post são realizados os cálculos das distribuições condicionais completas a posteriori (DCCP) para cada parâmetro do ajuste de um modelo de regressão linear bayesiano para poder implementar o algoritmo do amostrador de Gibbs em dados simulados (para conferir a qualidade do ajuste do modelo) e em dados reais. Este post é o resumo de uma das aplicações que fiz em um projeto de iniciação à pesquisa que deixei disponível no Github</p>
+</div>
+<div id="brasil-x-argentina-tidytext-e-machine-learning" class="section level3 column-right">
+<h3>Brasil x Argentina, tidytext e machine learning</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/img/2018/06/img.jpg"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/mai.jpg" title="Brasil x Argentina, tidytext e machine learning" style="width:80.0%" /></a></p>
+<p>Nesta época eu estava estudando o livro da Julia Silge depois de uma palestra que assisti no SER 2018 e aproveitando o embalo da copa do mundo resolvi conferir os dados do twitter disponibilizados através da API do Twitter naquela época para uma aplicação de análise de sentimentos utilizando a abordagem <code>tidytext</code>. Além disso foram utilizados os modelos knn, random forest, naive bayes e um modelo de regressão logístico para um estudo sobre classificação em análises de texto com o pacote caret</p>
+</div>
+<p><br></p>
+<hr />
+<div id="aed-de-forma-rápida-e-um-pouco-de-machine-learning" class="section level3 column-left">
+<h3>AED de forma rápida e um pouco de machine learning</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/img/2018/05/img1.png"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/abr.png" title="AED de forma rápida e um pouco de machine learning" style="width:80.0%" /></a></p>
+<p>Este post veio para lembrar como a análise exploratória em R não precisa sempre ser uma tarefa longa e trabalhosa. Com o pacote SmartEAD é possível gerar muitos gráficos com poucas linhas de código. Ao longo do post algumas tarefas de machine learning são executadas, como k-means (tarefa não-supervisionada de agrupamento), um modelo de regressão linear com stepwise (tarefa supervisionado de regressão) e um modelo random forest (tarefa supervisionada de classificação)</p>
+</div>
+<div id="séries-temporais-com-google-trends-e-r" class="section level3 column-center">
+<h3>Séries temporais com google trends e R</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/img/2018/04/img1.png"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/abr2.png" title="Séries temporais com google trends e R" style="width:80.0%" /></a></p>
+<p><br></p>
+<p>Como é fácil obter dados do Google Trends para analisá-los no RStudio. Obtivemos algumas séries e duas delas chamaram mais a atenção: a popularidade do termo <code>Big Data</code> (que está aumentando) e a popularidade do termo <code>Estatística</code> que estava diminuindo. Realizamos a decomposição da série, realizamos alguns testes estatísticos para detectar significância dos componentes das séries e foram ajustados modelos de Holt Winters para tentar prever o comportamento destas séries no próximo ano.</p>
+<p><br>
+<br>
+<br>
+<br></p>
+</div>
+<div id="produzindo-e-formatando-um-documento-word-direto-em-r" class="section level3 column-right">
+<h3>Produzindo e formatando um documento word direto em R</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/img/2018/03/Word-R.png"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/mar.png" title="Produzindo e formatando um documento word direto em R" style="width:80.0%" /></a></p>
+<p><br></p>
+<p>O bom de programar em R é que não precisamos nos limitar apenas à ferramenta, podemos importar e exportar arquivos em diferentes formatos e entregas nossos resultados de muitas maneiras. Neste post é mostrado como exportar seus relatórios em Word utilizando um template.</p>
+<p><br>
+<br>
+<br>
+<br>
+<br></p>
+</div>
+<p><br></p>
+<hr />
+<div id="o-que-são-cheatsheets-gamificação-e-por-que-aprender-r-é-tão-divertido" class="section level3 column-left">
+<h3>O que são cheatsheets, gamificação e por que aprender R é tão divertido?</h3>
+<p><a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/fev.png" title="O que são cheatsheets, gamificação e por que aprender R é tão divertido?" style="width:80.0%" /></a></p>
+<p>A aprendizagem é um processo que nunca acaba e neste post mostro algumas maneiras de estudar R e estatística se divertindo! Falamos o que são as <a href="https://www.rstudio.com/resources/cheatsheets/">CheatSheets</a>, cursos da <a href="https://www.datacamp.com">DataCamp</a>, onde é possível ter cursos altamente práticos com os desenvolvedores dos principais pacotes utilizando em Ciência de Dados e falamos sobre a plataforma <a href="https://www.kaggle.com">Kaggle</a>, um verdadeiro playgroud para Cientistas de dados que podem disputar por posições em um rank mundial e compartilhar códigos e análises para ter o feedback de outros cientistas de dados ao redor do mundo</p>
+</div>
+<div id="carnaval-e-mapas-interativos-com-r" class="section level3 column-center">
+<h3>Carnaval e mapas interativos com R</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/img/2018/02/carnaval2.png"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/fev2.png" title="Carnaval e mapas interativos com R" style="width:80.0%" /></a></p>
+<p><br></p>
+<p>Era fevereiro, véspera de carnaval e grande parte das pessoas no Rio de Janeiro gostariam de responder a seguinte pergunta: “Onde estão os blocos?”. Neste post construímos mapas interativos com o uso do pacote leaflet e em poucas linhas de código foi possível mapear os blocos ao redor do Rio de Janeiro facilitando assim a vida do folião carioca</p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+</div>
+<div id="o-paradoxo-dos-aniversários-com-simulação-e-probabilidade" class="section level3 column-right">
+<h3>O paradoxo dos aniversários com simulação e probabilidade</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/jan1.png" title="O paradoxo dos aniversários com simulação e probabilidade" style="width:80.0%" /></a></p>
+<p><br></p>
+<p>A probabilidade é contra intuitiva. Existem diversos exemplos clássicos de probabilidade que nos mostram como pode ser enganosa nossa intuição ao tratar com a incerteza. Neste post utilizamos de simulação e de teoria das probabilidades para mostra como a probabilidade de duas pessoas fazerem aniversário no mesmo dia em uma sala de aula aumenta muito rápido conforme aumentamos o número de alunos nessa sala.</p>
+<p><br></p>
+</div>
+<p><br></p>
+<hr />
+<div id="tabelas-incriveis-com-r" class="section level3 column-left">
+<h3>Tabelas incriveis com R</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/jan2.jpg" title="Tabelas incriveis com R" style="width:80.0%" /></a></p>
+<p><br></p>
+<p>As saídas do console do R podem não ser a melhor forma de entregas suas valiosas análises. Quando estamos numa situação de negócios ou consultoria a apresentação dos dados também é muito importante e o R não fica para trás nisso! Neste post vimos alguns pacotes como o DT, knitr, kableExtra, formattable, sparkline e rhandsontable podem tornar a apresentação de nossas tabelas muito mais elegantes</p>
+<p><br></p>
+</div>
+<div id="análise-multivariada-com-r" class="section level3 column-center">
+<h3>Análise multivariada com R</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/post/2018-01-01-analise-multivariada-em-r/an%C3%A1lise-multivariada-em-r/"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/jan3.png" title="Análise multivariada com R" style="width:80.0%" /></a></p>
+<p><br></p>
+<p>Em tempos de Big Data esse campo da estatística torna-se cada vez mais importante. Saber lidar com grandes volumes e variedades de dados pode ser muito importante e neste post vimos um pouco sobre técnicas de estatística multivariada como PCA, Análise Fatorial, Clusterização com agrupamento hierárquico e com k-means</p>
+<p><br></p>
+</div>
+<div id="pacotes-do-r-para-avaliar-o-ajuste-de-modelos" class="section level3 column-right">
+<h3>Pacotes do R para avaliar o ajuste de modelos</h3>
+<p><br></p>
+<p><a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/"><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/dez.jpg" title="Pacotes do R para avaliar o ajuste de modelos" style="width:80.0%" /></a></p>
+<p><br></p>
+<p>O Modelo de regressão linear é uma ótima ferramenta para qualquer estatístico, ele é altamente interpretável e seu a avaliação de seu desempenho pode ser feita de forma meticulosa. Neste post utilizamos os pacotes GGally e o ggfortify para fazer diagnósticos bem elaborados sobre as premissas que sustentam o uso de tais modelos</p>
+<p><br></p>
+</div>
+<p><br></p>
+<hr />
+</div>
+<div id="além-disso" class="section level2">
+<h2>Além disso…</h2>
+<p>Além dos posts acima, também já passou por aqui:</p>
+<div id="posts-mais-antigos" class="section level3">
+<h3>Posts mais antigos <i class='fa fa-coffee'></i></h3>
+<p>Além dos posts acima que ficaram em destaque, por aqui também foram postados:</p>
+<ul>
+<li><a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">AJUSTANDO MODELOS BAYESIANOS COM JAGS</a></li>
+<li><a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/">MANIPULAÇÃO DE STRINGS E TEXT MINING</a></li>
+<li><a href="https://gomesfellipe.github.io/post/2017-12-14-criando-relat%C3%B3rios-com-template-tufle/criando-relat%C3%B3rios-com-template-tufle/">CRIANDO RELATÓRIOS COM TEMPLATE TUFLE</a></li>
+<li><a href="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">MANIPULANDO DADOS COM DPLYR</a></li>
+<li><a href="https://gomesfellipe.github.io/post/analisando-o-mercado-de-cryptomoedas-com-r/">ANALISANDO O MERCADO DE CRYPTOMOEDAS COM R</a></li>
+<li><a href="https://gomesfellipe.github.io/post/gerenciando-arquivos-do-dropbox-com-r/gerenciando-arquivos-do-dropbox-com-r/">GERENCIANDO ARQUIVOS DO DROPBOX COM R</a></li>
+<li><a href="https://gomesfellipe.github.io/post/tipos-de-relacoes-entre-variaveis/">TIPOS DE RELAÇÕES ENTRE VARIÁVEIS</a></li>
+<li><a href="https://gomesfellipe.github.io/post/tipos-de-correlacoes/">TIPOS DE CORRELACOES</a></li>
+</ul>
+</div>
+<div id="aplicativos-shiny" class="section level3">
+<h3>Aplicativos Shiny</h3>
+<p>Esses são os aplicativos para uso público que desenvolvi (alguns ainda em faze de aprendizagem) que contam com os códigos hospedados no Github, além deles desenvolvi uma porção de aplicações que estão hospedadas no Bitbucket porém como são privados não poderei compartilha-las aqui:</p>
+<ul>
+<li><a href="https://github.com/gomesfellipe/dashboard-text-mining-1">Dashboard com textmining de mídias sociais</a></li>
+<li><a href="https://github.com/gomesfellipe/appwordcloud">App para criação de núvens de palavras cusmomizadas</a></li>
+<li><a href="https://github.com/gomesfellipe/app_acoes">App para acompanhar cotações de ações da bolsa de valores americana (e algumas ações BR)</a></li>
+<li><a href="https://github.com/gomesfellipe/appPCAkmeans">App para rápica aplicação de componentes principais e do algoritmo de machine learning k-means</a></li>
+</ul>
+</div>
+<div id="iniciação-à-pesquisa" class="section level3">
+<h3>Iniciação à Pesquisa:</h3>
+<p>Este foi um estudo sobre modelagem hierárquica sob a ótica da escola bayesiana para me preparar para escrever minha monografia, que contou com uma aplicação deste modelo na vida real:</p>
+<ul>
+<li><a href="https://github.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos">Projeto de Iniciação à Pesquisa: Modelos Hierárquicos Bayesianos</a></li>
+</ul>
+</div>
+<div id="writer-da-ensina.ai" class="section level3">
+<h3>Writer da ENSINA.AI</h3>
+<p>Esse ano também recebi um convite inesperado de participar como escritor contribuidor da página <a href="https://medium.com/ensina-ai">ENSINA.AI</a> no medium, que tem como compromisso trazer ao público: Tudo sobre Inteligência Artificial em Português. Fiquei muito feliz com o convite pois já acompanhava a página e os posts sempre são muito bons! Os posts que contribui foram:</p>
+<ul>
+<li><a href="https://medium.com/ensina-ai/com-que-frequ%C3%AAncia-ocorrem-acidentes-na-ponte-rio-niter%C3%B3i-58d7f779c6d0">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a></li>
+<li><a href="https://medium.com/ensina-ai/seu-app-rstudio-e-shiny-na-nuvem-do-google-31753d71619">Seu app, RStudio e Shiny na nuvem do Google</a></li>
+<li><a href="https://medium.com/ensina-ai/um-estudo-sobre-modelos-de-aprendizagem-baseados-em-%C3%A1rvores-com-desafio-do-kaggle-a73c32abc9f1">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></li>
+<li><a href="https://medium.com/ensina-ai/ajustando-um-modelo-de-regress%C3%A3o-linear-bayesiano-do-zero-c2a8c2351202">Ajustando um modelo de regressão linear bayesiano do zero</a></li>
+</ul>
+</div>
+<div id="extras" class="section level3">
+<h3>Extras <i class='fa fa puzzle-piece'></i> :</h3>
+<ul>
+<li><a href="https://gomesfellipe.github.io/itemized/item2/">BANCOS DE DADOS PÚBLICOS - Apresentando alguns sites que disponibilizam dados públicos</a></li>
+<li><a href="https://gomesfellipe.github.io/itemized/item1/">SOBRE OMBROS DE GIGANTES - Algumas frases de pensadores que me inspiram</a></li>
+</ul>
+<p><br></p>
+<hr />
+<p><br></p>
+</div>
+</div>
+<div id="boas-festas" class="section level1">
+<h1>Boas festas!</h1>
+<p>Agora o ano está se encerrando e assim se encerra mais um ciclo, estou muito satisfeito pois aprendi muita coisa nova, interagi com muita gente inteligente e me diverti demais na produção deste blog.</p>
+<p>Foram diversos desafios pois no começo foi bem complicado entender como manipular <code>html</code>, <code>css</code> e controlar as versões dos códigos no <code>git</code> pois era tudo muito novo mas o desafio valeu a pena, hoje aprendi um pouquinho sobre essas e outras ferramentas que um estatístico não vê na graduação e foi bem proveitoso em meus trabalhos. Se consegui ajudar pelo menos uma pessoa já atingi minha meta, se ajudei duas pessoas então consegui dobrar essa meta!</p>
+<div class="row">
+<div class="col-sm-6">
+<p><img vspace="20"></p>
+<blockquote>
+<p>Se souber exatamente o que fazer, qual a vantagem de fazê-lo? - <em>Pablo Picasso</em></p>
+</blockquote>
+</div>
+<!-- <div class="column-center"> -->
+<!-- <img vspace="100"> -->
+<!-- </div> -->
+<div class="col-sm-6">
+<p><img src="/post/2018-12-26-retrospectiva/retrospectiva_files/picasso-victorian-house.jpg" style="width:60.0%" /></p>
+</div>
+</div>
+<hr />
+<p>Agora no ano de 2019 “fazer pelo menos um post por mês” não estará em meus planos, mas já tenho diversas ideias de posts e continuarei escrevendo em um ritmo um pouco mais calmo pois os estudos estão cada vez mais difíceis!</p>
+<p>Espero que tenham gostado do conteúdo e obrigado por toda ajuda direta ou indiretamente de cada membro da comunidade que fez valer a pena cada minuto de esforço!</p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/retrospectiva/">Um ano de blog!</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">machine-learning</category>
+      <category domain="tag">retrospectiva</category>
+      <category domain="tag">rmarkdown</category>
+      <category domain="tag">rstudio</category>
+      <category domain="tag">shiny</category>
     </item>
-    
-    <item>
-      <title>Seu app, RStudio e Shiny Server na nuvem do Google</title>
-      <link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</guid>
-      <description>Objetivo do post Uma das várias maneiras de se implementar o RStudio Server e o Shiny Server é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.</description>
-    </item>
-    
   </channel>
 </rss>

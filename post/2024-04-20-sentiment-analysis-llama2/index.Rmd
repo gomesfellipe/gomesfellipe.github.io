@@ -1,47 +1,52 @@
 ---
-title: 'Análise de Sentimentos com um "ChatGPT" de Código Aberto'
+title: Análise de Sentimentos com um "ChatGPT" de Código Aberto
 author: Fellipe Gomes
 date: '2024-04-20'
 slug: []
 categories:
-  - Análise de Sentimentos
-  - Analise Exploratória
-  - Aprendizado Supervisionado
-  - Ciencia de dados
-  - IA
-  - Machine Learning
-  - neural networks
-  - Python
-  - ChatGPT
-  - GAM
-  - LLM
-  - Llama2
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
+- Texto e NLP
 tags:
-  - AI
-  - analise de sentimentos
-  - ciencia de dados
-  - gomesfellipe
-  - IA
-  - neural networks
-  - Python
-  - ChatGPT
-  - LLM
-  - GAM
-  - Llama2
-  
-description: 'Como executar localmente o LLM pré-treinado de código aberto Llama2 para realizar uma análise de sentimentos em Python'
-featured: 'img1.png'
-featuredalt: 'Pic 37'
-featuredpath: 'date'
-linktitle: ''
-type: "post" 
-output: 
+- chatgpt
+- data-science
+- gam
+- inteligencia-artificial
+- llama2
+- llm
+- python
+- redes-neurais
+- sentiment-analysis
+description: Como executar localmente o LLM pré-treinado de código aberto Llama2 para
+  realizar uma análise de sentimentos em Python
+featured: img.png
+featuredalt: Ilustração sobre análise de sentimentos com um chatgpt de código aberto
+featuredpath: date
+type: post
+output:
   blogdown::html_page:
     toc: true
-    toc_depth: 2 
-image_preview: 'img1.png' 
+    toc_depth: 2
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2024/04/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2024/04/img.png
+keywords: chatgpt, data-science, gam, inteligencia-artificial, llama2, llm, python,
+  redes-neurais, sentiment-analysis, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
- 
 <style>
 .column4 {
   float: left;
@@ -67,6 +72,10 @@ image_preview: 'img1.png'
   clear: both;
 }
 </style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(python.reticulate = FALSE, eval = FALSE)
+```
 
 ## Por que Análise de Sentimentos?
 

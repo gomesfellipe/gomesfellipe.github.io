@@ -1,20 +1,321 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Gemma on Fellipe Gomes</title>
+    <title>gemma on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/gemma/</link>
-    <description>Recent content in Gemma on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 26 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/gemma/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Sun, 26 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/gemma/" rel="self" type="application/rss+xml" />
     <item>
       <title>Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</title>
       <link>https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/</link>
       <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/</guid>
-      <description>Caso de Uso de IA Generativa: Detecção de Linguagem Tóxica em Mídias Sociais Setup Carregar dados Carregar Modelo Prompt Engineering Conclusão Referencias Caso de Uso de IA Generativa: Detecção de Linguagem Tóxica em Mídias Sociais Neste post, realizaremos a tarefa de detecção de linguagem tóxica em mídias sociais usando o modelo Gemma de IA generativa do Google com o framework LangChain. Vamos explorar como o texto de entrada afeta a saída do modelo e faremos alguma engenharia de prompts para direcioná-lo à tarefa necessária.</description>
+      <description>Neste post utilizaremos o modelo Gemma de IA generativa do Google com framework LangChain auxiliando na tarefa de prompt engineering</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<div id="caso-de-uso-de-ia-generativa-detecção-de-linguagem-tóxica-em-mídias-sociais" class="section level1">
+<h1>Caso de Uso de IA Generativa: Detecção de Linguagem Tóxica em Mídias Sociais</h1>
+<hr />
+<p>Neste post, realizaremos a tarefa de detecção de linguagem tóxica em mídias sociais usando o modelo <a href="https://ai.google.dev/gemma?hl=pt-br">Gemma</a> de IA generativa do Google com o framework <a href="https://www.langchain.com/">LangChain</a>. Vamos explorar como o texto de entrada afeta a saída do modelo e faremos alguma engenharia de prompts para direcioná-lo à tarefa necessária.</p>
+</div>
+<div id="setup" class="section level1">
+<h1>Setup</h1>
+<p>Utilizaremos o ambiente do Kaggle para desenvolvimento deste notebook, que disponibiliza a utilização de GPUs. Através do <em>Hardware Accelerator</em> utilizaremos a <a href="https://www.kaggle.com/docs/efficient-gpu-usage">NVIDIA TESLA P100 GPU</a>.</p>
+<div id="instalar-e-carregar-dependencias" class="section level2">
+<h2>Instalar e carregar dependencias</h2>
+<p>Vamos instalar as bibliotecas <code>accelerate</code> e <code>bitsandbytes</code> que possibilitam a quantização de LLMs e algumas bibliotecas do framework LangChain</p>
+<pre class="python"><code>!pip install accelerate
+!pip install -i https://pypi.org/simple/ bitsandbytes
+!pip install langchain langchain_huggingface langchain_community langchain_chroma</code></pre>
+</div>
+<div id="carregar-bibliotecas" class="section level2">
+<h2>Carregar bibliotecas</h2>
+<pre class="python"><code>import pandas as pd
+import torch 
+import re
+
+from sklearn.metrics import accuracy_score, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, pipeline
+from langchain_huggingface import HuggingFacePipeline
+from langchain_core.prompts.few_shot import PromptTemplate, FewShotPromptTemplate
+from langchain_core.example_selectors import SemanticSimilarityExampleSelector
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_chroma import Chroma</code></pre>
+</div>
+<div id="carregar-funções-auxiliares" class="section level2">
+<h2>Carregar funções auxiliares</h2>
+<p>Carregar uma função para limpeza simples dos tweets.</p>
+<details>
+<summary>
+<em>Clique aqui para ver os códigos</em>
+</summary>
+<pre class="python"><code>def clean_tweet(text):
+    &quot;&quot;&quot;
+    src: https://github.com/lrdsouza/told-br-classifier
+    &quot;&quot;&quot;
+    text = text.replace(&#39;rt @user&#39;, &#39;&#39;)
+    text = text.replace(&#39;@user&#39;, &#39;&#39;)
+    pattern = re.compile(&#39;[^a-zA-Z0-9\sáéíóúàèìòùâêîôûãõçÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÃÕÇ]&#39;)
+    text = re.sub(r&#39;http\S+&#39;, &#39;&#39;, text)
+    text = pattern.sub(r&#39; &#39;, text)
+    text = text.replace(&#39;\n&#39;, &#39; &#39;)
+    text = &#39; &#39;.join(text.split())
+    return text</code></pre>
+</details>
+<p> </p>
+</div>
+</div>
+<div id="carregar-dados" class="section level1">
+<h1>Carregar dados</h1>
+<hr />
+<p>Vamos utilizar o conjunto de dados <a href="https://github.com/JAugusto97/ToLD-Br">TolD-br</a>, um recurso interessante para o estudo da toxicidade em conteúdos online em português brasileiro. Este dataset foi utilizado na competição <a href="https://www.kaggle.com/competitions/ml-olympiad-toxic-language-ptbr-detection">ML Olympiad - Toxic Language (PTBR) Detection</a>, organizada pelo <a href="https://www.youtube.com/@tensorflowugsp">TensorFlow UGSP</a> no Kaggle este ano. A competição convidou entusiastas de dados, cientistas e pesquisadores a desenvolverem modelos de machine learning capazes de classificar tweets em português brasileiro como tóxicos ou não tóxicos.</p>
+<pre class="python"><code>train = pd.read_csv(&quot;/kaggle/input/ml-olympiad-toxic-language-ptbr-detection/train (2).csv&quot;)
+test = pd.read_csv(&quot;/kaggle/input/ml-olympiad-toxic-language-ptbr-detection/test (4).csv&quot;)
+sub = pd.read_csv(&quot;/kaggle/input/ml-olympiad-toxic-language-ptbr-detection/sample_submission.csv&quot;)</code></pre>
+<p>Selecionar uma amostra para auxiliar no desenvolvimento do prompt para utilização em novos dados:</p>
+<pre class="python"><code>valid = train.sample(n=100, random_state=123)</code></pre>
+<div id="preparar-dados" class="section level2">
+<h2>Preparar dados</h2>
+<p>Aplicar limpeza básica para preparar os tweets.</p>
+<details>
+<summary>
+<em>Clique aqui para ver os códigos</em>
+</summary>
+<pre class="python"><code>train[&#39;text&#39;] = train.text.apply(lambda x: clean_tweet(x))
+valid[&#39;text&#39;] = valid.text.apply(lambda x: clean_tweet(x))
+test[&#39;text&#39;] = test.text.apply(lambda x: clean_tweet(x))</code></pre>
+</details>
+<p> </p>
+</div>
+</div>
+<div id="carregar-modelo" class="section level1">
+<h1>Carregar Modelo</h1>
+<hr />
+<p>Neste notebook, faremos uso de um modelo da família <a href="https://ai.google.dev/gemma?hl=pt-br">Gemma</a>, desenvolvida pelo Google, que consiste em modelos leves e de código aberto construídos com base em pesquisas e tecnologias empregadas no desenvolvimento dos modelos <a href="https://gemini.google.com/">Gemini</a></p>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  <strong>📌 Nota:</strong> Para utilizar o modelo é necessário consentir com a <a href="https://www.kaggle.com/models/google/gemma/license/consent?returnUrl=%2Fmodels%2Fgoogle%2Fgemma%2Ftransformers">licença do Gemma</a> com o preenchimento de um formulário disponível na <a href="https://www.kaggle.com/models/google/gemma">página do modelo</a>.</p>
+</div>
+<p>Utilizaremos a implementação do <a href="https://huggingface.co/google/gemma-7b-it">Gemma-7b-instruct</a>, que é uma variante ajustada por instrução (IT) que pode ser usada para bate-papo e/ou seguir instruções.</p>
+<pre class="python"><code># Caminho para o modelo disponível pelo ambiente do Kaggle
+model_path = &quot;/kaggle/input/gemma/transformers/1.1-7b-it/1/&quot;
+
+# Definir configuracoes de quantizacao para reduzir 
+# o tamanho do modelo perdendo pouca performance
+quantization_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_use_double_quant=True,
+    bnb_4bit_quant_type=&quot;nf4&quot;,
+    bnb_4bit_compute_dtype=torch.bfloat16
+)
+
+# Instanciar o tokenizador do LLM
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+
+# Instanciar o LLM
+model = AutoModelForCausalLM.from_pretrained(
+    model_path,
+    quantization_config=quantization_config,
+    low_cpu_mem_usage=True, 
+    device_map=&quot;auto&quot;
+)</code></pre>
+<p>Vamos carregar também um modelo de embedding que utilizaremos para auxiliar na construção do nosso prompt:</p>
+<pre class="python"><code>embeddings = HuggingFaceEmbeddings(model_name=&quot;all-MiniLM-L6-v2&quot;)</code></pre>
+<div id="preparar-modelo" class="section level2">
+<h2>Preparar modelo</h2>
+<p>Os modelos da Hugging Face podem ser facilmente executados localmente utilizando a classe <code>HuggingFacePipeline</code>. O <a href="https://huggingface.co/models">Hugging Face Model Hub</a> é um repositório que abriga mais de 120 mil modelos, 20 mil conjuntos de dados e 50 mil aplicativos de demonstração (Spaces), todos de código aberto e disponíveis publicamente. Esta plataforma online permite que as pessoas colaborem facilmente e construam modelos de machine learning juntas.</p>
+<pre class="python"><code># Instanciar um pipeline transformers
+pipe = pipeline(
+    model=model,
+    tokenizer=tokenizer,
+    task=&quot;text-generation&quot;,
+    max_new_tokens=1,
+)
+
+# Passar o pipeline para a classe do LangChain
+llm = HuggingFacePipeline(pipeline=pipe)</code></pre>
+</div>
+</div>
+<div id="prompt-engineering" class="section level1">
+<h1>Prompt Engineering</h1>
+<hr />
+<p>Para resolver este problema, criaremos um template de prompt que utiliza a estratégia few-shot, que pode ser construído a partir de um conjunto de exemplos. O conjunto de exemplos será dinâmico, sendo construído com base em tweets que possuem a maior similaridade semantica com o tweet de entrada.</p>
+<div id="preparar-exemplos" class="section level2">
+<h2>Preparar exemplos</h2>
+<p>Selecionaremos os exemplos candidatos do conjunto de dados de treino que não estejam no dataset de validação. Cada exemplo de entrada deve ser um dicionário onde:</p>
+<ul>
+<li><code>key</code>: o nome das variáveis de inputs do prompt;</li>
+<li><code>values</code>: os valores dos inputs.</li>
+</ul>
+<pre class="python"><code># indices de instancias que nao estao no dataset de validacao (evitar leak)
+idx_train_examples = train.loc[~train.index.isin(valid.index)].index
+
+# organizar a lista com os exemplos candidatos
+examples = [{&#39;tweet&#39;: train.text[i], 
+             &#39;label&#39;: str(train.label[i])} for i in idx_train_examples]</code></pre>
+</div>
+<div id="criar-template-para-os-exemplos-com-prompttemplate" class="section level2">
+<h2>Criar template para os exemplos com <code>PromptTemplate</code></h2>
+<p>Agora precisamos instanciar um <code>PromptTemplate</code> para nosso prompt, que recebe um template das instruções que desejamos passar para o LLM e os inputs que alimentam este template:</p>
+<pre class="python"><code>example_template = &quot;&quot;&quot;
+Tweet: {tweet}
+Label: {label}
+&quot;&quot;&quot;
+
+# Instanciar o exemplo de prompt 
+example_prompt = PromptTemplate(
+    input_variables=[&quot;tweet&quot;, &quot;label&quot;], 
+    template=example_template
+)</code></pre>
+</div>
+<div id="inserir-exemplos-com-exampleselector" class="section level2">
+<h2>Inserir exemplos com <code>ExampleSelector</code></h2>
+<p>Agora vamos instanciar <code>SemanticSimilarityExampleSelector</code> para selecionar exemplos com base em sua semelhança com a entrada. Ele usa um modelo de embedding para calcular a similaridade entre a entrada e os exemplos de few-shot, bem como um armazenamento de vetores <a href="https://www.trychroma.com/">Chroma</a> para realizar a pesquisa do vizinho mais próximo de maneira eficiente.</p>
+<pre class="python"><code>example_selector = SemanticSimilarityExampleSelector.from_examples(
+    examples = examples,
+    embeddings = embeddings,
+    vectorstore_cls = Chroma,
+    k=3,
+)</code></pre>
+<p>Aumentar o número de vizinhos mais próximos não garantirá necessariamente resultados melhores. Normalmente k=6 no máximo já é suficiente. Se não conseguir bons resultados assim, já seria mais indicado realizar um ajuste fino mesmo.</p>
+</div>
+<div id="preparar-o-fewshotprompttemplate" class="section level2">
+<h2>Preparar o <code>FewShotPromptTemplate</code></h2>
+<p>Finalmente, vamos definir a formatação para a apresentação dos exemplos e, em seguida, usar <code>FewShotPromptTemplate</code> para para gerar o template final que será utilizado como prompt com base nos valores de entrada.</p>
+<pre class="python"><code>prefix = &quot;&quot;&quot;The following tweets are written in Brazilian Portuguese. \n\
+You are a tweet classifier that identifies \
+toxic language as 1 and non-toxic language as 0. \n\
+Here are some examples:&quot;&quot;&quot;
+
+suffix = &quot;&quot;&quot;
+Tweet: {tweet} 
+Label: &quot;&quot;&quot;
+
+prompt = FewShotPromptTemplate(
+    example_selector=example_selector,
+    example_prompt=example_prompt,
+    prefix=prefix,
+    suffix=suffix,
+    example_separator=&#39;\n&#39;,
+    input_variables=[&quot;tweet&quot;],
+)</code></pre>
+<p>Vejamos como será a formatação do prompt para a classificação de cada tweet:</p>
+<pre class="python"><code>print(prompt.format(tweet=valid.head(1).text.values[0]))</code></pre>
+<pre><code>## The following tweets are written in Brazilian Portuguese. 
+## You are a tweet classifier that identifies toxic language as 1 and non-toxic language as 0. 
+## Here are some examples:
+## 
+## Tweet: caralho eu tenho q fazer alguma coisa mt importante mas eu esqueci o que é então n deve ser importante
+## Label: 1
+## 
+## Tweet: caralho as pessoas fazem me sentir a pessoa mais bosta e odiada possível eu tô bem
+## Label: 0
+## 
+## Tweet: tenho quase certeza que isso e um homem escroto fingindo ser mulher kkkkkkkkk por um momento eu tbm pensei nisso
+## Label: 0
+## 
+## Tweet: vei se um filho faz isso cmg eu pego o sanduíche e enfio no cu dele
+## Label: </code></pre>
+</div>
+<div id="definir-custom-output-parsers" class="section level2">
+<h2>Definir <code>Custom Output Parsers</code></h2>
+<p>Para concluir a cadeia, vamos definir uma função que funcione como um <a href="https://python.langchain.com/v0.1/docs/modules/model_io/output_parsers/custom/">Custom Output Parser</a>, que será responsável por pegar a saída do LLM e transformá-la no formato mais adequado para nosso caso. Precisamos apenas do último caractere que será retornado pelo LLM.</p>
+<pre class="python"><code>def parse(response):
+    &quot;&quot;&quot;Retorna apenas o ultimo caracter da saída do LLM&quot;&quot;&quot;
+    return int(response[-1:])</code></pre>
+</div>
+<div id="definir-cadeira-langchain" class="section level2">
+<h2>Definir Cadeira LangChain</h2>
+<p><a href="https://python.langchain.com/v0.1/docs/modules/chains/">Chains</a> referem-se à sequências de chamadas - seja para um LLM, uma etapa de pré-processamento de dados, <a href="https://python.langchain.com/v0.1/docs/modules/tools/">tools</a>, ou ainda etapas de pós-processamento do output gerado pelo modelo. As cadeias construídas desta forma são boas porque oferecem suporte nativo a streaming, assíncrono e inferência em batchs para uso.</p>
+<pre class="python"><code>chain = prompt | llm | parse</code></pre>
+<p>Vamos testar o comportamento da nossa cadeia em 1 tweet:</p>
+<pre class="python"><code>print(f&quot;&quot;&quot;Tweet: {valid.head(1).text.values[0]}
+Label: {valid.head(1).label.values[0]}
+Predict: {chain.invoke({&#39;tweet&#39;:  valid.head(1).text.values[0]})}&quot;&quot;&quot;)</code></pre>
+<pre><code>## Tweet: vei se um filho faz isso cmg eu pego o sanduíche e enfio no cu dele
+## Label: 1
+## Predict: 1</code></pre>
+<p>Claramente um conteúdo tóxico e que foi classificado corretamente. Mas como queremos realizar a chamada da nossa cadeia para diversos tweets do dataset de test, utilizaremos o método <code>.batch()</code> que executa a cadeia para uma lista de entradas:</p>
+<pre class="python"><code>%%time
+valid[&#39;predict&#39;] = chain.batch([{&#39;tweet&#39;: x} for x in valid.text])</code></pre>
+<pre><code>## CPU times: user 1min 26s, sys: 24.8 s, total: 1min 51s
+## Wall time: 1min 50s</code></pre>
+</div>
+<div id="avaliar-resultados" class="section level2">
+<h2>Avaliar resultados</h2>
+<p>Como a métrica de avaliação da competição era a acurácia, vamos dar uma olhada em como ficou a matriz de confusão:</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Calcular métricas
+cm = confusion_matrix(valid.label, valid.predict)
+acc=accuracy_score(valid.label, valid.predict)
+
+# Configurações de estilo do seaborn
+sns.set(font_scale=1.2)
+plt.figure(figsize=(5, 3))
+
+# Plotar Matriz de Confusão para o método Vader em inglês
+sns.heatmap(cm, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False,vmin=0, vmax=50,
+            xticklabels=[&#39;Não Tóxico&#39;, &#39;Tóxico&#39;], yticklabels=[&#39;Não Tóxico&#39;, &#39;Tóxico&#39;])
+plt.title(f&#39;Matriz de Confusão\nAcurácia: {acc:.0%}&#39;, fontsize=22)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+plt.show()</code></pre>
+</details>
+<p> </p>
+<center>
+<img src="/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/cm.png" />
+</center>
+</div>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<hr />
+<p>Embora nosso objetivo não fosse alcançar a perfeição em termos de acurácia, até que o resultado foi satisfatório, dado o potencial dessa ferramenta para resolver uma ampla gama de problemas com poucas modificações nos códigos. Existem muitos outros caminhos a serem explorados (inclusive recomendo assistir à <a href="https://www.youtube.com/watch?v=bzU_STGxj7o&amp;t=6s">live no YouTube</a> em que os vencedores apresentaram soluções muito mais eficientes), nosso foco aqui foi praticar, aplicar e documentar alguns conceitos interessantes e úteis sobre LLMs e LangChain.</p>
+</div>
+<div id="referencias" class="section level1">
+<h1>Referencias</h1>
+<hr />
+<ul>
+<li><a href="https://www.kaggle.com/competitions/ml-olympiad-toxic-language-ptbr-detection" class="uri">https://www.kaggle.com/competitions/ml-olympiad-toxic-language-ptbr-detection</a></li>
+<li><a href="https://www.kaggle.com/models/google/gemma/transformers" class="uri">https://www.kaggle.com/models/google/gemma/transformers</a></li>
+<li><a href="https://huggingface.co/google/gemma-1.1-7b-it" class="uri">https://huggingface.co/google/gemma-1.1-7b-it</a></li>
+<li><a href="https://python.langchain.com/v0.1/docs/modules/model_io/prompts/few_shot_examples/" class="uri">https://python.langchain.com/v0.1/docs/modules/model_io/prompts/few_shot_examples/</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">chatgpt</category>
+      <category domain="tag">classification</category>
+      <category domain="tag">data-science</category>
+      <category domain="tag">gemma</category>
+      <category domain="tag">google</category>
+      <category domain="tag">inteligencia-artificial</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">llm</category>
+      <category domain="tag">machine-learning</category>
+      <category domain="tag">prophet</category>
     </item>
-    
   </channel>
 </rss>

@@ -1,45 +1,51 @@
 ---
-title: "Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos"
+title: Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone
+  para ajudar nos investimentos
 author: Fellipe Gomes
 date: '2020-03-25'
 slug: []
 categories:
-  - Analise Exploratória
-  - Automação
-  - Bitcoin
-  - Cloud
-  - Estatistica
-  - Machine Learning
-  - Prática
-  - R
-  - Reports
-  - RMarkdown
-  - Séries Temporais
-  - Shiny
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - bitcoin
-  - Correlacoes
-  - Dplyr
-  - Estatistica
-  - gomesfellipe
-  - machine learning
-  - modelagem
-  - R
-  - reports
-  - Séries Temporais
-  - RStudio
-  - Tabelas
-  - bolsa de valores
-  - prophet
-description: 'Entenda a lógica de como montar uma carteira, coletar dados de finança em tempo real, treinar um modelo de Machine Learning com Prophet (Facebook Open Source) e receber análises automatizadas no Smartphone'
-featured: 'img1.png'
-featuredalt: 'Pic 24'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
+- bitcoin
+- bolsa-de-valores
+- correlacao
+- dplyr
+- estatistica
+- machine-learning
+- modelagem
+- prophet
+- r
+- reports
+description: Entenda a lógica de como montar uma carteira, coletar dados de finança
+  em tempo real, treinar um modelo de Machine Learning com Prophet (Facebook Open
+  Source) e receber análises automatizadas no Smartphone
+featured: img.png
+featuredalt: Ilustração sobre desenvolva um bot e receba resultados de machine learning
+  no seu smartphone para ajudar nos investimentos
+featuredpath: date
+type: post
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Advanced
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2020/03/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2020/03/img.png
+keywords: bitcoin, bolsa-de-valores, correlacao, dplyr, estatistica, machine-learning,
+  modelagem, prophet, r, reports, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 <style>
 .column {
   float: left;
@@ -61,15 +67,17 @@ type: "post"
 
 .row:after {
   content: "";
-  display: table;
+  display: table; 
   clear: both;
 }
 </style>
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, fig.align = "center", fig.width = 10)
+knitr::opts_chunk$set(eval=F, echo = TRUE, message = F, warning = F, fig.align = "center", fig.width = 10)
+```
 
+```{r eval=F, echo=F}
 # Carregar pacotes:
 library(dplyr)         # manipulacao de dados
 library(purrr)         # programacao funcional
@@ -100,7 +108,7 @@ Como esta sua situação financeira? Caso tenha alguma reserva pode ser interess
 
 Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.
 
-<center>![](/post/2020-03-25-investment-alert/investment-alert_files/noticia_poupanca.png){width=50%} <br><small>Fonte: <https://noticias.r7.com/economia/economize/poupanca-em-baixa-exige-busca-por-novos-investimentos-em-2020-25122019></small></center></br>
+<center>![](/post/2020-03-25-investment-alert/noticia_poupanca.png){width=50%} <br><small>Fonte: <https://noticias.r7.com/economia/economize/poupanca-em-baixa-exige-busca-por-novos-investimentos-em-2020-25122019></small></center></br>
 
 Com a finalidade de fomentar um pouco a discussão sobre investimentos, trouxe nesse post algumas sugestões e idéias de como elaborar uma carteira e otimizar as escolhas para equilibrar risco em novos investimentos combinando elementos de estatística, machine learning e programação em R.
 
@@ -110,10 +118,10 @@ Ao final do post criaremos um [robô no telegram](https://core.telegram.org/bots
 
 <div class="row">
 <div class="column4">
-<center>![](/post/2020-03-25-investment-alert/investment-alert_files/watch.png)</center> 
+<center>![](/post/2020-03-25-investment-alert/watch.png)</center> 
 </div> 
 <div class="column8"> 
-![](/post/2020-03-25-investment-alert/investment-alert_files/report_stocks.gif){width=90%}
+![](/post/2020-03-25-investment-alert/report_stocks.gif){width=90%}
 </div> 
 </div>
 
@@ -151,7 +159,7 @@ Existem diversos motivos para se diversificar a carteira mas acho que essa metá
 
 </div> 
 <div class="column4">
-![](/post/2020-03-25-investment-alert/investment-alert_files/ovos_mesm_cesta.png){width=90%}
+![](/post/2020-03-25-investment-alert/ovos_mesm_cesta.png){width=90%}
 </div> 
 </div>
 
@@ -179,23 +187,37 @@ devtools::source_gist("a74710a63b3c8637166b538ad2f460f5", quiet = T)
 ```{r}
 montagem80(entrada = 20000, idade = 26)
 ```
+```
+## • Entrada: R$R$20.000,00
+##   └─ Renda fixa:     R$9.200,00
+##   └─ Renda variavel: R$10.800,00
+##        (Acao + Cryptomoeda): 
+##        R$9.720,00 + R$1.080,00
+```
 </div>
 <div class="column">
 2. R$ 5.000,00 em acoes 
 ```{r}
 montagem80(variavel = 10800, idade = 53)
 ```
+```
+## • Entrada: R$R$40.000,00
+##   └─ Renda fixa:     R$29.200,00
+##   └─ Renda variavel: R$10.800,00
+##        (Acao + Cryptomoeda): 
+##        R$9.720,00 + R$1.080,00
+```
 </div>
 </div>
 
 Utilizaremos a primeira (1.) configuração que esta assinalada em vermelho como exemplo, onde:
 
-* Entrada: `r moeda_real(montagem80(entrada = 20000, idade = 26, return = T)[1])`
-* Renda fixa: `r moeda_real(montagem80(entrada = 20000, idade = 26, return = T)[2])`
-* Renda Variável (Acoes): `r moeda_real(montagem80(entrada = 20000, idade = 26, return = T)[3]*.9)`
-* Renda Variável (Crypt): `r moeda_real(montagem80(entrada = 20000, idade = 26, return = T)[3]*.1)` 
+* Entrada: R$20.000,00
+* Renda fixa: R$9.200,00
+* Renda Variável (Acoes): R$9.720,00
+* Renda Variável (Crypt): R$1.080,00
 
-Note que a entrada deve ser o dobro na segunda (2.) configuração caso deseje investir `r moeda_real(10800)` (que é o valor sugerido aos 26 anos para uma entrada de `r moeda_real(20000)`) 
+Note que a entrada deve ser o dobro na segunda (2.) configuração caso deseje investir R\$10.800,00 (que é o valor sugerido aos 26 anos para uma entrada de R\$20.000,00) 
 
 Após definir a quantidade a ser investida é hora de planejar a próxima etapa: a diversificação.
 
@@ -223,7 +245,7 @@ Mas lembre-se, não existe uma receita mais eficiente!
 Normalmente, também diversificamos nossa renda fixa porém como gostaria de focar nas análises de renda variável utilizaremos o simulador disponível no site <https://verios.com.br/> neste [link](https://simulador-tesouro-direto.verios.com.br/) para selecionar apenas um título:
 
 <center>
-![](/post/2020-03-25-investment-alert/investment-alert_files/tesouro_direto.png){width=80%}
+![](/post/2020-03-25-investment-alert/tesouro_direto.png){width=80%}
 <small></br>Fonte: <https://simulador-tesouro-direto.verios.com.br/></small>
 </center>
 </br>
@@ -257,18 +279,18 @@ portifolio = c("TUPY3.SA","ELET3.SA", "BTC-USD")
 <div class="w3-panel w3-pale-red w3-border">
 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **AVISO**: Volto a frisar que as escolhas das ações foram feitas de forma arbitrária. Estamos em tempos de incerteza atualmente por conta do corona vírus (espero que todos fiquem bem) o que leva algumas escolhas à serem ainda mais complexas e imprevisíveis. 
 </div>
-
+ 
 #### Obter dados
 
 A aquisição das série históricas das cotações destes ativos desde 01/01/2016 foram obtidas utilizando o pacote [`tidyquant`](https://github.com/business-science/tidyquant) que nos retorna os dados das cotações das ações informadas em formato "arrumado" (ou seja, familiar com funções do [tidyverse](https://www.tidyverse.org/)), veja:
 
-```{r, eval = T}
+```{r, eval = F}
 library(tidyquant) # aquisicao de dados financeiros
 stocks <-map_df(portifolio, ~tq_get(.x, get = "stock.prices", from = " 2016-01-01"))
 saveRDS(stocks, "stocks.rds")
 ```
 
-```{r, echo = F, eval = T}
+```{r, echo = F, eval = F}
 stocks <- readRDS("stocks.rds")
 ```
 
@@ -277,6 +299,10 @@ Veja as linhas iniciais do dataset obtido:
 ```{r}
 stocks %>% head() %>% kable2()
 ```
+
+<center>
+![](/post/2020-03-25-investment-alert/img1.png){width=80%}
+</center>
 
 Existem uma série de vantagens de se trabalhar com os dados neste formato em R, veremos o porque nas próximas seções.
 
@@ -289,7 +315,7 @@ Diversos outros pacotes podem ser combinados utilizando os dados no formato do p
 Veja como é o fluxo ao trabalhar com objetos do tipo `tsibble`
 
 <center>
-![](/post/2020-03-25-investment-alert/investment-alert_files/ds-pipeline.png){width=60%}
+![](/post/2020-03-25-investment-alert/ds-pipeline.png){width=60%}
 </br>
 <small>Fonte: <https://blog.earo.me/2018/12/20/reintro-tsibble/></small>
 </center>
@@ -337,6 +363,10 @@ autoplot(tbl_stocks)+
        caption = "gomesfellipe.github.io")
 ```
 
+<center>
+![](/post/2020-03-25-investment-alert/unnamed-chunk-10-1.png){width=80%}
+</center>
+
 Note que a série do Bitcoin é a mais imprevisível, houve um pico em 2018 mas após isso não houve nenhum grande pico como aquele. Em breve ocorrerá o [Halving](https://www.infomoney.com.br/onde-investir/halving-conheca-o-processo-que-pode-levar-o-bitcoin-a-uma-nova-explosao-de-preco/) (a contagem regressiva pode acompanhada [neste link](https://www.bitcoinblockhalf.com/)) que é um processo de choque de oferta e ocorre aproximadamente a cada 4 anos e pode ser uma boa oportunidade de retorno.
 
 As duas séries da bolsa de valores não parecem ter uma correlação muito forte, os picos ocorrem de forma alternada e isto pode ser uma característica boa para a carteira pois caso uma delas entre em crise a outra poderá estar em uma fase boa.
@@ -365,6 +395,10 @@ tbl_stocks %>%
                   lower = list(continuous =  points_loess))
 ```
 
+<center>
+![](/post/2020-03-25-investment-alert/unnamed-chunk-11-1.png){width=80%}
+</center>
+
 Note que a relação entre TUPY3 e ELET3 não é linear e além disso essa correlação é fraca, o que pode ser benéfico para o portfólio pois uma possível queda em uma não parece não ter tanto impacto na outra.
 
 Além disso note que a correlação do BTC-USD com TUPY3 e ELET3 é moderada e mesmo apresentando este valores numéricos, o Bitcoin é um ativo negociado em escala global e é de um setor totalmente diferente das outras ações.
@@ -384,7 +418,7 @@ O [Prophet](https://facebook.github.io/prophet/) é um software de código abert
 
 </div>
 <div class="column"> 
-![](/post/2020-03-25-investment-alert/investment-alert_files/prophet_logo.png){width=80%}
+![](/post/2020-03-25-investment-alert/prophet_logo.png){width=80%}
 </br><small>Fonte: <https://facebook.github.io/prophet/></small>
 </div> 
 </div>
@@ -406,8 +440,8 @@ data_split <- Sys.Date() - h
 
 Veja como serão divididas nossas séries históricas: 
 
-* treino: inicio da série até `r format(data_split, "%d/%m/%y")`;
-* teste: de `r format(data_split, "%d/%m/%Y")` até o final da série histórica (2 meses atrás)
+* treino: inicio da série até 18/11/20;
+* teste: de 18/11/2020 até o final da série histórica (2 meses atrás)
 
 ```{r}
 h = 30 * 2
@@ -473,8 +507,12 @@ pmap(list(
 }
 ) %>% {.[[1]] / .[[2]] / .[[3]]}
 
-ggsave("phophet.png") # salvar para o bot retornar este resultado!
+ggsave("prophet.png") # salvar para o bot retornar este resultado!
 ```
+
+<center>
+![](/post/2020-03-25-investment-alert/unnamed-chunk-15-1.png){width=80%}
+</center>
 
 Parece interessante..
 
@@ -505,12 +543,16 @@ tbl_stocks %>%
 
 ```
 
+<center>
+![](/post/2020-03-25-investment-alert/img2.png){width=80%}
+</center>
+
 ```{r, echo = F}
 cot_inicio = filter(tbl_stocks, date == "2018-12-01", symbol != "BTC-USD") %>% pull(close)
 qtd_inicio = c(elet = 200, tupy = 150)
 ```
 
-Neste dia a cotação para ELET3 era `r moeda_real(cot_inicio)[1]` e TUPY3 era `r moeda_real(cot_inicio)[2]` e suponha que tenhamos comprado `r qtd_inicio[1]` lotes de ELET3 e `r qtd_inicio[2]` fracionários de TUPY, totalizando `r moeda_real(sum(qtd_inicio * cot_inicio))` (próximo ao que tinhaamos planejado no inicio do estudo)
+Neste dia a cotação para ELET3 era R\$24,42 e TUPY3 era R\$19,73 e suponha que tenhamos comprado 200 lotes de ELET3 e 150 fracionários de TUPY, totalizando R$7.843,64 (próximo ao que tinhaamos planejado no inicio do estudo)
 
 Vamos guardar estes valores:
 
@@ -534,7 +576,11 @@ consulta %>%
   kable2()
 ```
 
-O preço de fechamento foi de `r moeda_real(consulta$closing)` e suponhamos que tenha sido este o valor pago no dia. (Parece que neste dia o dólar estava em torno de `r moeda_real(consulta$closing / (tbl_stocks %>% filter(date == "2020-01-09") %>% pull(close) %>% .[1]))`)
+<center>
+![](/post/2020-03-25-investment-alert/img3.png){width=80%}
+</center>
+
+O preço de fechamento foi de R\$31.747,38 e suponhamos que tenha sido este o valor pago no dia. (Parece que neste dia o dólar estava em torno de R\$4,03)
 
 Para completar esta carteira fictícia vamos adquirir 0,0032 do valor de um Bitcoin
 
@@ -543,7 +589,7 @@ cot_inicio[3] <- consulta$closing
 qtd_inicio[3] <- 0.032
 ```
 
-Portanto, ao valor de `r moeda_real(cot_inicio[3])` compramos `r qtd_inicio[3]` Bitcoin totalizando `r moeda_real(cot_inicio[3] * qtd_inicio[3])` completando nossa carteira.
+Portanto, ao valor de R\$31.747,38 compramos 0.032 Bitcoin totalizando R\$1.015,92 completando nossa carteira.
 
 ## Tabela financeira
 
@@ -606,7 +652,7 @@ consulta_atual <-
 saveRDS(consulta_atual, "consulta_atual.rds")
 ```
 
-```{r, echo = F, eval = T}
+```{r, echo = F, eval = F}
 consulta_atual <- readRDS("consulta_atual.rds")
 ```
 
@@ -619,6 +665,10 @@ consulta_atual  %>%
   mutate(close = cell_spec(moeda_real(close), "html", color = "blue")) %>% 
   kable2()
 ```
+
+<center>
+![](/post/2020-03-25-investment-alert/img4.png){width=80%}
+</center>
 
 Com os valores da Montagem organizados e os valores da Desmontagem coletados em tempo real já podemos construir nossa tabela financeira automatizada. 
 
@@ -680,6 +730,10 @@ tabela <-
 tabela
 ```
 
+<center>
+![](/post/2020-03-25-investment-alert/img5.png){width=80%}
+</center>
+
 Agora que já possuímos nossa requisição completa e arrumada em tempo real precisamos ter acesso a esta informação de forma dinâmica também e para isso utilizaremos o bot do Telegram.
 
 # Bot Telegram
@@ -695,7 +749,7 @@ Com a configuração no aplicativo do Telegram concluída, o primeiro passo para
 </div>
 <div class="column4">
 </br>
-<center>![](/post/2020-03-25-investment-alert/investment-alert_files/bot_telegram.png){width=99%}</center>
+<center>![](/post/2020-03-25-investment-alert/bot_telegram.png){width=99%}</center>
 </div>
 </div>
 
@@ -735,7 +789,7 @@ bot_report_stocks(portifolio = portifolio,
                   qtd_inicio = qtd_inicio)
 ```
 
-<center>![](/post/2020-03-25-investment-alert/investment-alert_files/report_stocks.gif){width=70%}</center>
+<center>![](/post/2020-03-25-investment-alert/report_stocks.gif){width=70%}</center>
 </br>
 E assim obtemos um feedback através do nosso Smartphone ou Smartwatch em tempo real sobre o desempenho da nossa carteira! 
 

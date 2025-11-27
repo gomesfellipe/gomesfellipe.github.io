@@ -2,53 +2,54 @@
 title: 'Criando Audiobooks com Inteligência Artificial: book-to-audiobook'
 author: Fellipe Gomes
 date: '2025-02-02'
-slug: [book-to-audiobook]
+slug: []
 categories:
-  - Python
-  - Inteligência Artificial
-  - text-to-speech
-  - Tradução Automática
-  - Automação
-  - Web scraping
-  - Áudio
+- Inteligência Artificial
+- Programação e Ferramentas
+- Texto e NLP
 tags:
-  - audiobook
-  - audiobooks
-  - audio
-  - livro
-  - book
-  - book-to-audiobook
-  - inteligência artificial
-  - text-to-speech 
-  - conversao de texto em áudio 
-  - automação 
-  - deep learning 
-  - tradução automática
-  - Python 
-  - edge-tts 
-  - audiobook grátis
-  - tecnologia 
-  - acessibilidade 
-  - IA 
-  - processamento de linguagem natural
-  - aprendizado de máquina
-  - web scraping
-  - gomesfellipe
-description: 'Transforme qualquer texto em audiobook de forma gratuita e automatizada com IA para conversão, tradução e síntese de voz.'
-featured: 'img1.png'
-featuredalt: 'Criação de audiobooks gratuitos'
-featuredpath: 'date'
-linktitle: ''
-type: "post" 
-output: 
+- acessibilidade
+- aprendizado-de-máquina
+- audio
+- audiobook
+- audiobook-grátis
+- audiobooks
+- automação
+- book
+- conversao-de-texto-em-áudio
+- deep-learning
+description: Transforme qualquer texto em audiobook de forma gratuita e automatizada
+  com IA para conversão, tradução e síntese de voz.
+featured: img.png
+featuredalt: Criação de audiobooks gratuitos
+featuredpath: date
+type: post
+output:
   blogdown::html_page:
     toc: true
     toc_depth: 2
-image_preview: 'img1.png' 
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Advanced
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2025/02/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2025/02/img.png
+keywords: acessibilidade, aprendizado-de-máquina, audio, audiobook, audiobook-grátis,
+  audiobooks, automação, book, conversao-de-texto-em-áudio, deep-learning, data science,
+  machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE)
+knitr::opts_chunk$set(python.reticulate = FALSE, eval = FALSE)
 ```
 
 # Por que Audiobooks?
@@ -177,7 +178,7 @@ Com o texto pronto, é hora de usar ferramentas de **text-to-speech** (TTS) para
 - [tts-OpenAI](https://ttsopenai.com/) que cobra [$15 para cada 1 Milhão](https://openai.com/api/pricing/) de tokens (**opnião**: eu esperava mais qualidade pelo preço que eles cobram)
 - [edge-tts](https://github.com/rany2/edge-tts) que permite usar a função de text-to-speech do Microsoft Edge utilizando código Python
 
-Para este mini-projeto utilizaremos o `edge-tts`, que é conhecida por sua alta qualidade e vozes naturais. IMHO, dos que eu testei, essa biblioteca foi a que apresentou os melhores resultados. A voz escolhida foi [`pt-BR-AntonioNeural`](https://github.com/playht/text-to-speech-api/blob/master/Voices.md), que proporciona uma leitura bem fluida e não é tão robótica. Tenho certeza que você já ouviu a [voz desse modelo](https://media.play.ht/full_-MWbnKJy-MVB1Vcn6Ijh.mp3) em algum lugar.
+Para este mini-projeto utilizaremos o `edge-tts`, que é conhecida por sua alta qualidade e vozes naturais. IMHO, dos que eu testei, essa biblioteca foi a que apresentou os melhores resultados. A voz escolhida foi [`pt-BR-AntonioNeural`](https://github.com/playht/text-to-speech-api/blob/master/Voices.md), que proporciona uma leitura bem fluida e não é tão robótica. Tenho certeza que você já ouviu a [voz desse modelo](https://media.play.ht/full_-MWbnKJy-MVB1Vcn6Ijh.mp3) em algum lugar. 
 
 ```{python}
 import edge_tts

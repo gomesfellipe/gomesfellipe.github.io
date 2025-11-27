@@ -1,34 +1,920 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>jags on Fellipe Gomes</title>
+    <title>jags on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/jags/</link>
-    <description>Recent content in jags on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/jags/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/jags/" rel="self" type="application/rss+xml" />
     <item>
       <title>modelo bayesiano do zero</title>
       <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</guid>
-      <description>Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.
-Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles.</description>
+      <description>Um pouco sobre as duas grandes escolas de inferência, contas e implementação de um modelo linear bayesiano na mão para dados simulados e para dados reais</description>
+      <content:encoded>&lt;![CDATA[
+        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<div id="modelagem-estatística-e-as-duas-grandes-escolas-de-inferência" class="section level1">
+<h1>Modelagem estatística e as duas grandes escolas de inferência</h1>
+<p>Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.</p>
+<p>Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.</p>
+<p>O interesse pela modelagem estatística através da abordagem bayesiana surgiu a partir de um projeto de iniciação científica quando cursava o 6º período do curso de Graduação em Estatística que tinha como objetivo o cálculo e apresentação de estatísticas descritivas para ajudar uma pesquisadora. Após obter os resultados da análise exploratória e descritiva, notei, junto com meu orientador, que havia possibilidade de dar continuidade ao estudo a partir de uma abordagem estatística mais elaborada. Sendo assim, outro projeto de iniciação científica foi iniciado em seguida com a finalidade de me preparar para utilizar um modelo linear hierárquico bayesiano sob os dados disponibilizados pela pesquisadora em minha monografia.</p>
+<p>Caso tenha interesse em conferir o projeto com o estudo sobre modelos hierárquicos bayesianos, disponibilizei os resultados e os códigos em meu github <a href="https://github.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos">neste repositório</a>. Neste post farei uma breve introdução sobre o ajuste de um modelo linear bayesiano simples e os resultados obtidos (utilizando uma distribuição a priori não informativa). Os resultados obtidos serão comparados com os resultados obtidos com o ajuste de um modelo de regressão linear através da abordagem clássica.</p>
+<div id="distribuição-a-priori" class="section level2">
+<h2>Distribuição a priori</h2>
+<p>Para o estudo, optou-se pela utilização de valores elevados para variância a priori (também consideradas como “não informativas”, fazendo uma analogia à modelos clássicos) obtendo ajustes que atribuem maior importância à informação provinda da amostra.</p>
+<p>Portanto com valores elevados para variância da distribuição a priori (consideradas como “não informativas”) foram obtida a distribuição a posteriori de um parâmetro <span class="math inline">\(\theta\)</span> que contém toda a informação probabilística a respeito deste parâmetro e quando a forma analítica dessa distribuição é conhecida o gráfico da <a href="https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_densidade">fdp</a> pode ilustrar o comportamento probabilístico do parâmetro de interesse e auxiliar em alguma tomada de decisão, porém, quando a forma analítica não é conhecida ou é muito custosa de ser obtida, pode-se recorrer a métodos de simulação tais como os métodos MCMC.</p>
+</div>
+<div id="amostrador-de-gibbs---método-mcmc" class="section level2">
+<h2>Amostrador de Gibbs - método MCMC</h2>
+<p>Com os avanços dos métodos de MCMC, surgiu o amostrador de Gibbs, proposto por <span class="citation">@GemanGeman</span> e tornou-se popular por <span class="citation">@GelfandSmith</span>, falo um pouco mais sobre o algoritmo no <a href="https://github.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos/blob/master/texto.pdf">texto do projeto</a>.</p>
+<p>Como a convergência ocorre após o aquecimento (ou burn-in), é comum usar os valores de <span class="math inline">\(\theta^{(a)}\)</span>, <span class="math inline">\(\theta^{(a+t)}\)</span>, <span class="math inline">\(\theta^{(a+2t)}\)</span>,… para compor a amostra de <span class="math inline">\(\theta\)</span>, sendo <span class="math inline">\(a-1\)</span> o número de iterações iniciais do aquecimento e <span class="math inline">\(t\)</span> o espaçamento utilizado para diminuir a autocorrelação dos parâmetros. Maiores detalhes podem ser vistos em <span class="citation">@Gamerman06</span>.</p>
+</div>
+</div>
+<div id="ao-que-interessa" class="section level1">
+<h1>Ao que interessa</h1>
+<p>O objetivo deste post é apresentar e comparar os resultados do ajuste de um modelo linear bayesiano simples utilizando uma distribuição a priori não informativa com o modelo de regressão linear simples para dados simulados e para dados reais.</p>
+<p>Diversas funções foram criadas ao longo o estudo para conferir o comportamento das cadeias geradas e os resultados do ajuste do modelo, aproveitarei essas funções para este post importando do <a href="https://github.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos/blob/master/dependencies.R">repositório no github</a> da seguinte maneira:</p>
+<pre class="r"><code>path_to_dep &lt;- &quot;https://raw.githubusercontent.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos/master/dependencies.R&quot;
+devtools::source_url(path_to_dep, encoding=&quot;UTF-8&quot;)</code></pre>
+</div>
+<div id="ajuste-do-modelo-para-dados-simulados" class="section level1">
+<h1>Ajuste do modelo para dados simulados</h1>
+<p>Suponha então um exemplo em que a população de interesse tenha distribuição normal com média <span class="math inline">\(\beta_0 + \beta_1 X\)</span>, sendo <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> desconhecidos e variância <span class="math inline">\(\sigma^2\)</span> desconhecida. Seja <span class="math inline">\(\tau=\frac{1}{\sigma^2}\)</span> o parâmetro chamado de precisão.</p>
+<p>O parâmetro <span class="math inline">\(\beta_0\)</span> é conhecido como intercepto ou coeficiente linear e o <span class="math inline">\(\beta_1\)</span> como coeficiente angular. Além disso, suponha que as unidades dessa população sejam iid. Dessa forma, tem-se que as unidades dessa população tem a seguinte distribuição:</p>
+<p><span class="math display">\[
+Y_i \stackrel{iid}{\sim} N(\beta_0 + \beta_1 X_i,\frac{1}{\tau}), 
+\]</span></p>
+<p>onde <span class="math inline">\(i=1,...,N\)</span>.</p>
+<p>Para o estudo do modelo primeiramente foi utilizado um conjunto de dados simulados utilizando uma amostra de tamanho <span class="math inline">\(N=1000\)</span> e com os seguintes parâmetros “desconhecidos” dos quais desejamos estimar: <span class="math inline">\(\beta_0 = 1\)</span>, <span class="math inline">\(\beta_1 = 0,5\)</span>, <span class="math inline">\(\tau = 2\)</span>. A amostra será simulada segundo a variável aleatória: <span class="math inline">\(X_i ~ N(0,1)\)</span> e em seguida os parâmetros deste modelo, denotados por <span class="math inline">\(\theta = (\beta_0, \beta_1, \tau)\)</span> foram estimados usando o paradigma Bayesiano.</p>
+<div id="gerando-a-amostra" class="section level2">
+<h2>Gerando a amostra</h2>
+<p>A amostra que foi simulada foi obtida da seguinte maneira:</p>
+<pre class="r"><code># Amostra que sera utilizada:
+
+set.seed(12)
+n   &lt;- 1000                 # N=1000
+b0  &lt;- 1                    # \beta_0 = 1
+b1  &lt;- 0.5                  # \beta_1 = 0,5
+tau &lt;- 2                    # \tau = 2 e 
+x   &lt;- rnorm(n)             # X_i ~ N(0,1), logo:
+y   &lt;- b0 + b1 * x + rnorm(n,0,sqrt(1/tau))</code></pre>
+<p>Obtendo-se uma amostra de tamanho <span class="math inline">\(n\)</span>, pode-se inferir sob os parâmetros desconhecidos <span class="math inline">\(\theta = (\beta_0, \beta_1, \tau)\)</span> através da distribuição a posteriori e para obter essa distribuição faz-se necessário calcular a função de verossimilhança, que pode ser obtida da seguinte forma:</p>
+<p><span class="math display">\[
+p(y| \beta_0, \beta_1 , \tau) =\prod^n_{i=1} p(y_i | \beta_0, \beta_1, \tau )  
+\]</span></p>
+<p>portanto</p>
+<p><span class="math display">\[
+p(y| \beta_0, \beta_1 , \tau) = \prod_{i=1}^n \frac{ \sqrt{\tau} }{ \sqrt{2\pi} } exp { - \frac{\tau}{2} ( y_i - \beta_0 - \beta_1 x_i )^2 }
+\]</span></p>
+<p>onde <span class="math inline">\(y = (y_1, ..., y_n)\)</span> é a amostra coletada. O valor p para o teste de Shapiro para conferir a suposição de normalidade da variável resposta foi de 0.6181791 enquanto que o valor p para conferir a normalidade da variável explicativa foi de 0.7413229.</p>
+</div>
+<div id="distribuição-a-priori-1" class="section level2">
+<h2>Distribuição a priori</h2>
+<p>Durante o estudo diversos valores os parâmetros a priori foram selecionados para que fosse possível avaliar a sensibilidade da qualidade da escolha da distribuição priori, aqui será apresentado os resultados obtidos com valores elevados para variância a priori (também consideradas como “não informativas”, fazendo uma analogia à modelos clássicos) que ajusta o modelo atribuindo maior importância à informação provinda da amostra.</p>
+<p>Considere a priori que os parâmetros sejam independentes e que</p>
+<p><span class="math display">\[
+\beta_0 \sim N(m_0,\sigma_0^2),  \\
+\beta_1 \sim N(m_1,\sigma_1^2) \mbox{ e }  \\
+\tau    \sim G(a,b).
+\]</span></p>
+<p>Portanto, para a estimação foram utilizados os seguintes hiperparâmetros : <span class="math inline">\(m_0 = m_1 = 0\)</span>, <span class="math inline">\(\sigma_0^2 = \sigma_1^2 = 100\)</span>, <span class="math inline">\(a=0,1\)</span> e <span class="math inline">\(b=0,1\)</span></p>
+<p>No R:</p>
+<pre class="r"><code>#Parametros para b0 ~ N(mu0, sig0)
+mu0 &lt;-  0
+sig0 &lt;-  1000
+
+#Parametros para b1 ~ N(mu1, sig1)
+mu1 &lt;-  0
+sig1 &lt;-  1000
+
+#Parametros para tau ~ G(a,b)
+a &lt;-  0.1
+b &lt;-  0.1</code></pre>
+<p>Dessa forma, tem-se que a distribuição conjunta a priori possui a seguinte forma:</p>
+<p><span class="math display">\[
+ p(\beta_0, \beta_1 , \tau) \propto exp\Big\{-\frac{1}{2\sigma_0^2}( \beta_0 - m_0)^2\Big\} exp\Big\{-\frac{1}{2\sigma_1^2}( \beta_1 - m_1)^2\Big\} \tau^{a-1}exp \{-b \tau\}.
+\]</span></p>
+</div>
+<div id="distribuição-a-posteriori" class="section level2">
+<h2>Distribuição a posteriori</h2>
+<p>Combinando a função de verossimilhança com a distribuição a priori, obtêm-se a distribuição a posteriori que é proporcional a:</p>
+<p><span class="math display">\[
+p(\beta_0, \beta_1 , \tau|y) \propto \tau^{\frac{n}{2}+a-1} exp \left\{ -\frac{\tau}{2} \sum^n_{i=1} (y_i - \beta_0 - \beta_1 x_i)^2 - b\tau  - \frac{1}{2\sigma_0^2}(\beta_0-m_0)^2  \right\} \times   exp\left\{- \frac{1}{2\sigma_1^2}(\beta_1-m_1)^2  \right\} . 
+\]</span></p>
+<p>Note que essa distribuição é multivariada e não possui forma analítica conhecida. Sendo assim, recorre-se aos métodos de MCMC para se obter amostras dessa distribuição. E então faz-se necessário obter as DCCP de <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span> e <span class="math inline">\(\tau\)</span>.</p>
+</div>
+<div id="implementando-o-amostrador-de-gibbs" class="section level2">
+<h2>Implementando o amostrador de Gibbs</h2>
+<p>O tamanho da cadeia foi de 30000 simulações e o <em>burn-in</em> (ou amostra de aquecimento) utilizado considerada após o ajuste foi de 15000. no R:</p>
+<pre class="r"><code>nsim           &lt;-  3*10000
+burnin         &lt;-  nsim / 2 
+cadeia.b0      &lt;-  rep(0,nsim)
+cadeia.b1      &lt;-  rep(0,nsim)
+cadeia.tau     &lt;-  rep(0,nsim)
+
+# Chutes iniciais: 
+cadeia.b0[1]    &lt;-  0
+cadeia.b1[1]    &lt;-  0
+cadeia.tau[1]   &lt;-  1</code></pre>
+<div id="calculos-para-implementar-o-algoritimo-na-mão" class="section level3">
+<h3>Calculos para implementar o algoritimo na mão</h3>
+<p>Para a implementação do algoritmo, fez-se necessário o cálculo das distribuições condicionais completas a posteriori (DCCP), primeiramente veja os resultados obtidos para <span class="math inline">\(\tau\)</span>:</p>
+<ul>
+<li>DCCP de <span class="math inline">\(\tau\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\tau|y_1, ...,y_n,\beta_0, \beta_1 \sim Gama ( \frac{n}{2}+a,b+\frac{1}{2} \sum^n_{i=1}(y_i-\beta_0-\beta_1 x_i)^2 ) 
+\]</span></p>
+<p>Em seguida, veja o resultado obtido para <span class="math inline">\(\beta_0\)</span>, o coeficiente linear da reta, isto é, a altura em que a reta de regressão intercepta o eixo dos <span class="math inline">\(Y\)</span>’s:</p>
+<ul>
+<li>DCCP de <span class="math inline">\(\beta_0\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\beta_0 | y_1,...,y_n , \tau,\beta_1 \sim N(\dfrac{(\tau\sum^n_{i=1}y_i - \tau\beta_1\sum^n_{i=1}x_i  +\frac{m_0}{\sigma_0^2})}{ \tau n + \frac{1}{\sigma_0^2}},  (n\tau +   \frac{1}{\sigma_0^2} )^{-1})
+\]</span></p>
+<p>Por fim, veja o resultado obtido para <span class="math inline">\(\beta_1\)</span>, é o coeficiente angular da reta, ou seja, é o a variação esperada na variável <span class="math inline">\(Y\)</span> quando a variável explicativa é acrescida de 1 unidade:</p>
+<ul>
+<li>DCCP de <span class="math inline">\(\beta_1\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\beta_1 | y_1,...,y_n , \tau,\beta_0 \sim N(\frac{\tau\sum^n_{i=1}x_i y_i  - \tau\beta_0\sum^n_{i=1}x_i + \frac{m_1}{\sigma_1^2}}{\tau \sum^n_{i=1}x_i^2 + \frac{1}{\sigma_1^2}}, ( \tau \sum^n_{i=1}x_i^2 + \frac{1}{\sigma_1^2} )^{-1})
+\]</span></p>
+<p>Agora que todas as distribuições condicionais completas estão calculadas o algorítimo já pode ser implementado, no R foi feito da seguinte maneira: (note que as linhas que foram comentadas executariam uma barra de carregamento, com ilustrado em seguida)</p>
+<pre class="r"><code># pb &lt;- txtProgressBar(min = 0, max = nsim, style = 3) # iniciando barra de processo
+for (k in 2:nsim){
+  
+  #Cadeia tau
+  cadeia.tau[k]   &lt;-  rgamma(1, (n/2) + a, b + (sum((y - cadeia.b0[k-1] - (cadeia.b1[k-1]*x))^2)/2))
+  
+  # Cadeia B0
+  c0              &lt;-  (n*cadeia.tau[k]) + (1/sig0)
+  m0              &lt;-  (cadeia.tau[k]*sum(y) - (cadeia.tau[k]*cadeia.b1[k-1]*sum(x)) + (mu0/sig0))/c0
+  cadeia.b0[k]    &lt;-  rnorm(1, m0, 1/sqrt(c0))
+  
+  # Cadeia B1
+  c1              &lt;-   (sum(x^2)*cadeia.tau[k]) + (1/sig1)
+  m1              &lt;-   ((cadeia.tau[k]*sum(x*y)) - (cadeia.tau[k]*cadeia.b0[k]*sum(x)) + (mu1/sig1))/c1
+  cadeia.b1[k]    &lt;-   rnorm(1, m1, 1/sqrt(c1))
+  
+  # setTxtProgressBar(pb, k)
+  
+}# ;close(pb) #Encerrando barra de processo</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/loading.png" /></p>
+</div>
+<div id="resultados-da-cadeia" class="section level3">
+<h3>Resultados da cadeia</h3>
+<p>A seguir definiremos a variável <code>inds</code> que indica os valores após a amostra de aquecimento (ou <em>burn-in</em>), a variável <code>real</code> que contém os valores reais utilizados para gerar a amostra para conferir se o modelo foi capaz de recuperá-los, os nomes dos parâmetros e os resultados das cadeias foram agregados em uma matriz:</p>
+<pre class="r"><code># Juntando resultados:
+inds    &lt;- seq(burnin, nsim) # Definindo os indices
+real    &lt;- c(b0, b1, tau)
+name    &lt;- c(expression(beta[0]), expression(beta[1]), expression(tau))
+results &lt;- cbind(cadeia.b0, cadeia.b1, cadeia.tau) %&gt;% as.data.frame() %&gt;% .[inds, ] %T&gt;% head</code></pre>
+<div id="histograma-e-densidade" class="section level4">
+<h4>Histograma e densidade</h4>
+<p>A figura abaixo apresenta os histogramas junto com as densidades de três cadeias obtidas ao se inicializar o amostrador em pontos diferentes de todos os parâmetros contidos em <span class="math inline">\(\theta\)</span> e uma linha vermelha indicará o valor do real parâmetro utilizado para estimar a cadeia.</p>
+<pre class="r"><code>g1 &lt;- hist_den(results[,1],name = name[1], p = real[1])
+g2 &lt;- hist_den(results[,2],name = name[2], p = real[2])
+g3 &lt;- hist_den(results[,3],name = name[3], p = real[3])
+grid.arrange(g1,g2,g3,ncol=1)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="cadeia" class="section level4">
+<h4>Cadeia</h4>
+<p>A figura abaixo apresenta os traços das cadeias dos parâmetros amostrados exibindo o intervalo de credibilidade com a linha pontilhada em azul e o valor verdadeiro do parâmetro em vermelho. Note que há indícios de convergência.</p>
+<pre class="r"><code># Cadeia
+cadeia(results, name, real)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>é possível notar que todos os intervalos de credibilidade contêm o parâmetro populacional real utilizado para gerar a amostra.</p>
+</div>
+<div id="autocorrelação" class="section level4">
+<h4>Autocorrelação</h4>
+<p>A figura abaixo apresenta os gráficos de autocorrelação, que indicam se houve a influência dos “valores vizinhos” dos parâmetros amostrados. Note que parece haver independência entre as interações.</p>
+<pre class="r"><code># ACF
+FAC(results)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>é possível notar que nenhuma das cadeias apresentaram estimativas autocorrelacionada</p>
+</div>
+<div id="estimativas" class="section level4">
+<h4>Estimativas</h4>
+<p>Agora que já foi verificado que a cadeia se comportou de maneira satisfatória, veja os resultados obtidos sobre as estimativas dos parâmetros através do algoritmo. apresenta os resumos a posteriori dos parâmetros amostrados.</p>
+<pre class="r"><code>coef &lt;- coeficientes(results, real = real) %&gt;% as.data.frame()
+
+tabela_coeficientes(coef)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"11b9832b6bfa0":["function () ","plotlyVisDat"]},"cur_data":"11b9832b6bfa0","attrs":{"11b9832b6bfa0":{"columnorder":[1,2,3,4,5],"columnwidth":[80,80,80,80,80],"header":{"values":["Média","Desv. Pad.","IC inf","IC sup","Real"],"line":{"color":"#506784"},"fill":{"color":"#1F8FFFB4"},"align":["center","center","center","center","center"],"font":{"color":"white","size":15},"height":40},"cells":{"values":[[1.0244,0.4933,1.9001],[0.023,0.0241,0.085],[0.9792,0.4464,1.7371],[1.0697,0.5409,2.0695],[1,0.5,2]],"line":{"color":"#506784"},"fill":{"color":["#1F8FFF58","white","white","white","#1F8FFF58"]},"align":["center","center","center","center","center"],"font":{"color":["white","#506784","#506784","#506784","white"],"size":12},"height":30},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"table"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"columnorder":[1,2,3,4,5],"columnwidth":[80,80,80,80,80],"header":{"values":["Média","Desv. Pad.","IC inf","IC sup","Real"],"line":{"color":"#506784"},"fill":{"color":"#1F8FFFB4"},"align":["center","center","center","center","center"],"font":{"color":"white","size":15},"height":40},"cells":{"values":[[1.0244,0.4933,1.9001],[0.023,0.0241,0.085],[0.9792,0.4464,1.7371],[1.0697,0.5409,2.0695],[1,0.5,2]],"line":{"color":"#506784"},"fill":{"color":["#1F8FFF58","white","white","white","#1F8FFF58"]},"align":["center","center","center","center","center"],"font":{"color":["white","#506784","#506784","#506784","white"],"size":12},"height":30},"type":"table","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Como se trata de uma amostra simulada é possível comparar as estimativas com os valores reais que geraram a amostra e os valores estão muito próximos da média (todos eles estão incluídos no intervalo de credibilidade).</p>
+</div>
+</div>
+<div id="comparando-com-o-modelo-linear-clássico" class="section level3">
+<h3>Comparando com o modelo linear clássico</h3>
+<p>Agora que os resultados sob o paradigma bayesiano já foram conferidos será ajustado um modelo de regressão linear simples pelo método dos mínimos quadrados através da função <code>lm()</code> sob o paradigma clássico para comparar com os resultados de um modelo de regressão linear simples sob o paradigma bayesiano utilizando os resultados calculados.</p>
+<pre class="r"><code># Reta do modelo classico
+plot(x, y)
+modelo.classico &lt;- lm(y ~ 1 + x)
+a.classico      &lt;- modelo.classico$coefficients[1]
+b.classico      &lt;- modelo.classico$coefficients[2]
+abline(a        &lt;- a.classico, b = b.classico, col = &quot;blue&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>O modelo estimado para estes dados sob o paradigma da inferência clássica foi o seguinte: <span class="math inline">\(\hat{y} = 1.0245 x + 0,4933\)</span>, o que mostra que as estimativas de <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> foram muito parecidas com as estimativas sob o paradigma da inferência bayesiana.</p>
+<pre class="r"><code># Reta do modelo bayesiano
+plot(x, y)
+a.bayes  &lt;-  mean(results[, 1])
+b.bayes  &lt;-  mean(results[, 2])
+abline(a = a.bayes, b = b.bayes, col = &quot;red&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>A figura apresenta o gráfico de dispersão entre as variáveis da amostra simulada e as retas dos ajustes de ambos os modelos:</p>
+<pre class="r"><code>library(stringr)
+library(ggplot2)
+library(ggExtra)
+
+# Texto da imagem
+text.classico &lt;- str_c(&quot;Modelo Classico: &quot;,&quot;y = &quot;,round(a.classico,4),&quot; x + &quot;,round(b.classico,4))
+text.bayes    &lt;- str_c(&quot;Modelo Bayesiano: &quot;,&quot;y = &quot;,round(a.bayes,4),&quot; x + &quot;,round(b.bayes,4))
+
+# Gerando o e ambos:
+cbind(y, x) %&gt;%
+  as.data.frame %&gt;%
+    ggplot(aes(y = y, x = x)) +
+    geom_point() +
+    geom_smooth(method = &quot;lm&quot;, se = F, col = &quot;red&quot;) +
+    theme_classic() +
+    geom_abline(slope = b.bayes,
+    intercept = a.bayes,
+    col = &quot;blue&quot;) +
+    labs(title = &quot;&quot;,
+    x = &quot;Covariável&quot;,
+    y = &quot;Reposta&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Agora que os resultados no algoritmo já foram conferidos e avaliados de maneira satisfatória utilizando os dados simulados, é a vez de fazer o ajuste para dados reais.</p>
+</div>
+</div>
+</div>
+<div id="ajuste-do-modelo-para-dados-reais" class="section level1">
+<h1>Ajuste do modelo para dados reais</h1>
+<p>O conjunto de dados que será utilizado como exemplo foi disponibilizado por <span class="citation">@Ezekiel_cars</span> e hoje faz parte do conjunto de banco de dados nativos do R (a base de dados pode ser obtida ao escrever <code>cars</code> no console). Os dados informam a velocidade dos carros e as distâncias tomadas para parar, esses dados foram registrados na década de 1920 e são de grande utilidade didática até os dias de hoje.</p>
+<p>Considere que deseja-se modelar a velocidade dos carros de acordo com as distâncias tomadas para parar, portanto a variável resposta será a velocidade e a variável explicativa do modelo será a distância tomada para parar.</p>
+<div id="amostra-utilizada" class="section level2">
+<h2>Amostra utilizada</h2>
+<pre class="r"><code>y    &lt;-  cars$speed
+x    &lt;-  cars$dist
+n    &lt;-  nrow(cars)</code></pre>
+<p>o valor p para o teste de Shapiro para conferir a suposição de normalidade da variável resposta foi de 0.4576319 enquanto que o valor p para conferir a normalidade da variável explicativa foi de 0.0390997</p>
+</div>
+<div id="distribuição-a-priori-2" class="section level2">
+<h2>Distribuição a priori</h2>
+<p>Serão utilizados os mesmos valores que foram propostos na simulação como hiperparametros e chutes iniciais para a cadeia, o código usado foi exatamente o mesmo.</p>
+</div>
+<div id="resultados-da-cadeia-1" class="section level2">
+<h2>Resultados da cadeia</h2>
+<p>Definiremos novamente a variável <code>inds</code> que indica os valores após a amostra de aquecimento (ou <em>burn-in</em>), desta vez não haverá a variável <code>real</code> pois não conhecemos os valores reais utilizados para gerar a amostra para conferir se o modelo foi capaz de recuperá-los. Desta vez utilizaremos a variável <code>classico</code>, que guarda os valores obtidos com o ajuste do modelo linear pela abordagem clássica.</p>
+<pre class="r"><code># Juntando resultados:
+inds     &lt;- seq(burnin, nsim) # Definindo os indices
+results  &lt;- cbind(cadeia.b0, cadeia.b1, cadeia.tau) %&gt;% as.data.frame() %&gt;% .[inds, ]
+classico &lt;- c(coefficients(lm(cars)), 1 / var(lm(cars)$residuals))
+name     &lt;- c(expression(beta[0]), expression(beta[1]), expression(tau))</code></pre>
+<div id="histograma-e-densidade-1" class="section level4">
+<h4>Histograma e densidade</h4>
+<p>A figura abaixo exibe os histogramas com as densidades de três cadeias obtidas ao se iniciar o amostrador em pontos diferentes de todos os parâmetros <span class="math inline">\(\theta\)</span> mas dessa vez sem a linha vermelha que indicava o valor do parâmetro real pois agora ele é desconhecido.</p>
+<pre class="r"><code>g1 &lt;- hist_den(results[, 1], name = name[1])
+g2 &lt;- hist_den(results[, 2], name = name[2])
+g3 &lt;- hist_den(results[, 3], name = name[3])
+grid.arrange(g1, g2, g3, ncol = 1)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Nota-se que ambas as cadeias convergiram uma mesma distribuição e que as últimas três cadeias apresentaram valores próximos.</p>
+</div>
+<div id="cadeias" class="section level4">
+<h4>Cadeias</h4>
+<p>A figura abaixo apresenta os traços das cadeias dos parâmetros amostrados. Note que há indícios de convergência.</p>
+<pre class="r"><code>cadeia(results,name)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="autocorrelação-1" class="section level4">
+<h4>Autocorrelação</h4>
+<p>A Figura abaixo apresenta os gráficos de autocorrelação dos parâmetros amostrados.</p>
+<pre class="r"><code>FAC(results)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>É possível notar que apenas nas primeiras defasagens das cadeias das estimativas para os parâmetros <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> se apresentaram de forma autocorrelacionada e que a partir dessa defasagem o gráfico de autocorrelação se apresentou de forma desejável.</p>
+</div>
+<div id="estimativas-1" class="section level4">
+<h4>Estimativas</h4>
+<p>Como todas as características da cadeia gerada foram avaliadas de maneira satisfatória agora será possível conferir o ajuste dos parâmetros de maneira mais segura pois já foi constatada a convergência da cadeia</p>
+</div>
+<div id="comparando-com-o-modelo-linear-clássico-1" class="section level4">
+<h4>Comparando com o modelo linear clássico</h4>
+<p>Agora que os resultados sob o paradigma bayesiano já foram conferidos novamente será ajustado um modelo de regressão linear simples pelo método dos mínimos quadrados sob o paradigma clássico para comparar com os resultados do um modelo de regressão linear simples sob o paradigma bayesiano utilizando os resultados calculados na seção.</p>
+<pre class="r"><code># Reta do modelo classico 
+plot(x, y)
+modelo.classico &lt;- lm(y ~ 1 + x)
+a.classico      &lt;- modelo.classico$coefficients[1]
+b.classico      &lt;- modelo.classico$coefficients[2]
+abline(a        &lt;- a.classico, b = b.classico, col = &quot;blue&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<pre class="r"><code># Reta do modelo bayesiano
+plot(x, y)
+a.bayes &lt;- mean(results[, 1])
+b.bayes &lt;- mean(results[, 2])
+abline(a = a.bayes, b = b.bayes, col = &quot;red&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>A Tabela abaixo apresenta o resumo a posteriori dos parâmetros estimados da cadeia e note que esta tabela não conta com a coluna dos valores reais como no exemplo anterior e sim as estimativas sob o paradigma clássico.</p>
+<pre class="r"><code>coef &lt;- 
+  coeficientes(results,real = classico) %&gt;% as.data.frame()
+
+tabela_coeficientes(coef)</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"11b981cae4251":["function () ","plotlyVisDat"]},"cur_data":"11b981cae4251","attrs":{"11b981cae4251":{"columnorder":[1,2,3,4,5],"columnwidth":[80,80,80,80,80],"header":{"values":["Média","Desv. Pad.","IC inf","IC sup","Real"],"line":{"color":"#506784"},"fill":{"color":"#1F8FFFB4"},"align":["center","center","center","center","center"],"font":{"color":"white","size":15},"height":40},"cells":{"values":[[8.2374,0.1663,0.1083],[0.8481,0.017,0.0214],[6.5848,0.1326,0.0699],[9.9239,0.1997,0.1542],[8.2839,0.1656,0.1025]],"line":{"color":"#506784"},"fill":{"color":["#1F8FFF58","white","white","white","#1F8FFF58"]},"align":["center","center","center","center","center"],"font":{"color":["white","#506784","#506784","#506784","white"],"size":12},"height":30},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"table"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"columnorder":[1,2,3,4,5],"columnwidth":[80,80,80,80,80],"header":{"values":["Média","Desv. Pad.","IC inf","IC sup","Real"],"line":{"color":"#506784"},"fill":{"color":"#1F8FFFB4"},"align":["center","center","center","center","center"],"font":{"color":"white","size":15},"height":40},"cells":{"values":[[8.2374,0.1663,0.1083],[0.8481,0.017,0.0214],[6.5848,0.1326,0.0699],[9.9239,0.1997,0.1542],[8.2839,0.1656,0.1025]],"line":{"color":"#506784"},"fill":{"color":["#1F8FFF58","white","white","white","#1F8FFF58"]},"align":["center","center","center","center","center"],"font":{"color":["white","#506784","#506784","#506784","white"],"size":12},"height":30},"type":"table","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>O modelo estimado sob este paradigma pode ser escrito da seguinte maneira: <span class="math inline">\(\hat{y} = 8,2839 x + 0,1656\)</span>, ou seja, os valores de <span class="math inline">\(\beta_0\)</span> e de <span class="math inline">\(\beta_1\)</span> novamente foram muito próximos dos parâmetros obtidos ao estimar sob o paradigma clássico.</p>
+</div>
+<div id="comparando-de-forma-visual" class="section level4">
+<h4>Comparando de forma visual</h4>
+<p>A Figura ilustra o gráfico de dispersão dos dados citados acima, com a intenção de exibir quanto uma variável é afetada por outra, onde no eixo vertical representa a velocidade do carro e no eixo horizontal a distância tomada para parar.</p>
+<p>Além do comportamento das variáveis, neste gráfico é exibido também os resultados obtidos do ajuste ao se utilizar o método de mínimos quadrados (representada pela linha em vermelho) para estimar os parâmetros e o ajuste do modelo ao se utilizar o método apresentado acima em (representada pela linha azul).</p>
+<pre class="r"><code># Texto da imagem
+text.classico &lt;- str_c(&quot;Modelo Classico: &quot;,&quot;y = &quot;,round(a.classico,4),&quot; x + &quot;,round(b.classico,4))
+text.bayes    &lt;- str_c(&quot;Modelo Bayesiano: &quot;,&quot;y = &quot;,round(a.bayes,4),&quot; x + &quot;,round(b.bayes,4))
+
+#Gerando o scatter.plot
+cbind(y, x) %&gt;%
+  as.data.frame %&gt;%
+  ggplot(aes(y = y, x = x)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;, se = F, col = &quot;red&quot;) +
+  theme_classic() +
+  geom_abline(slope = b.bayes,
+              intercept = a.bayes,
+              col = &quot;blue&quot;) +
+  labs(title = &quot;Relação entre a Distância e a Velocidade com \nreta do modelo linear clássico vs bayesiano&quot;,
+       x = &quot;Distância&quot;,
+       y = &quot;Velocidade&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>É possível notar que os coeficientes calculados foram muito parecidos, mesmo apresentando pequenas diferenças decimais no valor dos coeficientes ainda é possível notar que as retas estão basicamente sobrepostas, ou seja, os valores estimados em ambas as abordagens foram praticamente os mesmos.</p>
+<p>Apesar dos valores dos ajustes terem apresentado basicamente os mesmo resultados, a maneira de se conferir a qualidade do ajuste é diferente em ambas as abordagens. Enquanto sob o paradigma clássico o ajuste do modelo pode ser checado ao avaliar os pre-supostos quanto à distribuição dos resíduos, como recomenda <span class="citation">@GaussClarice</span>, ao utilizar um método de MCMC faz-se necessário conferir também outros aspectos como por exemplo se houve convergência da cadeias além do comportamento das autocorrelações, vide <span class="citation">@migon</span>.</p>
+</div>
+</div>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<p>O uso do algorítmo para simular os dados da implementação do modelo hierárquico bayesiano envolveu diversas etapas. Inicialmente foi necessária a revisão de literatura para a compreensão dos métodos que seriam utilizados na implementação do algoritmo, bem como em seu desenvolvimento. Essa pesquisa funcionou de maneira muito didática, de forma que a cada semana a abordagem pudesse envolver maior grau de complexidade.</p>
+<p>Durante o estudo, diversos valores de parâmetros a priori foram selecionados para que fosse possível avaliar a sensibilidade da qualidade da escolha da distribuição a priori. Observou-se que valores elevados para variância a priori (também consideradas como “não informativas” - fazendo uma analogia à modelos clássicos) obtiveram melhores ajustes atribuindo maior importância à informação provinda da amostra.</p>
+<p>O estudo com dados simulados facilitou o entendimento do algoritmo pois foi possível notar com facilidade a inadequabilidade das escolhas das prioris, que resultavam em estimativas muito distante do parâmetro populacional que gerou a amostra.</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Aprendizado Não Supervisionado</category>
+      <category>Bayes</category>
+      <category>Inferência Bayesiana</category>
+      <category>Estatistica</category>
+      <category>Modelagem Estatistica</category>
+      <category>Probabilidade</category>
+      <category>R</category>
+      <category>Simulação</category>
+      <category>Teoria</category>
+      <category domain="tag">bayes</category>
+      <category domain="tag">Estatistica</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">jags</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem estatistica</category>
+      <category domain="tag">modelos generalizados</category>
+      <category domain="tag">modelos lineares</category>
+      <category domain="tag">probabilidade</category>
+      <category domain="tag">R</category>
+      <category domain="tag">regression</category>
+      <category domain="tag">Teoria</category>
     </item>
-    
     <item>
       <title>Ajustando Modelos Bayesianos com JAGS</title>
       <link>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</link>
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</guid>
       <description>Inferência bayesiana Imagem da Internet
 Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.
 Para isso devemos utilizar toda informação disponível, seja ela objetiva ou subjetiva (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)
 Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao teorema de bayes.
 Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa “crença” será representada por uma distribuição de probabilidade (ou modelo probabilístico)</description>
-    </item>
+      <content:encoded>&lt;![CDATA[
+        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="inferência-bayesiana" class="section level1">
+<h1>Inferência bayesiana</h1>
+<p><a href="https://www.flickr.com/photos/mattbuck007/3676624894/in/photolist-6ATEuo-9TK3TW">Imagem da Internet</a></p>
+<p>Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.</p>
+<p>Para isso devemos utilizar <strong>toda</strong> informação disponível, seja ela <strong>objetiva</strong> ou <strong>subjetiva</strong> (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)</p>
+<p>Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao <a href="https://pt.wikipedia.org/wiki/Teorema_de_Bayes">teorema de bayes</a>.</p>
+<p>Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa “crença” será representada por uma distribuição de probabilidade (ou modelo probabilístico)</p>
+<p><em>Teorema de bayes</em>:
+<span class="math display">\[
+p(\theta|x)=\frac{p(x,\theta)}{p(x)}=\frac{p(x|\theta)p(\theta)}{p(x)}
+\]</span></p>
+<p>onde:</p>
+<ul>
+<li><span class="math inline">\(p(x|\theta)\)</span>: função de verossimilhança (modelo)</li>
+<li><span class="math inline">\(p(\theta)\)</span>: distribuição a priori</li>
+<li><span class="math inline">\(p(x)\)</span>: distribuição marginal de <span class="math inline">\(x\)</span>.</li>
+</ul>
+<p>A estimação muitas vezes envolve o cálculo de integrais nada simples analiticamente porém, alguns algorítimos como o amostrador de Gibbs pode relizar aproximações muito relevantes.</p>
+</div>
+<div id="modelo-linear-bayesiano" class="section level1">
+<h1>Modelo linear bayesiano</h1>
+<p>Para entender como funciona o modelo bayesiano, primeiramente vamos começar com algo bem simples, suponha:</p>
+<p><span class="math display">\[
+Y_i \sim N(\mu_i,\tau)
+\]</span>
+onde <span class="math inline">\(\mu\)</span> é definido como <span class="math inline">\(\mu_i= X \mathbf{\beta}\)</span>.</p>
+<p>Incialmente vamos considerar que não existe relação nenhuma, então utilizaremos a priori:</p>
+<p><span class="math display">\[
+\beta \sim N(0,\tau_{\beta})
+\]</span></p>
+<p>onde <span class="math inline">\(\tau\)</span> é conhecido.</p>
+<p>Nem sempre é uma tarefa simples determinar a distribuição posteri de um modelo bayesiano e é neste ponto que o pacote <code>jags</code>será bastante útil (existem outras alternativas como o <a href="https://cran.r-project.org/package=R2WinBUGS">WinBugs</a>, <a href="https://cran.r-project.org/package=R2OpenBUGS">OpenBugs</a>, <a href="https://cran.r-project.org/web/packages/rstan/index.html">Stan</a>, mas aqui resolvi trazer apenas o <a href="https://cran.r-project.org/package=rjags">jags</a> por possuir vantagens bem interessantes.)</p>
+</div>
+<div id="jags" class="section level1">
+<h1>Jags</h1>
+<p>O pacote <a href="https://cran.r-project.org/package=R2jags"><code>R2jags</code></a> é exatamente o que seu nome significa: “<em>Just Another Gibbs Sampler</em>”. Possui as mesmas funcionalidades do nosso querido <a href="https://cran.r-project.org/package=R2OpenBUGS">OpenBugs</a> possibilitando também que seja utilizado inteiramente dentro do ambiente R.</p>
+<p>Assim como o OpenBugs, ele também trabalha chamando o <a href="mcmc-jags.sourceforge.net/">software oficial que precisa ser baixado no site</a>.</p>
+<p>Para começar a utilizar basta baixar o pacote e acessá-lo na biblioteca:</p>
+<pre class="r"><code>library(R2jags)</code></pre>
+</div>
+<div id="declarando-o-modelo" class="section level1">
+<h1>Declarando o modelo</h1>
+<p>A base de dados que será utilizada para ajustar o modelo será a base nativa do R chamada <code>trees</code>:</p>
+<pre class="r"><code>X&lt;-trees[,1:2] #Matriz de variáveis explanatórias
+Y&lt;- trees[,3]  #Vetor da variável resposta
+p &lt;- ncol(X)   #p é o número de parâmetros do modelo (nesse caso é o número de colunas)
+n &lt;- nrow(X)   #n é o número de observações do modelo</code></pre>
+<p>O modelo deve estar declarado e salvo em um arquivo <code>.txt</code> (ou mesmo um outro arquivo <code>.r</code>) da seguinte maneira:</p>
+<pre class="r"><code>### Declarando o modelo Bayesiano
+sink(&quot;linreg.txt&quot;)
+cat(&quot;
+    model {
     
+    # Prioris
+    for(j in 1:p)
+    {
+    beta[j] ~ dnorm(mu.beta, tau.beta)       
+    }
+    sigma ~ dunif(0, 100)            
+    tau &lt;- 1/ (sigma * sigma)
+    
+    # Verossimilhança
+    for (i in 1:n) {
+    y[i] ~ dnorm(mu[i], tau)
+    mu[i] &lt;- inprod(X[i,], beta)
+    }
+
+    }
+    &quot;,fill=TRUE)
+sink()</code></pre>
+<p>Uma vez que o modelo esta declarado, é a hora de nomear os parametros da função que fará o ajuste do modelo</p>
+<pre class="r"><code>#Parametros da Priori
+mu.beta &lt;- 0
+tau.beta &lt;- 0.001
+
+#Set Working Directory
+wd &lt;- getwd()
+
+# Junte os dados em uma lista
+win.data &lt;- list(X=X,y=Y,p=p,n=n,mu.beta=mu.beta,tau.beta=tau.beta)
+
+# Função de inicialização
+inits &lt;- function(){ list(beta=rnorm(p), sigma = rlnorm(1))}
+
+# Os parametros que desejamos estimar
+params &lt;- c(&quot;beta&quot;,&quot;sigma&quot;,&quot;tau&quot;)
+
+# Caracteristicas do MCMC
+n.burnin &lt;- 500                    #Número de iterações que serão descartadas
+n.thin &lt;- 10                       #para economizar memória e tempo de computação se n.iter for grande
+n.post &lt;- 5000  
+n.chains &lt;- 3                      #Número de cadeias
+n.iter &lt;- n.burnin + n.thin*n.post #Número de iterações</code></pre>
+</div>
+<div id="implementando-o-modelo" class="section level1">
+<h1>Implementando o modelo</h1>
+<p>Após ter em mãos todos esses resultados, já podemos ajustar o modelo com o comando <code>jags()</code>, veja:</p>
+<pre class="r"><code>bayes.mod.fit &lt;-jags(data = win.data,
+                     inits = inits,
+                     parameters = params,
+                     model.file = &quot;linreg.txt&quot;,  # O arquivo &quot;linreg.txt&quot; deve estar no mesmo diretório
+                     n.iter = n.iter,
+                     n.thin=n.thin,
+                     n.burnin=n.burnin,
+                     n.chains=n.chains,
+                     working.directory=wd,DIC = T)</code></pre>
+<pre><code>## Compiling model graph
+##    Resolving undeclared variables
+##    Allocating nodes
+## Graph information:
+##    Observed stochastic nodes: 31
+##    Unobserved stochastic nodes: 3
+##    Total graph size: 166
+## 
+## Initializing model</code></pre>
+<pre class="r"><code>print(bayes.mod.fit, dig = 3)</code></pre>
+<pre><code>## Inference for Bugs model at &quot;linreg.txt&quot;, fit using jags,
+##  3 chains, each with 50500 iterations (first 500 discarded), n.thin = 10
+##  n.sims = 15000 iterations saved
+##          mu.vect sd.vect    2.5%     25%     50%     75%   97.5%  Rhat n.eff
+## beta[1]    5.045   0.435   4.183   4.757   5.043   5.324   5.916 1.001 15000
+## beta[2]   -0.478   0.078  -0.633  -0.527  -0.477  -0.427  -0.324 1.001 15000
+## sigma      6.448   0.904   4.995   5.805   6.335   6.970   8.502 1.001 15000
+## tau        0.025   0.007   0.014   0.021   0.025   0.030   0.040 1.001 15000
+## deviance 201.924   2.682 198.881 199.970 201.244 203.149 208.856 1.001  7200
+## 
+## For each parameter, n.eff is a crude measure of effective sample size,
+## and Rhat is the potential scale reduction factor (at convergence, Rhat=1).
+## 
+## DIC info (using the rule, pD = var(deviance)/2)
+## pD = 3.6 and DIC = 205.5
+## DIC is an estimate of expected predictive error (lower deviance is better).</code></pre>
+<p>Com os resultados em mãos podemos avaliar o ajuste do modelo, o jags nos fornece os intervalos de credibilidade e o Rhat, que é a convergência da cadeia, a princípio vamos apenas considerar o fato de que quanto mais próximo de 1, melhor são as estimativas.</p>
+<p>Não vou me extender neste post com a interpretação do modelo pois o objetivo esta sendo mostrar a funcionalidade do jags em conjunto com o R.</p>
+</div>
+<div id="diagnósticos-do-modelo-com-mcmcplots" class="section level1">
+<h1>Diagnósticos do modelo com <code>mcmcplots</code></h1>
+<p>Para o diagnóstico do modelo podemos utilizar o pacote <code>mcmcplots</code> que fornece de maneira bem agradável os resultados gerados pelo amostrador, primeiramente vamos carregar o pacote:</p>
+<pre class="r"><code>library(mcmcplots)</code></pre>
+<p>Em seguida precisar informar para o <code>R</code> que o resultado do algorítimo se trata de um objeto mcmc, portanto:</p>
+<pre class="r"><code>bayes.mod.fit.mcmc &lt;- as.mcmc(bayes.mod.fit)
+summary(bayes.mod.fit.mcmc)</code></pre>
+<pre><code>## 
+## Iterations = 1:49991
+## Thinning interval = 10 
+## Number of chains = 3 
+## Sample size per chain = 5000 
+## 
+## 1. Empirical mean and standard deviation for each variable,
+##    plus standard error of the mean:
+## 
+##               Mean       SD  Naive SE Time-series SE
+## beta[1]    5.04490 0.435344 3.555e-03      3.555e-03
+## beta[2]   -0.47754 0.077588 6.335e-04      6.335e-04
+## deviance 201.92383 2.682384 2.190e-02      2.144e-02
+## sigma      6.44763 0.903646 7.378e-03      7.359e-03
+## tau        0.02542 0.006784 5.539e-05      5.524e-05
+## 
+## 2. Quantiles for each variable:
+## 
+##               2.5%       25%       50%       75%     97.5%
+## beta[1]    4.18250   4.75721   5.04333   5.32437   5.91642
+## beta[2]   -0.63255  -0.52732  -0.47726  -0.42674  -0.32376
+## deviance 198.88143 199.97019 201.24393 203.14881 208.85648
+## sigma      4.99470   5.80492   6.33492   6.96990   8.50193
+## tau        0.01383   0.02058   0.02492   0.02968   0.04008</code></pre>
+<p>O pacote nos fornece alguns tipos de gráficos para diagnóstico</p>
+<pre class="r"><code>caterplot(bayes.mod.fit.mcmc)                #Observando todas as estimativas</code></pre>
+<p><img src="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>caterplot(bayes.mod.fit.mcmc,parms = params) #Observando as estimativas de todos os parâmetros menos o desvio</code></pre>
+<p><img src="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+<pre class="r"><code>denplot(bayes.mod.fit.mcmc)                  #Densidade das estimativas de cada cadeia</code></pre>
+<p><img src="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
+<pre class="r"><code>traplot(bayes.mod.fit.mcmc,greek = T)        #Avaliando a convergência</code></pre>
+<p><img src="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot_files/figure-html/unnamed-chunk-8-4.png" width="672" /></p>
+<p>E por fim, para diagnósticos rápidos, pode produzir arquivos html com traço, densidade e autocorrelação.</p>
+<p>O comando traça tudo em uma página e os arquivos serão exibidos em seu navegador de internet padrão.</p>
+<pre class="r"><code>mcmcplot(bayes.mod.fit.mcmc)</code></pre>
+<p>Vai retornar um relatório resumido para todos os parâmetros como nesta <a href="https://introndatalab.com/wp-content/uploads/manually/20150405/MCMC%20Plots%20%20result2_files/attack%5B1,1%5D.png">imagem da internet</a> como:</p>
+<p><img src="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot_files/imagem1.png" /></p>
+<p>Como o objetivo do post é trazer a funcionalidade do pacote, vou apenas deixar ilustrado quais são algumas das funções mais comumente utilizadas para avaliar estatísticamente o desempenho dos modelos.</p>
+<p>Diagnosticos estatísticos do modelo:</p>
+<pre class="r"><code>#Mais diagnosticos:
+gelman.plot(bayes.mod.fit.mcmc)</code></pre>
+<p><img src="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>geweke.diag(bayes.mod.fit.mcmc)</code></pre>
+<pre><code>## [[1]]
+## 
+## Fraction in 1st window = 0.1
+## Fraction in 2nd window = 0.5 
+## 
+##  beta[1]  beta[2] deviance    sigma      tau 
+##  -1.6717   1.1790  -0.4485   0.1854  -0.6815 
+## 
+## 
+## [[2]]
+## 
+## Fraction in 1st window = 0.1
+## Fraction in 2nd window = 0.5 
+## 
+##  beta[1]  beta[2] deviance    sigma      tau 
+##  0.37278 -0.36960 -0.24342 -0.08007  0.30725 
+## 
+## 
+## [[3]]
+## 
+## Fraction in 1st window = 0.1
+## Fraction in 2nd window = 0.5 
+## 
+##  beta[1]  beta[2] deviance    sigma      tau 
+## -0.15725  0.19911 -0.08445 -0.34043  0.35357</code></pre>
+<pre class="r"><code>geweke.plot(bayes.mod.fit.mcmc)</code></pre>
+<p><img src="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot_files/figure-html/unnamed-chunk-10-2.png" width="672" /><img src="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot_files/figure-html/unnamed-chunk-10-3.png" width="672" /><img src="/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot_files/figure-html/unnamed-chunk-10-4.png" width="672" /></p>
+<pre class="r"><code>raftery.diag(bayes.mod.fit.mcmc)</code></pre>
+<pre><code>## [[1]]
+## 
+## Quantile (q) = 0.025
+## Accuracy (r) = +/- 0.005
+## Probability (s) = 0.95 
+##                                                 
+##           Burn-in  Total Lower bound  Dependence
+##           (M)      (N)   (Nmin)       factor (I)
+##  beta[1]  20       39950 3746         10.70     
+##  beta[2]  20       36200 3746          9.66     
+##  deviance 20       37410 3746          9.99     
+##  sigma    20       38030 3746         10.20     
+##  tau      20       36800 3746          9.82     
+## 
+## 
+## [[2]]
+## 
+## Quantile (q) = 0.025
+## Accuracy (r) = +/- 0.005
+## Probability (s) = 0.95 
+##                                                 
+##           Burn-in  Total Lower bound  Dependence
+##           (M)      (N)   (Nmin)       factor (I)
+##  beta[1]  20       38030 3746         10.20     
+##  beta[2]  20       36800 3746          9.82     
+##  deviance 20       37410 3746          9.99     
+##  sigma    20       37410 3746          9.99     
+##  tau      20       35610 3746          9.51     
+## 
+## 
+## [[3]]
+## 
+## Quantile (q) = 0.025
+## Accuracy (r) = +/- 0.005
+## Probability (s) = 0.95 
+##                                                 
+##           Burn-in  Total Lower bound  Dependence
+##           (M)      (N)   (Nmin)       factor (I)
+##  beta[1]  20       37410 3746          9.99     
+##  beta[2]  20       38030 3746         10.20     
+##  deviance 20       37410 3746          9.99     
+##  sigma    30       40620 3746         10.80     
+##  tau      20       39300 3746         10.50</code></pre>
+<pre class="r"><code>heidel.diag(bayes.mod.fit.mcmc)</code></pre>
+<pre><code>## [[1]]
+##                                        
+##          Stationarity start     p-value
+##          test         iteration        
+## beta[1]  passed       1         0.292  
+## beta[2]  passed       1         0.455  
+## deviance passed       1         0.733  
+## sigma    passed       1         0.881  
+## tau      passed       1         0.816  
+##                                      
+##          Halfwidth Mean     Halfwidth
+##          test                        
+## beta[1]  passed      5.0481 0.012089 
+## beta[2]  passed     -0.4780 0.002155 
+## deviance passed    201.8829 0.073069 
+## sigma    passed      6.4367 0.024544 
+## tau      passed      0.0255 0.000187 
+## 
+## [[2]]
+##                                        
+##          Stationarity start     p-value
+##          test         iteration        
+## beta[1]  passed       1         0.246  
+## beta[2]  passed       1         0.249  
+## deviance passed       1         0.967  
+## sigma    passed       1         0.950  
+## tau      passed       1         0.770  
+##                                      
+##          Halfwidth Mean     Halfwidth
+##          test                        
+## beta[1]  passed      5.0386 0.011955 
+## beta[2]  passed     -0.4765 0.002134 
+## deviance passed    201.9023 0.068414 
+## sigma    passed      6.4571 0.025014 
+## tau      passed      0.0253 0.000188 
+## 
+## [[3]]
+##                                        
+##          Stationarity start     p-value
+##          test         iteration        
+## beta[1]  passed       1         0.657  
+## beta[2]  passed       1         0.690  
+## deviance passed       1         0.544  
+## sigma    passed       1         0.813  
+## tau      passed       1         0.873  
+##                                      
+##          Halfwidth Mean     Halfwidth
+##          test                        
+## beta[1]  passed      5.0480 0.012156 
+## beta[2]  passed     -0.4781 0.002163 
+## deviance passed    201.9863 0.076685 
+## sigma    passed      6.4491 0.025385 
+## tau      passed      0.0254 0.000188</code></pre>
+</div>
+<div id="diagnostico-de-convergencia-rapida-superdiag" class="section level1">
+<h1>Diagnostico de convergencia rapida: <code>superdiag</code></h1>
+<p>Uma função muito conveniente para analisar representações numéricas de diagnósticos em um ajuste é o pacote <code>superdiag</code> de Tsai, Gill e Rapkin, 2012 que trás uma série de estatísticas para avaliar o desempenho dos ajustes do modelo.</p>
+<pre class="r"><code>library(superdiag)
+superdiag(bayes.mod.fit.mcmc, burnin = 100)</code></pre>
+<pre><code>## Number of chains = 3 
+## Number of iterations = 5000 per chain before discarding the burn-in period
+## Burn-in period = 100 per chain
+## Sample size in total = 14703 
+## 
+## ****************** The Geweke diagnostic: ******************
+## Windows:
+##            chain 1 chain 2 chain 3
+## From start     0.1  0.5420  0.2999
+## From stop      0.5  0.3511  0.6893
+## 
+## Z-scores:
+##           chain 1 chain 2  chain 3
+## beta[1]  -1.85586  0.3331 -1.66699
+## beta[2]   1.57605 -0.2271  1.53584
+## deviance  0.02463  0.3356 -1.14324
+## sigma    -0.15363 -0.8820 -0.33962
+## tau      -0.09745  0.9937  0.01232
+## 
+## *************** The Gelman-Rubin diagnostic: ***************
+## Potential scale reduction factors:
+##          Point est. Upper C.I.
+## beta[1]      1.0001      1.001
+## beta[2]      1.0000      1.000
+## deviance     1.0009      1.002
+## sigma        1.0002      1.001
+## tau          0.9999      1.000
+## 
+## Multivariate psrf: 1.0005
+## 
+## ************* The Heidelberger-Welch diagnostic ************
+## Chain 1:
+## epsilon=0.1, alpha=0.05                                       
+##          Stationarity start     p-value
+##          test         iteration        
+## beta[1]  passed       1         0.1576 
+## beta[2]  passed       1         0.2864 
+## deviance passed       1         0.8399 
+## sigma    passed       1         0.8207 
+## tau      passed       1         0.7405 
+##                                       
+##          Halfwidth Mean      Halfwidth
+##          test                         
+## beta[1]  passed      5.04671 0.012211 
+## beta[2]  passed     -0.47775 0.002177 
+## deviance passed    201.89097 0.074094 
+## sigma    passed      6.43566 0.024772 
+## tau      passed      0.02549 0.000189 
+## 
+## Chain 2:
+## epsilon=0.079, alpha=0.1                                       
+##          Stationarity start     p-value
+##          test         iteration        
+## beta[1]  passed       1         0.3032 
+## beta[2]  passed       1         0.3259 
+## deviance passed       1         0.9562 
+## sigma    passed       1         0.7462 
+## tau      passed       1         0.5362 
+##                                       
+##          Halfwidth Mean      Halfwidth
+##          test                         
+## beta[1]  passed      5.03850 0.0120853
+## beta[2]  passed     -0.47646 0.0021574
+## deviance passed    201.90084 0.0693125
+## sigma    passed      6.45467 0.0252168
+## tau      passed      0.02536 0.0001894
+## 
+## Chain 3:
+## epsilon=0.054, alpha=0.005                                       
+##          Stationarity start     p-value
+##          test         iteration        
+## beta[1]  passed       1         0.5489 
+## beta[2]  passed       1         0.5665 
+## deviance passed       1         0.5038 
+## sigma    passed       1         0.8038 
+## tau      passed       1         0.8898 
+##                                       
+##          Halfwidth Mean      Halfwidth
+##          test                         
+## beta[1]  passed      5.04719 0.0122925
+## beta[2]  passed     -0.47794 0.0021858
+## deviance passed    201.98956 0.0775537
+## sigma    passed      6.44893 0.0256817
+## tau      passed      0.02544 0.0001937
+## 
+## *************** The Raftery-Lewis diagnostic ***************
+## Chain 1:
+## Convergence eps = 0.001
+## Quantile (q) = 0.025
+## Accuracy (r) = +/- 0.005
+## Probability (s) = 0.95 
+##                                                 
+##           Burn-in  Total Lower bound  Dependence
+##           (M)      (N)   (Nmin)       factor (I)
+##  beta[1]  30       40170 3746         10.70     
+##  beta[2]  20       36340 3746          9.70     
+##  deviance 20       38200 3746         10.20     
+##  sigma    20       38200 3746         10.20     
+##  tau      20       36950 3746          9.86     
+## 
+## Chain 2:
+## Convergence eps = 5e-04
+## Quantile (q) = 0.25
+## Accuracy (r) = +/- 0.001
+## Probability (s) = 0.99 
+## 
+## You need a sample size of at least 1244044 with these values of q, r and s
+## 
+## Chain 3:
+## Convergence eps = 0.005
+## Quantile (q) = 0.25
+## Accuracy (r) = +/- 5e-04
+## Probability (s) = 0.999 
+## 
+## You need a sample size of at least 8120675 with these values of q, r and s
+## 
+## ************* The Hellinger distance diagnostic ************
+## Between chains: 
+##              Min     Max
+## beta[1]  0.01735 0.02915
+## beta[2]  0.02015 0.02620
+## deviance 0.03155 0.03413
+## sigma    0.01858 0.02731
+## tau      0.01538 0.02810
+## 
+## Within chain 1:
+##              980    1960    2940    3920
+## beta[1]  0.05231 0.03952 0.04017 0.04259
+## beta[2]  0.04261 0.05034 0.04320 0.04782
+## deviance 0.05880 0.04060 0.06297 0.04311
+## sigma    0.03871 0.03667 0.06465 0.04285
+## tau      0.03668 0.03996 0.03633 0.04083
+## 
+## Within chain 2:
+##              980    1960    2940    3920
+## beta[1]  0.03098 0.04075 0.04281 0.03887
+## beta[2]  0.03050 0.03770 0.03887 0.04216
+## deviance 0.04541 0.03992 0.03390 0.04730
+## sigma    0.04660 0.03876 0.03090 0.02866
+## tau      0.03648 0.03773 0.02967 0.03589
+## 
+## Within chain 3:
+##              980    1960    2940    3920
+## beta[1]  0.03356 0.03988 0.03146 0.02986
+## beta[2]  0.03425 0.04729 0.03175 0.03219
+## deviance 0.05894 0.03553 0.05018 0.04509
+## sigma    0.04392 0.04245 0.03858 0.03760
+## tau      0.04089 0.03458 0.04512 0.03047</code></pre>
+<p>Para finalizar, outra função que pode ser útil pata atualizando o modelo, se necessário - por exemplo, se não houver convergência ou pouca convergencia:</p>
+<pre class="r"><code>bayes.mod.fit.upd &lt;- update(bayes.mod.fit, n.iter=1000)
+bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
+</div>
+<div id="muito-a-estudar" class="section level1">
+<h1>Muito a estudar</h1>
+<p>Assim como toda a Estatística, inferência bayesiana não funciona se a teoria não for aplicada corretamente. É uma ferramenta muito poderosa e necessita ser usada com cautela pois demanda bastante o uso de metodologias estatísticas.</p>
+<p>Como dizia o tio Ben: “grandes poderes trazem grandes responsabilidades” então vamos tomar cuidado com os resultados que encontramos.</p>
+</div>
+<div id="referencias" class="section level1">
+<h1>Referencias</h1>
+<p><a href="http://recologia.com.br/2012/12/uma-primeira-olhada-em-estatistica-bayesiana-e-linguagem-bugs/">Uma primeira olhada em estatística bayesiana e linguagem BUGS por Augusto Ribas - blog Recologia</a></p>
+<p><a href="http://www.users.csbsju.edu/~mgass/robert.pdf">John K. Kruschke 2014 Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and Stan.2nd Edition. Academic Press / Elsevier.</a></p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Estatistica</category>
+      <category>R</category>
+      <category>Teoria</category>
+      <category>Bayes</category>
+      <category>Inferência Bayesiana</category>
+      <category>Modelagem Estatistica</category>
+      <category domain="tag">Estatistica</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">R</category>
+      <category domain="tag">jags</category>
+      <category domain="tag">bayes</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem estatistica</category>
+    </item>
   </channel>
 </rss>

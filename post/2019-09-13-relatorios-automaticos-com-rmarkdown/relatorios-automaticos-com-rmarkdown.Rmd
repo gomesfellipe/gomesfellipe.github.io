@@ -1,0 +1,461 @@
+---
+title: Como automatizar relatórios longos e repetitivos com RMarkdown
+author: Fellipe Gomes
+date: '2019-09-13'
+slug: []
+categories:
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
+tags:
+- data-mining
+- estatistica
+- otimizacao
+- pratica
+- r
+- regressao
+- relatorios
+- reports
+- rmarkdown
+- rstudio
+description: Veja como fazer um relatório estatístico "extenso e repetitivo" sem utilizar
+  copiar e colar nenhuma vez
+featured: img.png
+featuredalt: Ilustração sobre como automatizar relatórios longos e repetitivos com
+  rmarkdown
+featuredpath: date
+type: post
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2019/09/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2019/09/img.png
+keywords: data-mining, estatistica, otimizacao, pratica, r, regressao, relatorios,
+  reports, rmarkdown, rstudio, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval=F, echo = TRUE, warning = F, fig.width = 8, fig.height = 5, message = F)
+```
+   
+```{r, echo=F}
+# Carregar pacotes
+library(ggplot2)
+library(dplyr)
+library(gapminder)
+library(scales)
+library(gganimate)
+library(tidyr)
+library(knitr)
+library(magrittr) 
+
+# Carregar pacotes da funcao analise_gapminder
+require(broom)
+require(ggforce)
+require(ggpmisc)
+require(ggExtra)
+
+# Definir tema:
+theme_set(theme_bw())
+
+# ggExtra, magrittr, tidyr, broom,
+#                ggrepel, ggforce, gganimate, ggpmisc, knitr
+# # Funcao para customizar as legendas:
+# custom_legend <- function(x){comma(x, big.mark = ".",decimal.mark = ",")}
+```
+
+# Problema de negócio
+
+Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passsar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.
+
+Com a linguagem R, escrever relatórios estatísticos utilizando [RMarkdown](https://rmarkdown.rstudio.com/) acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código. 
+
+Assim, combinando conceitos de programação, como o [Loop](https://pt.wikipedia.org/wiki/Loop_(programa%C3%A7%C3%A3o)) no R e a linguagem [Markdown](https://pt.wikipedia.org/wiki/Markdown) para produção de relatórios, temos uma poderosa ferramenta para [Automação](https://pt.wikipedia.org/wiki/Automa%C3%A7%C3%A3o) de relatórios. 
+
+## Entendendo o problema     
+
+Suponha que o seguinte gráfico seja apresentado à você:  
+
+```{r, echo = F}
+# Gráfico:
+gapminder %>% 
+  filter(country!="Kuwait") %>% # remover 1 pais outlier
+  ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, 
+             label = country, color = continent, alpha= log(gdpPercap))) %+%
+  geom_point(show.legend = F) %+%
+  geom_text(show.legend = F, size = 3, nudge_y = -0.7) %+%
+  scale_size_continuous(labels = function(x){comma(x, big.mark = ".",decimal.mark = ",")}) %+%
+  scale_x_continuous(labels = function(x){comma(x, big.mark = ".",decimal.mark = ",")}) %+%
+  geom_smooth(se=F, color = "black", show.legend = F, method = "lm") %+% 
+  transition_time(year) %+%
+  scale_color_brewer(palette = "Dark2") %+%
+  labs(title = "Year: {frame_time}") 
+```
+
+<center>
+![](/post/2019-09-13-relatorios-automaticos-com-rmarkdown/figure-html/unnamed-chunk-1-1.gif){width=80%}
+</center>
+
+Este gráfico animado apresenta a evolução da esperança de vida ao nascer (em anos) em relação ao PIB per capita (em US$, ajustado pela inflação) de 141 países dos 5 continentes durante o período de 1952 até 2007, a cada 5 anos.
+
+Entraremos em mais detalhes sobre as informações dete gráfico a seguir.
+
+# Fonte dos dados
+
+Os dados utilizados neste problema foram importados através do pacote [gapminder](https://cran.r-project.org/web/packages/gapminder/index.html) que é um projeto que utiliza dados do site [Gapminder.org](https://www.gapminder.org/).
+
+Segundo sua [descrição no site](https://www.gapminder.org/about-gapminder/):
+
+> "Gapminder é uma fundação independente sueca sem afiliações políticas, religiosas ou econômicas. (...)"
+
+No site é possível obter dados gratuitos para se obter estatísticas confiáveis e além dos disso a Fundação Gapminder apresenta alguns outros projetos como o [Dollar Street](https://www.gapminder.org/dollar-street/matrix) que apresenta 30.000 fotos de 264 famílias em 50 países classificados por renda. 
+
+Na página do projeto é possível ver e comparar os mais variados aspectos da população ao redor do mundo que vão desde casas, itens mais amados, carros até banheiros, comida de pets e bebidas alcoólicas.
+
+O pacote fornece dados da Fundação Gapminder como: valores de expectativa de vida, PIB per capta e população, a cada cinco anos, de 1952 a 2007 (total de 12 anos). Veja as primeiras 5 linhas da base de dados contidos no pacote:
+
+```{r}
+# Base de dados utilizada
+head(gapminder)
+```
+
+```
+## # A tibble: 6 x 6
+##   country     continent  year lifeExp      pop gdpPercap
+##   <fct>       <fct>     <int>   <dbl>    <int>     <dbl>
+## 1 Afghanistan Asia       1952    28.8  8425333      779.
+## 2 Afghanistan Asia       1957    30.3  9240934      821.
+## 3 Afghanistan Asia       1962    32.0 10267083      853.
+## 4 Afghanistan Asia       1967    34.0 11537966      836.
+## 5 Afghanistan Asia       1972    36.1 13079460      740.
+## 6 Afghanistan Asia       1977    38.4 14880372      786.
+```
+
+Essa base de dados possui 1705 linhas de 6 variáveis, onde:
+
+  * `country`: factor com 142 levels
+  * `continent`: factor com 5 levels
+  * `year`: sequencia de 1952 até 2007 a cada 5 anos
+  * `lifeExp`: esperança de vida ao nascer, em anos
+  * `pop`: população
+  * `gdpPercap`: PIB per capita (em US$, ajustado pela inflação)
+
+# Comportamento geral dos dados
+
+Antes de começar a fazer os relatórios para cada ano, vamos reproduzir a animação apresentada para nós com  o comportamento temporal utilizando o pacote [gganimate](https://github.com/thomasp85/gganimate):
+
+```{r}
+# Carregar pacotes
+library(ggplot2)
+library(dplyr)
+library(gapminder)
+library(scales)
+library(gganimate)
+
+# Definir tema:
+theme_set(theme_bw())
+
+# Funcao para customizar legendas:
+custom_legend <- function(x){comma(x, big.mark = ".",decimal.mark = ",")}
+
+# Comportamento geral:
+gapminder %>% 
+  filter(country!="Kuwait") %>% # remover 1 pais outlier
+  ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, 
+             label = country, color = continent, alpha= log(gdpPercap))) %+%
+  geom_point(show.legend = F) %+%
+  geom_text(show.legend = F, size = 3, nudge_y = -0.7) %+%
+  scale_size_continuous(labels = custom_legend) %+%
+  scale_x_continuous(labels = custom_legend) %+%
+  geom_smooth(se=F, color = "black", show.legend = F, method = "lm") %+% 
+  transition_time(year) %+%
+  scale_color_brewer(palette = "Dark2") %+%
+  labs(title = "Year: {frame_time}")
+```
+
+<center>
+![](/post/2019-09-13-relatorios-automaticos-com-rmarkdown/unnamed-chunk-1-1.gif){width=80%}
+</center>
+
+Analisando esta animação é possível notar:
+
+  * Japão é o país que possui a maior expectativa de vida ao longo de todos os anos;
+  * Os países do contínente africano são os que apresentam expectativa de vida mais baixa e pior `gdpPercap`. 
+  * A Arábia Saudita teve sua `gdpPercap` aumentada até 1978 porém a partir daí diminiu bastante. 
+  * O país com maior `gdpPercap` e expectativa de vida na América é o Estados Unidos;
+  * A Noroega foi o país que mais se descatou com os valores mais elevados e estáveis ao longo destes 55 anos.
+
+Obs[1]: [Kuwait](https://www.google.com/search?q=Kuwait&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj53ZXJ4bPjAhVAD7kGHQvwCWgQ_AUIESgC&biw=1574&bih=943) foi removida para este gráfico animado pois é um país outlier. Segundo o [Wikipédia](https://pt.wikipedia.org/wiki/Kuwait):
+
+> "O Kuwait tem um PIB (PPC) de US$ 167,9 bilhões[96] e uma renda per capita de US$ 81 800,[96] o que o torna o quinto país mais rico do mundo.[52] O índice de desenvolvimento humano (IDH) do Kuwait é de 0,816, um dos mais elevados do Oriente Médio e do mundo árabe. Com uma taxa de crescimento do PIB de 5,7%, o Kuwait tem uma das economias que mais crescem na região.[96]"
+
+Para quem tiver curiosidade, os dados de `Kuwait` podem ser obtidos da seguinte forma:
+
+```{r}
+gapminder %>% filter(country == "Kuwait")
+```
+
+```
+## # A tibble: 12 x 6
+##    country continent  year lifeExp     pop gdpPercap
+##    <fct>   <fct>     <int>   <dbl>   <int>     <dbl>
+##  1 Kuwait  Asia       1952    55.6  160000   108382.
+##  2 Kuwait  Asia       1957    58.0  212846   113523.
+##  3 Kuwait  Asia       1962    60.5  358266    95458.
+##  4 Kuwait  Asia       1967    64.6  575003    80895.
+##  5 Kuwait  Asia       1972    67.7  841934   109348.
+##  6 Kuwait  Asia       1977    69.3 1140357    59265.
+##  7 Kuwait  Asia       1982    71.3 1497494    31354.
+##  8 Kuwait  Asia       1987    74.2 1891487    28118.
+##  9 Kuwait  Asia       1992    75.2 1418095    34933.
+## 10 Kuwait  Asia       1997    76.2 1765345    40301.
+## 11 Kuwait  Asia       2002    76.9 2111561    35110.
+## 12 Kuwait  Asia       2007    77.6 2505559    47307.
+```
+
+# Resolvendo o problema de negócio
+
+Para resolver o problema de se fazer uma análise sobre a expectativa de vida, PIB per capta e população, para cada continente, para cada ano disponível, (ou seja, analisar de 1952 a 2007 a cada cinco anos) faremos um total de 12 relatórios. 
+
+Isso é muito para se arriscar usar `ctrl+c` e `ctrl+v` 12 vezes e depois caso precise de alguma mudança, alterar o relatório 12 vezes.
+
+Portanto utilizaremos uma estratégia parecida com a que apresentei no último post sobre como [Hackear o R com a estratécia Split-Appy-Combine](https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/).
+
+Primeiramente vamos separar nosso dataset por ano utilizando a função `tidyr::nest()`:
+
+```{r}
+library(tidyr) # funcao nest
+
+# separar por ano:
+nested_gapminder <- gapminder %>% nest(-year)
+```
+
+Selecionei um dos anos como exemplo e utilizei os objetos `nested_gapminder$year[1]` e `nested_gapminder$data[[1]]` para desenvolver uma função que realizasse todas as análises que eu precisasse. 
+
+Essa função foi salva em um script separado chamado `analise.R` e pode ser encontrada [neste link](). Para caregar a função localmente basta utilizar a função `source()`, veja;
+
+```{r}
+source("analise_gapminder.R")
+```
+
+Veja nas seções a seguir os outputs da função antes de encapsulá-la em um arquivo RMarkdown (.Rmd) para fazer o looping:
+
+## Resultados para o ano 2007 
+
+A seguir vamos criar o objeto `x` que será o data set referente ao ano `title`. Em seguida vamos aplicar a função carregada anteriormente para obter os resultados das análises e salvar no objeto `resutls`
+
+```{r}
+library(magrittr) # pipe %$%
+
+# Obter resultados
+x       <- nested_gapminder %>% filter(year == 2007) %>% unnest()
+title   <- nested_gapminder %>% filter(year == 2007) %$% year
+results <- analise_gapminder(x, title)
+```
+
+Vejamos como o Brasil esta em relação aos outros países com um gráfico que resume os resultados do modelo ajustado:
+
+```{r}
+results$grafico_geral_regressao
+```
+
+<center>
+![](/post/2019-09-13-relatorios-automaticos-com-rmarkdown/unnamed-chunk-9-1.png){width=80%}
+</center>
+
+Comportamento dos dados por Continente
+
+```{r}
+results$grafico_por_continente
+```
+
+<center>
+![](/post/2019-09-13-relatorios-automaticos-com-rmarkdown/unnamed-chunk-10-1.png){width=80%}
+</center>
+
+Após ajustar o modelo de regressão, vamos obter algumas estatísticas descritivas com mais gráficos informativos!
+
+O gráfico abaixo apresenta uma [Regressão Local (LOESS)](http://www.leg.ufpr.br/lib/exe/fetch.php/projetos:saudavel:loess.pdf) com destaque nos países que tiveram `gdpPercap` e `lifeExp` acima da média
+
+```{r, fig.height=9}
+results$grafico_zoom_acima_media
+```
+
+<center>
+![](/post/2019-09-13-relatorios-automaticos-com-rmarkdown/unnamed-chunk-11-1.png){width=80%}
+</center>
+
+E agora podemos conferir um gráfico que apresenta uma [Regressão Local (LOESS)](http://www.leg.ufpr.br/lib/exe/fetch.php/projetos:saudavel:loess.pdf) com destaque nos países que tiveram `gdpPercap` e `lifeExp` acima da média
+
+```{r, fig.height=9}
+results$grafico_zoom_abaixo_media
+```
+
+<center>
+![](/post/2019-09-13-relatorios-automaticos-com-rmarkdown/unnamed-chunk-12-1.png){width=80%}
+</center>
+
+Maravilha! Muitas informações interessantes mas não resolvemos o problema por inteiro. Resta aplicar as mesmas análises para os demais anos do nosso dataset.
+
+# Automatizar as analises para os próximos anos 
+
+A linha a seguir é a que realiza toda a mágica!
+
+A função `knit_child()` compila o código R e retorna uma saída pura (Latex, html ou word sem código R), então se fizermos um looping da seguinte maneira teremos replicado nossas análises para todos os demais anos:
+
+```
+rmarkdown::render("gapminder_automatico_master.Rmd")
+``` 
+
+Veja o conteúdo do script `gapminder_automatico_master.Rmd`:
+
+<script src="https://gist.github.com/gomesfellipe/86af044b4e8a874756a2f4c379cfc01b.js"></script>
+
+Note que este script chama outro arquivo `.Rmd` chamado `gapminder_automatico_child.Rmd`, que tem o seguinte conteúdo:
+
+<script src="https://gist.github.com/gomesfellipe/2a9d666e041907ca88dd2188cbc72924.js"></script>
+
+Veja os resultados do looping: 
+
+<iframe src="/post/2019-09-13-relatorios-automaticos-com-rmarkdown/gapminder_automatico_master.pdf" width="600" height="827" style="border: none;"></iframe>
+  
+# Conclusão
+
+A Abordagem para criar chunks *filhos* de RMarkdown com a função `knit_child()` abre muitas portas para análises de dados! Neste post fizemos um exemplo simples de automação de relatórios porém esses resultados podem ser cada vez mais customizáveis e utilizados em RPA - [Robotic Process Automation](https://en.wikipedia.org/wiki/Robotic_process_automation) - de forma que seja possível automatizar processos que antes só poderiam ser executados por humanos!
+
+# Referencias
+
+  * <https://cran.r-project.org/web/packages/gganimate/vignettes/gganimate.html>
+  * <https://cran.r-project.org/web/packages/ggforce/vignettes/Visual_Guide.html>
+  * <https://cran.r-project.org/web/packages/ggExtra/vignettes/ggExtra.html>
+  * <https://cran.r-project.org/web/packages/gapminder/gapminder.pdf>
+  * <https://www.gapminder.org/data/>
+  * <https://stackoverflow.com/questions/43873345/knit-child-in-a-loop-variable-as-title>
+  
+# Apendice
+
+## Função `analise.R`
+
+Veja o conteúdo da função `analise.R` preparada para esta analise:
+
+```r
+# Funcao para analise por ano:
+analise_gapminder <- function(x, title){
+  
+  # Carregar dependencias:
+  require(broom)
+  require(ggforce)
+  require(ggpmisc)
+  require(ggExtra)
+  
+  # Funcao para customizar legendas:
+  custom_legend <- function(x){comma(x, big.mark = ".",decimal.mark = ",")}
+  
+  # Obter dados do Brasil:
+  brazil <- x %>% filter(country == "Brazil")
+  
+  # Resultados do ajuste de regressao ---------------------------------------
+  mytable <- 
+    lm(lifeExp ~ gdpPercap, data = x) %>% 
+    tidy() %>% 
+    mutate_if(is.numeric, ~round(.x, 4)) %>% 
+    `colnames<-`(c("Termo", "Estimativa", "Desv.Pad.", "Estatistica", "Valor p"))
+  
+  # r2:
+  r2 <- round(summary(lm(lifeExp ~ gdpPercap, data = x))$r.squared,4)*100
+  
+  # residuos do modelo:
+  res <- lm(lifeExp ~ gdpPercap, data = x)$residuals
+  
+  # resutado para teste de kolmogorov-smirnov
+  ks_test <- ks.test(res, "pnorm", mean(res), sd(res))$p.value %>% round(5)
+  
+  # Grafico geral com regressao e boxplots ----------------------------------
+  grafico_geral_regressao <- 
+    x %>% 
+    ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, label = country, color = country)) %+%
+    geom_point(show.legend = F) %+%
+    geom_text(show.legend = F, size = 3, nudge_y = -0.5) %+%
+    scale_size_continuous(labels = custom_legend) %+%
+    scale_x_log10(labels = custom_legend) %+%
+    scale_color_manual(values = country_colors) %+%
+    geom_smooth(se=F, color = "black", show.legend = F, method = "lm") %+%
+    annotate("segment", color="blue", arrow=arrow(length=unit(0.05,"npc")),
+             x=brazil$gdpPercap, xend=brazil$gdpPercap,
+             y=brazil$lifeExp-6, yend=brazil$lifeExp-1) %+%
+    annotate("text", color="blue", label = "Brasil",
+             x=brazil$gdpPercap, y=brazil$lifeExp-7) %+%
+    labs(title = paste0(title, ": lifeExp ~ gdpPercap"),
+         subtitle = "Regressão linear e destaque no Brasil",
+         caption = paste0("R² do modelo: ", r2, "\n","p valor para ks.test: ", ks_test),
+         x = "gdpPercap (Transformação log10)") %+%
+    annotate(geom = "table", x = Inf, y = -Inf,
+             label = list(mytable), 
+             vjust = 0, hjust = 1) %>%  
+    ggMarginal(type = "boxplot", fill="transparent",size = 10)
+  
+  # Comportamento separado por continente -----------------------------------
+  grafico_por_continente <- 
+    x %>% 
+    filter(continent != "Oceania") %>% 
+    ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, label = country, color = country)) %+%
+    geom_point(show.legend = F) %+%
+    geom_text(show.legend = F, size = 3, nudge_y = -0.5) %+%
+    facet_wrap(~continent, scales = "free") %+%
+    scale_x_continuous(labels = custom_legend) %+%
+    scale_color_manual(values = country_colors) %+% 
+    geom_smooth(method = "lm", color = "black", se=F, show.legend = F) %+%
+    labs(title = paste0(title, ": lifeExp ~ gdpPercap, por continente"))
+  
+  # Acima da media ----------------------------------------------------------
+  grafico_zoom_acima_media <- 
+    x %>% 
+    ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, label = country, color = country)) %+%
+    geom_point(show.legend = F) %+% 
+    geom_text(show.legend = F, size = 3, nudge_y = -0.5) %+%
+    scale_size_continuous(labels = custom_legend) %+%
+    scale_x_continuous(labels = custom_legend) %+%
+    scale_color_manual(values = country_colors) %+%
+    facet_zoom(y = lifeExp   > median(x$lifeExp),
+               x = gdpPercap > median(x$gdpPercap), split = T) %+%
+    geom_smooth(se=F, color = "red", show.legend = F, method = "loess")  %+%
+    labs(title = paste0(title, ": lifeExp ~ gdpPercap com zoom nos países acima da mediana"))
+  
+  # Abaixo da media ---------------------------------------------------------
+  grafico_zoom_abaixo_media <- 
+    x %>% 
+    ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, label = country, color = country)) %+%
+    geom_point(show.legend = F) %+%
+    geom_text(show.legend = F, size = 3, nudge_y = -0.5) %+%
+    scale_size_continuous(labels = custom_legend) %+%
+    scale_x_continuous(labels = custom_legend) %+%
+    scale_color_manual(values = country_colors) %+%
+    facet_zoom(y = lifeExp   < median(x$lifeExp),
+               x = gdpPercap < median(x$gdpPercap), split = T) %+%
+    geom_smooth(se=F, color = "red", show.legend = F, method = "loess")   %+%
+    labs(title = paste0(title, ": lifeExp ~ gdpPercap com zoom nos países abaixo da mediana"))
+  
+  # Output ------------------------------------------------------------------
+  list(
+    brazil  = brazil,
+    mytable = mytable,
+    r2      = r2,
+    grafico_geral_regressao   = grafico_geral_regressao,
+    grafico_por_continente    = grafico_por_continente,
+    grafico_zoom_acima_media  = grafico_zoom_acima_media,
+    grafico_zoom_abaixo_media = grafico_zoom_abaixo_media,
+    ks_test = ks_test
+  )
+}
+```

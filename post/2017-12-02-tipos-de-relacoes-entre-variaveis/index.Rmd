@@ -4,24 +4,34 @@ author: Fellipe Gomes
 date: '2017-12-02'
 slug: []
 categories:
-  - Estatistica
-  - R
-  - Teoria
+- Fundamentos de Data Science
+- Programação e Ferramentas
 tags:
-  - correlacoes
-  - correlacao
-  - ggplot2
-  - r
-  - gomesfellipe
-description: ''
+- correlacao
+- correlacoes
+- ggplot2
+- r
+description: library(knitr)
 featured: ''
-featuredalt: ''
+featuredalt: Ilustração sobre tipos de relações entre variáveis
 featuredpath: ''
-linktitle: ''
 type: post
+schema_type: BlogPosting
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/main/logo1.jpg
+og_type: article
+article_section: Programming
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/main/logo1.jpg
+keywords: correlacao, correlacoes, ggplot2, r, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 #Leitura de arquivo excell

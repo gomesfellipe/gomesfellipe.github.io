@@ -1,44 +1,52 @@
 ---
-title: Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle
-author: Fellipe Gomes  
+title: Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do
+  Kaggle
+author: Fellipe Gomes
 date: '2018-08-31'
 slug: []
 categories:
-  - Analise Exploratória
-  - Aprendizado Supervisionado
-  - Data mining
-  - Estatistica
-  - Machine Learning
-  - Prática
-  - Probabilidade
-  - R
-  - modelo baseado em arvores
-  - kaggle
-  - Regressão
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
+- Texto e NLP
 tags:
-  - Data Mining
-  - Estatistica
-  - gomesfellipe
-  - kaggle
-  - Correlacoes
-  - modelagem
-  - modelagem estatistica
-  - Prática
-  - R
-  - regression
-  - caret
-  - xgboost
-  - random forest
-  - decisiontree
-description: 'Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando a base de dados do Kaggle para prever o preço final de casas residenciais em Ames, Iowa, utilizando uma variedade de aspectos'
-featured: 'img1.png'
-featuredalt: 'Pic 19'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
+- caret
+- correlacao
+- data-mining
+- decisiontree
+- estatistica
+- kaggle
+- modelagem
+- modelagem-estatistica
+- pratica
+- r
+description: Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando
+  a base de dados do Kaggle para prever o preço final de casas residenciais em Ames,
+  Iowa, utilizando uma variedade de aspectos
+featured: img1.png
+featuredalt: Ilustração sobre um estudo sobre modelos de aprendizagem baseados em
+  árvores com desafio do kaggle
+featuredpath: date
+type: post
+image_preview: img1.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/08/img1.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/08/img1.png
+keywords: caret, correlacao, data-mining, decisiontree, estatistica, kaggle, modelagem,
+  modelagem-estatistica, pratica, r, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-  
 # Kaggle
 
 Segundo o [Wikipédia](https://en.wikipedia.org/wiki/Kaggle):  "Kaggle é a maior comunidade mundial de cientistas de dados e machine learning." Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado. 

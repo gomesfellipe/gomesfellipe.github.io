@@ -1,22 +1,92 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tufle on Fellipe Gomes</title>
+    <title>Tufle on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/tufle/</link>
-    <description>Recent content in Tufle on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 14 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/tufle/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Thu, 14 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/tufle/" rel="self" type="application/rss+xml" />
     <item>
       <title>Criando relatorios com template tufle</title>
       <link>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/</link>
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/</guid>
       <description>Focando no conteúdo Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico.
 Como disse Khalil Gibran; é preciso transformar em palavras aquilo que já conhecemos em pensamentos. Ninguém quer perder tempo precioso de análises em formatações de documentos.
 Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos.</description>
+      <content:encoded>&lt;![CDATA[
+        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="focando-no-conteúdo" class="section level1">
+<h1>Focando no conteúdo</h1>
+<p>Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico.</p>
+<p>Como disse Khalil Gibran; é preciso <em>transformar em palavras aquilo que já conhecemos em pensamentos</em>. Ninguém quer perder tempo precioso de análises em formatações de documentos.</p>
+<p>Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos. Busquei alguma solução que de alguma forma fosse útil na página do <a href="https://www.rstudio.com/">RStudio</a> e me deparei com o pacote <code>tufle</code> disponível no <a href="https://cran.r-project.org">CRAN</a>.</p>
+<p>Este pacote fornece um template interessante para a elaboração de arquivos rmarkdown para converter para PDF, a apresentação é apresentada no manual mais ou menos dessa maneira:</p>
+<div class="figure">
+<img src="http://rmarkdown.rstudio.com/images/tufte-handout.png" alt="" />
+<p class="caption">Imagem do manual</p>
+</div>
+</div>
+<div id="instalando-o-pacote" class="section level1">
+<h1>Instalando o pacote</h1>
+<p>Para instalar o pacote, basta rodar a linha de comando:</p>
+<pre class="r"><code>install.packages(&quot;tufte&quot;)</code></pre>
+</div>
+<div id="criando-um-documento-documento" class="section level1">
+<h1>Criando um documento documento</h1>
+<p>Para criar um documento com o novo template, basta acessar <code>File&gt;New File&gt;R Markdown...</code> e selecionar o templante:</p>
+<div class="figure">
+<img src="http://rmarkdown.rstudio.com/images/new-tufte-handout.png" alt="" />
+<p class="caption">Imagem do <a href="http://rmarkdown.rstudio.com/tufte_handout_format.html#overview">manual do pacote</a></p>
+</div>
+<p>Um novo documento será aberto, caso deseje fazer alguma alteração no preâmbulo, existem essas opções apresentadas no <a href="https://cran.r-project.org/web/packages/tufte/tufte.pdf">manual do pacote no CRAN</a>:</p>
+</div>
+<div id="preâmbulo-do-documento" class="section level1">
+<h1>Preâmbulo do documento</h1>
+<pre class="r"><code>---
+title: &quot;Título&quot;
+subtitle: &quot;Subtitulo&quot;
+author: &quot;Autor&quot;
+date: &quot;`r Sys.Date()`&quot;
+output:
+  tufte::tufte_html: default
+  tufte::tufte_handout:
+    keep_tex: false #true
+    highlight: tango #“default”, “pygments”, “kate”, “monochrome”, “espresso”, “zenburn”, and “haddock”
+    fig_width: 4
+    fig_height: 4
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: skeleton.bib
+link-citations: yes
+---</code></pre>
+<p>Agora basta formatar e organizar os resultados de acordo com seu interesse nas análises sem grandes preocupações com a formatação, deixando da maneira que seja mais conveiente.</p>
+<p>O que sempre foi possível em latex agora já pode ser adapato para quem gosta de trabalhar diretamente no RStudio!</p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/">Criando relatorios com template tufle</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>R</category>
+      <category>Prática</category>
+      <category>Reports</category>
+      <category domain="tag">R</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">Prática</category>
+      <category domain="tag">R Markdown</category>
+      <category domain="tag">RStudio</category>
+      <category domain="tag">Tufle</category>
     </item>
-    
   </channel>
 </rss>

@@ -4,49 +4,54 @@ author: Fellipe Gomes
 date: '2024-05-26'
 slug: []
 categories:
-  - Python
-  - Prática
-  - LLM
-  - Machine Learning
-  - kaggle
-  - Google
-  - IA
-  - Classificação
-  - Ciencia de dados
-  - ChatGPT
-  - Análise de Sentimentos
-  - Gemma
-  - twitter
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
+- Texto e NLP
 tags:
-  - twitter
-  - prophet
-  - neural networks
-  - machine learning
-  - LLM
-  - kaggle
-  - Google
-  - classification
-  - ciencia de dados
-  - gomesfellipe
-  - AI
-  - analise de sentimentos
-  - Gemma
-  - ChatGPT
-description: 'Neste post utilizaremos o modelo Gemma de IA generativa do Google com framework LangChain auxiliando na tarefa de prompt engineering'
-featured: 'img1.png'
-featuredalt: 'Detecção de Linguagem Tóxica com GenAI LLM Gemma do Google e framework Langchain'
-featuredpath: 'date'
-linktitle: ''
-type: "post" 
-output: 
+- chatgpt
+- classification
+- data-science
+- gemma
+- google
+- inteligencia-artificial
+- kaggle
+- llm
+- machine-learning
+- prophet
+description: Neste post utilizaremos o modelo Gemma de IA generativa do Google com
+  framework LangChain auxiliando na tarefa de prompt engineering
+featured: img.png
+featuredalt: Detecção de Linguagem Tóxica com GenAI LLM Gemma do Google e framework
+  Langchain
+featuredpath: date
+type: post
+output:
   blogdown::html_page:
-    toc: true
+    toc: false
     toc_depth: 1
-image_preview: 'img1.png' 
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Advanced
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2024/05/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2024/05/img.png
+keywords: chatgpt, classification, data-science, gemma, google, inteligencia-artificial,
+  kaggle, llm, machine-learning, prophet, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE)
+knitr::opts_chunk$set(python.reticulate = FALSE, eval = FALSE)
 ```
 
 # Caso de Uso de IA Generativa: Detecção de Linguagem Tóxica em Mídias Sociais

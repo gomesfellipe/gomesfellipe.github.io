@@ -1,0 +1,14 @@
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Política de Privacidade on Fellipe Gomes - Data Science Blog</title>
+    <link>https://gomesfellipe.github.io/privacy/</link>
+    <description>Política de Privacidade do blog Fellipe Gomes - Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Tue, 26 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/privacy/" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

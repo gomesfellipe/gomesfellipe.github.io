@@ -1,65 +1,2497 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Python on Fellipe Gomes</title>
+    <title>python on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/python/</link>
-    <description>Recent content in Python on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Wed, 26 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/python/" rel="self" type="application/rss+xml" />
     <item>
-      <title>Construindo uma Equipe Multiagente de IA para Análise do Mercado Bitcoin</title>
-      <link>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</guid>
-      <description>Por que Analisar o Mercado Bitcoin com Agentes de IA? O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, nunca revelou sua identidade. Além disso o bitcoin foi a primeira e ainda é a mais conhecida aplicação da tecnologia Blockchain, que revolucionou a forma como lidamos com registros digitais e segurança dos dados.</description>
+      <title>Agente para análise interpretativa de ligações de telemarketing</title>
+      <link>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</link>
+      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</guid>
+      <description>Neste post vamos criar um agente para extrair insights estruturados de ligações de telemarketing, transformando gravações de áudio em um relatório analítico</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<div id="por-que-analisar-ligações-de-telemarketing-com-ia" class="section level1">
+<h1>Por que analisar ligações de telemarketing com IA?</h1>
+<p>Quem nunca recebeu aquela ligação de telemarketing no momento mais inoportuno? Seja oferecendo um cartão de crédito, cobrando uma dívida ou tentando vender internet, essas ligações fazem parte do nosso cotidiano. Mas você já parou para pensar na quantidade de informações valiosas que existem nessas conversas?</p>
+<p>Para empresas que operam call centers, analisar essas ligações manualmente é uma tarefa hercúlea. Imagine ter que ouvir centenas ou milhares de ligações por dia para:</p>
+<ul>
+<li>Avaliar a qualidade do atendimento</li>
+<li>Identificar problemas recorrentes</li>
+<li>Detectar possíveis fraudes</li>
+<li>Treinar equipes com base em casos reais</li>
+<li>Garantir compliance e conformidade legal</li>
+</ul>
+</div>
+<div id="o-desafio-vai-além-da-transcrição-de-textos" class="section level1">
+<h1>O desafio vai além da transcrição de textos</h1>
+<p>Analisar ligações de telemarketing apresenta desafios que vão muito além da simples transcrição de áudio para texto. O grande volume de dados, a necessidade de identificar corretamente quem está falando em áudios mono (onde todas as vozes estão em um único canal) e a extração de informações relevantes a partir de conversas não estruturadas tornam o processo complexo e exigem soluções especializadas.</p>
+<p>Entre os principais obstáculos técnicos estão: converter fala em texto com precisão mesmo diante de sotaques e ruídos, diarizar os speakers (diferenciar atendente e cliente), transformar transcrições em dados estruturados (como sentimento, tipo de ligação e problemas), além de garantir escalabilidade para processar milhares de ligações de forma eficiente, preferencialmente utilizando recursos como GPU.</p>
+</div>
+<div id="solução-técnica-abordagem-em-4-etapas" class="section level1">
+<h1>Solução técnica: Abordagem em 4 etapas</h1>
+<p>Enquanto estudava para trablhar em um projeto com desafio semelhante, desenvolvi um pipeline em Python integrando três tecnologias de ponta, com foco em soluções gratuitas para estudo e prova de conceito. O projeto abrangeu desde a aquisição das ligações até a extração de insights estruturados, utilizando recursos pagos em ambiente de produção, mas priorizando ferramentas acessíveis para pesquisa e validação.</p>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-10-26-telemarketing-agent/workflow.png" alt="agent telemarketing analysis workflow" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho completo
+</p>
+</center>
+<p>As etapas principais foram:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Coleta e preparação dos dados</strong>: Download e segmentação dos áudios com <code>yt_dlp</code>, <code>pydub</code> e <code>ffmpeg</code>.</li>
+<li><strong>Transcrição dos áudios</strong>:
+<ul>
+<li><strong>Diarização/segmentação por locutor</strong>: Utilizando o modelo de diarização do <a href="https://github.com/pyannote/pyannote-audio">Pyannote.audio</a></li>
+<li><strong>Reconhecimento automático de fala (ASR)</strong>: Modelos gratuitos do <a href="https://openai.com/research/whisper">Whisper da OpenAI</a> hospedados na Hugging Face.</li>
+</ul></li>
+<li><strong>Análise interpretativa</strong>: Extração de informações estruturadas com GPT da OpenAI e o framework <a href="https://python.langchain.com/">LangChain</a> .</li>
+<li><strong>Abordagem analítica</strong>: Exploração dos dados, criação de dashboards e, eventualmente, construção de modelos preditivos (por exemplo, prever se a venda foi concluída).</li>
+</ol>
+<p>Tecnologias Utilizadas:</p>
+<ul>
+<li><strong><a href="https://openai.com/research/whisper">Whisper (OpenAI)</a></strong>: Modelo state-of-the-art para transcrição de áudio</li>
+<li><strong><a href="https://github.com/pyannote/pyannote-audio">Pyannote.audio</a></strong>: Framework especializado em diarização de speakers</li>
+<li><strong><a href="https://python.langchain.com/">LangChain</a></strong>: Framework de LLMs para extração estruturada</li>
+<li><strong>Python</strong>: Orquestração de todo o pipeline</li>
+<li><strong>Google Colab</strong>: Ambiente com GPU gratuita</li>
+</ul>
+<p>Este post vai cobrir apenas a terceira etapa do pipeline: a análise interpretativa das transcrições. Vamos mostrar como transformar o texto bruto das ligações em informações estruturadas e acionáveis usando agentes de GenAI, detalhando o processo de extração automática de sentimentos, problemas, resultados e respostas criativas a partir das conversas.</p>
+<div id="dados-utilizados" class="section level2">
+<h2>Dados utilizados</h2>
+<p>Para este experimento, selecionei alguns vídeos de esquetes de comédia sobre telemarketing <a href="https://www.youtube.com/watch?v=AJVpdNuLdv4">disponíveis no YouTube</a> e extraí um arquivo de áudio para cada ligação, segmentando as conversas individualmente. Veja um exemplo:</p>
+<center>
+<audio controls>
+<source src="/post/2025-10-26-telemarketing-agent/audio_00.mp3" type="audio/mpeg">
+Seu navegador não suporta áudio.
+</audio>
+</center>
+<p>A transcrição dos áudios foi realizada utilizando <a href="https://huggingface.co/openai/whisper-large-v3">Whisper</a> para reconhecimento de fala e <a href="https://huggingface.co/pyannote/speaker-diarization-3.1">Pyannote</a> para diarização dos locutores. Desenvolvi um script que integra essas ferramentas utilizando recursos de GPU em ambientes como Kaggle e Google Colab, o que permite processar grandes volumes de áudio gratuitamente.</p>
+<p>Veja como ficou o resultado após a atribuição dos speakers no pós-processamento:</p>
+<pre><code>SPEAKER_00: Eu gostaria de falar com o Eliel Clayton de Oliveira.
+SPEAKER_01: Ele não tá, tá pra fazenda. Liga amanhã, ele deixou o celular.
+SPEAKER_00: Ah, tudo bem. Eu posso deixar o telefone pra contato com ele no internet? Quem é você? Você é namorada dele? Não, eu sou uma da assessoria de cobrança.
+SPEAKER_01: Da onde? Da outra fazenda? Da fazenda Bonança?
+SPEAKER_00: Não, senhora. Eu sou da assessoria da bebê financeira. Ah, estavam então da Bahia, né? Vou falar pra ele que ligaram pra ele então, tá?
+SPEAKER_01: É da bebê financeira, assessoria da bebê financeira.
+SPEAKER_00: Você teve um bebê com ele? Aonde você tá, minha filha? Não, senhora, assessoria da bebê financeira.
+SPEAKER_01: Estão falando que tem uma mulher que tem um bebê do Eliel.
+SPEAKER_00: Acho melhor você ligar amanhã então, pra ver com ele, pra ver o DNA.</code></pre>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  ⚠️ Naturalmente, todo modelo de transcrição apresenta uma taxa de acerto que pode variar de acordo com a qualidade do áudio, sotaques e presença de ruídos.</p>
+</div>
+<p>Neste post o foco está na construção do agente de análise interpretativa, assumindo que as transcrições já estão disponíveis e prontas para uso. Na versão do projeto que foi para produção, utilizamos uma ferramenta diferente para a etapa de transcrição, mas como prova de conceito até que achei o resultado bem descente.</p>
+</div>
+</div>
+<div id="análise-estruturada-com-agente-de-genai" class="section level1">
+<h1>Análise estruturada com Agente de GenAI</h1>
+<p>É aqui que a mágica realmente acontece: com o poder do <a href="https://www.langchain.com/">LangChain</a> e o recurso de <strong>Structured Output</strong>, conseguimos transformar transcrições brutas de ligações em dados estruturados e acionáveis. Em vez de apenas ler textos longos e desorganizados, extraímos automaticamente sentimentos, problemas, resultados e até respostas criativas. Tudo pronto para análise, visualização ou integração com sistemas de negócio.</p>
+<p>A ideia central se baseia no conceito de saída estruturada (<a href="https://pydantic-docs.helpmanual.io/">Pydantic</a> models) para fornecer ferramentas que forçam o modelo a devolver um JSON consistente que depois é facilmente consumido por pipelines e dashboards.</p>
+<details>
+<summary>
+<b>Schema Pydantic <i>(Ver código)</i></b>
+</summary>
+<pre class="python"><code># Análise de Sentimento
+class SentimentoLigacao(BaseModel):
+    &quot;&quot;&quot;Análise de sentimento da ligação.&quot;&quot;&quot;
+    sentimento_cliente: Literal[&quot;positivo&quot;, &quot;neutro&quot;, &quot;negativo&quot;, &quot;irritado&quot;]
+    sentimento_atendente: Literal[&quot;profissional&quot;, &quot;neutro&quot;, &quot;agressivo&quot;, &quot;impaciente&quot;]
+    nivel_conflito: Literal[&quot;baixo&quot;, &quot;medio&quot;, &quot;alto&quot;]
+
+# Informações da Ligação
+class InformacaoLigacao(BaseModel):
+  &quot;&quot;&quot;Informações extraídas da ligação.&quot;&quot;&quot;
+  tipo_ligacao: Literal[&quot;cobranca&quot;, &quot;oferta_produto&quot;, &quot;suporte&quot;, &quot;pesquisa&quot;, &quot;fraude&quot;]
+  empresa_mencionada: Optional[str] = None
+  produto_servico: Optional[str] = None
+  resultado_ligacao: Literal[&quot;sucesso&quot;, &quot;recusa&quot;, &quot;desligou&quot;, &quot;nao_resolvido&quot;, &quot;fraude_detectada&quot;]
+  cliente_interessado: bool
+
+# Identificação de Problemas
+class ProblemaIdentificado(BaseModel):
+    &quot;&quot;&quot;Problemas identificados na ligação.&quot;&quot;&quot;
+    tem_problema: bool
+    tipo_problema: Optional[Literal[&quot;cobranca_indevida&quot;, &quot;cancelamento&quot;,
+                                    &quot;atendimento_ruim&quot;, &quot;fraude&quot;, &quot;outro&quot;]] = None
+    descricao_problema: Optional[str] = None
+    requer_followup: bool
+
+# Respostas Criativas
+class RespostasCriativas(BaseModel):
+    &quot;&quot;&quot;Respostas criativas ou inusitadas do cliente.&quot;&quot;&quot;
+    teve_resposta_criativa: bool
+    tipo_resposta: Optional[Literal[&quot;humor&quot;, &quot;desculpa_criativa&quot;,
+                                    &quot;contra_ataque&quot;, &quot;confusao_proposital&quot;]] = None
+    citacao: Optional[str] = None
+
+# Schema agregador: um único resultado que engloba todos
+class RelatorioLigacao(BaseModel):
+    &quot;&quot;&quot;Relatório consolidado da ligação. Preencha apenas os blocos aplicáveis.&quot;&quot;&quot;
+    sentimento: Optional[SentimentoLigacao] = None
+    informacao: Optional[InformacaoLigacao] = None
+    problema: Optional[ProblemaIdentificado] = None
+    respostas_criativas: Optional[RespostasCriativas] = None</code></pre>
+</details>
+<p>Para criar o agente de análise interpretativa, encapsulamos toda a configuração do modelo de linguagem, defindo o schema de saída estruturada e estabelecendo as instruções para que o agente atue como um verdadeiro especialista em ligações de telemarketing. Com essa abordagem, garantimos que apenas informações realmente presentes na transcrição sejam extraídas, tornando o processo robusto, auditável e pronto para uso em escala, ou seja, para protótipos ou aplicações em produção.</p>
+<p>Instanciando o agente (exemplo)</p>
+<pre class="python"><code>def instance_agent(api_key: str):
+    model = ChatOpenAI(model=&quot;gpt-4o&quot;, api_key=api_key, temperature=0)
+
+    agent = create_agent(
+        model=model,
+        tools=[],
+        response_format=ToolStrategy(
+            schema=RelatorioLigacao,
+            handle_errors=True
+        ),
+        system_prompt=(
+            &quot;Você é um especialista em análise de ligações de telemarketing.\n&quot;
+            &quot;Dado uma transcrição, preencha somente os blocos do relatório que fizerem sentido.\n&quot;
+            &quot;- Se não houver problema, deixe &#39;problema&#39; como null.\n&quot;
+            &quot;- Se não houver respostas criativas, deixe &#39;respostas_criativas&#39; como null.\n&quot;
+            &quot;- Seja conservador: só preencha quando tiver evidência no texto.&quot;
+        ),
+    )
+    return agent
+
+agent = instance_agent(api_key=OPENAI_API_KEY)
+
+result = agent.invoke({
+    &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: transcriptions[&#39;audio_00&#39;]}]
+})
+
+result[&quot;structured_response&quot;].model_dump()</code></pre>
+<p>Veja qual foi a saída obtida aplicando no nosso exemplo de áudio:</p>
+<pre class="text"><code>{
+ &#39;sentimento&#39;: {
+   &#39;sentimento_cliente&#39;: &#39;irritado&#39;,
+   &#39;sentimento_atendente&#39;: &#39;impaciente&#39;,
+   &#39;nivel_conflito&#39;: &#39;alto&#39;
+ },
+ &#39;informacao&#39;: {
+   &#39;tipo_ligacao&#39;: &#39;cobranca&#39;,
+   &#39;empresa_mencionada&#39;: None,
+   &#39;produto_servico&#39;: None,
+   &#39;resultado_ligacao&#39;: &#39;nao_resolvido&#39;,
+   &#39;cliente_interessado&#39;: False
+ },
+ &#39;problema&#39;: None,
+ &#39;respostas_criativas&#39;: {
+   &#39;teve_resposta_criativa&#39;: True,
+   &#39;tipo_resposta&#39;: &#39;humor&#39;,
+   &#39;citacao&#39;: &#39;Eu agora, eu tô tomando é uma Heineken, uma hora dessa. Tá entendendo?&#39;
+ }
+}</code></pre>
+<details>
+<summary>
+Loop para processar todos os áudios <i>(Ver código)</i>
+</summary>
+<pre class="python"><code>extractions = {}
+for file_name, transcription in transcriptions.items():
+    analysis = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: transcription}]})
+    structured = analysis.get(&quot;structured_response&quot;)
+    extracted = structured.model_dump() if structured is not None else None
+    extractions[file_name] = extracted
+    # Salvar cache da execução
+    with open(os.path.join(path_extractions, f&quot;{file_name}.json&quot;), &quot;w&quot;, encoding=&quot;utf-8&quot;) as fh:
+        json.dump(extracted, fh, ensure_ascii=False, indent=2)</code></pre>
+</details>
+<p></br></p>
+</div>
+<div id="insights-estruturados" class="section level1">
+<h1>Insights estruturados</h1>
+Após processar todos os áudios podemos criar um dashboard que transforma as extrações em KPIs acionáveis, permitindo visualizar rapidamente métricas como taxa de ligações não resolvidas, distribuição dos tipos de ligação, níveis de conflito, frequência de respostas criativas e outros indicadores essenciais para tomada de decisão e melhoria contínua dos processos.
+<details>
+<summary>
+<i>Ver código do Dashboard</i>
+</summary>
+<pre class="python"><code>import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.patches import Rectangle
+import numpy as np
+
+# criar DataFrame a partir do dicionário de extrações
+df = pd.DataFrame.from_dict(extractions, orient=&#39;index&#39;)
+
+# garantir que campos nulos sejam tratados como dicts vazios para normalização
+for col in [&#39;sentimento&#39;, &#39;informacao&#39;, &#39;problema&#39;, &#39;respostas_criativas&#39;]:
+  df[col] = df[col].apply(lambda x: x if isinstance(x, dict) else {})
+
+# normalizar cada bloco e juntar
+sent_df = pd.json_normalize(df[&#39;sentimento&#39;]).add_prefix(&#39;sentimento_&#39;)
+info_df = pd.json_normalize(df[&#39;informacao&#39;]).add_prefix(&#39;informacao_&#39;)
+prob_df = pd.json_normalize(df[&#39;problema&#39;]).add_prefix(&#39;problema_&#39;)
+resp_df = pd.json_normalize(df[&#39;respostas_criativas&#39;]).add_prefix(&#39;respostas_&#39;)
+
+df_extractions = pd.concat([sent_df, info_df, prob_df, resp_df], axis=1)
+df_extractions.index = df.index
+df_extractions.index.name = &#39;file&#39;
+df_extractions.reset_index(inplace=True)
+
+# Configurar estilo
+sns.set_style(&quot;white&quot;)
+plt.rcParams.update({
+  &#39;figure.facecolor&#39;: &#39;white&#39;,
+  &#39;axes.facecolor&#39;: &#39;white&#39;,
+  &#39;savefig.facecolor&#39;: &#39;white&#39;
+})
+sns.set_palette(&quot;husl&quot;)
+
+# Criar figura com subplots
+fig = plt.figure(figsize=(14, 12))
+gs = fig.add_gridspec(4, 4, hspace=0.4, wspace=0.4)
+
+# Cores personalizadas
+colors_main = [&#39;#FF6B6B&#39;, &#39;#4ECDC4&#39;, &#39;#45B7D1&#39;, &#39;#FFA07A&#39;, &#39;#98D8C8&#39;, &#39;#F7DC6F&#39;]
+colors_sentiment = {&#39;neutro&#39;: &#39;#95E1D3&#39;, &#39;irritado&#39;: &#39;#F38181&#39;, &#39;profissional&#39;: &#39;#4A90E2&#39;}
+colors_conflict = {&#39;baixo&#39;: &#39;#A8E6CF&#39;, &#39;medio&#39;: &#39;#FFD93D&#39;, &#39;alto&#39;: &#39;#FF6B6B&#39;}
+
+# ============= TÍTULO PRINCIPAL =============
+fig.suptitle(&#39;Análise de Ligações de Telemarketing com Agent&#39;,
+             fontsize=28, fontweight=&#39;bold&#39;, y=0.9)
+
+# ============= 1. MÉTRICAS PRINCIPAIS (agora vem primeiro) =============
+ax7 = fig.add_subplot(gs[0, :])
+ax7.axis(&#39;off&#39;)
+
+# Calcular métricas
+total_ligacoes = len(df_extractions)
+taxa_criatividade = (df_extractions[&#39;respostas_teve_resposta_criativa&#39;].sum() / total_ligacoes) * 100
+taxa_irritacao = (df_extractions[&#39;sentimento_sentimento_cliente&#39;] == &#39;irritado&#39;).sum() / total_ligacoes * 100
+taxa_nao_resolvido = (df_extractions[&#39;informacao_resultado_ligacao&#39;] == &#39;nao_resolvido&#39;).sum() / total_ligacoes * 100
+taxa_conflito_alto = (df_extractions[&#39;sentimento_nivel_conflito&#39;] == &#39;alto&#39;).sum() / total_ligacoes * 100
+
+# Criar caixas de métricas
+metrics = [
+    (&#39;Total de Ligações&#39;, f&#39;{total_ligacoes}&#39;, &#39;#4A90E2&#39;),
+    (&#39;Taxa de Criatividade&#39;, f&#39;{taxa_criatividade:.1f}%&#39;, &#39;#4ECDC4&#39;),
+    (&#39;Taxa de Irritação&#39;, f&#39;{taxa_irritacao:.1f}%&#39;, &#39;#FF6B6B&#39;),
+    (&#39;Não Resolvidos&#39;, f&#39;{taxa_nao_resolvido:.1f}%&#39;, &#39;#FFA07A&#39;),
+    (&#39;Conflito Alto&#39;, f&#39;{taxa_conflito_alto:.1f}%&#39;, &#39;#F38181&#39;)
+]
+
+x_positions = np.linspace(0.05, 0.85, len(metrics))
+for i, (label, value, color) in enumerate(metrics):
+    rect = Rectangle((x_positions[i], 0.25), 0.15, 0.5,
+                     facecolor=color, linewidth=3,
+                     transform=ax7.transAxes, zorder=2)
+    ax7.add_patch(rect)
+
+    ax7.text(x_positions[i] + 0.075, 0.58, value,
+             ha=&#39;center&#39;, va=&#39;center&#39;, fontsize=22, fontweight=&#39;bold&#39;,
+             color=&#39;white&#39;, transform=ax7.transAxes, zorder=3)
+    ax7.text(x_positions[i] + 0.075, 0.18, label,
+             ha=&#39;center&#39;, va=&#39;center&#39;, fontsize=11, fontweight=&#39;bold&#39;,
+             transform=ax7.transAxes, zorder=3, wrap=True)
+
+# ============= 2. SENTIMENTO DO CLIENTE =============
+ax1 = fig.add_subplot(gs[1, 0:2])
+sentimento_counts = df_extractions[&#39;sentimento_sentimento_cliente&#39;].value_counts()
+# usar cinza para &quot;neutro&quot; (case-insensitive), caso contrário usar palette existente
+neutral_color = &#39;#B0B0B0&#39;
+colors_sent = [
+  neutral_color if str(x).strip().lower() == &#39;neutro&#39; else colors_sentiment.get(x, &#39;#95E1D3&#39;)
+  for x in sentimento_counts.index
+]
+sent_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in sentimento_counts.index]
+bars1 = ax1.bar(sent_labels, sentimento_counts.values, color=colors_sent, linewidth=2)
+ax1.set_title(&#39;Sentimento do Cliente&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax1.set_ylabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax1.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for bar in bars1:
+  height = bar.get_height()
+  ax1.text(bar.get_x() + bar.get_width()/2., height,
+     f&#39;{int(height)}&#39;,
+     ha=&#39;center&#39;, va=&#39;bottom&#39;, fontsize=14, fontweight=&#39;bold&#39;)
+ax1.grid(axis=&#39;y&#39;, alpha=0.3)
+# aumentar limite do eixo y em 5%
+max_h1 = max(bar.get_height() for bar in bars1)
+ax1.set_ylim(0, max_h1 * 1.15)
+
+# ============= 3. NÍVEL DE CONFLITO =============
+ax2 = fig.add_subplot(gs[1, 2:4])
+conflito_counts = df_extractions[&#39;sentimento_nivel_conflito&#39;].value_counts()
+colors_conf = [colors_conflict.get(x, &#39;#A8E6CF&#39;) for x in conflito_counts.index]
+conf_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in conflito_counts.index]
+bars2 = ax2.bar(conf_labels, conflito_counts.values, color=colors_conf, linewidth=2)
+ax2.set_title(&#39;Nível de Conflito&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax2.set_ylabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax2.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for bar in bars2:
+  height = bar.get_height()
+  ax2.text(bar.get_x() + bar.get_width()/2., height,
+       f&#39;{int(height)}&#39;,
+       ha=&#39;center&#39;, va=&#39;bottom&#39;, fontsize=14, fontweight=&#39;bold&#39;)
+ax2.grid(axis=&#39;y&#39;, alpha=0.3)
+# aumentar limite do eixo y em 5%
+if len(bars2) &gt; 0:
+    max_h2 = max(bar.get_height() for bar in bars2)
+    ax2.set_ylim(0, max_h2 * 1.15)
+
+# ============= 4. TIPO DE LIGAÇÃO =============
+ax3 = fig.add_subplot(gs[2, 0:2])
+tipo_counts = df_extractions[&#39;informacao_tipo_ligacao&#39;].value_counts()
+explode = [0.05 if i == 0 else 0 for i in range(len(tipo_counts))]
+wedges, texts, autotexts = ax3.pie(tipo_counts.values, labels=tipo_counts.index, autopct=&#39;%1.1f%%&#39;,
+                                     colors=colors_main, explode=explode, startangle=90,
+                                     textprops={&#39;fontsize&#39;: 11})
+ax3.set_title(&#39;Tipo de Ligação&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+for autotext in autotexts:
+    autotext.set_color(&#39;white&#39;)
+    autotext.set_fontsize(12)
+
+# ============= 5. RESULTADO DA LIGAÇÃO =============
+ax4 = fig.add_subplot(gs[2, 2:4])
+resultado_counts = df_extractions[&#39;informacao_resultado_ligacao&#39;].value_counts()
+res_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in resultado_counts.index]
+bars4 = ax4.barh(res_labels, resultado_counts.values, color=colors_main[:len(resultado_counts)], linewidth=2)
+ax4.set_title(&#39;Resultado da Ligação&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax4.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for i, bar in enumerate(bars4):
+  width = bar.get_width()
+  ax4.text(width, bar.get_y() + bar.get_height()/2.,
+       f&#39; {int(width)}&#39;,
+       ha=&#39;left&#39;, va=&#39;center&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax4.grid(axis=&#39;x&#39;, alpha=0.3)
+
+# ============= 6. RESPOSTAS CRIATIVAS =============
+ax5 = fig.add_subplot(gs[3, 0:2])
+criativas_counts = df_extractions[&#39;respostas_teve_resposta_criativa&#39;].fillna(False).astype(bool).value_counts()
+counts5 = [criativas_counts.get(True, 0), criativas_counts.get(False, 0)]
+labels5 = [&#39;Com Resposta\nCriativa&#39;, &#39;Sem Resposta\nCriativa&#39;]
+colors_criativas = [&#39;#4ECDC4&#39;, &#39;#FF6B6B&#39;]
+
+wedges5, texts5, autotexts5 = ax5.pie(counts5,
+                    labels=labels5,
+                    autopct=&#39;%1.1f%%&#39;,
+                    colors=colors_criativas,
+                    startangle=90,
+                    textprops={&#39;fontsize&#39;: 12})
+ax5.set_title(&#39;Respostas Criativas&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+for autotext in autotexts5:
+    autotext.set_color(&#39;white&#39;)
+    autotext.set_fontsize(13)
+
+# ============= 7. TIPOS DE RESPOSTA CRIATIVA =============
+ax6 = fig.add_subplot(gs[3, 2:4])
+tipo_resposta = df_extractions[&#39;respostas_tipo_resposta&#39;].dropna().value_counts()
+tipo_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in tipo_resposta.index]
+bars6 = ax6.barh(tipo_labels, tipo_resposta.values, color=colors_main[:len(tipo_resposta)], linewidth=2)
+ax6.set_title(&#39;Tipos de Resposta Criativa&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax6.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for i, bar in enumerate(bars6):
+  width = bar.get_width()
+  ax6.text(width, bar.get_y() + bar.get_height()/2.,
+       f&#39; {int(width)}&#39;,
+       ha=&#39;left&#39;, va=&#39;center&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax6.grid(axis=&#39;x&#39;, alpha=0.3)
+
+plt.show()</code></pre>
+</details>
+<p></br></p>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-10-26-telemarketing-agent/dashboard.png" alt="agent telemarketing analysis workflow" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho completo
+</p>
+</center>
+<div id="benefícios-práticos-e-roi-mensurável" class="section level2">
+<h2>Benefícios Práticos e ROI Mensurável</h2>
+<p>Para equipes que operam call centers e compliance, os ganhos são claros:</p>
+<ul>
+<li><strong>Automação de QA</strong> (Análise de 100% das ligações vs. amostragem manual);</li>
+<li>Redução drástica no <strong>tempo de análise</strong>;</li>
+<li><strong>Detecção precoce</strong> de problemas e fraudes;</li>
+<li><strong>Treinamento</strong> baseado em casos reais e dados;</li>
+<li>Evidências estruturadas para <strong>auditoria</strong>;</li>
+<li>KPIs em tempo real e otimização de scripts (<strong>A/B testing</strong>).</li>
+</ul>
+<p>Para empresas, isso significa decisões mais rápidas, menos custos com retrabalho e ROI tangível na operação.</p>
+</div>
+<div id="ética-licença-e-privacidade" class="section level2">
+<h2>Ética, licença e privacidade</h2>
+<p>O dataset aqui usado é público (sketches de comédia) e foi apenas para fins pessoal/educacional. Para qualquer uso comercial:</p>
+<ul>
+<li>Verifique licença dos materiais originais;</li>
+<li>Obtenha consentimento quando necessário;</li>
+<li>Anonimizar dados pessoais;</li>
+<li>Adotar práticas de privacidade e conformidade (LGPD / GDPR).</li>
+</ul>
+</div>
+</div>
+<div id="conclusão-o-futuro-da-análise-de-conversas" class="section level1">
+<h1>Conclusão: O futuro da análise de conversas</h1>
+<p>O que começou como um experimento com ligações de telemarketing se transformou em uma demonstração poderosa do que é possível quando combinamos as melhores tecnologias de IA disponíveis hoje. <strong>Em menos de 4 minutos, processamos 13 ligações e extraímos insights que levariam horas para analistas humanos descobrirem.</strong></p>
+<div id="recursos-adicionais" class="section level2">
+<h2>Recursos adicionais</h2>
+<p>Tutoriais Complementares:</p>
+<ul>
+<li><a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/">Meu post sobre Agentes Multiagente</a> - LangChain em ação</li>
+<li><a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">Detecção de Linguagem Tóxica</a> - LLMs para análise de texto</li>
+<li><a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/">Análise de Sentimentos com LLM</a> - Processamento de linguagem natural</li>
+</ul>
+</div>
+</div>
+<div id="sobre-o-autor" class="section level1">
+<h1>Sobre o autor</h1>
+<p><em>Me chamo Fellipe Gomes, sou formado em estatística e atuo como cientista de dados desde 2018. Compartilho meus estudos e evolução por meio de artigos, tutoriais e projetos de código aberto. Se quiser saber mais sobre meu trabalho, sinta-se à vontade para entrar em contato através das minhas redes sociais <a href="https://www.linkedin.com/in/gomesfellipe/">LinkedIn</a>, <a href="https://github.com/gomesfellipe">GitHub</a> e <a href="https://www.kaggle.com/gomes555">Kaggle</a>.</em></p>
+<p><em>Gostou do conteúdo? Compartilhe e deixe suas dúvidas nos comentários. Sua experiência e feedback são fundamentais para continuar criando conteúdo de qualidade!</em></p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/">Agente para análise interpretativa de ligações de telemarketing</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">call-center</category>
+      <category domain="tag">gpt-4</category>
+      <category domain="tag">langchain</category>
+      <category domain="tag">nlp</category>
+      <category domain="tag">python</category>
+      <category domain="tag">sentiment-analysis</category>
+      <category domain="tag">speech-to-text</category>
+      <category domain="tag">telemarketing</category>
+      <category domain="tag">voice-analytics</category>
+      <category domain="tag">whisper</category>
     </item>
-    
     <item>
-      <title>Criando Audiobooks com Inteligência Artificial: book-to-audiobook</title>
-      <link>https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/</guid>
-      <description>Por que Audiobooks? O Que São Audiobooks Criados com IA? Como criar seu audiobook com IA Preparar o arquivo de texto Traduzir conteúdo para PT-BR (opcional) Convertendo o Texto em Áudio com IA FAQ Questões de Ética e Legalidade Conclusão Por que Audiobooks? Pela sua forma conveniente de consumir conhecimento e entretenimento, os audiobooks estão se tornando cada vez mais populares. Conforme a última pesquisa da Câmara Brasileira do Livro, os livros digitais cresceram 15% de 2021 para 2022.</description>
+      <title>Canais do YouTube para Cientistas de Dados</title>
+      <link>https://gomesfellipe.github.io/recommendations/item4/</link>
+      <pubDate>Sun, 08 Jun 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/recommendations/item4/</guid>
+      <description>Minha seleção dos melhores canais do YouTube para quem quer aprender Data Science, Machine Learning e programação em 2025</description>
+      <content:encoded>&lt;![CDATA[
+        <p>O YouTube virou uma universidade gratuita para quem quer aprender Data Science. Compilei aqui os canais que realmente fazem a diferença na jornada de aprendizado, desde conceitos básicos até técnicas avançadas.</p>
+<h2 id="matemática-e-conceitos-fundamentais">Matemática e Conceitos Fundamentais</h2>
+<p><strong><a href="https://www.youtube.com/@3blue1brown">3Blue1Brown</a></strong>
+O melhor canal para entender matemática de forma visual. Grant Sanderson tem um talento único para explicar conceitos complexos de álgebra linear, cálculo e estatística de forma intuitiva. Essencial para quem quer entender o &ldquo;por que&rdquo; por trás dos algoritmos.</p>
+<p><strong><a href="https://www.youtube.com/@statquest">StatQuest with Josh Starmer</a></strong>
+Josh consegue explicar estatística e machine learning de forma que qualquer pessoa entende. Os vídeos são curtos, diretos e com exemplos práticos. Perfeito para revisar conceitos ou aprender algo novo sem complicação.</p>
+<h2 id="programação-e-implementação">Programação e Implementação</h2>
+<p><strong><a href="https://www.youtube.com/@sentdex">Sentdex</a></strong>
+Harrison foca em Python aplicado a machine learning e finanças. Ótimos tutoriais práticos, desde pandas básico até redes neurais. Ideal para quem quer ver código funcionando na prática.</p>
+<p><strong><a href="https://www.youtube.com/@coreyms">Corey Schafer</a></strong>
+Se você está começando com Python, esse canal é obrigatório. Corey explica desde o básico até tópicos avançados com uma didática excepcional. Seus tutoriais de pandas e matplotlib são referência.</p>
+<p><strong><a href="https://www.youtube.com/@codebasics">Codebasics</a></strong>
+Canal indiano com conteúdo muito sólido sobre fundamentos de data science. Dhanraj explica tanto teoria quanto prática, sempre com projetos reais. Boa variedade de linguagens e ferramentas.</p>
+<h2 id="análise-e-business-intelligence">Análise e Business Intelligence</h2>
+<p><strong><a href="https://www.youtube.com/@AlexTheAnalyst">Alex The Analyst</a></strong>
+Focado no lado mais business de data science. Excelente para SQL, Power BI, Tableau e análise de dados. Alex mostra como trabalhar com dados em ambientes corporativos reais.</p>
+<p><strong><a href="https://www.youtube.com/@Analyticsvidhya">Analytics Vidhya</a></strong>
+Canal da plataforma Analytics Vidhya com tutoriais variados sobre analytics e data science. Bom para ficar atualizado com trends e novas ferramentas do mercado.</p>
+<h2 id="machine-learning-avançado">Machine Learning Avançado</h2>
+<p><strong><a href="https://www.youtube.com/@krishnaik06">Krish Naik</a></strong>
+Krish oferece bootcamps completos de machine learning e deep learning. Conteúdo denso e bem estruturado, ideal para quem quer se aprofundar nos algoritmos e técnicas mais avançadas.</p>
+<p><strong><a href="https://www.youtube.com/@TwoMinutePapers">Two Minute Papers</a></strong>
+Dr. Károly Zsolnai-Fehér apresenta as pesquisas mais recentes em IA de forma acessível. Perfeito para acompanhar o estado da arte e ver o que está sendo desenvolvido nos laboratórios.</p>
+<h2 id="conteúdo-motivacional-e-trends">Conteúdo Motivacional e Trends</h2>
+<p><strong><a href="https://www.youtube.com/@SirajRaval">Siraj Raval</a></strong>
+Siraj mistura conteúdo técnico com motivação e visão de futuro da IA. Bom para entender o panorama geral da área e se manter inspirado durante os estudos.</p>
+<h2 id="dicas-de-consumo">Dicas de Consumo</h2>
+<p>Algumas estratégias que uso para aproveitar melhor esses canais:</p>
+<p><strong>Para iniciantes:</strong>
+Comece com Corey Schafer (Python básico) → StatQuest (conceitos) → Sentdex (prática)</p>
+<p><strong>Para quem já programa:</strong>
+3Blue1Brown (fundamentos) → Krish Naik (ML) → Two Minute Papers (atualização)</p>
+<p><strong>Para o mercado de trabalho:</strong>
+Alex The Analyst → Analytics Vidhya → Codebasics</p>
+<p><strong>Pontos importantes:</strong></p>
+<ul>
+<li>Assista em 1.25x ou 1.5x para otimizar tempo</li>
+<li>Pause para fazer anotações dos conceitos principais</li>
+<li>Tente reproduzir os códigos mostrados</li>
+<li>Use os vídeos como complemento, não substituição de prática</li>
+</ul>
+<p>O YouTube é uma ferramenta poderosa, mas o segredo está na consistência. Melhor assistir 20 minutos por dia do que 3 horas no fim de semana.</p>
+<p>Todos esses canais são em inglês, o que também ajuda a melhorar o idioma - fundamental na carreira de dados.</p>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/recommendations/item4/">Canais do YouTube para Cientistas de Dados</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>datascience</category>
+      <category>youtube</category>
+      <category>aprendizado</category>
+      <category domain="tag">youtube</category>
+      <category domain="tag">datascience</category>
+      <category domain="tag">machinelearning</category>
+      <category domain="tag">python</category>
+      <category domain="tag">r</category>
     </item>
-    
-    <item>
-      <title>Extração de informações de imagens com IA Generativa</title>
-      <link>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</guid>
-      <description>Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava Preparando o Ambiente Carregar dados Carregar modelo Prompt Engineering Inferência Avaliar modelo Conclusão Referências Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava GenAI refere-se a modelos de inteligência artificial capazes de gerar conteúdo novo e criativo a partir de dados de entrada. Seu uso está revolucionando a maneira como processamos dados não estruturados, como imagens, áudios, textos, vídeos, etc.</description>
-    </item>
-    
     <item>
       <title>Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</title>
       <link>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</link>
       <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</guid>
-      <description>Por que Análise de Sentimentos? Por que Large Language Models? O que faremos aqui? Mãos a obra! Iniciar ambiente de trabalho Carregar dados Informações gerais Análise Exploratória Análise de Sentimentos Resultado Final Conclusão e Discussão Referências Por que Análise de Sentimentos? Compreender os sentimentos por trás de grandes volumes de texto tornou-se essencial, pois em um mundo cada vez mais digitalizado, a capacidade de compreender as respostas e emoções em larga escala das pessoas diante de produtos, eventos ou tópicos específicos não é apenas valiosa por fornecer insights, mas também se tornou uma necessidade para alavancar negócios e tornar-se cada vez mais competitivo.</description>
-    </item>
+      <description>Como executar localmente o LLM pré-treinado de código aberto Llama2 para realizar uma análise de sentimentos em Python</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#por-que-an%C3%A1lise-de-sentimentos" id="toc-por-que-análise-de-sentimentos">Por que Análise de Sentimentos?</a></li>
+<li><a href="#por-que-large-language-models" id="toc-por-que-large-language-models">Por que Large Language Models?</a></li>
+<li><a href="#o-que-faremos-aqui" id="toc-o-que-faremos-aqui">O que faremos aqui?</a></li>
+<li><a href="#m%C3%A3os-a-obra" id="toc-mãos-a-obra">Mãos a obra!</a>
+<ul>
+<li><a href="#iniciar-ambiente-de-trabalho" id="toc-iniciar-ambiente-de-trabalho">Iniciar ambiente de trabalho</a></li>
+<li><a href="#carregar-dados" id="toc-carregar-dados">Carregar dados</a></li>
+<li><a href="#informa%C3%A7%C3%B5es-gerais" id="toc-informações-gerais">Informações gerais</a></li>
+<li><a href="#an%C3%A1lise-explorat%C3%B3ria" id="toc-análise-exploratória">Análise Exploratória</a></li>
+<li><a href="#an%C3%A1lise-de-sentimentos" id="toc-análise-de-sentimentos">Análise de Sentimentos</a></li>
+</ul></li>
+<li><a href="#resultado-final" id="toc-resultado-final">Resultado Final</a></li>
+<li><a href="#conclus%C3%A3o-e-discuss%C3%A3o" id="toc-conclusão-e-discussão">Conclusão e Discussão</a></li>
+<li><a href="#refer%C3%AAncias" id="toc-referências">Referências</a></li>
+</ul>
+</div>
+
+<style>
+.column4 {
+  float: left;
+  width: 33%;
+  padding: 10px;
+}
+ 
+.column8 {
+  float: left;
+  width: 66%;
+  padding: 10px;
+}
+
+.column6 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<div id="por-que-análise-de-sentimentos" class="section level2">
+<h2>Por que Análise de Sentimentos?</h2>
+<p>Compreender os sentimentos por trás de grandes volumes de texto tornou-se essencial, pois em um mundo cada vez mais digitalizado, a capacidade de compreender as respostas e emoções em larga escala das pessoas diante de produtos, eventos ou tópicos específicos não é apenas valiosa por fornecer insights, mas também se tornou uma necessidade para alavancar negócios e tornar-se cada vez mais competitivo.</p>
+<blockquote>
+<p>Análise de sentimento, também chamada de mineração de opinião, é o campo de estudo que analisa as opiniões, sentimentos, avaliações, apreciações, atitudes e emoções das pessoas em relação a entidades como produtos, serviços, organizações, indivíduos, questões, eventos, tópicos e seus atributos. <a href="https://www.cambridge.org/de/universitypress/subjects/computer-science/artificial-intelligence-and-natural-language-processing/sentiment-analysis-mining-opinions-sentiments-and-emotions-2nd-edition?format=HB&amp;isbn=9781108486378">Liu 2020</a></p>
+</blockquote>
+</div>
+<div id="por-que-large-language-models" class="section level2">
+<h2>Por que Large Language Models?</h2>
+<p>A abordagem comum para resolver problemas de NLP envolviam a aplicação de <em>text mining</em>, <em>embeddings</em> como <em>word2vec</em> e <em>GloVe (Global Vectors for Word Representation)</em> e técnicas de Machine Learning, onde modelos como <em>Random Forest</em>, <em>SVM</em>, <em>Naive Bayes</em>, <em>KNN</em>, <em>Ensembles</em> e até mesmo Regressão eram frequentemente utilizados para classificar textos. Além disso, o uso de redes neurais recorrentes (<em>RNNs</em>) sempre foi uma alternativa valiosa, especialmente em situações que demandavam o processamento de dados sequenciais, sendo a <em>LSTM (Long Short-Term Memory)</em> uma variante eficaz para lidar com o desafio conhecido como <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem"><em>vanishing gradient</em></a>.</p>
+<p>Já no cenário atual de modelos pré-treinados, o <em>BERT (Bidirectional Encoder Representations from Transformers)</em> também teve bastante destaque nesse domínio antes da ascensão do <em>ChatGPT</em>, demonstrando a viabilidade como um método gerador de texto e mostraram o poder que as redes neurais têm para gerar longas sequências de texto que antes pareciam inatingíveis.</p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/parameters_transformer_based_language_models.png" style="width:70.0%" /></br>
+<small><a href="https://www.techtarget.com/searchenterpriseai/definition/GPT-3">GPT-3 supera seus antecessores em termos de contagem de parâmetros</a></small></p>
+</center>
+<p>Embora já existam há algum tempo, os <em>LLMs</em> ganharam a mídia através do <em>ChatGPT</em>, interface de chat da OpenAI para modelos LLM GPT-3 lançado em 2020, com 175 milhões de parâmetros, que já teve uma série de avanços significativos nos últimos anos como seu irmão maior, o GPT-4 lançado em 2023 conta com incríveis 100 <strong>trílhões</strong> de parâmetros.</p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/comparison-between-GPT-3-and-GPT-4.png" style="width:50.0%" /></br>
+<small><a href="https://www.techtarget.com/searchenterpriseai/definition/GPT-3">The comparison between GPT-3 and GPT-4 based on the number of parameters used in their architecture</a></small></p>
+</center>
+<p>Modelos com mais de 100 bilhões de parâmetros já podem ser considerados muito grandes, com conhecimento mundial muito rico. Esses modelos maiores conseguem “aprender” ainda mais informações sobre muitas coisas sobre fisica, filosofia, ciência, programação, etc sendo cada vez mais úteis para ajudar em tarefas que envolvam conhecimento profundo ou raciocinio complexo, sendo um bom “parceiro” para brainstorming.</p>
+<div class="w3-panel w3-pale-red w3-border">
+<p>  <strong>⚠️ Atenção!</strong> </br>
+Afirmar que maiores modelos são sempre melhores não é verdade. O tempo de processamento, latência e o custo também irão aumentar, por isso <a href="https://medium.com/@masteringllm/mistral-7b-is-187x-cheaper-compared-to-gpt-4-b8e5ee1c9fc2">abordagens alternativas</a> também devem ser consideradas.</p>
+</div>
+<div id="como-funcionam-os-llms" class="section level3">
+<h3>Como funcionam os LLMs?</h3>
+<p>Os <em>LLMs</em> são modelos de <em>Machine Learning</em> que usam algoritmos de <em>Deep Learning</em> para processar e compreender a linguagem natural, gerando texto de maneira eficaz. Esses modelos são treinados com grandes volumes de dados da internet, adquirindo a capacidade de identificar padrões na composição de palavras e frases. A idéia básica por trás desses modelos é que são capazes de gerar texto prevendo repetidamente a próxima palavra oferecendo resultados rápidos e diversas aplicações práticas em várias áreas</p>
+<div id="aplicações" class="section level4">
+<h4>Aplicações</h4>
+<p>Diferentemente de uma ferramenta de busca como o Google, o ChatGPT não recupera informações, mas cria frases e textos completos em tempo real com base no processamento de um imenso volume de dados, veja alguns exemplos de uso para diferentes tarefas:</p>
+<div class="row">
+<div id="escrita" class="section level5 column4">
+<h5>✍️ <strong>Escrita:</strong></h5>
+<ul>
+<li>Colaboração em brainstorming, sugerindo nomes;</li>
+<li>Elaboração de templates para comunicados e e-mails;</li>
+<li>Tradução automática.</li>
+</ul>
+</div>
+<div id="leitura" class="section level5 column4">
+<h5>📖 <strong>Leitura</strong>:</h5>
+<ul>
+<li>Revisão de textos;</li>
+<li>Sumarização de artigos extensos;</li>
+<li>Análise de sentimentos, possibilitando a criação de dashboards para acompnhamento ao longo do tempo.</li>
+</ul>
+</div>
+<div id="conversa" class="section level5 column4">
+<h5>💬 <strong>Conversa</strong>:</h5>
+<ul>
+<li>Diálogos e aconselhamentos;</li>
+<li>Coaching de carreira;</li>
+<li>Planejamento de viagens;
+Sugestões de receitas;</li>
+<li>Conversação interativa com documentos PDF;</li>
+<li>Atendimento ao cliente;</li>
+<li>Realização de pedidos.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="o-que-faremos-aqui" class="section level2">
+<h2>O que faremos aqui?</h2>
+<p>Nosso objetivo aqui é realizar uma análise de sentimentos para classificar sentenças como positivas ou negativas utilizando algum LLM pré-treinado. Embora a OpenAI já tenha sido uma organização sem fins lucrativos que lançava seus projetos como código aberto, desde o lançamento do ChatGPT ela se tornou uma empresa que mantém a propriedade de seus códigos fonte. Isso significa que apesar da facilidade de criar aplicações, modelos mais poderosos e relativamente baratos, desenvolvedores de IA não podem modificar o GPT-3 para atender às nossa necessidades específicas ou incorporá-lo em seus próprios projetos de maneira livre e gratuita. Portanto teremos de recorrer à alternativas não tão(*) <em>open source</em> como o <a href="https://huggingface.co/meta-llama"><em>Llama 2</em> da Meta</a> que permite total controle sobre o modelo, rodar em nosso próprio computador/servidor e nós dá o controle sobre a privacidade dos nossos dados.</p>
+<div class="w3-panel w3-pale-red w3-border">
+<p>(*) “Código aberto” 🤔 </br>
+Não é totalmente código aberto pois por mais que a Meta tenha disponibilizado o modelo treinado para uso livre, ele não compartilha os dados de treinamento do modelo ou o código usado para treiná-lo.</p>
+</div>
+</div>
+<div id="mãos-a-obra" class="section level1">
+<h1>Mãos a obra!</h1>
+<div id="iniciar-ambiente-de-trabalho" class="section level2">
+<h2>Iniciar ambiente de trabalho</h2>
+<p>Primeiramente vamos carregar todas as dependencias necessárias para executar os códigos a seguir:</p>
+<pre class="python"><code>import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+from PIL import Image
+from nltk.corpus import stopwords
+from collections import Counter
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, accuracy_score
+from llama_cpp import Llama
+from tqdm.notebook import tqdm
+tqdm.pandas()</code></pre>
+</div>
+<div id="carregar-dados" class="section level2">
+<h2>Carregar dados</h2>
+<p>Utilizaremos uma versão <a href="https://www.kaggle.com/datasets/luisfredgs/imdb-ptbr">traduzida do dataset IMdb para o português</a>, um conjunto de dados do Internet Movie Database (IMDB), que é uma das maiores e mais abrangentes bases de dados online sobre filmes e programas de televisão.</p>
+<pre class="python"><code> #Importar todo conjunto de dados
+df = pd.read_csv(&#39;input/imdb-reviews-pt-br.csv&#39;, index_col=&#39;id&#39;)
+# Obter amostra de tamanho 100
+_, df = train_test_split(df, test_size=100, random_state=42, shuffle=True)</code></pre>
+</div>
+<div id="informações-gerais" class="section level2">
+<h2>Informações gerais</h2>
+<p>Esse dataset inclui avaliações e críticas de filmes feitas por usuários do IMDB, bem como informações sobre os próprios filmes, como título, ano de lançamento, gênero, etc. Para nossa finalidade para tarefa de análise de sentimentos, utilizaremos os seguintes dados:</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="41%" />
+<col width="40%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">id</th>
+<th align="left">text_en</th>
+<th align="left">text_pt</th>
+<th align="center">sentiment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">12534</td>
+<td align="left">This was unusual: a modern-day film which…</td>
+<td align="left">Isso era incomum: um filme moderno que era…</td>
+<td align="center">pos</td>
+</tr>
+<tr class="even">
+<td align="center">35447</td>
+<td align="left">Some of my old friends suggested me to wat…</td>
+<td align="left">Alguns dos meus velhos amigos sugeriram qu…</td>
+<td align="center">neg</td>
+</tr>
+<tr class="odd">
+<td align="center">20281</td>
+<td align="left">What a pleasure. This is really a parody. …</td>
+<td align="left">Que prazer. Isto é realmente uma paródia. S…</td>
+<td align="center">pos</td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="left">…</td>
+<td align="left">…</td>
+<td align="center">…</td>
+</tr>
+<tr class="odd">
+<td align="center">34241</td>
+<td align="left">WOW!I just was given this film from a frie…</td>
+<td align="left">WOW! Acabei de receber este filme de um am…</td>
+<td align="center">neg</td>
+</tr>
+<tr class="even">
+<td align="center">12896</td>
+<td align="left">This film offers many delights and surprise…</td>
+<td align="left">Este filme oferece muitas delícias e surp…</td>
+<td align="center">pos</td>
+</tr>
+<tr class="odd">
+<td align="center">19748</td>
+<td align="left">Over the years Ive watched this movie many…</td>
+<td align="left">Ao longo dos anos, assisti a esse filme mu…</td>
+<td align="center">pos</td>
+</tr>
+</tbody>
+</table>
+<p>Onde:</p>
+<ul>
+<li><code>id</code>: Identificador;</li>
+<li><code>text_en</code>: texto em inglês;</li>
+<li><code>text_pt</code>: texto em português;</li>
+<li><code>sentiment</code>: rótulo do texto, que pode ser <code>pos</code> ou <code>neg</code>.</li>
+</ul>
+</div>
+<div id="análise-exploratória" class="section level2">
+<h2>Análise Exploratória</h2>
+<hr />
+<div id="distribuição-dos-sentimentos-na-amostra" class="section level3">
+<h3>Distribuição dos sentimentos na amostra</h3>
+<p>Primeiro vamos entender como ficou distribuída a proporção dos sentimentos na amostra coletada:</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Contagem absoluta
+contagem_absoluta = df[&#39;sentiment&#39;].value_counts()
+
+# Contagem relativa
+contagem_relativa = df[&#39;sentiment&#39;].value_counts(normalize=True) * 100
+
+# Criar gráfico de barras
+fig, ax = plt.subplots(figsize=(6, 4))
+barras = plt.bar(contagem_absoluta.index, contagem_absoluta, color=[&#39;green&#39;, &#39;red&#39;])
+
+# Adicionar texto nas barras
+for barra, abs_value, rel_value in zip(barras, contagem_absoluta, contagem_relativa):
+    yval = barra.get_height()
+    ax.text(barra.get_x() + barra.get_width()/2, yval, f&#39;{abs_value} ({rel_value:.1f}%)&#39;,
+            ha=&#39;center&#39;, va=&#39;bottom&#39;, color=&#39;black&#39;, fontsize=12)
+
+# Adicionar rótulos e título
+plt.xlabel(&#39;Sentimento&#39;, fontsize=14)
+plt.ylabel(&#39;Frequência absoluta&#39;, fontsize=14)
+plt.title(&#39;Quantidade de textos de cada sentimento \nem uma amostra de tamanho 100&#39;, fontsize=16, x=0.5, y=1.1)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Remover bordas da parte superior e direita
+ax.spines[&#39;top&#39;].set_visible(False)
+ax.spines[&#39;right&#39;].set_visible(False)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar imagem
+plt.savefig(f&quot;img/freq_sentiment.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<p> </p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/freq_sentiment.png" /></p>
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  📌 <strong>Interpretação:</strong>
+Coletei uma amostra aleatória simples de tamanho n=100 de todas as reviews que contém aproximadamente metade de cada sentimento para diminuir o tempo computacional de execução no meu computador.</p>
+</div>
+</div>
+<div id="palavras-mais-frequentes-para-cada-sentimento" class="section level3 tabset">
+<h3>Palavras mais frequentes para cada sentimento</h3>
+<p>Núvens de palavras das resenhas dos filmes que foram anotadas como positivos e como negativos nas duas linguas disponíveis no dataset:</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código das Wordclouds</em>
+</summary>
+<pre class="python"><code>def generate_wordcloud(df, language=&#39;en&#39;):
+    # Definir stopwords para o idioma escolhido
+    if language == &#39;en&#39;:
+        stop_words_pos = stop_words_neg = set(stopwords.words(&#39;english&#39;))
+        stop_words_pos.update([&quot;film&quot;, &quot;movie&quot;, &quot;one&quot;])
+        stop_words_neg.update([&quot;character&quot;, &quot;like&quot;, &quot;really&quot;, &quot;make&quot;, &quot;see&quot;])
+    elif language == &#39;pt&#39;:
+        stop_words_pos = stop_words_neg = set(stopwords.words(&#39;portuguese&#39;))
+        stop_words_pos.update([&quot;filme&quot;, &quot;filmes&quot;, &quot;todo&quot;, &quot;tão&quot;, &quot;pode&quot;, &quot;todos&quot;])
+        stop_words_neg.update([&quot;filme&quot;, &quot;filmes&quot;, &quot;todo&quot;, &quot;tão&quot;, &quot;filme&quot;, &quot;coisa&quot;, &quot;realmente&quot;])
+    else:
+        raise ValueError(&quot;Language must be &#39;en&#39; or &#39;pt&#39;.&quot;)
+
+    # Concatenar textos positivos e negativos
+    txt_pos = &quot; &quot;.join(review for review in df[df.sentiment == &#39;pos&#39;][f&#39;text_{language}&#39;])
+    txt_neg = &quot; &quot;.join(review for review in df[df.sentiment == &#39;neg&#39;][f&#39;text_{language}&#39;])
+
+    # Carregar máscaras de imagem
+    mask_pos = np.array(Image.open(f&quot;img/pos.png&quot;))
+    mask_neg = np.array(Image.open(f&quot;img/neg.png&quot;))
+
+    # Gerar nuvens de palavras positivas e negativas
+    wordcloud_positivo = WordCloud(
+        stopwords=stop_words_pos,
+        random_state=42,
+        background_color=&quot;white&quot;,
+        color_func=lambda *args, **kwargs: &quot;green&quot;,
+        contour_color=&#39;black&#39;,
+        contour_width=1,
+        max_font_size=100,
+        min_font_size=15,
+        max_words=200,
+        mask=mask_pos
+    ).generate(txt_pos)
+
+    wordcloud_negativo = WordCloud(
+        stopwords=stop_words_neg,
+        random_state=42,
+        background_color=&quot;white&quot;,
+        color_func=lambda *args, **kwargs: &quot;red&quot;,
+        contour_color=&#39;black&#39;,
+        contour_width=1,
+        max_font_size=100,
+        min_font_size=15,
+        max_words=200,
+        mask=mask_neg
+    ).generate(txt_neg)
+
+    # Configurações do plot
+    plt.figure(figsize=(7, 14))
+
+    # Plotar nuvem de palavras positivas
+    plt.subplot(1, 2, 1)
+    plt.imshow(wordcloud_positivo, interpolation=&#39;bilinear&#39;)
+    plt.axis(&#39;off&#39;)
+    plt.title(&#39;Positivo&#39;, fontsize=20, color=&#39;green&#39;)
+
+    # Plotar nuvem de palavras negativas
+    plt.subplot(1, 2, 2)
+    plt.imshow(wordcloud_negativo, interpolation=&#39;bilinear&#39;)
+    plt.axis(&#39;off&#39;)
+    plt.title(&#39;Negativo&#39;, fontsize=20, color=&#39;red&#39;)
+
+    # Ajustar layout
+    plt.tight_layout()
+
+    # Salvar a nuvem de palavras como imagem
+    plt.savefig(f&quot;img/wordcloud_{language}.png&quot;, bbox_inches=&#39;tight&#39;)
+
+    # Exibir a nuvem de palavras
+    plt.show()
     
+# Exemplo de uso para o idioma inglês
+generate_wordcloud(df, language=&#39;en&#39;)
+
+# Exemplo de uso para o idioma português
+generate_wordcloud(df, language=&#39;pt&#39;)</code></pre>
+</details>
+<p> </p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/wordcloud_en.png" /></p>
+<p>Núvem de palavras mais frequentes das resenhas em <strong>🇺🇲 Inglês</strong></p>
+</center>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/wordcloud_pt.png" /></p>
+<p>Núvem de palavras mais frequentes das resenhas em <strong>🇧🇷 Português</strong></p>
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong>
+Como esperado, mesmo com a mudança na língua, a frequência das palavras é exibida de maneira muito similar de acordo com cada sentimento.</p>
+</div>
+</div>
+</div>
+<div id="análise-de-sentimentos" class="section level2">
+<h2>Análise de Sentimentos</h2>
+<hr />
+<div id="família-llama-2-de-large-language-models-llms" class="section level3">
+<h3>Família <em>Llama 2</em> de <em>Large Language Models</em> (<em>LLMs</em>)</h3>
+<p>Nesta seção, exploraremos o <a href="https://llama.meta.com/"><em>Llama 2</em></a>, um modelo de código aberto, e discutiremos as vantagens e desvantagens em relação aos LLMs de código fechado ou remotos.</p>
+<div id="tamanho-do-modelo" class="section level4">
+<h4>Tamanho do modelo</h4>
+<p>Para saber qual modelo utilizar, primeiramente precisamos ter em mente algumas noções sobre a quantidade de parâmetros e tamanhos dos LLM. No geral:</p>
+<div class="row">
+<div class="column4">
+<p><big><strong>1 Bilhão</strong>:</big></p>
+<p>Bons em correspondência de padrões e algum conhecimento básico do mundo (como por exemplo classificar avaliações por sentimento)</p>
+</div>
+<div class="column4">
+<p><big><strong>10 Bilhões</strong>:</big></p>
+<p>Maior conhecimento mundial, conhecem mais fatos esotéricos sobre o mundo e melhoram em seguir instruções básicas (bom para chatbot para pedidos de comida);</p>
+</div>
+<div class="column4">
+<p><big><strong>100+ Bilhões</strong>: </big></p>
+<p>Muito grandes, com conhecimento mundial muito rico, saberão coisas sobre física, filosofia, ciência e assim por diante e serão melhores em raciocínios complexos (tarefas que envolvem conhecimento profundo ou raciocínio complexo, parceiro para brainstorming)</p>
+</div>
+</div>
+<p>Para uma análise de sentimentos simples, não é necessário um modelo com 100 bilhões de parâmetros. Modelos menores, como os com 7 bilhões de parâmetros, podem ser suficientes e menos computacionalmente exigentes.</p>
+</div>
+<div id="código-aberto-ou-fechado" class="section level4">
+<h4>Código aberto ou fechado</h4>
+<p>Embora próximos, os LLMs de código aberto ainda não conseguem igualar o poder e a precisão dos aplicativos de código fechado disponíveis comercialmente, como <a href="https://openai.com/gpt-4">GPT-4</a> e <a href="https://gemini.google.com/app">Bard (Gemini)</a>. Mesmo sendo menos poderosos, existem alguns prós e contras pelos quais podemos pesar na hora de escolher a melhor opção:</p>
+<div class="row">
+<div class="column6">
+<p><big><strong>Open Source</strong></big></p>
+<ul>
+<li>Total controle sobre o modelo</li>
+<li>Pode rodar em nosso próprio computador/servidor</li>
+<li>Controle sobre a privacidade dos dados</li>
+</ul>
+</div>
+<div class="column6">
+<p><big><strong>Closed</strong></big></p>
+<ul>
+<li>Fácil de criar aplicações</li>
+<li>Maiores e mais poderosos</li>
+<li>Relativamente barato</li>
+<li>Existe um certo risco de depender do fornecedor</li>
+</ul>
+</div>
+</div>
+<p>Utilizaremos a abordagem de código aberto por ser mais prática para fins de estudos, pois além de gratuita, não exige internet, registros ou chaves de API.</p>
+</div>
+<div id="uso-remoto-ou-local" class="section level4">
+<h4>Uso remoto ou local</h4>
+<p>Podemos interagir com o modelo de linguagem grande (LLM) do Llama 2 via API da <a href="https://huggingface.co/">Hugging Face</a>, seguindo as instruções do <a href="https://huggingface.co/meta-llama">repositório oficial da Meta</a> ou podemos baixar os arquivos do modelo em formato GGML para o <a href="https://huggingface.co/meta-llama/Llama-2-7b-chat-hf">Llama 2 7B Chat do Meta Llama 2</a>. Os formatos GGML são utilizados para inferência de CPU + GPU usando o principamente o pacote <a href="https://pypi.org/project/llama-cpp-python/">llama-cpp-python</a>.</p>
+<p>Para mais informações sobre como configurar o modelo consulte <a href="https://swharden.com/blog/2023-07-29-ai-chat-locally-with-python/">este link</a></p>
+<pre class="python"><code>def load_llama_model(model_path=&quot;./input/llama-2-7b-chat.ggmlv3.q2_K.bin&quot;, language=&#39;en&#39;, seed=42):
+    # Determinar o tamanho da janela de contexto com base no idioma
+    if language == &#39;en&#39;:
+        context_window = df.text_en.map(len).max()
+    elif language == &#39;pt&#39;:
+        context_window = df.text_pt.map(len).max()
+    else:
+        raise ValueError(&quot;Language must be &#39;en&#39; or &#39;pt&#39;.&quot;)
+
+    # Carregar o modelo Llama
+    return Llama(model_path=model_path,
+                 verbose=False,
+                 n_ctx=context_window,
+                 seed=seed)</code></pre>
+<p>Para obter os melhores resultados, devemos ser o mais claro e específicos possível nas interações. Porém devemos iniciar com um prompt simples e rápido para ir direcionando o modelo na direção desejada e avaliando os resultados obtidos e ajustando gradualmente o prompt para refinar e aprimorar a resposta desejada</p>
+<pre class="python"><code>def classify_sentiment_llama(text, llama_model):
+    # Construir a prompt para o modelo Llama
+    prompt = f&#39;&#39;&#39; \
+    Q: Answer with just one word, \
+    does the following text express a \
+    positive or negative feeling? \
+    {text} \
+    A:&#39;&#39;&#39;
+    # Obter a saída do modelo Llama
+    output = llama_model(prompt, max_tokens=3)
+    return output[&quot;choices&quot;][0][&quot;text&quot;]</code></pre>
+<p>Com nosso prompt definido, já podemos carregar o modelo:</p>
+<pre class="python"><code># Carregar o modelo Llama para o idioma desejado
+llama_model = load_llama_model(language=&#39;en&#39;)</code></pre>
+<pre><code>## llama.cpp: loading model from ./llama-2-7b-chat.ggmlv3.q2_K.bin
+## llama_model_load_internal: format     = ggjt v3 (latest)
+## llama_model_load_internal: n_vocab    = 32000
+## llama_model_load_internal: n_ctx      = 4320
+## llama_model_load_internal: n_embd     = 4096
+## llama_model_load_internal: n_mult     = 256
+## llama_model_load_internal: n_head     = 32
+## llama_model_load_internal: n_head_kv  = 32
+## llama_model_load_internal: n_layer    = 32
+## llama_model_load_internal: n_rot      = 128
+## llama_model_load_internal: n_gqa      = 1
+## llama_model_load_internal: rnorm_eps  = 5.0e-06
+## llama_model_load_internal: n_ff       = 11008
+## llama_model_load_internal: freq_base  = 10000.0
+## llama_model_load_internal: freq_scale = 1
+## llama_model_load_internal: ftype      = 10 (mostly Q2_K)
+## llama_model_load_internal: model size = 7B
+## llama_model_load_internal: ggml ctx size =    0.08 MB
+## llama_model_load_internal: mem required  = 2733.66 MB (+ 2160.00 MB per state)
+## llama_new_context_with_model: kv self size  = 2160.00 MB
+## llama_new_context_with_model: compute buffer total size =  295.35 MB</code></pre>
+<p>Após instanciar o modelo, basta aplicá-lo em nossa base de dados. (apliquei o mesmo modelo tanto para as reviews e português quanto em inglês).</p>
+<pre class="python"><code>df[&#39;sentiment_llm_en&#39;] = df.text_en.progress_apply(lambda x: classify_sentiment_llama(x, llama_model))</code></pre>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/load_en.png" /></p>
+<p>Como este modelo é o mais básico e não alteramos nenhum parâmetro (como por exemplo <code>temperature</code>, que determina se o output será mais aleatório ou mais previsível) pode ser que a saída não saia padronizada e necessite de algum pós-processamento. Vejamos como foram os outputs do LLM:</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Contagem da frequência das classificações
+sentiment_llm_counts = df.groupby(&#39;sentiment&#39;).sentiment_llm_en.value_counts().reset_index(name=&#39;n&#39;)
+
+# Organizar as categorias pela frequência total
+order = df.sentiment_llm_en.value_counts().reset_index(name=&#39;n&#39;)
+order = order.sort_values(by=&#39;n&#39;, ascending=False)[&#39;index&#39;]
+
+# Configurações de estilo do seaborn
+sns.set(style=&quot;whitegrid&quot;)
+
+# Criar o gráfico de barras
+plt.figure(figsize=(12, 4))
+ax = sns.barplot(x=sentiment_llm_counts.sentiment_llm_en, y=sentiment_llm_counts.n, hue=sentiment_llm_counts.sentiment, order=order, palette=[&quot;red&quot;, &quot;green&quot;])
+
+# Adicionar rótulos e título
+plt.ylim([0, 25])
+plt.xticks(fontsize=12, rotation=90)
+plt.yticks(fontsize=12)
+ax.set_xlabel(&#39;Anotação de sentimento das resenhas&#39;, fontsize=14)
+ax.set_ylabel(&#39;Frequência&#39;, fontsize=14)
+ax.set_title(&#39;Frequência dos sentimentos classificados pelo LLM em Inglês\nem relação aos sentimentos já anotados da base&#39;, fontsize=20)
+
+# Adicionar anotações nas barras
+for p in ax.patches:
+    ax.annotate(f&#39;{p.get_height()}&#39;, (p.get_x() + p.get_width() / 2., p.get_height()),
+                ha=&#39;center&#39;, va=&#39;baseline&#39;, fontsize=10, color=&#39;black&#39;, xytext=(0, 5),
+                textcoords=&#39;offset points&#39;)
+
+plt.legend(loc=&quot;upper right&quot;, title = &quot;Label real&quot;)
+
+# Remover bordas da parte superior e direita
+ax.spines[&#39;top&#39;].set_visible(False)
+ax.spines[&#39;right&#39;].set_visible(False)
+ax.grid(False)
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/freq_class_llm_en.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/freq_class_llm_en.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong>
+É possível observar que o modelo pré-treinado conseguiu reconhecer de maneira bastante coerente o sentimento dos trechos para as categorias <code>pos</code> e <code>neg</code>, porém, não vieram padronizadas exatamente como solicitamos ao modelo.</p>
+</div>
+<p>Como a saída não foi padronizada, vamos realizar algum pós-processamento para padronizar as classes como <code>pos</code> ou <code>neg</code> para possibilitar avaliar o desempenho do modelo com base em métricas de classificação.</p>
+<pre class="python"><code>conditions = [
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:pos|fun)&#39;)),
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:neg|horrible|melanchol)&#39;))
+]
+pd.crosstab(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))</code></pre>
+<p>Com os outputs padronizados em duas classes, podemos verificar como foi a acurácia do modelo.</p>
+</div>
+<div id="desempenho" class="section level4">
+<h4>Desempenho</h4>
+<p>Como estamos diante de um problema de classificação, avaliaremos o desempenho do modelo com matrizes de confusão para entender a as taxas de acerto e calcular a acurácia pois o dataset é balanceado.</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Matrizes de Confusão
+conditions = [
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:pos|fun|good|comedy)&#39;)),
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:neg|melanchol|absurd|horrible)&#39;))
+]
+cm_llm_en = confusion_matrix(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+accuracy_llm_en = accuracy_score(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+
+conditions = [
+    (df.sentiment_llm_pt.str.contains(&#39;(?i)(?:pos)&#39;)),
+    (df.sentiment_llm_pt.str.contains(&#39;(?i)(?:neg|horrível)&#39;))
+]
+cm_llm_pt = confusion_matrix(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+accuracy_llm_pt = accuracy_score(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+
+# Configurações de estilo do seaborn
+sns.set(font_scale=1.2)
+plt.figure(figsize=(12, 5))
+
+# Plotar Matriz de Confusão para o modelo de LLM em inglês
+plt.subplot(1, 2, 1)
+sns.heatmap(cm_llm_en, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False, vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Inglês)\nAcurácia: {accuracy_llm_en:.0%}&#39;, fontsize=22)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Plotar Matriz de Confusão para o modelo de LLM em português
+plt.subplot(1, 2, 2)
+sns.heatmap(cm_llm_pt, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False,vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Português)\nAcurácia: {accuracy_llm_pt:.0%}&#39;, fontsize=22)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/cm_llm.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/cm_llm2.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong>
+A acurácia geral para a língua Inglesa foi superior quando aplicado o mesmo modelo para a língua portuguesa. Vale lembrar que este modelo foi treinado em Inglês e estamos utilizado a menor das opções.</p>
+</div>
+<p>O desempenho deste modelo é muito interessante, principalmente por já ser pré treinado, não sendo necessário gastar tanto tempo na sua construção mas para afirmar que este modelo é bom precisamos entender qual seria o resultado para resolver este problemas se utilizassemos a abordagem mais simples possível.</p>
+</div>
+</div>
+<div id="vader" class="section level3">
+<h3>Vader</h3>
+<!-- ## Baseline -->
+<p>O <em><strong>VADER</strong> (Valence Aware Dictionary and sEntiment Reasoner)</em> é uma abordagem mais simples e rápida em comparação aos LLMs. Não requer o treinamento de um modelo, mas depende de léxicos de palavras relacionadas a sentimentos. Pode ser facilmente utilizado via bibliotecas de código aberto em Python, como <a href="https://pypi.org/project/vaderSentiment/">vaderSentiment</a> para inglês e <a href="https://github.com/rafjaa/LeIA">LeIA (Léxico para Inferência Adaptada)</a> para português.</p>
+<p>A abordagem é direta: no léxico (uma coleção de palavras), cada palavra já possui uma nota atribuída. Ao passar um documento (frase), retorna um dicionário com o escore de polaridade com base no escore das palavras no texto. O dicionário inclui o valor do sentimento geral normalizado (<code>compound</code>), variando de -1 (extremamente negativo) a +1 (extremamente positivo). Esse valor pode ser usado para descrever o sentimento predominante no texto, considerando os seguintes limites:</p>
+<ul>
+<li>Sentimento <span style="color: green;">positivo</span>: <code>compound</code> &gt;= 0.05</li>
+<li>Sentimento <span style="color: red;">negativo</span>: <code>compound</code> &lt;= -0.05</li>
+<li>Sentimento <span style="color: orange;">neutro</span>: (<code>compound</code> &gt; -0.05) e (<code>compound</code> &lt; 0.05)</li>
+</ul>
+<details>
+<summary>
+<em>Clique aqui para ver a função utilizada para classificar o sentimento com base no escore <code>compound</code></em>
+</summary>
+<pre class="python"><code># Função para classificar o sentimento com base no compound score
+def classify_sentiment_vader(text, language=&#39;en&#39;):
+
+    # Definir método que será utilizado
+    if language==&#39;en&#39;:
+        from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+    elif language == &#39;pt&#39;:
+        from leia import SentimentIntensityAnalyzer
+    else:
+        raise ValueError(&quot;Language must be &#39;en&#39; or &#39;pt&#39;.&quot;)
+
+    # Instanciar a ferramenta para análise de sentimentos
+    analyzer = SentimentIntensityAnalyzer()
+    # Realiza a análise de sentimentos e obtém o compound score
+    compound_score = analyzer.polarity_scores(text)[&#39;compound&#39;]
+    # Classifica o sentimento com base no compound score
+    if compound_score &gt;= 0.05:
+        return &#39;pos&#39;
+    elif compound_score &lt;= -0.05:
+        return &#39;neg&#39;
+    else:
+        return &#39;neu&#39;
+
+# Criando uma nova coluna &#39;sentimento_vader&#39;
+df[&#39;sentiment_vader_en&#39;] = df.text_en.apply(lambda x: classify_sentiment_vader(x, &#39;en&#39;))
+df[&#39;sentiment_vader_pt&#39;] = df.text_pt.apply(lambda x: classify_sentiment_vader(x, &#39;pt&#39;))</code></pre>
+</details>
+<!-- &nbsp; -->
+<p>A execução do código é bem rápida, sendo útil para referência como baseline ou em casos em que temos baixo recurso computacional e um grande volume de dados para classificar.</p>
+<div id="desempenho-1" class="section level4">
+<h4>Desempenho</h4>
+<p>Como estamos diante de um problema de classificação, avaliaremos o desempenho do modelo com matrizes de confusão para entender a as taxas de acerto e calcular a acurácia pois o dataset é balanceado.</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Matrizes de Confusão
+cm_vader_en = confusion_matrix(df.sentiment, df.sentiment_vader_en)
+cm_vader_pt = confusion_matrix(df.sentiment, df.sentiment_vader_pt)
+
+# Acurácias
+accuracy_vader_en = accuracy_score(df.sentiment, df.sentiment_vader_en)
+accuracy_vader_pt = accuracy_score(df.sentiment, df.sentiment_vader_pt)
+
+# Configurações de estilo do seaborn
+sns.set(font_scale=1.2)
+plt.figure(figsize=(12, 5))
+
+# Plotar Matriz de Confusão para o método Vader em inglês
+plt.subplot(1, 2, 1)
+sns.heatmap(cm_vader_en, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False,vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Inglês)\nAcurácia: {accuracy_vader_en:.0%}&#39;, fontsize=22)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+
+# Plotar Matriz de Confusão para o método Vader em português
+plt.subplot(1, 2, 2)
+sns.heatmap(cm_vader_pt, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False,vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Português)\nAcurácia: {accuracy_vader_pt:.0%}&#39;, fontsize=22)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/cm_vader.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/cm_vader.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong> A acurácia geral do método foi praticamente o mesmo para ambas as linguas. Na lingua inglesa observamos mais casos de falsos positivos (22%), já na lingua portuguesa observamos mais casos de falsos negativos (14%).</p>
+</div>
+<p>Essa abordagem é boa para ser utilizada como baseline pois quase todas as abordagens tradicionais de Machine Learning para a tarefa de análise de sentimentos necessitam de tempo para desenvolvimento, treino, validação e sustentação de modelos.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="resultado-final" class="section level1">
+<h1>Resultado Final</h1>
+<hr />
+<p>Avaliamos o desempenho de ambas as abordagens para determinar se o uso do LLM justificou-se em comparação com a abordagem mais simples para a execução da tarefa de análise de sentimentos.</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code>models = (
+    &quot;Inglês&quot;,
+    &quot;Português&quot;,
+)
+weight_counts = {
+    &quot;Vader&quot;: np.array([accuracy_vader_en,
+                       accuracy_vader_pt]),
+    &quot;LLM&quot;: np.array([accuracy_llm_en-accuracy_vader_en,
+                     accuracy_llm_pt-accuracy_vader_pt]),
+}
+
+fig, ax = plt.subplots()
+bottom = np.zeros(2)
+colors=[&quot;#b4dbe6&quot;, &quot;#024b7a&quot;]
+for (boolean, weight_count), col in zip(weight_counts.items(), colors):
+    p = ax.bar(models, weight_count, width=0.5, label=boolean, bottom=bottom, color=col)
+    bottom += weight_count
+
+# Formatar eixos
+plt.ylim([0, 1.1])
+plt.xlabel(&#39;Idioma das resenhas dos filmes&#39;, fontsize=14)
+plt.ylabel(&#39;Ganho de Acurácia&#39;, fontsize=14)
+plt.title(&quot;Comparação do ganho de acurácia \ndo LLM em relação ao Vader&quot;, fontsize=16, x=0.5)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Legenda
+ax.legend(loc=&quot;upper right&quot;, title=&#39;Método utilizado&#39;)
+#specify order of items in legend
+handles, labels = plt.gca().get_legend_handles_labels()
+order = [1, 0]
+plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order])
+
+accs=[x*100 for x in [accuracy_vader_en, accuracy_vader_pt, accuracy_llm_en, accuracy_llm_pt]]
+for p, acc in zip(ax.patches, accs):
+    width, height = p.get_width(), p.get_height()
+    x, y = p.get_xy()
+    ax.text(x+width/2,
+            y+(height/2) - 0.01,
+            &#39;{:.0f} %&#39;.format(acc),
+            horizontalalignment=&#39;center&#39;,
+            verticalalignment=&#39;center&#39;,
+            color=&#39;white&#39;, fontsize=18)
+
+# Adicionar setas e textos na figura
+plt.arrow(0.3, 0.62, 0, 0.16,
+          head_width = 0.05,
+          width = 0.015,
+          color=&#39;black&#39;)
+plt.text(0.2, 0.9, &#39;+20,0%&#39;, fontsize = 20)
+
+plt.arrow(0.7, 0.63, 0, 0.09,
+          head_width = 0.05,
+          width = 0.015,
+          color=&#39;black&#39;)
+plt.text(0.6, 0.84, &#39;+11,53%&#39;, fontsize = 20)
+
+# Remover bordas da parte superior e direita
+ax.spines[&#39;top&#39;].set_visible(False)
+ax.spines[&#39;right&#39;].set_visible(False)
+ax.spines[&#39;bottom&#39;].set_visible(True)
+ax.spines[&#39;left&#39;].set_visible(True)
+ax.grid(visible=None)
+ax.set_facecolor(&#39;white&#39;)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/acc_comparation.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/acc_comparation.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong> A acurácia geral foi consideravelmente maior para o modelo Llama2 em ambas as línguas, mesmo sendo treinado principalmente em dados da língua inglesa.</p>
+</div>
+</div>
+<div id="conclusão-e-discussão" class="section level1">
+<h1>Conclusão e Discussão</h1>
+<hr />
+<p>Os avanços tecnológicos na área são verdadeiramente impressionantes e evidenciam a rápida evolução da inteligência artificial. É importante estarmos sempre atentos a essas mudanças, pois a área de LLMs está em constante crescimento e melhorias significativas são desenvolvidas diariamente.</p>
+<p>Em meio a tantos avanços, também é importante reconhecer as limitações desses modelos. Um dos desafios é o corte de conhecimento (knowledge cutoffs), o que significa que o modelo é treinado até uma determinada data, como 2022, portanto não possui conhecimento sobre eventos ou desenvolvimentos que ocorreram após essa data. Além disso, os LLMs estão sujeitos a “hallucinations”, ou seja, podem inventar informações em um tom muito confiante, o que pode levar a resultados imprecisos ou até mesmo prejudiciais.</p>
+<p>Outras limitações incluem restrições no input e output dos modelos, o que pode tornar difícil lidar com grandes volumes de dados ou fornecer resultados completos de uma só vez. Além disso, os LLMs geralmente não funcionam bem com dados estruturados, como tabelas, e podem reproduzir vieses e toxicidade presentes na sociedade, o que levanta preocupações éticas e sociais importantes.</p>
+<p>Portanto, enquanto exploramos esse vasto campo das redes neurais, é essencial abordar essas limitações e desenvolver soluções que permitam o uso ético e responsável dessas poderosas ferramentas de IA.</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<hr />
+<ul>
+<li><a href="https://medium.com/mapegy-tech/large-scale-language-models-for-innovation-and-technology-intelligence-sentiment-analysis-on-news-2c1ed1f6f2ad">Large-scale language models for innovation and technology intelligence: sentiment analysis on news articles</a></li>
+<li><a href="https://medium.com/luisfredgs/an%C3%A1lise-de-sentimentos-com-redes-neurais-recorrentes-lstm-a5352b21e6aa">Análise de sentimentos com redes neurais recorrentes LSTM</a></li>
+<li><a href="https://www.coursera.org/programs/applied-intelligence-workera-vshgt/learn/generative-ai-for-everyone?authProvider=accenture-main">Generative AI for Everyone - Andrew Ng - Coursera Course</a></li>
+<li><a href="https://swharden.com/blog/2023-07-29-ai-chat-locally-with-python/">Run Llama 2 Locally with Python</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/">Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">chatgpt</category>
+      <category domain="tag">data-science</category>
+      <category domain="tag">gam</category>
+      <category domain="tag">inteligencia-artificial</category>
+      <category domain="tag">llama2</category>
+      <category domain="tag">llm</category>
+      <category domain="tag">python</category>
+      <category domain="tag">redes-neurais</category>
+      <category domain="tag">sentiment-analysis</category>
+    </item>
     <item>
       <title>Gerando arte com Inteligência Artificial</title>
       <link>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</link>
       <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</guid>
-      <description>Introdução DALL·E 2 Instruções de Uso Parâmetros Exemplos DALL·E Mini e Stable Diffusion Exemplos Opções Alternativas VQGAN+CLIP Mais Parâmetros Mais Exemplos Discussão Filosófica Conclusão Referências Introdução Você já deve ter ouvido falar sobre uma inteligência artificial que gera artes super-realistas a partir de textos e imagens. Hoje em dia já existem algumas opções como DALL·E 2 (da OpenAI/Google) e a Make-A-Scene (da Meta), e essas ferramentas são capazes de gerar versões e estilos diferentes de uma dada imagem ou ainda criar uma imagem com apenas uma breve descrição do resultado desejado.</description>
+      <description>Veja como usar, opções, dicas e truques de modelos de inteligência artificial para criar arte sem escrever uma linha de código (a não ser que você queira).</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#introdu%C3%A7%C3%A3o" id="toc-introdução">Introdução</a></li>
+<li><a href="#dalle-2" id="toc-dalle-2">DALL·E 2</a></li>
+<li><a href="#instru%C3%A7%C3%B5es-de-uso" id="toc-instruções-de-uso">Instruções de Uso</a>
+<ul>
+<li><a href="#par%C3%A2metros" id="toc-parâmetros">Parâmetros</a></li>
+<li><a href="#exemplos" id="toc-exemplos">Exemplos</a></li>
+</ul></li>
+<li><a href="#dalle-mini-e-stable-diffusion" id="toc-dalle-mini-e-stable-diffusion">DALL·E Mini e Stable Diffusion</a>
+<ul>
+<li><a href="#exemplos-1" id="toc-exemplos-1">Exemplos</a></li>
+</ul></li>
+<li><a href="#op%C3%A7%C3%B5es-alternativas" id="toc-opções-alternativas">Opções Alternativas</a>
+<ul>
+<li><a href="#vqganclip" id="toc-vqganclip">VQGAN+CLIP</a></li>
+<li><a href="#mais-par%C3%A2metros" id="toc-mais-parâmetros">Mais Parâmetros</a></li>
+<li><a href="#mais-exemplos" id="toc-mais-exemplos">Mais Exemplos</a></li>
+</ul></li>
+<li><a href="#discuss%C3%A3o-filos%C3%B3fica" id="toc-discussão-filosófica">Discussão Filosófica</a></li>
+<li><a href="#conclus%C3%A3o" id="toc-conclusão">Conclusão</a></li>
+<li><a href="#refer%C3%AAncias" id="toc-referências">Referências</a></li>
+</ul>
+</div>
+
+<style>
+.column4 {
+  float: left;
+  width: 33%;
+  padding: 10px;
+}
+
+.column8 {
+  float: left;
+  width: 66%;
+  padding: 10px;
+}
+
+.column6 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<div id="introdução" class="section level1">
+<h1>Introdução</h1>
+<p>Você já deve ter ouvido falar sobre uma <a href="https://canaltech.com.br/inteligencia-artificial/inteligencia-artificial-gera-artes-super-realistas-a-partir-de-textos-e-imagens-213520/#:~:text=A%20empresa%20norte%2Damericana%20de,que%20tinha%20a%20mesma%20fun%C3%A7%C3%A3o.">inteligência artificial que gera artes super-realistas a partir de textos e imagens</a>. Hoje em dia já existem algumas opções como <a href="https://openai.com/DALL%C2%B7E-2/">DALL·E 2</a> (da OpenAI/Google) e a <a href="https://arxiv.org/abs/2203.13131">Make-A-Scene</a> (da Meta), e essas ferramentas são capazes de gerar versões e estilos diferentes de uma dada imagem ou ainda criar uma imagem com apenas uma breve descrição do resultado desejado. As imagens podem ser tão aleatórias quanto um “gato de óculos e uma coroa” (em homenagem ao dia dos gatos):</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/gato%20de%20oculos2.png" style="width:90.0%" /> </br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+<p>Não vou entrar na teoria por trás dos algoritmos pois além do <a href="https://arxiv.org/abs/2204.06125">artigo oficial</a>, existe bastante conteúdo sobre o assunto disponível na internet. Neste post focarei mais em fazer alguns comentários sobre o que andei estudando e compartilhar algumas dicas úteis sobre como escrever os “parâmetros” ou “queries” para sistemas DALL·E 2 (ou alternativos).</p>
+<p>Não posso prometer que depois de ler este post você estará imediatamente capaz de criar artes incríveis utilizando IA até porque eu também sou iniciante no assunto, mas terá algum conhecimento básico para poder trabalhar e desenvolver ainda mais suas habilidades. Para ser honesto, uma vez que acostumamos, não é muito difícil de usar. Não há necessidade de escrever nenhuma linha de código para utilizar a DALL·E 2 nem as outras arquiteturas que apresentarei neste post (no máximo ajustar alguns hiperparâmetros, caso queira).</p>
+</div>
+<div id="dalle-2" class="section level1">
+<h1>DALL·E 2</h1>
+<p>A OpenAI lançou em Janeiro de 2021 o DALL·E e um ano depois, sua segunda geração que constrói imagens mais realistas e precisas, com resolução 4x maior. DALL·E 2 começou como um projeto de pesquisa e agora está disponível em versão beta para aqueles que entrarem na <a href="https://labs.openai.com/waitlist">waitlist</a>. Eles pedem algumas informações como redes sociais e intenções de uso. No meu caso, demorou uns 2/3 meses para liberação, quando recebi um e-mail com meu acesso:</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/dalle_bem_vindo.png" style="width:80.0%" />
+</center>
+<p>O modelo não está finalizado pois existem diversas mitigações de segurança que a equipe da OpenAI ainda vem trabalhando:</p>
+<ul>
+<li>Previnir geração de imagens violentas, limitando a capacidade do DALL·E 2 ao remover conteúdo explicito dos dados de treinamento e minimizando a exposição do algoritmo à estes conceitos;</li>
+<li>Restringir conteúdos políticos evitando seu uso indevido (ex.: fake news);</li>
+<li>Implantação em fases, limitando o número de acessos para usuários confiáveis e a medida que ganharem confiança, liberam a versão beta para mais pessoas.</li>
+</ul>
+<div class="w3-panel w3-pale-red w3-border">
+<p>  🚨 <strong>Atenção</strong></p>
+<p>Para quem quiser ir brincando com esse tipo de rede neural enquanto não recebe o acesso, leia até o final pois apresentarei algumas alternativas!</p>
+</div>
+</div>
+<div id="instruções-de-uso" class="section level1">
+<h1>Instruções de Uso</h1>
+<p>Ainda existe muita discussão sobre o assunto na comunidade e ainda não consolidou-se um “guia definitivo de como usar a ferramenta”, as dicas que darei aqui foram baseadas em experimentos que fiz e pesquisas na internet (referências no final do post). Tentarei fornecer uma boa quantidade de informações organizadas que sejam fáceis de entender, mas também útil para ajudá-lo a entender como a IA interpreta a frase que você escreve como input.</p>
+<div id="parâmetros" class="section level2">
+<h2>Parâmetros</h2>
+<p>Os “parâmetros” que usamos para definir e descrever os detalhes/estilos/objetos/ambiente etc que estão na imagem são a chave. Essas são as instruções ou descrições que “dizem” ao algoritmo o que você deseja ver na imagem.</p>
+<p>É preciso escrever a frase de uma maneira que a IA entenda claramente. Você se familiarizará com a maneira de escrever parâmetros ao longo do tempo com a prática (caso tenha tempo, veja este vídeo de <a href="https://www.youtube.com/watch?v=pdhqwbUWf4U">como ensinar linguagem de programação para uma criança</a>, que da uma bela intuição de como devemos pensar).</p>
+<p>Para começar, precisamos decidir qual é a imagem. É uma pintura? uma fotografia? um desenho de uma linha? Primeiro decidimos o meio da imagem e depois o assunto da imagem. O que vai ter na pintura? Existe uma história a ser contada para descrever visualmente para a IA para que ela esteja na imagem? De que é a imagem?</p>
+<p>Se a imagem que você deseja produzir for replicar uma arte (um desenho, pintura, etc. de algo), então você deve pensar no estilo de arte de um artista que você gosta ou qual estilo de arte se adequaria ao tema ou sentimento da peça de arte você está tentando criar.</p>
+</div>
+<div id="exemplos" class="section level2">
+<h2>Exemplos</h2>
+<p>A seguir veremos alguns exemplos de como fazer e como não fazer a “query para gerar as imagens.”</p>
+<div class="row">
+<div class="column8">
+<p>Para criar uma pintura no estilo de alguém você escreveria algo assim nos parâmetros :“A digital art of a happy dog in a desert with pyramids in the background and planets in the sky” (Uma arte digital de um cachorro feliz em um deserto com pirâmides ao fundo e planetas no céu):</p>
+<p>Note que o modelo entende bem o que são os elementos e como eles se posicionam (à frente, atrás, acima, abaixo, direita, esquerda, etc). Além disso, como não especifiquei se era dia/noite nem se o fundo seria um universo, as cores ficaram confusas. Um azul escuro (quase preto) onde estão os planetas e um azul claro (como dia) para o fundo do deserto.</p>
+</div>
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/dog.png" style="width:90.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+</div>
+</div>
+<p>Se a imagem não for de uma obra de arte/pintura, não iniciamos a frase com o meio (esboço/pintura/qualquer que seja), em vez disso, começamos a frase descrevendo imediatamente a cena da maneira mais gramaticalmente correta possível (que seja difícil de entender errado).</p>
+<p>Veja um exemplo que vi na internet, dizer algo como “Um homem e uma mulher de vestido vermelho ao lado de um cavalo” pode ser mal interpretado pela IA, pois o homem e a mulher podem estar no vestido vermelho ou com roupas vermelhas, além de faltar mais detalhes do que estamos imaginando. Veja como ficou o exemplo gerado:</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/homem_mulher_1.png" style="width:90.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+<p>Até que o resultado não ficou tão ruim, com pelo menos uma imagem com o rapaz de camisa branca. Mas não era exatamente essa cena que tinha em mente, vamos tentar descrever melhor a cena que gostariamos de ver: “Um homem de terno preto e uma mulher de lindo vestido vermelho ao lado de seu majestoso cavalo marrom enquanto observam o pôr do sol”:</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/homem_mulher_2.png" style="width:90.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+<p>Nós já estavamos vendo essa cena mentalmente, mas simplesmente não a havíamos descrito bem o suficiente. Então sempre pense nas descrições dessa maneira, tentando explicar uma fotografia para uma criança de dez anos de uma forma que provavelmente seria capaz de desenhá-la ou algo muito parecido sem ver a foto.</p>
+<p>Além de descrever bem as fotos, existem alguns tipos de palavras-chave que podem ajudar a melhorar os detalhes, veja alguns bastante populares que criam resultados surpreendentes: “4k”, “Unreal engine”, “Ray tracing”, “Fotorrealismo”, “Hiper-realismo”.</p>
+<div class="w3-panel w3-pale-green w3-border">
+<p>  ⭐️ Sucesso!</p>
+<p>Agora, juntando todas essas dicas, acho que você está pronto para tentar construir seus próprios “parâmetros”.</p>
+</div>
+</div>
+</div>
+<div id="dalle-mini-e-stable-diffusion" class="section level1">
+<h1>DALL·E Mini e Stable Diffusion</h1>
+<blockquote>
+<p>Ainda não tenho acesso ao DALL·E 2 e agora?</p>
+</blockquote>
+<p>Bom, a OpenAI apresentou o primeiro (e impressionante) modelo para gerar imagens com DALL·E, certo? A partir daí a comunidade ficou enlouquecida e muitos cientistas de dados tentaram reproduzir os resultados inspirados no <a href="https://arxiv.org/abs/%202204.06125">artigo oficial</a>.</p>
+<p>A versão mais promissora que encontrei foi a <a href="https://huggingface.co/spaces/dalle-mini/dalle-mini">DALL·E mini</a>, desenvolvida por <a href="https://www.craiyon.com/">craiyon.com</a> que é é um modelo de IA capaz de gerar figuras formidáveis a partir de qualquer input de texto. Além disso eles estão trabalhando na versão <a href="https://wandb.ai/dalle-mini/dalle-mini/reports/DALL%C2%B7E-mini-Generate-images-from-any-text-prompt--VmlldzoyMDE4NDAy">“DALL·E mega”</a> que possui diversas melhorias nos otimizadores, na arquitetura em geral e treinada em datasets maiores (uma versão beta ja pode ser <a href="https://github.com/borisdayma/dalle-mini">importada via Python</a>).</p>
+<p>Além desta, outro lançamento público anunciado recentemente (e muito promissor) foi o <a href="https://stability.ai/blog/stable-diffusion-public-release">Stable Difusion</a>, que após incansáveis revisões jurídicas, éticas e de tecnologia, lançaram o modelo e um
+<a href="https://huggingface.co/spaces/stabilityai/stable-diffusion">aplicativo web</a> pronto para uso, com licença permissiva para uso comercial e não comercial.</p>
+<p>É muito legal ver nestas ferramentas, o fruto de muitas horas de esforço coletivo para criar um único arquivo que comprime a “informação visual da humanidade” em alguns gigabytes!</p>
+<div id="exemplos-1" class="section level2">
+<h2>Exemplos</h2>
+<p>Veja algumas imagens geradas tentando descrever sentimentos:</p>
+<div class="row">
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/sentimento_felicidade.png" style="width:90.0%" />
+</br>
+“Felicidade”
+</center>
+</div>
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/sentimento_amor.png" style="width:90.0%" />
+</br>
+“Amor”
+</center>
+</div>
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/sentimento_solidao.png" style="width:90.0%" />
+</br>
+“Solidão”
+</center>
+</div>
+</div>
+<div style="text-align:center">
+<p>Imagens geradas por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://huggingface.co/spaces/dalle-mini/dalle-mini">DALL·E Mini</a></p>
+</div>
+<p>A idéia de gerar estas imagens era tentar entender como uma IA “pensaria” sobre estes termos mas, para surpresa de ninguém, os resultados foram muito próximos de uma busca no Google (dado que o modelo foi treinado em conjuntos de dados públicos). É possível notar também alguns “bugs” como o último smile e um “coração duplo”.</p>
+<p>Mesmo assim, achei interessante as paletas de cores apresentadas com cores mais “alegres” para felicidade (como verde, azul, branco e o amarelo dos “smiles”), um vermelho/rosa para amor e solidão em tons de cinza.</p>
+<p>Essa rede tem algumas limitações com rostos e acabam sendo meio distorcidas (segundo os desenvolvedores, é uma limitação atual do codificador de imagem mas eles já estão trabalhando nisso). Veja a seguir uma comparação do resultado da DALL·E 2 vs DALL mini para a frase “Uma sereia nadando em um mar de fogo”:</p>
+<div class="row">
+<div class="column6">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/sereia_1.jpg" style="width:90.0%" />
+</center>
+</div>
+<div class="column6">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/sereia_2.jpg" style="width:90.0%" />
+</br>
+</center>
+</div>
+</div>
+<div style="text-align:center">
+<p>Imagens geradas por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://huggingface.co/spaces/dalle-mini/dalle-mini">DALL·E Mini</a></p>
+</div>
+<p>A imagem gerada pela DALL·E mini tem uma resolução mais baixa e demorou um pouco mais para ser processada. Um ponto interessante é como mesmo esse modelo “menor” já é capaz de entender um “mar” e gerar o reflexo na água. Os “rostos” gerados pela DALL·E mini muitas vezes são comparados com “sonhos” e até mesmo meio assustadores enquanto que a DALL·E 2 conseguiu entregar uma imagem que, apesar de meio “caricata”, até que ficou bastante detalhada.</p>
+</div>
+</div>
+<div id="opções-alternativas" class="section level1">
+<h1>Opções Alternativas</h1>
+<p>Depois que o artigo com a ideia principal foi divulgado, a comunidade começou a desenvolver diversas redes que trabalhassem de forma semelhante. Nenhuma das redes conseguiu ser tão realistas quando a DALL·E mas fica aquela coisa meio psicodelica que se parece mesmo com um sonho.</p>
+<p>Existem diversas versões, como por exemplo:</p>
+<ul>
+<li><a href="https://colab.research.google.com/drive/1go6YwMFe5MX6XM9tv-cnQiSTU50N9EeT#scrollTo=g7EDme5RYCrt">VQGAN+CLIP</a> (focaremos nesta);</li>
+<li><a href="https://colab.research.google.com/drive/1fWka_U56NhCegbbrQPt4PWpHPtNRdU49?usp=sharing#scrollTo=zvZFRZtcv8Mp">CLIP-GLaSS</a>;</li>
+<li><a href="https://colab.research.google.com/github/eyaler/clip_biggan/blob/main/WanderCLIP.ipynb#scrollTo=lT3rLJx4VjlD">BigGAN + CLIP + CMA-ES</a>;</li>
+<li><a href="https://www.artstation.com/blogs/stijn/B276/ai-sketches-with-vqgan-and-clip-for-concept-art">Disco Diffusion v4.1</a>;</li>
+<li><a href="https://grisk.itch.io/clip-app">Um app para Windows que usa a própria RAM do pc</a>;</li>
+<li><a href="https://www.midjourney.com/home/">Midjourney</a>;</li>
+<li><a href="https://www.reddit.com/r/learnmachinelearning/comments/l4qhnp/openais_dalle_alternatives_with_colab_code_deep/">Dentre outras…</a></li>
+</ul>
+<p>Todos os notebooks que estão na lista acima são hospedados no Google Collab e podem ser executados sem nenhum tipo de pré-configuração de ambiente. O modelo mais popular (e o que eu utilizei mais) acabou sendo a VQGAN+CLIP que foi inicialmente escrito em espanhol e depois em inglês.</p>
+<div id="vqganclip" class="section level2">
+<h2>VQGAN+CLIP</h2>
+<p>Apesar de muito democrática, o problema de hospedar esses notebooks no Google Collab é que se você estiver usando um usuário gratuito, descobrirá que a GPU e RAM são bem limitada. Algumas imagens precisavam de até 5h para serem geradas e mesmo assim o resultado não ficava bom (ri muito com alguns resultados 😂), enquanto que as imagens geradas com o uso da GPU rodavam em alguns minutos e dava para ver que a rede conseguia “ir mais longe”, alcançando imagens com resolução melhor.</p>
+<p>Veja a seguir uma imagem que criei a partir de uma foto da Amora (minha cachorrinha) como “chute inicial”:</p>
+<p>” A happy dog in the desert:200 | sunset in the background:100 | planets in the sky:100 | by Salvador Dali:100 | turtle:-100 | city:-100 | buildings:-200”</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/bafo_surrealista.png" style="width:80.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://colab.research.google.com/drive/1go6YwMFe5MX6XM9tv-cnQiSTU50N9EeT#scrollTo=ZdlpRFL8UAlW">VQGAN+CLIP</a>
+</center>
+<p>Particularmente, gostei bastante do resultado final mas não foi tão fácil utilizando esta rede. Antes de submeter a imagem no notebook, precisei remover o fundo para remover qualquer tipo de ruído pois a rede não é capaz de distinguir o que é um cachorro, o que é meu braço ou o armário ao fundo e os resultados ficavam muito estranhas. Além disso fiz uma colagem (no Power Point mesmo) com alguns elementos que eu gostaria que estivessem na imagem data determinar suas posições.</p>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  ⚠️ Alerta!</p>
+<p>Eu tinha muito claro em minha mente aonde gostaria que os elementos estivessem posicionados, porém, esta etapa de colagem dos elementos é completamente opcional! É uma forma de “guiar” a rede para resultados que estamos procurando, parando em determinada interação e ajustando a posição de elementos (muito útil para arrumar algumas estranhezas que aparecem em rostos) e inputando novamente como imagem inicial.</p>
+</div>
+<p>Além disso, você deve ter notado a presença de pipes “|” e uns valores (como dicionários do Python). A idéia é que as palavras-chave que você colocar entre cada um desses pipes influenciará bastante na imagem final e até mesmo remover coisas que não desejamos.</p>
+<p>A primeira sentença é definida automaticamente como 100 “unidades”. Logo em seguida, as próximas sentenças receberão apenas 1 “unidade”. O ideal é colocar o “valor” associado aquela “chave” que representa o quão “proeminente” será aquele elemento na imagem.</p>
+<p>Note ainda que eu tentei evitar que o modelo incluí-se novos elementos como uma cidade que estava se formando ao fundo ou uma tartaruga no canto esquerdo informando valores negativos para estes elementos que nãa gostaria que aparecessem.</p>
+<p>Estes notebooks não salvam seus resultados, quando você atualizar a página, outra seção será iniciada e todo o trabalho será perdido! Então quando gostar de alguma imagem, não esqueça de salvá-la!</p>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  💡 Dica</p>
+<p>Nem sempre a última imagem gerada no processo é a que nós mais gostamos, então vale a pena conferir como foi o processo de aprendizagem em “épocas” anteriores.</p>
+</div>
+</div>
+<div id="mais-parâmetros" class="section level2">
+<h2>Mais Parâmetros</h2>
+<p>Praticamente todos esses notebooks possuem os mesmos parâmetros então passarei por alguns que considero interessantes para se ter uma noção geral de como funciona:</p>
+<ul>
+<li><p><code>model</code>: há várias opções de modelos treinados em conjuntos de dados específicos para diferentes tarefas, como por exemplo:</p>
+<ul>
+<li>Imagens com diferentes texturas: <code>imagenet_1024</code>, <code>imagenet_16384</code>, <code>sflckr</code>, <code>coco</code>;</li>
+<li>Imagens com estilos de arte: <code>wikiart_1024</code>, <code>wikiart_16384</code>;</li>
+<li>Rostos com diferentes traços: <code>faceshq</code>, <code>ffhq</code>, <code>celebahq</code>;</li>
+</ul></li>
+<li><p><code>inicial_image</code>: podemos ter uma idéia de elementos que gostaríamos que estivesse na imagem e então criar uma imagem para usar como “chute inicial” para direcionar o trabalho da rede;</p></li>
+<li><p><code>seed</code>: é bom colocar um número aleatório (maior que zero) para garantir que o desenvolvimento da imagem seja reprodutível;</p></li>
+<li><p><code>max_interactions</code>: é o número de vezes que o modelo vai “trabalhar” na imagem. Pode ser limitado, a menos que você pague pelo Google Collab Pro (aí da para colocar um valor bem alto e avaliar um bom ponto de parada após alguns experimentos).</p></li>
+<li><p><code>height</code> e <code>width</code>: a altura e a largura são colocadas automaticamente em 600 e 600. Pode ser que demore um pouco então para quem estiver usando a versão free pode ser útil abaixar para cerca de 200 de largura e altura para aliviar no processamento da imagem e permitir mais iterações.</p></li>
+</ul>
+</div>
+<div id="mais-exemplos" class="section level2">
+<h2>Mais Exemplos</h2>
+<div class="row">
+<div class="column8">
+<p>Veja um exemplo de arte gerada a partir de um quadro, onde a tecnologia atua como um colaborador criativo em vez de uma ferramenta básica:</p>
+<p>Esta pintura é intitulada como “Desolate Civilisation” e é composta por 9 pinturas futuristas criadas e montadas utilizando VQGAN+CLIP para se assemelhar à Mona Lisa (via <a href="https://creator.nightcafe.studio/create">NightCafe Studio</a>).</p>
+<p>Interessante como o autor divide a tarefa em 9 “minitarefas”, facilitando assim a produção da imagem toda (além de dar um toque artístico bem interessante).</p>
+</div>
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/monalisa_nightcafe.png" style="width:90.0%" />
+</br>
+<em>Desolate Civilisation</em> - <a href="https://creator.nightcafe.studio/create">NightCafe Studio</a>
+</center>
+</div>
+</div>
+</div>
+</div>
+<div id="discussão-filosófica" class="section level1">
+<h1>Discussão Filosófica</h1>
+<p>Estas novas abordagens estão mudando definitivamente a natureza dos processos criativos. Além de nós, meros mortais não-desenhistas, os artistas também podem se beneficiar destas tecnologias como fonte de inspiração, seja gerando imagens aleatórias sobre coisas que vêm em mente ou ainda “tunar” suas obras, mesclando com diferentes elementos ou tipos de estilos.</p>
+<div class="row">
+<div class="column8">
+<p>Apesar de interessante, para pessoas questionadoras, pode surgir alguma questão filosófica como: <strong>será que isto é arte</strong>? Existem muitas definições de arte e seu significado varia conforme a época ou cultura.</p>
+<p>Li diferentes definições e refleti bastante sobre o assunto, e a definição que mais me agradou foi a de <strong>Immanuel Kant</strong> (um dos meus filósofos favoritos), que sugere que: “a arte diferencia-se da natureza por ser uma atividade racional e livre. Assim, uma teia de aranha, embora possa parecer bela, não é uma obra de arte, já que se trata de uma tarefa mecânica e natural. A arte também se diferencia da ciência, já que para se produzir uma obra de arte não basta ter conhecimento sobre um determinado assunto - é preciso ter habilidade para fazer. Kant define a arte estética como aquela cuja finalidade imediata é o sentimento do prazer, não apenas o prazer ligado às sensações, mas também o prazer da reflexão.”</p>
+</div>
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/arte_dalle.png" style="width:90.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+</div>
+</div>
+<p>Imagino que, pelo menos hoje em dia e por um bom tempo, a IA por si só não conseguirá produzir arte, pois até então todos esses modelos estão “aprendendo” com os inputs que fornecemos e produzindo outputs que pedimos. Isso é uma limitação de uma “inteligência artificial fraca” não sendo capaz de executar a atividade artística “livremente”, além de que sua finalidade imediata não tem haver com prazer de reflexão nenhuma.</p>
+<p>Enquanto continuamos a filosofar e especular sobre a definição de arte, podemos usar estes modelos para ajudar na criação de valor com as “artes” mais necessárias no mundo capitalista que vivemos. Veja como fica “Uma foto em 4k de um carro futurista em um salão todo branco e vazio”:</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/dalle_car.png" style="width:90.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+<p>Essas imagens mostram como podemos usar estes modelos para produzir protótipos de bens de consumo, páginas iniciais de sites ou até pôsteres de filmes (imagina “Futuristic Fast and Furious” 😅 😂).</p>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<p>Todos esses experimentos me fizeram entender melhor o que é possível e o que não é possível de fazer, mas me deixaram com muitas dúvidas de questões filosóficas sobre o que é a arte em si no sentido mais amplo 🤯.</p>
+<p>No futuro, gostaria de explorar novas formas de me divertir, criar arte e encontrar caminhos para usar essa nova tecnologia para facilitar o trabalho das pessoas e, quem sabe, até monetizar!</p>
+<p>Espero que tenham gostado, qualquer crítica ou sugestão será muito bem vinda!</p>
+<p>Abraços!</p>
+<p><a href="https://gomesfellipe.github.io/about/">Fellipe Gomes</a></p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<ul>
+<li><a href="https://www.reddit.com/r/bigsleep/comments/p15fis/tutorial_an_introduction_for_newbies_to_using_the/" class="uri">https://www.reddit.com/r/bigsleep/comments/p15fis/tutorial_an_introduction_for_newbies_to_using_the/</a></li>
+<li><a href="https://openai.com/dall-e-2/" class="uri">https://openai.com/dall-e-2/</a></li>
+<li><a href="https://github.com/openai/DALL-E/blob/master/notebooks/usage.ipynb" class="uri">https://github.com/openai/DALL-E/blob/master/notebooks/usage.ipynb</a></li>
+<li><a href="https://colab.research.google.com/drive/1go6YwMFe5MX6XM9tv-cnQiSTU50N9EeT#scrollTo=ZdlpRFL8UAlW" class="uri">https://colab.research.google.com/drive/1go6YwMFe5MX6XM9tv-cnQiSTU50N9EeT#scrollTo=ZdlpRFL8UAlW</a></li>
+<li><a href="https://www.artstation.com/blogs/stijn/B276/ai-sketches-with-vqgan-and-clip-for-concept-art" class="uri">https://www.artstation.com/blogs/stijn/B276/ai-sketches-with-vqgan-and-clip-for-concept-art</a></li>
+<li><a href="https://arxiv.org/abs/2204.06125" class="uri">https://arxiv.org/abs/2204.06125</a></li>
+<li><a href="https://arxiv.org/abs/2203.13131" class="uri">https://arxiv.org/abs/2203.13131</a></li>
+<li><a href="https://www.artstation.com/blogs/stijn/B276/ai-sketches-with-vqgan-and-clip-for-concept-art" class="uri">https://www.artstation.com/blogs/stijn/B276/ai-sketches-with-vqgan-and-clip-for-concept-art</a></li>
+<li><a href="https://huggingface.co/spaces/dalle-mini/dalle-mini" class="uri">https://huggingface.co/spaces/dalle-mini/dalle-mini</a></li>
+<li><a href="https://github.com/borisdayma/dalle-mini" class="uri">https://github.com/borisdayma/dalle-mini</a></li>
+<li><a href="https://wandb.ai/dalle-mini/dalle-mini/reports/DALL-E-mini-Generate-images-from-any-text-prompt--VmlldzoyMDE4NDAy" class="uri">https://wandb.ai/dalle-mini/dalle-mini/reports/DALL-E-mini-Generate-images-from-any-text-prompt--VmlldzoyMDE4NDAy</a></li>
+<li><a href="https://stability.ai/blog/stable-diffusion-announcement" class="uri">https://stability.ai/blog/stable-diffusion-announcement</a></li>
+<li><a href="https://siliconangle.com/2022/07/14/metas-latest-generative-ai-system-creates-stunning-images-sketches-text/" class="uri">https://siliconangle.com/2022/07/14/metas-latest-generative-ai-system-creates-stunning-images-sketches-text/</a></li>
+<li><a href="https://creator.nightcafe.studio/create" class="uri">https://creator.nightcafe.studio/create</a></li>
+<li><a href="https://michaelis.uol.com.br/moderno-portugues/busca/portugues-brasileiro/arte" class="uri">https://michaelis.uol.com.br/moderno-portugues/busca/portugues-brasileiro/arte</a></li>
+<li><a href="https://www.significados.com.br/arte/" class="uri">https://www.significados.com.br/arte/</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/">Gerando arte com Inteligência Artificial</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">dalle2</category>
+      <category domain="tag">data-science</category>
+      <category domain="tag">dataart</category>
+      <category domain="tag">gan</category>
+      <category domain="tag">inteligencia-artificial</category>
+      <category domain="tag">python</category>
+      <category domain="tag">redes-neurais</category>
+      <category domain="tag">vqgan&#43;clip</category>
     </item>
-    
     <item>
       <title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title>
       <link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link>
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
-      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python) Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon Conclusão Referências Introdução Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:</description>
-    </item>
+      <description>Confira a estratégia aplicada para a competição de machine learning do Porto Seguro hospedada no Kaggle</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#introdu%C3%A7%C3%A3o" id="toc-introdução">Introdução</a></li>
+<li><a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio">Definição do problema de negócio</a></li>
+<li><a href="#an%C3%A1lise-explorat%C3%B3ria-em-r" id="toc-análise-exploratória-em-r">Análise Exploratória (em R)</a></li>
+<li><a href="#machine-learning-em-python" id="toc-machine-learning-em-python">Machine Learning (em Python)</a>
+<ul>
+<li><a href="#importar-depend%C3%AAncias" id="toc-importar-dependências">Importar dependências</a></li>
+<li><a href="#stage-0-feature-extraction-com-knn" id="toc-stage-0-feature-extraction-com-knn">Stage 0: Feature Extraction com KNN</a></li>
+<li><a href="#stage-1-tuning-xgboost-com-optuna" id="toc-stage-1-tuning-xgboost-com-optuna">Stage 1: Tuning XGBoost com Optuna</a></li>
+<li><a href="#stage-2-calcular-out-of-fold-shap-values" id="toc-stage-2-calcular-out-of-fold-shap-values">Stage 2: Calcular Out-Of-Fold SHAP values</a></li>
+<li><a href="#stage-3-modelo-final-com-autogluon" id="toc-stage-3-modelo-final-com-autogluon">Stage 3: Modelo Final com AutoGluon</a></li>
+</ul></li>
+<li><a href="#conclus%C3%A3o" id="toc-conclusão">Conclusão</a></li>
+<li><a href="#refer%C3%AAncias" id="toc-referências">Referências</a></li>
+</ul>
+</div>
+
+<style>
+.column {
+float: left;
+width: 50%;
+padding: 10px;
+}
+
+.column4 {
+float: left;
+width: 20%;
+padding: 10px;
+}
+
+.column8 {
+float: left;
+width: 80%;
+padding: 10px;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 200px;
+}
+</style>
+<hr />
+<div id="introdução" class="section level1">
+<h1>Introdução</h1>
+<div class="row">
+<div class="column8">
+<p>Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:</p>
+<ol style="list-style-type: decimal">
+<li>Todas as features da base de ddos eram anonimas;</li>
+<li>A métrica de avaliação foi a F1 Score (sensível à um ponto de corte)</li>
+</ol>
+</div>
+<div class="column4">
+<div class="float">
+<img src="https://media.giphy.com/media/Ie2Hs3A0uJRtK/giphy.gif" alt="Via Giphy" />
+<div class="figcaption"><a href="https://media.giphy.com/media/Ie2Hs3A0uJRtK/giphy.gif">Via Giphy</a></div>
+</div>
+</div>
+</div>
+<p>Depois de 2 longos meses e dezenas de notebooks desenvolvidos, muitas submissões frustradas e muitas horas a menos de sono, cheguei em uma solução final que envole um <em>blending</em> de modelos e <em>pseudo-labels</em> e quando a competição acabou, percebi que uma solução mais simples de implementar teria um resultado privado ainda maior do que o notebook que selecionei. 😅</p>
+<div class="w3-panel w3-sand w3-border">
+<p>⚠️ Atenção!</p>
+<p>Neste post abordarei uma solução mais simples e eficiente mas caso tenha interesse em conferir a solução final completa (um grande frankstein), já está <a href="https://github.com/gomesfellipe/porto_seguro_data_challenge">publica la no github</a>.</p>
+</div>
+<p>Este notebook é uma <a href="https://www.kaggle.com/gomes555/3st-place-simplified-solution-0-6967-private">reescritura do meu notebook publicado no Kaggle em linguagem Python</a>. Para quem acompanha meus posts de R pode achar meio estranho este notebook mas convido-o a tentar entender a solução pois foi desenvolvida pela perspectiva de um usuário nativo de R.</p>
+<p>Espero que gostem! 🤘</p>
+</div>
+<div id="definição-do-problema-de-negócio" class="section level1">
+<h1>Definição do problema de negócio</h1>
+<p>Segundo a descrição da competição:</p>
+<blockquote>
+<p>Você provavelmente já recebeu uma ligação de telemarketing oferecendo um produto que você não precisa. Essa situação de estresse é minimizada quando você oferece um produto que o cliente realmente precisa. <br /><br /> Nessa competição você será desafiado a construir um modelo que prediz a probabilidade de aquisição de um produto.</p>
+</blockquote>
+<p>Sobre a métrica de avaliação:</p>
+<p>O critério utilizado para definição da melhor solução será o F1-Score, veja sua formula:</p>
+<p><span class="math display">\[
+F_1 = 2 \times \frac{precision \times recall}{precision + recall}  
+\]</span></p>
+<p>Note que tanto a <em>Precision</em> quanto a <em>Recall</em> precisam de um ponto de corte para obter as classes e por isso busquei otmizar as métricas <em>ROC-AUC</em> e <em>Log Loss</em> para obter estimativas de probabilidades com qualidade para finalmente calcular os pontos de corte que maximizam a <em>F1</em>.</p>
+</div>
+<div id="análise-exploratória-em-r" class="section level1">
+<h1>Análise Exploratória (em R)</h1>
+<p>Antes de partir para modelagem fiz uma análise exploratória utilizando a linguagem R. Neste post tratarei de maneira bem breve e quem tiver interesse em conferir mais detalhes bem como os códigos dos gráficos basta acessar o <a href="https://www.kaggle.com/gomes555/porto-seguro-r-an-lise-explorat-ria-dos-dados">notebook que deixei aberto no Kaggle</a>.</p>
+<p>Veja alguns gráficos:</p>
+<center>
+<img src="/post/2021-11-01-solucao-final-porto-seguro-data-challenge/aed.png" style="width:90.0%" />
+</center>
+<!-- <div class="w3-panel w3-light-blue w3-border"> -->
+<p><strong>📌 Interpretação:</strong> <br></p>
+<ul>
+<li><strong>Categóricas</strong>:
+<div style="color: rgb(0, 0, 0);">
+<ul>
+<li>
+<strong>Qualitativo nominal</strong>: Possuem muitas classes, poderia ser o nome do produto, região, um texto o que torna o desafio ainda maior para criar novas features;
+</li>
+<li>
+<strong>Qualitativo ordinal</strong>: Basicamente deixei como veio pois já tava como numerico;
+</li>
+</ul>
+</div></li>
+<li><strong>Numéricas</strong>:
+<div style="color: rgb(0, 0, 0);">
+<ul>
+<li>
+<strong>Quantitativo continua</strong>: Todas estão normalizadas (0, 1), algumas são bimodais, algumas assimétricas a direita (pode ser tempo ate alguma coisa);
+</li>
+<li>
+<strong>Quantitativo discreto</strong>: Sem muito o que fazer, observação apenas a feature <code>var52</code> que parece idade
+</li>
+</ul>
+</div></li>
+<li><strong>Dados missing</strong>: Parece haver algum padrão na maneira como os dados missing ocorrem e tentei substituir os <code>-999</code> por <code>NaN</code>, imputar a média, a mediana e via outros modelos
+<!-- </div> --></li>
+</ul>
+<p>Não achei que seria muito produtivo ficar adivinhando o que poderia ser cada feature pois praticamente todos as transformações e novas features que gerei não superavam o resultado do modelo ajustado nos dados da maneira que vinham portanto procurei investir mais tempo na modelagem mesmo.</p>
+</div>
+<div id="machine-learning-em-python" class="section level1">
+<h1>Machine Learning (em Python)</h1>
+<p>Veja a estratégia de modelagem de maneira visual:</p>
+</br>
+<center>
+<img src="/post/2021-11-01-solucao-final-porto-seguro-data-challenge/final_pipeline.png" style="width:60.0%" />
+</center>
+<p></br></p>
+<div id="importar-dependências" class="section level2">
+<h2>Importar dependências</h2>
+<p>Carregar pacotes do Python</p>
+<pre class="python"><code># general packages
+import pandas as pd
+import numpy as np
+import time
+# knn features
+from gokinjo import knn_kfold_extract
+from gokinjo import knn_extract
+# ml tools
+from sklearn.model_selection import StratifiedKFold, KFold
+from sklearn.metrics import f1_score, log_loss, roc_auc_score
+# models
+from catboost import CatBoostClassifier
+from xgboost import XGBClassifier
+# optimization
+import optuna
+# interpretable ml
+import shap
+# automl
+from autogluon.tabular import TabularPredictor
+# ignore specific warnings
+import warnings
+warnings.filterwarnings(&quot;ignore&quot;, message=&quot;ntree_limit is deprecated, use `iteration_range` or model slicing instead.&quot;)</code></pre>
+<p>Definir funções auxiliares para calcular o ponto de corte que maximiza a F1:</p>
+<pre class="python"><code>def get_threshold(y_true, y_pred):
+    thresholds = np.arange(0.0, 1.0, 0.01)
+    f1_scores = []
+    for thresh in thresholds:
+        f1_scores.append(
+            f1_score(y_true, [1 if m&gt;thresh else 0 for m in y_pred]))
+    f1s = np.array(f1_scores)
+    return thresholds[f1s.argmax()]
     
+def custom_f1(y_true, y_pred):
+    max_f1_threshold =  get_threshold(y_true, y_pred)
+    y_pred = np.where(y_pred&gt;max_f1_threshold, 1, 0)
+    return f1_score(y_true, y_pred) </code></pre>
+<p>Carregar <a href="https://www.kaggle.com/c/porto-seguro-data-challenge/data">dados da competição</a>:</p>
+<pre class="python"><code># load data
+train = pd.read_csv(&#39;../input/porto-seguro-data-challenge/train.csv&#39;).drop(&#39;id&#39;, axis=1)
+test = pd.read_csv(&#39;../input/porto-seguro-data-challenge/test.csv&#39;).drop(&#39;id&#39;, axis=1)
+sample_submission = pd.read_csv(&#39;../input/porto-seguro-data-challenge/submission_sample.csv&#39;)
+meta = pd.read_csv(&#39;../input/porto-seguro-data-challenge/metadata.csv&#39;)
+
+# get data types
+cat_nom = [x for x in meta.iloc[1:-1, :].loc[(meta.iloc[:,1]==&quot;Qualitativo nominal&quot;)].iloc[:,0]] 
+cat_ord = [x for x in meta.iloc[1:-1, :].loc[(meta.iloc[:,1]==&quot;Qualitativo ordinal&quot;)].iloc[:,0]] 
+num_dis = [x for x in meta.iloc[1:-1, :].loc[(meta.iloc[:,1]==&quot;Quantitativo discreto&quot;)].iloc[:,0]] 
+num_con = [x for x in meta.iloc[1:-1, :].loc[(meta.iloc[:,1]==&quot;Quantitativo continua&quot;)].iloc[:,0]] </code></pre>
+</div>
+<div id="stage-0-feature-extraction-com-knn" class="section level2">
+<h2>Stage 0: Feature Extraction com KNN</h2>
+<p>Esta técnica gera <span class="math inline">\(k \times c\)</span> novas features, onde <span class="math inline">\(c\)</span> é o número de classes da target. As novas features são calculadas a partir das distâncias entre as observações e seus k vizinhos mais próximos dentro de cada classe;</p>
+<p>O valor para os <span class="math inline">\(K\)</span> vizinhos mais próximos selecionado foi <span class="math inline">\(K=1\)</span> e para isso utilizei a biblioteca
+<a href="https://github.com/momijiame/gokinjo"><code>gokinjo</code></a> que foi <a href="https://www.kaggle.com/c/otto-group-product-classification-challenge/discussion/14335">inspirada nas idéias apresentadas na solução vencedora do Otto Group Product Classification Challenge.</a></p>
+<pre class="python"><code># convert to numpy because gokinjo expects np arrays
+X = train[cat_nom+cat_ord+num_dis+num_con].to_numpy()
+y = train.y.to_numpy()
+X_test = test[cat_nom+cat_ord+num_dis+num_con].to_numpy()
+
+# extract on train data
+KNN_feat_train = knn_kfold_extract(X, y, k=1, normalize=&#39;standard&#39;)
+print(&quot;KNN features for training set, shape: &quot;, np.shape(KNN_feat_train))
+
+# extract on test data
+KNN_feat_test = knn_extract(X, y, X_test, k=1, normalize=&#39;standard&#39;)
+print(&quot;KNN features for test set, shape: &quot;, np.shape(KNN_feat_test))
+
+# convert to dataframe
+knn_feat_train = pd.DataFrame(KNN_feat_train, columns=[&quot;knn&quot;+str(x) for x in range(knn_feat_train.shape[1])])
+knn_feat_test = pd.DataFrame(KNN_feat_test, columns=[&quot;knn&quot;+str(x) for x in range(knn_feat_test.shape[1])])</code></pre>
+<pre><code>## KNN features for training set, shape:  (14123, 2)
+## KNN features for test set, shape:  (21183, 2)</code></pre>
+</div>
+<div id="stage-1-tuning-xgboost-com-optuna" class="section level2">
+<h2>Stage 1: Tuning XGBoost com Optuna</h2>
+<p>Testei e otimizei muitos modelos como XGBoost, NGBoost, LightGBM, CatBoost, TabNet, HistGradientBoosting e algumas DNNs e em todos os casos (exceto DNNs) utilizei o Optuna para a seleção dos hiperparâmetros.</p>
+<p>Também inclui nas tentativas iniciais de otimização alguns métodos de remostrarem como Random Under Sampling, Smote, Tomek, Adasyn dentre outros mas não tive muito sucesso.. apenas a combinação Tomek + CatBoost pareceu trazer algum ganho.</p>
+<p>Claro que minhas tentativas não foram exautivas e devido ao tempo limitado acabei selecionando o XGBoost que foi o que apresentou as melhores métricas depois de otimizado e também o CatBoost com alguns hiperparâmetros fixos para serem a base deste pipeline.</p>
+<p>Principais Informações 📌 :</p>
+<ul>
+<li>Nenhum pré-processamento;</li>
+<li>KFold K=10;</li>
+<li>Otimização de hiperparâmetros com Optuna;</li>
+<li>Loss do XGBoost: Log Loss;</li>
+<li>Loss do Otimizador: Log Loss;</li>
+<li>Sem resampling;</li>
+<li>Previsão final com a probabilidade média de 10 seeds diferentes</li>
+</ul>
+<pre class="python"><code>X_test = test[cat_nom+cat_ord+num_dis+num_con]
+X = train[cat_nom+cat_ord+num_dis+num_con]
+y = train.y
+
+K=10
+SEED=314
+kf = KFold(n_splits=K, random_state=SEED, shuffle=True)</code></pre>
+<pre class="python"><code>fixed_params = {
+    &#39;random_state&#39;: 9,
+    &quot;objective&quot;: &quot;binary:logistic&quot;,
+    &quot;eval_metric&quot;: &#39;logloss&#39;,
+    &#39;use_label_encoder&#39;:False,
+    &#39;n_estimators&#39;:10000,
+}
+
+def objective(trial):
+    
+    hyperparams = {
+        &#39;clf&#39;:{
+        &quot;booster&quot;: trial.suggest_categorical(&quot;booster&quot;, [&quot;gbtree&quot;]),
+        &quot;lambda&quot;: trial.suggest_float(&quot;lambda&quot;, 1e-8, 5.0, log=True),
+        &quot;alpha&quot;: trial.suggest_float(&quot;alpha&quot;, 1e-8, 5.0, log=True)
+        }
+    }
+    
+    if hyperparams[&#39;clf&#39;][&quot;booster&quot;] == &quot;gbtree&quot; or hyperparams[&#39;clf&#39;][&quot;booster&quot;] == &quot;dart&quot;:
+        hyperparams[&#39;clf&#39;][&quot;max_depth&quot;] = trial.suggest_int(&quot;max_depth&quot;, 1, 9)
+        hyperparams[&#39;clf&#39;][&quot;eta&quot;] = trial.suggest_float(&quot;eta&quot;, 0.01, 0.1, log=True)
+        hyperparams[&#39;clf&#39;][&quot;gamma&quot;] = trial.suggest_float(&quot;gamma&quot;, 1e-8, 1.0, log=True)
+        hyperparams[&#39;clf&#39;][&quot;grow_policy&quot;] = trial.suggest_categorical(&quot;grow_policy&quot;, [&quot;depthwise&quot;, &quot;lossguide&quot;])
+        hyperparams[&#39;clf&#39;][&#39;min_child_weight&#39;] = trial.suggest_int(&#39;min_child_weight&#39;, 5, 20)
+        hyperparams[&#39;clf&#39;][&quot;subsample&quot;] = trial.suggest_float(&quot;subsample&quot;, 0.03, 1)
+        hyperparams[&#39;clf&#39;][&quot;colsample_bytree&quot;] = trial.suggest_float(&quot;colsample_bytree&quot;, 0.03, 1)
+        hyperparams[&#39;clf&#39;][&#39;max_delta_step&#39;] = trial.suggest_float(&#39;max_delta_step&#39;, 0, 10)
+        
+    if hyperparams[&#39;clf&#39;][&quot;booster&quot;] == &quot;dart&quot;:
+        hyperparams[&#39;clf&#39;][&quot;sample_type&quot;] = trial.suggest_categorical(&quot;sample_type&quot;, [&quot;uniform&quot;, &quot;weighted&quot;])
+        hyperparams[&#39;clf&#39;][&quot;normalize_type&quot;] = trial.suggest_categorical(&quot;normalize_type&quot;, [&quot;tree&quot;, &quot;forest&quot;])
+        hyperparams[&#39;clf&#39;][&quot;rate_drop&quot;] = trial.suggest_float(&quot;rate_drop&quot;, 1e-8, 1.0, log=True)
+        hyperparams[&#39;clf&#39;][&quot;skip_drop&quot;] = trial.suggest_float(&quot;skip_drop&quot;, 1e-8, 1.0, log=True)
+    
+    params = dict(**fixed_params, **hyperparams[&#39;clf&#39;])
+    xgb_oof = np.zeros(X.shape[0])
+
+    for fold, (train_idx, val_idx) in enumerate(kf.split(X=X, y=y)):
+        X_train = X.iloc[train_idx]
+        y_train = y.iloc[train_idx]
+        X_val = X.iloc[val_idx]
+        y_val = y.iloc[val_idx]
+        
+        model = XGBClassifier(**params)
+        
+        model.fit(X_train, y_train,
+                  eval_set=[(X_val, y_val)],
+                  early_stopping_rounds=150,
+                  verbose=False)
+    
+        xgb_oof[val_idx] = model.predict_proba(X_val)[:,1]
+
+        del model
+
+    return log_loss(y, xgb_oof)</code></pre>
+<p>Como no Kaggle existe o limite de aproximadamente 8h para executar um notebook, coloquei um limite de 7.5 horas para a busca de hiperparâmetros:</p>
+<pre class="python"><code>study_xgb = optuna.create_study(direction=&#39;minimize&#39;)
+
+study_xgb.optimize(objective, 
+               timeout=60*60*7.5, 
+               gc_after_trial=True)</code></pre>
+<p>Resultados da busca:</p>
+<pre class="python"><code>print(&#39;-&gt; Number of finished trials: &#39;, len(study_xgb.trials))
+print(&#39;-&gt; Best trial:&#39;)
+trial = study_xgb.best_trial
+print(&#39;\tValue: {}&#39;.format(trial.value))
+print(&#39;-&gt; Params: &#39;)
+trial.params</code></pre>
+<pre><code>## -&gt; Number of finished trials:  197
+## -&gt; Best trial:
+## 	Value: 0.3028443879614926
+## -&gt; Params: 
+## {&#39;booster&#39;: &#39;gbtree&#39;,
+##  &#39;lambda&#39;: 9.012384508756378e-07,
+##  &#39;alpha&#39;: 0.7472040331088792,
+##  &#39;max_depth&#39;: 5,
+##  &#39;eta&#39;: 0.01507605562231303,
+##  &#39;gamma&#39;: 1.0214961302342215e-08,
+##  &#39;grow_policy&#39;: &#39;lossguide&#39;,
+##  &#39;min_child_weight&#39;: 5,
+##  &#39;subsample&#39;: 0.9331005225916879,
+##  &#39;colsample_bytree&#39;: 0.25392142363325004,
+##  &#39;max_delta_step&#39;: 5.685109389498008}</code></pre>
+<p>Acompanhar o histórico de cada etapa da otimização:</p>
+<pre class="python"><code>plot_optimization_history(study_xgb)</code></pre>
+<center>
+<img src="/post/2021-11-01-solucao-final-porto-seguro-data-challenge/optimization_hist.png" style="width:90.0%" />
+</center>
+<p>Avaliar as combinações de hiperparâmetros mais bem sucedidas:</p>
+<pre class="python"><code>optuna.visualization.plot_parallel_coordinate(study_xgb)</code></pre>
+<center>
+<img src="/post/2021-11-01-solucao-final-porto-seguro-data-challenge/parallel_plot.png" style="width:90.0%" />
+</center>
+<p>Quais hiperparâmetros tiveram mais impacto na modelagem:</p>
+<pre class="python"><code>plot_param_importances(study_xgb)</code></pre>
+<center>
+<img src="/post/2021-11-01-solucao-final-porto-seguro-data-challenge/param_imp.png" style="width:90.0%" />
+</center>
+<p>Após as 7.5 horas de busca, a melhor combinação encontrada para o XGBoost foi a seguinte:</p>
+<pre class="python"><code># After 7.5 hours...
+study_xgb = {&#39;booster&#39;: &#39;gbtree&#39;,
+ &#39;lambda&#39;: 9.012384508756378e-07,
+ &#39;alpha&#39;: 0.7472040331088792,
+ &#39;max_depth&#39;: 5,
+ &#39;eta&#39;: 0.01507605562231303,
+ &#39;gamma&#39;: 1.0214961302342215e-08,
+ &#39;grow_policy&#39;: &#39;lossguide&#39;,
+ &#39;min_child_weight&#39;: 5,
+ &#39;subsample&#39;: 0.9331005225916879,
+ &#39;colsample_bytree&#39;: 0.25392142363325004,
+ &#39;max_delta_step&#39;: 5.685109389498008}</code></pre>
+<p>Preparar lista de hiperparâmetros do XGBoost:</p>
+<pre class="python"><code>final_params_xgb = dict()
+final_params_xgb[&#39;clf&#39;]=dict(**fixed_params, **study_xgb)</code></pre>
+</div>
+<div id="stage-2-calcular-out-of-fold-shap-values" class="section level2">
+<h2>Stage 2: Calcular Out-Of-Fold SHAP values</h2>
+<p>Após obter a melhor combinação de hiperparâmetros para o XGBoost e encontrar resultados formidáveis com o CatBoost modificando apenas alguns hiperparâmetros, resolvi tentar utilizar a informação adquirida pelo <em>SHAP values</em> desses modelos como entrada para novos modelos.</p>
+<p>Algumas vantagens de se usar o shap values como um método de encoder dos dados, <a href="https://www.kaggle.com/pavelvod/gbm-supervised-pretraining">segundo este notebook publicado no Kaggle</a> (muito interessante por sinal):</p>
+<ul>
+<li>Normaliza os dados;</li>
+<li>Mais ou menos Linearizado pois as <em>features</em> são transformadas em suas importâncias;</li>
+<li>Recursos categóricos codificados de maneira mais inteligente (A codificação não é linear e depende de outros recursos da amostra);</li>
+<li>Tratamento mais inteligente para valores <em>missing</em>.</li>
+</ul>
+<p>Para evitar <em>data leak</em>, o <em>SHAP values</em> foi calculado em cima dos dados <em>out-of-fold</em> para os dados de treino e a média da previsão de todos os <em>fold</em> nos dados de teste.</p>
+<p>Definir estratégia de validação cruzada:</p>
+<pre class="python"><code>X_test = test[cat_nom+cat_ord+num_dis+num_con]
+X = train[cat_nom+cat_ord+num_dis+num_con]
+y = train.y
+
+K=15 # number of bins with Sturge’s rule
+SEED=123
+kf = StratifiedKFold(n_splits=K, random_state=SEED, shuffle=True)</code></pre>
+<div id="xgboost" class="section level3">
+<h3>XGBoost</h3>
+<p>Obter <em>out-of-fold</em> SHAP do modelo XGBoost tunado:</p>
+<pre class="python"><code>shap1_oof = np.zeros((X.shape[0], X.shape[1]))
+shap1_test = np.zeros((X_test.shape[0], X_test.shape[1]))
+model_shap1_oof = np.zeros(X.shape[0])
+
+for fold, (train_idx, val_idx) in enumerate(kf.split(X=X, y=y)):
+    print(f&quot;➜ FOLD :{fold}&quot;)
+    X_train = X.iloc[train_idx]
+    y_train = y.iloc[train_idx]
+    X_val = X.iloc[val_idx]
+    y_val = y.iloc[val_idx]
+    
+    start = time.time()
+    
+    model = XGBClassifier(**final_params_xgb[&#39;clf&#39;])
+    
+    model.fit(X_train, y_train,
+              eval_set=[(X_val, y_val)],
+              early_stopping_rounds=150,
+              verbose=False)
+    
+    model_shap1_oof[val_idx] += model.predict_proba(X_val)[:,1]
+    
+    print(&quot;Final F1     :&quot;, custom_f1(y_val, model_shap1_oof[val_idx]))
+    print(&quot;Final AUC    :&quot;, roc_auc_score(y_val, model_shap1_oof[val_idx]))
+    print(&quot;Final LogLoss:&quot;, log_loss(y_val, model_shap1_oof[val_idx]))
+
+    explainer = shap.TreeExplainer(model)
+    shap1_oof[val_idx] = explainer.shap_values(X_val)
+    shap1_test += explainer.shap_values(X_test) / K
+
+    print(f&quot;elapsed: {time.time()-start:.2f} sec\n&quot;)
+    
+shap1_oof = pd.DataFrame(shap1_oof, columns = [x+&quot;_shap1&quot; for x in X.columns])
+shap1_test = pd.DataFrame(shap1_test, columns = [x+&quot;_shap1&quot; for x in X_test.columns])
+
+print(&quot;Final F1     :&quot;, custom_f1(y, model_shap1_oof))
+print(&quot;Final AUC    :&quot;, roc_auc_score(y, model_shap1_oof))
+print(&quot;Final LogLoss:&quot;, log_loss(y, model_shap1_oof))</code></pre>
+<pre><code>## ➜ FOLD :0
+## Final F1     : 0.7032967032967034
+## Final AUC    : 0.902330627099664
+## Final LogLoss: 0.2953604946129216
+## elapsed: 62.58 sec
+## 
+## ➜ FOLD :1
+## Final F1     : 0.6193853427895981
+## Final AUC    : 0.8613101903695408
+## Final LogLoss: 0.34227429854659686
+## elapsed: 45.96 sec
+## 
+## ➜ FOLD :2
+## Final F1     : 0.6793478260869567
+## Final AUC    : 0.8945898656215007
+## Final LogLoss: 0.3085819148842589
+## elapsed: 58.84 sec
+## 
+## ➜ FOLD :3
+## Final F1     : 0.7073791348600509
+## Final AUC    : 0.9058020716685331
+## Final LogLoss: 0.2881665477053405
+## elapsed: 62.24 sec
+## 
+## ➜ FOLD :4
+## Final F1     : 0.7239583333333334
+## Final AUC    : 0.9053121500559911
+## Final LogLoss: 0.29320601468396107
+## elapsed: 93.74 sec
+## 
+## ➜ FOLD :5
+## Final F1     : 0.7009803921568627
+## Final AUC    : 0.9076567749160134
+## Final LogLoss: 0.2872539995859452
+## elapsed: 73.34 sec
+## 
+## ➜ FOLD :6
+## Final F1     : 0.6736292428198434
+## Final AUC    : 0.8822788353863381
+## Final LogLoss: 0.320014158050091
+## elapsed: 55.16 sec
+## 
+## ➜ FOLD :7
+## Final F1     : 0.7135416666666666
+## Final AUC    : 0.9016657334826428
+## Final LogLoss: 0.29617989833438774
+## elapsed: 74.49 sec
+## 
+## ➜ FOLD :8
+## Final F1     : 0.7135135135135134
+## Final AUC    : 0.8893825776158104
+## Final LogLoss: 0.29351621553572266
+## elapsed: 93.71 sec
+## 
+## ➜ FOLD :9
+## Final F1     : 0.7391304347826086
+## Final AUC    : 0.9064054944284814
+## Final LogLoss: 0.28033187155768635
+## elapsed: 95.65 sec
+## 
+## ➜ FOLD :10
+## Final F1     : 0.684863523573201
+## Final AUC    : 0.9031046324199313
+## Final LogLoss: 0.29823173886367804
+## elapsed: 64.70 sec
+## 
+## ➜ FOLD :11
+## Final F1     : 0.704225352112676
+## Final AUC    : 0.8882052000840984
+## Final LogLoss: 0.30525241732057884
+## elapsed: 50.06 sec
+## 
+## ➜ FOLD :12
+## Final F1     : 0.6666666666666666
+## Final AUC    : 0.8905529469479291
+## Final LogLoss: 0.313654842143217
+## elapsed: 78.45 sec
+## 
+## ➜ FOLD :13
+## Final F1     : 0.6500000000000001
+## Final AUC    : 0.8745111780783517
+## Final LogLoss: 0.3300786509821235
+## elapsed: 59.54 sec
+## 
+## ➜ FOLD :14
+## Final F1     : 0.7135416666666666
+## Final AUC    : 0.9063284042329526
+## Final LogLoss: 0.29314716930177404
+## elapsed: 70.28 sec
+## 
+## Final F1     : 0.6822461331540014
+## Final AUC    : 0.8945288307257988
+## Final LogLoss: 0.30301717097927483</code></pre>
+</div>
+<div id="catboost" class="section level3">
+<h3>CatBoost</h3>
+<p>Obter <em>out-of-fold</em> SHAP do modelo CatBoost + features extratídas via KNN:</p>
+<pre class="python"><code>X = pd.concat([X, knn_feat_train], axis=1)
+X_test = pd.concat([X_test, knn_feat_test], axis=1)</code></pre>
+<pre class="python"><code>shap2_oof = np.zeros((X.shape[0], X.shape[1]))
+shap2_test = np.zeros((X_test.shape[0], X_test.shape[1]))
+model_shap2_oof = np.zeros(X.shape[0])
+
+for fold, (train_idx, val_idx) in enumerate(kf.split(X=X, y=y)):
+    print(f&quot;➜ FOLD :{fold}&quot;)
+    X_train = X.iloc[train_idx]
+    y_train = y.iloc[train_idx]
+    X_val = X.iloc[val_idx]
+    y_val = y.iloc[val_idx]
+    
+    start = time.time()
+    
+    model = CatBoostClassifier(random_seed=SEED,
+                               verbose = 0,
+                               n_estimators=10000,
+                               loss_function= &#39;Logloss&#39;,
+                               use_best_model=True,
+                               eval_metric= &#39;Logloss&#39;)
+    
+    model.fit(X_train, y_train, 
+              eval_set = [(X_val,y_val)], 
+              early_stopping_rounds = 100,
+              verbose = False)
+    
+    model_shap2_oof[val_idx] += model.predict_proba(X_val)[:,1]
+    
+    print(&quot;Final F1     :&quot;, custom_f1(y_val, model_shap2_oof[val_idx]))
+    print(&quot;Final AUC    :&quot;, roc_auc_score(y_val, model_shap2_oof[val_idx]))
+    print(&quot;Final LogLoss:&quot;, log_loss(y_val, model_shap2_oof[val_idx]))
+
+    explainer = shap.TreeExplainer(model)
+    shap2_oof[val_idx] = explainer.shap_values(X_val)
+    shap2_test += explainer.shap_values(X_test) / K
+
+    print(f&quot;elapsed: {time.time()-start:.2f} sec\n&quot;)
+    
+shap2_oof = pd.DataFrame(shap2_oof, columns = [x+&quot;_shap&quot; for x in X.columns])
+shap2_test = pd.DataFrame(shap2_test, columns = [x+&quot;_shap&quot; for x in X_test.columns])
+
+print(&quot;Final F1     :&quot;, custom_f1(y, model_shap2_oof))
+print(&quot;Final AUC    :&quot;, roc_auc_score(y, model_shap2_oof))
+print(&quot;Final LogLoss:&quot;, log_loss(y, model_shap2_oof))</code></pre>
+<pre><code>## ➜ FOLD :0
+## Final F1     : 0.6972010178117048
+## Final AUC    : 0.8954157334826428
+## Final LogLoss: 0.29952314366911725
+## elapsed: 22.84 sec
+## 
+## ➜ FOLD :1
+## Final F1     : 0.6348448687350835
+## Final AUC    : 0.8628429451287795
+## Final LogLoss: 0.3407490151943705
+## elapsed: 12.59 sec
+## 
+## ➜ FOLD :2
+## Final F1     : 0.6809651474530831
+## Final AUC    : 0.8949538073908175
+## Final LogLoss: 0.3066089330852162
+## elapsed: 18.03 sec
+## 
+## ➜ FOLD :3
+## Final F1     : 0.702247191011236
+## Final AUC    : 0.9107992721164613
+## Final LogLoss: 0.2877216893570601
+## elapsed: 15.66 sec
+## 
+## ➜ FOLD :4
+## Final F1     : 0.7131367292225201
+## Final AUC    : 0.9018687010078387
+## Final LogLoss: 0.2976481761596595
+## elapsed: 29.35 sec
+## 
+## ➜ FOLD :5
+## Final F1     : 0.7055837563451777
+## Final AUC    : 0.909231522956327
+## Final LogLoss: 0.28834373773423566
+## elapsed: 15.35 sec
+## 
+## ➜ FOLD :6
+## Final F1     : 0.6631578947368421
+## Final AUC    : 0.8796402575587906
+## Final LogLoss: 0.32303153676573987
+## elapsed: 19.13 sec
+## 
+## ➜ FOLD :7
+## Final F1     : 0.6997389033942559
+## Final AUC    : 0.901637737961926
+## Final LogLoss: 0.2985978485411335
+## elapsed: 23.30 sec
+## 
+## ➜ FOLD :8
+## Final F1     : 0.6965699208443271
+## Final AUC    : 0.8825565912117177
+## Final LogLoss: 0.3009859242847037
+## elapsed: 20.19 sec
+## 
+## ➜ FOLD :9
+## Final F1     : 0.7435897435897436
+## Final AUC    : 0.9042469689536757
+## Final LogLoss: 0.28276851015512977
+## elapsed: 24.39 sec
+## 
+## ➜ FOLD :10
+## Final F1     : 0.6767676767676767
+## Final AUC    : 0.902712173242694
+## Final LogLoss: 0.29999812838692497
+## elapsed: 16.14 sec
+## 
+## ➜ FOLD :11
+## Final F1     : 0.7013698630136986
+## Final AUC    : 0.8865022075828719
+## Final LogLoss: 0.3081393413008847
+## elapsed: 13.50 sec
+## 
+## ➜ FOLD :12
+## Final F1     : 0.6630434782608696
+## Final AUC    : 0.8920456934613498
+## Final LogLoss: 0.31338640296724246
+## elapsed: 24.48 sec
+## 
+## ➜ FOLD :13
+## Final F1     : 0.6485148514851485
+## Final AUC    : 0.8689887167986544
+## Final LogLoss: 0.3369797070301582
+## elapsed: 17.17 sec
+## 
+## ➜ FOLD :14
+## Final F1     : 0.7108753315649867
+## Final AUC    : 0.8994743850304856
+## Final LogLoss: 0.301420230674656
+## elapsed: 16.51 sec
+## 
+## Final F1     : 0.6823234134098244
+## Final AUC    : 0.892656043550729
+## Final LogLoss: 0.305726567456891</code></pre>
+<pre class="python"><code>train = pd.concat([train, shap1_oof], axis=1)
+test = pd.concat([test, shap1_test], axis=1)
+
+train = pd.concat([train, shap2_oof], axis=1)
+test = pd.concat([test, shap2_test], axis=1)</code></pre>
+</div>
+</div>
+<div id="stage-3-modelo-final-com-autogluon" class="section level2">
+<h2>Stage 3: Modelo Final com AutoGluon</h2>
+<p>AutoGluon é um <a href="https://github.com/awslabs/autogluon">AutoML desenvolvido pela Amazon</a> muito fácil de utilizar (no melhor estilo <code>sklearn</code> com métodos <code>.fit()</code> e <code>.predict()</code>).</p>
+<p>Principais Informações 📌 :</p>
+<ul>
+<li>Inputs: Dataset original + knn features + Shapt values do XGBoost tunado e do CatBoost;</li>
+<li>Loss do XGBoost: Log Loss;</li>
+<li>Loss do CatBoost: AUC;</li>
+<li>Loss do AutoGluon: Log Loss;</li>
+<li>Tempo de processamento: 7h30m</li>
+</ul>
+<div class="w3-panel w3-pale-green w3-border">
+<p><strong>💡 Insight</strong> <br></p>
+<p>Um recurso muito útil do AutoGluon é poder acessar as previsões out-of-folds, o que facilita no cálculo do <em>threshold</em> que maximiza a <em>F1 Score</em>.</p>
+</div>
+<pre class="python"><code>predictor = TabularPredictor(label=&quot;y&quot;,
+                             problem_type=&#39;binary&#39;,
+                             eval_metric=&quot;log_loss&quot;,
+                             path=&#39;./AutoGlon/&#39;,
+                             verbosity=1)
+
+predictor.fit(train, presets=&#39;best_quality&#39;, time_limit=60*60*7.5) 
+
+results = predictor.fit_summary()</code></pre>
+<pre><code>## *** Summary of fit() ***
+## Estimated performance of each model:
+##                       model  score_val  pred_time_val      fit_time  pred_time_val_marginal  fit_time_marginal  stack_level  can_infer  fit_order
+## 0       WeightedEnsemble_L2  -0.299310      30.410467   8888.826963                0.001654           2.456810            2       True         14
+## 1           CatBoost_BAG_L1  -0.301038       3.051793   2376.887100                3.051793        2376.887100            1       True          7
+## 2       WeightedEnsemble_L3  -0.301722     194.034947  22907.669139                0.001541           2.008858            3       True         26
+## 3         LightGBMXT_BAG_L2  -0.302135     131.534432  17201.299530                1.378576         389.400378            2       True         15
+## 4         LightGBMXT_BAG_L1  -0.302562       3.570399    969.385833                3.570399         969.385833            1       True          3
+## 5           CatBoost_BAG_L2  -0.302646     131.912474  17619.939451                1.756617         808.040299            2       True         19
+## 6           LightGBM_BAG_L2  -0.303002     131.422007  17281.518763                1.266150         469.619612            2       True         16
+## 7           LightGBM_BAG_L1  -0.303264       2.964433   1038.037160                2.964433        1038.037160            1       True          4
+## 8            XGBoost_BAG_L1  -0.303471       4.475003   2036.551052                4.475003        2036.551052            1       True         11
+## 9    NeuralNetFastAI_BAG_L1  -0.304455      19.917584   3434.894841               19.917584        3434.894841            1       True         10
+## 10           XGBoost_BAG_L2  -0.304499     132.757505  17834.135370                2.601648        1022.236218            2       True         23
+## 11   NeuralNetFastAI_BAG_L2  -0.306339     142.018741  18777.287244               11.862885        1965.388093            2       True         22
+## 12     LightGBMLarge_BAG_L2  -0.306606     131.701429  18260.504603                1.545573        1448.605452            2       True         25
+## 13    NeuralNetMXNet_BAG_L2  -0.308237     177.769179  19273.211899               47.613322        2461.312748            2       True         24
+## 14     LightGBMLarge_BAG_L1  -0.309686       3.042399   2629.185346                3.042399        2629.185346            1       True         13
+## 15    ExtraTreesEntr_BAG_L2  -0.314045     132.017535  16815.886061                1.861679           3.986910            2       True         21
+## 16  RandomForestEntr_BAG_L2  -0.314454     132.061970  16843.769642                1.906114          31.870490            2       True         18
+## 17    ExtraTreesGini_BAG_L2  -0.314960     132.123651  16816.087081                1.967794           4.187930            2       True         20
+## 18    NeuralNetMXNet_BAG_L1  -0.317156      81.677096   4258.886806               81.677096        4258.886806            1       True         12
+## 19  RandomForestGini_BAG_L2  -0.321702     132.035970  16835.326491                1.880114          23.427339            2       True         17
+## 20    ExtraTreesEntr_BAG_L1  -0.323283       1.794093      4.051307                1.794093           4.051307            1       True          9
+## 21  RandomForestEntr_BAG_L1  -0.324296       1.966043     33.380685                1.966043          33.380685            1       True          6
+## 22    ExtraTreesGini_BAG_L1  -0.325897       1.796291      3.748723                1.796291           3.748723            1       True          8
+## 23  RandomForestGini_BAG_L1  -0.328218       1.778995     22.705248                1.778995          22.705248            1       True          5
+## 24    KNeighborsDist_BAG_L1  -1.070156       2.010938      2.075571                2.010938           2.075571            1       True          2
+## 25    KNeighborsUnif_BAG_L1  -1.071373       2.110790      2.109480                2.110790           2.109480            1       True          1
+## Number of models trained: 26
+## Types of models trained:
+## {&#39;StackerEnsembleModel_RF&#39;, &#39;StackerEnsembleModel_NNFastAiTabular&#39;, &#39;WeightedEnsembleModel&#39;, &#39;StackerEnsembleModel_XGBoost&#39;, &#39;StackerEnsembleModel_CatBoost&#39;, &#39;StackerEnsembleModel_KNN&#39;, &#39;StackerEnsembleModel_LGB&#39;, &#39;StackerEnsembleModel_XT&#39;, &#39;StackerEnsembleModel_TabularNeuralNet&#39;}
+## Bagging used: True  (with 10 folds)
+## Multi-layer stack-ensembling used: True  (with 3 levels)
+## Feature Metadata (Processed):
+## (raw dtype, special dtypes):
+## (&#39;float&#39;, [])     : 152 | [&#39;var55&#39;, &#39;var56&#39;, &#39;var57&#39;, &#39;var58&#39;, &#39;var59&#39;, ...]
+## (&#39;int&#39;, [])       :  48 | [&#39;var1&#39;, &#39;var2&#39;, &#39;var3&#39;, &#39;var4&#39;, &#39;var5&#39;, ...]
+## (&#39;int&#39;, [&#39;bool&#39;]) :   6 | [&#39;var27&#39;, &#39;var31&#39;, &#39;var44&#39;, &#39;var49&#39;, &#39;var50&#39;, ...]
+## Plot summary of models saved to file: ./AutoGlon/SummaryOfModels.html
+## *** End of fit() summary ***</code></pre>
+<p>Nota: Os resultados podem variar devido à natureza estocástica do algoritmo ou procedimento de avaliação.</p>
+<pre class="python"><code># get final predictions
+y_oof = predictor.get_oof_pred_proba().iloc[:,1]
+y_pred = predictor.predict_proba(test).iloc[:,1]</code></pre>
+<pre class="python"><code>final_threshold = get_threshold(train.y, y_oof)
+final_threshold</code></pre>
+<pre><code>## 0.31</code></pre>
+<pre class="python"><code>print(&quot;Final F1     :&quot;, custom_f1(y, y_oof))
+print(&quot;Final AUC    :&quot;, roc_auc_score(y, y_oof))
+print(&quot;Final LogLoss:&quot;, log_loss(y, y_oof))</code></pre>
+<pre><code>## Final F1     : 0.6846193682030037
+## Final AUC    : 0.8961328807692966
+## Final LogLoss: 0.2993098559321765</code></pre>
+<p>Após submissão:</p>
+<center>
+<img src="/post/2021-11-01-solucao-final-porto-seguro-data-challenge/final_sub.png" style="width:90.0%" />
+</center>
+</div>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<p>Gostaria de agradecer imensamente ao time do Porto Seguro pela iniciativa, pois esse tipo de competição (tão detalhada e desafiadora) não tem sido muito comum no Brasil e é muito importante para fomentar a comunidade brasileira de ciência de dados!</p>
+<p>Sabemos que o “mundo real” é diferente do mundo das competições (onde buscamos o melhor score a todo custo) porém, na minha visão, não deixa de ser um ótimo exercício para treinar o raciocínio analítico.. além de ser muito empolgante e divertido!</p>
+<p>Tive o enorme prazer de trocar idéias e conhecer pessoas fora da curva bem como me tornar fã de alguns competidores! A cada semana q passava o nível estava cada vez mais alto!</p>
+<p>Com certeza este pipeline poderia ser muito melhor, sinto que poderia ter gasto mais tempo com <em>feature engineering</em> e tido mais paciencia com alguns modelos. Tentei fazer o melhor que pude com o tempo disponível e me sinto muito grato pela experiência de apresentar os resultados e aprender bastante com a solução dos top colocados.</p>
+<p>Não acaba por aqui! Agora é hora de voltar aos estudos, continuar praticando com as <a href="https://www.kaggle.com/c/tabular-playground-series-nov-2021/overview">TPS’s do Kaggle</a> e, quem sabe, ir melhor na próxima!</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<ul>
+<li><a href="https://github.com/momijiame/gokinjo" class="uri">https://github.com/momijiame/gokinjo</a></li>
+<li><a href="https://www.kaggle.com/melanie7744/tps6-boost-your-score-with-knn-features" class="uri">https://www.kaggle.com/melanie7744/tps6-boost-your-score-with-knn-features</a></li>
+<li><a href="https://www.kaggle.com/c/otto-group-product-classification-challenge/discussion/14335" class="uri">https://www.kaggle.com/c/otto-group-product-classification-challenge/discussion/14335</a></li>
+<li><a href="https://www.kaggle.com/pavelvod/gbm-supervised-pretraining" class="uri">https://www.kaggle.com/pavelvod/gbm-supervised-pretraining</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/">Solução Final - Porto Seguro Data Challenge [3º lugar]</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">catboost</category>
+      <category domain="tag">data-science</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">knn</category>
+      <category domain="tag">machine-learning</category>
+      <category domain="tag">optuna</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">python</category>
+      <category domain="tag">shap</category>
+      <category domain="tag">threshold-movel</category>
+    </item>
   </channel>
 </rss>

@@ -4,27 +4,40 @@ author: Fellipe Gomes
 date: '2018-04-12'
 slug: []
 categories:
-  - R
-  - Prática
-  - Séries Temporais
-  - Google
-  - Google Trends
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Programação e Ferramentas
 tags:
-  - gomesfellipe
-  -  R
-  - RStudio
-  - Prática
-  - Séries Temporais
-  - Google
-  - Google Trends
-description: 'Utilizando a API do google trends direto no R possibilitando a análise de séries temporais'
-featured: 'gtrends-r.png'
-featuredalt: 'Pic 4'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
+- google
+- google-trends
+- pratica
+- r
+- rstudio
+- series-temporais
+description: Utilizando a API do google trends direto no R possibilitando a análise
+  de séries temporais
+featured: gtrends-r.png
+featuredalt: Ilustração sobre séries temporais com google trends e r
+featuredpath: date
+type: post
+image_preview: gtrends-r.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/04/gtrends-r.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/04/gtrends-r.png
+keywords: google, google-trends, pratica, r, rstudio, series-temporais, data science,
+  machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 ```{r, include=F}
 knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
 ```

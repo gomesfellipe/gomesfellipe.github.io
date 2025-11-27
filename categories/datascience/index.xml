@@ -1,0 +1,78 @@
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>datascience on Fellipe Gomes - Data Science Blog</title>
+    <link>https://gomesfellipe.github.io/categories/datascience/</link>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Sun, 08 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/categories/datascience/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Canais do YouTube para Cientistas de Dados</title>
+      <link>https://gomesfellipe.github.io/recommendations/item4/</link>
+      <pubDate>Sun, 08 Jun 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/recommendations/item4/</guid>
+      <description>Minha seleção dos melhores canais do YouTube para quem quer aprender Data Science, Machine Learning e programação em 2025</description>
+      <content:encoded>&lt;![CDATA[
+        <p>O YouTube virou uma universidade gratuita para quem quer aprender Data Science. Compilei aqui os canais que realmente fazem a diferença na jornada de aprendizado, desde conceitos básicos até técnicas avançadas.</p>
+<h2 id="matemática-e-conceitos-fundamentais">Matemática e Conceitos Fundamentais</h2>
+<p><strong><a href="https://www.youtube.com/@3blue1brown">3Blue1Brown</a></strong>
+O melhor canal para entender matemática de forma visual. Grant Sanderson tem um talento único para explicar conceitos complexos de álgebra linear, cálculo e estatística de forma intuitiva. Essencial para quem quer entender o &ldquo;por que&rdquo; por trás dos algoritmos.</p>
+<p><strong><a href="https://www.youtube.com/@statquest">StatQuest with Josh Starmer</a></strong>
+Josh consegue explicar estatística e machine learning de forma que qualquer pessoa entende. Os vídeos são curtos, diretos e com exemplos práticos. Perfeito para revisar conceitos ou aprender algo novo sem complicação.</p>
+<h2 id="programação-e-implementação">Programação e Implementação</h2>
+<p><strong><a href="https://www.youtube.com/@sentdex">Sentdex</a></strong>
+Harrison foca em Python aplicado a machine learning e finanças. Ótimos tutoriais práticos, desde pandas básico até redes neurais. Ideal para quem quer ver código funcionando na prática.</p>
+<p><strong><a href="https://www.youtube.com/@coreyms">Corey Schafer</a></strong>
+Se você está começando com Python, esse canal é obrigatório. Corey explica desde o básico até tópicos avançados com uma didática excepcional. Seus tutoriais de pandas e matplotlib são referência.</p>
+<p><strong><a href="https://www.youtube.com/@codebasics">Codebasics</a></strong>
+Canal indiano com conteúdo muito sólido sobre fundamentos de data science. Dhanraj explica tanto teoria quanto prática, sempre com projetos reais. Boa variedade de linguagens e ferramentas.</p>
+<h2 id="análise-e-business-intelligence">Análise e Business Intelligence</h2>
+<p><strong><a href="https://www.youtube.com/@AlexTheAnalyst">Alex The Analyst</a></strong>
+Focado no lado mais business de data science. Excelente para SQL, Power BI, Tableau e análise de dados. Alex mostra como trabalhar com dados em ambientes corporativos reais.</p>
+<p><strong><a href="https://www.youtube.com/@Analyticsvidhya">Analytics Vidhya</a></strong>
+Canal da plataforma Analytics Vidhya com tutoriais variados sobre analytics e data science. Bom para ficar atualizado com trends e novas ferramentas do mercado.</p>
+<h2 id="machine-learning-avançado">Machine Learning Avançado</h2>
+<p><strong><a href="https://www.youtube.com/@krishnaik06">Krish Naik</a></strong>
+Krish oferece bootcamps completos de machine learning e deep learning. Conteúdo denso e bem estruturado, ideal para quem quer se aprofundar nos algoritmos e técnicas mais avançadas.</p>
+<p><strong><a href="https://www.youtube.com/@TwoMinutePapers">Two Minute Papers</a></strong>
+Dr. Károly Zsolnai-Fehér apresenta as pesquisas mais recentes em IA de forma acessível. Perfeito para acompanhar o estado da arte e ver o que está sendo desenvolvido nos laboratórios.</p>
+<h2 id="conteúdo-motivacional-e-trends">Conteúdo Motivacional e Trends</h2>
+<p><strong><a href="https://www.youtube.com/@SirajRaval">Siraj Raval</a></strong>
+Siraj mistura conteúdo técnico com motivação e visão de futuro da IA. Bom para entender o panorama geral da área e se manter inspirado durante os estudos.</p>
+<h2 id="dicas-de-consumo">Dicas de Consumo</h2>
+<p>Algumas estratégias que uso para aproveitar melhor esses canais:</p>
+<p><strong>Para iniciantes:</strong>
+Comece com Corey Schafer (Python básico) → StatQuest (conceitos) → Sentdex (prática)</p>
+<p><strong>Para quem já programa:</strong>
+3Blue1Brown (fundamentos) → Krish Naik (ML) → Two Minute Papers (atualização)</p>
+<p><strong>Para o mercado de trabalho:</strong>
+Alex The Analyst → Analytics Vidhya → Codebasics</p>
+<p><strong>Pontos importantes:</strong></p>
+<ul>
+<li>Assista em 1.25x ou 1.5x para otimizar tempo</li>
+<li>Pause para fazer anotações dos conceitos principais</li>
+<li>Tente reproduzir os códigos mostrados</li>
+<li>Use os vídeos como complemento, não substituição de prática</li>
+</ul>
+<p>O YouTube é uma ferramenta poderosa, mas o segredo está na consistência. Melhor assistir 20 minutos por dia do que 3 horas no fim de semana.</p>
+<p>Todos esses canais são em inglês, o que também ajuda a melhorar o idioma - fundamental na carreira de dados.</p>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/recommendations/item4/">Canais do YouTube para Cientistas de Dados</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>datascience</category>
+      <category>youtube</category>
+      <category>aprendizado</category>
+      <category domain="tag">youtube</category>
+      <category domain="tag">datascience</category>
+      <category domain="tag">machinelearning</category>
+      <category domain="tag">python</category>
+      <category domain="tag">r</category>
+    </item>
+  </channel>
+</rss>

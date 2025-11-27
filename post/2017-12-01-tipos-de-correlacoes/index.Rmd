@@ -4,32 +4,42 @@ author: Fellipe Gomes
 date: '2017-12-01'
 slug: []
 categories:
-  - R
-  - Estatística
-  - Teoria
+- Fundamentos de Data Science
+- Programação e Ferramentas
 tags:
-  - R
-  - estatistica
-  - correlacoes
-  - pearson
-  - spearman
-  - kendall
-  - qui-quadrado
-  - teste exato defisher
-  - v de cramer
-  - kappa
-  - gomesfellipe
-description: ''
+- correlacao
+- correlacoes
+- cramer
+- estatistica
+- kappa
+- qui-quadrado
+- r
+- teste-fisher
+description: library(knitr)
 featured: ''
-featuredalt: ''
+featuredalt: Ilustração sobre tipos de correlacoes
 featuredpath: ''
-linktitle: ''
 type: post
 output:
   blogdown::html_page:
-    toc: true 
+    toc: true
+schema_type: BlogPosting
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/main/logo1.jpg
+og_type: article
+article_section: Programming
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/main/logo1.jpg
+keywords: correlacao, correlacoes, cramer, estatistica, kappa, qui-quadrado, r, teste-fisher,
+  data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 #Leitura de arquivo excell

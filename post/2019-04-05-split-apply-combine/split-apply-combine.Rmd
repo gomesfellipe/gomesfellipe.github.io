@@ -1,35 +1,51 @@
 ---
-title: "Hackeando o R: estratégia split-apply-combine"
+title: 'Hackeando o R: estratégia split-apply-combine'
 author: Fellipe Gomes
 date: '2019-04-05'
 slug: []
 categories:
-  - Analise Exploratória
-  - Data mining
-  - Estatistica
-  - Prática
-  - R
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Programação e Ferramentas
+- Texto e NLP
 tags:
-  - Data Mining
-  - Estatistica
-  - gomesfellipe
-  - Prática
-  - R
-  - Tabelas
-  - RStudio
-  - split aply combine
-  - flextable
-description: 'Veja como aplicar essa estratégia de maneira eficiente utilizando os pacotes do tidyverse: dplyr+tidyr+purrr'
-featured: 'img1.png'
-featuredalt: 'Pic 22'
-featuredpath: 'date'
-linktitle: '' 
-type: "post"
+- data-mining
+- estatistica
+- flextable
+- pratica
+- r
+- rstudio
+- split-aply-combine
+- tabelas
+description: 'Veja como aplicar essa estratégia de maneira eficiente utilizando os
+  pacotes do tidyverse: dplyr+tidyr+purrr'
+featured: img1.png
+featuredalt: Ilustração sobre hackeando o r estratégia splitapplycombine
+featuredpath: date
+type: post
+image_preview: img1.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2019/04/img1.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2019/04/img1.png
+keywords: data-mining, estatistica, flextable, pratica, r, rstudio, split-aply-combine,
+  tabelas, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.align = "center", warning = F, message = F)
+knitr::opts_chunk$set(eval=F, echo = TRUE, fig.align = "center", warning = F, message = F)
+```
+
+```{r eval=F, echo=F}
 library(dplyr)
 library(purrr)
 library(tidyr)
@@ -75,6 +91,15 @@ data %>%                       # input data
   summarise(data = mean(y))    # apply/combine
 ```
 
+```
+## # A tibble: 3 x 2
+##   x      data
+##   <chr> <dbl>
+## 1 A       0.5
+## 2 B       2.5
+## 3 C       4.5
+```
+
 Essa sequência de códigos aplica a abordagem implicitamente, agrupando os dados de acordo com a variável selecionada e em seguida aplicando a operação e combinando os resultados em uma matriz resumida
 
 ## Usando dplyr + tidyr + purrr
@@ -94,6 +119,15 @@ data %>%                                     # Input Data
   nest(-x) %>%                               # Split
   mutate(data = map(data, ~mean(.x$y))) %>%  # Apply
   unnest()                                   # Combine
+```
+
+```
+## # A tibble: 3 x 2
+##   x      data
+##   <chr> <dbl>
+## 1 A       0.5
+## 2 B       2.5
+## 3 C       4.5
 ```
 
 Note que obtemos a mesma saída do código anterior
@@ -116,6 +150,15 @@ mtcars %>%                     # input data
   summarise(media = mean(mpg)) # apply/combine
 ```
 
+```
+## # A tibble: 3 x 2
+##     cyl media
+##   <dbl> <dbl>
+## 1     4  26.7
+## 2     6  19.7
+## 3     8  15.1
+```
+
 Vejamos a seguir o uso da estratégia em situações mais complexas
 
 #### Em ajustes de modelos
@@ -130,6 +173,13 @@ mtcars %>%                       # input data
   summarise(lm = lm(mpg ~ disp)) # apply/combine
 ```
 
+```
+## Error: Problem with `summarise()` input `lm`.
+## x Input `lm` must be a vector, not a `lm` object.
+## ℹ Input `lm` is `lm(mpg ~ disp)`.
+## ℹ The error occurred in group 1: cyl = 4.
+```
+
 O erro nos diz: "*A coluna `lm` deve ter o comprimento 1, não 12*" ou seja, o resultado precisa ser um valor de resumo e não todo o resultado do ajuste dos modelos.
 
 Agora vejamos utilizando a abordagem `split-apply-combine` que irá nos permitir aplicar qualquer tipo de função nos dados agrupados por pela variável `cyl`:
@@ -139,6 +189,18 @@ as_tibble(mtcars) %>%                                                      # inp
   nest(-cyl) %>%                                                           # split
   mutate(lm = map(data, ~lm(mpg ~ disp, data = .x) %>% broom::tidy())) %>% # apply
   unnest(lm)                                                               # combine
+```
+
+```
+## # A tibble: 6 x 7
+##     cyl data               term        estimate std.error statistic    p.value
+##   <dbl> <list>             <chr>          <dbl>     <dbl>     <dbl>      <dbl>
+## 1     6 <tibble [7 × 10]>  (Intercept) 19.1       2.91        6.55  0.00124   
+## 2     6 <tibble [7 × 10]>  disp         0.00361   0.0156      0.232 0.826     
+## 3     4 <tibble [11 × 10]> (Intercept) 40.9       3.59       11.4   0.00000120
+## 4     4 <tibble [11 × 10]> disp        -0.135     0.0332     -4.07  0.00278   
+## 5     8 <tibble [14 × 10]> (Intercept) 22.0       3.35        6.59  0.0000259 
+## 6     8 <tibble [14 × 10]> disp        -0.0196    0.00932    -2.11  0.0568
 ```
 
 Com o auxílio do pacote [`broom`](https://cran.r-project.org/web/packages/broom/vignettes/broom.html) obtemos saídas de dados arrumados e  juntamos os resultados finais da regressão em uma única tabela de maneira prática.
@@ -163,6 +225,8 @@ invoke(grid.arrange,plot_list, ncol=1) # ou: grid.arrange(grobs = plot_list, nco
 # Combine para salvar:
 walk2(paste0("plot",1:3,".png"), plot_list, ~ggsave(.x,.y))
 ```
+
+![](/post/2019-04-05-split-apply-combine/unnamed-chunk-6-1.png)
 
 #### Criando tabelas
 
@@ -189,6 +253,7 @@ tabela_list[[1]]
 walk2(paste0("tab",1:3,".png"), tabela_list, ~save_flextable(.y,.x))
 ```
 
+![](/post/2019-04-05-split-apply-combine/img1.png)
 
 # Conclusão
 

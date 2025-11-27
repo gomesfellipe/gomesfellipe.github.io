@@ -4,29 +4,46 @@ author: Fellipe Gomes
 date: '2018-02-17'
 slug: []
 categories:
-  - Estatistica
-  - Prática
-  - R
-  - Teoria
+- Fundamentos de Data Science
+- Programação e Ferramentas
 tags:
-  - Estatistica
-  - Prática
-  - R
-  - RStudio
-  - cheatsheets
-  - kaggle
-  - datacamp
-  - gomesfellipe
-  - gamification
-  - gamificacao
-description: 'Você costuma ler o manual de instruções? Veja como equipes têm trabalhado para contribuir e facilitar o aprendizado da linguagem R ampliando a intersecção entre a curiosidade de nossa infancia e o amadurecimento. Programar se torna uma tarefa divertida e prática mas sem abandonar o manual de instruções escrito por quem sabe do que esta falando!'
-featured: 'img2.png'
-featuredalt: 'Pic 12'
-featuredpath: 'date'
-linktitle: ''
+- cheatsheets
+- datacamp
+- estatistica
+- gamificacao
+- gamification
+- kaggle
+- pratica
+- r
+- rstudio
+description: Você costuma ler o manual de instruções? Veja como equipes têm trabalhado
+  para contribuir e facilitar o aprendizado da linguagem R ampliando a intersecção
+  entre a curiosidade de nossa infancia e o amadurecimento. Programar se torna uma
+  tarefa divertida e prática mas sem abandonar o manual de instruções escrito por
+  quem sabe do que esta falando!
+featured: img2.png
+featuredalt: Ilustração sobre o que são cheatsheets gamificação e por que aprender
+  r é tão divertido
+featuredpath: date
 type: post
+image_preview: img2.png
+schema_type: BlogPosting
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/02/img2.png
+og_type: article
+article_section: Programming
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/02/img2.png
+keywords: cheatsheets, datacamp, estatistica, gamificacao, gamification, kaggle, pratica,
+  r, rstudio, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
 ```

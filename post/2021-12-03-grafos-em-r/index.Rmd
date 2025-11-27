@@ -4,47 +4,54 @@ author: Fellipe Gomes
 date: '2021-12-03'
 slug: []
 categories:
-  - Tidyverse
-  - Text Mining
-  - R
-  - Prática
-  - Data mining
-  - Ciencia de dados
-  - Automação
-  - Analise Exploratória
-  - Analise Mutivariada
-  - grafo
-  - web scrapping
-  - ggplot
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Programação e Ferramentas
+- Texto e NLP
 tags:
-  - Tidyverse
-  - text mining
-  - strings
-  - RStudio
-  - R
-  - gomesfellipe
-  - Estatistica
-  - Data Mining
-  - grafo
-  - web scrappnig
-  - ggplot
-description: 'Neste post vamos coletar notícias via web scrapping, detectar entidades dos textos e criar um grafo utilizando ggplot2'
-featured: 'img2.png'
-featuredalt: 'Pic 28'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
+- data-mining
+- estatistica
+- ggplot2
+- grafo
+- r
+- rstudio
+- strings
+- text-mining
+- tidyverse
+- web-scrappnig
+description: Neste post vamos coletar notícias via web scrapping, detectar entidades
+  dos textos e criar um grafo utilizando ggplot2
+featured: img.png
+featuredalt: Ilustração sobre vou te provar que da para fazer grafos bonitos em r
+featuredpath: date
+type: post
 output:
   blogdown::html_page:
     toc: true
     toc_depth: 2
-image_preview: 'img1.png'
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2021/12/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2021/12/img.png
+keywords: data-mining, estatistica, ggplot2, grafo, r, rstudio, strings, text-mining,
+  tidyverse, web-scrappnig, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval = F, warning = F, error = F, message = F)
 ```
-
+ 
 # Introdução e contexto
 
 Durante os anos de 2020 e 2021 fiz um [MBA Executivo em Business Analytics e Big Data](https://educacao-executiva.fgv.br/df/brasilia/cursos/mba-pos-graduacao/mba-presencial/mba-executivo-em-business-analytics-e-big-data) na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.
@@ -191,7 +198,6 @@ Aplicar modelo carregado para o reconhecimento de entidades:
 
 ```{r, eval = F}
 entities <- spacy_extract_entity(data)
-entities
 ```
 
 Filtrar apenas entidades cujo tipo são **pessoas** ou **organizações**:
@@ -209,7 +215,7 @@ saveRDS(filtered_entities, "filtered_entities.rds")
 # Preparar dados
 
 ```{r, echo = F}
-filtered_entities <- readRDS("filtered_entities.rds")
+filtered_entities <- readRDS("/post/2021-12-03-grafos-em-r/filtered_entities.rds")
 ```
 
 Precisamos criar uma lista de arestas:
@@ -335,7 +341,7 @@ subt %>%
 <center>
 ![](/post/2021-12-03-grafos-em-r/grafo.png){width=95%} 
 </center>
-
+ 
 
 📌 Interpretação
 

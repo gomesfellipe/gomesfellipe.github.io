@@ -1,21 +1,132 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>utilidades on Fellipe Gomes</title>
+    <title>utilidades on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/categories/utilidades/</link>
-    <description>Recent content in utilidades on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/utilidades/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/categories/utilidades/" rel="self" type="application/rss+xml" />
     <item>
       <title>Bancos de dados públicos</title>
-      <link>https://gomesfellipe.github.io/itemized/item2/</link>
+      <link>https://gomesfellipe.github.io/recommendations/item2/</link>
       <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/itemized/item2/</guid>
-      <description>Esses são alguns sites que podem ser utilizados como fontes de dados públicos:
-Brasileiros: IPEA DATA IBGE Banco de Informações Econômicas e Financeiras do Banco Central Datasus Portal da transparência Polícia federal - Ministério da justiça e segurança pública Ministério da Cultura Portal brasileiro de dados abertos Microdados do ENEM Dados Abertos da ALESP Forest Fires in Brazil Indicadores Financeiros BNDES Crime Data in Brazil Estrangeiros: Age of Abalone shell Cancer death rate Life expectancy (World Health Organization) Car prices NBA rookie stats Stroke prediction Water potability Smart grid stability IBM HR analytics &amp;amp; employee attrition Can I eat this mushroom?</description>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/recommendations/item2/</guid>
+      <description> Apresentando alguns sites que disponibilizam dados públicos</description>
+      <content:encoded>&lt;![CDATA[
+        <p>Esses são alguns sites que podem ser utilizados como fontes de dados públicos:</p>
+<h2 id="brasileiros">Brasileiros:</h2>
+<ul>
+<li><a href="http://www.ipeadata.gov.br/">IPEA DATA</a></li>
+<li><a href="https://www.ibge.gov.br/">IBGE</a></li>
+<li><a href="https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries">Banco de Informações Econômicas e Financeiras do Banco Central</a></li>
+<li><a href="http://datasus.saude.gov.br/">Datasus</a></li>
+<li><a href="http://transparencia.gov.br/">Portal da transparência</a></li>
+<li><a href="http://www.pf.gov.br/institucional/acessoainformacao/acesso-a-informacao">Polícia federal - Ministério da justiça e segurança pública</a></li>
+<li><a href="http://sistemas.cultura.gov.br/comparar/salicnet/salicnet.php">Ministério da Cultura</a></li>
+<li><a href="http://dados.gov.br/dataset">Portal brasileiro de dados abertos</a></li>
+<li><a href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados">Microdados do ENEM</a></li>
+<li><a href="https://basedosdados.org/dataset/br-sp-alesp">Dados Abertos da ALESP</a></li>
+<li><a href="https://www.kaggle.com/gustavomodelli/forest-fires-in-brazil">Forest Fires in Brazil</a></li>
+<li><a href="https://dadosabertos.bndes.gov.br/pt_PT/dataset/indicadores-financeiros">Indicadores Financeiros BNDES</a></li>
+<li><a href="https://www.kaggle.com/datasets/inquisitivecrow/crime-data-in-brazil">Crime Data in Brazil</a></li>
+</ul>
+<h2 id="estrangeiros">Estrangeiros:</h2>
+<ul>
+<li><a href="https://www.kaggle.com/rodolfomendes/abalone-dataset">Age of Abalone shell</a></li>
+<li><a href="https://data.world/nrippner/ols-regression-challenge">Cancer death rate</a></li>
+<li><a href="https://www.kaggle.com/kumarajarshi/life-expectancy-who/">Life expectancy (World Health Organization)</a></li>
+<li><a href="https://www.kaggle.com/nehalbirla/vehicle-dataset-from-cardekho?ref=hackernoon.com&amp;select=Car+details+v3.csv">Car prices</a></li>
+<li><a href="https://data.world/exercises/logistic-regression-exercise-1">NBA rookie stats</a></li>
+<li><a href="https://www.kaggle.com/fedesoriano/stroke-prediction-dataset">Stroke prediction</a></li>
+<li><a href="https://www.kaggle.com/adityakadiwal/water-potability">Water potability</a></li>
+<li><a href="https://www.kaggle.com/pcbreviglieri/smart-grid-stability">Smart grid stability</a></li>
+<li><a href="https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset">IBM HR analytics &amp; employee attrition</a></li>
+<li><a href="https://www.kaggle.com/uciml/mushroom-classification">Can I eat this mushroom?</a></li>
+<li><a href="https://www.kaggle.com/ritesaluja/bank-note-authentication-uci-data">Banknote authentication</a></li>
+<li><a href="https://www.kaggle.com/wenruliu/adult-income-dataset">Adult income dataset</a></li>
+<li><a href="https://www.openml.org/search?type=data&amp;sort=runs&amp;id=181">Yeast classification</a></li>
+<li><a href="https://archive.ics.uci.edu/ml/datasets.php">UCI Machine Learning Repository Center para Machine Learning e Sistemas inteligentes</a></li>
+<li><a href="https://www.kaggle.com/datasets">Kaggle</a></li>
+<li><a href="https://www.quandl.com/">Quandl: Financial, Economic and Alternative Data</a></li>
+<li><a href="https://www.kdd.org/kdd-cup">Copa KDD - Arquivos da competição Data Mining e Knowledge Discovery</a></li>
+<li><a href="https://www.drivendata.org/">Data Driven Datasets</a></li>
+<li><a href="http://datasf.org">Dados sobre as cidades americanas</a></li>
+<li><a href="http://open.canada.ca">Dados do Governo do Canadá</a></li>
+<li><a href="https://data.gov.uk">Dados do Governo do Reino Unido</a></li>
+<li><a href="http://open-data.europa.eu/en/data">Dados da União Europeia</a></li>
+<li><a href="http://www.census.gov">Dados do Censo dos EUA</a></li>
+<li><a href="https://www.kaggle.com/docs/kernels?utm_medium=social&amp;utm_source=linkedin.com&amp;utm_campaign=kaggle-kernel-doc">Kaggle Kernels</a></li>
+<li><a href="https://ai.google/tools/datasets/">Datasets – Google AI</a></li>
+<li><a href="https://www.data.gov/">U.S. Government’s open data</a></li>
+<li><a href="http://stats.oecd.org/Index.aspx">OECD - Organization for Economic Co-operation and Development</a></li>
+<li><a href="https://robjhyndman.com/TSDL/">Time Series Data Library</a></li>
+<li><a href="https://fgn.unisg.ch/eumacro/macrodata/macroeconomic-time-series.html">Macroeconomic Time Series</a></li>
+<li><a href="https://www.ngdc.noaa.gov/stp/stp.html">NOAA - National Environmental Satellite, Data and Information Center</a></li>
+<li><a href="https://fisher.osu.edu/academic-departments/department-finance">Financial Data Finder - The Ohio State University</a></li>
+<li><a href="http://www.stats.uwo.ca/faculty/aim/epubs/mhsets/">Repository of time series data</a></li>
+<li><a href="https://data.giss.nasa.gov/">NASA</a></li>
+<li><a href="https://www.bls.gov/data/">U.S. Department of Labor (Bureau of Labor Statistics)</a></li>
+<li><a href="http://www.econstats.com/">ECONSTATS - Global Economic Data</a></li>
+<li><a href="http://www.nber.org/data/">The National Bureau of Economic Research</a></li>
+<li><a href="http://www.economagic.com/">Economagic.com: Economic Time Series Page</a></li>
+<li><a href="http://www.stats.uwo.ca/faculty/aim/1994Book/default.htm">Time Series Modelling of Water Resources and Environmental Systems</a></li>
+<li><a href="http://data.worldbank.org">Dados do Banco Mundial</a></li>
+<li><a href="http://www.healthdata.gov">Dados sobre a saúde</a></li>
+<li><a href="http://aws.amazon.com/datasets">Dados públicos da Amazon</a></li>
+<li><a href="http://knoema.com">Knoema - Dados sobre diversos países</a></li>
+<li><a href="https://www.google.com/trends">Google Trends</a></li>
+<li><a href="https://www.google.com/finance">Google Finance</a></li>
+<li><a href="http://www.gapminder.org/data">Gapminder</a></li>
+<li><a href="https://aws.amazon.com/datasets/million-song-dataset">Million Song Dataset</a></li>
+<li><a href="http://www.freebase.com">Freebase</a></li>
+<li><a href="http://wiki.dbpedia.org/">DBpedia</a></li>
+<li><a href="http://opendatamonitor.eu">Open Data Monitor</a></li>
+<li><a href="http://www.opendatanetwork.com">Open Data Network</a></li>
+<li><a href="http://www.stats4stem.org/data-sets.html">R Datasets</a></li>
+<li><a href="http://www.statsci.org/datasets.html">R Dataset packages</a></li>
+<li><a href="http://www.sttista.com">Portal de Estatística</a></li>
+<li><a href="http://www.data360.org">Data 360</a></li>
+<li><a href="http://www.face-rec.org/databases">Reconhecimento de Faces</a></li>
+<li><a href="http://snap.stanford.edu/data">Stanford Large Network Dataset Collection</a></li>
+<li><a href="http://datahub.io/dataset">Datahub</a></li>
+<li><a href="https://github.com/niderhoff/nlp-datasets">NLP Datasets</a></li>
+<li><a href="https://www.paperswithcode.com/datasets">Paperswithcode</a></li>
+<li><a href="https://www.kaggle.com/datasets/jhonatanslopes/companies-invested-in-shark-tank-brazil">Companies Invested in Shark Tank Brazil</a></li>
+<li><a href="https://www.kaggle.com/datasets/felipepolo/brazilian-legal-proceedings/data">Brazilian Legal Proceedings</a></li>
+</ul>
+<h2 id="datasets-para-crianças">Datasets para crianças</h2>
+<p>Lista obtida <a href="https://www.littlemissdata.com/blog/10-datasets-kids">neste post</a>:</p>
+<ul>
+<li><a href="https://www.kaggle.com/shivamb/disney-movies-and-tv-shows">Disney Plus Shows</a></li>
+<li><a href="https://worldhappiness.report/">World Happiness Report</a></li>
+<li><a href="https://www.kaggle.com/infamouscoder/bigfoot-sightings">Strange Sightings with Bigfoot and UFO</a> / <a href="https://www.kaggle.com/NUFORC/ufo-sightings">UFO Sightings</a></li>
+<li><a href="https://www.rdocumentation.org/packages/yarrr/versions/0.1.5">YaRrr!</a></li>
+<li><a href="https://www.kaggle.com/abcsds/pokemon">Pokemon</a></li>
+<li><a href="https://cran.r-project.org/web/packages/babynames/index.html">Baby Names</a></li>
+<li><a href="https://www.kaggle.com/crawford/80-cereals">Cereal</a></li>
+<li><a href="https://www.kaggle.com/zaheenhamidani/spotify-dataset-19212020-160k-tracks">Spotify</a></li>
+<li><a href="https://allisonhorst.github.io/palmerpenguins/">Palmer Penguins</a></li>
+<li><a href="https://www.autodeskresearch.com/publications/samestats">Datasaurus</a></li>
+</ul>
+<h2 id="visão-computacional">Visão computacional:</h2>
+<ul>
+<li><a href="http://6.869.csail.mit.edu/fa17/miniplaces.html">MiniPlaces</a></li>
+<li><a href="https://www.kaggle.com/datasets/yamaerenay/100-images-of-top-50-car-brands">The car brands dataset</a></li>
+<li><a href="https://www.kaggle.com/competitions/planet-understanding-the-amazon-from-space/data">The Planet dataset: Understanding the Amazon</a></li>
+<li><a href="https://muratkoklu.com/datasets/">Fruit datasets</a></li>
+<li><a href="https://www.kaggle.com/datasets/deepcontractor/is-that-santa-image-classification">Santa or not dataset</a> (<a href="https://colab.research.google.com/drive/1VHjkumbJToxHBCrtYhzFQ0QHYoAeKH3W?usp=sharing">code</a>)</li>
+</ul>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/recommendations/item2/">Bancos de dados públicos</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>estatística</category>
+      <category>utilidades</category>
     </item>
-    
   </channel>
 </rss>

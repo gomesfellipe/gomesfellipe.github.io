@@ -4,57 +4,52 @@ author: Fellipe Gomes
 date: '2024-09-27'
 slug: []
 categories:
-  - Python
-  - Prática
-  - neural networks
-  - Machine Learning
-  - LLM
-  - IA
-  - ChatGPT
-  - Ciencia de dados
-  - Automação
-  - Llama
-  - LMM
-  - GenAI
-  - Transformers
-  - Vision
-  - Llava
-  - Vicuna
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - text mining
-  - Python
-  - neural networks
-  - machine learning
-  - LLM
-  - Llama2
-  - IA
-  - gomesfellipe
-  - ciencia de dados
-  - ChatGPT
-  - AI
-  - Llama
-  - LMM
-  - GenAI
-  - IA Generativa
-  - Transformers
-  - Vision
-  - Llava
-  - Vicuna
-description: "Neste post, exploraremos como utilizar o modelo Llava para gerar rótulos descritivos de imagens, usando dados do conjunto COCO-2017."
-featured: 'img1.png'
-featuredalt: 'Extração de informações de imagens com GenAI com o modelo Llava'
-featuredpath: 'date'
-linktitle: ''
-type: "post" 
-output: 
+- chatgpt
+- data-science
+- genai
+- ia-generativa
+- inteligencia-artificial
+- llama
+- llama2
+- llava
+- llm
+- lmm
+description: Neste post, exploraremos como utilizar o modelo Llava para gerar rótulos
+  descritivos de imagens, usando dados do conjunto COCO-2017.
+featured: img.png
+featuredalt: Extração de informações de imagens com GenAI com o modelo Llava
+featuredpath: date
+type: post
+output:
   blogdown::html_page:
-    toc: true
+    toc: false
     toc_depth: 1
-image_preview: 'img1.png' 
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Beginner
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2024/09/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2024/09/img.png
+keywords: chatgpt, data-science, genai, ia-generativa, inteligencia-artificial, llama,
+  llama2, llava, llm, lmm, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE)
+knitr::opts_chunk$set(python.reticulate = FALSE, eval = FALSE)
 ```
 
 # Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava

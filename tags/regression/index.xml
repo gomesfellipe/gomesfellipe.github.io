@@ -1,62 +1,1776 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>regression on Fellipe Gomes</title>
+    <title>regression on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/regression/</link>
-    <description>Recent content in regression on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/regression/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Solução Final - ML Olympiad [2º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Estrutura da base Ano da base de dados Target Machine Learning (em Python) Importar dependencias Carregar dados Modelagem Submissão Considerações Finais Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
-    </item>
-    
-    <item>
-      <title>Como automatizar relatórios longos e repetitivos com RMarkdown</title>
-      <link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</guid>
-      <description>Problema de negócio Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passsar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.
-Com a linguagem R, escrever relatórios estatísticos utilizando RMarkdown acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.</description>
-    </item>
-    
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Fri, 31 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/regression/" rel="self" type="application/rss+xml" />
     <item>
       <title>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</title>
       <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</link>
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</guid>
-      <description>Kaggle Segundo o Wikipédia: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.
-O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já escrevi em um post sobre gamificação e porque aprender R é tão divertido e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</description>
+      <description>Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando a base de dados do Kaggle para prever o preço final de casas residenciais em Ames, Iowa, utilizando uma variedade de aspectos</description>
+      <content:encoded>&lt;![CDATA[
+        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="kaggle" class="section level1">
+<h1>Kaggle</h1>
+<p>Segundo o <a href="https://en.wikipedia.org/wiki/Kaggle">Wikipédia</a>: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.</p>
+<p>O Kaggle trabalha com a ideia de <a href="https://en.wikipedia.org/wiki/Gamification">gamificação</a>, que é um assunto do qual já escrevi em um post sobre <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">gamificação e porque aprender R é tão divertido</a> e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</p>
+<p>A plataforma é focada em competições que envolvem modelagem preditiva, que julgam apenas o seu desempenho preditivo, embora a inteligibilidade não deixe de ser importante. Neste post farei também a modelagem descritiva com modelos de aprendizagem baseados em árvores, na qual o principal objetivo será obter informações sobre os dados para o ajuste dos modelos preditivos que iremos submeter à competição do Kaggle <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/">House Prices: Advanced Regression Techniques</a>.</p>
+<p>A diferença entre modelos preditivos e descritivos não é tão rigorosa assim pois algumas das técnicas podem ser utilizadas para ambos e geralmente um modelo pode servir para ambos os propósitos (mesmo que de de forma insuficiente).</p>
+<p>Além dos modelos de machine learning baseados em árvores, também será ajustado um modelo de regressão linear multivariado para compararmos os resultados dos ajustes e submeter nossas previsões no site do <a href="https://kaggle.com">kaggle</a>.</p>
+<p>Os pacotes que serão utilizados serão os seguintes:</p>
+<pre class="r"><code>library(purrr)       # Programacao funciona
+library(broom)       # Arrumar outputs
+library(dplyr)       # Manipulacao de dados
+library(magrittr)    # pipes
+library(funModeling) # df_status()
+library(plyr)        # revalue()
+library(gridExtra)   # Juntar ggplots
+library(reshape)     # funcao melt()
+library(rpart)       # Arvore de Decisoes
+library(rpart.plot)  # Plot da Arvore de Decisoes
+library(data.table)  # aux na manipulacao do heatmap
+library(readr)       # Leitura da base de dados
+library(stringr)     # Manipulacao de strings
+library(ggplot2)     # Graficos elegantes
+library(caret)       # Machine Learning 
+library(GGally)      # up ggplot
+library(ggfortify)   # autoplot()</code></pre>
+<div id="base-de-dados" class="section level2">
+<h2>Base de dados</h2>
+<p>A base de dados deste post vem de uma competição ótima para estudantes de ciência de dados de dados com alguma experiência com R ou Python e noções básicas de machine learning e estatística.</p>
+<p>Pode ser útil para aqueles que desejam expandir seu conjunto de habilidades em uma tarefa de regressão, quando a variável <span class="math inline">\(y\)</span> que desejamos estimar é do tipo numérico (contínuo ou discreto).</p>
+<p>Trata-se do <a href="https://ww2.amstat.org/publications/jse/v19n3/decock.pdf">conjunto de dados Ames Housing</a> que foi compilado por Dean De Cock para uso em educação de ciência de dados.</p>
+<pre class="r"><code>train &lt;- read_csv(&quot;train.csv&quot;)
+test  &lt;- read_csv(&quot;test.csv&quot;)
+full  &lt;- bind_rows(train, test)
+
+id    &lt;- test$Id
+full %&lt;&gt;% select(-Id)</code></pre>
+<div id="descrição-da-competição" class="section level3">
+<h3>Descrição da Competição</h3>
+<p>Traduzido do site oficial do kaggle:</p>
+<p>"Peça a um comprador que descreva a casa dos seus sonhos, e eles provavelmente não começarão com a altura do teto do porão ou a proximidade de uma ferrovia leste-oeste. Mas o conjunto de dados desta competição de playground prova que muito mais influencia as negociações de preço do que o número de quartos ou uma cerca branca.</p>
+<p>Com 79 variáveis explicativas descrevendo (quase) todos os aspectos de casas residenciais em Ames, Iowa, esta competição desafia você a prever o preço final de cada casa."</p>
+<p>Portanto, primeiramente vamos entender o comportamento da variável resposta, depois buscar quais dessas 79 variáveis explicativas são mais importantes para representar a variação do preço de venda das casas através dos métodos baseados em árvores e por fim ajustar os modelos propostos e submeter nossas estimativas no site!</p>
+</div>
+</div>
+</div>
+<div id="análise-exploratória-dos-dados" class="section level1">
+<h1>Análise exploratória dos dados</h1>
+<p>Antes de pensar em ajustar algum modelo é extremamente necessário entender como se comportam os dados, portanto, tanto a variável resposta quanto as variáveis explicativas serão avaliadas.</p>
+<div id="variável-resposta" class="section level2">
+<h2>Variável resposta:</h2>
+<p><code>SalePrice</code> - o preço de venda da propriedade em dólares. Essa é a variável de destino que estamos tentando prever.</p>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Note que a distribuição dos dados referentes ao preço de venda se distribui de maneira assimétrica e não possuem evidências de normalidade dos dados. Apesar dos métodos baseados em árvore se tratarem de técnicas não paramétricas essa transformação será feita pois ao final deste post desejo comparar os resultados com um modelo de regressão linear múltipla.</p>
+</div>
+</div>
+<div id="árvore-de-decisão" class="section level1">
+<h1>Árvore de decisão</h1>
+<p>Uma técnica muito popular que é mais comumente usada para resolver tarefas de classificação de dados porém a árvore conhecida como <a href="https://tinyurl.com/ybhlsgom">CART (Classification and Regression Trees)(Breiman, 1986)</a> lida com todos os tipos de atributos (incluindo atributos numéricos que são tratados a partir da criação de intervalos). Para seu ajuste é possível realizar podas e produzir árvores binárias.</p>
+<p>A construção da árvore é realizada por meio do algoritmo que iterativamente analisa os atributos descritivos de um conjunto de dados previamente rotulado. Sua popularidade como apoio para a tomada de decisão se deve principalmente ao fato da fácil visualização do conhecimento gerado e o fácil entendimento.</p>
+<p>Outra característica legal da árvore de decisões é que ela permite ajustar um modelo sem um pré-processamento detalhado, pois é fácil de ajustar, aceita valores faltantes e é de fácil interpretação, veja:</p>
+<pre class="r"><code>library(rpart)
+
+control &lt;- rpart.control(minsplit =10, # o número mínimo de observações em um nó
+                         cp = 0.006    # parametro de complexidade q controla o tamanho da arvore
+)
+rpartFit &lt;- rpart(exp(SalePrice) ~ . , train, method = &quot;anova&quot;, control = control) 
+
+rpart.plot::rpart.plot(rpartFit,cex = 0.6)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-5-1.png" width="1200" /></p>
+<p>No topo, vemos o primeiro nó com 100% das observações, que representa o total da base (100%). Em seguida, vemos que a primeira variável que determina o preço de venda das casas <code>SalePrice</code> é a variável <code>OverallQual</code>. As casas que apresentaram <code>OverallQual</code> &lt; 7.5 ocorrem em maior proporção do que as que tiveram <code>OverallQual</code>&gt;7.5. A interpretação pode continuar dessa forma recursivamente.</p>
+<p>É possível notar que as variáveis <code>OverallQual</code>,<code>Neighborhood</code>,<code>1stFlrSF</code>,<code>2ndFlrSF</code>,<code>GrLivArea</code>, <code>BsmtFinSF1</code> foram as que melhor representaram os dados de acordo com os parâmetros que determinamos para ajustar esta árvore, vejamos com mais detalhes se existe relação linear e intensidade e direção dessa relação com o <a href="https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_Pearson">coeficiente de correlação de Pearson</a> entre estas variáveis dois a dois e em relação à variável resposta:</p>
+<pre class="r"><code>devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/correlations_for_ggpairs.R&quot;)
+
+train %&gt;% 
+  select(SalePrice,OverallQual,`1stFlrSF`,`2ndFlrSF`,GrLivArea,BsmtFinSF1) %&gt;% 
+  ggpairs(lower = list(continuous = my_fn))+
+  theme_bw()</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Com esta figura temos muitas informações, destaca-se que todas essas variáveis possuem algum tipo de relação linear com a variável resposta, a menor correlação observada foi com o <code>BsmtFinSF1</code> e a variável que apresentou a maior correlação foi a <code>OverallQual</code>. Atenção para a correlação entre <code>SalePrice</code> e <code>OverallQual</code>, pois <code>Overallqual</code> parece ser uma variável ordinal e uma outra medida de correlação que melhor representaria esta relação é o <a href="https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_postos_de_Spearman">coeficiente de correlação de Spearman</a>, veja:</p>
+<pre class="r"><code>cor(full$SalePrice, full$OverallQual, method = &quot;spearman&quot;, use = &quot;complete.obs&quot;)</code></pre>
+<pre><code>## [1] 0.8098286</code></pre>
+<p>Um pouco diferente do resultado da correlação de Pearson pois avalia relações lineares, já a correlação de Spearman avalia relações monótonas, sejam elas lineares ou não.</p>
+<div id="análise-exploratória-e-input-de-nas" class="section level2 tabset">
+<h2>Análise exploratória e input de <code>NA</code>s</h2>
+<p>Arrumar a base de dados é uma tarefa longa e que geralmente consome grande parte no tempo em um projeto de ciência de dados. Não adianta usar o algorítimo mais poderoso de machine learning se a base de dados não estiver arrumada de maneira que possibilite a análise dos dados.</p>
+<p>Para obter informações da amostra, confira no <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data">link do dataset da competição no Kaggle</a>. Na página é possível conferir <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/download/data_description.txt">a descrição da amostra</a> e nela nota-se que alguns dos valores faltantes possuem significado, então é necessário rotulá-los para que o R possa interpretar estes valores da maneira correta.</p>
+<div id="status-da-amostra" class="section level3">
+<h3>Status da amostra</h3>
+<p>Conferindo o status da amostra com a função <code>df_status()</code> do pacote <a href="https://cran.r-project.org/web/packages/funModeling/index.html"><code>funModeling</code></a>:</p>
+<pre class="r"><code>full %&gt;% 
+  df_status(print_results = F) %&gt;% 
+  as_tibble() %&gt;%
+  arrange(-p_na, -p_zeros)</code></pre>
+<pre><code>## # A tibble: 80 x 9
+##    variable     q_zeros p_zeros  q_na  p_na q_inf p_inf type      unique
+##    &lt;chr&gt;          &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt;
+##  1 PoolQC             0       0  2909 99.7      0     0 character      3
+##  2 MiscFeature        0       0  2814 96.4      0     0 character      4
+##  3 Alley              0       0  2721 93.2      0     0 character      2
+##  4 Fence              0       0  2348 80.4      0     0 character      4
+##  5 SalePrice          0       0  1459 50.0      0     0 numeric      663
+##  6 FireplaceQu        0       0  1420 48.6      0     0 character      5
+##  7 LotFrontage        0       0   486 16.6      0     0 numeric      128
+##  8 GarageYrBlt        0       0   159  5.45     0     0 numeric      103
+##  9 GarageFinish       0       0   159  5.45     0     0 character      3
+## 10 GarageQual         0       0   159  5.45     0     0 character      5
+## # … with 70 more rows</code></pre>
+<p>Note que as variáveis problemáticas foram ordenadas de forma decrescente (maior número de dados faltantes e zeros) vamos tratar uma de cada vez partindo da variável mais crítica</p>
+</div>
+<div id="pool" class="section level3">
+<h3>Pool</h3>
+<ul>
+<li><code>PoolQC</code> é a variável que possui mais <code>NA</code> e a descrição da base informa que:</li>
+</ul>
+<p><code>PoolQC</code>: qualidade da piscina</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Good</li>
+<li>TA Média / Típica</li>
+<li>Fa Pequena</li>
+<li>NA sem piscina</li>
+</ul>
+<p>É possível observar que se trata de uma variável ordinal, portanto vamos criar uma variável auxiliar (pois esta descrição se repete em outras variáveis):</p>
+<pre class="r"><code># Criando variável auxilar ordinal
+Qualidade &lt;- c(&#39;None&#39; = 0, &#39;Po&#39; = 1, &#39;Fa&#39; = 2, &#39;TA&#39; = 3, &#39;Gd&#39; = 4, &#39;Ex&#39; = 5)
+
+full %&lt;&gt;%
+  mutate(PoolQC =  ifelse(PoolQC %&gt;% is.na, &quot;None&quot;, PoolQC) %&gt;% as.factor() ) %&gt;% 
+  mutate(PoolQC = as.integer(revalue(PoolQC, Qualidade)))</code></pre>
+<p>Além disso, existe outra variável relacionada à piscina, veja:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Pool&quot;)]) %&gt;% 
+  table </code></pre>
+<pre><code>##         PoolQC
+## PoolArea    1    2    3    4
+##      0      0    0    0 2906
+##      144    1    0    0    0
+##      228    1    0    0    0
+##      368    0    0    0    1
+##      444    0    0    0    1
+##      480    0    0    1    0
+##      512    1    0    0    0
+##      519    0    1    0    0
+##      555    1    0    0    0
+##      561    0    0    0    1
+##      576    0    0    1    0
+##      648    0    1    0    0
+##      738    0    0    1    0
+##      800    0    0    1    0</code></pre>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Pool&quot;)]) %&gt;%
+  map(~sum(is.na(.x)))</code></pre>
+<pre><code>## $PoolArea
+## [1] 0
+## 
+## $PoolQC
+## [1] 0</code></pre>
+<pre class="r"><code># Arrumando inconsistëncias:
+full %&lt;&gt;% 
+  mutate(PoolQC = ifelse(PoolQC == 0 &amp; PoolArea !=0, 2, PoolQC))
+
+# Arrumando inconsistëncias:
+full %&lt;&gt;% 
+  mutate(Pool = ifelse(PoolQC == 0 &amp; PoolArea ==0, &quot;no&quot;, &quot;yes&quot;))</code></pre>
+</div>
+<div id="misc" class="section level3">
+<h3>Misc</h3>
+<p>Se referem aos recursos diversos</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Misc&quot;)],
+         SalePrice
+  ) %&gt;%
+  map(~sum(is.na(.x)))</code></pre>
+<pre><code>## $MiscFeature
+## [1] 2814
+## 
+## $MiscVal
+## [1] 0
+## 
+## $SalePrice
+## [1] 1459</code></pre>
+<p><code>MiscFeature</code>: recurso diverso não coberto em outras categorias</p>
+<ul>
+<li>Elevador elev</li>
+<li>Gar2 2nd Garage (se não for descrito na seção de garagem)</li>
+<li>Othr Outro</li>
+<li>Galpão derramado (mais de 100 SF)</li>
+<li>TenC Campo de ténis</li>
+<li>NA Nenhum</li>
+</ul>
+<p>Desta vez não se trata de uma variável ordinal, vejamos:</p>
+<pre class="r"><code>full %&lt;&gt;%
+  mutate(MiscFeature =  if_else(MiscFeature %&gt;% is.na, &quot;None&quot;, MiscFeature) %&gt;% as.factor) 
+
+# Breve resumo:
+g1 &lt;- 
+  full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Misc&quot;)], SalePrice) %&gt;% 
+  ggplot(aes(y=MiscVal,x= reorder(MiscFeature, -MiscVal,FUN = median) ,fill=MiscFeature))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;Recurso Diverso&quot;)
+
+g2 &lt;- 
+  full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Misc&quot;)], SalePrice) %&gt;% 
+  ggplot(aes(y=SalePrice,x= reorder(MiscFeature, -MiscVal,FUN = median) ,fill=MiscFeature))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;Preço de Venda&quot;)
+
+grid.arrange(g1, g2)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>rm(g1,g2)</code></pre>
+<p>Além disso, <code>MiscVal</code>: Valor do recurso variado</p>
+</div>
+<div id="alley" class="section level3">
+<h3>Alley</h3>
+<p><code>Alley</code>: Tipo de acesso ao beco para a propriedade</p>
+<ul>
+<li>Grvl Cascalho</li>
+<li>Pave pavimentado</li>
+<li>NA Nenhum acesso de beco</li>
+</ul>
+<p>Basta realizar o input:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(Alley = Alley %&gt;% str_replace_na(&quot;None&quot;)) %&gt;% 
+  mutate(Alley = as.factor(Alley))</code></pre>
+<pre class="r"><code>full[!is.na(full$SalePrice),] %&gt;% 
+  select(Alley, SalePrice) %&gt;% 
+  ggplot(aes(y=SalePrice,x= reorder(Alley, -SalePrice,FUN = median) ,fill=Alley))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;tipo de Acesso&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="fence" class="section level3">
+<h3>Fence</h3>
+<p><code>Fence</code>: qualidade da cerca</p>
+<ul>
+<li>GdPrv Boa privacidade</li>
+<li>MnPrv minima privacidade</li>
+<li>GdWo boa madeira</li>
+<li>MnWw Mínima Madeira / Fio</li>
+<li>NA Sem cerca</li>
+</ul>
+<p>Input será da seguinte forma:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(Fence = Fence %&gt;% str_replace_na(&quot;None&quot;))</code></pre>
+<pre class="r"><code>full[1:nrow(train),] %&gt;% 
+  select(Fence, SalePrice) %&gt;% 
+  ggplot(aes(y=SalePrice,x= reorder(Fence, -SalePrice, median) ,fill=Fence))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;tipo de Acesso&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="r"><code>full %&lt;&gt;% mutate(Fence = as.factor(Fence))</code></pre>
+<p>Aparentemente não parece existir uma relação ordinal sobre o tipo de cerca quanto ao pre;o de venda da casa, portanto foi convertida para fator</p>
+</div>
+<div id="fireplace" class="section level3">
+<h3>FirePlace</h3>
+<p>Variáveis relacionadas com lareira. Segundo a descrição, temos:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Fireplace&quot;)], SalePrice)</code></pre>
+<pre><code>## # A tibble: 2,919 x 3
+##    Fireplaces FireplaceQu SalePrice
+##         &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+##  1          0 &lt;NA&gt;             12.2
+##  2          1 TA               12.1
+##  3          1 TA               12.3
+##  4          1 Gd               11.8
+##  5          1 TA               12.4
+##  6          0 &lt;NA&gt;             11.9
+##  7          1 Gd               12.6
+##  8          2 TA               12.2
+##  9          2 TA               11.8
+## 10          2 TA               11.7
+## # … with 2,909 more rows</code></pre>
+<p><code>Fireplaces</code>: Numero de lareiras</p>
+<p><code>FireplaceQu</code>: Qualidade da lareira</p>
+<ul>
+<li>Ex Excellente - Excepcional Lareira de Alvenaria</li>
+<li>Gd Boa - Lareira de alvenaria no nível principal</li>
+<li>TA Média - lareira pré-fabricada na sala principal ou Lareira de alvenaria no porão</li>
+<li>Fa Pequena - Lareira pré-fabricada no porão</li>
+<li>Po Pobre - Fogão Ben Franklin</li>
+<li>NA sem lareira</li>
+</ul>
+<p>Nota-se que se trata de uma variável ordinal de acordo com a qualidade, portanto:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(FireplaceQu =  if_else(FireplaceQu %&gt;% is.na, &quot;None&quot;, FireplaceQu) ) %&gt;% 
+  mutate(FireplaceQu = as.integer(revalue(FireplaceQu, Qualidade)))</code></pre>
+<p>Conferindo se existem inconsistências:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Fireplace&quot;)]) %&gt;% 
+  table </code></pre>
+<pre><code>##           FireplaceQu
+## Fireplaces    0    1    2    3    4    5
+##          0 1420    0    0    0    0    0
+##          1    0   46   63  495  627   37
+##          2    0    0   10   92  112    5
+##          3    0    0    1    4    5    1
+##          4    0    0    0    1    0    0</code></pre>
+</div>
+<div id="lot" class="section level3">
+<h3>Lot</h3>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Lot&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>## LotFrontage     LotArea    LotShape   LotConfig   SalePrice 
+##         486           0           0           0        1459</code></pre>
+<p>Segundo a descrição:</p>
+<p><code>LotFrontage</code>: Ruas linearmente conectadas à propriedade</p>
+<p><code>LotArea</code> : Tamanho do lote em pés quadrados</p>
+<p><code>LotShape</code>: forma geral da propriedade</p>
+<ul>
+<li>Regue Regular<br />
+</li>
+<li>IR1 ligeiramente irregular</li>
+<li>IR2 moderadamente irregular</li>
+<li>IR3 Irregular</li>
+</ul>
+<p><code>LotConfig</code>: configuração de lote</p>
+<ul>
+<li>Inside Lote muito para dentro</li>
+<li>Corner Canto de esquina</li>
+<li>CulDSac Cul-de-sac</li>
+<li>FR2 Frente em 2 lados da propriedade</li>
+<li>FR3 Frente em 3 lados da propriedade</li>
+</ul>
+<p>Input para o <code>LotFrontage</code> será feito considerando a configuração do lote, veja:</p>
+<pre class="r"><code>inputsLot &lt;- full %&gt;% 
+  select(LotFrontage, LotConfig) %&gt;% 
+  group_by(LotConfig) %&gt;%
+  dplyr::summarise(Media = mean(LotFrontage, na.rm = T),
+            Mediana = median(LotFrontage, na.rm = T))
+
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[1]] &lt;- inputsLot$Mediana[1] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[2]] &lt;- inputsLot$Mediana[2] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[3]] &lt;- inputsLot$Mediana[3] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[4]] &lt;- inputsLot$Mediana[4] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[5]] &lt;- inputsLot$Mediana[5] </code></pre>
+<p>Arrumando variáveis nominais e ordinais:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(LotShape = as.integer(revalue(full$LotShape, c(&#39;IR3&#39;=0, &#39;IR2&#39;=1, &#39;IR1&#39;=2, &#39;Reg&#39;=3))))</code></pre>
+</div>
+<div id="garages" class="section level3">
+<h3>Garages</h3>
+<p>Variáveis relacionadas, segundo a descrição, temos:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Garage&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>##   GarageType  GarageYrBlt GarageFinish   GarageCars   GarageArea   GarageQual 
+##          157          159          159            1            1          159 
+##   GarageCond    SalePrice 
+##          159         1459</code></pre>
+<p><code>GarageType</code>: localização da garagem</p>
+<ul>
+<li>2Types Mais de um tipo de garagem</li>
+<li>Attchd anexa a casa</li>
+<li>Basement tipo porao</li>
+<li>BuiltIn (garagem parte da casa - normalmente tem sala acima da garagem)</li>
+<li>CarPort Porta do carro</li>
+<li>Detchd nao anexa a casa</li>
+<li>NA Sem Garagem</li>
+</ul>
+<p><code>GarageYrBlt</code>: garagem do ano foi construída</p>
+<p><code>GarageFinish</code>: acabamento interior da garagem</p>
+<ul>
+<li>Fin Finished</li>
+<li>RFn Áspero Finalizado<br />
+</li>
+<li>Unf inacabado</li>
+<li>NA Sem Garagem</li>
+</ul>
+<p><code>GarageCars</code>: Tamanho da garagem na capacidade do carro</p>
+<p><code>GarageArea</code>: Tamanho da garagem em pés quadrados</p>
+<p><code>GarageQual</code>: GarageQuality</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Good</li>
+<li>TA Típico / Médio</li>
+<li>FA Justo</li>
+<li>Po Poor</li>
+<li>NA Sem Garagem</li>
+</ul>
+<p><code>GarageCond</code>: condição de garagem</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Good</li>
+<li>TA Típico / Médio</li>
+<li>Fa Justo</li>
+<li>Po Poor</li>
+<li>NA Sem Garagem</li>
+</ul>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(GarageType   =  if_else(GarageType %&gt;% is.na, &quot;None&quot;, GarageType) ) %&gt;% 
+  mutate(GarageYrBlt  = if_else(GarageYrBlt %&gt;% is.na,YearBuilt, GarageYrBlt) ) %&gt;% 
+  mutate(GarageFinish =  if_else(GarageFinish %&gt;% is.na, &quot;None&quot;, GarageFinish) ) %&gt;% 
+  mutate(GarageFinish = as.integer(revalue(GarageFinish, c(&#39;None&#39;=0, &#39;Unf&#39;=1, &#39;RFn&#39;=2, &#39;Fin&#39;=3)))) %&gt;% 
+  mutate(GarageCars   = ifelse(GarageCars %&gt;% is.na, 0, GarageCars) ) %&gt;% 
+  mutate(GarageArea   = ifelse(GarageArea %&gt;% is.na, 0, GarageArea)) %&gt;% 
+  mutate(GarageQual   = if_else(GarageQual %&gt;% is.na, &quot;None&quot;, GarageQual)) %&gt;% 
+  mutate(GarageQual   = as.integer(revalue(GarageQual, Qualidade))) %&gt;% 
+  mutate(GarageCond   = if_else(GarageCond %&gt;% is.na, &quot;None&quot;, GarageCond)) %&gt;% 
+  mutate(GarageCond   = as.integer(revalue(GarageCond, Qualidade))) 
+  
+table(full$GarageCond)</code></pre>
+<pre><code>## 
+##    0    1    2    3    4    5 
+##  159   14   74 2654   15    3</code></pre>
+</div>
+<div id="bsmt" class="section level3">
+<h3>Bsmt</h3>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>##     BsmtQual     BsmtCond BsmtExposure BsmtFinType1   BsmtFinSF1 BsmtFinType2 
+##           81           82           82           79            1           80 
+##   BsmtFinSF2    BsmtUnfSF  TotalBsmtSF BsmtFullBath BsmtHalfBath    SalePrice 
+##            1            1            1            2            2         1459</code></pre>
+<p><code>BsmtQual</code>: Avalia a altura do porão</p>
+<ul>
+<li>Ex Excelente (100+ polegadas)<br />
+</li>
+<li>Gd Bom (90-99 polegadas)</li>
+<li>TA Típica (80-89 polegadas)</li>
+<li>Fa Justo (70-79 polegadas)</li>
+<li>Po Pobre (&lt;70 polegadas</li>
+<li>NA Sem Porão</li>
+</ul>
+<p><code>BsmtCond</code>: Avalia o estado geral do porão</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Bom</li>
+<li>TA Típica - umidade ligeira permitida</li>
+<li>Fa Razoável - umidade ou alguma rachadura ou sedimentação</li>
+<li>Po Insuficiente - Craqueamento severo, sedimentação ou umidade</li>
+<li>NA Sem Porão</li>
+</ul>
+<p><code>BsmtExposure</code>: Refere-se a paralisações ou paredes no nível do jardim</p>
+<ul>
+<li>Gd Good Exposição</li>
+<li>Av Média Exposição (níveis divididos ou foyers normalmente pontuação média ou acima)<br />
+</li>
+<li>Mn Exposição Mínima</li>
+<li>No Não Exposição</li>
+<li>NA Sem porão</li>
+</ul>
+<p><code>BsmtFinType1</code>: Avaliação da área acabada do porão</p>
+<ul>
+<li>GLQ Bons Viver</li>
+<li>ALQ Média Living Quarters</li>
+<li>BLQ Abaixo da média Living Quarters<br />
+</li>
+<li>Rec Média Rec Room</li>
+<li>LwQ Baixa Qualidade</li>
+<li>Unf unfinshed</li>
+<li>NA nenhum porão</li>
+</ul>
+<p><code>BsmtFinSF1</code>: pes quadrados do tipo 1 terminado</p>
+<p><code>BsmtFinType2</code>: Avaliação do porão área terminado (se vários tipos)</p>
+<ul>
+<li>GLQ Bons aposentos</li>
+<li>ALQ Medianos</li>
+<li>BLQ abaixo da media</li>
+<li>Rec Aposentos média qualidade</li>
+<li>LwQ Baixa Qualidade</li>
+<li>Unf</li>
+<li>Não Sem Porão</li>
+</ul>
+<p><code>BsmtFinSF2</code>: Pés quadrados acabados do Tipo 2</p>
+<p><code>BsmtUnfSF</code>: Pés quadrados inacabados da área do porão</p>
+<p><code>TotalBsmtSF</code>: Total pés quadrados da área do porão</p>
+<p>Input das variáveis não numéricas com <code>None</code> e convertendo para ordinal as variáveis com relação de ordem. Para os faltantes das variáveis numéricas foram imputados o valor 0 (zeros).</p>
+<pre class="r"><code># Categóricos:
+full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] &lt;- 
+  full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] %&gt;%
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]) %&gt;%
+  mutate_if( ~ !is.numeric(.x) , ~ ifelse(is.na(.x), &quot;None&quot;, .x)) %&gt;% 
+  mutate(BsmtQual = as.integer(revalue(BsmtQual, Qualidade))) %&gt;% 
+  mutate(BsmtCond = as.integer(revalue(BsmtCond, Qualidade))) %&gt;% 
+  mutate(BsmtExposure = as.integer(revalue(BsmtExposure, c(&#39;None&#39;=0, &#39;No&#39;=1, &#39;Mn&#39;=2, &#39;Av&#39;=3, &#39;Gd&#39;=4)))) %&gt;% 
+  mutate(BsmtFinType1 = as.integer(revalue(BsmtFinType1,c(&#39;None&#39;=0, &#39;Unf&#39;=1, &#39;LwQ&#39;=2, &#39;Rec&#39;=3, &#39;BLQ&#39;=4, &#39;ALQ&#39;=5, &#39;GLQ&#39;=6)))) 
+
+# Numéricos:
+full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] &lt;- 
+  full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] %&gt;%
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]) %&gt;%
+  mutate_if( ~ is.numeric(.x) , ~ ifelse(is.na(.x), 0, .x))</code></pre>
+</div>
+<div id="masvnr" class="section level3">
+<h3>MasVnr</h3>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;MasVnr&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>## MasVnrType MasVnrArea  SalePrice 
+##         24         23       1459</code></pre>
+<p><code>MasVnrType</code>: Alvenaria tipo de verniz</p>
+<ul>
+<li>BrkCmn Brick Common</li>
+<li>BrkFace Face de tijolos</li>
+<li>CBlock Bloco cinza</li>
+<li>None Nenhum</li>
+<li>Stone Pedra</li>
+</ul>
+<p><code>MasVnrArea</code>: Área de folheado de alvenaria em pés quadrados</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(MasVnrType = if_else(is.na(MasVnrType), &quot;None&quot;, MasVnrType)) %&gt;% 
+  mutate(MasVnrType = as.integer(revalue(MasVnrType, c(&#39;None&#39;=0, &#39;BrkCmn&#39;=0, &#39;BrkFace&#39;=1, &#39;Stone&#39;=2)))) %&gt;% 
+  mutate(MasVnrArea = if_else(is.na(MasVnrArea), 0, 1))</code></pre>
+</div>
+<div id="variáveis-restantes-com-poucos-na" class="section level3">
+<h3>Variáveis restantes com poucos <code>NA</code></h3>
+<p>A estratégia adotada para imputar estes dados será tomada de maneira arbitrária. Os valores faltantes serão preenchidos com o valor comum mais frequente daquela variável. As variáveis que restam são:</p>
+<pre class="r"><code>full %&gt;% 
+  df_status(print_results = F) %&gt;% 
+  as_tibble() %&gt;%
+  arrange(-p_na, -p_zeros)</code></pre>
+<pre><code>## # A tibble: 81 x 9
+##    variable    q_zeros p_zeros  q_na  p_na q_inf p_inf type      unique
+##    &lt;chr&gt;         &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt;
+##  1 SalePrice         0     0    1459 50.0      0     0 numeric      663
+##  2 MSZoning          0     0       4  0.14     0     0 character      5
+##  3 Utilities         0     0       2  0.07     0     0 character      2
+##  4 Functional        0     0       2  0.07     0     0 character      7
+##  5 Exterior1st       0     0       1  0.03     0     0 character     15
+##  6 Exterior2nd       0     0       1  0.03     0     0 character     16
+##  7 Electrical        0     0       1  0.03     0     0 character      5
+##  8 KitchenQual       0     0       1  0.03     0     0 character      4
+##  9 SaleType          0     0       1  0.03     0     0 character      9
+## 10 PoolArea       2906    99.6     0  0        0     0 numeric       14
+## # … with 71 more rows</code></pre>
+<p>Vejamos:</p>
+<p><code>MSZoning</code>: Identifica a classificação geral de zoneamento da venda.</p>
+<ul>
+<li>Será convertida para fator, variável nominal</li>
+</ul>
+<p><code>KitchenQual</code>: Qualidade da cozinha</p>
+<ul>
+<li>Será convertida para ordinal</li>
+</ul>
+<p><code>Utilities</code>: Tipo de utilidade disponível</p>
+<ul>
+<li>Será removida</li>
+</ul>
+<p><code>Functional</code>: Funcionalidade doméstica</p>
+<ul>
+<li>Será considerada como ordinal</li>
+</ul>
+<p><code>Exterior1st</code>: revestimento Exterior em casa</p>
+<ul>
+<li>Convertida para fator, variável nominal</li>
+</ul>
+<p><code>Electrical</code>: Sistema elétrico</p>
+<ul>
+<li>Convertida para fator, variável nominal</li>
+</ul>
+<p><code>SaleType</code>: Tipo de venda</p>
+<ul>
+<li>Convertida para fator, variável nominal</li>
+</ul>
+<pre class="r"><code>full &lt;- full %&gt;% 
+  mutate(MSZoning    = ifelse(is.na(MSZoning),
+                            full$MSZoning %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, MSZoning)) %&gt;% 
+  mutate(MSZoning    = as.factor(MSZoning)) %&gt;% 
+  mutate(KitchenQual = ifelse(is.na(KitchenQual),
+                            full$KitchenQual %&gt;% 
+                              table %&gt;% sort %&gt;% names %&gt;% last, KitchenQual)) %&gt;% 
+  mutate(KitchenQual = as.integer(revalue(as.character(full$KitchenQual), Qualidade))) %&gt;% 
+  select(-Utilities) %&gt;% 
+  mutate(Exterior1st = ifelse(is.na(Exterior1st),
+                            full$Exterior1st %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, Exterior1st)) %&gt;% 
+  mutate(Exterior1st = as.factor(Exterior1st)) %&gt;% 
+  mutate(Exterior2nd = ifelse(is.na(Exterior2nd),
+                            full$Exterior2nd %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, Exterior2nd)) %&gt;% 
+  mutate(Exterior2nd = as.factor(Exterior2nd)) %&gt;% 
+  mutate(Electrical  = ifelse(is.na(Electrical),
+                            full$Electrical %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, Electrical)) %&gt;% 
+  mutate(Electrical  = as.factor(Electrical)) %&gt;% 
+  mutate(SaleType    = ifelse(is.na(SaleType ),
+                            full$SaleType  %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, SaleType )) %&gt;% 
+  mutate(SaleType    = as.factor(SaleType )) 
+
+
+full[is.na(full$Functional),&quot;Functional&quot;] &lt;- full$Functional %&gt;% table %&gt;% sort %&gt;% names %&gt;% last
+full$Functional = as.integer(revalue(full$Functional, c(&#39;Sal&#39;=0, &#39;Sev&#39;=1, &#39;Maj2&#39;=2, &#39;Maj1&#39;=3, &#39;Mod&#39;=4, &#39;Min2&#39;=5, &#39;Min1&#39;=6, &#39;Typ&#39;=7)))
+full[is.na(full$KitchenQual),&quot;KitchenQual&quot;] &lt;- full$KitchenQual %&gt;% table %&gt;% sort %&gt;% names %&gt;% last %&gt;% as.numeric()
+full$KitchenQual = as.integer(revalue(as.character(full$KitchenQual), Qualidade))
+# full[is.na(full$Electrical),&quot;Electrical&quot;] &lt;- 3
+
+to_remove &lt;- full %&gt;% map(~table(.x) %&gt;% length()) %&gt;% .[.== 1] %&gt;% names()
+full &lt;- full %&gt;% select(-one_of(to_remove))</code></pre>
+<p>Status da base no momento:</p>
+<pre class="r"><code>full %&gt;% 
+  df_status(print_results = F) %&gt;% 
+  as_tibble() %&gt;%
+  arrange(-p_na,-p_zeros, type)</code></pre>
+<pre><code>## # A tibble: 79 x 9
+##    variable      q_zeros p_zeros  q_na  p_na q_inf p_inf type    unique
+##    &lt;chr&gt;           &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;int&gt;
+##  1 SalePrice           0     0    1459  50.0     0     0 numeric    663
+##  2 PoolArea         2906    99.6     0   0       0     0 numeric     14
+##  3 3SsnPorch        2882    98.7     0   0       0     0 numeric     31
+##  4 LowQualFinSF     2879    98.6     0   0       0     0 numeric     36
+##  5 MiscVal          2816    96.5     0   0       0     0 numeric     38
+##  6 BsmtHalfBath     2744    94       0   0       0     0 numeric      3
+##  7 ScreenPorch      2663    91.2     0   0       0     0 numeric    121
+##  8 BsmtFinSF2       2572    88.1     0   0       0     0 numeric    272
+##  9 EnclosedPorch    2460    84.3     0   0       0     0 numeric    183
+## 10 HalfBath         1834    62.8     0   0       0     0 numeric      3
+## # … with 69 more rows</code></pre>
+<p>Transformando o <code>character</code> para <code>factor</code>:</p>
+<pre class="r"><code>full %&lt;&gt;% mutate_if(is.character, as.factor)</code></pre>
+<p>Transformando novamente nossa base de treino e de teste:</p>
+<pre class="r"><code>train &lt;- full[1:nrow(train),] %&gt;% as.data.frame() 
+test  &lt;- full[(nrow(train)+1):nrow(full),] %&gt;% select(-SalePrice) %&gt;% as.data.frame()
+
+# # Input Missing
+# train_miss_model = preProcess(train, &quot;knnImpute&quot;)
+# train = predict(train_miss_model, train)
+# test = predict(train_miss_model, test)
+# 
+# train$SalePrice &lt;- y</code></pre>
+</div>
+</div>
+</div>
+<div id="machine-learning-com-algorítmos-de-aprendizagem-baseados-em-árvores" class="section level1">
+<h1>Machine Learning com algorítmos de aprendizagem baseados em árvores</h1>
+<p>Os métodos baseados em árvores fornecem modelos preditivos de alta precisão, estabilidade e facilidade de interpretação. Ao contrário dos modelos lineares, eles são capazes de lidar bem com relações não-lineares além de poderem ser adaptados para resolver tanto problemas de classificação quanto problemas de regressão.</p>
+<p>Algoritmos como árvores de decisão, random forest e “gradient boosting” estão sendo muito usados em todos os tipos de problemas de data science e é notável o uso desses algorítimos para resolver os desafios do <a href="https://www.kaggle.com/">Kaggle</a>. Para resolver este problema utilizaremos estes três algoritmos e ao final, pegando carona na seleção de variáveis para os algoritmos de árvore, será ajustado um modelo de regressão linear para compararmos e conferirmos a significância estatística de cada uma das variáveis.</p>
+<div id="varimp-com-random-forest" class="section level2">
+<h2>VarImp com Random Forest</h2>
+<p>Um dos benefícios da floresta aleatória é o poder de lidar com grande conjunto de dados com maior dimensionalidade e identificar as variáveis a importância das variáveis, que pode ser uma característica muito útil porém deve ser feita com cautela.</p>
+<p>Veja uma reflexão (traduzida) da <a href="https://www.stat.berkeley.edu/~breiman/RandomForests/reg_philosophy.htm">nota de Leo Breiman (Universidade da Califórnia em Berkeley)</a></p>
+<blockquote>
+<p>“Uma nota filosófica: RF é um exemplo de uma ferramenta que é útil para fazer análises de dados científicos; Mas os algoritmos mais inteligentes não substituem a inteligência humana e o conhecimento dos dados do problema; Pegue a saída de florestas aleatórias não como verdade absoluta, mas como suposições geradas por um computador inteligente que podem ser úteis para levar a uma compreensão mais profunda do problema.”</p>
+</blockquote>
+<p>O ajuste da árvore será feito com o pacote <code>caret</code> e o estudo de estimativas de erro foi definido como o <a href="https://en.wikipedia.org/wiki/Out-of-bag_error">Out of bag</a> que remove a necessidade de um conjunto de teste pois é o erro médio de previsão em cada amostra de treinamento <span class="math inline">\(x_i\)</span> , usando apenas as árvores que não tinham <span class="math inline">\(x_i\)</span> em sua amostra de <a href="https://www.ime.usp.br/~chang/home/mae5704/aula-bootstrap.pdf">bootstrap</a>.</p>
+<pre class="r"><code>set.seed(1)
+control &lt;- trainControl(method = &quot;oob&quot;,verboseIter = F)
+
+rfFit1 &lt;- train(SalePrice ~. ,
+      data=train,
+      method=&quot;rf&quot;,
+      metric = &quot;Rsquared&quot;,
+      trControl = control,
+      preProcess = c(&quot;knnImpute&quot;)
+      )
+
+randomForest::varImpPlot(rfFit1$finalModel)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<pre class="r"><code>rfFit1$finalModel$importance %&gt;% 
+  as.data.frame %&gt;%
+  mutate(row = rownames(.)) %&gt;% 
+  arrange(desc(IncNodePurity)) %&gt;% 
+  as_tibble()</code></pre>
+<pre><code>## # A tibble: 217 x 2
+##    IncNodePurity row        
+##            &lt;dbl&gt; &lt;chr&gt;      
+##  1         77.9  OverallQual
+##  2         35.0  GrLivArea  
+##  3         14.8  YearBuilt  
+##  4         11.5  KitchenQual
+##  5          9.75 TotalBsmtSF
+##  6          9.29 GarageCars 
+##  7          6.74 `1stFlrSF` 
+##  8          6.33 GarageArea 
+##  9          5.02 ExterQualTA
+## 10          4.04 BsmtFinSF1 
+## # … with 207 more rows</code></pre>
+<p>Após inspecionar a importância das variáveis vamos selecionar as seguintes variáveis:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  select(
+    SalePrice  , Neighborhood, OverallQual , GrLivArea   , YearBuilt   ,  KitchenQual, 
+    GarageCars ,  GarageArea , `1stFlrSF`  , ExterQual   , BsmtFinSF1  , FireplaceQu, 
+    BsmtQual   , `2ndFlrSF`  , CentralAir  , GarageFinish, YearRemodAdd, FullBath, 
+    GarageYrBlt, Fireplaces  , LotFrontage , BsmtUnfSF   , TotalBsmtSF , BsmtFinType1,
+    OpenPorchSF, GarageType  , BsmtExposure, OverallCond , TotalBsmtSF , LotArea
+  )</code></pre>
+<p>Portanto, vamos definir novamente o conjunto de dados de treino e de teste:</p>
+<pre class="r"><code>train &lt;- full[1:nrow(train),] %&gt;% as.data.frame()
+test  &lt;- full[(nrow(train)+1):nrow(full),-1] %&gt;% as.data.frame()</code></pre>
+</div>
+<div id="variáveis-numéricas" class="section level2">
+<h2>Variáveis numéricas</h2>
+<p>Após a seleção dessas variáveis, vamos entender como elas estão correlacionadas dois a dois com o <a href="https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_Pearson">coeficiente de correlação de pearson</a>, exibindo a matrix em um <a href="https://en.wikipedia.org/wiki/Heat_map">Heatmap</a> (ou mapa de calor ), que é uma representação gráfica de dados em que os valores individuais contidos em uma matriz representados como cores.</p>
+<pre class="r"><code>cormat &lt;- 
+  full %&gt;% 
+  select(SalePrice, everything()) %&gt;% 
+  select_if(is.numeric) %&gt;% 
+  as.data.frame() %&gt;% 
+  cor(use = &quot;na.or.complete&quot;) %&gt;% 
+  melt
+
+cormat %&gt;%   
+  ggplot( aes(reorder(Var1,value), reorder(Var2,value), fill=value))+
+  geom_tile(color=&quot;white&quot;)+
+  scale_fill_gradient2(low=&quot;blue&quot;, high=&quot;red&quot;, mid=&quot;white&quot;, midpoint=0, limit=c(-1,1), space=&quot;Lab&quot;, name=&quot;Pearson\nCorrelation&quot;)+
+  theme_bw()+
+  theme(axis.text.x=element_text(angle=45, vjust=1, size=10, hjust=1))+
+  coord_fixed()+
+  labs(x=&quot;&quot;,y=&quot;&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-37-1.png" width="1152" /></p>
+<p>É possível notar que existem variáveis explicativas correlacionadas o que indica que a presença de algumas variáveis pode possivelmente interferir no ajuste final do modelo linear multivariado.</p>
+</div>
+<div id="variáveis-categóricas" class="section level2">
+<h2>Variáveis categóricas</h2>
+<p>Já a relação das varáveis categóricas não podem ser calculada com o coeficiente de correlação calculado anteriormente, para avaliar como elas estão associadas será calculado a medida de associação <a href="https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V">V de Cramér</a>. Novamente a matrix dos resultados serão novamente apresentados em um <a href="https://en.wikipedia.org/wiki/Heat_map">Heatmap</a> (ou mapa de calor ) que foi inspirado <a href="http://analysingstuffs.xyz/2017/12/01/visualizing-the-correlations-between-categorical-variables-with-r-a-cramers-v-heatmap/">neste post</a> (neste post também é apresentada uma função para o cálculo da matrix, adaptei de forma que se tornasse mais geral e disponibilizei no meu github <a href="https://github.com/gomesfellipe/functions/blob/master/interaction_all.R">neste link</a>).</p>
+<pre class="r"><code># Carrega funcao que calcula o V de Cramer:
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/cv_test.R&quot;)
+# Carrega a funcao que realiza as interações dos calculos dois a dois:
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/interaction_all.R&quot;)</code></pre>
+<p>Veja:</p>
+<pre class="r"><code>cvmat &lt;- 
+train %&gt;%
+  select_if(~!is.numeric(.x)) %&gt;% 
+  as.data.table() %&gt;%
+  interaction_all(cv_test) %&gt;% 
+  as_tibble() 
+
+cvmat %&gt;% 
+  ggplot( aes(variable_x, variable_y, fill=v_cramer))+
+  geom_tile(color=&quot;white&quot;)+
+  scale_fill_gradient2(low=&quot;blue&quot;, high=&quot;red&quot;, mid=&quot;white&quot;, midpoint=0, limit=c(-1,1), space=&quot;Lab&quot;, name=&quot;Cramer&#39;s V&quot;)+
+  theme_bw()+
+  theme(axis.text.x=element_text(angle=45, vjust=1, size=10, hjust=1))+
+  coord_fixed()+
+  labs(x=&quot;&quot;,y=&quot;&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+</div>
+</div>
+<div id="ajustando-modelos" class="section level1">
+<h1>Ajustando modelos</h1>
+<div id="arvore-de-decisao" class="section level2">
+<h2>Arvore de decisao</h2>
+<p>O modelo de árvore de decisão já foi comentado e deixei algumas referências ao final do post portanto vejamos a seguir o ajusto no R. Segundo a <a href="https://cran.r-project.org/web/packages/rpart/rpart.pdf">documentação</a>:</p>
+<p><code>cp</code>: parâmetro de complexidade. No nosso caso isso significa que o <a href="https://pt.wikipedia.org/wiki/R%C2%B2"><span class="math inline">\(R^2\)</span></a> total deve aumentar em cp em cada etapa. O principal papel desse parâmetro é economizar tempo de computação removendo as divisões que obviamente não valem a pena. Essencialmente, informamos ao programa que qualquer divisão que não melhore o ajuste por <code>cp</code> provavelmente será eliminada por <a href="https://pt.wikipedia.org/wiki/Valida%C3%A7%C3%A3o_cruzada">validação cruzada</a>, e que, portanto, o programa não precisa buscá-la.</p>
+<p>Para pesquisa de grade existem duas maneiras de ajustar um algoritmo no pacote <code>caret</code>: permitir que o sistema faça isso automaticamente ou especificar o <code>tuneGride</code> manualmente onde cada parâmetro do algoritmo pode ser especificado como um vetor de valores possíveis. Confira o ajuste manual em R:</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+tunegrid &lt;- expand.grid(cp=seq(0.001, 0.01, 0.001))
+
+rpartFit2 &lt;- 
+  train(y=train$SalePrice, x=train[,-1],
+        method=&quot;rpart&quot;,
+        trControl=control,
+        tuneGrid=tunegrid,
+        metric = &quot;Rsquared&quot;
+  )
+rpartFit2</code></pre>
+<pre><code>## CART 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1169, 1168, 1168, 1166 
+## Resampling results across tuning parameters:
+## 
+##   cp     RMSE       Rsquared   MAE      
+##   0.001  0.1918932  0.7757730  0.1386651
+##   0.002  0.1943654  0.7690391  0.1410967
+##   0.003  0.2016485  0.7513005  0.1457213
+##   0.004  0.2029596  0.7462748  0.1457752
+##   0.005  0.2098812  0.7279462  0.1534384
+##   0.006  0.2090073  0.7291130  0.1539830
+##   0.007  0.2110066  0.7227211  0.1544402
+##   0.008  0.2120734  0.7198280  0.1555415
+##   0.009  0.2142488  0.7143975  0.1570535
+##   0.010  0.2148236  0.7126454  0.1575360
+## 
+## Rsquared was used to select the optimal model using the largest value.
+## The final value used for the model was cp = 0.001.</code></pre>
+<p>Podemos conferir os resultados novamente de maneira visual:</p>
+<pre class="r"><code>rpart.plot(rpartFit2$finalModel, cex = 0.5)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-41-1.png" width="1200" /></p>
+<p>Gerando arquivo para submissão no kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(rpartFit2, test) %&gt;% exp) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;rpartFit2.csv&quot;,row.names = F)</code></pre>
+</div>
+<div id="bagging" class="section level2">
+<h2>Bagging</h2>
+<p><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating">“Bagging”</a> é usado quando desejamos reduzir a variação de uma árvore de decisão. Ela combina o resultado de vários modelos onde todas as variáveis são considerados para divisão um nó. Em R:</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+treebagFit &lt;- train(y=train$SalePrice, 
+                    x=train[,-1], 
+                    method = &quot;treebag&quot;,
+                    metric = &quot;Rsquared&quot;,
+                    trControl=control
+)
+treebagFit</code></pre>
+<pre><code>## Bagged CART 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1169, 1168, 1168, 1166 
+## Resampling results:
+## 
+##   RMSE       Rsquared   MAE      
+##   0.1831872  0.7946059  0.1288626</code></pre>
+<p>Note que o <span class="math inline">\(R^2\)</span> aumentou e o <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation"><span class="math inline">\(RMSE\)</span></a> diminuiu após o uso desta técnica.</p>
+<p>Resultados para enviar para o Kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(treebagFit, test)%&gt;% exp) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;treebagFit.csv&quot;,row.names = F)</code></pre>
+</div>
+<div id="random-forest" class="section level2">
+<h2>Random Forest</h2>
+<p>A principal diferença entre “bagging” e o algoritmo Random Forest é que em <code>randomForest</code>, apenas um subconjunto de características é selecionado aleatoriamente em cada divisão em uma árvore de decisão enquanto que no bagging todos os recursos são usados.</p>
+<p>Para pesquisa de grade especificaremos um vetor com os possíveis valores, <a href="https://cran.r-project.org/web/packages/randomForest/randomForest.pdf">pois o default adotado para o parâmetro</a> <code>mtry</code> é <code>mtry</code> = p/3 (Número de variáveis amostradas aleatoriamente como candidatos em cada divisão), onde p é o número de variáveis e pode ser que o modelo se ajuste melhor aos dados ao utilizar outro valor.</p>
+<p>Veja:</p>
+<pre class="r"><code>set.seed(1)
+
+tunegrid &lt;- expand.grid(mtry = seq(4, ncol(train) * 0.8, 2))
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+rfFit &lt;- train(SalePrice ~. ,
+               data=train,
+               method=&quot;rf&quot;,
+               metric = &quot;Rsquared&quot;,
+               tuneGrid=tunegrid,
+               trControl=control
+)
+rfFit</code></pre>
+<pre><code>## Random Forest 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1169, 1168, 1168, 1166 
+## Resampling results across tuning parameters:
+## 
+##   mtry  RMSE       Rsquared   MAE       
+##    4    0.1455656  0.8781772  0.09755474
+##    6    0.1417368  0.8817193  0.09435674
+##    8    0.1405084  0.8826370  0.09350712
+##   10    0.1395367  0.8834153  0.09290816
+##   12    0.1385338  0.8845102  0.09181049
+##   14    0.1386865  0.8840165  0.09223527
+##   16    0.1381776  0.8846283  0.09155563
+##   18    0.1384532  0.8837305  0.09222536
+##   20    0.1380863  0.8840803  0.09173754
+##   22    0.1383788  0.8835938  0.09189772
+## 
+## Rsquared was used to select the optimal model using the largest value.
+## The final value used for the model was mtry = 16.</code></pre>
+<p>Note que o <span class="math inline">\(R^2\)</span> aumentou e o <span class="math inline">\(RMSE\)</span> apresentou resultados ainda mais satisfatórios.</p>
+<p>Veja visualmente a importância de ada variável:</p>
+<pre class="r"><code>randomForest::varImpPlot(rfFit$finalModel)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p>Resultados para enviar para o Kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(rfFit, test) %&gt;% exp) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;rfFit.csv&quot;,row.names = F) </code></pre>
+</div>
+<div id="gbm" class="section level2">
+<h2>GBM</h2>
+<p>Diferentemente do “bagging”, o “boosting” é uma técnica de ensemble (conjunto) na qual os preditores não são feitos independentemente, mas sequencialmente. Na imagem a seguir é possível ver uma representação visual dessa diferença:</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*PaXJ8HCYE9r2MgiZ32TQ2A.png" /></p>
+<p>A imagem foi obtida <a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d">neste artigo: Gradient Boosting from scratch</a>, recomendo a leitura pois da uma boa intuição de como o algoritmo funciona.</p>
+<p>Para a pesquisa de grade vamos permitir que o sistema faça isso automaticamente configurando apenas o <code>tuneLength</code> para indicar o número de valores diferentes para cada parâmetro do algoritmo.</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+gbmFit &lt;- train(SalePrice~.,data=train,
+                method = &quot;gbm&quot;,
+                trControl=control,
+                tuneLength=5,
+                metric = &quot;Rsquared&quot;,
+                verbose = FALSE
+)
+gbmFit</code></pre>
+<pre><code>## Stochastic Gradient Boosting 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1169, 1168, 1168, 1166 
+## Resampling results across tuning parameters:
+## 
+##   interaction.depth  n.trees  RMSE       Rsquared   MAE       
+##   1                   50      0.1736970  0.8346902  0.12145158
+##   1                  100      0.1474386  0.8663694  0.10371271
+##   1                  150      0.1400060  0.8775141  0.09804851
+##   1                  200      0.1381902  0.8803999  0.09607709
+##   1                  250      0.1375854  0.8817130  0.09502881
+##   2                   50      0.1511051  0.8640075  0.10557294
+##   2                  100      0.1379357  0.8815852  0.09546142
+##   2                  150      0.1360260  0.8846503  0.09326628
+##   2                  200      0.1355702  0.8852090  0.09248558
+##   2                  250      0.1362827  0.8841734  0.09254710
+##   3                   50      0.1434808  0.8743589  0.09910961
+##   3                  100      0.1363881  0.8838715  0.09355652
+##   3                  150      0.1346606  0.8868808  0.09163759
+##   3                  200      0.1339427  0.8880370  0.09062153
+##   3                  250      0.1336666  0.8886732  0.08979366
+##   4                   50      0.1376575  0.8824442  0.09516571
+##   4                  100      0.1334392  0.8884173  0.09192150
+##   4                  150      0.1330866  0.8890336  0.09156893
+##   4                  200      0.1334706  0.8886198  0.09096598
+##   4                  250      0.1335809  0.8884950  0.09101981
+##   5                   50      0.1384852  0.8813449  0.09535954
+##   5                  100      0.1350803  0.8863344  0.09231165
+##   5                  150      0.1340246  0.8878172  0.09112111
+##   5                  200      0.1342892  0.8874590  0.09088714
+##   5                  250      0.1349331  0.8867525  0.09104875
+## 
+## Tuning parameter &#39;shrinkage&#39; was held constant at a value of 0.1
+## 
+## Tuning parameter &#39;n.minobsinnode&#39; was held constant at a value of 10
+## Rsquared was used to select the optimal model using the largest value.
+## The final values used for the model were n.trees = 150, interaction.depth =
+##  4, shrinkage = 0.1 and n.minobsinnode = 10.</code></pre>
+<p>Note que este foi o modelo que apresentou os melhores resultados quanto só <span class="math inline">\(R^2\)</span> e ao <span class="math inline">\(RMSE\)</span> em comparação com os outros modelos.</p>
+<p>Submissão para Kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(gbmFit, test) %&gt;% exp) %&gt;%
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;gbmFit.csv&quot;, row.names = F)</code></pre>
+</div>
+<div id="regressão-linear" class="section level2">
+<h2>Regressão Linear</h2>
+<p>Por fim faremos o ajuste de um modelo de regressão linear multivariado utilizando o pacote caret.</p>
+<p>Utilizaremos validação cruzada separando nossa amostra em 5 e utilizaremos o método <code>lmStepAIC</code> que realiza a seleção do modelo escalonado pelo critério de informação de Akaike - <a href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a>.</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+lmFit &lt;- train(SalePrice~.,data=train,
+               method = &quot;lmStepAIC&quot;,
+               trControl=control,
+               metric = &quot;Rsquared&quot;,trace=F
+)
+lmFit</code></pre>
+<pre><code>## Linear Regression with Stepwise Selection 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1169, 1168, 1168, 1166 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE       
+##   0.147716  0.8632513  0.09574552</code></pre>
+<p>Note que o ajuste do modelo se apresenta de maneira satisfatória com <span class="math inline">\(R^2\)</span> e <span class="math inline">\(RMSE\)</span> semelhantes aos modelos de <code>bagging</code> e <code>boosting</code> e além disso, diferente dos modelos baseados em árvore, com este ajuste é possível notar a significância estatística de cada parâmetro ajustado, o que possibilita tanto o uso tanto como modelo preditivo quanto como modelo descritivo. Veja:</p>
+<pre class="r"><code>ggcoef(
+  lmFit$finalModel,                      #O modelo a ser conferido
+  vline_color = &quot;red&quot;,          #Reta em zero  
+  errorbar_color = &quot;blue&quot;,      #Cor da barra de erros
+  errorbar_height = .25,
+  shape = 18,                   #Altera o formato dos pontos centrais
+  size=2,                      #Altera o tamanho do ponto
+  color=&quot;black&quot;,
+  exclude_intercept = TRUE,                #Altera a cor do ponto
+  mapping = aes(x = estimate, y = term, size = p.value))+
+  scale_size_continuous(trans = &quot;reverse&quot;)+ #Essa linha faz com que inverta o tamanho
+  theme_bw()</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p>Note que o intercepto <span class="math inline">\(\beta_0\)</span> foi retirado da imagem pois é muito superior aos demais coeficientes. Note também que <span class="math inline">\(\beta_i\)</span> informa quão sensível é <span class="math inline">\(y\)</span>, no caso <code>log(SalePrice)</code> às variações de cara umas das <span class="math inline">\(x_{i,j}\)</span> variáveis explicativas. Mais concretamente, se <span class="math inline">\(x_{i,j}\)</span> aumenta em uma unidade, o valor de <span class="math inline">\(y\)</span> varia em <span class="math inline">\(\beta_1\)</span> unidades.</p>
+<p>Uma rápida <a href="http://www.portalaction.com.br/analise-de-regressao/analise-dos-residuos">Análise dos Resíduos</a>:</p>
+<pre class="r"><code>lmFit$finalModel %&gt;% 
+  autoplot(which = 1:2) + 
+  theme_bw()</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-52-1.png" width="1500" /></p>
+<p>É possível notar que parece haver alguns outliers em ambas as figuras. Na primeira é possível notar uma nuvem de pontos aleatórios em torno de zero porém na segunda figura nota-se que alguns valores não estão de acordo com os quantils teóricos de uma distribuição normal, o que pode prejudicar nossa interpretação dos coeficientes do modelo. Vamos encerrar o modelo por aqui mesmo e ver como ele se sai na competição do Kaggle, preparando a submissão:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(lmFit, test) %&gt;% exp ) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;lmFit.csv&quot;,row.names = F)</code></pre>
+<p>O score obtido com esta submissão no Kaggle foi muito próximo dos modelos baseados e árvore e o tempo computacional para este ajuste foi bem menor.</p>
+</div>
+<div id="comparando-ajustes" class="section level2">
+<h2>Comparando ajustes</h2>
+<p>Vejamos a seguir uma comparação entre estes modelos com as funções fornecidas pelo pacote `caret:.</p>
+<pre class="r"><code>resamps &lt;- resamples(list(rpart = rpartFit2,
+                          treebag = treebagFit,
+                          rf = rfFit,
+                          gbm = gbmFit,
+                          lm = lmFit 
+                          )) 
+bwplot(resamps)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<p>Com este gráfico é possível notar que o modelo de regressão linear múltipla apresentou resultados semelhantes aos de bagging e boosting.</p>
+<p>É importante frisar que a maneira como as variáveis foram selecionadas para o modelo de regressão linear múltipla através da importância das variáveis obtida com o modelo randomForest não é um padrão e existem diversos outros modos estatísticos de se de determinar a significância e a relação das variáveis para o modelo.</p>
+<p>Um possível problema neste método é que não detecta a multicolinearidade, que ocorre quando as variáveis explicativas estão fortemente correlacionadas entre si e a análise de regressão linear pode ficar confusa e desprovida de significado, pois há dificuldade em distinguir o efeito de uma ou outra variável explicativa sobre a variável resposta <span class="math inline">\(Y\)</span> devido à variâncias muito elevadas ou sinais inconsistentes.</p>
+<p>Essa proposta de aprender se divertindo e de maneira produtiva me deixa muito empolgado, espero que tenham se divertido como eu me diverti fazendo este post!</p>
+</div>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências:</h1>
+<ul>
+<li><a href="https://www.datacamp.com/courses/machine-learning-with-tree-based-models-in-r">DataCamp Course:Machine Learning with Tree-Based Models in R</a></li>
+<li><a href="https://tinyurl.com/y796aa4t">Data Science <em>for</em> Business</a></li>
+<li><a href="https://lethalbrains.com/learn-ml-algorithms-by-coding-decision-trees-439ac503c9a4">Learn ML Algorithms by coding: Decision Trees</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/decision-trees-R">DataCamp Tutorials: Decision Trees in R</a></li>
+<li><a href="https://topepo.github.io/caret/">The caret Package - Max Kuhn</a></li>
+<li><a href="https://www.vooo.pro/insights/um-tutorial-completo-sobre-a-modelagem-baseada-em-tree-arvore-do-zero-em-r-python/">Um tutorial completo sobre modelagem baseada em árvores de decisão (códigos R e Python)</a></li>
+<li><a href="https://machinelearningmastery.com/tuning-machine-learning-models-using-the-caret-r-package/">Tuning Machine Learning Models Using the Caret R Package</a></li>
+<li><a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d">Gradient Boosting from scratch</a></li>
+<li><a href="https://machinelearningmastery.com/tune-machine-learning-algorithms-in-r/">Tune Machine Learning Algorithms in R (random forest case study)</a></li>
+<li><a href="https://www.stat.berkeley.edu/~breiman/RandomForests/cc_manual.htm">Random Forests - Leo Breiman and Adele Cutler</a></li>
+<li><a href="https://cran.r-project.org/web/packages/rpart/vignettes/longintro.pdf">An Introduction to Recursive Partitioning Using the RPART Routines - CRAN</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Analise Exploratória</category>
+      <category>Aprendizado Supervisionado</category>
+      <category>Data mining</category>
+      <category>Estatistica</category>
+      <category>Machine Learning</category>
+      <category>Prática</category>
+      <category>Probabilidade</category>
+      <category>R</category>
+      <category>modelo baseado em arvores</category>
+      <category>kaggle</category>
+      <category>Regressão</category>
+      <category domain="tag">Data Mining</category>
+      <category domain="tag">Estatistica</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">Correlacoes</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem estatistica</category>
+      <category domain="tag">Prática</category>
+      <category domain="tag">R</category>
+      <category domain="tag">regression</category>
+      <category domain="tag">caret</category>
+      <category domain="tag">xgboost</category>
+      <category domain="tag">random forest</category>
+      <category domain="tag">decisiontree</category>
     </item>
-    
     <item>
       <title>modelo bayesiano do zero</title>
       <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</guid>
-      <description>Modelagem estatística e as duas grandes escolas de inferência Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.
-Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles.</description>
+      <description>Um pouco sobre as duas grandes escolas de inferência, contas e implementação de um modelo linear bayesiano na mão para dados simulados e para dados reais</description>
+      <content:encoded>&lt;![CDATA[
+        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<div id="modelagem-estatística-e-as-duas-grandes-escolas-de-inferência" class="section level1">
+<h1>Modelagem estatística e as duas grandes escolas de inferência</h1>
+<p>Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.</p>
+<p>Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.</p>
+<p>O interesse pela modelagem estatística através da abordagem bayesiana surgiu a partir de um projeto de iniciação científica quando cursava o 6º período do curso de Graduação em Estatística que tinha como objetivo o cálculo e apresentação de estatísticas descritivas para ajudar uma pesquisadora. Após obter os resultados da análise exploratória e descritiva, notei, junto com meu orientador, que havia possibilidade de dar continuidade ao estudo a partir de uma abordagem estatística mais elaborada. Sendo assim, outro projeto de iniciação científica foi iniciado em seguida com a finalidade de me preparar para utilizar um modelo linear hierárquico bayesiano sob os dados disponibilizados pela pesquisadora em minha monografia.</p>
+<p>Caso tenha interesse em conferir o projeto com o estudo sobre modelos hierárquicos bayesianos, disponibilizei os resultados e os códigos em meu github <a href="https://github.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos">neste repositório</a>. Neste post farei uma breve introdução sobre o ajuste de um modelo linear bayesiano simples e os resultados obtidos (utilizando uma distribuição a priori não informativa). Os resultados obtidos serão comparados com os resultados obtidos com o ajuste de um modelo de regressão linear através da abordagem clássica.</p>
+<div id="distribuição-a-priori" class="section level2">
+<h2>Distribuição a priori</h2>
+<p>Para o estudo, optou-se pela utilização de valores elevados para variância a priori (também consideradas como “não informativas”, fazendo uma analogia à modelos clássicos) obtendo ajustes que atribuem maior importância à informação provinda da amostra.</p>
+<p>Portanto com valores elevados para variância da distribuição a priori (consideradas como “não informativas”) foram obtida a distribuição a posteriori de um parâmetro <span class="math inline">\(\theta\)</span> que contém toda a informação probabilística a respeito deste parâmetro e quando a forma analítica dessa distribuição é conhecida o gráfico da <a href="https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_densidade">fdp</a> pode ilustrar o comportamento probabilístico do parâmetro de interesse e auxiliar em alguma tomada de decisão, porém, quando a forma analítica não é conhecida ou é muito custosa de ser obtida, pode-se recorrer a métodos de simulação tais como os métodos MCMC.</p>
+</div>
+<div id="amostrador-de-gibbs---método-mcmc" class="section level2">
+<h2>Amostrador de Gibbs - método MCMC</h2>
+<p>Com os avanços dos métodos de MCMC, surgiu o amostrador de Gibbs, proposto por <span class="citation">@GemanGeman</span> e tornou-se popular por <span class="citation">@GelfandSmith</span>, falo um pouco mais sobre o algoritmo no <a href="https://github.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos/blob/master/texto.pdf">texto do projeto</a>.</p>
+<p>Como a convergência ocorre após o aquecimento (ou burn-in), é comum usar os valores de <span class="math inline">\(\theta^{(a)}\)</span>, <span class="math inline">\(\theta^{(a+t)}\)</span>, <span class="math inline">\(\theta^{(a+2t)}\)</span>,… para compor a amostra de <span class="math inline">\(\theta\)</span>, sendo <span class="math inline">\(a-1\)</span> o número de iterações iniciais do aquecimento e <span class="math inline">\(t\)</span> o espaçamento utilizado para diminuir a autocorrelação dos parâmetros. Maiores detalhes podem ser vistos em <span class="citation">@Gamerman06</span>.</p>
+</div>
+</div>
+<div id="ao-que-interessa" class="section level1">
+<h1>Ao que interessa</h1>
+<p>O objetivo deste post é apresentar e comparar os resultados do ajuste de um modelo linear bayesiano simples utilizando uma distribuição a priori não informativa com o modelo de regressão linear simples para dados simulados e para dados reais.</p>
+<p>Diversas funções foram criadas ao longo o estudo para conferir o comportamento das cadeias geradas e os resultados do ajuste do modelo, aproveitarei essas funções para este post importando do <a href="https://github.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos/blob/master/dependencies.R">repositório no github</a> da seguinte maneira:</p>
+<pre class="r"><code>path_to_dep &lt;- &quot;https://raw.githubusercontent.com/gomesfellipe/projeto_modelos_hierarquicos_bayesianos/master/dependencies.R&quot;
+devtools::source_url(path_to_dep, encoding=&quot;UTF-8&quot;)</code></pre>
+</div>
+<div id="ajuste-do-modelo-para-dados-simulados" class="section level1">
+<h1>Ajuste do modelo para dados simulados</h1>
+<p>Suponha então um exemplo em que a população de interesse tenha distribuição normal com média <span class="math inline">\(\beta_0 + \beta_1 X\)</span>, sendo <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> desconhecidos e variância <span class="math inline">\(\sigma^2\)</span> desconhecida. Seja <span class="math inline">\(\tau=\frac{1}{\sigma^2}\)</span> o parâmetro chamado de precisão.</p>
+<p>O parâmetro <span class="math inline">\(\beta_0\)</span> é conhecido como intercepto ou coeficiente linear e o <span class="math inline">\(\beta_1\)</span> como coeficiente angular. Além disso, suponha que as unidades dessa população sejam iid. Dessa forma, tem-se que as unidades dessa população tem a seguinte distribuição:</p>
+<p><span class="math display">\[
+Y_i \stackrel{iid}{\sim} N(\beta_0 + \beta_1 X_i,\frac{1}{\tau}), 
+\]</span></p>
+<p>onde <span class="math inline">\(i=1,...,N\)</span>.</p>
+<p>Para o estudo do modelo primeiramente foi utilizado um conjunto de dados simulados utilizando uma amostra de tamanho <span class="math inline">\(N=1000\)</span> e com os seguintes parâmetros “desconhecidos” dos quais desejamos estimar: <span class="math inline">\(\beta_0 = 1\)</span>, <span class="math inline">\(\beta_1 = 0,5\)</span>, <span class="math inline">\(\tau = 2\)</span>. A amostra será simulada segundo a variável aleatória: <span class="math inline">\(X_i ~ N(0,1)\)</span> e em seguida os parâmetros deste modelo, denotados por <span class="math inline">\(\theta = (\beta_0, \beta_1, \tau)\)</span> foram estimados usando o paradigma Bayesiano.</p>
+<div id="gerando-a-amostra" class="section level2">
+<h2>Gerando a amostra</h2>
+<p>A amostra que foi simulada foi obtida da seguinte maneira:</p>
+<pre class="r"><code># Amostra que sera utilizada:
+
+set.seed(12)
+n   &lt;- 1000                 # N=1000
+b0  &lt;- 1                    # \beta_0 = 1
+b1  &lt;- 0.5                  # \beta_1 = 0,5
+tau &lt;- 2                    # \tau = 2 e 
+x   &lt;- rnorm(n)             # X_i ~ N(0,1), logo:
+y   &lt;- b0 + b1 * x + rnorm(n,0,sqrt(1/tau))</code></pre>
+<p>Obtendo-se uma amostra de tamanho <span class="math inline">\(n\)</span>, pode-se inferir sob os parâmetros desconhecidos <span class="math inline">\(\theta = (\beta_0, \beta_1, \tau)\)</span> através da distribuição a posteriori e para obter essa distribuição faz-se necessário calcular a função de verossimilhança, que pode ser obtida da seguinte forma:</p>
+<p><span class="math display">\[
+p(y| \beta_0, \beta_1 , \tau) =\prod^n_{i=1} p(y_i | \beta_0, \beta_1, \tau )  
+\]</span></p>
+<p>portanto</p>
+<p><span class="math display">\[
+p(y| \beta_0, \beta_1 , \tau) = \prod_{i=1}^n \frac{ \sqrt{\tau} }{ \sqrt{2\pi} } exp { - \frac{\tau}{2} ( y_i - \beta_0 - \beta_1 x_i )^2 }
+\]</span></p>
+<p>onde <span class="math inline">\(y = (y_1, ..., y_n)\)</span> é a amostra coletada. O valor p para o teste de Shapiro para conferir a suposição de normalidade da variável resposta foi de 0.6181791 enquanto que o valor p para conferir a normalidade da variável explicativa foi de 0.7413229.</p>
+</div>
+<div id="distribuição-a-priori-1" class="section level2">
+<h2>Distribuição a priori</h2>
+<p>Durante o estudo diversos valores os parâmetros a priori foram selecionados para que fosse possível avaliar a sensibilidade da qualidade da escolha da distribuição priori, aqui será apresentado os resultados obtidos com valores elevados para variância a priori (também consideradas como “não informativas”, fazendo uma analogia à modelos clássicos) que ajusta o modelo atribuindo maior importância à informação provinda da amostra.</p>
+<p>Considere a priori que os parâmetros sejam independentes e que</p>
+<p><span class="math display">\[
+\beta_0 \sim N(m_0,\sigma_0^2),  \\
+\beta_1 \sim N(m_1,\sigma_1^2) \mbox{ e }  \\
+\tau    \sim G(a,b).
+\]</span></p>
+<p>Portanto, para a estimação foram utilizados os seguintes hiperparâmetros : <span class="math inline">\(m_0 = m_1 = 0\)</span>, <span class="math inline">\(\sigma_0^2 = \sigma_1^2 = 100\)</span>, <span class="math inline">\(a=0,1\)</span> e <span class="math inline">\(b=0,1\)</span></p>
+<p>No R:</p>
+<pre class="r"><code>#Parametros para b0 ~ N(mu0, sig0)
+mu0 &lt;-  0
+sig0 &lt;-  1000
+
+#Parametros para b1 ~ N(mu1, sig1)
+mu1 &lt;-  0
+sig1 &lt;-  1000
+
+#Parametros para tau ~ G(a,b)
+a &lt;-  0.1
+b &lt;-  0.1</code></pre>
+<p>Dessa forma, tem-se que a distribuição conjunta a priori possui a seguinte forma:</p>
+<p><span class="math display">\[
+ p(\beta_0, \beta_1 , \tau) \propto exp\Big\{-\frac{1}{2\sigma_0^2}( \beta_0 - m_0)^2\Big\} exp\Big\{-\frac{1}{2\sigma_1^2}( \beta_1 - m_1)^2\Big\} \tau^{a-1}exp \{-b \tau\}.
+\]</span></p>
+</div>
+<div id="distribuição-a-posteriori" class="section level2">
+<h2>Distribuição a posteriori</h2>
+<p>Combinando a função de verossimilhança com a distribuição a priori, obtêm-se a distribuição a posteriori que é proporcional a:</p>
+<p><span class="math display">\[
+p(\beta_0, \beta_1 , \tau|y) \propto \tau^{\frac{n}{2}+a-1} exp \left\{ -\frac{\tau}{2} \sum^n_{i=1} (y_i - \beta_0 - \beta_1 x_i)^2 - b\tau  - \frac{1}{2\sigma_0^2}(\beta_0-m_0)^2  \right\} \times   exp\left\{- \frac{1}{2\sigma_1^2}(\beta_1-m_1)^2  \right\} . 
+\]</span></p>
+<p>Note que essa distribuição é multivariada e não possui forma analítica conhecida. Sendo assim, recorre-se aos métodos de MCMC para se obter amostras dessa distribuição. E então faz-se necessário obter as DCCP de <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span> e <span class="math inline">\(\tau\)</span>.</p>
+</div>
+<div id="implementando-o-amostrador-de-gibbs" class="section level2">
+<h2>Implementando o amostrador de Gibbs</h2>
+<p>O tamanho da cadeia foi de 30000 simulações e o <em>burn-in</em> (ou amostra de aquecimento) utilizado considerada após o ajuste foi de 15000. no R:</p>
+<pre class="r"><code>nsim           &lt;-  3*10000
+burnin         &lt;-  nsim / 2 
+cadeia.b0      &lt;-  rep(0,nsim)
+cadeia.b1      &lt;-  rep(0,nsim)
+cadeia.tau     &lt;-  rep(0,nsim)
+
+# Chutes iniciais: 
+cadeia.b0[1]    &lt;-  0
+cadeia.b1[1]    &lt;-  0
+cadeia.tau[1]   &lt;-  1</code></pre>
+<div id="calculos-para-implementar-o-algoritimo-na-mão" class="section level3">
+<h3>Calculos para implementar o algoritimo na mão</h3>
+<p>Para a implementação do algoritmo, fez-se necessário o cálculo das distribuições condicionais completas a posteriori (DCCP), primeiramente veja os resultados obtidos para <span class="math inline">\(\tau\)</span>:</p>
+<ul>
+<li>DCCP de <span class="math inline">\(\tau\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\tau|y_1, ...,y_n,\beta_0, \beta_1 \sim Gama ( \frac{n}{2}+a,b+\frac{1}{2} \sum^n_{i=1}(y_i-\beta_0-\beta_1 x_i)^2 ) 
+\]</span></p>
+<p>Em seguida, veja o resultado obtido para <span class="math inline">\(\beta_0\)</span>, o coeficiente linear da reta, isto é, a altura em que a reta de regressão intercepta o eixo dos <span class="math inline">\(Y\)</span>’s:</p>
+<ul>
+<li>DCCP de <span class="math inline">\(\beta_0\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\beta_0 | y_1,...,y_n , \tau,\beta_1 \sim N(\dfrac{(\tau\sum^n_{i=1}y_i - \tau\beta_1\sum^n_{i=1}x_i  +\frac{m_0}{\sigma_0^2})}{ \tau n + \frac{1}{\sigma_0^2}},  (n\tau +   \frac{1}{\sigma_0^2} )^{-1})
+\]</span></p>
+<p>Por fim, veja o resultado obtido para <span class="math inline">\(\beta_1\)</span>, é o coeficiente angular da reta, ou seja, é o a variação esperada na variável <span class="math inline">\(Y\)</span> quando a variável explicativa é acrescida de 1 unidade:</p>
+<ul>
+<li>DCCP de <span class="math inline">\(\beta_1\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\beta_1 | y_1,...,y_n , \tau,\beta_0 \sim N(\frac{\tau\sum^n_{i=1}x_i y_i  - \tau\beta_0\sum^n_{i=1}x_i + \frac{m_1}{\sigma_1^2}}{\tau \sum^n_{i=1}x_i^2 + \frac{1}{\sigma_1^2}}, ( \tau \sum^n_{i=1}x_i^2 + \frac{1}{\sigma_1^2} )^{-1})
+\]</span></p>
+<p>Agora que todas as distribuições condicionais completas estão calculadas o algorítimo já pode ser implementado, no R foi feito da seguinte maneira: (note que as linhas que foram comentadas executariam uma barra de carregamento, com ilustrado em seguida)</p>
+<pre class="r"><code># pb &lt;- txtProgressBar(min = 0, max = nsim, style = 3) # iniciando barra de processo
+for (k in 2:nsim){
+  
+  #Cadeia tau
+  cadeia.tau[k]   &lt;-  rgamma(1, (n/2) + a, b + (sum((y - cadeia.b0[k-1] - (cadeia.b1[k-1]*x))^2)/2))
+  
+  # Cadeia B0
+  c0              &lt;-  (n*cadeia.tau[k]) + (1/sig0)
+  m0              &lt;-  (cadeia.tau[k]*sum(y) - (cadeia.tau[k]*cadeia.b1[k-1]*sum(x)) + (mu0/sig0))/c0
+  cadeia.b0[k]    &lt;-  rnorm(1, m0, 1/sqrt(c0))
+  
+  # Cadeia B1
+  c1              &lt;-   (sum(x^2)*cadeia.tau[k]) + (1/sig1)
+  m1              &lt;-   ((cadeia.tau[k]*sum(x*y)) - (cadeia.tau[k]*cadeia.b0[k]*sum(x)) + (mu1/sig1))/c1
+  cadeia.b1[k]    &lt;-   rnorm(1, m1, 1/sqrt(c1))
+  
+  # setTxtProgressBar(pb, k)
+  
+}# ;close(pb) #Encerrando barra de processo</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/loading.png" /></p>
+</div>
+<div id="resultados-da-cadeia" class="section level3">
+<h3>Resultados da cadeia</h3>
+<p>A seguir definiremos a variável <code>inds</code> que indica os valores após a amostra de aquecimento (ou <em>burn-in</em>), a variável <code>real</code> que contém os valores reais utilizados para gerar a amostra para conferir se o modelo foi capaz de recuperá-los, os nomes dos parâmetros e os resultados das cadeias foram agregados em uma matriz:</p>
+<pre class="r"><code># Juntando resultados:
+inds    &lt;- seq(burnin, nsim) # Definindo os indices
+real    &lt;- c(b0, b1, tau)
+name    &lt;- c(expression(beta[0]), expression(beta[1]), expression(tau))
+results &lt;- cbind(cadeia.b0, cadeia.b1, cadeia.tau) %&gt;% as.data.frame() %&gt;% .[inds, ] %T&gt;% head</code></pre>
+<div id="histograma-e-densidade" class="section level4">
+<h4>Histograma e densidade</h4>
+<p>A figura abaixo apresenta os histogramas junto com as densidades de três cadeias obtidas ao se inicializar o amostrador em pontos diferentes de todos os parâmetros contidos em <span class="math inline">\(\theta\)</span> e uma linha vermelha indicará o valor do real parâmetro utilizado para estimar a cadeia.</p>
+<pre class="r"><code>g1 &lt;- hist_den(results[,1],name = name[1], p = real[1])
+g2 &lt;- hist_den(results[,2],name = name[2], p = real[2])
+g3 &lt;- hist_den(results[,3],name = name[3], p = real[3])
+grid.arrange(g1,g2,g3,ncol=1)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="cadeia" class="section level4">
+<h4>Cadeia</h4>
+<p>A figura abaixo apresenta os traços das cadeias dos parâmetros amostrados exibindo o intervalo de credibilidade com a linha pontilhada em azul e o valor verdadeiro do parâmetro em vermelho. Note que há indícios de convergência.</p>
+<pre class="r"><code># Cadeia
+cadeia(results, name, real)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>é possível notar que todos os intervalos de credibilidade contêm o parâmetro populacional real utilizado para gerar a amostra.</p>
+</div>
+<div id="autocorrelação" class="section level4">
+<h4>Autocorrelação</h4>
+<p>A figura abaixo apresenta os gráficos de autocorrelação, que indicam se houve a influência dos “valores vizinhos” dos parâmetros amostrados. Note que parece haver independência entre as interações.</p>
+<pre class="r"><code># ACF
+FAC(results)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>é possível notar que nenhuma das cadeias apresentaram estimativas autocorrelacionada</p>
+</div>
+<div id="estimativas" class="section level4">
+<h4>Estimativas</h4>
+<p>Agora que já foi verificado que a cadeia se comportou de maneira satisfatória, veja os resultados obtidos sobre as estimativas dos parâmetros através do algoritmo. apresenta os resumos a posteriori dos parâmetros amostrados.</p>
+<pre class="r"><code>coef &lt;- coeficientes(results, real = real) %&gt;% as.data.frame()
+
+tabela_coeficientes(coef)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"11b9832b6bfa0":["function () ","plotlyVisDat"]},"cur_data":"11b9832b6bfa0","attrs":{"11b9832b6bfa0":{"columnorder":[1,2,3,4,5],"columnwidth":[80,80,80,80,80],"header":{"values":["Média","Desv. Pad.","IC inf","IC sup","Real"],"line":{"color":"#506784"},"fill":{"color":"#1F8FFFB4"},"align":["center","center","center","center","center"],"font":{"color":"white","size":15},"height":40},"cells":{"values":[[1.0244,0.4933,1.9001],[0.023,0.0241,0.085],[0.9792,0.4464,1.7371],[1.0697,0.5409,2.0695],[1,0.5,2]],"line":{"color":"#506784"},"fill":{"color":["#1F8FFF58","white","white","white","#1F8FFF58"]},"align":["center","center","center","center","center"],"font":{"color":["white","#506784","#506784","#506784","white"],"size":12},"height":30},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"table"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"columnorder":[1,2,3,4,5],"columnwidth":[80,80,80,80,80],"header":{"values":["Média","Desv. Pad.","IC inf","IC sup","Real"],"line":{"color":"#506784"},"fill":{"color":"#1F8FFFB4"},"align":["center","center","center","center","center"],"font":{"color":"white","size":15},"height":40},"cells":{"values":[[1.0244,0.4933,1.9001],[0.023,0.0241,0.085],[0.9792,0.4464,1.7371],[1.0697,0.5409,2.0695],[1,0.5,2]],"line":{"color":"#506784"},"fill":{"color":["#1F8FFF58","white","white","white","#1F8FFF58"]},"align":["center","center","center","center","center"],"font":{"color":["white","#506784","#506784","#506784","white"],"size":12},"height":30},"type":"table","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Como se trata de uma amostra simulada é possível comparar as estimativas com os valores reais que geraram a amostra e os valores estão muito próximos da média (todos eles estão incluídos no intervalo de credibilidade).</p>
+</div>
+</div>
+<div id="comparando-com-o-modelo-linear-clássico" class="section level3">
+<h3>Comparando com o modelo linear clássico</h3>
+<p>Agora que os resultados sob o paradigma bayesiano já foram conferidos será ajustado um modelo de regressão linear simples pelo método dos mínimos quadrados através da função <code>lm()</code> sob o paradigma clássico para comparar com os resultados de um modelo de regressão linear simples sob o paradigma bayesiano utilizando os resultados calculados.</p>
+<pre class="r"><code># Reta do modelo classico
+plot(x, y)
+modelo.classico &lt;- lm(y ~ 1 + x)
+a.classico      &lt;- modelo.classico$coefficients[1]
+b.classico      &lt;- modelo.classico$coefficients[2]
+abline(a        &lt;- a.classico, b = b.classico, col = &quot;blue&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>O modelo estimado para estes dados sob o paradigma da inferência clássica foi o seguinte: <span class="math inline">\(\hat{y} = 1.0245 x + 0,4933\)</span>, o que mostra que as estimativas de <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> foram muito parecidas com as estimativas sob o paradigma da inferência bayesiana.</p>
+<pre class="r"><code># Reta do modelo bayesiano
+plot(x, y)
+a.bayes  &lt;-  mean(results[, 1])
+b.bayes  &lt;-  mean(results[, 2])
+abline(a = a.bayes, b = b.bayes, col = &quot;red&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>A figura apresenta o gráfico de dispersão entre as variáveis da amostra simulada e as retas dos ajustes de ambos os modelos:</p>
+<pre class="r"><code>library(stringr)
+library(ggplot2)
+library(ggExtra)
+
+# Texto da imagem
+text.classico &lt;- str_c(&quot;Modelo Classico: &quot;,&quot;y = &quot;,round(a.classico,4),&quot; x + &quot;,round(b.classico,4))
+text.bayes    &lt;- str_c(&quot;Modelo Bayesiano: &quot;,&quot;y = &quot;,round(a.bayes,4),&quot; x + &quot;,round(b.bayes,4))
+
+# Gerando o e ambos:
+cbind(y, x) %&gt;%
+  as.data.frame %&gt;%
+    ggplot(aes(y = y, x = x)) +
+    geom_point() +
+    geom_smooth(method = &quot;lm&quot;, se = F, col = &quot;red&quot;) +
+    theme_classic() +
+    geom_abline(slope = b.bayes,
+    intercept = a.bayes,
+    col = &quot;blue&quot;) +
+    labs(title = &quot;&quot;,
+    x = &quot;Covariável&quot;,
+    y = &quot;Reposta&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Agora que os resultados no algoritmo já foram conferidos e avaliados de maneira satisfatória utilizando os dados simulados, é a vez de fazer o ajuste para dados reais.</p>
+</div>
+</div>
+</div>
+<div id="ajuste-do-modelo-para-dados-reais" class="section level1">
+<h1>Ajuste do modelo para dados reais</h1>
+<p>O conjunto de dados que será utilizado como exemplo foi disponibilizado por <span class="citation">@Ezekiel_cars</span> e hoje faz parte do conjunto de banco de dados nativos do R (a base de dados pode ser obtida ao escrever <code>cars</code> no console). Os dados informam a velocidade dos carros e as distâncias tomadas para parar, esses dados foram registrados na década de 1920 e são de grande utilidade didática até os dias de hoje.</p>
+<p>Considere que deseja-se modelar a velocidade dos carros de acordo com as distâncias tomadas para parar, portanto a variável resposta será a velocidade e a variável explicativa do modelo será a distância tomada para parar.</p>
+<div id="amostra-utilizada" class="section level2">
+<h2>Amostra utilizada</h2>
+<pre class="r"><code>y    &lt;-  cars$speed
+x    &lt;-  cars$dist
+n    &lt;-  nrow(cars)</code></pre>
+<p>o valor p para o teste de Shapiro para conferir a suposição de normalidade da variável resposta foi de 0.4576319 enquanto que o valor p para conferir a normalidade da variável explicativa foi de 0.0390997</p>
+</div>
+<div id="distribuição-a-priori-2" class="section level2">
+<h2>Distribuição a priori</h2>
+<p>Serão utilizados os mesmos valores que foram propostos na simulação como hiperparametros e chutes iniciais para a cadeia, o código usado foi exatamente o mesmo.</p>
+</div>
+<div id="resultados-da-cadeia-1" class="section level2">
+<h2>Resultados da cadeia</h2>
+<p>Definiremos novamente a variável <code>inds</code> que indica os valores após a amostra de aquecimento (ou <em>burn-in</em>), desta vez não haverá a variável <code>real</code> pois não conhecemos os valores reais utilizados para gerar a amostra para conferir se o modelo foi capaz de recuperá-los. Desta vez utilizaremos a variável <code>classico</code>, que guarda os valores obtidos com o ajuste do modelo linear pela abordagem clássica.</p>
+<pre class="r"><code># Juntando resultados:
+inds     &lt;- seq(burnin, nsim) # Definindo os indices
+results  &lt;- cbind(cadeia.b0, cadeia.b1, cadeia.tau) %&gt;% as.data.frame() %&gt;% .[inds, ]
+classico &lt;- c(coefficients(lm(cars)), 1 / var(lm(cars)$residuals))
+name     &lt;- c(expression(beta[0]), expression(beta[1]), expression(tau))</code></pre>
+<div id="histograma-e-densidade-1" class="section level4">
+<h4>Histograma e densidade</h4>
+<p>A figura abaixo exibe os histogramas com as densidades de três cadeias obtidas ao se iniciar o amostrador em pontos diferentes de todos os parâmetros <span class="math inline">\(\theta\)</span> mas dessa vez sem a linha vermelha que indicava o valor do parâmetro real pois agora ele é desconhecido.</p>
+<pre class="r"><code>g1 &lt;- hist_den(results[, 1], name = name[1])
+g2 &lt;- hist_den(results[, 2], name = name[2])
+g3 &lt;- hist_den(results[, 3], name = name[3])
+grid.arrange(g1, g2, g3, ncol = 1)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Nota-se que ambas as cadeias convergiram uma mesma distribuição e que as últimas três cadeias apresentaram valores próximos.</p>
+</div>
+<div id="cadeias" class="section level4">
+<h4>Cadeias</h4>
+<p>A figura abaixo apresenta os traços das cadeias dos parâmetros amostrados. Note que há indícios de convergência.</p>
+<pre class="r"><code>cadeia(results,name)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="autocorrelação-1" class="section level4">
+<h4>Autocorrelação</h4>
+<p>A Figura abaixo apresenta os gráficos de autocorrelação dos parâmetros amostrados.</p>
+<pre class="r"><code>FAC(results)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>É possível notar que apenas nas primeiras defasagens das cadeias das estimativas para os parâmetros <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> se apresentaram de forma autocorrelacionada e que a partir dessa defasagem o gráfico de autocorrelação se apresentou de forma desejável.</p>
+</div>
+<div id="estimativas-1" class="section level4">
+<h4>Estimativas</h4>
+<p>Como todas as características da cadeia gerada foram avaliadas de maneira satisfatória agora será possível conferir o ajuste dos parâmetros de maneira mais segura pois já foi constatada a convergência da cadeia</p>
+</div>
+<div id="comparando-com-o-modelo-linear-clássico-1" class="section level4">
+<h4>Comparando com o modelo linear clássico</h4>
+<p>Agora que os resultados sob o paradigma bayesiano já foram conferidos novamente será ajustado um modelo de regressão linear simples pelo método dos mínimos quadrados sob o paradigma clássico para comparar com os resultados do um modelo de regressão linear simples sob o paradigma bayesiano utilizando os resultados calculados na seção.</p>
+<pre class="r"><code># Reta do modelo classico 
+plot(x, y)
+modelo.classico &lt;- lm(y ~ 1 + x)
+a.classico      &lt;- modelo.classico$coefficients[1]
+b.classico      &lt;- modelo.classico$coefficients[2]
+abline(a        &lt;- a.classico, b = b.classico, col = &quot;blue&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<pre class="r"><code># Reta do modelo bayesiano
+plot(x, y)
+a.bayes &lt;- mean(results[, 1])
+b.bayes &lt;- mean(results[, 2])
+abline(a = a.bayes, b = b.bayes, col = &quot;red&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>A Tabela abaixo apresenta o resumo a posteriori dos parâmetros estimados da cadeia e note que esta tabela não conta com a coluna dos valores reais como no exemplo anterior e sim as estimativas sob o paradigma clássico.</p>
+<pre class="r"><code>coef &lt;- 
+  coeficientes(results,real = classico) %&gt;% as.data.frame()
+
+tabela_coeficientes(coef)</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"11b981cae4251":["function () ","plotlyVisDat"]},"cur_data":"11b981cae4251","attrs":{"11b981cae4251":{"columnorder":[1,2,3,4,5],"columnwidth":[80,80,80,80,80],"header":{"values":["Média","Desv. Pad.","IC inf","IC sup","Real"],"line":{"color":"#506784"},"fill":{"color":"#1F8FFFB4"},"align":["center","center","center","center","center"],"font":{"color":"white","size":15},"height":40},"cells":{"values":[[8.2374,0.1663,0.1083],[0.8481,0.017,0.0214],[6.5848,0.1326,0.0699],[9.9239,0.1997,0.1542],[8.2839,0.1656,0.1025]],"line":{"color":"#506784"},"fill":{"color":["#1F8FFF58","white","white","white","#1F8FFF58"]},"align":["center","center","center","center","center"],"font":{"color":["white","#506784","#506784","#506784","white"],"size":12},"height":30},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"table"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"columnorder":[1,2,3,4,5],"columnwidth":[80,80,80,80,80],"header":{"values":["Média","Desv. Pad.","IC inf","IC sup","Real"],"line":{"color":"#506784"},"fill":{"color":"#1F8FFFB4"},"align":["center","center","center","center","center"],"font":{"color":"white","size":15},"height":40},"cells":{"values":[[8.2374,0.1663,0.1083],[0.8481,0.017,0.0214],[6.5848,0.1326,0.0699],[9.9239,0.1997,0.1542],[8.2839,0.1656,0.1025]],"line":{"color":"#506784"},"fill":{"color":["#1F8FFF58","white","white","white","#1F8FFF58"]},"align":["center","center","center","center","center"],"font":{"color":["white","#506784","#506784","#506784","white"],"size":12},"height":30},"type":"table","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>O modelo estimado sob este paradigma pode ser escrito da seguinte maneira: <span class="math inline">\(\hat{y} = 8,2839 x + 0,1656\)</span>, ou seja, os valores de <span class="math inline">\(\beta_0\)</span> e de <span class="math inline">\(\beta_1\)</span> novamente foram muito próximos dos parâmetros obtidos ao estimar sob o paradigma clássico.</p>
+</div>
+<div id="comparando-de-forma-visual" class="section level4">
+<h4>Comparando de forma visual</h4>
+<p>A Figura ilustra o gráfico de dispersão dos dados citados acima, com a intenção de exibir quanto uma variável é afetada por outra, onde no eixo vertical representa a velocidade do carro e no eixo horizontal a distância tomada para parar.</p>
+<p>Além do comportamento das variáveis, neste gráfico é exibido também os resultados obtidos do ajuste ao se utilizar o método de mínimos quadrados (representada pela linha em vermelho) para estimar os parâmetros e o ajuste do modelo ao se utilizar o método apresentado acima em (representada pela linha azul).</p>
+<pre class="r"><code># Texto da imagem
+text.classico &lt;- str_c(&quot;Modelo Classico: &quot;,&quot;y = &quot;,round(a.classico,4),&quot; x + &quot;,round(b.classico,4))
+text.bayes    &lt;- str_c(&quot;Modelo Bayesiano: &quot;,&quot;y = &quot;,round(a.bayes,4),&quot; x + &quot;,round(b.bayes,4))
+
+#Gerando o scatter.plot
+cbind(y, x) %&gt;%
+  as.data.frame %&gt;%
+  ggplot(aes(y = y, x = x)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;, se = F, col = &quot;red&quot;) +
+  theme_classic() +
+  geom_abline(slope = b.bayes,
+              intercept = a.bayes,
+              col = &quot;blue&quot;) +
+  labs(title = &quot;Relação entre a Distância e a Velocidade com \nreta do modelo linear clássico vs bayesiano&quot;,
+       x = &quot;Distância&quot;,
+       y = &quot;Velocidade&quot;)</code></pre>
+<p><img src="/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>É possível notar que os coeficientes calculados foram muito parecidos, mesmo apresentando pequenas diferenças decimais no valor dos coeficientes ainda é possível notar que as retas estão basicamente sobrepostas, ou seja, os valores estimados em ambas as abordagens foram praticamente os mesmos.</p>
+<p>Apesar dos valores dos ajustes terem apresentado basicamente os mesmo resultados, a maneira de se conferir a qualidade do ajuste é diferente em ambas as abordagens. Enquanto sob o paradigma clássico o ajuste do modelo pode ser checado ao avaliar os pre-supostos quanto à distribuição dos resíduos, como recomenda <span class="citation">@GaussClarice</span>, ao utilizar um método de MCMC faz-se necessário conferir também outros aspectos como por exemplo se houve convergência da cadeias além do comportamento das autocorrelações, vide <span class="citation">@migon</span>.</p>
+</div>
+</div>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<p>O uso do algorítmo para simular os dados da implementação do modelo hierárquico bayesiano envolveu diversas etapas. Inicialmente foi necessária a revisão de literatura para a compreensão dos métodos que seriam utilizados na implementação do algoritmo, bem como em seu desenvolvimento. Essa pesquisa funcionou de maneira muito didática, de forma que a cada semana a abordagem pudesse envolver maior grau de complexidade.</p>
+<p>Durante o estudo, diversos valores de parâmetros a priori foram selecionados para que fosse possível avaliar a sensibilidade da qualidade da escolha da distribuição a priori. Observou-se que valores elevados para variância a priori (também consideradas como “não informativas” - fazendo uma analogia à modelos clássicos) obtiveram melhores ajustes atribuindo maior importância à informação provinda da amostra.</p>
+<p>O estudo com dados simulados facilitou o entendimento do algoritmo pois foi possível notar com facilidade a inadequabilidade das escolhas das prioris, que resultavam em estimativas muito distante do parâmetro populacional que gerou a amostra.</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Aprendizado Não Supervisionado</category>
+      <category>Bayes</category>
+      <category>Inferência Bayesiana</category>
+      <category>Estatistica</category>
+      <category>Modelagem Estatistica</category>
+      <category>Probabilidade</category>
+      <category>R</category>
+      <category>Simulação</category>
+      <category>Teoria</category>
+      <category domain="tag">bayes</category>
+      <category domain="tag">Estatistica</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">jags</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem estatistica</category>
+      <category domain="tag">modelos generalizados</category>
+      <category domain="tag">modelos lineares</category>
+      <category domain="tag">probabilidade</category>
+      <category domain="tag">R</category>
+      <category domain="tag">regression</category>
+      <category domain="tag">Teoria</category>
     </item>
-    
     <item>
       <title>Pacotes do R para avaliar o ajuste de modelos</title>
       <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</link>
       <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/</guid>
-      <description>Funções do R para avaliar o ajuste de modelos Traduzindo:
-“Essencialmente, todos os modelos estão errados, mas alguns são úteis” - George E. P. Box
-Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!
-Lendo um artigo sobre a vida de Fisher um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</description>
+      <description>Alguns pacotes úteis para avaliar o ajuste do modelo de forma rápida, precisa e elegante</description>
+      <content:encoded>&lt;![CDATA[
+        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="funções-do-r-para-avaliar-o-ajuste-de-modelos" class="section level1">
+<h1>Funções do R para avaliar o ajuste de modelos</h1>
+<p>Traduzindo:</p>
+<p>“<em>Essencialmente, todos os modelos estão errados, mas alguns são úteis</em>” - George E. P. Box</p>
+<p>Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!</p>
+<p>Lendo um <a href="http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf">artigo sobre a vida de Fisher</a> um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:</p>
+<p>“Joan Fisher Box, filha de Fisher, em seu livro sobre a vida do pai, se referindo à péssima classificação dele em francês, escreveu: “… ele nunca teve muita paciência com irrelevâncias.” (Box, 1978)"</p>
+<p>Fico imaginando o tamanho da contribuição desdes crânios para a comunidade se tivessem acesso a tantos mecanismos que temos hoje em dia e o que eles achariam relevantes..</p>
+<p>Para o bom ajuste de um modelo, certamente; a inferência, as análises de desvios, os critérios de seleção de um modelo, conferir comportamento dos resíduos e avaliação das estatísticas de diagnósticos são muito relevantes.</p>
+<p>No <a href="https://cran.r-project.org/">CRAN</a> já contamos com muitos pacotes disponíveis para nos auxiliar nessas avaliações, portanto vou mostrar aqui alguns pacotes com funções que já me ajudaram muito em avaliações de modelos indo além das funções nativas do R e do pacote <code>ggplot2</code> (Um excelente pacote para apresentações elegantes e práticas de resultados visuais).</p>
+</div>
+<div id="ggally" class="section level1">
+<h1>GGally</h1>
+<p>Este pacote é sensacional, existem funções muito relevantes nele para melhorar a nossa experiência com ajuste de modelos, as funções apresentadas aqui são baseadas na <a href="http://ggobi.github.io/ggally/#ggally">página de documentação GGally</a>, lá você pode conferir a documentação completa.</p>
+<p>Primeiramente vamos carregar o pacote:</p>
+<pre class="r"><code>library(GGally)</code></pre>
+<p>Carregado o pacote, vejamos as principais funções que podem nos auxiliar.</p>
+<div id="ggallyggcoef" class="section level2">
+<h2><code>GGally::ggcoef</code></h2>
+<p>O objetivo da função <code>GGally::ggcoef</code> é traçar rapidamente os coeficientes de um modelo.</p>
+<p>Para um modelo linear:</p>
+<pre class="r"><code>reg &lt;- lm(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, data = iris)
+ggcoef(reg)</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Para um modelo logístico podemos utilizar o argumento <code>exponentiate = TRUE</code> e além disso, somos capazes de fazer diversas alterações no gráfico utilizando o <code>ggcoef()</code> veja alguns exemplo de argumentos que podem ser usados para personalizar como barras de erro e a linha vertical são plotadas:</p>
+<pre class="r"><code>#Ajustando o modelo:
+d &lt;- as.data.frame(Titanic)
+log.reg &lt;- glm(Survived ~ Sex + Age + Class, family = binomial, data = d, weights = d$Freq)
+
+#Elaborando o gráfico
+ggcoef(
+  log.reg,                      #O modelo a ser conferido
+  exponentiate = TRUE,          #Para avaliar o modelo logístico
+  vline_color = &quot;red&quot;,          #Reta em zero  
+  #vline_linetype =  &quot;solid&quot;,   #Altera a linha de referência
+  errorbar_color = &quot;blue&quot;,      #Cor da barra de erros
+  errorbar_height = .25,
+  shape = 18,                   #Altera o formato dos pontos centrais
+  #size=3,                      #Altera o tamanho do ponto
+  color=&quot;black&quot;,                #Altera a cor do ponto
+  mapping = aes(x = estimate, y = term, size = p.value))+
+  scale_size_continuous(trans = &quot;reverse&quot;) #Essa linha faz com que inverta o tamanho                 </code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="ggallyggduo" class="section level2">
+<h2><code>GGally::ggduo</code></h2>
+<p>O objetivo desta função é exibir dois dados agrupados em uma matriz de plotagem. Isso é útil para análise de correlação canônica, análise de séries temporais múltiplas e análise de regressão.</p>
+<p>Os dados do exemplo apresentados aqui podem ser encontrados neste <a href="http://www.stats.idre.ucla.edu/r/dae/canonical-correlation-analysis">link</a></p>
+<pre class="r"><code>data(psychademic)
+head(psychademic)</code></pre>
+<pre><code>##   locus_of_control self_concept motivation read write math science    sex
+## 1            -0.84        -0.24          4 54.8  64.5 44.5    52.6 female
+## 2            -0.38        -0.47          3 62.7  43.7 44.7    52.6 female
+## 3             0.89         0.59          3 60.6  56.7 70.5    58.0   male
+## 4             0.71         0.28          3 62.7  56.7 54.7    58.0   male
+## 5            -0.64         0.03          4 41.6  46.3 38.4    36.3 female
+## 6             1.11         0.90          2 62.7  64.5 61.4    58.0 female</code></pre>
+<pre class="r"><code>psych_variables &lt;- attr(psychademic, &quot;psychology&quot;)
+academic_variables &lt;- attr(psychademic, &quot;academic&quot;)</code></pre>
+<pre class="r"><code>ggduo(
+  psychademic, psych_variables, academic_variables,
+  types = list(continuous = &quot;smooth_lm&quot;),
+  title = &quot;Correlação entre as variáveis psicológicas e academicas&quot;,
+  xlab = &quot;Psicológicos&quot;,
+  ylab = &quot;Academicas&quot;
+)</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Uma vez que o <code>ggduo</code> não tem uma seção superior para exibir os valores de correlação, podemos usar uma função personalizada para adicionar a informação nas parcelas contínuas.</p>
+<p>Criando uma função personalizada para informar a correlação entre as observações:</p>
+<pre class="r"><code>lm_with_cor &lt;- function(data, mapping, ..., method = &quot;pearson&quot;) {
+  x &lt;- eval(mapping$x, data)
+  y &lt;- eval(mapping$y, data)
+  cor &lt;- cor(x, y, method = method)
+  ggally_smooth_lm(data, mapping, ...) +
+    ggplot2::geom_label(
+      data = data.frame(
+        x = min(x, na.rm = TRUE),
+        y = max(y, na.rm = TRUE),
+        lab = round(cor, digits = 3)
+      ),
+      mapping = ggplot2::aes(x = x, y = y, label = lab),
+      hjust = 0, vjust = 1,
+      size = 5, fontface = &quot;bold&quot;,
+      inherit.aes = FALSE # do not inherit anything from the ...
+    )
+}</code></pre>
+<p>Portanto:</p>
+<pre class="r"><code>ggduo(
+  psychademic, psych_variables, academic_variables,
+  types = list(continuous = &quot;smooth_lm&quot;),
+  title = &quot;Correlação entre variáveis acadêmica e psicológica&quot;,
+  xlab = &quot;Psicológica&quot;,
+  ylab = &quot;Academica&quot;
+)+
+  theme(legend.position = &quot;bottom&quot;)</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Para avaliar resíduos da uma regressão ajustada para cada uma das variáveis explanatórias vs. as variáveis explanatórias:</p>
+<pre class="r"><code>dados &lt;- datasets::swiss
+
+# Criando uma coluna &quot;fake&quot;:
+dados$Residual &lt;- seq_len(nrow(dados))
+
+# Calculando todos os resíduos que serão exibidos:
+colunas=2:6  #Informe as colunas que contem as variaveis explanatorias
+residuals &lt;- lapply(dados[colunas], function(x) {
+  summary(lm(Fertility ~ x, data = dados))$residuals
+})
+# Calculando um intervalo constante para todos os resíduos
+y_range &lt;- range(unlist(residuals))
+
+# Função modificada para mostrar os resíduos:
+
+lm_or_resid &lt;- function(data, mapping, ..., line_color = &quot;red&quot;, line_size = 1) {
+  if (as.character(mapping$y) != &quot;Residual&quot;) {
+    return(ggally_smooth_lm(data, mapping, ...))
+  }
+
+  # Criando os resíduos para apresentar:
+  resid_data &lt;- data.frame(
+    x = data[[as.character(mapping$x)]],
+    y = residuals[[as.character(mapping$x)]]
+  )
+
+  ggplot(data = data, mapping = mapping) +
+    geom_hline(yintercept = 0, color = line_color, size = line_size) +
+    ylim(y_range) +
+    geom_point(data = resid_data, mapping = aes(x = x, y = y), ...)
+
+}
+
+# Plote os dados:
+ggduo(
+  dados,
+  2:6, c(1,7),
+  types = list(continuous = lm_or_resid)
+)</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="ggallyggnostic" class="section level2">
+<h2><code>GGally::ggnostic</code></h2>
+<p>O <code>ggnostic</code> é um wrapper de exibição para <code>ggduo</code> que exibe diagnósticos de modelo completo para cada variável explicativa dada.</p>
+<p>Por padrão, o ggduo exibe os valores residuais, o sigma do modelo de “leave-one-out”, os pontos de alavanca e a distância de Cook em relação a cada variável explicativa.</p>
+<p>As linhas da matriz de plotagem podem ser expandidas para incluir valores ajustados, erro padrão dos valores ajustados, resíduos padronizados e qualquer uma das variáveis de resposta.</p>
+<p>Se o modelo for um modelo linear, os asteriscos (*) são adicionados de acordo com a significância anova de cada variável explicativa.</p>
+<p>A maioria das parcelas diagnósticas contêm linhas de referência para ajudar a determinar se o modelo está adequadamente instalado</p>
+<p>Olhando para os conjuntos de dados do conjunto de dados <code>state.x77</code> ajustaremos um modelo de regressão múltipla para a expectativa de vida.</p>
+<pre class="r"><code>#Dados que serão utilizados no exemplos:
+state &lt;- as.data.frame(state.x77)
+#Arrumando o nome das variaveis:
+colnames(state)[c(4, 6)] &lt;- c(&quot;Life.Exp&quot;, &quot;HS.Grad&quot;)
+# Ajustando o modelo completo:
+model &lt;- lm(Life.Exp ~ ., data = state)
+# Executando o stepwise para encontrar o melhor ajuste
+model &lt;- step(model, trace = FALSE)</code></pre>
+<p>Executando o diagnóstico deste modelo com a função <code>ggnostic()</code>:</p>
+<pre class="r"><code># look at model diagnostics
+ggnostic(model)</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Para acessar as variáveis influentes do modelo podemos utilizar a função <code>influence.measures()</code>, veja:</p>
+<pre class="r"><code>summary(influence.measures(model))</code></pre>
+<pre><code>## Potentially influential observations of
+##   lm(formula = Life.Exp ~ Population + Murder + HS.Grad + Frost,      data = state) :
+## 
+##            dfb.1_ dfb.Pplt dfb.Mrdr dfb.HS.G dfb.Frst dffit   cov.r   cook.d
+## Alaska      0.41   0.18    -0.40    -0.35    -0.16    -0.50    1.36_*  0.05 
+## California  0.04  -0.09     0.00    -0.04     0.03    -0.12    1.81_*  0.00 
+## Hawaii     -0.03  -0.57    -0.28     0.66    -1.24_*   1.43_*  0.74    0.36 
+## Nevada      0.40   0.14    -0.42    -0.29    -0.28    -0.52    1.46_*  0.05 
+## New York    0.01  -0.06     0.00     0.00    -0.01    -0.07    1.44_*  0.00 
+##            hat    
+## Alaska      0.25  
+## California  0.38_*
+## Hawaii      0.24  
+## Nevada      0.29  
+## New York    0.23</code></pre>
+<p>Esta função retorna as seguintes estatísticas:</p>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="25%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DFBeta</th>
+<th>DFFit</th>
+<th>CovRatio</th>
+<th>D.Cook</th>
+<th>h</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alteração no vetor estimado <span class="math inline">\(\hat \beta\)</span> ao se retirar o i-ésimo ponto da análise</td>
+<td>Alteração provocada no valor ajustado pela retirada da observação <span class="math inline">\(i\)</span></td>
+<td>Expressa o relação de covariancia</td>
+<td>Medida de afastamento das estimativas ao retirar <span class="math inline">\(i\)</span> e também considera o resíduo estudentizado internamente</td>
+<td>Elementos da diagonal da matriz H</td>
+</tr>
+</tbody>
+</table>
+<p>Vejamos então um exemplo de matriz de matriz de diagnóstico completo.</p>
+<p>As seguintes linhas de código exibirão uma matriz de diagnóstico para o mesmo modelo:</p>
+<pre class="r"><code>#Ajustando um modelo de exemplo:
+flea_model &lt;- step(lm(head ~ ., data = flea), trace = FALSE)</code></pre>
+<p>Todas as colunas possíveis e usando <code>ggally_smooth()</code> para exibir os pontos ajustados e as variáveis de resposta temos:</p>
+<pre class="r"><code># default output
+ggnostic(flea_model,
+ #        mapping = ggplot2::aes(color = species),  #Para colorir segundo um fator
+         columnsY = c(&quot;head&quot;, &quot;.fitted&quot;, &quot;.se.fit&quot;, &quot;.resid&quot;, &quot;.std.resid&quot;, &quot;.hat&quot;, &quot;.sigma&quot;, &quot;.cooksd&quot;),
+        continuous = list(default = ggally_smooth, .fitted = ggally_smooth)
+)</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="ggallyggpairs" class="section level2">
+<h2><code>GGally::ggpairs</code></h2>
+<p>O <code>ggpairs</code> é uma forma especial de uma ggmatrix que produz uma comparação pairwise de dados multivariados. Por padrão, o ggpairs fornece duas comparações diferentes de cada par de colunas e exibe a densidade ou a contagem da variável respectiva ao longo da diagonal. Com diferentes configurações de parâmetros, a diagonal pode ser substituída pelos valores do eixo e rótulos variáveis.</p>
+<pre class="r"><code>#Funcao de correlacoes
+my_fn &lt;- function(data, mapping, method=&quot;lm&quot;, ...){
+  p &lt;- ggplot(data = data, mapping = mapping) + 
+    geom_point() + 
+    geom_smooth(method=method, ...)
+  p
+}
+data(tips, package = &quot;reshape&quot;)
+#Correlaçoes cruzadas
+ggpairs(tips, lower = list(continuous = my_fn))</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Existem muitos recursos ocultos dentro dos <code>ggpairs()</code> e muitos exemplos podem ser conferidos na internet para obter o máximo do <code>ggpairs()</code>.</p>
+</div>
+<div id="ggallyggscatmat" class="section level2">
+<h2><code>GGally::ggscatmat</code></h2>
+<p>A principal função é <code>ggscatmat</code>. É semelhante a <code>ggpairs()</code>, mas funciona apenas para dados multivariados puramente numéricos.</p>
+<p>É mais rápido que ggpairs, porque é necessário fazer menos escolhas.</p>
+<p>Ele cria uma matriz com diagramas de dispersão na diagonal inferior, densidades na diagonal e correlações escritas na diagonal superior.</p>
+<p>A sintaxe é inserir o conjunto de dados, as colunas que deseja traçar, uma coluna de cores e um nível alfa.</p>
+<pre class="r"><code>data(flea)
+ggscatmat(flea, columns = 2:4, color=&quot;species&quot;, alpha=0.8)</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+</div>
+<div id="ggfottify" class="section level1">
+<h1>ggfottify</h1>
+<p>Outra opção interessante para avaliar o ajuste dos modelos é o pacote <a href="https://cran.r-project.org/web/packages/ggfortify/index.html">ggfottify</a>. Ele disponibiliza uma interface de traçado (como a função <code>plot(modelo_ajustado)</code>) de análise e gráficos em um estilo unificado, porém usando <code>ggplot2</code>.</p>
+<p>Vamos então dar início carregando o pacote:</p>
+<pre class="r"><code>library(ggfortify)</code></pre>
+<p>Veja a seguir alguns dos gráficos disponíveis no R para a análise de resíduos:</p>
+<pre class="r"><code>autoplot(flea_model, which = 1:6, ncol = 3, label.size = 3)</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>Especificando as opções de plot</p>
+<p>Algumas propriedades desses gráficos podem ser alteradas. Por exemplo, a opção <code>colour = 'dodgerblue3'</code> é para pontos de dados, o <code>smooth.colour = 'black'</code> é para linhas de suavização e <code>ad.colour = 'blue'</code> é para opções adicionais.</p>
+<p>Veja ainda que ncol e nrow controlam o layout.</p>
+<pre class="r"><code>autoplot(flea_model, which = 1:6, colour = &#39;dodgerblue3&#39;,
+         smooth.colour = &#39;black&#39;, smooth.linetype = &#39;dashed&#39;,
+         ad.colour = &#39;blue&#39;,
+         label.size = 3, label.n = 5, label.colour = &#39;blue&#39;,
+         ncol = 3)</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Além disso, você pode usar nomes de colunas para essas propriedades, vamos separar os grupos de machos e fêmeas por cores:</p>
+<pre class="r"><code>autoplot(flea_model, which = 1:6, data = flea,
+         colour = &#39;species&#39;, label.size = 3,
+         ncol = 3)</code></pre>
+<p><img src="/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>O que será que os crânios da estatística fariam diante de tantos recursos?</p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Estatistica</category>
+      <category>Modelagem Estatistica</category>
+      <category>R</category>
+      <category>Teoria</category>
+      <category>Tidyverse</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">R</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem estatistica</category>
+      <category domain="tag">Estatistica</category>
+      <category domain="tag">Correlacoes</category>
+      <category domain="tag">R Markdown</category>
+      <category domain="tag">regression</category>
+      <category domain="tag">Teoria</category>
+      <category domain="tag">modelos lineares</category>
+      <category domain="tag">modelos generalizados</category>
+      <category domain="tag">ggfortify</category>
+      <category domain="tag">GGally</category>
     </item>
-    
   </channel>
 </rss>

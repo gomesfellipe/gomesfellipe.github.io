@@ -4,47 +4,49 @@ author: Fellipe Gomes
 date: '2021-11-01'
 slug: []
 categories:
-  - Prática
-  - modelo baseado em arvores
-  - Machine Learning
-  - kaggle
-  - Dados Desbalanceados
-  - Ciencia de dados
-  - Aprendizado Supervisionado
-  - Python
-  - catboost
-  - xgboost
-  - shap
-  - knn
-  - optuna
-  - tuning
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - xgboost
-  - tuning
-  - optuna
-  - threshold movel
-  - Prática
-  - machine learning
-  - kaggle
-  - gomesfellipe
-  - ciencia de dados
-  - Python
-  - catboost
-  - shap
-  - knn
-description: 'Confira a estratégia aplicada para a competição de machine learning do Porto Seguro hospedada no Kaggle'
-featured: 'img1.png'
-featuredalt: 'Pic 27'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
+- catboost
+- data-science
+- kaggle
+- knn
+- machine-learning
+- optuna
+- pratica
+- python
+- shap
+- threshold-movel
+description: Confira a estratégia aplicada para a competição de machine learning do
+  Porto Seguro hospedada no Kaggle
+featured: img.png
+featuredalt: Ilustração sobre solução final  porto seguro data challenge 3º lugar
+featuredpath: date
+type: post
 output:
   blogdown::html_page:
     toc: true
     toc_depth: 2
-image_preview: 'img1.png'
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Advanced
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2021/11/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2021/11/img.png
+keywords: catboost, data-science, kaggle, knn, machine-learning, optuna, pratica,
+  python, shap, threshold-movel, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 <style>
 .column {
 float: left;
@@ -79,7 +81,7 @@ height: 200px;
 </style>
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval=F, warning = F, message = F, error = F, 
+knitr::opts_chunk$set(python.reticulate = FALSE, echo = TRUE, eval=F, warning = F, message = F, error = F, 
                       fig.height = 3,  fig.align = "center")
 ```
 

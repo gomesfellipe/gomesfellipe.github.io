@@ -4,24 +4,35 @@ author: Fellipe Gomes
 date: '2017-12-04'
 slug: []
 categories:
-  - Automação
-  - Prática
-  - R
+- Programação e Ferramentas
 tags:
-  - gomesfellipe
-  - Prática
-  - R
-  - rmarkdown
-  - dropbox
-description: ''
-featured: 'dropbox-R.png'
-featuredalt: 'Pic 6'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
+- dropbox
+- pratica
+- r
+- rmarkdown
+description: Armazenar arquivos na nuvem é uma prática muito comum nos dias de hoje.
+  O Dropbox é um dos muitos exemplos de repositórios baseados no conceito de "co...
+featured: dropbox-R.png
+featuredalt: Ilustração sobre gerenciando arquivos do dropbox com r
+featuredpath: date
+type: post
+image_preview: dropbox-R.png
+schema_type: BlogPosting
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2017/12/dropbox-R.png
+og_type: article
+article_section: Programming
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2017/12/dropbox-R.png
+keywords: dropbox, pratica, r, rmarkdown, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 # O Dropbox
 
 <!-- ![](/img/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/imagem1.png) -->

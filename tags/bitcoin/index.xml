@@ -1,50 +1,1560 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>bitcoin on Fellipe Gomes</title>
+    <title>bitcoin on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/bitcoin/</link>
-    <description>Recent content in bitcoin on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/bitcoin/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/bitcoin/" rel="self" type="application/rss+xml" />
     <item>
       <title>Construindo uma Equipe Multiagente de IA para Análise do Mercado Bitcoin</title>
       <link>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</link>
       <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</guid>
-      <description>Por que Analisar o Mercado Bitcoin com Agentes de IA? O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, nunca revelou sua identidade. Além disso o bitcoin foi a primeira e ainda é a mais conhecida aplicação da tecnologia Blockchain, que revolucionou a forma como lidamos com registros digitais e segurança dos dados.</description>
-    </item>
+      <description>Neste post, exploramos a criação de uma equipe de agentes de IA usando Python, LangChain, LangGraph e LangSmith para automatizar e monitorar a análise do mercado de Bitcoin, desde a coleta de dados até a geração de relatórios automatizados.</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<!-- Neste post, vamos mergulhar na criação de uma equipe de agentes de Inteligência Artificial (IA) que trabalham juntos para coletar dados, analisar tendências e decidir se é hora de alertar sobre oportunidades de investimento no Bitcoin. Utilizaremos Python, o framework LangChain e sua extensão LangGraph para orquestrar esses agentes, além de técnicas de Prompt Engineering para garantir que cada "membro" da equipe execute sua função com precisão.  -->
+<!-- Você já se perguntou como acompanhar o volátil mercado de Bitcoin sem passar horas analisando gráficos e indicadores complexos?  -->
+<!-- Prepare-se para descobrir como a IA generativa pode se tornar sua aliada na análise de criptomoedas! -->
+<div id="por-que-analisar-o-mercado-bitcoin-com-agentes-de-ia" class="section level2">
+<h2>Por que Analisar o Mercado Bitcoin com Agentes de IA?</h2>
+<p>O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, <strong>nunca revelou sua identidade</strong>. Além disso o bitcoin foi a <a href="https://www.mgcholding.com.br/blog/blockchain-bitcoin-e-ativos-virtuais-entenda-a-relacao/#:~:text=O%20blockchain%2C%20em%20sua%20ess%C3%AAncia,conhecida%20aplica%C3%A7%C3%A3o%20da%20tecnologia%20blockchain.">primeira e ainda é a mais conhecida aplicação da tecnologia <strong>Blockchain</strong></a>, que revolucionou a forma como lidamos com registros digitais e segurança dos dados. Sua <strong>natureza descentralizada</strong> e sua notória <strong>volatilidade</strong> o tornam um ativo único.</p>
+<p>Quem não se lembra da história das <a href="https://www.binance.com/pt-BR/square/post/17395016879858">pizzas compradas por 10.000 BTC</a>, que hoje valeriam uma fortuna? Mesmo que variações dessa magnitude sejam improváveis, eventos programados como o <a href="https://www.binance.com/pt-BR/events/bitcoin-halving"><strong>Halving</strong></a> – que reduz pela metade a emissão de novas moedas a cada quatro anos, simulando a escassez de metais preciosos – continuam a impactar significativamente sua oferta e, historicamente, seu preço.</p>
+<p>Mas como saber o momento certo de comprar ou vender? A resposta não é simples. O preço do Bitcoin é influenciado por uma miríade de fatores: dados <strong>on-chain</strong> (movimentações na própria blockchain), o cenário <strong>macroeconômico</strong> global (inflação, taxas de juros), o <strong>sentimento do mercado</strong> e a <strong>análise técnica</strong> tradicional (padrões gráficos e indicadores). Analisar isoladamente qualquer um desses aspectos oferece uma visão incompleta. A verdadeira compreensão exige uma abordagem holística, <strong>combinando diferentes perspectivas</strong>.</p>
+<p>Foi pensando nisso, e inspirado pelos recentes avanços em modelos de linguagem grandes (<strong>LLMs</strong>) e frameworks de <strong>agentes</strong>, que surgiu a ideia: <strong>E se eu delegar essa tarefa repetitiva e complexa a uma equipe de assistentes de IA?</strong> E se a IA pudesse não apenas coletar e analisar os dados, mas também <strong>interpretar o cenário</strong> e <strong>sugerir ações</strong> alinhadas a uma estratégia de investimento de longo prazo, como a acumulação gradual de Bitcoin?</p>
+<p>É aqui que entram os Agentes de IA. Pense neles como sistemas autônomos que utilizam um <strong>LLM</strong> (como os modelos GPT da OpenAI) como seu “cérebro” ou motor de raciocínio. Eles podem interagir com <strong>ferramentas</strong>, processar informações e <strong>tomar decisões</strong> para atingir um <strong>objetivo específico</strong>. Em nosso caso, o objetivo será fornecer uma análise de mercado inteligente e automatizada, transformando dados brutos em insights acionáveis de alto nível.</p>
+</div>
+<div id="arquitetura-da-solução-uma-equipe-de-agentes-de-ia-generativa" class="section level2">
+<h2>Arquitetura da Solução: Uma Equipe de Agentes de IA Generativa</h2>
+<p>Em vez de um único agente monolítico tentando fazer tudo, o trabalho foi dividido em etapas lógicas, cada uma atribuída a um agente com um papel bem definido. Essa abordagem modular não só organiza melhor o processo, mas também facilita a manutenção e a evolução de cada componente:</p>
+<ul>
+<li><strong>Data Fetcher</strong>: Coleta dados brutos de diversas APIs (cotações, on-chain, macro, técnicos).</li>
+<li><strong>Data Analyst</strong>: Interpreta os dados brutos e gera um relatório técnico formatado.</li>
+<li><strong>Market Strategist</strong>: Sintetiza a análise técnica, identifica tendências e gera recomendações táticas.</li>
+<li><strong>Client Manager</strong>: Avalia a estratégia sob a ótica do objetivo do “cliente” (acumulação de longo prazo) e decide se um alerta é necessário.</li>
+</ul>
+<p>Esses agentes utilizam <code>tools</code> (funções Python) para acessar APIs como <a href="https://www.blockchain.com/explorer/api">Blockchain.com</a>, <a href="https://pypi.org/project/yfinance/">Yahoo Finance</a>, <a href="https://www.coingecko.com/en/api/documentation">CoinGecko</a>, <a href="https://fred.stlouisfed.org/">FRED</a>, etc. A orquestração é feita com o <strong><a href="https://github.com/features/actions">GitHub Actions</a></strong> que aciona a execução de todo o fluxo de trabalho todo dia - a cada 4 horas - executando o projeto que foi todo escrito em <strong>Python</strong>, <strong>LangChain</strong> (para os blocos de construção dos agentes), <strong>LangGraph</strong> (para o fluxo de trabalho), usando <strong>GPT-4o-mini</strong> como motor de raciocínio, <strong><a href="https://telegram.me/BotFather">Telegram</a></strong> como um canal para envio de alertas e <strong>LangSmith</strong> para monitoramento e depuração de cada passo da execução dos agentes.</p>
+<p style="text-align: left; font-style: italic;">
+📌 Clique <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">aqui</a> para ler meu post sobre como criar bots no Telegram.
+</p>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/full_workflow.png" alt="prompt chaining workflow" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho completo
+</p>
+</center>
+</div>
+<div id="construindo-o-workflow-com-langgraph" class="section level2">
+<h2>Construindo o Workflow com LangGraph</h2>
+<p>Para orquestrar a interação entre os agentes de forma robusta, foi utilizado o <strong>LangGraph</strong>, uma biblioteca sobre o LangChain para criar aplicações LLM <em>stateful</em> e com <em>múltiplos atores</em>. Ele permite definir fluxos de trabalho como grafos, controlando explicitamente a sequência e permitindo futuras ramificações ou ciclos.</p>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  📌 Os conceitos básicos são:</p>
+<ul>
+<li><strong>Nós (Nodes)</strong>: As unidades de trabalho (nossos agentes).</li>
+<li><strong>Arestas (Edges)</strong>: As conexões que definem o fluxo de dados e controle entre os nós.</li>
+</ul>
+</div>
+<p>Montar o grafo envolve definir o estado compartilhado, adicionar os nós e conectar as arestas. LangGraph oferece diferentes maneiras de definir essa estrutura. Abaixo, tem um exemplo conceitual usando tanto a a <strong>GraphAPI</strong>, que é bastante explícita, quanto a <strong>Functional API</strong>, que é mais direta ao ponto:</p>
+<!-- Tabs HTML Structure -->
+<div class="tabs">
+<p><button class="tablink" onclick="openCode(event, 'GraphAPI')" id="defaultOpen">Graph API (Conceitual)</button>
+<button class="tablink" onclick="openCode(event, 'FunctionalAPI')">Functional API (Conceitual)</button></p>
+</div>
+<div id="GraphAPI" class="tabcontent">
+<pre class="python"><code>from langgraph.graph import StateGraph, START, END
+from typing_extensions import TypedDict
+
+# Definir o Estado do Grafo
+class State(TypedDict):
+    topic: str # Input do Data Fetcher
+    raw_data: str # Saída do Data Fetcher
+    analysis_report: str # Saída do Data Analyst
+    strategy_synthesis: str # Saída do Market Strategist
+    manager_decision: str # Saída do Client Manager
+
+# Definir os Nós (Agentes/Funções)
+# Supondo que as funções já foram definidas
+def data_fetcher(state: State):
+    # ... 
+    return {&quot;raw_data&quot;: &quot;dados coletados...&quot;}
+
+def data_analyst(state: State): ...
+def market_strategist(state: State): ...
+def client_manager(state: State): ...
+def send_telegram_message(message_body): ...
+
+# Construir o Grafo
+workflow = StateGraph(State)
+
+# Adicionar os nós
+workflow.add_node(&quot;fetcher&quot;, data_fetcher)
+workflow.add_node(&quot;analyst&quot;, data_analyst)
+workflow.add_node(&quot;strategist&quot;, market_strategist)
+workflow.add_node(&quot;manager&quot;, client_manager)
+
+# Definir Arestas (o fluxo sequencial)
+workflow.add_edge(START, &quot;fetcher&quot;)
+workflow.add_edge(&quot;fetcher&quot;, &quot;analyst&quot;)
+workflow.add_edge(&quot;analyst&quot;, &quot;strategist&quot;)
+workflow.add_conditional_edges(&quot;strategist&quot;, manager_decision, {
+  &quot;ALERTAR_CLIENTE&quot;: &quot;send_telegram_message&quot;,
+  &quot;NAO_ALERTAR&quot;: END
+  })
+
+# Compilar o grafo em um objeto executável
+chain = workflow.compile()
+
+# Executar (exemplo)
+state = chain.invoke({&quot;topic&quot;: &quot;btc&quot;})</code></pre>
+</div>
+<div id="FunctionalAPI" class="tabcontent">
+<pre class="python"><code>from langgraph.func import entrypoint, task
+
+# Tasks/Agents
+
+@task
+def data_fetcher(topic: str) -&gt; dict: ...
+  
+@task 
+def data_analyst(state: State): ...
+
+@task
+def market_strategist(state: State): ...
+
+@task
+def client_manager(state: State): ...
+
+def plot_btc_analysis(): ...
+def send_telegram_photo(fig): ...
+def send_telegram_message(message_body): ...
+
+# Exemplo conceitual com abordagem funcional (usando decoradores)
+@entrypoint()
+def chaining_workflow(topic: str):
+    data_fetched = data_fetcher(topic).result()
+    analyst_report = data_analyst(data_fetched).result()
+    strategist_report = market_strategist(analyst_report).result()
     
+    if &#39;ALERTAR&#39; in client_manager(strategist_report).result():
+        fig = plot_btc_analysis()
+        asyncio.run(send_telegram_photo(fig))
+        asyncio.run(send_telegram_message(strategist_report))
+        return &quot;Entrar em contato&quot;
+    return &quot;Não entrar em contato&quot;
+
+def run_chaining_workflow(topic: str, stream_mode: str = &quot;updates&quot;):
+    return chaining_workflow.stream(topic, stream_mode=stream_mode)
+
+# Invoke
+logger.info(&quot;Iniciando o workflow...\n&quot;)
+for step in run_chaining_workflow(&quot;&quot;, stream_mode=&quot;updates&quot;):
+    for key, value in step.items():
+        logger.info(f&quot;[ {key} ]\n{&#39;=&#39; * 80}\n{value}\n&quot;)
+logger.info(&quot;Workflow finalizado.&quot;)
+        </code></pre>
+</div>
+<!-- Script para funcionalidade das abas -->
+<script>
+function openCode(evt, codeName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(codeName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+// Abre a primeira aba por padrão
+document.getElementById("defaultOpen").click();
+</script>
+<!-- Estilos básicos para as abas (adicione ao CSS do seu blog) -->
+<style>
+.tabs { overflow: hidden; border-bottom: 1px solid #ccc; margin-bottom: 10px; }
+.tablink { background-color: #f1f1f1; float: left; border: none; outline: none; cursor: pointer; padding: 8px 16px; font-size: 1rem; transition: 0.3s; }
+.tablink:hover { background-color: #ddd; }
+.tablink.active { background-color: #ccc; }
+.tabcontent { display: none; padding: 6px 0px; border-top: none; animation: fadeEffect 1s; }
+@keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+</style>
+<p>Este controle fino do fluxo, seja pela API explícita ou por abordagens mais funcionais, é uma das grandes vantagens do LangGraph para sistemas multi-agentes, que ainda permite uma integração com o LangSmith para acompanhamento detalhado do fluxo de “raciocínio” dos agentes. Para mais detalhes, consulte a <a href="https://langchain-ai.github.io/langgraph/">documentação oficial</a>.</p>
+</div>
+<div id="mergulhando-nos-agentes-prompts-e-ferramentas" class="section level2">
+<h2>Mergulhando nos Agentes: Prompts e Ferramentas</h2>
+<p>Vamos ver rapidamente como cada agente funciona, focando nos prompts e ferramentas:</p>
+<div id="agente-1-data-fetcher-o-pesquisador" class="section level3">
+<h3>Agente 1: Data Fetcher (O Pesquisador)</h3>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/01.png" alt="data fetcher agent" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho do Data Researcher
+</p>
+</center>
+<details>
+<summary>
+<em>Ver código</em>
+</summary>
+<pre class="python"><code>from pydantic import BaseModel, Field
+from langchain.schema.messages import HumanMessage, ToolMessage
+from langgraph.func import task
+from langchain_openai import ChatOpenAI
+
+from tools.fetch_data_btc import fetch_data_btc
+from tools.fetch_data_onchain import fetch_data_onchain
+from tools.fetch_data_macroeconomic import fetch_data_macroeconomic
+from tools.fetch_data_market import fetch_data_market
+from tools.fetch_data_tecnical import fetch_data_tecnical
+
+llm = ChatOpenAI(model=&quot;gpt-4o-mini&quot;, temperature=0)
+
+@task
+def data_fetcher(topic: str):
+  
+  class StructuredJsonOutput(BaseModel):
+    btc_data: str = Field(None, description=&quot;Bitcoin data and USD to BRL exchange rate&quot;)
+    onchain_data: str = Field(None, description=&quot;On-chain Bitcoin data&quot;)
+    macroeconomic_data: str = Field(None, description=&quot;Macroeconomic data&quot;)
+    market_data: str = Field(None, description=&quot;Market sentiment and Bitcoin-related metrics&quot;)
+    tecnical_data: str = Field(None, description=&quot;technical analysis indicators for Bitcoin&quot;)
+
+  structured_llm = llm.with_structured_output(StructuredJsonOutput)
+
+  instructions = &quot;Você é um pesquisador responsável por coletar dados de diferentes fontes sobre o mercado de Bitcoin e gerar um output no formato json.&quot;
+
+  tools = [
+      fetch_data_btc,
+      fetch_data_onchain,
+      fetch_data_macroeconomic,
+      fetch_data_market,
+      fetch_data_tecnical
+      ]
+
+  tools_by_name = {tool.name: tool for tool in tools}
+
+  llm_with_tools = llm.bind_tools(tools)
+
+  messages = [HumanMessage(instructions)]
+  ai_msg = llm_with_tools.invoke(messages)
+  messages.append(ai_msg)
+
+  for tool_call in ai_msg.tool_calls:
+      selected_tool = tools_by_name[tool_call[&quot;name&quot;].lower()]
+      tool_output = selected_tool.invoke(tool_call[&quot;args&quot;])
+      messages.append(ToolMessage(tool_output, tool_call_id=tool_call[&quot;id&quot;]))
+
+  messages.append(structured_llm.invoke(messages))
+
+  return messages[-1].model_dump_json(indent=3)</code></pre>
+</details>
+<ul>
+<li><strong>Objetivo</strong>: Coletar dados brutos e atualizados de diversas fontes sobre o Bitcoin, abrangendo cotações, indicadores on-chain, dados macroeconômicos e técnicos.</li>
+<li><strong>Funcionamento</strong>: Este agente não calcula nem interpreta, ele apenas orquestra a chamada de várias <code>tools</code> (funções Python que interagem com APIs externas). Essa função do LangChain permite que o LLM, ao receber a instrução inicial (“colete os dados sobre o mercado de Bitcoin”), analise as ferramentas disponíveis e decida quais delas chamar e com quais argumentos. Após as ferramentas retornarem seus resultados, usamos <code>llm.with_structured_output(StructuredJsonOutput)</code> para instruir o LLM a consolidar todas as informações coletadas em um único objeto <strong>JSON estruturado</strong>. Isso garante que a saída do Data Fetcher seja consistente e fácil de processar pelo próximo agente.</li>
+</ul>
+</div>
+<div id="agente-2-data-analyst-o-intérprete" class="section level3">
+<h3>Agente 2: Data Analyst (O Intérprete)</h3>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/02.png" alt="data analyst agent" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho do Data Analyst
+</p>
+</center>
+<details>
+<summary>
+<em>Ver código</em>
+</summary>
+<pre class="python"><code>from langgraph.func import task
+from langchain.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
+from langchain_openai import ChatOpenAI
+
+from prompts.data_analyst_example import input_example, output_example
+
+llm = ChatOpenAI(model=&quot;gpt-4&quot;, temperature=0.7)
+
+@task
+def data_analyst(report: str):
+
+  input = f&quot;&quot;&quot;
+  Você é um analista financeiro experiente em Cryptomoedas e especialista em Bitcoin.
+  Analise as tendências do cenário do Bitcoin hoje com base no json \
+  delimitado por três crases (```):
+
+  \```
+  {report}
+  \```
+
+  Siga rigorosamente as instruções abaixo:
+
+  - ...
+  &quot;&quot;&quot;
+
+  examples = [
+      {&quot;input&quot;: input_example, &quot;output&quot;: output_example},
+       ]
+
+  example_prompt = ChatPromptTemplate.from_messages([
+      (&quot;human&quot;, &quot;{input}&quot;),
+      (&quot;ai&quot;, &quot;{output}&quot;),
+      ])
+
+  few_shot_prompt = FewShotChatMessagePromptTemplate(
+      example_prompt=example_prompt,
+      examples=examples,
+      )
+
+  prompt_system = &quot;Você é um analista financeiro experiente em Criptomoedas e especialista em Bitcoin.&quot;
+
+  final_prompt = ChatPromptTemplate.from_messages([
+    (&quot;system&quot;, prompt_system),
+    few_shot_prompt,
+    (&quot;human&quot;, &quot;{input}&quot;),
+    ])
+
+  chain = final_prompt | llm
+
+  msg = chain.invoke(input=input)
+
+  return msg.content</code></pre>
+</details>
+<ul>
+<li><strong>Objetivo</strong>: Receber o JSON de dados brutos do Data Fetcher e transformá-lo em um relatório analítico coeso, formatado em Markdown, interpretando cada indicador e explicando seu possível impacto.</li>
+<li><strong>Prompt Engineering em Ação</strong>: Este agente é um ótimo exemplo de como guiar um LLM para tarefas complexas de formatação e interpretação.
+<ul>
+<li><strong>Instruções Detalhadas</strong>: O prompt define explicitamente o papel do agente (“analista financeiro experiente”), o formato desejado (Markdown, bullet points, negrito), o tom (“equilibrado e menos técnico”), e regras específicas (mencionar preços em USD e BRL, usar sinal de menos para variações negativas, seguir a estrutura do exemplo).</li>
+<li><strong>Estratégia Few-Shot</strong>: Para garantir que o LLM siga o formato e o estilo de interpretação desejados, utilizamos a técnica Few-Shot (semelhante como fiz em um <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">post anterior</a>). Fornecemos um exemplo completo de um input (um JSON de dados similar ao que o Data Fetcher produziria) e o output correspondente (o relatório em Markdown formatado e interpretado). Isso é feito usando <code>FewShotChatMessagePromptTemplate</code> do LangChain, que insere o exemplo diretamente no contexto do prompt final.</li>
+<li><strong>Cadeia LCEL</strong>: O prompt final é construído usando a LangChain Expression Language (LCEL), combinando o prompt do sistema (definindo o papel), o prompt Few-Shot (com o exemplo) e o prompt humano (contendo as instruções e o JSON de dados brutos atual).</li>
+</ul></li>
+</ul>
+</div>
+<div id="agente-3-market-strategist-o-conselheiro" class="section level3">
+<h3>Agente 3: Market Strategist (O Conselheiro)</h3>
+<center>
+<div style="width: 80%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/03.png" alt="market strategist agent" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho do Market Strategist
+</p>
+</center>
+<details>
+<summary>
+<em>Ver código</em>
+</summary>
+<pre class="python"><code>from langgraph.func import task
+from langchain.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(temperature=0.7)
+
+@task
+def market_strategist(analyst_report: str):
+    &quot;&quot;&quot;
+    Gera recomendações de posicionamento com base na análise do Data Analyst.
+    &quot;&quot;&quot;
+  
+    input = f&quot;&quot;&quot;
+    Seu papel é analisar o relatório técnico fornecido no formatado em Markdown e transformar\
+    em uma síntese estratégica e executiva, com alertas, insights e orientações táticas de alto nível.
+  
+    \``` markdown
+    {analyst_report}
+    \```
+  
+    Siga rigorosamente as instruções abaixo:
+  
+    - ...
+    &quot;&quot;&quot;
+  
+    prompt = ChatPromptTemplate.from_messages([
+        (&quot;system&quot;, &quot;Você é um estrategista de mercado sênior, com ampla experiência em ativos digitais e especialização em Bitcoin.&quot;),
+        (&quot;human&quot;, &quot;{input}&quot;)
+    ])
+  
+    chain = prompt | llm
+    msg = chain.invoke(input=input)
+    return msg.content
+</code></pre>
+</details>
+<ul>
+<li><strong>Objetivo</strong>: Ler o relatório técnico detalhado do Data Analyst e interpretar as informações em uma síntese estratégica e executiva. O foco é identificar a tendência geral, destacar sinais chave e fornecer recomendações táticas claras.</li>
+<li><strong>Prompt</strong>: O prompt para este agente é crucial para mudar o nível da análise. Ele instrui o LLM a agir como um “estrategista de mercado sênior”, focando em:
+<ul>
+<li><strong>Resumo</strong>: Extrair os pontos mais críticos.</li>
+<li><strong>Tendência</strong>: Classificar o mercado (alta, baixa, neutro).</li>
+<li><strong>Sinais</strong>: Identificar indicadores de otimismo ou cautela.</li>
+<li><strong>Recomendações</strong>: Gerar orientações práticas e acionáveis (“isso indica que…”, “logo, é prudente…”).</li>
+<li><strong>Raciocínio</strong>: Explicitar o processo de pensamento com <strong>CoT</strong> (<strong>Chain-of-Thought</strong>) que levou às conclusões antes de apresentar a síntese final.</li>
+<li><strong>Tom</strong>: Consultivo, direto e profissional.</li>
+</ul></li>
+</ul>
+</div>
+<div id="agente-4-client-manager-o-porteiro" class="section level3">
+<h3>Agente 4: Client Manager (O Porteiro)</h3>
+<center>
+<div style="width: 80%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/04.png" alt="client manager agent" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho do Client Manager
+</p>
+</center>
+<details>
+<summary>
+<em>Ver código</em>
+</summary>
+<pre class="python"><code>from langgraph.func import task
+from langchain.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(temperature=0.7)
+
+@task
+def client_manager(final_report: str):
+    &quot;&quot;&quot;
+    Avalia o relatório estratégico e decide se deve ou não alertar o cliente.
+    A decisão final é binária: ALERTAR_CLIENTE ou NÃO_ALERTAR.
+    &quot;&quot;&quot;
+
+    input = f&quot;&quot;&quot;
+    Objetivo do cliente: Acumular Bitcoins no longo prazo, investindo mensalmente nas melhores janelas de oportunidade.
+
+    Seu papel é avaliar o relatório abaixo e decidir se há motivos suficientes para alertar o cliente:
+
+    \``` markdown
+    {final_report}
+    \```
+
+    Siga rigorosamente as instruções abaixo:
+
+    - ...
+    &quot;&quot;&quot;
+
+    prompt = ChatPromptTemplate.from_messages([
+        (&quot;system&quot;, &quot;Você é um Client Manager, especializado em comunicação estratégica com clientes de alto valor.&quot;),
+        (&quot;human&quot;, &quot;{input}&quot;)
+    ])
+
+    chain = prompt | llm
+    msg = chain.invoke(input=input)
+    return msg.content
+</code></pre>
+</details>
+<ul>
+<li><strong>Objetivo</strong>: Avaliar a síntese estratégica do Market Strategist à luz do objetivo específico do cliente (acumulação de longo prazo) e tomar uma decisão binária: a situação atual justifica um alerta ou não?</li>
+<li><strong>Prompt</strong>: Este prompt é focado na tomada de decisão.
+<ul>
+<li><strong>Contexto do Cliente</strong>: Define claramente o objetivo (“Acumular Bitcoins no longo prazo, investindo mensalmente nas melhores janelas de oportunidade.”).</li>
+<li><strong>Critérios de Alerta</strong>: Especifica o que procurar (mudança relevante de tendência, risco/oportunidade claros, indicadores extremos, recomendações urgentes).</li>
+<li><strong>Raciocínio Obrigatório</strong>: Exige que o agente explique seu processo de pensamento <strong>CoT</strong> (<strong>Chain-of-Thought</strong>) antes da decisão final.</li>
+<li><strong>Output Binário</strong>: A resposta final deve ser <em>apenas</em> a palavra <code>ALERTAR</code> ou <code>NÃO_ALERTAR</code> em maiúsculas, precedida pelo raciocínio.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="desafios-aprendizados-e-observabilidade" class="section level2">
+<h2>Desafios, Aprendizados e Observabilidade</h2>
+<p>Construir agentes envolve desafios:</p>
+<ul>
+<li><strong>Prompt Engineering</strong>: É uma arte iterativa. Clareza, exemplos (Few-Shot) e estrutura são essenciais.</li>
+<li><strong>Orquestração (LangGraph)</strong>: Gerenciar o estado e o fluxo entre nós exige atenção.</li>
+<li><strong>Integração de Ferramentas</strong>: Descrições claras das <code>tools</code> são vitais para o LLM usá-las corretamente.</li>
+<li><strong>Observabilidade</strong>: Identificar falhas em fluxos complexos pode ser difícil.</li>
+</ul>
+<p>Ferramentas como o <strong>LangSmith</strong> são extremamente úteis na monitoramento dos agentes, permitindo rastrear e depurar cada passo de sua execução, chamadas de LLM e uso de ferramentas. Ele oferece uma visão clara do que está acontecendo “por baixo dos panos”, facilitando a identificação de gargalos ou erros.</p>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-05-04-bitcoin-agent/langsmith-exemplo.png" alt="langsmith" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Print da tela do LangSmith do projeto
+</p>
+</center>
+</div>
+<div id="conclusão" class="section level2">
+<h2>Conclusão</h2>
+<p>Criamos uma equipe de agentes IA capaz de automatizar a complexa análise do mercado Bitcoin, usando LangChain e LangGraph para orquestração. O sistema coleta dados, interpreta, gera estratégias e decide sobre alertas, transformando dados brutos em insights acionáveis. Veja como é o alerta recebido no Telegram:</p>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<center>
+<p><img src="/post/2025-05-04-bitcoin-agent/telegram1.PNG" alt="Report no Telegram 1" style="width: 80%;"></p>
+</center>
+<center>
+<p><img src="/post/2025-05-04-bitcoin-agent/telegram2.PNG" alt="Report no Telegram 2" style="width: 80%;"></p>
+</center>
+</div>
+<p style="text-align: center; font-style: italic;">
+Print das telas do bot no Telegram.
+</p>
+<p>Este projeto demonstra o potencial dos agentes para automatizar tarefas repetitivas que envolvem a tomada de decisões com um certo “raciocínio”. Os próximos passos podem envolver refinar prompts, adicionar mais ferramentas, integrar mais visualizações ou implementar notificações ativas.</p>
+</div>
+<div id="referências" class="section level2">
+<h2>Referências</h2>
+<ul>
+<li><a href="https://python.langchain.com/">LangChain - Documentação</a></li>
+<li><a href="https://langchain-ai.github.io/langgraph/">LangGraph - Documentação</a></li>
+<li><a href="https://smith.langchain.com/">LangSmith - Documentação</a></li>
+<li><a href="https://openai.com/api/">OpenAI API Plataform</a></li>
+<li><a href="https://github.com/openai/openai-cookbook/blob/main/examples/gpt4-1_prompting_guide.ipynb">OpenAI - Prompt Engineering Guide</a></li>
+<li><a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf">OpenAI - A Practical Guide to Building Agents</a></li>
+<li><a href="https://langchain-ai.github.io/langgraph/tutorials/workflows/">LangGraph Tutorial - Building Agentic Workflows</a></li>
+<li><a href="https://blog.langchain.dev/how-to-think-about-agent-frameworks/">LangChain Blog - How to think about agent frameworks</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/">Construindo uma Equipe Multiagente de IA para Análise do Mercado Bitcoin</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">agent-ai</category>
+      <category domain="tag">analise-dados</category>
+      <category domain="tag">bitcoin</category>
+      <category domain="tag">crypto</category>
+      <category domain="tag">inteligencia-artificial</category>
+      <category domain="tag">langchain</category>
+      <category domain="tag">langgraph</category>
+      <category domain="tag">langsmith</category>
+      <category domain="tag">llm</category>
+      <category domain="tag">mercado-financeiro</category>
+    </item>
     <item>
       <title>Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</title>
       <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</link>
       <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</guid>
-      <description>Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?
-Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.</description>
+      <description>Entenda a lógica de como montar uma carteira, coletar dados de finança em tempo real, treinar um modelo de Machine Learning com Prophet (Facebook Open Source) e receber análises automatizadas no Smartphone</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<style>
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column4 {
+  float: left;
+  width: 33%;
+  padding: 10px;
+}
+
+.column8 {
+  float: left;
+  width: 66%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table; 
+  clear: both;
+}
+</style>
+<div id="por-que-investir" class="section level1">
+<h1>Por que investir?</h1>
+<p>Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?</p>
+<p>Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.</p>
+<center>
+<img src="/post/2020-03-25-investment-alert/noticia_poupanca.png" style="width:50.0%" /> <br><small>Fonte: <a href="https://noticias.r7.com/economia/economize/poupanca-em-baixa-exige-busca-por-novos-investimentos-em-2020-25122019" class="uri">https://noticias.r7.com/economia/economize/poupanca-em-baixa-exige-busca-por-novos-investimentos-em-2020-25122019</a></small>
+</center>
+<p></br></p>
+<p>Com a finalidade de fomentar um pouco a discussão sobre investimentos, trouxe nesse post algumas sugestões e idéias de como elaborar uma carteira e otimizar as escolhas para equilibrar risco em novos investimentos combinando elementos de estatística, machine learning e programação em R.</p>
+<p>Ao final do post criaremos um <a href="https://core.telegram.org/bots">robô no telegram</a> que coletará os dados das cotações adquiridas, aplicará o modelo <a href="https://facebook.github.io/prophet/docs/quick_start.html">Prophet do Facebook</a> para forecast e analisará a desmontagem da carteira segundo os critérios estabelecidos e enviará mensagens para nós com uma tabela financeira automatizada via Telegram como mostra na animação:</p>
+<p></br></p>
+<div class="row">
+<div class="column4">
+<center>
+<img src="/post/2020-03-25-investment-alert/watch.png" />
+</center>
+</div>
+<div class="column8">
+<p><img src="/post/2020-03-25-investment-alert/report_stocks.gif" style="width:90.0%" /></p>
+</div>
+</div>
+<p></br></p>
+<div class="w3-panel w3-pale-red w3-border">
+<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>AVISO</strong>: Este post <strong>não</strong> tem como finalidade ser um guia de investimentos (Já existem muitas consultorias especializadas nisso por ai). Todos as decisões tomadas como diversificação da carteira, seleção de ações e critérios para desmontagem da carteira são <strong>exemplos</strong> e servem para ilustrar algumas <strong>possibilidades</strong> que um cientista de dados têm na hora de desenvolver ferramentas para auxiliar à tomada de decisão.</p>
+</div>
+<p></br></p>
+<div id="diferença-de-poupar-e-investir" class="section level2">
+<h2>Diferença de poupar e investir</h2>
+<p>De acordo com um <a href="https://www.infomoney.com.br/minhas-financas/brasileiros-nao-sabem-a-diferenca-entre-poupar-e-investir-afirma-especialista-2/">especialista entrevistado pela InfoMoney</a>:</p>
+<blockquote>
+“Poupar é guardar dinheiro para usar no futuro, comprar alguma coisa com ele. Investimento é juntar dinheiro, não mexer nele, para que este gere rendimentos e aí sim, usar os lucros mais para frente. É o recomendado para quem quer viver de renda no futuro, por exemplo” (…)
+<div align="right">
+<font size="1">InfoMoney - Ago 2015</font>
+</div>
+</blockquote>
+<p>Ou seja, poupar é acumular agora para utilizar depois, e normalmente envolve mudança de hábitos, pois requer uma redução nos gastos pessoais e familiares, já investir é usar esse dinheiro poupado em aplicações que rendam.</p>
+<p>Como todo mundo sabe, não existe investimento sem risco e este risco deve ser controlado e utilizado a nosso favor de forma que gere alguma segurança financeira.</p>
+</div>
+</div>
+<div id="montagem-da-carteira" class="section level1">
+<h1>Montagem da carteira</h1>
+<div class="row">
+<div class="column8">
+<p>Não colocar todos os ovos na mesma cesta significa que você deve diversificar o seu investimento. Provavelmente você já ouviu essa frase alguma vez na vida e ela certamente faz sentido!</p>
+<p>Diversificar a carteira irá proteger seus investimentos diminuindo o risco pois, imagine só, você investe todo o seu dinheiro em uma empresa e ela passa por alguma crise assim seu dinheiro estará todo comprometido!</p>
+<p>Existem diversos motivos para se diversificar a carteira mas acho que essa metáfora dos ovos já resume bem pois acredito que ninguém queira perder tudo em uma queda.</p>
+</div>
+<div class="column4">
+<p><img src="/post/2020-03-25-investment-alert/ovos_mesm_cesta.png" style="width:90.0%" /></p>
+</div>
+</div>
+<div id="como-dividir-a-carteira" class="section level2">
+<h2>Como dividir a carteira?</h2>
+<p>Dependendo do risco que você deseja se expor existem muitas formas de preparar a carteira mas a idéias principal consiste em atingir um equilíbrio entre dois tipos de investimento:</p>
+<ul>
+<li>Renda fixa: Menor exposição, menor risco (ex.: CDI, Selic e TR)</li>
+<li>Renda variável: Maior exposição, maior risco (ex: Ações, Commodities, Imóveis)</li>
+</ul>
+<p>Para ajudar a dividir a carteira de investimentos neste post utilizaremos a chamada <a href="https://www.btgpactualdigital.com/blog/coluna-gustavo-cerbasi/defina-sua-estrategia-entre-renda-fixa-ou-variavel">Regra (ou Lei) dos 80</a>. A estratégia é a seguinte: subtraia da sua idade o número 80. O resultado dessa conta vai indicar o percentual a ser investido em <a href="https://pt.wikipedia.org/wiki/Renda_vari%C3%A1vel">renda variável</a>. Por exemplo, no meu caso: tenho 26 anos, portanto <span class="math inline">\(80-26 = 54\%\)</span> deverá ser investido em renda variável. Aos 53 anos esse percentual vai cairá para a metade, <span class="math inline">\(27\%\)</span>.</p>
+<p>A idéias principal por trás desta regra que é que a cada ano que passa, 1% do montante da renda variável deva ser direcionado para a <a href="https://pt.wikipedia.org/wiki/Renda_fixa">renda fixa</a>.</p>
+<p>Para testar diferentes valores seguindo esta regra desenvolvi uma função que se chama <a href="https://gist.github.com/gomesfellipe/a74710a63b3c8637166b538ad2f460f5"><code>montagem80()</code> (que já está disponível no github)</a>. Vejamos alguns resultados para diferentes cenários e vamos selecionar um para seguir com a montagem da carteira:</p>
+<pre class="r"><code># https://gist.github.com/gomesfellipe/a74710a63b3c8637166b538ad2f460f5
+devtools::source_gist(&quot;a74710a63b3c8637166b538ad2f460f5&quot;, quiet = T)</code></pre>
+<div class="row">
+<div class="column">
+<ol style="list-style-type: decimal">
+<li>Entrada de R$20.000,00 <big>👈</big></li>
+</ol>
+<pre class="r"><code>montagem80(entrada = 20000, idade = 26)</code></pre>
+<pre><code>## • Entrada: R$R$20.000,00
+##   └─ Renda fixa:     R$9.200,00
+##   └─ Renda variavel: R$10.800,00
+##        (Acao + Cryptomoeda): 
+##        R$9.720,00 + R$1.080,00</code></pre>
+</div>
+<div class="column">
+<ol start="2" style="list-style-type: decimal">
+<li>R$ 5.000,00 em acoes</li>
+</ol>
+<pre class="r"><code>montagem80(variavel = 10800, idade = 53)</code></pre>
+<pre><code>## • Entrada: R$R$40.000,00
+##   └─ Renda fixa:     R$29.200,00
+##   └─ Renda variavel: R$10.800,00
+##        (Acao + Cryptomoeda): 
+##        R$9.720,00 + R$1.080,00</code></pre>
+</div>
+</div>
+<p>Utilizaremos a primeira (1.) configuração que esta assinalada em vermelho como exemplo, onde:</p>
+<ul>
+<li>Entrada: R$20.000,00</li>
+<li>Renda fixa: R$9.200,00</li>
+<li>Renda Variável (Acoes): R$9.720,00</li>
+<li>Renda Variável (Crypt): R$1.080,00</li>
+</ul>
+<p>Note que a entrada deve ser o dobro na segunda (2.) configuração caso deseje investir R$10.800,00 (que é o valor sugerido aos 26 anos para uma entrada de R$20.000,00)</p>
+<p>Após definir a quantidade a ser investida é hora de planejar a próxima etapa: a diversificação.</p>
+</div>
+<div id="diversificação-da-carteira" class="section level2">
+<h2>Diversificação da carteira</h2>
+<div class="row">
+<div class="column8">
+<p>A diversificação é uma técnica para gestão do risco que visa distribuir o capital investido em uma variedade de investimentos dentro de da nossa carteira.</p>
+<p>Assim, o risco do portfólio é consideravelmente reduzido pois reduzimos a volatividade e criamos um equilíbrio onde um desempenho positivo de um ativo neutraliza as baixas ocorridas em outras aplicações. Além disso a diversificação pode ser tanto coma renda variável quanto com a renda fixa.</p>
+<p>Mas lembre-se, não existe uma receita mais eficiente!</p>
+</div>
+<div class="column4">
+</br>
+<iframe src="https://giphy.com/embed/qJkRbWM1MfVjq" width="100%" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<p>
+<a href="https://giphy.com/gifs/eggs-qJkRbWM1MfVjq">via GIPHY</a>
+</p>
+</div>
+</div>
+<div id="renda-fixa" class="section level3">
+<h3>Renda fixa</h3>
+<p>Normalmente, também diversificamos nossa renda fixa porém como gostaria de focar nas análises de renda variável utilizaremos o simulador disponível no site <a href="https://verios.com.br/" class="uri">https://verios.com.br/</a> neste <a href="https://simulador-tesouro-direto.verios.com.br/">link</a> para selecionar apenas um título:</p>
+<center>
+<img src="/post/2020-03-25-investment-alert/tesouro_direto.png" style="width:80.0%" />
+<small></br>Fonte: <a href="https://simulador-tesouro-direto.verios.com.br/" class="uri">https://simulador-tesouro-direto.verios.com.br/</a></small>
+</center>
+<p></br></p>
+<p>Como exemplo, escolhi o Tesouro Prefixado 2015 (LTN), note que com essa escolha o lucro planejado seria de quase 3 mil reais nos próximos 5 anos.</p>
+<div class="w3-panel w3-pale-red w3-border">
+<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>AVISO</strong>: Lembrando que esta seleção é apenas um exemplo e existem diversas informações a serem levadas em conta ao se fazer esta escolha além de se poder diversificar também. Convido o leitor a procurar saber mais sobre os tipos, prós e contras do Tesouro Direto.</p>
+</div>
+</div>
+<div id="renda-variável" class="section level3">
+<h3>Renda variável</h3>
+<p>Para elaboração da parte da renda variável da carteira selecionei duas ações que são inversamente correlacionadas (de forma totalmente arbitrária) baseado no excelente post "<a href="https://www.tradingcomdados.com/post/2017/07/09/estudo-de-correla%C3%A7%C3%A3o-entre-a%C3%A7%C3%B5es-da-bolsa-de-valores-de-s%C3%A3o-paulo">Estudo de correlação entre ações da Bolsa de Valores de São Paulo</a>" escrito por Victor Gomes onde o autor faz um estudo de correlações das séries históricas de ações de diferentes setores.</p>
+<p>Além disso, o Bitcoin será selecionado para completar a carteira de renda variável como um ativo de alto risco com bastante volatividade. Mas você deve estar se perguntando, por que assumir este risco?</p>
+<p>Existem muitas histórias de pessoas que ficaram milionárias com o Bitcoin pela sua valorização inesperada ao longo do tempo, como por exemplo o <a href="https://www.infomoney.com.br/mercados/adolescente-fica-milionario-aos-18-anos-usando-bitcoins-apos-fazer-aposta-com-os-pais/">adolescente que ficou milionário aos 18 anos usando bitcoins após fazer aposta com os pais</a>.</p>
+<p>Então <strong>eu</strong> acho que 10% dessa nossa carteira (não esqueça que podemos ter mais de uma carteira) é um risco que pode valer a pena correr e por isso vou incluí-lo.</p>
+<p>Portanto, para este exemplo consideramos:</p>
+<ul>
+<li>TUPY3.SA: <a href="https://www.google.com/search?q=tupy3&amp;oq=tupy3&amp;aqs=chrome..69i57.7273j0j4&amp;sourceid=chrome&amp;ie=UTF-8">Tupy</a></li>
+<li>ELET3.SA: <a href="https://www.google.com/search?ei=-dxuXtuyNIbR5OUPxY2m8AE&amp;q=ELET3.SA&amp;oq=ELET3.SA&amp;gs_l=psy-ab.3..0.40045.41040..41701...0.2..0.123.237.0j2......0....2j1..gws-wiz.......0i71.a2fjObIM6cM&amp;ved=0ahUKEwibk86a8p3oAhWGKLkGHcWGCR4Q4dUDCAs&amp;uact=5">Centrais Eletricas Brasileiras SA</a></li>
+<li>BTC-USD: <a href="https://www.google.com/search?ei=JN1uXsDJLJm55OUPj8-c8As&amp;q=bitcoin&amp;oq=bitcoin&amp;gs_l=psy-ab.3.0.0i131i70i258j0i131i67j0i131j0i67j0j0i67j0i131j0i67j0j0i131.25383.26281..27215...0.0..0.175.1147.1j8......0....1..gws-wiz.xu0EQx1CnXI">Bitcoin</a></li>
+</ul>
+<pre class="r"><code>portifolio = c(&quot;TUPY3.SA&quot;,&quot;ELET3.SA&quot;, &quot;BTC-USD&quot;)</code></pre>
+<div class="w3-panel w3-pale-red w3-border">
+<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>AVISO</strong>: Volto a frisar que as escolhas das ações foram feitas de forma arbitrária. Estamos em tempos de incerteza atualmente por conta do corona vírus (espero que todos fiquem bem) o que leva algumas escolhas à serem ainda mais complexas e imprevisíveis.</p>
+</div>
+<div id="obter-dados" class="section level4">
+<h4>Obter dados</h4>
+<p>A aquisição das série históricas das cotações destes ativos desde 01/01/2016 foram obtidas utilizando o pacote <a href="https://github.com/business-science/tidyquant"><code>tidyquant</code></a> que nos retorna os dados das cotações das ações informadas em formato “arrumado” (ou seja, familiar com funções do <a href="https://www.tidyverse.org/">tidyverse</a>), veja:</p>
+<pre class="r"><code>library(tidyquant) # aquisicao de dados financeiros
+stocks &lt;-map_df(portifolio, ~tq_get(.x, get = &quot;stock.prices&quot;, from = &quot; 2016-01-01&quot;))
+saveRDS(stocks, &quot;stocks.rds&quot;)</code></pre>
+<p>Veja as linhas iniciais do dataset obtido:</p>
+<pre class="r"><code>stocks %&gt;% head() %&gt;% kable2()</code></pre>
+<center>
+<img src="/post/2020-03-25-investment-alert/img1.png" style="width:80.0%" />
+</center>
+<p>Existem uma série de vantagens de se trabalhar com os dados neste formato em R, veremos o porque nas próximas seções.</p>
+</div>
+<div id="arrumar-dataset" class="section level4">
+<h4>Arrumar dataset</h4>
+<p>O formato <a href="https://github.com/tidyverts/tsibble"><code>tsibble</code></a> é um formato moderno para se trabalhar com séries temporais trazendo a filosofia do <code>tidyverse</code> para os dados de séries temporais facilitando o <a href="https://blog.earo.me/2018/12/20/reintro-tsibble/">fluxo de trabalho</a>.</p>
+<p>Diversos outros pacotes podem ser combinados utilizando os dados no formato do pacote <code>tsibble</code> como os pacotes <a href="https://robjhyndman.com/hyndsight/fable/"><code>fable</code></a> e o <a href="https://github.com/mitchelloharawild/fable.prophet"><code>prophet</code></a> (sugiro a leitura para quem nao conhece) para aplicação de modelagem de séries temporais.</p>
+<p>Veja como é o fluxo ao trabalhar com objetos do tipo <code>tsibble</code></p>
+<center>
+<img src="/post/2020-03-25-investment-alert/ds-pipeline.png" style="width:60.0%" />
+</br>
+<small>Fonte: <a href="https://blog.earo.me/2018/12/20/reintro-tsibble/" class="uri">https://blog.earo.me/2018/12/20/reintro-tsibble/</a></small>
+</center>
+<p></br></p>
+<pre class="r"><code>library(tsibble) # series temporais arrumadas
+tbl_stocks &lt;- stocks %&gt;% as_tsibble(key = symbol, index = date) </code></pre>
+<p>Após importar e arrumar o dataset, seguimos para os próximos passos.</p>
+</div>
+<div id="transformar" class="section level4">
+<h4>Transformar</h4>
+<p>Após converter para <code>tsibble</code>, vamos preencher alguns gaps da bolsa como por exemplo os finais de semana (quando a bolsa de valores fica fechada) com o mesmo valor do dia anterior (Para este exemplo vamos fazer esse preenchimento dos gaps do final de semana mas não é sempre é necessário):</p>
+<pre class="r"><code>tbl_stocks &lt;- 
+  tbl_stocks %&gt;% 
+  fill_gaps() %&gt;% 
+  tidyr::fill(c(open, high, low, close, volume, adjusted),.direction = &quot;down&quot;)</code></pre>
+<p>Com os dados arrumados vamos a algumas visualizações.</p>
+</div>
+<div id="visualizar" class="section level4">
+<h4>Visualizar</h4>
+<p>Vejamos qual foi o comportamento das séries históricas que coletamos desde o início de 2016:</p>
+<pre class="r"><code>library(forecast) # series temporais
+library(fpp3)     # series temporais
+d2 &lt;- 
+  tbl_stocks %&gt;% 
+  group_by(symbol) %&gt;% 
+  summarise(y = mean(close))
+
+autoplot(tbl_stocks)+
+  geom_line(aes(group = symbol), color = &quot;black&quot;, show.legend = F) + 
+  facet_wrap(~symbol, scales = &quot;free_y&quot;, ncol = 1)+
+  geom_ma(n=6*30, color = &quot;red&quot;) + 
+  theme(legend.position = &quot;none&quot;)+
+  labs(subtitle = &quot;média móvel n = 6 meses&quot;,
+       caption = &quot;gomesfellipe.github.io&quot;)</code></pre>
+<center>
+<img src="/post/2020-03-25-investment-alert/unnamed-chunk-10-1.png" style="width:80.0%" />
+</center>
+<p>Note que a série do Bitcoin é a mais imprevisível, houve um pico em 2018 mas após isso não houve nenhum grande pico como aquele. Em breve ocorrerá o <a href="https://www.infomoney.com.br/onde-investir/halving-conheca-o-processo-que-pode-levar-o-bitcoin-a-uma-nova-explosao-de-preco/">Halving</a> (a contagem regressiva pode acompanhada <a href="https://www.bitcoinblockhalf.com/">neste link</a>) que é um processo de choque de oferta e ocorre aproximadamente a cada 4 anos e pode ser uma boa oportunidade de retorno.</p>
+<p>As duas séries da bolsa de valores não parecem ter uma correlação muito forte, os picos ocorrem de forma alternada e isto pode ser uma característica boa para a carteira pois caso uma delas entre em crise a outra poderá estar em uma fase boa.</p>
+<div class="w3-panel w3-pale-blue w3-border">
+<p><i class="fa fa-ambulance" aria-hidden="true"></i> Nota: Esta queda abrupta que ocorreu na bolsa no início de 2020 é o reflexo da <a href="https://pt.wikipedia.org/wiki/Pandemia_de_COVID-19_no_Brasil">Pandemia CODVID-19</a> que já começou a apresentar alguns casos no Brasil e isso certamente tem gerando muita incerteza na bolsa de valores. Nem eu nem ninguém sabe o que pode acontecer, estou na torcida para que todos fiquem bem e pelo sucesso na contenção desse vírus! <i class="fas fa-praying-hands"></i></p>
+</div>
+</div>
+<div id="correlações" class="section level4">
+<h4>Correlações</h4>
+<p>Para estudar melhor as conjecturas formadas ao observar o comportamento das séries histórias (de que os picos e vales se alternam) vamos conferir olhada nos gráficos de dispersão e coeficientes de <a href="https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_postos_de_Spearman">correlação de Spearman</a>:</p>
+<pre class="r"><code>points_loess &lt;- function(data, mapping){
+  ggplot(data = data, mapping = mapping) + 
+    geom_point(alpha = 0.3,size=0.5) + 
+    geom_smooth(method = &quot;loess&quot;)
+}
+
+tbl_stocks %&gt;%
+  as_tibble() %&gt;% 
+  select(symbol, date, close) %&gt;% 
+  spread(key = symbol, value = close) %&gt;%
+  GGally::ggpairs(columns = 2:4,
+                  upper = list(continuous = GGally::wrap(&quot;cor&quot;, method = &quot;spearman&quot;)),
+                  lower = list(continuous =  points_loess))</code></pre>
+<center>
+<img src="/post/2020-03-25-investment-alert/unnamed-chunk-11-1.png" style="width:80.0%" />
+</center>
+<p>Note que a relação entre TUPY3 e ELET3 não é linear e além disso essa correlação é fraca, o que pode ser benéfico para o portfólio pois uma possível queda em uma não parece não ter tanto impacto na outra.</p>
+<p>Além disso note que a correlação do BTC-USD com TUPY3 e ELET3 é moderada e mesmo apresentando este valores numéricos, o Bitcoin é um ativo negociado em escala global e é de um setor totalmente diferente das outras ações.</p>
+<div class="w3-panel w3-pale-red w3-border">
+<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>AVISO</strong>: Essa análise meramente numérica não é o suficiente para detectar uma relação de causa, pois correlação não implica causalidade. Isto que dizer que poda haver uma causa em comum para ambas ou que seja uma <a href="https://pt.wikipedia.org/wiki/Regress%C3%A3o_esp%C3%BAria">correlação espúria</a>. Quando se trata da bolsa de valores é necessário também conhecer um pouco sobre a situação e história da empresa na qual se investe.</p>
+</div>
+</div>
+<div id="forecast-com-prophet-do-facebook" class="section level4">
+<h4>Forecast com Prophet do Facebook</h4>
+<p>Poderíamos utilizar uma série de modelos estatísticos, econométricos e de machine learning utilizando tanto as funções nativas do R base ou pacote forecast quanto as funções desenvolvidas para trabalhar de maneira “arrumada” com tsibble mas resolvi fazer uma abordagem diferente neste post escolhendo o modelo disponibilizado pelo Facebook.</p>
+<div class="row">
+<div class="column">
+<p></br>
+O <a href="https://facebook.github.io/prophet/">Prophet</a> é um software de código aberto disponibilizado pela equipe de <a href="https://research.fb.com/category/data-science/">Data Science do Facebook</a> que fornece um procedimento para realização de previsões de dados de séries temporais.</p>
+</div>
+<div class="column">
+<p><img src="/post/2020-03-25-investment-alert/prophet_logo.png" style="width:80.0%" />
+</br><small>Fonte: <a href="https://facebook.github.io/prophet/" class="uri">https://facebook.github.io/prophet/</a></small></p>
+</div>
+</div>
+<p>Segundo a <a href="https://facebook.github.io/prophet/">documentação oficial</a>, (em tradução livre):</p>
+<blockquote>
+<p>O Prophet tem como “base em um modelo aditivo no qual tendências não lineares se ajustam à sazonalidade anual, semanal e diária, além de efeitos de férias. Funciona melhor com séries temporais que têm fortes efeitos sazonais e várias temporadas de dados históricos. O Profeta é robusto para a falta de dados e mudanças na tendência, e geralmente lida bem com outliers”.</p>
+</blockquote>
+<p>Este modelo me pareceu uma boa opção para exemplificar a etapa da modelagem de séries temporais deste post. Vamos ver o que o modelo do Facebook tem a nos dizer sobre o futuro das nossas ações.</p>
+<div id="divisão-entre-treino-e-teste-em-séries-temporais" class="section level5">
+<h5>Divisão entre treino e teste em séries temporais</h5>
+<p>Assim como em uma tarefa de machine learning que não envolvem dados temporais, no caso de séries temporais, quando desejamos avaliar o ajuste do nosso modelo também dividimos o dataset em treino e teste porém utilizamos a data como índice.</p>
+<p>Veja como serão divididas nossas séries históricas:</p>
+<ul>
+<li>treino: inicio da série até 18/11/20;</li>
+<li>teste: de 18/11/2020 até o final da série histórica (2 meses atrás)</li>
+</ul>
+<pre class="r"><code>h = 30 * 2
+data_split &lt;- Sys.Date() - h
+
+tbl_stocks_train &lt;-  
+  tbl_stocks %&gt;% 
+  filter(date &lt;= data_split) %&gt;% 
+  select(symbol, date, close)
+
+tbl_stocks_test &lt;- 
+  tbl_stocks %&gt;%
+  filter(date &gt; data_split) %&gt;% 
+  select(symbol, date, close)</code></pre>
+<p>Após dividir os dados em treino e teste já estamos habilitados à utilizar o modelo. Note que, por default, o modelo espera duas colunas nomeadas como <code>ds</code>: data da série e <code>y</code>: variável target da série.</p>
+<p>Além disso faremos uma previsão 6 meses a frente dos dados de teste para entender qual a tendência o modelo estaria adotando.</p>
+<pre class="r"><code>library(prophet)
+
+prophet_results &lt;- 
+  tbl_stocks_train %&gt;% 
+  rename(ds = date, y = close) %&gt;% 
+  nest(data = c(ds, y)) %&gt;% 
+  mutate(pmodel = map(data, ~ prophet(.x, daily.seasonality=TRUE))
+  )%&gt;% 
+  mutate(pprediction = map(pmodel, ~.x %&gt;%  
+                             make_future_dataframe(periods = h + 30*6) %&gt;%
+                             predict(.x,.))) </code></pre>
+<p>Veja os resultados do ajuste do modelo:</p>
+<pre class="r"><code>library(patchwork)
+
+pmap(list(
+  x = prophet_results$pprediction,
+  y = split(tbl_stocks_train, tbl_stocks_train$symbol),
+  z = split(tbl_stocks_test, tbl_stocks_test$symbol),
+  w = prophet_results$symbol
+),function(x, y, z, w){
+  x %&gt;% 
+    as_tibble() %&gt;%
+    mutate(ds=as_date(ds)) %&gt;%
+    select(ds, trend, yhat, yhat_lower, yhat_upper) %&gt;% 
+    ggplot() + 
+    geom_line(aes(x=ds, y=yhat, color=&quot;blue&quot;), show.legend = F) +
+    geom_line(data=y, aes(x=date, y=close, color=&quot;black&quot;), show.legend = F) +
+    geom_line(data=z, aes(x=date, y=close, color=&quot;red&quot;), show.legend = T) +
+    geom_ribbon(aes(x=ds, ymin=yhat_lower, ymax=yhat_upper), alpha=0.2)  +
+    scale_x_date(#limits = c(as.Date(&quot;2018-06-01&quot;), Sys.Date() + 30*12), 
+      date_breaks = &quot;6 month&quot;, date_labels = &quot;%m/%Y&quot;) +
+    theme_bw()+
+    labs(y = w, x = &quot;&quot;, caption = &quot;gomesfellipe.github.io&quot;)+
+    scale_colour_manual(values=c(&quot;black&quot;,&quot;blue&quot;,&quot;red&quot;), name=&quot;&quot;, labels=c(&quot;treino&quot;,&quot;modelo&quot;,&quot;teste&quot;))+
+    theme(legend.position = c(1-0.8,1-0.2), 
+          legend.background = element_rect(fill=alpha(&#39;lightgrey&#39;, 0.2)),
+          legend.direction = &quot;horizontal&quot;)
+}
+) %&gt;% {.[[1]] / .[[2]] / .[[3]]}
+
+ggsave(&quot;prophet.png&quot;) # salvar para o bot retornar este resultado!</code></pre>
+<center>
+<img src="/post/2020-03-25-investment-alert/unnamed-chunk-15-1.png" style="width:80.0%" />
+</center>
+<p>Parece interessante..</p>
+<p>Veja que a linha azul (modelo ajustado) se ajusta bem à linha preta (dados de treino) acompanhando a série histórica e captando algumas tendências não lineares.</p>
+<p>Porém note que a linha azul se perde completamente da linha vermelha (dados de teste) no início de 2020 e acho isso muito razoável pois dificilmente algum modelo iria prever os efeitos de uma Pandemia utilizando apenas a série histórica do ativo.</p>
+<p>Note ainda que a linha azul se estende até o final de 2020 (previsões para os próximos 6 meses) o que sugere que a série possuía esta tendencia positiva ao longo dos anos, segundo o modelo Prophet .</p>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>Aviso</strong>: Existem várias maneiras de estudar e melhorar a qualidade do ajuste deste modelo mas como o objetivo deste post não é este deixo como aviso para o leitor.</p>
+</div>
+<p>Com a interpretação dos resultados concluída.. vamos às compras!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="comprando-ações" class="section level1">
+<h1>Comprando ações</h1>
+<p>Após toda essa exemplificação de como podem ser feitas as análises para a elaboração da carteira chegou a hora das compras.</p>
+<p>Suponha que tivéssemos realizado nossas compra no fechamento do dia <strong>2018-12-01</strong>, quando os valores de <font color="blue"><strong>fechamento</strong></font> das cotações eram as seguintes:</p>
+<pre class="r"><code>tbl_stocks %&gt;% 
+  filter(date == &quot;2018-12-01&quot;) %&gt;% 
+  mutate(close = cell_spec(moeda_real(close), &quot;html&quot;, color = &quot;blue&quot;, bold = T)) %&gt;% 
+  mutate_at(c(3:5, 8), ~moeda_real(.x)) %&gt;% 
+  kable2()</code></pre>
+<center>
+<img src="/post/2020-03-25-investment-alert/img2.png" style="width:80.0%" />
+</center>
+<p>Neste dia a cotação para ELET3 era R$24,42 e TUPY3 era R$19,73 e suponha que tenhamos comprado 200 lotes de ELET3 e 150 fracionários de TUPY, totalizando R$7.843,64 (próximo ao que tinhaamos planejado no inicio do estudo)</p>
+<p>Vamos guardar estes valores:</p>
+<pre class="r"><code>cot_inicio = filter(tbl_stocks, date == &quot;2018-12-01&quot;, symbol != &quot;BTC-USD&quot;) %&gt;% pull(close)
+qtd_inicio = c(elet = 200, tupy = 150)</code></pre>
+<p>Note que o valor do Bitcoin está em dólares, para obter o valor em reais (R$) daquele dia vamos utilizar a <a href="https://www.mercadobitcoin.net/api/BTC/day-summary/2020/01/09/">API do Mercado Bitcoin</a>. Como não existe nenhum pacote que forneça estes dados diretamente no R, a requisição será feita normalmente via API com o pacote <code>jsonlite</code>:</p>
+<pre class="r"><code>library(jsonlite) # requisicao de api
+url &lt;- glue::glue(&quot;https://www.mercadobitcoin.net/api/BTC/day-summary/2019/12/01/&quot;)
+safe_fromJSON &lt;- purrr:::safely(fromJSON, as.numeric(NA)) 
+consulta &lt;- safe_fromJSON(url)$result %&gt;% map_dfc(~.x)
+
+consulta %&gt;%
+  select(-date) %&gt;% 
+  mutate_all(~moeda_real(.x)) %&gt;%
+  mutate(closing = cell_spec(closing, &quot;html&quot;, color = &quot;blue&quot;)) %&gt;% 
+  kable2()</code></pre>
+<center>
+<img src="/post/2020-03-25-investment-alert/img3.png" style="width:80.0%" />
+</center>
+<p>O preço de fechamento foi de R$31.747,38 e suponhamos que tenha sido este o valor pago no dia. (Parece que neste dia o dólar estava em torno de R$4,03)</p>
+<p>Para completar esta carteira fictícia vamos adquirir 0,0032 do valor de um Bitcoin</p>
+<pre class="r"><code>cot_inicio[3] &lt;- consulta$closing
+qtd_inicio[3] &lt;- 0.032</code></pre>
+<p>Portanto, ao valor de R$31.747,38 compramos 0.032 Bitcoin totalizando R$1.015,92 completando nossa carteira.</p>
+<div id="tabela-financeira" class="section level2">
+<h2>Tabela financeira</h2>
+<p>Semelhante a uma planilha financeira, criaremos uma tabela financeira automatizada que receberá como input os valores da montagem e calculará automaticamente os valores do desmontagem no tempo atual utilizando dados de APIs abertas.</p>
+<blockquote>
+“Aquilo que não se pode medir, não se pode melhorar”.
+<div align="right">
+<font size="1">Físico irlandês William Thomson</font>
+</div>
+</blockquote>
+<p>Primeiro é necessário obter os valores mais recentes das cotações das acoes que compramos na bolsa e para isto será necessário utilizar outro pacote pois o <code>tidyquant</code> só fornece os dados em frequência diária.</p>
+<p>Utilizaremos portanto, o pacote <a href="https://www.business-science.io/code-tools/2017/09/03/alphavantager-0-1-0.html">alphavantager</a> que fornece dados de finanças da API gratuita <a href="https://www.alphavantage.co/">Alpha Vantage</a> no formato arrumados e também foi desenvolvida pela <a href="https://github.com/business-science">Business Science</a> (mesmo criados do pacote <code>tidyquant</code>).</p>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>Aviso</strong>: Na <a href="https://www.alphavantage.co/support/#api-key">documentação da api do Alphavantage</a> recomenda-se a solicitações de API com moderação, suportando até 5 solicitações de API por minuto e 500 solicitações por dia para obter o melhor desempenho no servidor. Caso deseje segmentar um volume maior de chamadas da API, confira a <a href="https://www.alphavantage.co/premium/">associação premium.</a>.</p>
+</div>
+<p>Já para a coleta da cotação em tempo real do Bitcoin em reais (R$), utilizaremos novamente a <a href="https://www.mercadobitcoin.com.br/api-doc/?">api do mercado bitcoin</a>.</p>
+<pre class="r"><code># Importar dados da bolsa de valores ==================================
+
+library(alphavantager) # api streaming bovespa
+
+AV_API_KEY = Sys.getenv(&quot;AV_API_KEY&quot;)
+av_api_key(AV_API_KEY)
+
+consulta_acoes &lt;- map_df(portifolio[1:2], ~{
+  alphavantager::av_get(symbol = .x,
+         av_fun = &quot;TIME_SERIES_INTRADAY&quot;,
+         interval = &quot;1min&quot;,  # &quot;1min&quot;, &quot;5min&quot;, &quot;15min&quot;, &quot;30min&quot; ou &quot;60min&quot;
+         outputsize = &quot;compact&quot;) %&gt;%  # &quot;full&quot;
+    bind_cols(stock = rep(.x, nrow(.)))
+})
+
+# Impotar dados do bitcoin ============================================
+
+coin &lt;- &quot;BTC&quot;
+method &lt;- &quot;ticker&quot;
+url &lt;- glue::glue(&quot;https://www.mercadobitcoin.net/api/{coin}/{method}/&quot;)
+
+safe_fromJSON &lt;- safely(fromJSON, as.numeric(NA)) 
+consulta_bitcoin &lt;- 
+  safe_fromJSON(url)$result$ticker %&gt;% 
+  as_tibble() %&gt;% 
+  transmute(timestamp = lubridate::ymd_hms(as.POSIXct(date, origin=&quot;1970-01-01&quot;)),
+            open, high, low, close = sell, volume = NA, stock = &quot;BTC.BR&quot;) %&gt;% 
+  mutate_at(c(&#39;open&#39;, &#39;high&#39;, &#39;low&#39;, &#39;close&#39;), ~as.numeric(.x))
+
+# Combinar resultados das consultas ==================================
+
+consulta_atual &lt;- 
+  bind_rows(
+    consulta_acoes %&gt;% 
+      group_by(stock) %&gt;% 
+      filter(timestamp == last(timestamp)),
+    consulta_bitcoin
+  ) 
+
+# Salvar consulta ====================================================
+saveRDS(consulta_atual, &quot;consulta_atual.rds&quot;)</code></pre>
+<p>Resultados da consulta atual (após combinar a requisição da bolsa de valores e do Mercado Bitcoin):</p>
+<pre class="r"><code>consulta_atual  %&gt;%
+  mutate_at(2:4, ~moeda_real(.x)) %&gt;% 
+  mutate_if(is.numeric, ~ifelse(is.na(.x), &quot;-&quot;, format(.x, digits = 2))) %&gt;% 
+  mutate(close = cell_spec(moeda_real(close), &quot;html&quot;, color = &quot;blue&quot;)) %&gt;% 
+  kable2()</code></pre>
+<center>
+<img src="/post/2020-03-25-investment-alert/img4.png" style="width:80.0%" />
+</center>
+<p>Com os valores da Montagem organizados e os valores da Desmontagem coletados em tempo real já podemos construir nossa tabela financeira automatizada.</p>
+<p>A tabela contém:</p>
+<ul>
+<li>Valores de cotação e quantidade adquiridas de cada uma no momento da montagem da carteira;</li>
+<li>Valores de cada cotação no momento atual com suas respectivas quantidades disponíveis;</li>
+<li>Resultados de o ganho (ou perda) seguido do resultado bruto caso realize a venda agora;</li>
+<li>Última coluna indica se vale a pena vender ou não aquela cotação considerando que o valor de venda é superior ao valor de compra.</li>
+</ul>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>Aviso</strong>: Essa operação de vender o ativo caso o preço da venda seja maior que o da compra é apenas um exemplo. Poderíamos utilizar diversas estatísticas para determinar o momento da operação porém adotei esta apenas para ilustrar o funcionamento da tabela financeira, o limite de opções é a sua criatividade!</p>
+</div>
+<p>Veja a tabela final com os resultados atualizados em tempo real:</p>
+<pre class="r"><code>porcentagem &lt;- function(x){paste0(round(x,2), &quot;%&quot;)} # Funcao auxiliar
+
+# Tabela resultado
+financas &lt;- 
+  tibble(
+    ativo = portifolio,
+    cot_inicio = cot_inicio,
+    qtd_inicio = qtd_inicio,
+    vol_inicio = cot_inicio * qtd_inicio,
+    cot_atual = consulta_atual$close,
+    qtd_atual = qtd_inicio,
+    vol_atual = cot_atual * qtd_atual,
+    ganho_perda = vol_atual - vol_inicio,
+    resultado_bruto = ganho_perda / vol_inicio * 100
+  ) 
+
+
+tabela &lt;- 
+  financas %&gt;% 
+  mutate(
+    cot_inicio = moeda_real(cot_inicio),
+    cot_atual = moeda_real(cot_atual),
+    vol_inicio = moeda_real(vol_inicio),
+    vol_atual = moeda_real(vol_atual),
+    qtd_inicio = round(qtd_inicio,4),
+    qtd_atual = round(qtd_atual,4),
+    ` ` = ifelse(ganho_perda &gt; 0,&quot;\u2713&quot;, &quot;\u2718&quot;) ,
+    cot_atual = cell_spec(cot_atual, &quot;html&quot;, color = &quot;blue&quot;),
+    ganho_perda = cell_spec(moeda_real(ganho_perda), &quot;html&quot;,
+                            color = ifelse(ganho_perda &gt; 0, 
+                                           &quot;green&quot;, &quot;red&quot;)),
+    resultado_bruto = cell_spec(porcentagem(resultado_bruto), &quot;html&quot;,
+                                color = ifelse(resultado_bruto &gt; 0, 
+                                               &quot;green&quot;, &quot;red&quot;))) %&gt;% 
+  `colnames&lt;-`(stringr::str_replace_all(colnames(.), &quot;(_|[[:space:]])&quot;, &quot;\n&quot;)) %&gt;% 
+  # Exibicao
+  kable(format = &quot;html&quot;, escape = F) %&gt;%
+  kable_styling(c(&quot;striped&quot;, &quot;bordered&quot;, &quot;hover&quot;, &quot;responsive&quot;), full_width = T, font_size = 12) %&gt;%
+  add_header_above(c(&quot; &quot;, &quot;Montagem&quot; = 3,
+                     &quot;Desmontagem / Atual&quot; = 3, &quot;Resultado&quot; = 3))
+
+tabela</code></pre>
+<center>
+<img src="/post/2020-03-25-investment-alert/img5.png" style="width:80.0%" />
+</center>
+<p>Agora que já possuímos nossa requisição completa e arrumada em tempo real precisamos ter acesso a esta informação de forma dinâmica também e para isso utilizaremos o bot do Telegram.</p>
+</div>
+</div>
+<div id="bot-telegram" class="section level1">
+<h1>Bot Telegram</h1>
+<p>Depois de muitas decisões tomadas enfim chegamos ao bot! Espero que tenha notado que montar uma carteira não é uma tarefa fácil pois envolve exposição ao risco e também exige certo acompanhamento do mercado.</p>
+<div class="row">
+<div class="column8">
+<p></br>
+Para criar um bot no Telegram basta seguir os passos do <a href="https://github.com/lbraglia/telegram">readme</a> do pacote <a href="https://github.com/lbraglia/telegram"><code>telegram</code></a> disponibilizado no Github ou seguir os passos desse excelente <a href="https://www.curso-r.com/blog/2017-08-19-r-telegram-bitcoin/">post do curso-r</a> que me inspirou a uns anos atras e hoje me auxiliou novamente para criar este bot. Ao concluir a etapa de configuração teremos um novo contado no Telegram, o nosso bot!</p>
+<p>Com a configuração no aplicativo do Telegram concluída, o primeiro passo para configurar as ações do bot no R é iniciar um objeto TGBot declarando o id do seu bot. No meu caso o bot se chama <em>Stocks</em> e o id é <em>fgstockbot</em>.</p>
+</div>
+<div class="column4">
+</br>
+<center>
+<img src="/post/2020-03-25-investment-alert/bot_telegram.png" style="width:99.0%" />
+</center>
+</div>
+</div>
+<p>Com o R conectado ao bot do Telegram já somos capazes de criar um conjunto de regras de forma que o bot nos retorne as informações que desejamos.</p>
+<p>Desenvolveremos a função <code>report_stocks()</code> que programa o bot para realizar o seguinte algoritmo:</p>
+<ol start="0" style="list-style-type: decimal">
+<li>Carregar dependências e conectar chaves de acesso</li>
+<li>Conferir se a bolsa de valores esta aberta</li>
+<li>Requisição das cotações da bolsa de valores em <em>real-time</em></li>
+<li>Requisição da cotação do Bitcoin em <em>real-time</em></li>
+<li>Combinar resultados</li>
+<li>Inserir resultados da coleta na tabela financeira</li>
+<li>Se o valor de algum volume atual seja maior que o volume inicial:
+<ul>
+<li>Calcular valores de desmontagem</li>
+<li>Preparar layout da tabela financeira</li>
+<li>Salvar resultados</li>
+<li>Enviar via Telegram</li>
+</ul></li>
+<li>Aguardar 20 minutos para a próxima requisição</li>
+<li>Repetir todo o processo</li>
+</ol>
+<p>Parece complicado mas é tranquilo pois todos os códigos de cada uma destas tarefas já foram desenvolvidos nas seções anteriores e serão apenas combinados. A função <a href="https://gist.github.com/gomesfellipe/357af0735d2aedca60146a7655e33929"><code>report_stocks()</code> já esta disponível no github</a>, veja a baixo:</p>
+<p>(A frequência adotata como default pela função tenta fazer a requisição com a maior frequência possível na api do Alphavantage)</p>
+<script src="https://gist.github.com/gomesfellipe/357af0735d2aedca60146a7655e33929.js"></script>
+<p>Após todas as devidas configurações, basta carregar a função e executar para obter o seguinte resultado:</p>
+<pre class="r"><code># https://gist.github.com/gomesfellipe/357af0735d2aedca60146a7655e33929
+devtools::source_gist(&quot;357af0735d2aedca60146a7655e33929&quot;,quiet = T)
+
+# Executar
+bot_report_stocks(portifolio = portifolio, 
+                  cot_inicio = cot_inicio,
+                  qtd_inicio = qtd_inicio)</code></pre>
+<center>
+<img src="/post/2020-03-25-investment-alert/report_stocks.gif" style="width:70.0%" />
+</center>
+<p></br>
+E assim obtemos um feedback através do nosso Smartphone ou Smartwatch em tempo real sobre o desempenho da nossa carteira!</p>
+</div>
+<div id="conclusão-e-próximos-passos" class="section level1">
+<h1>Conclusão e próximos passos</h1>
+<p>Neste post criamos um bot que coleta os dados e faz análises disponibilizando-as em tempo real no Telegram. Porém vimos também o quão difícil pode ser a montagem de uma carteira e as análises envolvendo séries históricas de ativos.</p>
+<p>Diante dos resultados obtidos aqui existe uma grande gama de opções de inovações para trabalhos futuros como:</p>
+<ul>
+<li>Programar o bot para responder a uma <a href="https://support.apple.com/pt-br/guide/watch/apd92a90f882/watchos">menssagem rápida no smartwatch</a> com o valor de uma previsão;</li>
+<li>Desenvolver um Shiny parametrizando o bot para consultar análises em tempo real;</li>
+<li>Hospedar a rotina em um servidor para operacionalizar o bot (caso tenha dúvidas de como se iniciar um RStudio Server u um Shiny Server <a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/">consulte este post do blog</a>);</li>
+<li>Criar uma API com <a href="https://www.rplumber.io">plumber</a> para fornecer os resultados;</li>
+<li>Treinar modelo utilizando mais dados, mais variáveis explicativas e tuning dos parâmetros;</li>
+<li>Criar pacote com um robô mais geral para responder diferentes consultas.</li>
+</ul>
+<p>Espero que tenha gostado qualquer dúvida deixe nos comentários!</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<ul>
+<li><a href="https://www.infomoney.com.br/minhas-financas/brasileiros-nao-sabem-a-diferenca-entre-poupar-e-investir-afirma-especialista-2/" class="uri">https://www.infomoney.com.br/minhas-financas/brasileiros-nao-sabem-a-diferenca-entre-poupar-e-investir-afirma-especialista-2/</a></li>
+<li><a href="https://www.btgpactualdigital.com/blog/investimentos/diversificacao-de-investimentos" class="uri">https://www.btgpactualdigital.com/blog/investimentos/diversificacao-de-investimentos</a></li>
+<li><a href="https://www.btgpactualdigital.com/blog/coluna-gustavo-cerbasi/defina-sua-estrategia-entre-renda-fixa-ou-variavel" class="uri">https://www.btgpactualdigital.com/blog/coluna-gustavo-cerbasi/defina-sua-estrategia-entre-renda-fixa-ou-variavel</a></li>
+<li><a href="https://blog.earo.me/2018/12/20/reintro-tsibble/" class="uri">https://blog.earo.me/2018/12/20/reintro-tsibble/</a></li>
+<li><a href="https://www.tradingcomdados.com/post/2017/07/09/estudo-de-correla%C3%A7%C3%A3o-entre-a%C3%A7%C3%B5es-da-bolsa-de-valores-de-s%C3%A3o-paulo" class="uri">https://www.tradingcomdados.com/post/2017/07/09/estudo-de-correla%C3%A7%C3%A3o-entre-a%C3%A7%C3%B5es-da-bolsa-de-valores-de-s%C3%A3o-paulo</a></li>
+<li><a href="https://www.business-science.io/code-tools/2017/10/28/demo_week_h2o.html" class="uri">https://www.business-science.io/code-tools/2017/10/28/demo_week_h2o.html</a></li>
+<li><a href="https://www.infomoney.com.br/mercados/adolescente-fica-milionario-aos-18-anos-usando-bitcoins-apos-fazer-aposta-com-os-pais/" class="uri">https://www.infomoney.com.br/mercados/adolescente-fica-milionario-aos-18-anos-usando-bitcoins-apos-fazer-aposta-com-os-pais/</a></li>
+<li><a href="https://www.infomoney.com.br/onde-investir/halving-conheca-o-processo-que-pode-levar-o-bitcoin-a-uma-nova-explosao-de-preco/" class="uri">https://www.infomoney.com.br/onde-investir/halving-conheca-o-processo-que-pode-levar-o-bitcoin-a-uma-nova-explosao-de-preco/</a></li>
+<li><a href="https://cran.r-project.org/web/packages/telegram/README.html" class="uri">https://cran.r-project.org/web/packages/telegram/README.html</a></li>
+<li><a href="https://otexts.com/fpp2/" class="uri">https://otexts.com/fpp2/</a>
+<a href="https://www.curso-r.com/blog/2017-08-19-r-telegram-bitcoin/" class="uri">https://www.curso-r.com/blog/2017-08-19-r-telegram-bitcoin/</a></li>
+<li><a href="https://www.curso-r.com/blog/2017-08-19-r-telegram-bitcoin/" class="uri">https://www.curso-r.com/blog/2017-08-19-r-telegram-bitcoin/</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">bitcoin</category>
+      <category domain="tag">bolsa-de-valores</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">dplyr</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">machine-learning</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">prophet</category>
+      <category domain="tag">r</category>
+      <category domain="tag">reports</category>
     </item>
-    
     <item>
       <title>Seu app, RStudio e Shiny Server na nuvem do Google</title>
       <link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/</guid>
-      <description>Objetivo do post Uma das várias maneiras de se implementar o RStudio Server e o Shiny Server é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.</description>
+      <description>Uma maneira prática de hospedar o app desenvolvido no post no Shiny Server e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu 16.04.</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<div id="objetivo-do-post" class="section level1">
+<h1>Objetivo do post <i class="fa fa-rocket"></i></h1>
+<p>Uma das várias maneiras de se implementar o <a href="https://www.rstudio.com/products/rstudio/download-server/">RStudio Server</a> e o <a href="https://www.rstudio.com/products/shiny/download-server/">Shiny Server</a> é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.</p>
+<p>No final deste post teremos além do nosso próprio RStudio Server, esse app no Shiny Server que exibe em um gráfico das cotações encontradas via função função <a href="https://www.rdocumentation.org/packages/TTR/versions/0.23-4/topics/stockSymbols"><code>quantmod::stockSymbols()</code></a> com os pacotes <a href="http://jkunst.com/highcharter/"><code>highcharter</code></a> e <a href="https://www.quantmod.com/"><code>quantmod</code></a>:</p>
+<p><img src="/post/2018-10-27-server-cloud/server-cloud_files/demoapp.gif" /></p>
+<p><strong>Nota</strong>: Algum conhecimento em Linux e Git pode ser útil, particularmente ainda tenho muito a aprender sobre ambos e devem existir outras maneiras mais eficientes de se realizar estas tarefas. Essa é uma forma relativamente simples e ao final do post deixarei os links que utilizei como referência para escrever este post.</p>
+<p><strong>Nota²</strong>, segundo o desenvolvedor do pacote <code>highcharter</code>: “<em>Highcharts (www.highcharts.com) é um produto de software da Highsoft que não é livre para uso comercial e governamental</em>”.</p>
+</div>
+<div id="gloogle-cloud" class="section level1">
+<h1>Gloogle cloud <i class="fa fa-cloud"></i></h1>
+<p>A serviço que escolhi para este exemplo foi o <a href="https://cloud.google.com/">Google Cloud</a>, que oferece um <a href="https://cloud.google.com/free/docs/frequently-asked-questions">período de um ano de Teste Grátis com $300</a> para utilizar nos serviços <a href="https://cloud.google.com/free/docs/frequently-asked-questions?hl=pt_BR&amp;_ga=2.209128081.-2022746393.1538697551&amp;_gac=1.3934980.1540514862.EAIaIQobChMImJjS9vCi3gIVEgaRCh0j3ArWEAAYASAAEgJ8AfD_BwE#always-free">dentre outras opções</a>, mas isso não quer dizer que seja a melhor de todas, sinta-se a vontade para utilizar os mesmos passos apresentados aqui nos demais serviços, entendendo, claro, suas peculiaridades.</p>
+<p>Dentre algumas vantagens sobre o uso de nuvem, temos:</p>
+<ul>
+<li>Maior produtividade, pois possibilita rápido acesso à sua área de trabalho;</li>
+<li>Permite o desenvolvedor trabalhar de qualquer lugar com acesso à internet;</li>
+<li>Permite colaboração rápida, pois os membros da equipe podem contribuir e acessar projetos ao mesmo tempo em que os dados são armazenados na nuvem em vez de em seus computadores</li>
+<li>Protegido pelos principais especialistas segurança do Google;</li>
+<li>Controle e flexibilidade, o desenvolvedor tem controle sobre a tecnologia que deseja usar, sobre os dados e caso decida não usar mais o serviço, é possível retirar seus dados da nuvem do Google.</li>
+</ul>
+<div id="compute-engine" class="section level2">
+<h2>Compute Engine <img src="/post/2018-10-27-server-cloud/server-cloud_files/compute_engine.png" style="width:5.0%" /></h2>
+<p>Compute Engine é um dos produtos oferecidos pelo Google. Também conhecido como <a href="https://pt.wikipedia.org/wiki/Infraestrutura_como_servi%C3%A7o">infraestrutura como serviço (IaaS)</a>, pode ser usada para executar altas cargas de trabalho em larga escala em máquinas virtuais, no nosso caso este produto que possibilita o uso das máquinas virtuais.</p>
+</div>
+</div>
+<div id="iniciar-uma-instância-na-google-cloud-platform" class="section level1">
+<h1>Iniciar uma instância na Google Cloud Platform</h1>
+<p>Primeiramente, acesse <a href="https://cloud.google.com/" class="uri">https://cloud.google.com/</a> e se inscreva no recurso de nuvem, após isso acesse <a href="https://console.cloud.google.com" class="uri">https://console.cloud.google.com</a> e percorra o caminho:</p>
+<p><code>Menu de navegação</code> → <code>Compute Engine</code> → <code>Instâncias de VMs</code></p>
+<p>Nesta página existe o <img src="/post/2018-10-27-server-cloud/server-cloud_files/button_criar_instancia.png" />, clique nele para iniciar a configuração da VM. Na página que abrir será solicitado a dar um nome a sua VM (pode ser qualquer nome que te agrade). O Google tem data centers em quase todo o mundo e para este caso selecionei a <code>Região</code> <em>us-east1 (Carolina do Sul)</em> e a <code>Zona</code> deixei o default <em>us-east1-b</em>.<a href="https://cloud.google.com/free/docs/frequently-asked-questions?hl=pt_BR&amp;_ga=2.183970469.-2022746393.1538697551&amp;_gac=1.36440980.1540514862.EAIaIQobChMImJjS9vCi3gIVEgaRCh0j3ArWEAAYASAAEgJ8AfD_BwE#always-free">“saiba mais” do Google</a>.</p>
+<p>Dependendo de quão poderoso o servidor precisa ser é possível selecionar a capacidade da RAM e do disco rígido na seção <code>Tipo de Máquina</code>, como este é um exemplo para prova de conceito selecionei a opção <em>micro(1 vCPU compartilhado) - 0.6 GB de memória, f1-micro</em> pois custa cerca de $ 0,006 por hora e as “primeiras 744 horas para uso da instância de tipo f1-micro são gratuitas”, segundo o Google. No <code>Disco de inicialização</code> selecionei a <code>Imagen do SO</code> <em>Ubuntu 16.04 LTS</em> que tenho um pouco mais de familiaridade e não mexi nas demais configurações dessa seção, mas antes de finalizar, selecione a opção <em>Permitir tráfego HTTP</em> na opção de <code>Firewall</code> e clique no botão <code>criar</code>.</p>
+<p>Segundo o guia <a href="https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started">Acessando o RStudio Server Open-Source</a> e o <a href="http://rstudio.github.io/shiny-server/os/0.4.0/">Guia do Administrador - Shiny Server Open Source v0.4.1</a>o RStudio Server e o Shiny Server serão escutados nas portas 8787 e 3838 respectivamente, portanto, antes de começar a usar a VM é necessário Configurando regras de firewall para permitir acesso através destas portas.</p>
+<p>Navegue até a seção <code>Rede VPC</code> e selecione a opção <code>Regras de firewall</code>. Clique em <img src="/post/2018-10-27-server-cloud/server-cloud_files/criar_firewall.png" />. No formulário que abrir dê um nome e uma descrição à regra do firewall (‘rstudio’ está bom), deixe os botões de opção <code>Direção de tráfego</code> e <code>Ação ao corresponder</code> como padrão (<em>Entrada</em> e <em>Permitir</em>). Para a opção <code>Destinos</code>, escolhi <em>Conta de serviço especificado</em>, sendo a <code>Conta de serviço de destino</code> <em>Compute Engine default service account</em>. Se você quiser filtrar os IPs que podem acessar o aplicativo, insira-o no campo <code>Intervalos de IP de origem</code>, como estamos sob uma prova de conceito, inseri a rota quad-zero: 0.0.0.0/0, o que permite acesso de todos os IPs em todas as portas nessa máquina. Na opção <code>Protocolos e Portos</code> selecione o botão de opção <em>Protocolos e portas específicas</em> e no campo digite o tcp: 8787. Por fim, clique no botão <code>criar</code>.</p>
+<p>Faça o procedimento exatamente da mesma maneira, mas com um novo nome (‘shiny’ está bom) e digite ‘tcp: 3838’ em vez de ‘tcp: 8787’. Clique em <code>criar</code> e note que agora abrimos duas portas para usar no aplicativo.</p>
+<p>Nota: <em>Os passos para iniciar uma instância na Cloud do Google foram inspirados no seguinte post:</em> <a href="https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data" class="uri">https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data</a></p>
+</div>
+<div id="inicie-a-máquina-virtual" class="section level1">
+<h1>Inicie a máquina virtual <i class="fa fa-desktop"></i></h1>
+<p>Ótimo! Agora a VM já deve estar pronta para uso e o jeito mais simples de utilizá-la é clicando no botão <img src="/post/2018-10-27-server-cloud/server-cloud_files/ssh.png" /> na página de <code>Instâncias de VMs</code> e aguardar a máquina iniciar</p>
+<center>
+<img src="/post/2018-10-27-server-cloud/server-cloud_files/vm_on.gif" style="width:80.0%" />
+</center>
+<p>Vamos às configurações!</p>
+<div id="obter-senha-para-super-usuário" class="section level2">
+<h2>Obter senha para super usuário</h2>
+<p>O primeiro passo será obter a senha para usuário <code>root</code></p>
+<pre><code>sudo passwd</code></pre>
+<p>Após determinar a senha, alterne para este usuário e conceda a permissão de super usuário para evitar trabalhar como <code>root</code>:</p>
+<pre><code>su root
+passwd gomes_fellipe1
+gpasswd -a gomes_fellipe1 sudo
+su gomes_fellipe1</code></pre>
+<p>Agora meu usuário tem permissão de super usuário e uma senha para utilizar para acessar o RStudio Server.</p>
+</div>
+<div id="exibir-sua-vm-em-um-navegador" class="section level2">
+<h2>Exibir sua VM em um navegador</h2>
+<p>Se você utilizar o comando</p>
+<pre><code>curl ipinfo.io/ip</code></pre>
+<p>o endereço IP externo será exibido no console, porém se digitar este caminho no browser ainda não será possível acessar sua máquina. Para isso, instale o <a href="https://www.nginx.com/">Nginx</a> (que é um servidor web leve) com os comandos:</p>
+<pre><code>sudo apt-get update
+sudo apt-get -y install nginx</code></pre>
+<p>Agora se você digitar o endereço IP externo da sua máquina no browser será possível ver a tela de saudação do nginx!</p>
+</div>
+<div id="criar-um-arquivo-swap" class="section level2">
+<h2>Criar um arquivo swap</h2>
+<p>Seguindo a recomendação do post <a href="http://www.simoncoulombe.com/2018/05/07/protected_free_shiny/">Implantando um servidor Shiny Server e RStudio seguro em uma máquina virtual gratuita do Google Cloud</a> e as instruções do link <a href="https://digitizor.com/create-swap-file-ubuntu-linux/" class="uri">https://digitizor.com/create-swap-file-ubuntu-linux/</a>, podemos criar um arquivo <a href="https://pt.wikipedia.org/wiki/Mem%C3%B3ria_virtual">swap</a> pois a instância <em>f1-micro</em> não tem RAM suficiente e pode ser que alguns pacotes não possam ser instalados por falta de memória.</p>
+<pre><code>cd /
+sudo dd if=/dev/zero of=swapfile bs=1M count=3000
+sudo mkswap swapfile
+sudo swapon swapfile
+sudo nano etc/fstab
+
+# Adicione a linha a seguir no arquivo que abrir
+/swapfile none swap sw 0 0 
+cat /proc/meminfo</code></pre>
+</div>
+<div id="instalar-o-r" class="section level2">
+<h2>Instalar o R</h2>
+<p>Para instalar o R apenas segui os passos apresentados em <a href="https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/" class="uri">https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/</a> com os códigos:</p>
+<pre><code>sudo sh -c &#39;echo &quot;deb http://cran.rstudio.com/bin/linux/ubuntu xenial/&quot; &gt;&gt; /etc/apt/sources.list&#39;
+
+gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+gpg -a --export E084DAB9 | sudo apt-key add -
+
+sudo apt-get update
+sudo apt-get -y install r-base</code></pre>
+<p>Agora o R está pronto para uso, basta escrever <code>R</code> no console para iniciá-lo.</p>
+<center>
+<img src="/post/2018-10-27-server-cloud/server-cloud_files/R.png" />
+</center>
+<div id="dependências-e-pacotes" class="section level3">
+<h3>Dependências e pacotes</h3>
+<p>Antes de instalar outros pacotes podemos iniciar instalando o <code>devtools</code> pois esse pacote permite instalar a versão do desenvolvedores de alguns pacotes do R que estão disponíveis no GitHub. Para instalar as dependências do <code>devtools</code>:</p>
+<pre><code>sudo apt-get -y install libcurl4-gnutls-dev libxml2-dev libssl-dev</code></pre>
+<p>Tudo certo, agora já é possível instalar pacotes tanto do <a href="https://cran.r-project.org/">CRAN</a> quando do <a href="www.github.com">GitHub</a>. Além do <code>devtools</code> instalaremos mais dois pacotes que serão utilizados pelo aplicativo exemplo deste post:</p>
+<pre><code>sudo su - -c &quot;R -e \&quot;install.packages(c(&#39;devtools&#39;,&#39;rmarkdown&#39;, &#39;quantmod&#39;), repos=&#39;http://cran.rstudio.com/&#39;)\&quot;&quot;
+sudo su - -c &quot;R -e \&quot;devtools::install_github(&quot;jbkunst/highcharter&quot;)\&quot;&quot;</code></pre>
+<p><strong>Importante:</strong> Note que ao instalar os pacotes do R no terminal os pacotes são instalados como usuário <code>root</code>, o que significa que os pacotes serão instalados em uma biblioteca global e estarão disponíveis para todos os usuários da máquina.</p>
+</div>
+</div>
+<div id="instalar-o-rstudio-server" class="section level2">
+<h2>Instalar o RStudio Server</h2>
+<p>Neste ponto já temos uma máquina virtual como R instalado e estamos preparados para dar início ao nosso <strong>RStudio Server</strong>! Para instalar entre na página de download do RStudio em: <a href="https://www.rstudio.com/products/rstudio/download-server/" class="uri">https://www.rstudio.com/products/rstudio/download-server/</a> e siga os passos de instalação. No meu caso bastou rodar:</p>
+<pre><code>sudo apt-get install gdebi-core
+wget https://download2.rstudio.org/rstudio-server-1.1.456-amd64.deb
+sudo gdebi rstudio-server-1.1.456-amd64.deb</code></pre>
+<p>Pronto, agora já possuímos nosso próprio RStudio Server na nuvem! Para acessá-lo basta utilizar a porta <code>8787</code> através de seu IP externo (que pode ser obtido com o comando: <code>curl ipinfo.io/ip</code>, como mencionado anteriormente). Portanto, acesse algo como: <a href="http://35.237.234.123:8787" class="uri">http://35.237.234.123:8787</a> (este link direcionará para a máquina virtual que criei no exemplo deste post) e você será direcionado para uma tela de login:</p>
+<center>
+<img src="/post/2018-10-27-server-cloud/server-cloud_files/rstudioserver.png" style="width:80.0%" />
+</center>
+<p>É possível fazer o login no RStudio Server com qualquer usuário que esteja cadastrado em sua máquina virtual, no meu caso eu faço o login com o nome de usuário <code>gomes_fellipe1</code> e a senha que defini para meu usuário ao criar a máquina.</p>
+<p>É possível criar um novo usuário para acessar o RStudio Server via terminal da máquina virtual com:</p>
+<pre><code>adduser novo_usuario</code></pre>
+<p>Caso seu objetivo seja apenas o de ter seu próprio RStudio Server Parabéns! Já está disponível e pronto para uso! A seguir trataremos de como instalar e como efetuar algumas configurações básicas de um Shiny Server, mesmo que você não seja desenvolvedor desse tipo de app sugiro que instale o servidor mesmo assim pois ele também pode ser usado para hospedar seus documentos interativos como arquivos Rmarkdown!</p>
+</div>
+<div id="instalar-o-shiny-server" class="section level2">
+<h2>Instalar o Shiny Server</h2>
+<p>Aplicativos Shiny são incríveis e sua aplicabilidade é tamanha que poderia dedicar uma série de posts exclusivamente para falar sobre essa ferramenta. Dedico uma enorme parte do meu tempo de trabalho atualmente no desenvolvimento de aplicativos Shiny e ao terminar todas as etapas de um <a href="http://r4ds.had.co.nz/introduction.html">“típico projeto de ciencia de dados”</a> a etapa da <strong>entrega</strong> dos resultados pode ser bastante crítica e um aplicativo Shiny é capaz de trazer interatividade às suas análises.</p>
+<p>Existem diversas opções de entrega, entre elas:</p>
+<ul>
+<li>Fazer um rápido deploy no <a href="http://www.shinyapps.io/" class="uri">http://www.shinyapps.io/</a>;</li>
+<li>Hospedar no now, como apresentado na página do <a href="https://www.curso-r.com/">curso-r</a> em: <a href="https://www.curso-r.com/blog/2018-03-05-shiny-now/" class="uri">https://www.curso-r.com/blog/2018-03-05-shiny-now/</a>;</li>
+<li>Dockerizar o app com a imagem <a href="https://hub.docker.com/u/rocker/" class="uri">https://hub.docker.com/u/rocker/</a> e disponibilizá-lo na rede interna de sua empresa;</li>
+<li>Criar um executável via R e Inno Setup (um instalador para programas do Windows), como ilustrado em: <a href="https://www.ficonsulting.com/filabs/RInno" class="uri">https://www.ficonsulting.com/filabs/RInno</a>;</li>
+<li>Dentre tantas outras…</li>
+</ul>
+<p>No caso deste post, estamos criando nosso próprio servidor e assim teremos controle tanto do desempenho da máquina hospedada quanto do uso do Shiny Server propriamente dito.</p>
+<p>Consulte a página de download do Shiny Server em: <a href="https://www.rstudio.com/products/shiny/download-server/" class="uri">https://www.rstudio.com/products/shiny/download-server/</a> para saber qual a versão mais recente para instalar no seu computador (note que será necessário instalar o pacote do shiny como mencionado anteriormente), no meu caso foi:</p>
+<pre><code>sudo su - -c &quot;R -e \&quot;install.packages(&#39;shiny&#39;, repos=&#39;https://cran.rstudio.com/&#39;)\&quot;&quot;
+sudo apt-get install gdebi-core
+wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.9.923-amd64.deb
+sudo gdebi shiny-server-1.5.9.923-amd64.deb</code></pre>
+<p>O Shiny Server está agora instalado e em execução. Supondo que correu tudo bem você já poderá acessar a página inicial padrão do Shiny Server, que inclui algumas instruções e dois aplicativos Shiny, veja em (na minha máquina de exemplo): <a href="http://35.237.234.123:3838" class="uri">http://35.237.234.123:3838</a> (Note que eu não configurei um IP externo fixo neste app por se tratar de uma prova de conceito, como ele pode alterar para um IP aleatório quando eu reiniciar a máquina então fiz um backup no <a href="http://www.shinyapps.io/" class="uri">http://www.shinyapps.io/</a> no endereço: <a href="https://gomesfellipe.shinyapps.io/app_acoes/" class="uri">https://gomesfellipe.shinyapps.io/app_acoes/</a> para manter este DEMO no caso dessa máquina específica não estar mais no ar futuramente)</p>
+<p><img src="/post/2018-10-27-server-cloud/server-cloud_files/shinyserver.png" /></p>
+<p>Alguns comandos úteis para configurar o status do servidor:</p>
+<pre><code>sudo systemctl start shiny-server
+sudo systemctl stop shiny-server
+sudo systemctl restart shiny-server</code></pre>
+<p><strong>Importante</strong>:</p>
+<ul>
+<li>O arquivo de configuração do servidor está em: <code>/etc/shiny-server/shiny-server.conf</code>;</li>
+<li>A página inicial do Shiny Server estará em: <code>/srv/shiny-server/index.html</code> (normalmente removemos esta página ou incluir um outro html para customizá-la);</li>
+<li>Todos aplicativos Shiny com o nome <code>app.R</code> que você colocar em <code>/srv/shiny-server/</code> serão entendidos pelo servidor como um aplicativo Shiny;</li>
+<li>Todos aplicativos serão executados como usuário <code>shiny</code> o que implica que qualquer pacote necessário em um aplicativo shiny deverá estar na biblioteca global ou na biblioteca do usuário <code>shiny</code>. Existem diversas formas de lidar com esse aspecto da configuração inicial do servidor então deixarei algumas referências ao final do post para quem tiver a necessidade de maior customização e controle do servidor;</li>
+<li>Para visualizar os logs durante o desenvolvimento do aplicativo será necessário adicionar as linhas <code>preserve_logs true;</code>e <code>sanitize_errors false;</code> ao arquivo de configuração do servidor (e reiniciar o servidor em seguida) e assim os logs do servidor estarão disponíveis em <code>/var/log/shiny-server.log</code>.</li>
+</ul>
+</div>
+<div id="adicionar-aplicativos-ao-shiny-server-via-github" class="section level2">
+<h2>Adicionar aplicativos ao Shiny Server via Github</h2>
+<p>Como já foi dito, qualquer aplicativo Shiny colocado na pasta <code>/srv/shiny-server/</code> será automaticamente exibido como um Shiny app na página principal do servidor. Além da opção de desenvolver um um aplicativo diretamente pelo RStudio Server e salvar nesta pasta podemos clonar algum app hospedado no <a href="https://github.com/">GitHub</a> ou no <a href="https://bitbucket.org">BitBucket</a> para esta pasta.</p>
+<p>Primeiramente vamos instalar o git e realizar as configurações iniciais:</p>
+<pre><code>sudo apt-get -y install git
+git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot;</code></pre>
+<p>Agora vamos nos deslocar para a pasta <code>srv/shiny-server/</code> e remover a página <code>index.html</code> pois não estamos mais interessados em ver a página de exemplo do Shiny Server:</p>
+<pre><code>cd /srv/shiny-server
+sudo rm index.html</code></pre>
+<p>Em seguida já é possível clonar seu repositório do <a href="https://github.com/">GitHub</a> ou do <a href="https://bitbucket.org">BitBucket</a> diretamente para esta pasta (Lembrete: o arquivo que executa o app deve ser nomeado como <code>app.R</code>!), veja:</p>
+<pre><code>sudo git clone https://github.com/gomesfellipe/app_acoes.git</code></pre>
+<p>O legal de administrar suas aplicações via <a href="https://github.com/">GitHub</a> ou do <a href="https://bitbucket.org">BitBucket</a> é que o código hospedado pode ser trabalhado e “commitado” de qualquer outro lugar do mundo e para atualizar no servidor basta utilizar o comando <code>sudo git pull</code> na pasta do app que o diretório local será atualizado com as modificações realizadas no repositório remoto.</p>
+<p>Pronto, se utilizar o comando <code>ls</code> já será possível ver a pasta clonada no diretório local:</p>
+<center>
+<img src="/post/2018-10-27-server-cloud/server-cloud_files/ls.png" />
+</center>
+<p>Ao acessar o app teremos:</p>
+<center>
+<iframe width="100%" height="725" scrolling="no" frameborder="no" src="https://gomesfellipe.shinyapps.io/app_acoes/">
+</iframe>
+</center>
+<p>O código para gerar este app é:</p>
+<script src="https://gist.github.com/gomesfellipe/f1f6469884bff2d2dce8729fd8bce719.js"></script>
+<p><strong>Nota¹</strong>: O código do app e as dependências podem ser obtidas em: <a href="https://github.com/gomesfellipe/app_acoes" class="uri">https://github.com/gomesfellipe/app_acoes</a> e para executá-lo diretamente do seu terminal basta utilizar o comando:</p>
+<pre class="r"><code>shiny::runGitHub(&quot;gomesfellipe/app_acoes&quot;)</code></pre>
+<p><strong>Nota²</strong>: Caso queira incluir seu aplicativo Shiny em alguma página Web ou relatório é simples, utilizando um pouco de html é só o incluí no seu arquivo RMarkdown utilizando algo parecido com:</p>
+<pre><code>&lt;iframe width=&quot;450&quot; height=&quot;400&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;sua_url&quot;&gt; &lt;/iframe&gt;</code></pre>
+</div>
+</div>
+<div id="tudo-pronto" class="section level1">
+<h1>Tudo Pronto? <i class="fa fa-exclamation-triangle"></i></h1>
+<p>Definitivamente não! Implementamos um app bem básico mas existem intermináveis desafios que não foram abordados nesse rápido post como a instalação do Latex para o Shiny Server, o uso de contêineres Docker, senha para os aplicativos shiny, definir um IP estático, todas as outras dependências que podem ser requisitadas na instalação de pacotes específicos etc.. É aquela história, quanto mais a gente estuda mais coisa aparece para estudar mas esse é justamente o legal de tudo, que nunca fica fácil!</p>
+</div>
+<div id="referências-e-sugestões" class="section level1">
+<h1>Referências e sugestões:</h1>
+<ul>
+<li><a href="https://cloud.google.com/getting-started/?hl=pt-br" class="uri">https://cloud.google.com/getting-started/?hl=pt-br</a></li>
+<li><a href="https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started" class="uri">https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started</a></li>
+<li><a href="http://rstudio.github.io/shiny-server/os/0.4.0/" class="uri">http://rstudio.github.io/shiny-server/os/0.4.0/</a></li>
+<li><a href="https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/" class="uri">https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/</a></li>
+<li><a href="https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data" class="uri">https://datarunsdeep.com.au/blog/building-r-shiny-app-google-cloud-display-bigquery-data</a></li>
+<li><a href="https://shiny.rstudio.com/gallery/authentication-and-database.html" class="uri">https://shiny.rstudio.com/gallery/authentication-and-database.html</a></li>
+<li><a href="http://www.simoncoulombe.com/2018/05/07/protected_free_shiny/" class="uri">http://www.simoncoulombe.com/2018/05/07/protected_free_shiny/</a></li>
+<li><a href="https://www.brettory.com/2018/02/embedding-a-shiny-app-in-blogdown/" class="uri">https://www.brettory.com/2018/02/embedding-a-shiny-app-in-blogdown/</a></li>
+<li><a href="https://www.keycdn.com/support/413-request-entity-too-large" class="uri">https://www.keycdn.com/support/413-request-entity-too-large</a></li>
+<li><a href="https://auth0.com/blog/adding-authentication-to-shiny-server/" class="uri">https://auth0.com/blog/adding-authentication-to-shiny-server/</a></li>
+<li><a href="https://gist.github.com/jjesusfilho/6a3ec38016f7e120e9a2cf2b49e42962" class="uri">https://gist.github.com/jjesusfilho/6a3ec38016f7e120e9a2cf2b49e42962</a></li>
+<li><a href="https://gist.github.com/jjesusfilho/7b7001745cbb8f7b1ad36e7bfe5d43e8" class="uri">https://gist.github.com/jjesusfilho/7b7001745cbb8f7b1ad36e7bfe5d43e8</a></li>
+<li><a href="https://curso-r.github.io/auth0/" class="uri">https://curso-r.github.io/auth0/</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/server-cloud/">Seu app, RStudio e Shiny Server na nuvem do Google</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">bitcoin</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">google</category>
+      <category domain="tag">google-cloud</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
+      <category domain="tag">rstudio-server</category>
+      <category domain="tag">series-temporais</category>
+      <category domain="tag">servidor</category>
     </item>
-    
     <item>
       <title>Analisando o mercado de cryptomoedas com R</title>
       <link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
       <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
 Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
 Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
-    </item>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<div id="as-cryptomoedas" class="section level1">
+<h1>As cryptomoedas</h1>
+<p>Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna <a href="http://g1.globo.com/jornal-da-globo/noticia/2016/07/bitcoin-moeda-virtual-se-populariza-no-brasil-e-tem-valorizacao-recorde.html">notícia na globo</a>, notícia no <a href="http://forbes.uol.com.br/tag/bitcoin/">site da Forbes</a> dentre muitos outros.</p>
+<p>Além disso sua <a href="http://dolarhoje.com/bitcoin-hoje/">cotação</a> já pode ser acompanhada nos maiores sites de busca do mercado financeiro.</p>
+<p>Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</p>
+<p>Portanto surge a pergunta que vem a tona: como o R pode nos ajudar a cryptomoedas?</p>
+<p>Vejamos o que o que encontramos no CRAN..</p>
+</div>
+<div id="pacote-coinmarketcapr" class="section level1">
+<h1>Pacote <code>coinmarketcapr</code></h1>
+<p>Tem disponível no <a href="https://cran.r-project.org/">CRAN</a> o pacote <a href="https://cran.r-project.org/web/packages/coinmarketcapr/index.html">coinmarketcapr</a> que nos permite extrair e monitorar o preço e o limite de mercado das cryptomoedas da API do <a href="https://coinmarketcap.com/">coinmarketcap.com</a></p>
+<p>Primeiramente precisamos instalar o pacote:</p>
+<pre class="r"><code>install.packages(&quot;coinmarketcapr&quot;)
+library(coinmarketcapr)</code></pre>
+<div id="maiores-ocorrências" class="section level3">
+<h3>Maiores ocorrências</h3>
+<p>O pacote conta com a função <code>plot_top_5_currencies()</code> que já apresenta de brinde um gráfico de barras com as 5 principais cryptomoedas do mercado, veja:</p>
+<pre class="r"><code>plot_top_5_currencies()</code></pre>
+<center>
+<img src="/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto1.png" style="width:70.0%" />
+</center>
+</div>
+<div id="detalhes-do-mercado" class="section level3">
+<h3>Detalhes do mercado</h3>
+<p>Os resultados ficam disponíveis para quem quiser interpretar. É importante notar que isso não nos da a imagem de como o mercado está dividido entre várias cryptomoedas, então vamos obter os dados completos de várias cryptomoedas:</p>
+<pre class="r"><code>mercado_hoje &lt;- get_marketcap_ticker_all()
+head(mercado_hoje[,1:8])</code></pre>
+<p><img src="/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto3.png" /></p>
+</div>
+<div id="visualmente" class="section level3">
+<h3>Visualmente</h3>
+<p>Após extrair os dados completos de várias cryptomoedas, vamos visualizar essa distribuição através de um <code>treemap</code> com os códigos:</p>
+<pre class="r"><code>library(treemap)
+base &lt;- na.omit(mercado_hoje[,c(&#39;id&#39;,&#39;market_cap_usd&#39;)])
+base$market_cap_usd &lt;- as.numeric(base$market_cap_usd)
+base$formatted_market_cap &lt;-  paste0(base$id,&#39;\n&#39;,&#39;$&#39;,format(base$market_cap_usd,big.mark = &#39;,&#39;,scientific = F, trim = T))
+treemap(base, index = &#39;formatted_market_cap&#39;, vSize = &#39;market_cap_usd&#39;, title = &#39;Cryptocurrency Market Cap&#39;, fontsize.labels=c(12, 8), palette=&#39;RdYlGn&#39;)</code></pre>
+<center>
+<img src="/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto2.png" style="width:80.0%" />
+</center>
+<p>Vou deixar as interpretações para os analistas de mercado, mas como um cientista de dados, muitos (muitos mesmo) insights podem ser extraídos dos dados acima e pode ser interessante analisar esse mercado</p>
+</div>
+</div>
+<div id="pacote-jsonlite-para-avaliar-bitcoins" class="section level1">
+<h1>Pacote <code>jsonlite</code> para avaliar Bitcoins</h1>
+<p>O <a href="https://cran.r-project.org/web/packages/jsonlite/index.html">pacote jsonlite disponível no CRAN</a> trás série de recursos flexíveis, robustos e de alto desempenho para trabalhar o R com JSON conjuntamente. O pacote é capaz de interagir com API da Web e isso vai ser o recurso que precisamos aqui.</p>
+<p>Trazendo o foco para os Bitcoins, existe mais de uma maneira de se extrair os dados do mercado que possam trazer grandes insights. Vamos conferir aqui como este pacote pode ajudar nesta tarefa.</p>
+<p>Inicialmente precisamos instalar e carregar o pacote:</p>
+<pre class="r"><code>#install.packages(&quot;jsonlite&quot;)
+library(jsonlite)
+suppressMessages(library(tidyverse)) #Para manipulação de dados</code></pre>
+<p>Com o pacote carregado já podemos realizar uma consulta diretamente de dentro do R com o comando <code>safe_fromJSON()</code>.</p>
+<p>Os preços da bitcoin são fornecidos pela API da <a href="https://blinktrade.com/">BlinkTrad</a> que é bem simples usar, basta pegar o json que a url do código abaixo solta.</p>
+<p>Aproveito e dou um tapinha para deixar em forma de data.frame e com a data de consulta junto.</p>
+<pre class="r"><code>safe_fromJSON = safely(fromJSON, as.numneric(NA))
+nova_consulta_list = safe_fromJSON(&quot;http://api.blinktrade.com/api/v1/BRL/ticker?crypto_currency=BTC&quot;)
+
+nova_consulta = nova_consulta_list$result %&gt;%
+  as.tibble %&gt;%
+  mutate(timestamp = lubridate::now())
+
+nova_consulta</code></pre>
+<div id="loop-infinito-para-acompanhar-os-preço" class="section level3">
+<h3>Loop infinito para acompanhar os preço</h3>
+<p>Existe um universo de infinitas possibilidades para acompanhar estes dados, trago aqui um loop infinito <code>(while(TRUE))</code> composto por um , um data.frame histórico.RData, um tempo entre uma consulta e outra (30 segundos por padrão) e a consulta propriamente dita. Veja:</p>
+<pre class="r"><code>#Inicializa o historico.RData
+historico = nova_consulta
+save(historico, file = &quot;historico.RData&quot;)</code></pre>
+<p>Dando início ao loop:</p>
+<pre class="r"><code>  #loop infinito
+  while(TRUE){
+    #pega a cotacao do bitcoin brasil (BTCBRL) da API do blinktrade
+    nova_consulta_list = safe_fromJSON(&quot;http://api.blinktrade.com/api/v1/BRL/ticker?crypto_currency=BTC&quot;)
+  
+    #verifica se a API retornou uma lista
+    if(&quot;list&quot; %in% class(nova_consulta_list$result)){
+      nova_consulta = nova_consulta_list$result %&gt;%
+        as.tibble %&gt;%
+        mutate(timestamp = lubridate::now())
+      #
+      #
+      # espaco reservado para as regras!
+      #
+      #
+      #guarda a consulta
+      historico = bind_rows(historico, nova_consulta)
+      save(historico, file = &quot;historico.RData&quot;)
+    }
+    #condicoes
+    #Exemplo:
+    #if(nova_consulta$buy &gt; 14600 &amp; nova_consulta$last &lt; 14500){
+    #
+    #Fazer alguma coisa
+    #
+    #
+    #}
+  }</code></pre>
+<p>Também podemos acompanhar graficamente incluindo um gráfico dentro do loop, veja:</p>
+<pre class="r"><code>while(TRUE){
+    #pega a cotacao do bitcoin brasil (BTCBRL) da API do blinktrade
+    nova_consulta_list = safe_fromJSON(&quot;http://api.blinktrade.com/api/v1/BRL/ticker?crypto_currency=BTC&quot;)
+  
+    #verifica se a API retornou uma lista
+    if(&quot;list&quot; %in% class(nova_consulta_list$result)){
+      nova_consulta = nova_consulta_list$result %&gt;%
+        as.tibble %&gt;%
+        mutate(timestamp = lubridate::now())
+      
+      #
+      #
+      # espaco reservado para as regras!
+      #
+      #
+      
+      #guarda a consulta
+      historico = bind_rows(historico, nova_consulta)
+      save(historico, file = &quot;historico.RData&quot;)
+    }
     
+    #Cria um gráfico;
+    
+    ggplot(historico %&gt;%
+                 gather(indicador, valor, high, low, buy, sell, last))+
+      geom_line(aes(x=timestamp, y=valor, color=indicador))
+    
+    #condicoes
+    #if(nova_consulta$buy &gt; 14600 &amp; nova_consulta$last &lt; 14500){
+    #
+    # Fazer alguma coisa
+    #
+    #}
+    
+    
+  }</code></pre>
+<p>Este gráfico retornará algo como:</p>
+<center>
+<img src="/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r_files/foto4.png" style="width:70.0%" />
+</center>
+<p>Este gráfico será atualizado em tempo real!</p>
+</div>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>R</category>
+      <category>Prática</category>
+      <category>Bitcoin</category>
+      <category>Séries Temporais</category>
+      <category domain="tag">Correlacoes</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">bitcoin</category>
+      <category domain="tag">cryptomoedas</category>
+      <category domain="tag">R</category>
+      <category domain="tag">RStudio</category>
+      <category domain="tag">Séries Temporais</category>
+    </item>
   </channel>
 </rss>

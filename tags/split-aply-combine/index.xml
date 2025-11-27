@@ -1,21 +1,199 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>split aply combine on Fellipe Gomes</title>
+    <title>split-aply-combine on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/split-aply-combine/</link>
-    <description>Recent content in split aply combine on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/split-aply-combine/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/split-aply-combine/" rel="self" type="application/rss+xml" />
     <item>
       <title>Hackeando o R: estratégia split-apply-combine</title>
       <link>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/</guid>
-      <description>O método split-apply-combine Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.
-No famoso paper The Split-Apply-Combine Strategy for Data Analysis, Hadley Wickham descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:</description>
+      <description>Veja como aplicar essa estratégia de maneira eficiente utilizando os pacotes do tidyverse: dplyr&#43;tidyr&#43;purrr</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<div id="o-método-split-apply-combine" class="section level1">
+<h1>O método split-apply-combine</h1>
+<p>Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.</p>
+<p>No famoso paper <a href="https://vita.had.co.nz/papers/plyr.pdf">The Split-Apply-Combine Strategy for Data Analysis</a>, <a href="http://hadley.nz/">Hadley Wickham</a> descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:</p>
+<ul>
+<li><code>split()</code> + <code>lapply()</code> + <code>do.call(rbind, ...)</code></li>
+<li><code>ddply()</code> do pacote <code>plyr</code></li>
+<li><code>group_by</code> + <code>do()</code></li>
+<li><code>split()</code> + <code>map_dfr()</code></li>
+</ul>
+<p>Todos esses exemplos atendem à maioria dos casos que deseja-se utilizar a abordagem “split-apply-combine”, porém, veja por exemplo este <a href="https://community.rstudio.com/t/should-i-move-away-from-do-and-rowwise/2857">tópico na community.rstudio.com</a> criado no final de 2017 em que ocorre um comunicado que a função <code>do()</code> será descontinuada</p>
+<p>Ou ainda, confira quando foi o último lançamento de atualização do pacote <a href="https://cran.r-project.org/web/packages/plyr/index.html"><code>plyr</code> no CRAN</a> (foi em junho de 2016).</p>
+<p>Com a proposta de mais eficiência e legibilidade do código, atualmente existem maneiras mais sofisticadas e modernas de se realizar esta tarefa com pacotes que foram atualizados já este ano de 2019. Veja nas seções a seguir o aumento de produtividade que é possível se obter combinando os pacotes <code>dplyr</code>, <code>tidyr</code> e <code>purrr</code> da coleção de pacotes do <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>.</p>
+<div id="usando-só-o-dplyr" class="section level2">
+<h2>Usando só o dplyr</h2>
+<p>Usamos “split-apply-combine” implicitamente o tempo todo quando utilizamos as funções <code>groupy_by()</code> + <code>summarise()</code> do pacote <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a></p>
+<p>Poderíamos facilmente reproduzir o exemplo da imagem do post com os seguintes comandos:</p>
+<pre class="r"><code>library(dplyr)
+data &lt;- tibble(x = c(&quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;C&quot;, &quot;C&quot;),
+               y = c(0,1,2,3,4,5)) 
+
+data %&gt;%                       # input data
+  group_by(x) %&gt;%              # split
+  summarise(data = mean(y))    # apply/combine</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##   x      data
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1 A       0.5
+## 2 B       2.5
+## 3 C       4.5</code></pre>
+<p>Essa sequência de códigos aplica a abordagem implicitamente, agrupando os dados de acordo com a variável selecionada e em seguida aplicando a operação e combinando os resultados em uma matriz resumida</p>
+</div>
+<div id="usando-dplyr-tidyr-purrr" class="section level2">
+<h2>Usando dplyr + tidyr + purrr</h2>
+<p>Poderíamos ter realizado a mesma operação de forma explícita com o auxílio das funções <code>nest()</code>, <code>map()</code>, <code>mutate()</code> e <code>unnest()</code> dos pacotes <code>dplyr</code> <code>tidyr</code> e <code>purrr</code>, veja:</p>
+<pre class="r"><code># Pacotes necessários
+library(tidyr)
+library(purrr)
+
+# Dados
+data &lt;- tibble(x = c(&quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;C&quot;, &quot;C&quot;),
+               y = c(0,1,2,3,4,5)) 
+# Codigos
+data %&gt;%                                     # Input Data
+  nest(-x) %&gt;%                               # Split
+  mutate(data = map(data, ~mean(.x$y))) %&gt;%  # Apply
+  unnest()                                   # Combine</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##   x      data
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1 A       0.5
+## 2 B       2.5
+## 3 C       4.5</code></pre>
+<p>Note que obtemos a mesma saída do código anterior</p>
+<div id="split-apply-combine-com-funções-complexas" class="section level3">
+<h3>Split-Apply-Combine com funções complexas</h3>
+<p>Você deve estar se perguntando:</p>
+<p>“<em>Tá, eu tenho um atalho para usar a estratégia ”split-apply-combine” com pacote <code>dplyr</code>, por que eu preciso usar os dados aninhados?</em>”</p>
+<p>Trabalhar com dados aninhados permite aplicar qualquer tipo de função em partições do conjunto de dados e juntar os resultados em um objeto do tipo <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> cujo <code>print()</code> é um <em>“método aprimorado que os torna mais fáceis de usar com grandes conjuntos de dados contendo objetos complexos”</em>.</p>
+<p>Veja o seguinte exemplo:</p>
+<p>Primeiramente, imagine que você queira calcular a média de <code>mpg</code> por <code>cyl</code> dos dados <code>mtcars</code> (nativos do R), bastaria utilizar a sequência de códigos:</p>
+<pre class="r"><code>mtcars %&gt;%                     # input data
+  group_by(cyl) %&gt;%            # split
+  summarise(media = mean(mpg)) # apply/combine</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##     cyl media
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1     4  26.7
+## 2     6  19.7
+## 3     8  15.1</code></pre>
+<p>Vejamos a seguir o uso da estratégia em situações mais complexas</p>
+<div id="em-ajustes-de-modelos" class="section level4">
+<h4>Em ajustes de modelos</h4>
+<p>E se precisássemos calcular algo mais elaborado, como por exemplo ajustar <span class="math inline">\(k=3\)</span> regressões lineares: <span class="math inline">\(y_k= b_{0_k} + b_{1_k}*x_k\)</span> (com <span class="math inline">\(y_k=\)</span> <code>mpg</code>, <span class="math inline">\(x_k=\)</span><code>disp</code> para cada <span class="math inline">\(k=\)</span><code>cyl</code>) para estudar os coeficientes estimados, o que aconteceria se utilizássemos o código abaixo ?</p>
+<p><em>Spoiler</em>: Note que pelo fato da saída da função <code>lm</code> não retornar apenas uma única variável para sumarizar obteremos um <code>Error</code>:</p>
+<pre class="r"><code>mtcars %&gt;%                       # input data
+  group_by(cyl) %&gt;%              # split
+  summarise(lm = lm(mpg ~ disp)) # apply/combine</code></pre>
+<pre><code>## Error: Problem with `summarise()` input `lm`.
+## x Input `lm` must be a vector, not a `lm` object.
+## ℹ Input `lm` is `lm(mpg ~ disp)`.
+## ℹ The error occurred in group 1: cyl = 4.</code></pre>
+<p>O erro nos diz: “<em>A coluna <code>lm</code> deve ter o comprimento 1, não 12</em>” ou seja, o resultado precisa ser um valor de resumo e não todo o resultado do ajuste dos modelos.</p>
+<p>Agora vejamos utilizando a abordagem <code>split-apply-combine</code> que irá nos permitir aplicar qualquer tipo de função nos dados agrupados por pela variável <code>cyl</code>:</p>
+<pre class="r"><code>as_tibble(mtcars) %&gt;%                                                      # input data
+  nest(-cyl) %&gt;%                                                           # split
+  mutate(lm = map(data, ~lm(mpg ~ disp, data = .x) %&gt;% broom::tidy())) %&gt;% # apply
+  unnest(lm)                                                               # combine</code></pre>
+<pre><code>## # A tibble: 6 x 7
+##     cyl data               term        estimate std.error statistic    p.value
+##   &lt;dbl&gt; &lt;list&gt;             &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+## 1     6 &lt;tibble [7 × 10]&gt;  (Intercept) 19.1       2.91        6.55  0.00124   
+## 2     6 &lt;tibble [7 × 10]&gt;  disp         0.00361   0.0156      0.232 0.826     
+## 3     4 &lt;tibble [11 × 10]&gt; (Intercept) 40.9       3.59       11.4   0.00000120
+## 4     4 &lt;tibble [11 × 10]&gt; disp        -0.135     0.0332     -4.07  0.00278   
+## 5     8 &lt;tibble [14 × 10]&gt; (Intercept) 22.0       3.35        6.59  0.0000259 
+## 6     8 &lt;tibble [14 × 10]&gt; disp        -0.0196    0.00932    -2.11  0.0568</code></pre>
+<p>Com o auxílio do pacote <a href="https://cran.r-project.org/web/packages/broom/vignettes/broom.html"><code>broom</code></a> obtemos saídas de dados arrumados e juntamos os resultados finais da regressão em uma única tabela de maneira prática.</p>
+</div>
+<div id="na-construção-de-gráficos" class="section level4">
+<h4>Na construção de gráficos</h4>
+<p>Veja um outro exemplo de uso aplicando uma função para criar gráficos, agora com ggplot:</p>
+<pre class="r"><code>library(ggplot2)
+library(gridExtra)
+
+plot_list &lt;- 
+  mtcars %&gt;%      # input data
+  nest(-cyl) %&gt;%  # split/apply ↓
+  mutate(plots = map(data, ~ggplot(.x, aes(x=disp, y=mpg))+geom_point()+geom_smooth(method = &quot;lm&quot;))) %$% 
+  plots # magrittr
+
+# Combine para printar:
+invoke(grid.arrange,plot_list, ncol=1) # ou: grid.arrange(grobs = plot_list, ncol=1)
+
+# Combine para salvar:
+walk2(paste0(&quot;plot&quot;,1:3,&quot;.png&quot;), plot_list, ~ggsave(.x,.y))</code></pre>
+<p><img src="/post/2019-04-05-split-apply-combine/unnamed-chunk-6-1.png" /></p>
+</div>
+<div id="criando-tabelas" class="section level4">
+<h4>Criando tabelas</h4>
+<p>Por fim, um exemplo utilizando o pacote flextable.</p>
+<p>Utilizaremos a função <a href="https://github.com/gomesfellipe/functions/blob/master/flextable_custom.R"><code>flextable_custom()</code></a> que adaptei para gerar uma tabela já customizada com o pacote flextable e a função <a href="https://github.com/gomesfellipe/functions/blob/master/save_flextable.R"><code>save_flextable()</code></a> inspirada em uma pergunta que fiz no stackoverflow sobre <a href="https://stackoverflow.com/questions/50225669/how-to-save-flextable-as-png-in-r">Como salvar uma tabela flextable como png no R?</a>.</p>
+<p>Veja:</p>
+<pre class="r"><code>library(flextable)
+source(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/flextable_custom.R&quot;)
+source(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/save_flextable.R&quot;)
+
+tabela_list &lt;- 
+  head(mtcars,7) %&gt;%           # input data
+  nest(-cyl) %$% data %&gt;%      # apply                                       
+  map(~flextable_custom(.x))   # apply / combine
+
+# Veja a tabela:
+tabela_list[[1]]
+
+# Combine para salvar:
+walk2(paste0(&quot;tab&quot;,1:3,&quot;.png&quot;), tabela_list, ~save_flextable(.y,.x))</code></pre>
+<p><img src="/post/2019-04-05-split-apply-combine/img1.png" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<p>Vimos aqui como funciona a estratégia e alguns exemplos de uso, porém, existem infinitas outras aplicações para esse tipo de abordagem com os dados arrumados. Dependendo da tarefa esta abordagem pode ser bem produtiva e poupar muitas linhas de código!</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<p>Além das referências deixarem aqui algumas sugestões de leitura:</p>
+<ul>
+<li><a href="https://github.com/tidyverse/purrr" class="uri">https://github.com/tidyverse/purrr</a></li>
+<li><a href="https://tibble.tidyverse.org/" class="uri">https://tibble.tidyverse.org/</a></li>
+<li><a href="https://vita.had.co.nz/papers/plyr.pdf" class="uri">https://vita.had.co.nz/papers/plyr.pdf</a></li>
+<li><a href="https://adv-r.hadley.nz/functionals.html#purrr-style" class="uri">https://adv-r.hadley.nz/functionals.html#purrr-style</a></li>
+<li><a href="https://davisvaughan.github.io/furrr/" class="uri">https://davisvaughan.github.io/furrr/</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/">Hackeando o R: estratégia split-apply-combine</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">flextable</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
+      <category domain="tag">split-aply-combine</category>
+      <category domain="tag">tabelas</category>
     </item>
-    
   </channel>
 </rss>

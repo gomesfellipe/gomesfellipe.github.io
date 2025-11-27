@@ -4,40 +4,48 @@ author: Fellipe Gomes
 date: '2021-06-28'
 slug: []
 categories:
-  - Aprendizado Supervisionado
-  - Automação
-  - Dados Desbalanceados
-  - Estatistica
-  - Machine Learning
-  - modelo baseado em arvores
-  - Prática
-  - R
-  - randomforest
+- Fundamentos de Data Science
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - tunning
-  - Tidyverse
-  - Tidymodels
-  - random forest
-  - R
-  - Prática
-  - machine learning
-  - kaggle
-  - imbalanced
-  - imbalanced data
-  - workflowsets
-description: 'Utilizaremos o framework tidymodels para machine learning em R com o auxílio do pacote workflowsets para otimizar pipelines de dados desbalanceados'
-featured: 'img1.png'
-featuredalt: 'Pic 26'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
+- imbalanced
+- imbalanced-data
+- kaggle
+- machine-learning
+- pratica
+- r
+- random-forest
+- tidymodels
+- tidyverse
+- tunning
+description: Utilizaremos o framework tidymodels para machine learning em R com o
+  auxílio do pacote workflowsets para otimizar pipelines de dados desbalanceados
+featured: img1.png
+featuredalt: Ilustração sobre otimizando pipelines que envolvem dados desbalanceados
+featuredpath: date
+type: post
 output:
   blogdown::html_page:
     toc: true
     toc_depth: 2
-image_preview: 'img1.png'
+image_preview: img1.png
+schema_type: TechArticle
+educational_level: Advanced
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2021/06/img1.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2021/06/img1.png
+keywords: imbalanced, imbalanced-data, kaggle, machine-learning, pratica, r, random-forest,
+  tidymodels, tidyverse, tunning, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 <style>
 .column {
 float: left;
@@ -70,9 +78,9 @@ align-items: center;
 height: 200px;
 }
 </style>
-
+  
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = F, message = F, error = F, 
+knitr::opts_chunk$set(eval=FALSE, echo = TRUE, warning = F, message = F, error = F, 
                       fig.height = 3,  fig.align = "center")
 ```
 
@@ -254,6 +262,12 @@ p2 <- df %>%
 p1 + p2 
 ```
 
+<center>
+
+![](/post/2021-06-28-imbalanced-workflowsets/unnamed-chunk-6-1.png){width=80%}
+</center>
+
+
 Veja que estamos diante de um problema que existem aproximadamente 9 casos de dano para cada 100 eventos observados.
 
 # Breve análise exploratória
@@ -265,6 +279,13 @@ DataExplorer::plot_intro(df, ggtheme = theme_bw(),
                          theme_config = list(legend.position = "bottom"))
 ```
 
+<center>
+
+![](/post/2021-06-28-imbalanced-workflowsets/unnamed-chunk-7-1.png){width=80%}
+</center>
+
+
+
 Primeira informação que chama atenção é que quase 1/4 desses dados é faltante. Vamos olhar a estrutura dessa base de maneira mais aprofundada:
 
 ```{r}
@@ -272,6 +293,12 @@ df %>%
   sample_frac(0.01) %>% 
   visdat::vis_dat()
 ```
+
+<center>
+![](/post/2021-06-28-imbalanced-workflowsets/unnamed-chunk-8-1.png){width=80%}
+</center>
+
+
 
 Parece existir algum padrão nos dados faltantes (que coocorrem em diveros atributos). Além disso algumas colunas estão quase inteiramente vazias e serão descartadas no processo de modelagem.
 
@@ -284,6 +311,11 @@ df %>%
   inspectdf::inspect_cat() %>% 
   inspectdf::show_plot()
 ```
+
+<center>
+![](/post/2021-06-28-imbalanced-workflowsets/unnamed-chunk-9-1.png){width=80%}
+</center>
+
 
 Algumas features possuem muitas classes e caso seja feita a transformação *one-hot-encoding* (estratégia amplamente utilizada para lidar com features categóricas) sem algum cuidado, o desempenho da maioria dos modelos de machine learning pode ser prejudicado por tornar a base analítica muito esparsa.
 
@@ -300,6 +332,12 @@ df%>%
   facet_wrap(~key, ncol=5, scales = "free_x")+
   labs(x = "", y="")
 ```
+
+<center>
+![](/post/2021-06-28-imbalanced-workflowsets/unnamed-chunk-10-1.png){width=80%}
+</center>
+
+
 
 Parece que algumas features possuem comportamentos diferentes quando avaliados segundo a target. Além disso é possível notar que as features `aircraft_mass`, `distance`, `engine4_position`, `engines`, `height` e `speed` apresentam outliers.
 
@@ -362,12 +400,18 @@ null_rs <-
 collect_metrics(null_rs) %>% print_table(round = 5, cv = T) 
 ```
 
+![](/post/2021-06-28-imbalanced-workflowsets/tab1.png)
+
 Qualquer modelo com desempenho pior do que este deve ser descartado. Vejamos a matriz de confusão:
 
 ```{r}
 collect_predictions(null_rs) %>% 
   conf_mat_plot()
 ```
+
+<center>
+![](/post/2021-06-28-imbalanced-workflowsets/unnamed-chunk-14-1.png){width=80%}
+</center>
 
 ### Modelo de base
 
@@ -396,12 +440,19 @@ imb_rs <-
 collect_metrics(imb_rs) %>% print_table(round = 5, cv = T)
 ```
 
+![](/post/2021-06-28-imbalanced-workflowsets/tab2.png)
+
 Apesar do elevado número de falsos negativos, este modelo já esta com um desempenho razoável em comparaçãao ao modelo nulo e o número de verdadeiros positivos já é quase o dobro do número de falsos positivos. Veja na matriz de confusão abaixo:
 
 ```{r}
 collect_predictions(imb_rs) %>% 
   conf_mat_plot()
 ```
+
+<center>
+![](/post/2021-06-28-imbalanced-workflowsets/unnamed-chunk-16-1.png){width=80%}
+</center>
+
 
 ## Preparar Pipeline de dados com `workflowsets`
 
@@ -565,6 +616,11 @@ collect_predictions(chi_models) %>%
   filter(wflow_id == "tomek_bag_spec") %>% 
   conf_mat_plot()
 ```
+ 
+<center>
+![](/post/2021-06-28-imbalanced-workflowsets/unnamed-chunk-29-1.png){width=80%}
+</center>
+
 
 ## Benchmark
 

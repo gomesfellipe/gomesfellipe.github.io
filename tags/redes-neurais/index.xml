@@ -1,0 +1,1194 @@
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>redes-neurais on Fellipe Gomes - Data Science Blog</title>
+    <link>https://gomesfellipe.github.io/tags/redes-neurais/</link>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Sat, 20 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/redes-neurais/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</title>
+      <link>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</guid>
+      <description>Como executar localmente o LLM pré-treinado de código aberto Llama2 para realizar uma análise de sentimentos em Python</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#por-que-an%C3%A1lise-de-sentimentos" id="toc-por-que-análise-de-sentimentos">Por que Análise de Sentimentos?</a></li>
+<li><a href="#por-que-large-language-models" id="toc-por-que-large-language-models">Por que Large Language Models?</a></li>
+<li><a href="#o-que-faremos-aqui" id="toc-o-que-faremos-aqui">O que faremos aqui?</a></li>
+<li><a href="#m%C3%A3os-a-obra" id="toc-mãos-a-obra">Mãos a obra!</a>
+<ul>
+<li><a href="#iniciar-ambiente-de-trabalho" id="toc-iniciar-ambiente-de-trabalho">Iniciar ambiente de trabalho</a></li>
+<li><a href="#carregar-dados" id="toc-carregar-dados">Carregar dados</a></li>
+<li><a href="#informa%C3%A7%C3%B5es-gerais" id="toc-informações-gerais">Informações gerais</a></li>
+<li><a href="#an%C3%A1lise-explorat%C3%B3ria" id="toc-análise-exploratória">Análise Exploratória</a></li>
+<li><a href="#an%C3%A1lise-de-sentimentos" id="toc-análise-de-sentimentos">Análise de Sentimentos</a></li>
+</ul></li>
+<li><a href="#resultado-final" id="toc-resultado-final">Resultado Final</a></li>
+<li><a href="#conclus%C3%A3o-e-discuss%C3%A3o" id="toc-conclusão-e-discussão">Conclusão e Discussão</a></li>
+<li><a href="#refer%C3%AAncias" id="toc-referências">Referências</a></li>
+</ul>
+</div>
+
+<style>
+.column4 {
+  float: left;
+  width: 33%;
+  padding: 10px;
+}
+ 
+.column8 {
+  float: left;
+  width: 66%;
+  padding: 10px;
+}
+
+.column6 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<div id="por-que-análise-de-sentimentos" class="section level2">
+<h2>Por que Análise de Sentimentos?</h2>
+<p>Compreender os sentimentos por trás de grandes volumes de texto tornou-se essencial, pois em um mundo cada vez mais digitalizado, a capacidade de compreender as respostas e emoções em larga escala das pessoas diante de produtos, eventos ou tópicos específicos não é apenas valiosa por fornecer insights, mas também se tornou uma necessidade para alavancar negócios e tornar-se cada vez mais competitivo.</p>
+<blockquote>
+<p>Análise de sentimento, também chamada de mineração de opinião, é o campo de estudo que analisa as opiniões, sentimentos, avaliações, apreciações, atitudes e emoções das pessoas em relação a entidades como produtos, serviços, organizações, indivíduos, questões, eventos, tópicos e seus atributos. <a href="https://www.cambridge.org/de/universitypress/subjects/computer-science/artificial-intelligence-and-natural-language-processing/sentiment-analysis-mining-opinions-sentiments-and-emotions-2nd-edition?format=HB&amp;isbn=9781108486378">Liu 2020</a></p>
+</blockquote>
+</div>
+<div id="por-que-large-language-models" class="section level2">
+<h2>Por que Large Language Models?</h2>
+<p>A abordagem comum para resolver problemas de NLP envolviam a aplicação de <em>text mining</em>, <em>embeddings</em> como <em>word2vec</em> e <em>GloVe (Global Vectors for Word Representation)</em> e técnicas de Machine Learning, onde modelos como <em>Random Forest</em>, <em>SVM</em>, <em>Naive Bayes</em>, <em>KNN</em>, <em>Ensembles</em> e até mesmo Regressão eram frequentemente utilizados para classificar textos. Além disso, o uso de redes neurais recorrentes (<em>RNNs</em>) sempre foi uma alternativa valiosa, especialmente em situações que demandavam o processamento de dados sequenciais, sendo a <em>LSTM (Long Short-Term Memory)</em> uma variante eficaz para lidar com o desafio conhecido como <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem"><em>vanishing gradient</em></a>.</p>
+<p>Já no cenário atual de modelos pré-treinados, o <em>BERT (Bidirectional Encoder Representations from Transformers)</em> também teve bastante destaque nesse domínio antes da ascensão do <em>ChatGPT</em>, demonstrando a viabilidade como um método gerador de texto e mostraram o poder que as redes neurais têm para gerar longas sequências de texto que antes pareciam inatingíveis.</p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/parameters_transformer_based_language_models.png" style="width:70.0%" /></br>
+<small><a href="https://www.techtarget.com/searchenterpriseai/definition/GPT-3">GPT-3 supera seus antecessores em termos de contagem de parâmetros</a></small></p>
+</center>
+<p>Embora já existam há algum tempo, os <em>LLMs</em> ganharam a mídia através do <em>ChatGPT</em>, interface de chat da OpenAI para modelos LLM GPT-3 lançado em 2020, com 175 milhões de parâmetros, que já teve uma série de avanços significativos nos últimos anos como seu irmão maior, o GPT-4 lançado em 2023 conta com incríveis 100 <strong>trílhões</strong> de parâmetros.</p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/comparison-between-GPT-3-and-GPT-4.png" style="width:50.0%" /></br>
+<small><a href="https://www.techtarget.com/searchenterpriseai/definition/GPT-3">The comparison between GPT-3 and GPT-4 based on the number of parameters used in their architecture</a></small></p>
+</center>
+<p>Modelos com mais de 100 bilhões de parâmetros já podem ser considerados muito grandes, com conhecimento mundial muito rico. Esses modelos maiores conseguem “aprender” ainda mais informações sobre muitas coisas sobre fisica, filosofia, ciência, programação, etc sendo cada vez mais úteis para ajudar em tarefas que envolvam conhecimento profundo ou raciocinio complexo, sendo um bom “parceiro” para brainstorming.</p>
+<div class="w3-panel w3-pale-red w3-border">
+<p>  <strong>⚠️ Atenção!</strong> </br>
+Afirmar que maiores modelos são sempre melhores não é verdade. O tempo de processamento, latência e o custo também irão aumentar, por isso <a href="https://medium.com/@masteringllm/mistral-7b-is-187x-cheaper-compared-to-gpt-4-b8e5ee1c9fc2">abordagens alternativas</a> também devem ser consideradas.</p>
+</div>
+<div id="como-funcionam-os-llms" class="section level3">
+<h3>Como funcionam os LLMs?</h3>
+<p>Os <em>LLMs</em> são modelos de <em>Machine Learning</em> que usam algoritmos de <em>Deep Learning</em> para processar e compreender a linguagem natural, gerando texto de maneira eficaz. Esses modelos são treinados com grandes volumes de dados da internet, adquirindo a capacidade de identificar padrões na composição de palavras e frases. A idéia básica por trás desses modelos é que são capazes de gerar texto prevendo repetidamente a próxima palavra oferecendo resultados rápidos e diversas aplicações práticas em várias áreas</p>
+<div id="aplicações" class="section level4">
+<h4>Aplicações</h4>
+<p>Diferentemente de uma ferramenta de busca como o Google, o ChatGPT não recupera informações, mas cria frases e textos completos em tempo real com base no processamento de um imenso volume de dados, veja alguns exemplos de uso para diferentes tarefas:</p>
+<div class="row">
+<div id="escrita" class="section level5 column4">
+<h5>✍️ <strong>Escrita:</strong></h5>
+<ul>
+<li>Colaboração em brainstorming, sugerindo nomes;</li>
+<li>Elaboração de templates para comunicados e e-mails;</li>
+<li>Tradução automática.</li>
+</ul>
+</div>
+<div id="leitura" class="section level5 column4">
+<h5>📖 <strong>Leitura</strong>:</h5>
+<ul>
+<li>Revisão de textos;</li>
+<li>Sumarização de artigos extensos;</li>
+<li>Análise de sentimentos, possibilitando a criação de dashboards para acompnhamento ao longo do tempo.</li>
+</ul>
+</div>
+<div id="conversa" class="section level5 column4">
+<h5>💬 <strong>Conversa</strong>:</h5>
+<ul>
+<li>Diálogos e aconselhamentos;</li>
+<li>Coaching de carreira;</li>
+<li>Planejamento de viagens;
+Sugestões de receitas;</li>
+<li>Conversação interativa com documentos PDF;</li>
+<li>Atendimento ao cliente;</li>
+<li>Realização de pedidos.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="o-que-faremos-aqui" class="section level2">
+<h2>O que faremos aqui?</h2>
+<p>Nosso objetivo aqui é realizar uma análise de sentimentos para classificar sentenças como positivas ou negativas utilizando algum LLM pré-treinado. Embora a OpenAI já tenha sido uma organização sem fins lucrativos que lançava seus projetos como código aberto, desde o lançamento do ChatGPT ela se tornou uma empresa que mantém a propriedade de seus códigos fonte. Isso significa que apesar da facilidade de criar aplicações, modelos mais poderosos e relativamente baratos, desenvolvedores de IA não podem modificar o GPT-3 para atender às nossa necessidades específicas ou incorporá-lo em seus próprios projetos de maneira livre e gratuita. Portanto teremos de recorrer à alternativas não tão(*) <em>open source</em> como o <a href="https://huggingface.co/meta-llama"><em>Llama 2</em> da Meta</a> que permite total controle sobre o modelo, rodar em nosso próprio computador/servidor e nós dá o controle sobre a privacidade dos nossos dados.</p>
+<div class="w3-panel w3-pale-red w3-border">
+<p>(*) “Código aberto” 🤔 </br>
+Não é totalmente código aberto pois por mais que a Meta tenha disponibilizado o modelo treinado para uso livre, ele não compartilha os dados de treinamento do modelo ou o código usado para treiná-lo.</p>
+</div>
+</div>
+<div id="mãos-a-obra" class="section level1">
+<h1>Mãos a obra!</h1>
+<div id="iniciar-ambiente-de-trabalho" class="section level2">
+<h2>Iniciar ambiente de trabalho</h2>
+<p>Primeiramente vamos carregar todas as dependencias necessárias para executar os códigos a seguir:</p>
+<pre class="python"><code>import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+from PIL import Image
+from nltk.corpus import stopwords
+from collections import Counter
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, accuracy_score
+from llama_cpp import Llama
+from tqdm.notebook import tqdm
+tqdm.pandas()</code></pre>
+</div>
+<div id="carregar-dados" class="section level2">
+<h2>Carregar dados</h2>
+<p>Utilizaremos uma versão <a href="https://www.kaggle.com/datasets/luisfredgs/imdb-ptbr">traduzida do dataset IMdb para o português</a>, um conjunto de dados do Internet Movie Database (IMDB), que é uma das maiores e mais abrangentes bases de dados online sobre filmes e programas de televisão.</p>
+<pre class="python"><code> #Importar todo conjunto de dados
+df = pd.read_csv(&#39;input/imdb-reviews-pt-br.csv&#39;, index_col=&#39;id&#39;)
+# Obter amostra de tamanho 100
+_, df = train_test_split(df, test_size=100, random_state=42, shuffle=True)</code></pre>
+</div>
+<div id="informações-gerais" class="section level2">
+<h2>Informações gerais</h2>
+<p>Esse dataset inclui avaliações e críticas de filmes feitas por usuários do IMDB, bem como informações sobre os próprios filmes, como título, ano de lançamento, gênero, etc. Para nossa finalidade para tarefa de análise de sentimentos, utilizaremos os seguintes dados:</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="41%" />
+<col width="40%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">id</th>
+<th align="left">text_en</th>
+<th align="left">text_pt</th>
+<th align="center">sentiment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">12534</td>
+<td align="left">This was unusual: a modern-day film which…</td>
+<td align="left">Isso era incomum: um filme moderno que era…</td>
+<td align="center">pos</td>
+</tr>
+<tr class="even">
+<td align="center">35447</td>
+<td align="left">Some of my old friends suggested me to wat…</td>
+<td align="left">Alguns dos meus velhos amigos sugeriram qu…</td>
+<td align="center">neg</td>
+</tr>
+<tr class="odd">
+<td align="center">20281</td>
+<td align="left">What a pleasure. This is really a parody. …</td>
+<td align="left">Que prazer. Isto é realmente uma paródia. S…</td>
+<td align="center">pos</td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="left">…</td>
+<td align="left">…</td>
+<td align="center">…</td>
+</tr>
+<tr class="odd">
+<td align="center">34241</td>
+<td align="left">WOW!I just was given this film from a frie…</td>
+<td align="left">WOW! Acabei de receber este filme de um am…</td>
+<td align="center">neg</td>
+</tr>
+<tr class="even">
+<td align="center">12896</td>
+<td align="left">This film offers many delights and surprise…</td>
+<td align="left">Este filme oferece muitas delícias e surp…</td>
+<td align="center">pos</td>
+</tr>
+<tr class="odd">
+<td align="center">19748</td>
+<td align="left">Over the years Ive watched this movie many…</td>
+<td align="left">Ao longo dos anos, assisti a esse filme mu…</td>
+<td align="center">pos</td>
+</tr>
+</tbody>
+</table>
+<p>Onde:</p>
+<ul>
+<li><code>id</code>: Identificador;</li>
+<li><code>text_en</code>: texto em inglês;</li>
+<li><code>text_pt</code>: texto em português;</li>
+<li><code>sentiment</code>: rótulo do texto, que pode ser <code>pos</code> ou <code>neg</code>.</li>
+</ul>
+</div>
+<div id="análise-exploratória" class="section level2">
+<h2>Análise Exploratória</h2>
+<hr />
+<div id="distribuição-dos-sentimentos-na-amostra" class="section level3">
+<h3>Distribuição dos sentimentos na amostra</h3>
+<p>Primeiro vamos entender como ficou distribuída a proporção dos sentimentos na amostra coletada:</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Contagem absoluta
+contagem_absoluta = df[&#39;sentiment&#39;].value_counts()
+
+# Contagem relativa
+contagem_relativa = df[&#39;sentiment&#39;].value_counts(normalize=True) * 100
+
+# Criar gráfico de barras
+fig, ax = plt.subplots(figsize=(6, 4))
+barras = plt.bar(contagem_absoluta.index, contagem_absoluta, color=[&#39;green&#39;, &#39;red&#39;])
+
+# Adicionar texto nas barras
+for barra, abs_value, rel_value in zip(barras, contagem_absoluta, contagem_relativa):
+    yval = barra.get_height()
+    ax.text(barra.get_x() + barra.get_width()/2, yval, f&#39;{abs_value} ({rel_value:.1f}%)&#39;,
+            ha=&#39;center&#39;, va=&#39;bottom&#39;, color=&#39;black&#39;, fontsize=12)
+
+# Adicionar rótulos e título
+plt.xlabel(&#39;Sentimento&#39;, fontsize=14)
+plt.ylabel(&#39;Frequência absoluta&#39;, fontsize=14)
+plt.title(&#39;Quantidade de textos de cada sentimento \nem uma amostra de tamanho 100&#39;, fontsize=16, x=0.5, y=1.1)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Remover bordas da parte superior e direita
+ax.spines[&#39;top&#39;].set_visible(False)
+ax.spines[&#39;right&#39;].set_visible(False)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar imagem
+plt.savefig(f&quot;img/freq_sentiment.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<p> </p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/freq_sentiment.png" /></p>
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  📌 <strong>Interpretação:</strong>
+Coletei uma amostra aleatória simples de tamanho n=100 de todas as reviews que contém aproximadamente metade de cada sentimento para diminuir o tempo computacional de execução no meu computador.</p>
+</div>
+</div>
+<div id="palavras-mais-frequentes-para-cada-sentimento" class="section level3 tabset">
+<h3>Palavras mais frequentes para cada sentimento</h3>
+<p>Núvens de palavras das resenhas dos filmes que foram anotadas como positivos e como negativos nas duas linguas disponíveis no dataset:</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código das Wordclouds</em>
+</summary>
+<pre class="python"><code>def generate_wordcloud(df, language=&#39;en&#39;):
+    # Definir stopwords para o idioma escolhido
+    if language == &#39;en&#39;:
+        stop_words_pos = stop_words_neg = set(stopwords.words(&#39;english&#39;))
+        stop_words_pos.update([&quot;film&quot;, &quot;movie&quot;, &quot;one&quot;])
+        stop_words_neg.update([&quot;character&quot;, &quot;like&quot;, &quot;really&quot;, &quot;make&quot;, &quot;see&quot;])
+    elif language == &#39;pt&#39;:
+        stop_words_pos = stop_words_neg = set(stopwords.words(&#39;portuguese&#39;))
+        stop_words_pos.update([&quot;filme&quot;, &quot;filmes&quot;, &quot;todo&quot;, &quot;tão&quot;, &quot;pode&quot;, &quot;todos&quot;])
+        stop_words_neg.update([&quot;filme&quot;, &quot;filmes&quot;, &quot;todo&quot;, &quot;tão&quot;, &quot;filme&quot;, &quot;coisa&quot;, &quot;realmente&quot;])
+    else:
+        raise ValueError(&quot;Language must be &#39;en&#39; or &#39;pt&#39;.&quot;)
+
+    # Concatenar textos positivos e negativos
+    txt_pos = &quot; &quot;.join(review for review in df[df.sentiment == &#39;pos&#39;][f&#39;text_{language}&#39;])
+    txt_neg = &quot; &quot;.join(review for review in df[df.sentiment == &#39;neg&#39;][f&#39;text_{language}&#39;])
+
+    # Carregar máscaras de imagem
+    mask_pos = np.array(Image.open(f&quot;img/pos.png&quot;))
+    mask_neg = np.array(Image.open(f&quot;img/neg.png&quot;))
+
+    # Gerar nuvens de palavras positivas e negativas
+    wordcloud_positivo = WordCloud(
+        stopwords=stop_words_pos,
+        random_state=42,
+        background_color=&quot;white&quot;,
+        color_func=lambda *args, **kwargs: &quot;green&quot;,
+        contour_color=&#39;black&#39;,
+        contour_width=1,
+        max_font_size=100,
+        min_font_size=15,
+        max_words=200,
+        mask=mask_pos
+    ).generate(txt_pos)
+
+    wordcloud_negativo = WordCloud(
+        stopwords=stop_words_neg,
+        random_state=42,
+        background_color=&quot;white&quot;,
+        color_func=lambda *args, **kwargs: &quot;red&quot;,
+        contour_color=&#39;black&#39;,
+        contour_width=1,
+        max_font_size=100,
+        min_font_size=15,
+        max_words=200,
+        mask=mask_neg
+    ).generate(txt_neg)
+
+    # Configurações do plot
+    plt.figure(figsize=(7, 14))
+
+    # Plotar nuvem de palavras positivas
+    plt.subplot(1, 2, 1)
+    plt.imshow(wordcloud_positivo, interpolation=&#39;bilinear&#39;)
+    plt.axis(&#39;off&#39;)
+    plt.title(&#39;Positivo&#39;, fontsize=20, color=&#39;green&#39;)
+
+    # Plotar nuvem de palavras negativas
+    plt.subplot(1, 2, 2)
+    plt.imshow(wordcloud_negativo, interpolation=&#39;bilinear&#39;)
+    plt.axis(&#39;off&#39;)
+    plt.title(&#39;Negativo&#39;, fontsize=20, color=&#39;red&#39;)
+
+    # Ajustar layout
+    plt.tight_layout()
+
+    # Salvar a nuvem de palavras como imagem
+    plt.savefig(f&quot;img/wordcloud_{language}.png&quot;, bbox_inches=&#39;tight&#39;)
+
+    # Exibir a nuvem de palavras
+    plt.show()
+    
+# Exemplo de uso para o idioma inglês
+generate_wordcloud(df, language=&#39;en&#39;)
+
+# Exemplo de uso para o idioma português
+generate_wordcloud(df, language=&#39;pt&#39;)</code></pre>
+</details>
+<p> </p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/wordcloud_en.png" /></p>
+<p>Núvem de palavras mais frequentes das resenhas em <strong>🇺🇲 Inglês</strong></p>
+</center>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/wordcloud_pt.png" /></p>
+<p>Núvem de palavras mais frequentes das resenhas em <strong>🇧🇷 Português</strong></p>
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong>
+Como esperado, mesmo com a mudança na língua, a frequência das palavras é exibida de maneira muito similar de acordo com cada sentimento.</p>
+</div>
+</div>
+</div>
+<div id="análise-de-sentimentos" class="section level2">
+<h2>Análise de Sentimentos</h2>
+<hr />
+<div id="família-llama-2-de-large-language-models-llms" class="section level3">
+<h3>Família <em>Llama 2</em> de <em>Large Language Models</em> (<em>LLMs</em>)</h3>
+<p>Nesta seção, exploraremos o <a href="https://llama.meta.com/"><em>Llama 2</em></a>, um modelo de código aberto, e discutiremos as vantagens e desvantagens em relação aos LLMs de código fechado ou remotos.</p>
+<div id="tamanho-do-modelo" class="section level4">
+<h4>Tamanho do modelo</h4>
+<p>Para saber qual modelo utilizar, primeiramente precisamos ter em mente algumas noções sobre a quantidade de parâmetros e tamanhos dos LLM. No geral:</p>
+<div class="row">
+<div class="column4">
+<p><big><strong>1 Bilhão</strong>:</big></p>
+<p>Bons em correspondência de padrões e algum conhecimento básico do mundo (como por exemplo classificar avaliações por sentimento)</p>
+</div>
+<div class="column4">
+<p><big><strong>10 Bilhões</strong>:</big></p>
+<p>Maior conhecimento mundial, conhecem mais fatos esotéricos sobre o mundo e melhoram em seguir instruções básicas (bom para chatbot para pedidos de comida);</p>
+</div>
+<div class="column4">
+<p><big><strong>100+ Bilhões</strong>: </big></p>
+<p>Muito grandes, com conhecimento mundial muito rico, saberão coisas sobre física, filosofia, ciência e assim por diante e serão melhores em raciocínios complexos (tarefas que envolvem conhecimento profundo ou raciocínio complexo, parceiro para brainstorming)</p>
+</div>
+</div>
+<p>Para uma análise de sentimentos simples, não é necessário um modelo com 100 bilhões de parâmetros. Modelos menores, como os com 7 bilhões de parâmetros, podem ser suficientes e menos computacionalmente exigentes.</p>
+</div>
+<div id="código-aberto-ou-fechado" class="section level4">
+<h4>Código aberto ou fechado</h4>
+<p>Embora próximos, os LLMs de código aberto ainda não conseguem igualar o poder e a precisão dos aplicativos de código fechado disponíveis comercialmente, como <a href="https://openai.com/gpt-4">GPT-4</a> e <a href="https://gemini.google.com/app">Bard (Gemini)</a>. Mesmo sendo menos poderosos, existem alguns prós e contras pelos quais podemos pesar na hora de escolher a melhor opção:</p>
+<div class="row">
+<div class="column6">
+<p><big><strong>Open Source</strong></big></p>
+<ul>
+<li>Total controle sobre o modelo</li>
+<li>Pode rodar em nosso próprio computador/servidor</li>
+<li>Controle sobre a privacidade dos dados</li>
+</ul>
+</div>
+<div class="column6">
+<p><big><strong>Closed</strong></big></p>
+<ul>
+<li>Fácil de criar aplicações</li>
+<li>Maiores e mais poderosos</li>
+<li>Relativamente barato</li>
+<li>Existe um certo risco de depender do fornecedor</li>
+</ul>
+</div>
+</div>
+<p>Utilizaremos a abordagem de código aberto por ser mais prática para fins de estudos, pois além de gratuita, não exige internet, registros ou chaves de API.</p>
+</div>
+<div id="uso-remoto-ou-local" class="section level4">
+<h4>Uso remoto ou local</h4>
+<p>Podemos interagir com o modelo de linguagem grande (LLM) do Llama 2 via API da <a href="https://huggingface.co/">Hugging Face</a>, seguindo as instruções do <a href="https://huggingface.co/meta-llama">repositório oficial da Meta</a> ou podemos baixar os arquivos do modelo em formato GGML para o <a href="https://huggingface.co/meta-llama/Llama-2-7b-chat-hf">Llama 2 7B Chat do Meta Llama 2</a>. Os formatos GGML são utilizados para inferência de CPU + GPU usando o principamente o pacote <a href="https://pypi.org/project/llama-cpp-python/">llama-cpp-python</a>.</p>
+<p>Para mais informações sobre como configurar o modelo consulte <a href="https://swharden.com/blog/2023-07-29-ai-chat-locally-with-python/">este link</a></p>
+<pre class="python"><code>def load_llama_model(model_path=&quot;./input/llama-2-7b-chat.ggmlv3.q2_K.bin&quot;, language=&#39;en&#39;, seed=42):
+    # Determinar o tamanho da janela de contexto com base no idioma
+    if language == &#39;en&#39;:
+        context_window = df.text_en.map(len).max()
+    elif language == &#39;pt&#39;:
+        context_window = df.text_pt.map(len).max()
+    else:
+        raise ValueError(&quot;Language must be &#39;en&#39; or &#39;pt&#39;.&quot;)
+
+    # Carregar o modelo Llama
+    return Llama(model_path=model_path,
+                 verbose=False,
+                 n_ctx=context_window,
+                 seed=seed)</code></pre>
+<p>Para obter os melhores resultados, devemos ser o mais claro e específicos possível nas interações. Porém devemos iniciar com um prompt simples e rápido para ir direcionando o modelo na direção desejada e avaliando os resultados obtidos e ajustando gradualmente o prompt para refinar e aprimorar a resposta desejada</p>
+<pre class="python"><code>def classify_sentiment_llama(text, llama_model):
+    # Construir a prompt para o modelo Llama
+    prompt = f&#39;&#39;&#39; \
+    Q: Answer with just one word, \
+    does the following text express a \
+    positive or negative feeling? \
+    {text} \
+    A:&#39;&#39;&#39;
+    # Obter a saída do modelo Llama
+    output = llama_model(prompt, max_tokens=3)
+    return output[&quot;choices&quot;][0][&quot;text&quot;]</code></pre>
+<p>Com nosso prompt definido, já podemos carregar o modelo:</p>
+<pre class="python"><code># Carregar o modelo Llama para o idioma desejado
+llama_model = load_llama_model(language=&#39;en&#39;)</code></pre>
+<pre><code>## llama.cpp: loading model from ./llama-2-7b-chat.ggmlv3.q2_K.bin
+## llama_model_load_internal: format     = ggjt v3 (latest)
+## llama_model_load_internal: n_vocab    = 32000
+## llama_model_load_internal: n_ctx      = 4320
+## llama_model_load_internal: n_embd     = 4096
+## llama_model_load_internal: n_mult     = 256
+## llama_model_load_internal: n_head     = 32
+## llama_model_load_internal: n_head_kv  = 32
+## llama_model_load_internal: n_layer    = 32
+## llama_model_load_internal: n_rot      = 128
+## llama_model_load_internal: n_gqa      = 1
+## llama_model_load_internal: rnorm_eps  = 5.0e-06
+## llama_model_load_internal: n_ff       = 11008
+## llama_model_load_internal: freq_base  = 10000.0
+## llama_model_load_internal: freq_scale = 1
+## llama_model_load_internal: ftype      = 10 (mostly Q2_K)
+## llama_model_load_internal: model size = 7B
+## llama_model_load_internal: ggml ctx size =    0.08 MB
+## llama_model_load_internal: mem required  = 2733.66 MB (+ 2160.00 MB per state)
+## llama_new_context_with_model: kv self size  = 2160.00 MB
+## llama_new_context_with_model: compute buffer total size =  295.35 MB</code></pre>
+<p>Após instanciar o modelo, basta aplicá-lo em nossa base de dados. (apliquei o mesmo modelo tanto para as reviews e português quanto em inglês).</p>
+<pre class="python"><code>df[&#39;sentiment_llm_en&#39;] = df.text_en.progress_apply(lambda x: classify_sentiment_llama(x, llama_model))</code></pre>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/load_en.png" /></p>
+<p>Como este modelo é o mais básico e não alteramos nenhum parâmetro (como por exemplo <code>temperature</code>, que determina se o output será mais aleatório ou mais previsível) pode ser que a saída não saia padronizada e necessite de algum pós-processamento. Vejamos como foram os outputs do LLM:</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Contagem da frequência das classificações
+sentiment_llm_counts = df.groupby(&#39;sentiment&#39;).sentiment_llm_en.value_counts().reset_index(name=&#39;n&#39;)
+
+# Organizar as categorias pela frequência total
+order = df.sentiment_llm_en.value_counts().reset_index(name=&#39;n&#39;)
+order = order.sort_values(by=&#39;n&#39;, ascending=False)[&#39;index&#39;]
+
+# Configurações de estilo do seaborn
+sns.set(style=&quot;whitegrid&quot;)
+
+# Criar o gráfico de barras
+plt.figure(figsize=(12, 4))
+ax = sns.barplot(x=sentiment_llm_counts.sentiment_llm_en, y=sentiment_llm_counts.n, hue=sentiment_llm_counts.sentiment, order=order, palette=[&quot;red&quot;, &quot;green&quot;])
+
+# Adicionar rótulos e título
+plt.ylim([0, 25])
+plt.xticks(fontsize=12, rotation=90)
+plt.yticks(fontsize=12)
+ax.set_xlabel(&#39;Anotação de sentimento das resenhas&#39;, fontsize=14)
+ax.set_ylabel(&#39;Frequência&#39;, fontsize=14)
+ax.set_title(&#39;Frequência dos sentimentos classificados pelo LLM em Inglês\nem relação aos sentimentos já anotados da base&#39;, fontsize=20)
+
+# Adicionar anotações nas barras
+for p in ax.patches:
+    ax.annotate(f&#39;{p.get_height()}&#39;, (p.get_x() + p.get_width() / 2., p.get_height()),
+                ha=&#39;center&#39;, va=&#39;baseline&#39;, fontsize=10, color=&#39;black&#39;, xytext=(0, 5),
+                textcoords=&#39;offset points&#39;)
+
+plt.legend(loc=&quot;upper right&quot;, title = &quot;Label real&quot;)
+
+# Remover bordas da parte superior e direita
+ax.spines[&#39;top&#39;].set_visible(False)
+ax.spines[&#39;right&#39;].set_visible(False)
+ax.grid(False)
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/freq_class_llm_en.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/freq_class_llm_en.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong>
+É possível observar que o modelo pré-treinado conseguiu reconhecer de maneira bastante coerente o sentimento dos trechos para as categorias <code>pos</code> e <code>neg</code>, porém, não vieram padronizadas exatamente como solicitamos ao modelo.</p>
+</div>
+<p>Como a saída não foi padronizada, vamos realizar algum pós-processamento para padronizar as classes como <code>pos</code> ou <code>neg</code> para possibilitar avaliar o desempenho do modelo com base em métricas de classificação.</p>
+<pre class="python"><code>conditions = [
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:pos|fun)&#39;)),
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:neg|horrible|melanchol)&#39;))
+]
+pd.crosstab(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))</code></pre>
+<p>Com os outputs padronizados em duas classes, podemos verificar como foi a acurácia do modelo.</p>
+</div>
+<div id="desempenho" class="section level4">
+<h4>Desempenho</h4>
+<p>Como estamos diante de um problema de classificação, avaliaremos o desempenho do modelo com matrizes de confusão para entender a as taxas de acerto e calcular a acurácia pois o dataset é balanceado.</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Matrizes de Confusão
+conditions = [
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:pos|fun|good|comedy)&#39;)),
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:neg|melanchol|absurd|horrible)&#39;))
+]
+cm_llm_en = confusion_matrix(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+accuracy_llm_en = accuracy_score(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+
+conditions = [
+    (df.sentiment_llm_pt.str.contains(&#39;(?i)(?:pos)&#39;)),
+    (df.sentiment_llm_pt.str.contains(&#39;(?i)(?:neg|horrível)&#39;))
+]
+cm_llm_pt = confusion_matrix(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+accuracy_llm_pt = accuracy_score(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+
+# Configurações de estilo do seaborn
+sns.set(font_scale=1.2)
+plt.figure(figsize=(12, 5))
+
+# Plotar Matriz de Confusão para o modelo de LLM em inglês
+plt.subplot(1, 2, 1)
+sns.heatmap(cm_llm_en, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False, vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Inglês)\nAcurácia: {accuracy_llm_en:.0%}&#39;, fontsize=22)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Plotar Matriz de Confusão para o modelo de LLM em português
+plt.subplot(1, 2, 2)
+sns.heatmap(cm_llm_pt, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False,vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Português)\nAcurácia: {accuracy_llm_pt:.0%}&#39;, fontsize=22)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/cm_llm.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/cm_llm2.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong>
+A acurácia geral para a língua Inglesa foi superior quando aplicado o mesmo modelo para a língua portuguesa. Vale lembrar que este modelo foi treinado em Inglês e estamos utilizado a menor das opções.</p>
+</div>
+<p>O desempenho deste modelo é muito interessante, principalmente por já ser pré treinado, não sendo necessário gastar tanto tempo na sua construção mas para afirmar que este modelo é bom precisamos entender qual seria o resultado para resolver este problemas se utilizassemos a abordagem mais simples possível.</p>
+</div>
+</div>
+<div id="vader" class="section level3">
+<h3>Vader</h3>
+<!-- ## Baseline -->
+<p>O <em><strong>VADER</strong> (Valence Aware Dictionary and sEntiment Reasoner)</em> é uma abordagem mais simples e rápida em comparação aos LLMs. Não requer o treinamento de um modelo, mas depende de léxicos de palavras relacionadas a sentimentos. Pode ser facilmente utilizado via bibliotecas de código aberto em Python, como <a href="https://pypi.org/project/vaderSentiment/">vaderSentiment</a> para inglês e <a href="https://github.com/rafjaa/LeIA">LeIA (Léxico para Inferência Adaptada)</a> para português.</p>
+<p>A abordagem é direta: no léxico (uma coleção de palavras), cada palavra já possui uma nota atribuída. Ao passar um documento (frase), retorna um dicionário com o escore de polaridade com base no escore das palavras no texto. O dicionário inclui o valor do sentimento geral normalizado (<code>compound</code>), variando de -1 (extremamente negativo) a +1 (extremamente positivo). Esse valor pode ser usado para descrever o sentimento predominante no texto, considerando os seguintes limites:</p>
+<ul>
+<li>Sentimento <span style="color: green;">positivo</span>: <code>compound</code> &gt;= 0.05</li>
+<li>Sentimento <span style="color: red;">negativo</span>: <code>compound</code> &lt;= -0.05</li>
+<li>Sentimento <span style="color: orange;">neutro</span>: (<code>compound</code> &gt; -0.05) e (<code>compound</code> &lt; 0.05)</li>
+</ul>
+<details>
+<summary>
+<em>Clique aqui para ver a função utilizada para classificar o sentimento com base no escore <code>compound</code></em>
+</summary>
+<pre class="python"><code># Função para classificar o sentimento com base no compound score
+def classify_sentiment_vader(text, language=&#39;en&#39;):
+
+    # Definir método que será utilizado
+    if language==&#39;en&#39;:
+        from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+    elif language == &#39;pt&#39;:
+        from leia import SentimentIntensityAnalyzer
+    else:
+        raise ValueError(&quot;Language must be &#39;en&#39; or &#39;pt&#39;.&quot;)
+
+    # Instanciar a ferramenta para análise de sentimentos
+    analyzer = SentimentIntensityAnalyzer()
+    # Realiza a análise de sentimentos e obtém o compound score
+    compound_score = analyzer.polarity_scores(text)[&#39;compound&#39;]
+    # Classifica o sentimento com base no compound score
+    if compound_score &gt;= 0.05:
+        return &#39;pos&#39;
+    elif compound_score &lt;= -0.05:
+        return &#39;neg&#39;
+    else:
+        return &#39;neu&#39;
+
+# Criando uma nova coluna &#39;sentimento_vader&#39;
+df[&#39;sentiment_vader_en&#39;] = df.text_en.apply(lambda x: classify_sentiment_vader(x, &#39;en&#39;))
+df[&#39;sentiment_vader_pt&#39;] = df.text_pt.apply(lambda x: classify_sentiment_vader(x, &#39;pt&#39;))</code></pre>
+</details>
+<!-- &nbsp; -->
+<p>A execução do código é bem rápida, sendo útil para referência como baseline ou em casos em que temos baixo recurso computacional e um grande volume de dados para classificar.</p>
+<div id="desempenho-1" class="section level4">
+<h4>Desempenho</h4>
+<p>Como estamos diante de um problema de classificação, avaliaremos o desempenho do modelo com matrizes de confusão para entender a as taxas de acerto e calcular a acurácia pois o dataset é balanceado.</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Matrizes de Confusão
+cm_vader_en = confusion_matrix(df.sentiment, df.sentiment_vader_en)
+cm_vader_pt = confusion_matrix(df.sentiment, df.sentiment_vader_pt)
+
+# Acurácias
+accuracy_vader_en = accuracy_score(df.sentiment, df.sentiment_vader_en)
+accuracy_vader_pt = accuracy_score(df.sentiment, df.sentiment_vader_pt)
+
+# Configurações de estilo do seaborn
+sns.set(font_scale=1.2)
+plt.figure(figsize=(12, 5))
+
+# Plotar Matriz de Confusão para o método Vader em inglês
+plt.subplot(1, 2, 1)
+sns.heatmap(cm_vader_en, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False,vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Inglês)\nAcurácia: {accuracy_vader_en:.0%}&#39;, fontsize=22)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+
+# Plotar Matriz de Confusão para o método Vader em português
+plt.subplot(1, 2, 2)
+sns.heatmap(cm_vader_pt, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False,vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Português)\nAcurácia: {accuracy_vader_pt:.0%}&#39;, fontsize=22)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/cm_vader.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/cm_vader.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong> A acurácia geral do método foi praticamente o mesmo para ambas as linguas. Na lingua inglesa observamos mais casos de falsos positivos (22%), já na lingua portuguesa observamos mais casos de falsos negativos (14%).</p>
+</div>
+<p>Essa abordagem é boa para ser utilizada como baseline pois quase todas as abordagens tradicionais de Machine Learning para a tarefa de análise de sentimentos necessitam de tempo para desenvolvimento, treino, validação e sustentação de modelos.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="resultado-final" class="section level1">
+<h1>Resultado Final</h1>
+<hr />
+<p>Avaliamos o desempenho de ambas as abordagens para determinar se o uso do LLM justificou-se em comparação com a abordagem mais simples para a execução da tarefa de análise de sentimentos.</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code>models = (
+    &quot;Inglês&quot;,
+    &quot;Português&quot;,
+)
+weight_counts = {
+    &quot;Vader&quot;: np.array([accuracy_vader_en,
+                       accuracy_vader_pt]),
+    &quot;LLM&quot;: np.array([accuracy_llm_en-accuracy_vader_en,
+                     accuracy_llm_pt-accuracy_vader_pt]),
+}
+
+fig, ax = plt.subplots()
+bottom = np.zeros(2)
+colors=[&quot;#b4dbe6&quot;, &quot;#024b7a&quot;]
+for (boolean, weight_count), col in zip(weight_counts.items(), colors):
+    p = ax.bar(models, weight_count, width=0.5, label=boolean, bottom=bottom, color=col)
+    bottom += weight_count
+
+# Formatar eixos
+plt.ylim([0, 1.1])
+plt.xlabel(&#39;Idioma das resenhas dos filmes&#39;, fontsize=14)
+plt.ylabel(&#39;Ganho de Acurácia&#39;, fontsize=14)
+plt.title(&quot;Comparação do ganho de acurácia \ndo LLM em relação ao Vader&quot;, fontsize=16, x=0.5)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Legenda
+ax.legend(loc=&quot;upper right&quot;, title=&#39;Método utilizado&#39;)
+#specify order of items in legend
+handles, labels = plt.gca().get_legend_handles_labels()
+order = [1, 0]
+plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order])
+
+accs=[x*100 for x in [accuracy_vader_en, accuracy_vader_pt, accuracy_llm_en, accuracy_llm_pt]]
+for p, acc in zip(ax.patches, accs):
+    width, height = p.get_width(), p.get_height()
+    x, y = p.get_xy()
+    ax.text(x+width/2,
+            y+(height/2) - 0.01,
+            &#39;{:.0f} %&#39;.format(acc),
+            horizontalalignment=&#39;center&#39;,
+            verticalalignment=&#39;center&#39;,
+            color=&#39;white&#39;, fontsize=18)
+
+# Adicionar setas e textos na figura
+plt.arrow(0.3, 0.62, 0, 0.16,
+          head_width = 0.05,
+          width = 0.015,
+          color=&#39;black&#39;)
+plt.text(0.2, 0.9, &#39;+20,0%&#39;, fontsize = 20)
+
+plt.arrow(0.7, 0.63, 0, 0.09,
+          head_width = 0.05,
+          width = 0.015,
+          color=&#39;black&#39;)
+plt.text(0.6, 0.84, &#39;+11,53%&#39;, fontsize = 20)
+
+# Remover bordas da parte superior e direita
+ax.spines[&#39;top&#39;].set_visible(False)
+ax.spines[&#39;right&#39;].set_visible(False)
+ax.spines[&#39;bottom&#39;].set_visible(True)
+ax.spines[&#39;left&#39;].set_visible(True)
+ax.grid(visible=None)
+ax.set_facecolor(&#39;white&#39;)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/acc_comparation.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/acc_comparation.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong> A acurácia geral foi consideravelmente maior para o modelo Llama2 em ambas as línguas, mesmo sendo treinado principalmente em dados da língua inglesa.</p>
+</div>
+</div>
+<div id="conclusão-e-discussão" class="section level1">
+<h1>Conclusão e Discussão</h1>
+<hr />
+<p>Os avanços tecnológicos na área são verdadeiramente impressionantes e evidenciam a rápida evolução da inteligência artificial. É importante estarmos sempre atentos a essas mudanças, pois a área de LLMs está em constante crescimento e melhorias significativas são desenvolvidas diariamente.</p>
+<p>Em meio a tantos avanços, também é importante reconhecer as limitações desses modelos. Um dos desafios é o corte de conhecimento (knowledge cutoffs), o que significa que o modelo é treinado até uma determinada data, como 2022, portanto não possui conhecimento sobre eventos ou desenvolvimentos que ocorreram após essa data. Além disso, os LLMs estão sujeitos a “hallucinations”, ou seja, podem inventar informações em um tom muito confiante, o que pode levar a resultados imprecisos ou até mesmo prejudiciais.</p>
+<p>Outras limitações incluem restrições no input e output dos modelos, o que pode tornar difícil lidar com grandes volumes de dados ou fornecer resultados completos de uma só vez. Além disso, os LLMs geralmente não funcionam bem com dados estruturados, como tabelas, e podem reproduzir vieses e toxicidade presentes na sociedade, o que levanta preocupações éticas e sociais importantes.</p>
+<p>Portanto, enquanto exploramos esse vasto campo das redes neurais, é essencial abordar essas limitações e desenvolver soluções que permitam o uso ético e responsável dessas poderosas ferramentas de IA.</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<hr />
+<ul>
+<li><a href="https://medium.com/mapegy-tech/large-scale-language-models-for-innovation-and-technology-intelligence-sentiment-analysis-on-news-2c1ed1f6f2ad">Large-scale language models for innovation and technology intelligence: sentiment analysis on news articles</a></li>
+<li><a href="https://medium.com/luisfredgs/an%C3%A1lise-de-sentimentos-com-redes-neurais-recorrentes-lstm-a5352b21e6aa">Análise de sentimentos com redes neurais recorrentes LSTM</a></li>
+<li><a href="https://www.coursera.org/programs/applied-intelligence-workera-vshgt/learn/generative-ai-for-everyone?authProvider=accenture-main">Generative AI for Everyone - Andrew Ng - Coursera Course</a></li>
+<li><a href="https://swharden.com/blog/2023-07-29-ai-chat-locally-with-python/">Run Llama 2 Locally with Python</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/">Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">chatgpt</category>
+      <category domain="tag">data-science</category>
+      <category domain="tag">gam</category>
+      <category domain="tag">inteligencia-artificial</category>
+      <category domain="tag">llama2</category>
+      <category domain="tag">llm</category>
+      <category domain="tag">python</category>
+      <category domain="tag">redes-neurais</category>
+      <category domain="tag">sentiment-analysis</category>
+    </item>
+    <item>
+      <title>Gerando arte com Inteligência Artificial</title>
+      <link>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</link>
+      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</guid>
+      <description>Veja como usar, opções, dicas e truques de modelos de inteligência artificial para criar arte sem escrever uma linha de código (a não ser que você queira).</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#introdu%C3%A7%C3%A3o" id="toc-introdução">Introdução</a></li>
+<li><a href="#dalle-2" id="toc-dalle-2">DALL·E 2</a></li>
+<li><a href="#instru%C3%A7%C3%B5es-de-uso" id="toc-instruções-de-uso">Instruções de Uso</a>
+<ul>
+<li><a href="#par%C3%A2metros" id="toc-parâmetros">Parâmetros</a></li>
+<li><a href="#exemplos" id="toc-exemplos">Exemplos</a></li>
+</ul></li>
+<li><a href="#dalle-mini-e-stable-diffusion" id="toc-dalle-mini-e-stable-diffusion">DALL·E Mini e Stable Diffusion</a>
+<ul>
+<li><a href="#exemplos-1" id="toc-exemplos-1">Exemplos</a></li>
+</ul></li>
+<li><a href="#op%C3%A7%C3%B5es-alternativas" id="toc-opções-alternativas">Opções Alternativas</a>
+<ul>
+<li><a href="#vqganclip" id="toc-vqganclip">VQGAN+CLIP</a></li>
+<li><a href="#mais-par%C3%A2metros" id="toc-mais-parâmetros">Mais Parâmetros</a></li>
+<li><a href="#mais-exemplos" id="toc-mais-exemplos">Mais Exemplos</a></li>
+</ul></li>
+<li><a href="#discuss%C3%A3o-filos%C3%B3fica" id="toc-discussão-filosófica">Discussão Filosófica</a></li>
+<li><a href="#conclus%C3%A3o" id="toc-conclusão">Conclusão</a></li>
+<li><a href="#refer%C3%AAncias" id="toc-referências">Referências</a></li>
+</ul>
+</div>
+
+<style>
+.column4 {
+  float: left;
+  width: 33%;
+  padding: 10px;
+}
+
+.column8 {
+  float: left;
+  width: 66%;
+  padding: 10px;
+}
+
+.column6 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<div id="introdução" class="section level1">
+<h1>Introdução</h1>
+<p>Você já deve ter ouvido falar sobre uma <a href="https://canaltech.com.br/inteligencia-artificial/inteligencia-artificial-gera-artes-super-realistas-a-partir-de-textos-e-imagens-213520/#:~:text=A%20empresa%20norte%2Damericana%20de,que%20tinha%20a%20mesma%20fun%C3%A7%C3%A3o.">inteligência artificial que gera artes super-realistas a partir de textos e imagens</a>. Hoje em dia já existem algumas opções como <a href="https://openai.com/DALL%C2%B7E-2/">DALL·E 2</a> (da OpenAI/Google) e a <a href="https://arxiv.org/abs/2203.13131">Make-A-Scene</a> (da Meta), e essas ferramentas são capazes de gerar versões e estilos diferentes de uma dada imagem ou ainda criar uma imagem com apenas uma breve descrição do resultado desejado. As imagens podem ser tão aleatórias quanto um “gato de óculos e uma coroa” (em homenagem ao dia dos gatos):</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/gato%20de%20oculos2.png" style="width:90.0%" /> </br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+<p>Não vou entrar na teoria por trás dos algoritmos pois além do <a href="https://arxiv.org/abs/2204.06125">artigo oficial</a>, existe bastante conteúdo sobre o assunto disponível na internet. Neste post focarei mais em fazer alguns comentários sobre o que andei estudando e compartilhar algumas dicas úteis sobre como escrever os “parâmetros” ou “queries” para sistemas DALL·E 2 (ou alternativos).</p>
+<p>Não posso prometer que depois de ler este post você estará imediatamente capaz de criar artes incríveis utilizando IA até porque eu também sou iniciante no assunto, mas terá algum conhecimento básico para poder trabalhar e desenvolver ainda mais suas habilidades. Para ser honesto, uma vez que acostumamos, não é muito difícil de usar. Não há necessidade de escrever nenhuma linha de código para utilizar a DALL·E 2 nem as outras arquiteturas que apresentarei neste post (no máximo ajustar alguns hiperparâmetros, caso queira).</p>
+</div>
+<div id="dalle-2" class="section level1">
+<h1>DALL·E 2</h1>
+<p>A OpenAI lançou em Janeiro de 2021 o DALL·E e um ano depois, sua segunda geração que constrói imagens mais realistas e precisas, com resolução 4x maior. DALL·E 2 começou como um projeto de pesquisa e agora está disponível em versão beta para aqueles que entrarem na <a href="https://labs.openai.com/waitlist">waitlist</a>. Eles pedem algumas informações como redes sociais e intenções de uso. No meu caso, demorou uns 2/3 meses para liberação, quando recebi um e-mail com meu acesso:</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/dalle_bem_vindo.png" style="width:80.0%" />
+</center>
+<p>O modelo não está finalizado pois existem diversas mitigações de segurança que a equipe da OpenAI ainda vem trabalhando:</p>
+<ul>
+<li>Previnir geração de imagens violentas, limitando a capacidade do DALL·E 2 ao remover conteúdo explicito dos dados de treinamento e minimizando a exposição do algoritmo à estes conceitos;</li>
+<li>Restringir conteúdos políticos evitando seu uso indevido (ex.: fake news);</li>
+<li>Implantação em fases, limitando o número de acessos para usuários confiáveis e a medida que ganharem confiança, liberam a versão beta para mais pessoas.</li>
+</ul>
+<div class="w3-panel w3-pale-red w3-border">
+<p>  🚨 <strong>Atenção</strong></p>
+<p>Para quem quiser ir brincando com esse tipo de rede neural enquanto não recebe o acesso, leia até o final pois apresentarei algumas alternativas!</p>
+</div>
+</div>
+<div id="instruções-de-uso" class="section level1">
+<h1>Instruções de Uso</h1>
+<p>Ainda existe muita discussão sobre o assunto na comunidade e ainda não consolidou-se um “guia definitivo de como usar a ferramenta”, as dicas que darei aqui foram baseadas em experimentos que fiz e pesquisas na internet (referências no final do post). Tentarei fornecer uma boa quantidade de informações organizadas que sejam fáceis de entender, mas também útil para ajudá-lo a entender como a IA interpreta a frase que você escreve como input.</p>
+<div id="parâmetros" class="section level2">
+<h2>Parâmetros</h2>
+<p>Os “parâmetros” que usamos para definir e descrever os detalhes/estilos/objetos/ambiente etc que estão na imagem são a chave. Essas são as instruções ou descrições que “dizem” ao algoritmo o que você deseja ver na imagem.</p>
+<p>É preciso escrever a frase de uma maneira que a IA entenda claramente. Você se familiarizará com a maneira de escrever parâmetros ao longo do tempo com a prática (caso tenha tempo, veja este vídeo de <a href="https://www.youtube.com/watch?v=pdhqwbUWf4U">como ensinar linguagem de programação para uma criança</a>, que da uma bela intuição de como devemos pensar).</p>
+<p>Para começar, precisamos decidir qual é a imagem. É uma pintura? uma fotografia? um desenho de uma linha? Primeiro decidimos o meio da imagem e depois o assunto da imagem. O que vai ter na pintura? Existe uma história a ser contada para descrever visualmente para a IA para que ela esteja na imagem? De que é a imagem?</p>
+<p>Se a imagem que você deseja produzir for replicar uma arte (um desenho, pintura, etc. de algo), então você deve pensar no estilo de arte de um artista que você gosta ou qual estilo de arte se adequaria ao tema ou sentimento da peça de arte você está tentando criar.</p>
+</div>
+<div id="exemplos" class="section level2">
+<h2>Exemplos</h2>
+<p>A seguir veremos alguns exemplos de como fazer e como não fazer a “query para gerar as imagens.”</p>
+<div class="row">
+<div class="column8">
+<p>Para criar uma pintura no estilo de alguém você escreveria algo assim nos parâmetros :“A digital art of a happy dog in a desert with pyramids in the background and planets in the sky” (Uma arte digital de um cachorro feliz em um deserto com pirâmides ao fundo e planetas no céu):</p>
+<p>Note que o modelo entende bem o que são os elementos e como eles se posicionam (à frente, atrás, acima, abaixo, direita, esquerda, etc). Além disso, como não especifiquei se era dia/noite nem se o fundo seria um universo, as cores ficaram confusas. Um azul escuro (quase preto) onde estão os planetas e um azul claro (como dia) para o fundo do deserto.</p>
+</div>
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/dog.png" style="width:90.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+</div>
+</div>
+<p>Se a imagem não for de uma obra de arte/pintura, não iniciamos a frase com o meio (esboço/pintura/qualquer que seja), em vez disso, começamos a frase descrevendo imediatamente a cena da maneira mais gramaticalmente correta possível (que seja difícil de entender errado).</p>
+<p>Veja um exemplo que vi na internet, dizer algo como “Um homem e uma mulher de vestido vermelho ao lado de um cavalo” pode ser mal interpretado pela IA, pois o homem e a mulher podem estar no vestido vermelho ou com roupas vermelhas, além de faltar mais detalhes do que estamos imaginando. Veja como ficou o exemplo gerado:</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/homem_mulher_1.png" style="width:90.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+<p>Até que o resultado não ficou tão ruim, com pelo menos uma imagem com o rapaz de camisa branca. Mas não era exatamente essa cena que tinha em mente, vamos tentar descrever melhor a cena que gostariamos de ver: “Um homem de terno preto e uma mulher de lindo vestido vermelho ao lado de seu majestoso cavalo marrom enquanto observam o pôr do sol”:</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/homem_mulher_2.png" style="width:90.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+<p>Nós já estavamos vendo essa cena mentalmente, mas simplesmente não a havíamos descrito bem o suficiente. Então sempre pense nas descrições dessa maneira, tentando explicar uma fotografia para uma criança de dez anos de uma forma que provavelmente seria capaz de desenhá-la ou algo muito parecido sem ver a foto.</p>
+<p>Além de descrever bem as fotos, existem alguns tipos de palavras-chave que podem ajudar a melhorar os detalhes, veja alguns bastante populares que criam resultados surpreendentes: “4k”, “Unreal engine”, “Ray tracing”, “Fotorrealismo”, “Hiper-realismo”.</p>
+<div class="w3-panel w3-pale-green w3-border">
+<p>  ⭐️ Sucesso!</p>
+<p>Agora, juntando todas essas dicas, acho que você está pronto para tentar construir seus próprios “parâmetros”.</p>
+</div>
+</div>
+</div>
+<div id="dalle-mini-e-stable-diffusion" class="section level1">
+<h1>DALL·E Mini e Stable Diffusion</h1>
+<blockquote>
+<p>Ainda não tenho acesso ao DALL·E 2 e agora?</p>
+</blockquote>
+<p>Bom, a OpenAI apresentou o primeiro (e impressionante) modelo para gerar imagens com DALL·E, certo? A partir daí a comunidade ficou enlouquecida e muitos cientistas de dados tentaram reproduzir os resultados inspirados no <a href="https://arxiv.org/abs/%202204.06125">artigo oficial</a>.</p>
+<p>A versão mais promissora que encontrei foi a <a href="https://huggingface.co/spaces/dalle-mini/dalle-mini">DALL·E mini</a>, desenvolvida por <a href="https://www.craiyon.com/">craiyon.com</a> que é é um modelo de IA capaz de gerar figuras formidáveis a partir de qualquer input de texto. Além disso eles estão trabalhando na versão <a href="https://wandb.ai/dalle-mini/dalle-mini/reports/DALL%C2%B7E-mini-Generate-images-from-any-text-prompt--VmlldzoyMDE4NDAy">“DALL·E mega”</a> que possui diversas melhorias nos otimizadores, na arquitetura em geral e treinada em datasets maiores (uma versão beta ja pode ser <a href="https://github.com/borisdayma/dalle-mini">importada via Python</a>).</p>
+<p>Além desta, outro lançamento público anunciado recentemente (e muito promissor) foi o <a href="https://stability.ai/blog/stable-diffusion-public-release">Stable Difusion</a>, que após incansáveis revisões jurídicas, éticas e de tecnologia, lançaram o modelo e um
+<a href="https://huggingface.co/spaces/stabilityai/stable-diffusion">aplicativo web</a> pronto para uso, com licença permissiva para uso comercial e não comercial.</p>
+<p>É muito legal ver nestas ferramentas, o fruto de muitas horas de esforço coletivo para criar um único arquivo que comprime a “informação visual da humanidade” em alguns gigabytes!</p>
+<div id="exemplos-1" class="section level2">
+<h2>Exemplos</h2>
+<p>Veja algumas imagens geradas tentando descrever sentimentos:</p>
+<div class="row">
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/sentimento_felicidade.png" style="width:90.0%" />
+</br>
+“Felicidade”
+</center>
+</div>
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/sentimento_amor.png" style="width:90.0%" />
+</br>
+“Amor”
+</center>
+</div>
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/sentimento_solidao.png" style="width:90.0%" />
+</br>
+“Solidão”
+</center>
+</div>
+</div>
+<div style="text-align:center">
+<p>Imagens geradas por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://huggingface.co/spaces/dalle-mini/dalle-mini">DALL·E Mini</a></p>
+</div>
+<p>A idéia de gerar estas imagens era tentar entender como uma IA “pensaria” sobre estes termos mas, para surpresa de ninguém, os resultados foram muito próximos de uma busca no Google (dado que o modelo foi treinado em conjuntos de dados públicos). É possível notar também alguns “bugs” como o último smile e um “coração duplo”.</p>
+<p>Mesmo assim, achei interessante as paletas de cores apresentadas com cores mais “alegres” para felicidade (como verde, azul, branco e o amarelo dos “smiles”), um vermelho/rosa para amor e solidão em tons de cinza.</p>
+<p>Essa rede tem algumas limitações com rostos e acabam sendo meio distorcidas (segundo os desenvolvedores, é uma limitação atual do codificador de imagem mas eles já estão trabalhando nisso). Veja a seguir uma comparação do resultado da DALL·E 2 vs DALL mini para a frase “Uma sereia nadando em um mar de fogo”:</p>
+<div class="row">
+<div class="column6">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/sereia_1.jpg" style="width:90.0%" />
+</center>
+</div>
+<div class="column6">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/sereia_2.jpg" style="width:90.0%" />
+</br>
+</center>
+</div>
+</div>
+<div style="text-align:center">
+<p>Imagens geradas por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://huggingface.co/spaces/dalle-mini/dalle-mini">DALL·E Mini</a></p>
+</div>
+<p>A imagem gerada pela DALL·E mini tem uma resolução mais baixa e demorou um pouco mais para ser processada. Um ponto interessante é como mesmo esse modelo “menor” já é capaz de entender um “mar” e gerar o reflexo na água. Os “rostos” gerados pela DALL·E mini muitas vezes são comparados com “sonhos” e até mesmo meio assustadores enquanto que a DALL·E 2 conseguiu entregar uma imagem que, apesar de meio “caricata”, até que ficou bastante detalhada.</p>
+</div>
+</div>
+<div id="opções-alternativas" class="section level1">
+<h1>Opções Alternativas</h1>
+<p>Depois que o artigo com a ideia principal foi divulgado, a comunidade começou a desenvolver diversas redes que trabalhassem de forma semelhante. Nenhuma das redes conseguiu ser tão realistas quando a DALL·E mas fica aquela coisa meio psicodelica que se parece mesmo com um sonho.</p>
+<p>Existem diversas versões, como por exemplo:</p>
+<ul>
+<li><a href="https://colab.research.google.com/drive/1go6YwMFe5MX6XM9tv-cnQiSTU50N9EeT#scrollTo=g7EDme5RYCrt">VQGAN+CLIP</a> (focaremos nesta);</li>
+<li><a href="https://colab.research.google.com/drive/1fWka_U56NhCegbbrQPt4PWpHPtNRdU49?usp=sharing#scrollTo=zvZFRZtcv8Mp">CLIP-GLaSS</a>;</li>
+<li><a href="https://colab.research.google.com/github/eyaler/clip_biggan/blob/main/WanderCLIP.ipynb#scrollTo=lT3rLJx4VjlD">BigGAN + CLIP + CMA-ES</a>;</li>
+<li><a href="https://www.artstation.com/blogs/stijn/B276/ai-sketches-with-vqgan-and-clip-for-concept-art">Disco Diffusion v4.1</a>;</li>
+<li><a href="https://grisk.itch.io/clip-app">Um app para Windows que usa a própria RAM do pc</a>;</li>
+<li><a href="https://www.midjourney.com/home/">Midjourney</a>;</li>
+<li><a href="https://www.reddit.com/r/learnmachinelearning/comments/l4qhnp/openais_dalle_alternatives_with_colab_code_deep/">Dentre outras…</a></li>
+</ul>
+<p>Todos os notebooks que estão na lista acima são hospedados no Google Collab e podem ser executados sem nenhum tipo de pré-configuração de ambiente. O modelo mais popular (e o que eu utilizei mais) acabou sendo a VQGAN+CLIP que foi inicialmente escrito em espanhol e depois em inglês.</p>
+<div id="vqganclip" class="section level2">
+<h2>VQGAN+CLIP</h2>
+<p>Apesar de muito democrática, o problema de hospedar esses notebooks no Google Collab é que se você estiver usando um usuário gratuito, descobrirá que a GPU e RAM são bem limitada. Algumas imagens precisavam de até 5h para serem geradas e mesmo assim o resultado não ficava bom (ri muito com alguns resultados 😂), enquanto que as imagens geradas com o uso da GPU rodavam em alguns minutos e dava para ver que a rede conseguia “ir mais longe”, alcançando imagens com resolução melhor.</p>
+<p>Veja a seguir uma imagem que criei a partir de uma foto da Amora (minha cachorrinha) como “chute inicial”:</p>
+<p>” A happy dog in the desert:200 | sunset in the background:100 | planets in the sky:100 | by Salvador Dali:100 | turtle:-100 | city:-100 | buildings:-200”</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/bafo_surrealista.png" style="width:80.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://colab.research.google.com/drive/1go6YwMFe5MX6XM9tv-cnQiSTU50N9EeT#scrollTo=ZdlpRFL8UAlW">VQGAN+CLIP</a>
+</center>
+<p>Particularmente, gostei bastante do resultado final mas não foi tão fácil utilizando esta rede. Antes de submeter a imagem no notebook, precisei remover o fundo para remover qualquer tipo de ruído pois a rede não é capaz de distinguir o que é um cachorro, o que é meu braço ou o armário ao fundo e os resultados ficavam muito estranhas. Além disso fiz uma colagem (no Power Point mesmo) com alguns elementos que eu gostaria que estivessem na imagem data determinar suas posições.</p>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  ⚠️ Alerta!</p>
+<p>Eu tinha muito claro em minha mente aonde gostaria que os elementos estivessem posicionados, porém, esta etapa de colagem dos elementos é completamente opcional! É uma forma de “guiar” a rede para resultados que estamos procurando, parando em determinada interação e ajustando a posição de elementos (muito útil para arrumar algumas estranhezas que aparecem em rostos) e inputando novamente como imagem inicial.</p>
+</div>
+<p>Além disso, você deve ter notado a presença de pipes “|” e uns valores (como dicionários do Python). A idéia é que as palavras-chave que você colocar entre cada um desses pipes influenciará bastante na imagem final e até mesmo remover coisas que não desejamos.</p>
+<p>A primeira sentença é definida automaticamente como 100 “unidades”. Logo em seguida, as próximas sentenças receberão apenas 1 “unidade”. O ideal é colocar o “valor” associado aquela “chave” que representa o quão “proeminente” será aquele elemento na imagem.</p>
+<p>Note ainda que eu tentei evitar que o modelo incluí-se novos elementos como uma cidade que estava se formando ao fundo ou uma tartaruga no canto esquerdo informando valores negativos para estes elementos que nãa gostaria que aparecessem.</p>
+<p>Estes notebooks não salvam seus resultados, quando você atualizar a página, outra seção será iniciada e todo o trabalho será perdido! Então quando gostar de alguma imagem, não esqueça de salvá-la!</p>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  💡 Dica</p>
+<p>Nem sempre a última imagem gerada no processo é a que nós mais gostamos, então vale a pena conferir como foi o processo de aprendizagem em “épocas” anteriores.</p>
+</div>
+</div>
+<div id="mais-parâmetros" class="section level2">
+<h2>Mais Parâmetros</h2>
+<p>Praticamente todos esses notebooks possuem os mesmos parâmetros então passarei por alguns que considero interessantes para se ter uma noção geral de como funciona:</p>
+<ul>
+<li><p><code>model</code>: há várias opções de modelos treinados em conjuntos de dados específicos para diferentes tarefas, como por exemplo:</p>
+<ul>
+<li>Imagens com diferentes texturas: <code>imagenet_1024</code>, <code>imagenet_16384</code>, <code>sflckr</code>, <code>coco</code>;</li>
+<li>Imagens com estilos de arte: <code>wikiart_1024</code>, <code>wikiart_16384</code>;</li>
+<li>Rostos com diferentes traços: <code>faceshq</code>, <code>ffhq</code>, <code>celebahq</code>;</li>
+</ul></li>
+<li><p><code>inicial_image</code>: podemos ter uma idéia de elementos que gostaríamos que estivesse na imagem e então criar uma imagem para usar como “chute inicial” para direcionar o trabalho da rede;</p></li>
+<li><p><code>seed</code>: é bom colocar um número aleatório (maior que zero) para garantir que o desenvolvimento da imagem seja reprodutível;</p></li>
+<li><p><code>max_interactions</code>: é o número de vezes que o modelo vai “trabalhar” na imagem. Pode ser limitado, a menos que você pague pelo Google Collab Pro (aí da para colocar um valor bem alto e avaliar um bom ponto de parada após alguns experimentos).</p></li>
+<li><p><code>height</code> e <code>width</code>: a altura e a largura são colocadas automaticamente em 600 e 600. Pode ser que demore um pouco então para quem estiver usando a versão free pode ser útil abaixar para cerca de 200 de largura e altura para aliviar no processamento da imagem e permitir mais iterações.</p></li>
+</ul>
+</div>
+<div id="mais-exemplos" class="section level2">
+<h2>Mais Exemplos</h2>
+<div class="row">
+<div class="column8">
+<p>Veja um exemplo de arte gerada a partir de um quadro, onde a tecnologia atua como um colaborador criativo em vez de uma ferramenta básica:</p>
+<p>Esta pintura é intitulada como “Desolate Civilisation” e é composta por 9 pinturas futuristas criadas e montadas utilizando VQGAN+CLIP para se assemelhar à Mona Lisa (via <a href="https://creator.nightcafe.studio/create">NightCafe Studio</a>).</p>
+<p>Interessante como o autor divide a tarefa em 9 “minitarefas”, facilitando assim a produção da imagem toda (além de dar um toque artístico bem interessante).</p>
+</div>
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/monalisa_nightcafe.png" style="width:90.0%" />
+</br>
+<em>Desolate Civilisation</em> - <a href="https://creator.nightcafe.studio/create">NightCafe Studio</a>
+</center>
+</div>
+</div>
+</div>
+</div>
+<div id="discussão-filosófica" class="section level1">
+<h1>Discussão Filosófica</h1>
+<p>Estas novas abordagens estão mudando definitivamente a natureza dos processos criativos. Além de nós, meros mortais não-desenhistas, os artistas também podem se beneficiar destas tecnologias como fonte de inspiração, seja gerando imagens aleatórias sobre coisas que vêm em mente ou ainda “tunar” suas obras, mesclando com diferentes elementos ou tipos de estilos.</p>
+<div class="row">
+<div class="column8">
+<p>Apesar de interessante, para pessoas questionadoras, pode surgir alguma questão filosófica como: <strong>será que isto é arte</strong>? Existem muitas definições de arte e seu significado varia conforme a época ou cultura.</p>
+<p>Li diferentes definições e refleti bastante sobre o assunto, e a definição que mais me agradou foi a de <strong>Immanuel Kant</strong> (um dos meus filósofos favoritos), que sugere que: “a arte diferencia-se da natureza por ser uma atividade racional e livre. Assim, uma teia de aranha, embora possa parecer bela, não é uma obra de arte, já que se trata de uma tarefa mecânica e natural. A arte também se diferencia da ciência, já que para se produzir uma obra de arte não basta ter conhecimento sobre um determinado assunto - é preciso ter habilidade para fazer. Kant define a arte estética como aquela cuja finalidade imediata é o sentimento do prazer, não apenas o prazer ligado às sensações, mas também o prazer da reflexão.”</p>
+</div>
+<div class="column4">
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/arte_dalle.png" style="width:90.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+</div>
+</div>
+<p>Imagino que, pelo menos hoje em dia e por um bom tempo, a IA por si só não conseguirá produzir arte, pois até então todos esses modelos estão “aprendendo” com os inputs que fornecemos e produzindo outputs que pedimos. Isso é uma limitação de uma “inteligência artificial fraca” não sendo capaz de executar a atividade artística “livremente”, além de que sua finalidade imediata não tem haver com prazer de reflexão nenhuma.</p>
+<p>Enquanto continuamos a filosofar e especular sobre a definição de arte, podemos usar estes modelos para ajudar na criação de valor com as “artes” mais necessárias no mundo capitalista que vivemos. Veja como fica “Uma foto em 4k de um carro futurista em um salão todo branco e vazio”:</p>
+<center>
+<img src="/post/2022-08-08-dataart-primeiros-passos/dalle_car.png" style="width:90.0%" />
+</br>
+Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> utilizando <a href="https://openai.com/dall-e-2/">DALL·E 2</a>
+</center>
+<p>Essas imagens mostram como podemos usar estes modelos para produzir protótipos de bens de consumo, páginas iniciais de sites ou até pôsteres de filmes (imagina “Futuristic Fast and Furious” 😅 😂).</p>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<p>Todos esses experimentos me fizeram entender melhor o que é possível e o que não é possível de fazer, mas me deixaram com muitas dúvidas de questões filosóficas sobre o que é a arte em si no sentido mais amplo 🤯.</p>
+<p>No futuro, gostaria de explorar novas formas de me divertir, criar arte e encontrar caminhos para usar essa nova tecnologia para facilitar o trabalho das pessoas e, quem sabe, até monetizar!</p>
+<p>Espero que tenham gostado, qualquer crítica ou sugestão será muito bem vinda!</p>
+<p>Abraços!</p>
+<p><a href="https://gomesfellipe.github.io/about/">Fellipe Gomes</a></p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<ul>
+<li><a href="https://www.reddit.com/r/bigsleep/comments/p15fis/tutorial_an_introduction_for_newbies_to_using_the/" class="uri">https://www.reddit.com/r/bigsleep/comments/p15fis/tutorial_an_introduction_for_newbies_to_using_the/</a></li>
+<li><a href="https://openai.com/dall-e-2/" class="uri">https://openai.com/dall-e-2/</a></li>
+<li><a href="https://github.com/openai/DALL-E/blob/master/notebooks/usage.ipynb" class="uri">https://github.com/openai/DALL-E/blob/master/notebooks/usage.ipynb</a></li>
+<li><a href="https://colab.research.google.com/drive/1go6YwMFe5MX6XM9tv-cnQiSTU50N9EeT#scrollTo=ZdlpRFL8UAlW" class="uri">https://colab.research.google.com/drive/1go6YwMFe5MX6XM9tv-cnQiSTU50N9EeT#scrollTo=ZdlpRFL8UAlW</a></li>
+<li><a href="https://www.artstation.com/blogs/stijn/B276/ai-sketches-with-vqgan-and-clip-for-concept-art" class="uri">https://www.artstation.com/blogs/stijn/B276/ai-sketches-with-vqgan-and-clip-for-concept-art</a></li>
+<li><a href="https://arxiv.org/abs/2204.06125" class="uri">https://arxiv.org/abs/2204.06125</a></li>
+<li><a href="https://arxiv.org/abs/2203.13131" class="uri">https://arxiv.org/abs/2203.13131</a></li>
+<li><a href="https://www.artstation.com/blogs/stijn/B276/ai-sketches-with-vqgan-and-clip-for-concept-art" class="uri">https://www.artstation.com/blogs/stijn/B276/ai-sketches-with-vqgan-and-clip-for-concept-art</a></li>
+<li><a href="https://huggingface.co/spaces/dalle-mini/dalle-mini" class="uri">https://huggingface.co/spaces/dalle-mini/dalle-mini</a></li>
+<li><a href="https://github.com/borisdayma/dalle-mini" class="uri">https://github.com/borisdayma/dalle-mini</a></li>
+<li><a href="https://wandb.ai/dalle-mini/dalle-mini/reports/DALL-E-mini-Generate-images-from-any-text-prompt--VmlldzoyMDE4NDAy" class="uri">https://wandb.ai/dalle-mini/dalle-mini/reports/DALL-E-mini-Generate-images-from-any-text-prompt--VmlldzoyMDE4NDAy</a></li>
+<li><a href="https://stability.ai/blog/stable-diffusion-announcement" class="uri">https://stability.ai/blog/stable-diffusion-announcement</a></li>
+<li><a href="https://siliconangle.com/2022/07/14/metas-latest-generative-ai-system-creates-stunning-images-sketches-text/" class="uri">https://siliconangle.com/2022/07/14/metas-latest-generative-ai-system-creates-stunning-images-sketches-text/</a></li>
+<li><a href="https://creator.nightcafe.studio/create" class="uri">https://creator.nightcafe.studio/create</a></li>
+<li><a href="https://michaelis.uol.com.br/moderno-portugues/busca/portugues-brasileiro/arte" class="uri">https://michaelis.uol.com.br/moderno-portugues/busca/portugues-brasileiro/arte</a></li>
+<li><a href="https://www.significados.com.br/arte/" class="uri">https://www.significados.com.br/arte/</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/">Gerando arte com Inteligência Artificial</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">dalle2</category>
+      <category domain="tag">data-science</category>
+      <category domain="tag">dataart</category>
+      <category domain="tag">gan</category>
+      <category domain="tag">inteligencia-artificial</category>
+      <category domain="tag">python</category>
+      <category domain="tag">redes-neurais</category>
+      <category domain="tag">vqgan&#43;clip</category>
+    </item>
+  </channel>
+</rss>

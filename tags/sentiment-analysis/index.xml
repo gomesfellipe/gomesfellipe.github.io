@@ -1,0 +1,1317 @@
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>sentiment-analysis on Fellipe Gomes - Data Science Blog</title>
+    <link>https://gomesfellipe.github.io/tags/sentiment-analysis/</link>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Wed, 26 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/sentiment-analysis/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agente para análise interpretativa de ligações de telemarketing</title>
+      <link>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</link>
+      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</guid>
+      <description>Neste post vamos criar um agente para extrair insights estruturados de ligações de telemarketing, transformando gravações de áudio em um relatório analítico</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<div id="por-que-analisar-ligações-de-telemarketing-com-ia" class="section level1">
+<h1>Por que analisar ligações de telemarketing com IA?</h1>
+<p>Quem nunca recebeu aquela ligação de telemarketing no momento mais inoportuno? Seja oferecendo um cartão de crédito, cobrando uma dívida ou tentando vender internet, essas ligações fazem parte do nosso cotidiano. Mas você já parou para pensar na quantidade de informações valiosas que existem nessas conversas?</p>
+<p>Para empresas que operam call centers, analisar essas ligações manualmente é uma tarefa hercúlea. Imagine ter que ouvir centenas ou milhares de ligações por dia para:</p>
+<ul>
+<li>Avaliar a qualidade do atendimento</li>
+<li>Identificar problemas recorrentes</li>
+<li>Detectar possíveis fraudes</li>
+<li>Treinar equipes com base em casos reais</li>
+<li>Garantir compliance e conformidade legal</li>
+</ul>
+</div>
+<div id="o-desafio-vai-além-da-transcrição-de-textos" class="section level1">
+<h1>O desafio vai além da transcrição de textos</h1>
+<p>Analisar ligações de telemarketing apresenta desafios que vão muito além da simples transcrição de áudio para texto. O grande volume de dados, a necessidade de identificar corretamente quem está falando em áudios mono (onde todas as vozes estão em um único canal) e a extração de informações relevantes a partir de conversas não estruturadas tornam o processo complexo e exigem soluções especializadas.</p>
+<p>Entre os principais obstáculos técnicos estão: converter fala em texto com precisão mesmo diante de sotaques e ruídos, diarizar os speakers (diferenciar atendente e cliente), transformar transcrições em dados estruturados (como sentimento, tipo de ligação e problemas), além de garantir escalabilidade para processar milhares de ligações de forma eficiente, preferencialmente utilizando recursos como GPU.</p>
+</div>
+<div id="solução-técnica-abordagem-em-4-etapas" class="section level1">
+<h1>Solução técnica: Abordagem em 4 etapas</h1>
+<p>Enquanto estudava para trablhar em um projeto com desafio semelhante, desenvolvi um pipeline em Python integrando três tecnologias de ponta, com foco em soluções gratuitas para estudo e prova de conceito. O projeto abrangeu desde a aquisição das ligações até a extração de insights estruturados, utilizando recursos pagos em ambiente de produção, mas priorizando ferramentas acessíveis para pesquisa e validação.</p>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-10-26-telemarketing-agent/workflow.png" alt="agent telemarketing analysis workflow" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho completo
+</p>
+</center>
+<p>As etapas principais foram:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Coleta e preparação dos dados</strong>: Download e segmentação dos áudios com <code>yt_dlp</code>, <code>pydub</code> e <code>ffmpeg</code>.</li>
+<li><strong>Transcrição dos áudios</strong>:
+<ul>
+<li><strong>Diarização/segmentação por locutor</strong>: Utilizando o modelo de diarização do <a href="https://github.com/pyannote/pyannote-audio">Pyannote.audio</a></li>
+<li><strong>Reconhecimento automático de fala (ASR)</strong>: Modelos gratuitos do <a href="https://openai.com/research/whisper">Whisper da OpenAI</a> hospedados na Hugging Face.</li>
+</ul></li>
+<li><strong>Análise interpretativa</strong>: Extração de informações estruturadas com GPT da OpenAI e o framework <a href="https://python.langchain.com/">LangChain</a> .</li>
+<li><strong>Abordagem analítica</strong>: Exploração dos dados, criação de dashboards e, eventualmente, construção de modelos preditivos (por exemplo, prever se a venda foi concluída).</li>
+</ol>
+<p>Tecnologias Utilizadas:</p>
+<ul>
+<li><strong><a href="https://openai.com/research/whisper">Whisper (OpenAI)</a></strong>: Modelo state-of-the-art para transcrição de áudio</li>
+<li><strong><a href="https://github.com/pyannote/pyannote-audio">Pyannote.audio</a></strong>: Framework especializado em diarização de speakers</li>
+<li><strong><a href="https://python.langchain.com/">LangChain</a></strong>: Framework de LLMs para extração estruturada</li>
+<li><strong>Python</strong>: Orquestração de todo o pipeline</li>
+<li><strong>Google Colab</strong>: Ambiente com GPU gratuita</li>
+</ul>
+<p>Este post vai cobrir apenas a terceira etapa do pipeline: a análise interpretativa das transcrições. Vamos mostrar como transformar o texto bruto das ligações em informações estruturadas e acionáveis usando agentes de GenAI, detalhando o processo de extração automática de sentimentos, problemas, resultados e respostas criativas a partir das conversas.</p>
+<div id="dados-utilizados" class="section level2">
+<h2>Dados utilizados</h2>
+<p>Para este experimento, selecionei alguns vídeos de esquetes de comédia sobre telemarketing <a href="https://www.youtube.com/watch?v=AJVpdNuLdv4">disponíveis no YouTube</a> e extraí um arquivo de áudio para cada ligação, segmentando as conversas individualmente. Veja um exemplo:</p>
+<center>
+<audio controls>
+<source src="/post/2025-10-26-telemarketing-agent/audio_00.mp3" type="audio/mpeg">
+Seu navegador não suporta áudio.
+</audio>
+</center>
+<p>A transcrição dos áudios foi realizada utilizando <a href="https://huggingface.co/openai/whisper-large-v3">Whisper</a> para reconhecimento de fala e <a href="https://huggingface.co/pyannote/speaker-diarization-3.1">Pyannote</a> para diarização dos locutores. Desenvolvi um script que integra essas ferramentas utilizando recursos de GPU em ambientes como Kaggle e Google Colab, o que permite processar grandes volumes de áudio gratuitamente.</p>
+<p>Veja como ficou o resultado após a atribuição dos speakers no pós-processamento:</p>
+<pre><code>SPEAKER_00: Eu gostaria de falar com o Eliel Clayton de Oliveira.
+SPEAKER_01: Ele não tá, tá pra fazenda. Liga amanhã, ele deixou o celular.
+SPEAKER_00: Ah, tudo bem. Eu posso deixar o telefone pra contato com ele no internet? Quem é você? Você é namorada dele? Não, eu sou uma da assessoria de cobrança.
+SPEAKER_01: Da onde? Da outra fazenda? Da fazenda Bonança?
+SPEAKER_00: Não, senhora. Eu sou da assessoria da bebê financeira. Ah, estavam então da Bahia, né? Vou falar pra ele que ligaram pra ele então, tá?
+SPEAKER_01: É da bebê financeira, assessoria da bebê financeira.
+SPEAKER_00: Você teve um bebê com ele? Aonde você tá, minha filha? Não, senhora, assessoria da bebê financeira.
+SPEAKER_01: Estão falando que tem uma mulher que tem um bebê do Eliel.
+SPEAKER_00: Acho melhor você ligar amanhã então, pra ver com ele, pra ver o DNA.</code></pre>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  ⚠️ Naturalmente, todo modelo de transcrição apresenta uma taxa de acerto que pode variar de acordo com a qualidade do áudio, sotaques e presença de ruídos.</p>
+</div>
+<p>Neste post o foco está na construção do agente de análise interpretativa, assumindo que as transcrições já estão disponíveis e prontas para uso. Na versão do projeto que foi para produção, utilizamos uma ferramenta diferente para a etapa de transcrição, mas como prova de conceito até que achei o resultado bem descente.</p>
+</div>
+</div>
+<div id="análise-estruturada-com-agente-de-genai" class="section level1">
+<h1>Análise estruturada com Agente de GenAI</h1>
+<p>É aqui que a mágica realmente acontece: com o poder do <a href="https://www.langchain.com/">LangChain</a> e o recurso de <strong>Structured Output</strong>, conseguimos transformar transcrições brutas de ligações em dados estruturados e acionáveis. Em vez de apenas ler textos longos e desorganizados, extraímos automaticamente sentimentos, problemas, resultados e até respostas criativas. Tudo pronto para análise, visualização ou integração com sistemas de negócio.</p>
+<p>A ideia central se baseia no conceito de saída estruturada (<a href="https://pydantic-docs.helpmanual.io/">Pydantic</a> models) para fornecer ferramentas que forçam o modelo a devolver um JSON consistente que depois é facilmente consumido por pipelines e dashboards.</p>
+<details>
+<summary>
+<b>Schema Pydantic <i>(Ver código)</i></b>
+</summary>
+<pre class="python"><code># Análise de Sentimento
+class SentimentoLigacao(BaseModel):
+    &quot;&quot;&quot;Análise de sentimento da ligação.&quot;&quot;&quot;
+    sentimento_cliente: Literal[&quot;positivo&quot;, &quot;neutro&quot;, &quot;negativo&quot;, &quot;irritado&quot;]
+    sentimento_atendente: Literal[&quot;profissional&quot;, &quot;neutro&quot;, &quot;agressivo&quot;, &quot;impaciente&quot;]
+    nivel_conflito: Literal[&quot;baixo&quot;, &quot;medio&quot;, &quot;alto&quot;]
+
+# Informações da Ligação
+class InformacaoLigacao(BaseModel):
+  &quot;&quot;&quot;Informações extraídas da ligação.&quot;&quot;&quot;
+  tipo_ligacao: Literal[&quot;cobranca&quot;, &quot;oferta_produto&quot;, &quot;suporte&quot;, &quot;pesquisa&quot;, &quot;fraude&quot;]
+  empresa_mencionada: Optional[str] = None
+  produto_servico: Optional[str] = None
+  resultado_ligacao: Literal[&quot;sucesso&quot;, &quot;recusa&quot;, &quot;desligou&quot;, &quot;nao_resolvido&quot;, &quot;fraude_detectada&quot;]
+  cliente_interessado: bool
+
+# Identificação de Problemas
+class ProblemaIdentificado(BaseModel):
+    &quot;&quot;&quot;Problemas identificados na ligação.&quot;&quot;&quot;
+    tem_problema: bool
+    tipo_problema: Optional[Literal[&quot;cobranca_indevida&quot;, &quot;cancelamento&quot;,
+                                    &quot;atendimento_ruim&quot;, &quot;fraude&quot;, &quot;outro&quot;]] = None
+    descricao_problema: Optional[str] = None
+    requer_followup: bool
+
+# Respostas Criativas
+class RespostasCriativas(BaseModel):
+    &quot;&quot;&quot;Respostas criativas ou inusitadas do cliente.&quot;&quot;&quot;
+    teve_resposta_criativa: bool
+    tipo_resposta: Optional[Literal[&quot;humor&quot;, &quot;desculpa_criativa&quot;,
+                                    &quot;contra_ataque&quot;, &quot;confusao_proposital&quot;]] = None
+    citacao: Optional[str] = None
+
+# Schema agregador: um único resultado que engloba todos
+class RelatorioLigacao(BaseModel):
+    &quot;&quot;&quot;Relatório consolidado da ligação. Preencha apenas os blocos aplicáveis.&quot;&quot;&quot;
+    sentimento: Optional[SentimentoLigacao] = None
+    informacao: Optional[InformacaoLigacao] = None
+    problema: Optional[ProblemaIdentificado] = None
+    respostas_criativas: Optional[RespostasCriativas] = None</code></pre>
+</details>
+<p>Para criar o agente de análise interpretativa, encapsulamos toda a configuração do modelo de linguagem, defindo o schema de saída estruturada e estabelecendo as instruções para que o agente atue como um verdadeiro especialista em ligações de telemarketing. Com essa abordagem, garantimos que apenas informações realmente presentes na transcrição sejam extraídas, tornando o processo robusto, auditável e pronto para uso em escala, ou seja, para protótipos ou aplicações em produção.</p>
+<p>Instanciando o agente (exemplo)</p>
+<pre class="python"><code>def instance_agent(api_key: str):
+    model = ChatOpenAI(model=&quot;gpt-4o&quot;, api_key=api_key, temperature=0)
+
+    agent = create_agent(
+        model=model,
+        tools=[],
+        response_format=ToolStrategy(
+            schema=RelatorioLigacao,
+            handle_errors=True
+        ),
+        system_prompt=(
+            &quot;Você é um especialista em análise de ligações de telemarketing.\n&quot;
+            &quot;Dado uma transcrição, preencha somente os blocos do relatório que fizerem sentido.\n&quot;
+            &quot;- Se não houver problema, deixe &#39;problema&#39; como null.\n&quot;
+            &quot;- Se não houver respostas criativas, deixe &#39;respostas_criativas&#39; como null.\n&quot;
+            &quot;- Seja conservador: só preencha quando tiver evidência no texto.&quot;
+        ),
+    )
+    return agent
+
+agent = instance_agent(api_key=OPENAI_API_KEY)
+
+result = agent.invoke({
+    &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: transcriptions[&#39;audio_00&#39;]}]
+})
+
+result[&quot;structured_response&quot;].model_dump()</code></pre>
+<p>Veja qual foi a saída obtida aplicando no nosso exemplo de áudio:</p>
+<pre class="text"><code>{
+ &#39;sentimento&#39;: {
+   &#39;sentimento_cliente&#39;: &#39;irritado&#39;,
+   &#39;sentimento_atendente&#39;: &#39;impaciente&#39;,
+   &#39;nivel_conflito&#39;: &#39;alto&#39;
+ },
+ &#39;informacao&#39;: {
+   &#39;tipo_ligacao&#39;: &#39;cobranca&#39;,
+   &#39;empresa_mencionada&#39;: None,
+   &#39;produto_servico&#39;: None,
+   &#39;resultado_ligacao&#39;: &#39;nao_resolvido&#39;,
+   &#39;cliente_interessado&#39;: False
+ },
+ &#39;problema&#39;: None,
+ &#39;respostas_criativas&#39;: {
+   &#39;teve_resposta_criativa&#39;: True,
+   &#39;tipo_resposta&#39;: &#39;humor&#39;,
+   &#39;citacao&#39;: &#39;Eu agora, eu tô tomando é uma Heineken, uma hora dessa. Tá entendendo?&#39;
+ }
+}</code></pre>
+<details>
+<summary>
+Loop para processar todos os áudios <i>(Ver código)</i>
+</summary>
+<pre class="python"><code>extractions = {}
+for file_name, transcription in transcriptions.items():
+    analysis = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: transcription}]})
+    structured = analysis.get(&quot;structured_response&quot;)
+    extracted = structured.model_dump() if structured is not None else None
+    extractions[file_name] = extracted
+    # Salvar cache da execução
+    with open(os.path.join(path_extractions, f&quot;{file_name}.json&quot;), &quot;w&quot;, encoding=&quot;utf-8&quot;) as fh:
+        json.dump(extracted, fh, ensure_ascii=False, indent=2)</code></pre>
+</details>
+<p></br></p>
+</div>
+<div id="insights-estruturados" class="section level1">
+<h1>Insights estruturados</h1>
+Após processar todos os áudios podemos criar um dashboard que transforma as extrações em KPIs acionáveis, permitindo visualizar rapidamente métricas como taxa de ligações não resolvidas, distribuição dos tipos de ligação, níveis de conflito, frequência de respostas criativas e outros indicadores essenciais para tomada de decisão e melhoria contínua dos processos.
+<details>
+<summary>
+<i>Ver código do Dashboard</i>
+</summary>
+<pre class="python"><code>import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.patches import Rectangle
+import numpy as np
+
+# criar DataFrame a partir do dicionário de extrações
+df = pd.DataFrame.from_dict(extractions, orient=&#39;index&#39;)
+
+# garantir que campos nulos sejam tratados como dicts vazios para normalização
+for col in [&#39;sentimento&#39;, &#39;informacao&#39;, &#39;problema&#39;, &#39;respostas_criativas&#39;]:
+  df[col] = df[col].apply(lambda x: x if isinstance(x, dict) else {})
+
+# normalizar cada bloco e juntar
+sent_df = pd.json_normalize(df[&#39;sentimento&#39;]).add_prefix(&#39;sentimento_&#39;)
+info_df = pd.json_normalize(df[&#39;informacao&#39;]).add_prefix(&#39;informacao_&#39;)
+prob_df = pd.json_normalize(df[&#39;problema&#39;]).add_prefix(&#39;problema_&#39;)
+resp_df = pd.json_normalize(df[&#39;respostas_criativas&#39;]).add_prefix(&#39;respostas_&#39;)
+
+df_extractions = pd.concat([sent_df, info_df, prob_df, resp_df], axis=1)
+df_extractions.index = df.index
+df_extractions.index.name = &#39;file&#39;
+df_extractions.reset_index(inplace=True)
+
+# Configurar estilo
+sns.set_style(&quot;white&quot;)
+plt.rcParams.update({
+  &#39;figure.facecolor&#39;: &#39;white&#39;,
+  &#39;axes.facecolor&#39;: &#39;white&#39;,
+  &#39;savefig.facecolor&#39;: &#39;white&#39;
+})
+sns.set_palette(&quot;husl&quot;)
+
+# Criar figura com subplots
+fig = plt.figure(figsize=(14, 12))
+gs = fig.add_gridspec(4, 4, hspace=0.4, wspace=0.4)
+
+# Cores personalizadas
+colors_main = [&#39;#FF6B6B&#39;, &#39;#4ECDC4&#39;, &#39;#45B7D1&#39;, &#39;#FFA07A&#39;, &#39;#98D8C8&#39;, &#39;#F7DC6F&#39;]
+colors_sentiment = {&#39;neutro&#39;: &#39;#95E1D3&#39;, &#39;irritado&#39;: &#39;#F38181&#39;, &#39;profissional&#39;: &#39;#4A90E2&#39;}
+colors_conflict = {&#39;baixo&#39;: &#39;#A8E6CF&#39;, &#39;medio&#39;: &#39;#FFD93D&#39;, &#39;alto&#39;: &#39;#FF6B6B&#39;}
+
+# ============= TÍTULO PRINCIPAL =============
+fig.suptitle(&#39;Análise de Ligações de Telemarketing com Agent&#39;,
+             fontsize=28, fontweight=&#39;bold&#39;, y=0.9)
+
+# ============= 1. MÉTRICAS PRINCIPAIS (agora vem primeiro) =============
+ax7 = fig.add_subplot(gs[0, :])
+ax7.axis(&#39;off&#39;)
+
+# Calcular métricas
+total_ligacoes = len(df_extractions)
+taxa_criatividade = (df_extractions[&#39;respostas_teve_resposta_criativa&#39;].sum() / total_ligacoes) * 100
+taxa_irritacao = (df_extractions[&#39;sentimento_sentimento_cliente&#39;] == &#39;irritado&#39;).sum() / total_ligacoes * 100
+taxa_nao_resolvido = (df_extractions[&#39;informacao_resultado_ligacao&#39;] == &#39;nao_resolvido&#39;).sum() / total_ligacoes * 100
+taxa_conflito_alto = (df_extractions[&#39;sentimento_nivel_conflito&#39;] == &#39;alto&#39;).sum() / total_ligacoes * 100
+
+# Criar caixas de métricas
+metrics = [
+    (&#39;Total de Ligações&#39;, f&#39;{total_ligacoes}&#39;, &#39;#4A90E2&#39;),
+    (&#39;Taxa de Criatividade&#39;, f&#39;{taxa_criatividade:.1f}%&#39;, &#39;#4ECDC4&#39;),
+    (&#39;Taxa de Irritação&#39;, f&#39;{taxa_irritacao:.1f}%&#39;, &#39;#FF6B6B&#39;),
+    (&#39;Não Resolvidos&#39;, f&#39;{taxa_nao_resolvido:.1f}%&#39;, &#39;#FFA07A&#39;),
+    (&#39;Conflito Alto&#39;, f&#39;{taxa_conflito_alto:.1f}%&#39;, &#39;#F38181&#39;)
+]
+
+x_positions = np.linspace(0.05, 0.85, len(metrics))
+for i, (label, value, color) in enumerate(metrics):
+    rect = Rectangle((x_positions[i], 0.25), 0.15, 0.5,
+                     facecolor=color, linewidth=3,
+                     transform=ax7.transAxes, zorder=2)
+    ax7.add_patch(rect)
+
+    ax7.text(x_positions[i] + 0.075, 0.58, value,
+             ha=&#39;center&#39;, va=&#39;center&#39;, fontsize=22, fontweight=&#39;bold&#39;,
+             color=&#39;white&#39;, transform=ax7.transAxes, zorder=3)
+    ax7.text(x_positions[i] + 0.075, 0.18, label,
+             ha=&#39;center&#39;, va=&#39;center&#39;, fontsize=11, fontweight=&#39;bold&#39;,
+             transform=ax7.transAxes, zorder=3, wrap=True)
+
+# ============= 2. SENTIMENTO DO CLIENTE =============
+ax1 = fig.add_subplot(gs[1, 0:2])
+sentimento_counts = df_extractions[&#39;sentimento_sentimento_cliente&#39;].value_counts()
+# usar cinza para &quot;neutro&quot; (case-insensitive), caso contrário usar palette existente
+neutral_color = &#39;#B0B0B0&#39;
+colors_sent = [
+  neutral_color if str(x).strip().lower() == &#39;neutro&#39; else colors_sentiment.get(x, &#39;#95E1D3&#39;)
+  for x in sentimento_counts.index
+]
+sent_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in sentimento_counts.index]
+bars1 = ax1.bar(sent_labels, sentimento_counts.values, color=colors_sent, linewidth=2)
+ax1.set_title(&#39;Sentimento do Cliente&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax1.set_ylabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax1.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for bar in bars1:
+  height = bar.get_height()
+  ax1.text(bar.get_x() + bar.get_width()/2., height,
+     f&#39;{int(height)}&#39;,
+     ha=&#39;center&#39;, va=&#39;bottom&#39;, fontsize=14, fontweight=&#39;bold&#39;)
+ax1.grid(axis=&#39;y&#39;, alpha=0.3)
+# aumentar limite do eixo y em 5%
+max_h1 = max(bar.get_height() for bar in bars1)
+ax1.set_ylim(0, max_h1 * 1.15)
+
+# ============= 3. NÍVEL DE CONFLITO =============
+ax2 = fig.add_subplot(gs[1, 2:4])
+conflito_counts = df_extractions[&#39;sentimento_nivel_conflito&#39;].value_counts()
+colors_conf = [colors_conflict.get(x, &#39;#A8E6CF&#39;) for x in conflito_counts.index]
+conf_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in conflito_counts.index]
+bars2 = ax2.bar(conf_labels, conflito_counts.values, color=colors_conf, linewidth=2)
+ax2.set_title(&#39;Nível de Conflito&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax2.set_ylabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax2.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for bar in bars2:
+  height = bar.get_height()
+  ax2.text(bar.get_x() + bar.get_width()/2., height,
+       f&#39;{int(height)}&#39;,
+       ha=&#39;center&#39;, va=&#39;bottom&#39;, fontsize=14, fontweight=&#39;bold&#39;)
+ax2.grid(axis=&#39;y&#39;, alpha=0.3)
+# aumentar limite do eixo y em 5%
+if len(bars2) &gt; 0:
+    max_h2 = max(bar.get_height() for bar in bars2)
+    ax2.set_ylim(0, max_h2 * 1.15)
+
+# ============= 4. TIPO DE LIGAÇÃO =============
+ax3 = fig.add_subplot(gs[2, 0:2])
+tipo_counts = df_extractions[&#39;informacao_tipo_ligacao&#39;].value_counts()
+explode = [0.05 if i == 0 else 0 for i in range(len(tipo_counts))]
+wedges, texts, autotexts = ax3.pie(tipo_counts.values, labels=tipo_counts.index, autopct=&#39;%1.1f%%&#39;,
+                                     colors=colors_main, explode=explode, startangle=90,
+                                     textprops={&#39;fontsize&#39;: 11})
+ax3.set_title(&#39;Tipo de Ligação&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+for autotext in autotexts:
+    autotext.set_color(&#39;white&#39;)
+    autotext.set_fontsize(12)
+
+# ============= 5. RESULTADO DA LIGAÇÃO =============
+ax4 = fig.add_subplot(gs[2, 2:4])
+resultado_counts = df_extractions[&#39;informacao_resultado_ligacao&#39;].value_counts()
+res_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in resultado_counts.index]
+bars4 = ax4.barh(res_labels, resultado_counts.values, color=colors_main[:len(resultado_counts)], linewidth=2)
+ax4.set_title(&#39;Resultado da Ligação&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax4.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for i, bar in enumerate(bars4):
+  width = bar.get_width()
+  ax4.text(width, bar.get_y() + bar.get_height()/2.,
+       f&#39; {int(width)}&#39;,
+       ha=&#39;left&#39;, va=&#39;center&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax4.grid(axis=&#39;x&#39;, alpha=0.3)
+
+# ============= 6. RESPOSTAS CRIATIVAS =============
+ax5 = fig.add_subplot(gs[3, 0:2])
+criativas_counts = df_extractions[&#39;respostas_teve_resposta_criativa&#39;].fillna(False).astype(bool).value_counts()
+counts5 = [criativas_counts.get(True, 0), criativas_counts.get(False, 0)]
+labels5 = [&#39;Com Resposta\nCriativa&#39;, &#39;Sem Resposta\nCriativa&#39;]
+colors_criativas = [&#39;#4ECDC4&#39;, &#39;#FF6B6B&#39;]
+
+wedges5, texts5, autotexts5 = ax5.pie(counts5,
+                    labels=labels5,
+                    autopct=&#39;%1.1f%%&#39;,
+                    colors=colors_criativas,
+                    startangle=90,
+                    textprops={&#39;fontsize&#39;: 12})
+ax5.set_title(&#39;Respostas Criativas&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+for autotext in autotexts5:
+    autotext.set_color(&#39;white&#39;)
+    autotext.set_fontsize(13)
+
+# ============= 7. TIPOS DE RESPOSTA CRIATIVA =============
+ax6 = fig.add_subplot(gs[3, 2:4])
+tipo_resposta = df_extractions[&#39;respostas_tipo_resposta&#39;].dropna().value_counts()
+tipo_labels = [str(x).replace(&#39;_&#39;, &#39; &#39;).upper() for x in tipo_resposta.index]
+bars6 = ax6.barh(tipo_labels, tipo_resposta.values, color=colors_main[:len(tipo_resposta)], linewidth=2)
+ax6.set_title(&#39;Tipos de Resposta Criativa&#39;, fontsize=16, fontweight=&#39;bold&#39;, pad=15)
+ax6.set_xlabel(&#39;&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+for i, bar in enumerate(bars6):
+  width = bar.get_width()
+  ax6.text(width, bar.get_y() + bar.get_height()/2.,
+       f&#39; {int(width)}&#39;,
+       ha=&#39;left&#39;, va=&#39;center&#39;, fontsize=12, fontweight=&#39;bold&#39;)
+ax6.grid(axis=&#39;x&#39;, alpha=0.3)
+
+plt.show()</code></pre>
+</details>
+<p></br></p>
+<center>
+<div style="width: 90%;">
+<p><img src="/post/2025-10-26-telemarketing-agent/dashboard.png" alt="agent telemarketing analysis workflow" style="width: 100%;"></p>
+</div>
+<p style="text-align: center; font-style: italic;">
+Fluxo de trabalho completo
+</p>
+</center>
+<div id="benefícios-práticos-e-roi-mensurável" class="section level2">
+<h2>Benefícios Práticos e ROI Mensurável</h2>
+<p>Para equipes que operam call centers e compliance, os ganhos são claros:</p>
+<ul>
+<li><strong>Automação de QA</strong> (Análise de 100% das ligações vs. amostragem manual);</li>
+<li>Redução drástica no <strong>tempo de análise</strong>;</li>
+<li><strong>Detecção precoce</strong> de problemas e fraudes;</li>
+<li><strong>Treinamento</strong> baseado em casos reais e dados;</li>
+<li>Evidências estruturadas para <strong>auditoria</strong>;</li>
+<li>KPIs em tempo real e otimização de scripts (<strong>A/B testing</strong>).</li>
+</ul>
+<p>Para empresas, isso significa decisões mais rápidas, menos custos com retrabalho e ROI tangível na operação.</p>
+</div>
+<div id="ética-licença-e-privacidade" class="section level2">
+<h2>Ética, licença e privacidade</h2>
+<p>O dataset aqui usado é público (sketches de comédia) e foi apenas para fins pessoal/educacional. Para qualquer uso comercial:</p>
+<ul>
+<li>Verifique licença dos materiais originais;</li>
+<li>Obtenha consentimento quando necessário;</li>
+<li>Anonimizar dados pessoais;</li>
+<li>Adotar práticas de privacidade e conformidade (LGPD / GDPR).</li>
+</ul>
+</div>
+</div>
+<div id="conclusão-o-futuro-da-análise-de-conversas" class="section level1">
+<h1>Conclusão: O futuro da análise de conversas</h1>
+<p>O que começou como um experimento com ligações de telemarketing se transformou em uma demonstração poderosa do que é possível quando combinamos as melhores tecnologias de IA disponíveis hoje. <strong>Em menos de 4 minutos, processamos 13 ligações e extraímos insights que levariam horas para analistas humanos descobrirem.</strong></p>
+<div id="recursos-adicionais" class="section level2">
+<h2>Recursos adicionais</h2>
+<p>Tutoriais Complementares:</p>
+<ul>
+<li><a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/">Meu post sobre Agentes Multiagente</a> - LangChain em ação</li>
+<li><a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">Detecção de Linguagem Tóxica</a> - LLMs para análise de texto</li>
+<li><a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/">Análise de Sentimentos com LLM</a> - Processamento de linguagem natural</li>
+</ul>
+</div>
+</div>
+<div id="sobre-o-autor" class="section level1">
+<h1>Sobre o autor</h1>
+<p><em>Me chamo Fellipe Gomes, sou formado em estatística e atuo como cientista de dados desde 2018. Compartilho meus estudos e evolução por meio de artigos, tutoriais e projetos de código aberto. Se quiser saber mais sobre meu trabalho, sinta-se à vontade para entrar em contato através das minhas redes sociais <a href="https://www.linkedin.com/in/gomesfellipe/">LinkedIn</a>, <a href="https://github.com/gomesfellipe">GitHub</a> e <a href="https://www.kaggle.com/gomes555">Kaggle</a>.</em></p>
+<p><em>Gostou do conteúdo? Compartilhe e deixe suas dúvidas nos comentários. Sua experiência e feedback são fundamentais para continuar criando conteúdo de qualidade!</em></p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/">Agente para análise interpretativa de ligações de telemarketing</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">call-center</category>
+      <category domain="tag">gpt-4</category>
+      <category domain="tag">langchain</category>
+      <category domain="tag">nlp</category>
+      <category domain="tag">python</category>
+      <category domain="tag">sentiment-analysis</category>
+      <category domain="tag">speech-to-text</category>
+      <category domain="tag">telemarketing</category>
+      <category domain="tag">voice-analytics</category>
+      <category domain="tag">whisper</category>
+    </item>
+    <item>
+      <title>Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</title>
+      <link>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</guid>
+      <description>Como executar localmente o LLM pré-treinado de código aberto Llama2 para realizar uma análise de sentimentos em Python</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#por-que-an%C3%A1lise-de-sentimentos" id="toc-por-que-análise-de-sentimentos">Por que Análise de Sentimentos?</a></li>
+<li><a href="#por-que-large-language-models" id="toc-por-que-large-language-models">Por que Large Language Models?</a></li>
+<li><a href="#o-que-faremos-aqui" id="toc-o-que-faremos-aqui">O que faremos aqui?</a></li>
+<li><a href="#m%C3%A3os-a-obra" id="toc-mãos-a-obra">Mãos a obra!</a>
+<ul>
+<li><a href="#iniciar-ambiente-de-trabalho" id="toc-iniciar-ambiente-de-trabalho">Iniciar ambiente de trabalho</a></li>
+<li><a href="#carregar-dados" id="toc-carregar-dados">Carregar dados</a></li>
+<li><a href="#informa%C3%A7%C3%B5es-gerais" id="toc-informações-gerais">Informações gerais</a></li>
+<li><a href="#an%C3%A1lise-explorat%C3%B3ria" id="toc-análise-exploratória">Análise Exploratória</a></li>
+<li><a href="#an%C3%A1lise-de-sentimentos" id="toc-análise-de-sentimentos">Análise de Sentimentos</a></li>
+</ul></li>
+<li><a href="#resultado-final" id="toc-resultado-final">Resultado Final</a></li>
+<li><a href="#conclus%C3%A3o-e-discuss%C3%A3o" id="toc-conclusão-e-discussão">Conclusão e Discussão</a></li>
+<li><a href="#refer%C3%AAncias" id="toc-referências">Referências</a></li>
+</ul>
+</div>
+
+<style>
+.column4 {
+  float: left;
+  width: 33%;
+  padding: 10px;
+}
+ 
+.column8 {
+  float: left;
+  width: 66%;
+  padding: 10px;
+}
+
+.column6 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<div id="por-que-análise-de-sentimentos" class="section level2">
+<h2>Por que Análise de Sentimentos?</h2>
+<p>Compreender os sentimentos por trás de grandes volumes de texto tornou-se essencial, pois em um mundo cada vez mais digitalizado, a capacidade de compreender as respostas e emoções em larga escala das pessoas diante de produtos, eventos ou tópicos específicos não é apenas valiosa por fornecer insights, mas também se tornou uma necessidade para alavancar negócios e tornar-se cada vez mais competitivo.</p>
+<blockquote>
+<p>Análise de sentimento, também chamada de mineração de opinião, é o campo de estudo que analisa as opiniões, sentimentos, avaliações, apreciações, atitudes e emoções das pessoas em relação a entidades como produtos, serviços, organizações, indivíduos, questões, eventos, tópicos e seus atributos. <a href="https://www.cambridge.org/de/universitypress/subjects/computer-science/artificial-intelligence-and-natural-language-processing/sentiment-analysis-mining-opinions-sentiments-and-emotions-2nd-edition?format=HB&amp;isbn=9781108486378">Liu 2020</a></p>
+</blockquote>
+</div>
+<div id="por-que-large-language-models" class="section level2">
+<h2>Por que Large Language Models?</h2>
+<p>A abordagem comum para resolver problemas de NLP envolviam a aplicação de <em>text mining</em>, <em>embeddings</em> como <em>word2vec</em> e <em>GloVe (Global Vectors for Word Representation)</em> e técnicas de Machine Learning, onde modelos como <em>Random Forest</em>, <em>SVM</em>, <em>Naive Bayes</em>, <em>KNN</em>, <em>Ensembles</em> e até mesmo Regressão eram frequentemente utilizados para classificar textos. Além disso, o uso de redes neurais recorrentes (<em>RNNs</em>) sempre foi uma alternativa valiosa, especialmente em situações que demandavam o processamento de dados sequenciais, sendo a <em>LSTM (Long Short-Term Memory)</em> uma variante eficaz para lidar com o desafio conhecido como <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem"><em>vanishing gradient</em></a>.</p>
+<p>Já no cenário atual de modelos pré-treinados, o <em>BERT (Bidirectional Encoder Representations from Transformers)</em> também teve bastante destaque nesse domínio antes da ascensão do <em>ChatGPT</em>, demonstrando a viabilidade como um método gerador de texto e mostraram o poder que as redes neurais têm para gerar longas sequências de texto que antes pareciam inatingíveis.</p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/parameters_transformer_based_language_models.png" style="width:70.0%" /></br>
+<small><a href="https://www.techtarget.com/searchenterpriseai/definition/GPT-3">GPT-3 supera seus antecessores em termos de contagem de parâmetros</a></small></p>
+</center>
+<p>Embora já existam há algum tempo, os <em>LLMs</em> ganharam a mídia através do <em>ChatGPT</em>, interface de chat da OpenAI para modelos LLM GPT-3 lançado em 2020, com 175 milhões de parâmetros, que já teve uma série de avanços significativos nos últimos anos como seu irmão maior, o GPT-4 lançado em 2023 conta com incríveis 100 <strong>trílhões</strong> de parâmetros.</p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/comparison-between-GPT-3-and-GPT-4.png" style="width:50.0%" /></br>
+<small><a href="https://www.techtarget.com/searchenterpriseai/definition/GPT-3">The comparison between GPT-3 and GPT-4 based on the number of parameters used in their architecture</a></small></p>
+</center>
+<p>Modelos com mais de 100 bilhões de parâmetros já podem ser considerados muito grandes, com conhecimento mundial muito rico. Esses modelos maiores conseguem “aprender” ainda mais informações sobre muitas coisas sobre fisica, filosofia, ciência, programação, etc sendo cada vez mais úteis para ajudar em tarefas que envolvam conhecimento profundo ou raciocinio complexo, sendo um bom “parceiro” para brainstorming.</p>
+<div class="w3-panel w3-pale-red w3-border">
+<p>  <strong>⚠️ Atenção!</strong> </br>
+Afirmar que maiores modelos são sempre melhores não é verdade. O tempo de processamento, latência e o custo também irão aumentar, por isso <a href="https://medium.com/@masteringllm/mistral-7b-is-187x-cheaper-compared-to-gpt-4-b8e5ee1c9fc2">abordagens alternativas</a> também devem ser consideradas.</p>
+</div>
+<div id="como-funcionam-os-llms" class="section level3">
+<h3>Como funcionam os LLMs?</h3>
+<p>Os <em>LLMs</em> são modelos de <em>Machine Learning</em> que usam algoritmos de <em>Deep Learning</em> para processar e compreender a linguagem natural, gerando texto de maneira eficaz. Esses modelos são treinados com grandes volumes de dados da internet, adquirindo a capacidade de identificar padrões na composição de palavras e frases. A idéia básica por trás desses modelos é que são capazes de gerar texto prevendo repetidamente a próxima palavra oferecendo resultados rápidos e diversas aplicações práticas em várias áreas</p>
+<div id="aplicações" class="section level4">
+<h4>Aplicações</h4>
+<p>Diferentemente de uma ferramenta de busca como o Google, o ChatGPT não recupera informações, mas cria frases e textos completos em tempo real com base no processamento de um imenso volume de dados, veja alguns exemplos de uso para diferentes tarefas:</p>
+<div class="row">
+<div id="escrita" class="section level5 column4">
+<h5>✍️ <strong>Escrita:</strong></h5>
+<ul>
+<li>Colaboração em brainstorming, sugerindo nomes;</li>
+<li>Elaboração de templates para comunicados e e-mails;</li>
+<li>Tradução automática.</li>
+</ul>
+</div>
+<div id="leitura" class="section level5 column4">
+<h5>📖 <strong>Leitura</strong>:</h5>
+<ul>
+<li>Revisão de textos;</li>
+<li>Sumarização de artigos extensos;</li>
+<li>Análise de sentimentos, possibilitando a criação de dashboards para acompnhamento ao longo do tempo.</li>
+</ul>
+</div>
+<div id="conversa" class="section level5 column4">
+<h5>💬 <strong>Conversa</strong>:</h5>
+<ul>
+<li>Diálogos e aconselhamentos;</li>
+<li>Coaching de carreira;</li>
+<li>Planejamento de viagens;
+Sugestões de receitas;</li>
+<li>Conversação interativa com documentos PDF;</li>
+<li>Atendimento ao cliente;</li>
+<li>Realização de pedidos.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="o-que-faremos-aqui" class="section level2">
+<h2>O que faremos aqui?</h2>
+<p>Nosso objetivo aqui é realizar uma análise de sentimentos para classificar sentenças como positivas ou negativas utilizando algum LLM pré-treinado. Embora a OpenAI já tenha sido uma organização sem fins lucrativos que lançava seus projetos como código aberto, desde o lançamento do ChatGPT ela se tornou uma empresa que mantém a propriedade de seus códigos fonte. Isso significa que apesar da facilidade de criar aplicações, modelos mais poderosos e relativamente baratos, desenvolvedores de IA não podem modificar o GPT-3 para atender às nossa necessidades específicas ou incorporá-lo em seus próprios projetos de maneira livre e gratuita. Portanto teremos de recorrer à alternativas não tão(*) <em>open source</em> como o <a href="https://huggingface.co/meta-llama"><em>Llama 2</em> da Meta</a> que permite total controle sobre o modelo, rodar em nosso próprio computador/servidor e nós dá o controle sobre a privacidade dos nossos dados.</p>
+<div class="w3-panel w3-pale-red w3-border">
+<p>(*) “Código aberto” 🤔 </br>
+Não é totalmente código aberto pois por mais que a Meta tenha disponibilizado o modelo treinado para uso livre, ele não compartilha os dados de treinamento do modelo ou o código usado para treiná-lo.</p>
+</div>
+</div>
+<div id="mãos-a-obra" class="section level1">
+<h1>Mãos a obra!</h1>
+<div id="iniciar-ambiente-de-trabalho" class="section level2">
+<h2>Iniciar ambiente de trabalho</h2>
+<p>Primeiramente vamos carregar todas as dependencias necessárias para executar os códigos a seguir:</p>
+<pre class="python"><code>import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+from PIL import Image
+from nltk.corpus import stopwords
+from collections import Counter
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, accuracy_score
+from llama_cpp import Llama
+from tqdm.notebook import tqdm
+tqdm.pandas()</code></pre>
+</div>
+<div id="carregar-dados" class="section level2">
+<h2>Carregar dados</h2>
+<p>Utilizaremos uma versão <a href="https://www.kaggle.com/datasets/luisfredgs/imdb-ptbr">traduzida do dataset IMdb para o português</a>, um conjunto de dados do Internet Movie Database (IMDB), que é uma das maiores e mais abrangentes bases de dados online sobre filmes e programas de televisão.</p>
+<pre class="python"><code> #Importar todo conjunto de dados
+df = pd.read_csv(&#39;input/imdb-reviews-pt-br.csv&#39;, index_col=&#39;id&#39;)
+# Obter amostra de tamanho 100
+_, df = train_test_split(df, test_size=100, random_state=42, shuffle=True)</code></pre>
+</div>
+<div id="informações-gerais" class="section level2">
+<h2>Informações gerais</h2>
+<p>Esse dataset inclui avaliações e críticas de filmes feitas por usuários do IMDB, bem como informações sobre os próprios filmes, como título, ano de lançamento, gênero, etc. Para nossa finalidade para tarefa de análise de sentimentos, utilizaremos os seguintes dados:</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="41%" />
+<col width="40%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">id</th>
+<th align="left">text_en</th>
+<th align="left">text_pt</th>
+<th align="center">sentiment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">12534</td>
+<td align="left">This was unusual: a modern-day film which…</td>
+<td align="left">Isso era incomum: um filme moderno que era…</td>
+<td align="center">pos</td>
+</tr>
+<tr class="even">
+<td align="center">35447</td>
+<td align="left">Some of my old friends suggested me to wat…</td>
+<td align="left">Alguns dos meus velhos amigos sugeriram qu…</td>
+<td align="center">neg</td>
+</tr>
+<tr class="odd">
+<td align="center">20281</td>
+<td align="left">What a pleasure. This is really a parody. …</td>
+<td align="left">Que prazer. Isto é realmente uma paródia. S…</td>
+<td align="center">pos</td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="left">…</td>
+<td align="left">…</td>
+<td align="center">…</td>
+</tr>
+<tr class="odd">
+<td align="center">34241</td>
+<td align="left">WOW!I just was given this film from a frie…</td>
+<td align="left">WOW! Acabei de receber este filme de um am…</td>
+<td align="center">neg</td>
+</tr>
+<tr class="even">
+<td align="center">12896</td>
+<td align="left">This film offers many delights and surprise…</td>
+<td align="left">Este filme oferece muitas delícias e surp…</td>
+<td align="center">pos</td>
+</tr>
+<tr class="odd">
+<td align="center">19748</td>
+<td align="left">Over the years Ive watched this movie many…</td>
+<td align="left">Ao longo dos anos, assisti a esse filme mu…</td>
+<td align="center">pos</td>
+</tr>
+</tbody>
+</table>
+<p>Onde:</p>
+<ul>
+<li><code>id</code>: Identificador;</li>
+<li><code>text_en</code>: texto em inglês;</li>
+<li><code>text_pt</code>: texto em português;</li>
+<li><code>sentiment</code>: rótulo do texto, que pode ser <code>pos</code> ou <code>neg</code>.</li>
+</ul>
+</div>
+<div id="análise-exploratória" class="section level2">
+<h2>Análise Exploratória</h2>
+<hr />
+<div id="distribuição-dos-sentimentos-na-amostra" class="section level3">
+<h3>Distribuição dos sentimentos na amostra</h3>
+<p>Primeiro vamos entender como ficou distribuída a proporção dos sentimentos na amostra coletada:</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Contagem absoluta
+contagem_absoluta = df[&#39;sentiment&#39;].value_counts()
+
+# Contagem relativa
+contagem_relativa = df[&#39;sentiment&#39;].value_counts(normalize=True) * 100
+
+# Criar gráfico de barras
+fig, ax = plt.subplots(figsize=(6, 4))
+barras = plt.bar(contagem_absoluta.index, contagem_absoluta, color=[&#39;green&#39;, &#39;red&#39;])
+
+# Adicionar texto nas barras
+for barra, abs_value, rel_value in zip(barras, contagem_absoluta, contagem_relativa):
+    yval = barra.get_height()
+    ax.text(barra.get_x() + barra.get_width()/2, yval, f&#39;{abs_value} ({rel_value:.1f}%)&#39;,
+            ha=&#39;center&#39;, va=&#39;bottom&#39;, color=&#39;black&#39;, fontsize=12)
+
+# Adicionar rótulos e título
+plt.xlabel(&#39;Sentimento&#39;, fontsize=14)
+plt.ylabel(&#39;Frequência absoluta&#39;, fontsize=14)
+plt.title(&#39;Quantidade de textos de cada sentimento \nem uma amostra de tamanho 100&#39;, fontsize=16, x=0.5, y=1.1)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Remover bordas da parte superior e direita
+ax.spines[&#39;top&#39;].set_visible(False)
+ax.spines[&#39;right&#39;].set_visible(False)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar imagem
+plt.savefig(f&quot;img/freq_sentiment.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<p> </p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/freq_sentiment.png" /></p>
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  📌 <strong>Interpretação:</strong>
+Coletei uma amostra aleatória simples de tamanho n=100 de todas as reviews que contém aproximadamente metade de cada sentimento para diminuir o tempo computacional de execução no meu computador.</p>
+</div>
+</div>
+<div id="palavras-mais-frequentes-para-cada-sentimento" class="section level3 tabset">
+<h3>Palavras mais frequentes para cada sentimento</h3>
+<p>Núvens de palavras das resenhas dos filmes que foram anotadas como positivos e como negativos nas duas linguas disponíveis no dataset:</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código das Wordclouds</em>
+</summary>
+<pre class="python"><code>def generate_wordcloud(df, language=&#39;en&#39;):
+    # Definir stopwords para o idioma escolhido
+    if language == &#39;en&#39;:
+        stop_words_pos = stop_words_neg = set(stopwords.words(&#39;english&#39;))
+        stop_words_pos.update([&quot;film&quot;, &quot;movie&quot;, &quot;one&quot;])
+        stop_words_neg.update([&quot;character&quot;, &quot;like&quot;, &quot;really&quot;, &quot;make&quot;, &quot;see&quot;])
+    elif language == &#39;pt&#39;:
+        stop_words_pos = stop_words_neg = set(stopwords.words(&#39;portuguese&#39;))
+        stop_words_pos.update([&quot;filme&quot;, &quot;filmes&quot;, &quot;todo&quot;, &quot;tão&quot;, &quot;pode&quot;, &quot;todos&quot;])
+        stop_words_neg.update([&quot;filme&quot;, &quot;filmes&quot;, &quot;todo&quot;, &quot;tão&quot;, &quot;filme&quot;, &quot;coisa&quot;, &quot;realmente&quot;])
+    else:
+        raise ValueError(&quot;Language must be &#39;en&#39; or &#39;pt&#39;.&quot;)
+
+    # Concatenar textos positivos e negativos
+    txt_pos = &quot; &quot;.join(review for review in df[df.sentiment == &#39;pos&#39;][f&#39;text_{language}&#39;])
+    txt_neg = &quot; &quot;.join(review for review in df[df.sentiment == &#39;neg&#39;][f&#39;text_{language}&#39;])
+
+    # Carregar máscaras de imagem
+    mask_pos = np.array(Image.open(f&quot;img/pos.png&quot;))
+    mask_neg = np.array(Image.open(f&quot;img/neg.png&quot;))
+
+    # Gerar nuvens de palavras positivas e negativas
+    wordcloud_positivo = WordCloud(
+        stopwords=stop_words_pos,
+        random_state=42,
+        background_color=&quot;white&quot;,
+        color_func=lambda *args, **kwargs: &quot;green&quot;,
+        contour_color=&#39;black&#39;,
+        contour_width=1,
+        max_font_size=100,
+        min_font_size=15,
+        max_words=200,
+        mask=mask_pos
+    ).generate(txt_pos)
+
+    wordcloud_negativo = WordCloud(
+        stopwords=stop_words_neg,
+        random_state=42,
+        background_color=&quot;white&quot;,
+        color_func=lambda *args, **kwargs: &quot;red&quot;,
+        contour_color=&#39;black&#39;,
+        contour_width=1,
+        max_font_size=100,
+        min_font_size=15,
+        max_words=200,
+        mask=mask_neg
+    ).generate(txt_neg)
+
+    # Configurações do plot
+    plt.figure(figsize=(7, 14))
+
+    # Plotar nuvem de palavras positivas
+    plt.subplot(1, 2, 1)
+    plt.imshow(wordcloud_positivo, interpolation=&#39;bilinear&#39;)
+    plt.axis(&#39;off&#39;)
+    plt.title(&#39;Positivo&#39;, fontsize=20, color=&#39;green&#39;)
+
+    # Plotar nuvem de palavras negativas
+    plt.subplot(1, 2, 2)
+    plt.imshow(wordcloud_negativo, interpolation=&#39;bilinear&#39;)
+    plt.axis(&#39;off&#39;)
+    plt.title(&#39;Negativo&#39;, fontsize=20, color=&#39;red&#39;)
+
+    # Ajustar layout
+    plt.tight_layout()
+
+    # Salvar a nuvem de palavras como imagem
+    plt.savefig(f&quot;img/wordcloud_{language}.png&quot;, bbox_inches=&#39;tight&#39;)
+
+    # Exibir a nuvem de palavras
+    plt.show()
+    
+# Exemplo de uso para o idioma inglês
+generate_wordcloud(df, language=&#39;en&#39;)
+
+# Exemplo de uso para o idioma português
+generate_wordcloud(df, language=&#39;pt&#39;)</code></pre>
+</details>
+<p> </p>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/wordcloud_en.png" /></p>
+<p>Núvem de palavras mais frequentes das resenhas em <strong>🇺🇲 Inglês</strong></p>
+</center>
+<center>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/wordcloud_pt.png" /></p>
+<p>Núvem de palavras mais frequentes das resenhas em <strong>🇧🇷 Português</strong></p>
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong>
+Como esperado, mesmo com a mudança na língua, a frequência das palavras é exibida de maneira muito similar de acordo com cada sentimento.</p>
+</div>
+</div>
+</div>
+<div id="análise-de-sentimentos" class="section level2">
+<h2>Análise de Sentimentos</h2>
+<hr />
+<div id="família-llama-2-de-large-language-models-llms" class="section level3">
+<h3>Família <em>Llama 2</em> de <em>Large Language Models</em> (<em>LLMs</em>)</h3>
+<p>Nesta seção, exploraremos o <a href="https://llama.meta.com/"><em>Llama 2</em></a>, um modelo de código aberto, e discutiremos as vantagens e desvantagens em relação aos LLMs de código fechado ou remotos.</p>
+<div id="tamanho-do-modelo" class="section level4">
+<h4>Tamanho do modelo</h4>
+<p>Para saber qual modelo utilizar, primeiramente precisamos ter em mente algumas noções sobre a quantidade de parâmetros e tamanhos dos LLM. No geral:</p>
+<div class="row">
+<div class="column4">
+<p><big><strong>1 Bilhão</strong>:</big></p>
+<p>Bons em correspondência de padrões e algum conhecimento básico do mundo (como por exemplo classificar avaliações por sentimento)</p>
+</div>
+<div class="column4">
+<p><big><strong>10 Bilhões</strong>:</big></p>
+<p>Maior conhecimento mundial, conhecem mais fatos esotéricos sobre o mundo e melhoram em seguir instruções básicas (bom para chatbot para pedidos de comida);</p>
+</div>
+<div class="column4">
+<p><big><strong>100+ Bilhões</strong>: </big></p>
+<p>Muito grandes, com conhecimento mundial muito rico, saberão coisas sobre física, filosofia, ciência e assim por diante e serão melhores em raciocínios complexos (tarefas que envolvem conhecimento profundo ou raciocínio complexo, parceiro para brainstorming)</p>
+</div>
+</div>
+<p>Para uma análise de sentimentos simples, não é necessário um modelo com 100 bilhões de parâmetros. Modelos menores, como os com 7 bilhões de parâmetros, podem ser suficientes e menos computacionalmente exigentes.</p>
+</div>
+<div id="código-aberto-ou-fechado" class="section level4">
+<h4>Código aberto ou fechado</h4>
+<p>Embora próximos, os LLMs de código aberto ainda não conseguem igualar o poder e a precisão dos aplicativos de código fechado disponíveis comercialmente, como <a href="https://openai.com/gpt-4">GPT-4</a> e <a href="https://gemini.google.com/app">Bard (Gemini)</a>. Mesmo sendo menos poderosos, existem alguns prós e contras pelos quais podemos pesar na hora de escolher a melhor opção:</p>
+<div class="row">
+<div class="column6">
+<p><big><strong>Open Source</strong></big></p>
+<ul>
+<li>Total controle sobre o modelo</li>
+<li>Pode rodar em nosso próprio computador/servidor</li>
+<li>Controle sobre a privacidade dos dados</li>
+</ul>
+</div>
+<div class="column6">
+<p><big><strong>Closed</strong></big></p>
+<ul>
+<li>Fácil de criar aplicações</li>
+<li>Maiores e mais poderosos</li>
+<li>Relativamente barato</li>
+<li>Existe um certo risco de depender do fornecedor</li>
+</ul>
+</div>
+</div>
+<p>Utilizaremos a abordagem de código aberto por ser mais prática para fins de estudos, pois além de gratuita, não exige internet, registros ou chaves de API.</p>
+</div>
+<div id="uso-remoto-ou-local" class="section level4">
+<h4>Uso remoto ou local</h4>
+<p>Podemos interagir com o modelo de linguagem grande (LLM) do Llama 2 via API da <a href="https://huggingface.co/">Hugging Face</a>, seguindo as instruções do <a href="https://huggingface.co/meta-llama">repositório oficial da Meta</a> ou podemos baixar os arquivos do modelo em formato GGML para o <a href="https://huggingface.co/meta-llama/Llama-2-7b-chat-hf">Llama 2 7B Chat do Meta Llama 2</a>. Os formatos GGML são utilizados para inferência de CPU + GPU usando o principamente o pacote <a href="https://pypi.org/project/llama-cpp-python/">llama-cpp-python</a>.</p>
+<p>Para mais informações sobre como configurar o modelo consulte <a href="https://swharden.com/blog/2023-07-29-ai-chat-locally-with-python/">este link</a></p>
+<pre class="python"><code>def load_llama_model(model_path=&quot;./input/llama-2-7b-chat.ggmlv3.q2_K.bin&quot;, language=&#39;en&#39;, seed=42):
+    # Determinar o tamanho da janela de contexto com base no idioma
+    if language == &#39;en&#39;:
+        context_window = df.text_en.map(len).max()
+    elif language == &#39;pt&#39;:
+        context_window = df.text_pt.map(len).max()
+    else:
+        raise ValueError(&quot;Language must be &#39;en&#39; or &#39;pt&#39;.&quot;)
+
+    # Carregar o modelo Llama
+    return Llama(model_path=model_path,
+                 verbose=False,
+                 n_ctx=context_window,
+                 seed=seed)</code></pre>
+<p>Para obter os melhores resultados, devemos ser o mais claro e específicos possível nas interações. Porém devemos iniciar com um prompt simples e rápido para ir direcionando o modelo na direção desejada e avaliando os resultados obtidos e ajustando gradualmente o prompt para refinar e aprimorar a resposta desejada</p>
+<pre class="python"><code>def classify_sentiment_llama(text, llama_model):
+    # Construir a prompt para o modelo Llama
+    prompt = f&#39;&#39;&#39; \
+    Q: Answer with just one word, \
+    does the following text express a \
+    positive or negative feeling? \
+    {text} \
+    A:&#39;&#39;&#39;
+    # Obter a saída do modelo Llama
+    output = llama_model(prompt, max_tokens=3)
+    return output[&quot;choices&quot;][0][&quot;text&quot;]</code></pre>
+<p>Com nosso prompt definido, já podemos carregar o modelo:</p>
+<pre class="python"><code># Carregar o modelo Llama para o idioma desejado
+llama_model = load_llama_model(language=&#39;en&#39;)</code></pre>
+<pre><code>## llama.cpp: loading model from ./llama-2-7b-chat.ggmlv3.q2_K.bin
+## llama_model_load_internal: format     = ggjt v3 (latest)
+## llama_model_load_internal: n_vocab    = 32000
+## llama_model_load_internal: n_ctx      = 4320
+## llama_model_load_internal: n_embd     = 4096
+## llama_model_load_internal: n_mult     = 256
+## llama_model_load_internal: n_head     = 32
+## llama_model_load_internal: n_head_kv  = 32
+## llama_model_load_internal: n_layer    = 32
+## llama_model_load_internal: n_rot      = 128
+## llama_model_load_internal: n_gqa      = 1
+## llama_model_load_internal: rnorm_eps  = 5.0e-06
+## llama_model_load_internal: n_ff       = 11008
+## llama_model_load_internal: freq_base  = 10000.0
+## llama_model_load_internal: freq_scale = 1
+## llama_model_load_internal: ftype      = 10 (mostly Q2_K)
+## llama_model_load_internal: model size = 7B
+## llama_model_load_internal: ggml ctx size =    0.08 MB
+## llama_model_load_internal: mem required  = 2733.66 MB (+ 2160.00 MB per state)
+## llama_new_context_with_model: kv self size  = 2160.00 MB
+## llama_new_context_with_model: compute buffer total size =  295.35 MB</code></pre>
+<p>Após instanciar o modelo, basta aplicá-lo em nossa base de dados. (apliquei o mesmo modelo tanto para as reviews e português quanto em inglês).</p>
+<pre class="python"><code>df[&#39;sentiment_llm_en&#39;] = df.text_en.progress_apply(lambda x: classify_sentiment_llama(x, llama_model))</code></pre>
+<p><img src="/post/2024-04-20-sentiment-analysis-llama2/load_en.png" /></p>
+<p>Como este modelo é o mais básico e não alteramos nenhum parâmetro (como por exemplo <code>temperature</code>, que determina se o output será mais aleatório ou mais previsível) pode ser que a saída não saia padronizada e necessite de algum pós-processamento. Vejamos como foram os outputs do LLM:</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Contagem da frequência das classificações
+sentiment_llm_counts = df.groupby(&#39;sentiment&#39;).sentiment_llm_en.value_counts().reset_index(name=&#39;n&#39;)
+
+# Organizar as categorias pela frequência total
+order = df.sentiment_llm_en.value_counts().reset_index(name=&#39;n&#39;)
+order = order.sort_values(by=&#39;n&#39;, ascending=False)[&#39;index&#39;]
+
+# Configurações de estilo do seaborn
+sns.set(style=&quot;whitegrid&quot;)
+
+# Criar o gráfico de barras
+plt.figure(figsize=(12, 4))
+ax = sns.barplot(x=sentiment_llm_counts.sentiment_llm_en, y=sentiment_llm_counts.n, hue=sentiment_llm_counts.sentiment, order=order, palette=[&quot;red&quot;, &quot;green&quot;])
+
+# Adicionar rótulos e título
+plt.ylim([0, 25])
+plt.xticks(fontsize=12, rotation=90)
+plt.yticks(fontsize=12)
+ax.set_xlabel(&#39;Anotação de sentimento das resenhas&#39;, fontsize=14)
+ax.set_ylabel(&#39;Frequência&#39;, fontsize=14)
+ax.set_title(&#39;Frequência dos sentimentos classificados pelo LLM em Inglês\nem relação aos sentimentos já anotados da base&#39;, fontsize=20)
+
+# Adicionar anotações nas barras
+for p in ax.patches:
+    ax.annotate(f&#39;{p.get_height()}&#39;, (p.get_x() + p.get_width() / 2., p.get_height()),
+                ha=&#39;center&#39;, va=&#39;baseline&#39;, fontsize=10, color=&#39;black&#39;, xytext=(0, 5),
+                textcoords=&#39;offset points&#39;)
+
+plt.legend(loc=&quot;upper right&quot;, title = &quot;Label real&quot;)
+
+# Remover bordas da parte superior e direita
+ax.spines[&#39;top&#39;].set_visible(False)
+ax.spines[&#39;right&#39;].set_visible(False)
+ax.grid(False)
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/freq_class_llm_en.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/freq_class_llm_en.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong>
+É possível observar que o modelo pré-treinado conseguiu reconhecer de maneira bastante coerente o sentimento dos trechos para as categorias <code>pos</code> e <code>neg</code>, porém, não vieram padronizadas exatamente como solicitamos ao modelo.</p>
+</div>
+<p>Como a saída não foi padronizada, vamos realizar algum pós-processamento para padronizar as classes como <code>pos</code> ou <code>neg</code> para possibilitar avaliar o desempenho do modelo com base em métricas de classificação.</p>
+<pre class="python"><code>conditions = [
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:pos|fun)&#39;)),
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:neg|horrible|melanchol)&#39;))
+]
+pd.crosstab(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))</code></pre>
+<p>Com os outputs padronizados em duas classes, podemos verificar como foi a acurácia do modelo.</p>
+</div>
+<div id="desempenho" class="section level4">
+<h4>Desempenho</h4>
+<p>Como estamos diante de um problema de classificação, avaliaremos o desempenho do modelo com matrizes de confusão para entender a as taxas de acerto e calcular a acurácia pois o dataset é balanceado.</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Matrizes de Confusão
+conditions = [
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:pos|fun|good|comedy)&#39;)),
+    (df.sentiment_llm_en.str.contains(&#39;(?i)(?:neg|melanchol|absurd|horrible)&#39;))
+]
+cm_llm_en = confusion_matrix(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+accuracy_llm_en = accuracy_score(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+
+conditions = [
+    (df.sentiment_llm_pt.str.contains(&#39;(?i)(?:pos)&#39;)),
+    (df.sentiment_llm_pt.str.contains(&#39;(?i)(?:neg|horrível)&#39;))
+]
+cm_llm_pt = confusion_matrix(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+accuracy_llm_pt = accuracy_score(df.sentiment, np.select(conditions, [&#39;pos&#39;, &#39;neg&#39;], default=&#39;other&#39;))
+
+# Configurações de estilo do seaborn
+sns.set(font_scale=1.2)
+plt.figure(figsize=(12, 5))
+
+# Plotar Matriz de Confusão para o modelo de LLM em inglês
+plt.subplot(1, 2, 1)
+sns.heatmap(cm_llm_en, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False, vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Inglês)\nAcurácia: {accuracy_llm_en:.0%}&#39;, fontsize=22)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Plotar Matriz de Confusão para o modelo de LLM em português
+plt.subplot(1, 2, 2)
+sns.heatmap(cm_llm_pt, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False,vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Português)\nAcurácia: {accuracy_llm_pt:.0%}&#39;, fontsize=22)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/cm_llm.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/cm_llm2.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong>
+A acurácia geral para a língua Inglesa foi superior quando aplicado o mesmo modelo para a língua portuguesa. Vale lembrar que este modelo foi treinado em Inglês e estamos utilizado a menor das opções.</p>
+</div>
+<p>O desempenho deste modelo é muito interessante, principalmente por já ser pré treinado, não sendo necessário gastar tanto tempo na sua construção mas para afirmar que este modelo é bom precisamos entender qual seria o resultado para resolver este problemas se utilizassemos a abordagem mais simples possível.</p>
+</div>
+</div>
+<div id="vader" class="section level3">
+<h3>Vader</h3>
+<!-- ## Baseline -->
+<p>O <em><strong>VADER</strong> (Valence Aware Dictionary and sEntiment Reasoner)</em> é uma abordagem mais simples e rápida em comparação aos LLMs. Não requer o treinamento de um modelo, mas depende de léxicos de palavras relacionadas a sentimentos. Pode ser facilmente utilizado via bibliotecas de código aberto em Python, como <a href="https://pypi.org/project/vaderSentiment/">vaderSentiment</a> para inglês e <a href="https://github.com/rafjaa/LeIA">LeIA (Léxico para Inferência Adaptada)</a> para português.</p>
+<p>A abordagem é direta: no léxico (uma coleção de palavras), cada palavra já possui uma nota atribuída. Ao passar um documento (frase), retorna um dicionário com o escore de polaridade com base no escore das palavras no texto. O dicionário inclui o valor do sentimento geral normalizado (<code>compound</code>), variando de -1 (extremamente negativo) a +1 (extremamente positivo). Esse valor pode ser usado para descrever o sentimento predominante no texto, considerando os seguintes limites:</p>
+<ul>
+<li>Sentimento <span style="color: green;">positivo</span>: <code>compound</code> &gt;= 0.05</li>
+<li>Sentimento <span style="color: red;">negativo</span>: <code>compound</code> &lt;= -0.05</li>
+<li>Sentimento <span style="color: orange;">neutro</span>: (<code>compound</code> &gt; -0.05) e (<code>compound</code> &lt; 0.05)</li>
+</ul>
+<details>
+<summary>
+<em>Clique aqui para ver a função utilizada para classificar o sentimento com base no escore <code>compound</code></em>
+</summary>
+<pre class="python"><code># Função para classificar o sentimento com base no compound score
+def classify_sentiment_vader(text, language=&#39;en&#39;):
+
+    # Definir método que será utilizado
+    if language==&#39;en&#39;:
+        from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+    elif language == &#39;pt&#39;:
+        from leia import SentimentIntensityAnalyzer
+    else:
+        raise ValueError(&quot;Language must be &#39;en&#39; or &#39;pt&#39;.&quot;)
+
+    # Instanciar a ferramenta para análise de sentimentos
+    analyzer = SentimentIntensityAnalyzer()
+    # Realiza a análise de sentimentos e obtém o compound score
+    compound_score = analyzer.polarity_scores(text)[&#39;compound&#39;]
+    # Classifica o sentimento com base no compound score
+    if compound_score &gt;= 0.05:
+        return &#39;pos&#39;
+    elif compound_score &lt;= -0.05:
+        return &#39;neg&#39;
+    else:
+        return &#39;neu&#39;
+
+# Criando uma nova coluna &#39;sentimento_vader&#39;
+df[&#39;sentiment_vader_en&#39;] = df.text_en.apply(lambda x: classify_sentiment_vader(x, &#39;en&#39;))
+df[&#39;sentiment_vader_pt&#39;] = df.text_pt.apply(lambda x: classify_sentiment_vader(x, &#39;pt&#39;))</code></pre>
+</details>
+<!-- &nbsp; -->
+<p>A execução do código é bem rápida, sendo útil para referência como baseline ou em casos em que temos baixo recurso computacional e um grande volume de dados para classificar.</p>
+<div id="desempenho-1" class="section level4">
+<h4>Desempenho</h4>
+<p>Como estamos diante de um problema de classificação, avaliaremos o desempenho do modelo com matrizes de confusão para entender a as taxas de acerto e calcular a acurácia pois o dataset é balanceado.</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code># Matrizes de Confusão
+cm_vader_en = confusion_matrix(df.sentiment, df.sentiment_vader_en)
+cm_vader_pt = confusion_matrix(df.sentiment, df.sentiment_vader_pt)
+
+# Acurácias
+accuracy_vader_en = accuracy_score(df.sentiment, df.sentiment_vader_en)
+accuracy_vader_pt = accuracy_score(df.sentiment, df.sentiment_vader_pt)
+
+# Configurações de estilo do seaborn
+sns.set(font_scale=1.2)
+plt.figure(figsize=(12, 5))
+
+# Plotar Matriz de Confusão para o método Vader em inglês
+plt.subplot(1, 2, 1)
+sns.heatmap(cm_vader_en, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False,vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Inglês)\nAcurácia: {accuracy_vader_en:.0%}&#39;, fontsize=22)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+
+# Plotar Matriz de Confusão para o método Vader em português
+plt.subplot(1, 2, 2)
+sns.heatmap(cm_vader_pt, annot=True, fmt=&#39;d&#39;, cmap=&#39;binary&#39;, cbar=False,vmin=0, vmax=50,
+            xticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;], yticklabels=[&#39;Negativo&#39;, &#39;Neutro&#39;, &#39;Positivo&#39;])
+plt.title(f&#39;Matriz de Confusão (Vader - Português)\nAcurácia: {accuracy_vader_pt:.0%}&#39;, fontsize=22)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.xlabel(&#39;Previsto&#39;, fontsize=14)
+plt.ylabel(&#39;Real&#39;, fontsize=14)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/cm_vader.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/cm_vader.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong> A acurácia geral do método foi praticamente o mesmo para ambas as linguas. Na lingua inglesa observamos mais casos de falsos positivos (22%), já na lingua portuguesa observamos mais casos de falsos negativos (14%).</p>
+</div>
+<p>Essa abordagem é boa para ser utilizada como baseline pois quase todas as abordagens tradicionais de Machine Learning para a tarefa de análise de sentimentos necessitam de tempo para desenvolvimento, treino, validação e sustentação de modelos.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="resultado-final" class="section level1">
+<h1>Resultado Final</h1>
+<hr />
+<p>Avaliamos o desempenho de ambas as abordagens para determinar se o uso do LLM justificou-se em comparação com a abordagem mais simples para a execução da tarefa de análise de sentimentos.</p>
+<details>
+<summary>
+<em>Clique aqui para ver o código do gráfico</em>
+</summary>
+<pre class="python"><code>models = (
+    &quot;Inglês&quot;,
+    &quot;Português&quot;,
+)
+weight_counts = {
+    &quot;Vader&quot;: np.array([accuracy_vader_en,
+                       accuracy_vader_pt]),
+    &quot;LLM&quot;: np.array([accuracy_llm_en-accuracy_vader_en,
+                     accuracy_llm_pt-accuracy_vader_pt]),
+}
+
+fig, ax = plt.subplots()
+bottom = np.zeros(2)
+colors=[&quot;#b4dbe6&quot;, &quot;#024b7a&quot;]
+for (boolean, weight_count), col in zip(weight_counts.items(), colors):
+    p = ax.bar(models, weight_count, width=0.5, label=boolean, bottom=bottom, color=col)
+    bottom += weight_count
+
+# Formatar eixos
+plt.ylim([0, 1.1])
+plt.xlabel(&#39;Idioma das resenhas dos filmes&#39;, fontsize=14)
+plt.ylabel(&#39;Ganho de Acurácia&#39;, fontsize=14)
+plt.title(&quot;Comparação do ganho de acurácia \ndo LLM em relação ao Vader&quot;, fontsize=16, x=0.5)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Legenda
+ax.legend(loc=&quot;upper right&quot;, title=&#39;Método utilizado&#39;)
+#specify order of items in legend
+handles, labels = plt.gca().get_legend_handles_labels()
+order = [1, 0]
+plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order])
+
+accs=[x*100 for x in [accuracy_vader_en, accuracy_vader_pt, accuracy_llm_en, accuracy_llm_pt]]
+for p, acc in zip(ax.patches, accs):
+    width, height = p.get_width(), p.get_height()
+    x, y = p.get_xy()
+    ax.text(x+width/2,
+            y+(height/2) - 0.01,
+            &#39;{:.0f} %&#39;.format(acc),
+            horizontalalignment=&#39;center&#39;,
+            verticalalignment=&#39;center&#39;,
+            color=&#39;white&#39;, fontsize=18)
+
+# Adicionar setas e textos na figura
+plt.arrow(0.3, 0.62, 0, 0.16,
+          head_width = 0.05,
+          width = 0.015,
+          color=&#39;black&#39;)
+plt.text(0.2, 0.9, &#39;+20,0%&#39;, fontsize = 20)
+
+plt.arrow(0.7, 0.63, 0, 0.09,
+          head_width = 0.05,
+          width = 0.015,
+          color=&#39;black&#39;)
+plt.text(0.6, 0.84, &#39;+11,53%&#39;, fontsize = 20)
+
+# Remover bordas da parte superior e direita
+ax.spines[&#39;top&#39;].set_visible(False)
+ax.spines[&#39;right&#39;].set_visible(False)
+ax.spines[&#39;bottom&#39;].set_visible(True)
+ax.spines[&#39;left&#39;].set_visible(True)
+ax.grid(visible=None)
+ax.set_facecolor(&#39;white&#39;)
+
+# Ajustar layout
+plt.tight_layout()
+
+# Salvar a nuvem de palavras como imagem
+plt.savefig(f&quot;img/acc_comparation.png&quot;, bbox_inches=&#39;tight&#39;)
+
+# Exibir o gráfico
+plt.show()</code></pre>
+</details>
+<!-- &nbsp; -->
+<center>
+<img src="/post/2024-04-20-sentiment-analysis-llama2/acc_comparation.png" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  <strong>📌 Interpretação:</strong> A acurácia geral foi consideravelmente maior para o modelo Llama2 em ambas as línguas, mesmo sendo treinado principalmente em dados da língua inglesa.</p>
+</div>
+</div>
+<div id="conclusão-e-discussão" class="section level1">
+<h1>Conclusão e Discussão</h1>
+<hr />
+<p>Os avanços tecnológicos na área são verdadeiramente impressionantes e evidenciam a rápida evolução da inteligência artificial. É importante estarmos sempre atentos a essas mudanças, pois a área de LLMs está em constante crescimento e melhorias significativas são desenvolvidas diariamente.</p>
+<p>Em meio a tantos avanços, também é importante reconhecer as limitações desses modelos. Um dos desafios é o corte de conhecimento (knowledge cutoffs), o que significa que o modelo é treinado até uma determinada data, como 2022, portanto não possui conhecimento sobre eventos ou desenvolvimentos que ocorreram após essa data. Além disso, os LLMs estão sujeitos a “hallucinations”, ou seja, podem inventar informações em um tom muito confiante, o que pode levar a resultados imprecisos ou até mesmo prejudiciais.</p>
+<p>Outras limitações incluem restrições no input e output dos modelos, o que pode tornar difícil lidar com grandes volumes de dados ou fornecer resultados completos de uma só vez. Além disso, os LLMs geralmente não funcionam bem com dados estruturados, como tabelas, e podem reproduzir vieses e toxicidade presentes na sociedade, o que levanta preocupações éticas e sociais importantes.</p>
+<p>Portanto, enquanto exploramos esse vasto campo das redes neurais, é essencial abordar essas limitações e desenvolver soluções que permitam o uso ético e responsável dessas poderosas ferramentas de IA.</p>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<hr />
+<ul>
+<li><a href="https://medium.com/mapegy-tech/large-scale-language-models-for-innovation-and-technology-intelligence-sentiment-analysis-on-news-2c1ed1f6f2ad">Large-scale language models for innovation and technology intelligence: sentiment analysis on news articles</a></li>
+<li><a href="https://medium.com/luisfredgs/an%C3%A1lise-de-sentimentos-com-redes-neurais-recorrentes-lstm-a5352b21e6aa">Análise de sentimentos com redes neurais recorrentes LSTM</a></li>
+<li><a href="https://www.coursera.org/programs/applied-intelligence-workera-vshgt/learn/generative-ai-for-everyone?authProvider=accenture-main">Generative AI for Everyone - Andrew Ng - Coursera Course</a></li>
+<li><a href="https://swharden.com/blog/2023-07-29-ai-chat-locally-with-python/">Run Llama 2 Locally with Python</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/">Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">chatgpt</category>
+      <category domain="tag">data-science</category>
+      <category domain="tag">gam</category>
+      <category domain="tag">inteligencia-artificial</category>
+      <category domain="tag">llama2</category>
+      <category domain="tag">llm</category>
+      <category domain="tag">python</category>
+      <category domain="tag">redes-neurais</category>
+      <category domain="tag">sentiment-analysis</category>
+    </item>
+  </channel>
+</rss>

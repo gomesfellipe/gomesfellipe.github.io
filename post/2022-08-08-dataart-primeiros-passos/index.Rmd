@@ -4,39 +4,46 @@ author: Fellipe Gomes
 date: '2022-08-08'
 slug: []
 categories:
-  - Prática
-  - Ciencia de dados
-  - dataart
-  - dalle2
-  - vqgan+clip
-  - gan
-  - neural networks
-  - IA
-  - Python
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Programação e Ferramentas
 tags:
-  - Python
-  - gomesfellipe
-  - ciencia de dados
-  - dataart
-  - dalle2
-  - vqgan+clip
-  - gan
-  - neural networks
-  - IA
-  - AI
-description: 'Veja como usar, opções, dicas e truques de modelos de inteligência artificial para criar arte sem escrever uma linha de código (a não ser que você queira).'
-featured: 'img1.png'
-featuredalt: 'Pic 30'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
-image_preview: 'img1.png'
+- dalle2
+- data-science
+- dataart
+- gan
+- inteligencia-artificial
+- python
+- redes-neurais
+- vqgan+clip
+description: Veja como usar, opções, dicas e truques de modelos de inteligência artificial
+  para criar arte sem escrever uma linha de código (a não ser que você queira).
+featured: img.png
+featuredalt: Ilustração sobre gerando arte com inteligência artificial
+featuredpath: date
+type: post
+image_preview: img.png
 output:
   blogdown::html_page:
     toc: true
     toc_depth: 2
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2022/08/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2022/08/img.png
+keywords: dalle2, data-science, dataart, gan, inteligencia-artificial, python, redes-neurais,
+  vqgan+clip, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
 <style>
 .column4 {
   float: left;
@@ -91,7 +98,7 @@ O modelo não está finalizado pois existem diversas mitigações de segurança 
 - Implantação em fases, limitando o número de acessos para usuários confiáveis e a medida que ganharem confiança, liberam a versão beta para mais pessoas.
 
 <div class="w3-panel w3-pale-red w3-border">
-&nbsp; 🚨 Atenção
+&nbsp; 🚨 **Atenção**
 
 Para quem quiser ir brincando com esse tipo de rede neural enquanto não recebe o acesso, leia até o final pois apresentarei algumas alternativas!
 </div>

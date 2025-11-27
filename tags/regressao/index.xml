@@ -1,0 +1,1538 @@
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>regressao on Fellipe Gomes - Data Science Blog</title>
+    <link>https://gomesfellipe.github.io/tags/regressao/</link>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/regressao/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solução Final - ML Olympiad [2º lugar]</title>
+      <link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
+      <description>Confira a estratégia aplicada para esta competição</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#introdu%C3%A7%C3%A3o" id="toc-introdução">Introdução</a></li>
+<li><a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio">Definição do problema de negócio</a></li>
+<li><a href="#an%C3%A1lise-explorat%C3%B3ria-em-r" id="toc-análise-exploratória-em-r">Análise Exploratória (em R)</a>
+<ul>
+<li><a href="#estrutura-da-base" id="toc-estrutura-da-base">Estrutura da base</a></li>
+<li><a href="#ano-da-base-de-dados" id="toc-ano-da-base-de-dados">Ano da base de dados</a></li>
+<li><a href="#target" id="toc-target">Target</a></li>
+</ul></li>
+<li><a href="#machine-learning-em-python" id="toc-machine-learning-em-python">Machine Learning (em Python)</a>
+<ul>
+<li><a href="#importar-dependencias" id="toc-importar-dependencias">Importar dependencias</a></li>
+<li><a href="#carregar-dados" id="toc-carregar-dados">Carregar dados</a></li>
+<li><a href="#modelagem" id="toc-modelagem">Modelagem</a></li>
+</ul></li>
+<li><a href="#submiss%C3%A3o" id="toc-submissão">Submissão</a></li>
+<li><a href="#considera%C3%A7%C3%B5es-finais" id="toc-considerações-finais">Considerações Finais</a></li>
+</ul>
+</div>
+
+<div id="introdução" class="section level1">
+<h1>Introdução</h1>
+<p>No final de Janeiro desde ano (2022) o <a href="https://www.meetup.com/TensorFlowSP/events/284607061/">TFUG - TensorFlow Users Group de São Paulo</a> lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - <em>Educação de Qualidade</em>.</p>
+<p>Além de divertido, o desafio foi repleto de possibilidades e bastante desafiador! Todos os competidores que trabalharam duro em pleno mês de carnaval estão de parabéns! 😅 😂</p>
+<p>Aqui estão alguns dos prêmios recebidos:</p>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/premio.png" style="width:80.0%" />
+</center>
+<p>Como nesta competição havia bastante trabalho a ser feito e tivemos apenas 1 mês para trabalhar na solução, foi preciso fazer uma boa gestão do código e do tempo de desenvolvimento.</p>
+<p>Nas seções abaixo apresento o racional por trás da minha solução bem como os 5 melhores modelos individuais (para cada nota) que utilizei em um ensemble para chegar ao segundo lugar.</p>
+</div>
+<div id="definição-do-problema-de-negócio" class="section level1">
+<h1>Definição do problema de negócio</h1>
+<p>O objetivo desta competição consistiu em prever as notas dos alunos(as) nas provas: Ciências da Natureza, Ciências Humanas, Linguagens e Códigos, Matemática e Redação.</p>
+<p>Apesar das notas serem calculadas de maneira independente, a partir de modelos de <a href="http://portal.mec.gov.br/ultimas-noticias/389-ensino-medio-2092297298/17319-teoria-de-resposta-ao-item-avalia-habilidade-e-minimiza-o-chute">TRI (Teoria de Resposta ao Item)</a> que levam em consideração a performance em um caderno específico e na dificuldade de cada questão, o mesmo aluno realiza todas as provas em um curto período de tempo.</p>
+<p>Portanto, esta tarefa pode ser enquadrada como um problema supervisionado de regressão com múltiplos outputs na qual as previsões são, de certa forma, dependentes da entrada umas das outras.</p>
+<p>A validação da solução foi feita utilizando a métrica Mean Columnwise Root Mean Squared Error – MCRMSE, que é basicamente a média do RMSE calculado sobre as previsões de cada nota.</p>
+</div>
+<div id="análise-exploratória-em-r" class="section level1">
+<h1>Análise Exploratória (em R)</h1>
+<p>Convido o leitor a conferir o <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/">notebook publicado no Kaggle</a> com a análise exploratória completa. Aqui irei trazer apenas alguns dos principais insights que encontrei durante a etapa de análise exploratória.</p>
+<div id="estrutura-da-base" class="section level2">
+<h2>Estrutura da base</h2>
+<p>Veja a seguir qual a estrutura geral da base de dados:</p>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/02_df_status.png" style="width:95.0%" />
+</center>
+<p>É notório que existem dados faltantes e que parece haver algum padrão. Vejamos com mais detalhse:</p>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/03_missing.png" style="width:95.0%" />
+</center>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  💡 Insights!</p>
+<p>Existem dados <em>missing</em> nas 5 targets que queremos prever e note que existe uma relação tanto entre as provas de Matemática e Ciências da Natuerza quanto nas de Ciências Humanas, Linguagens e Códigos e Redação, o que parece ocorrer devido a ausência do aluno incrito em comparecer a realização da prova no respectivo dia.</p>
+</div>
+</div>
+<div id="ano-da-base-de-dados" class="section level2">
+<h2>Ano da base de dados</h2>
+<p>Essa informação não estava explicitamente disponível, mas após analisar a idade dos participantes em relação ao ano em que concluíram o ensino médio, foi possível identificar que tratavam-se dos dados de 2019, veja:</p>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/05_ano_concluiu.png" style="width:95.0%" />
+</center>
+<p>Essa informação poderia ser útil na hora de buscar dados externos (permitido nesta competição).</p>
+<div class="w3-panel w3-pale-blue w3-border">
+<p>  💡 Insights!</p>
+<p>→ Atenção aos outliers: É no mínimo estranho uma pessoa que formou em 2007 ter 17 anos;</p>
+<p>→ Como ninguém concluiu a escola no ano de 2019 e a média das idades vai diminuindo quanto mais próximo de 2018, parece que estes dados são de 2019. Essa informção poderia ser útil na hora de procurar por bases externas.</p>
+</div>
+</div>
+<div id="target" class="section level2">
+<h2>Target</h2>
+<p>A primeira decisão importante era definir como enquadrar o problema; se seriam múltiplos modelos independentes ou modelos com saídas dependentes.</p>
+<p>Primeiramente vejamos como eram as distribuições das notas por caderno:</p>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/07_distribuicao_target.png" style="width:95.0%" />
+</center>
+<p>Ao olhar estas distribuições foram surgindo várias idéias! Cheguei até a tentar modelos estatísticos GAM considerando a resposta como uma distribuição Beta (transformando as targets no intervalo [0,1]) mas acabou não apresentando bons resultados para a competição.. acho que seria necessário um pouco mais de preparação nos dados.</p>
+<p>Apesar das notas do enem serem calculadas via TRI (Teoria de Resposta ao Item) que considera as notas independentes, parece existir alguma correlação entre as notas, veja:</p>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/08_correlacao_notas.png" style="width:95.0%" />
+</center>
+<p>As targets da nota de Línguas e Códigos e Ciências Humanas pareciam possuir uma correlação “interessante”, mas, após testar modelos de múltiplas respostas dependentes para cada dia (com e sem a nota da redação), em nenhum de meus testes superou (de maneira consistente) o desempenho de modelos que considerassem as saídas independentes. Portanto foquei em criar 5 modelos independentes.</p>
+</div>
+</div>
+<div id="machine-learning-em-python" class="section level1">
+<h1>Machine Learning (em Python)</h1>
+<p>Toda a rotina de pré-processamento dos dados, feature engineering, modelagem, ensamble e pós-processamento foi realizada utilizando a linguagem Python para cada uma das 5 notas. Trouxe apenas o modelo final neste post mas, para chegar até aqui foram necessário muitos testes!</p>
+<div id="importar-dependencias" class="section level2">
+<h2>Importar dependencias</h2>
+<p>Carregar pacotes Python:</p>
+<pre class="python"><code># data prep
+import numpy as np 
+import pandas as pd 
+# pre process
+from sklearn.preprocessing import MinMaxScaler
+# modeling
+from sklearn.model_selection import train_test_split
+from catboost import CatBoostRegressor
+# plots
+import seaborn as sns
+import matplotlib.pyplot as plt</code></pre>
+<p>Confira a baixo as funções desenvolvidas para a solução deste problema</p>
+<details>
+<summary>
+(<em>Clique aqui para expandir as funções</em>)
+</summary>
+<pre class="python"><code>def prep_data_questionarios(df):
+  &#39;&#39;&#39;
+  Converte dados de questionario para ordinal
+  &#39;&#39;&#39;
+    # escolaridade pai
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;: 5, &#39;G&#39;: 6, &#39;H&#39;: -1}
+    df.loc[:, &#39;Q001&#39;] = df.loc[:, &#39;Q001&#39;].map(to_map).astype(int)
+
+    # escolaridade mae
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;: 5, &#39;G&#39;: 6, &#39;H&#39;: -1}
+    df.loc[:, &#39;Q002&#39;] = df.loc[:, &#39;Q002&#39;].map(to_map).astype(int) 
+
+    # ocupacao pai
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;: -1}
+    df.loc[:, &#39;Q003&#39;] = df.loc[:, &#39;Q003&#39;].map(to_map).astype(int) 
+
+    # ocupacao mae
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;: -1}
+    df.loc[:, &#39;Q004&#39;] = df.loc[:, &#39;Q004&#39;].map(to_map).astype(int) 
+
+    # renda da familia
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;:5, &#39;G&#39;:6, &#39;H&#39;:7, &#39;I&#39;:8,
+              &#39;J&#39;:9, &#39;K&#39;:10,&#39;L&#39;:11, &#39;M&#39;:12, &#39;N&#39;:13, &#39;O&#39;:14, &#39;P&#39;:15, &#39;Q&#39;:16}
+    df.loc[:, &#39;Q006&#39;] = df.loc[:, &#39;Q006&#39;].map(to_map).astype(int) 
+
+    # empregado domestico
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3}
+    df.loc[:, &#39;Q007&#39;] = df.loc[:, &#39;Q007&#39;].map(to_map).astype(int) 
+
+    # banheiro
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q008&#39;] = df.loc[:, &#39;Q008&#39;].map(to_map).astype(int) 
+
+    # qnt de quartos
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q009&#39;] = df.loc[:, &#39;Q009&#39;].map(to_map).astype(int) 
+
+    # qnt de carros
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q010&#39;] = df.loc[:, &#39;Q010&#39;].map(to_map).astype(int) 
+
+    # qnt de motocicleta
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q011&#39;] = df.loc[:, &#39;Q011&#39;].map(to_map).astype(int) 
+
+    # qnt de geladeira
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q012&#39;] = df.loc[:, &#39;Q012&#39;].map(to_map).astype(int) 
+
+    # qnt de freezer
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q013&#39;] = df.loc[:, &#39;Q013&#39;].map(to_map).astype(int) 
+
+    # qnt de maquina de lavar roupa
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q014&#39;] = df.loc[:, &#39;Q014&#39;].map(to_map).astype(int) 
+
+    # qnt de maquina de secar roupa
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q015&#39;] = df.loc[:, &#39;Q015&#39;].map(to_map).astype(int) 
+
+    # qnt de microondas
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q016&#39;] = df.loc[:, &#39;Q016&#39;].map(to_map).astype(int) 
+
+    # qnt de maquina de lavar louca
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q017&#39;] = df.loc[:, &#39;Q017&#39;].map(to_map).astype(int) 
+
+    # tem aspirador de po
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1}
+    df.loc[:, &#39;Q018&#39;] = df.loc[:, &#39;Q018&#39;].map(to_map).astype(int) 
+
+    # qtd tv colorida
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q019&#39;] = df.loc[:, &#39;Q019&#39;].map(to_map).astype(int) 
+
+    # tem dvd
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1}
+    df.loc[:, &#39;Q020&#39;] = df.loc[:, &#39;Q020&#39;].map(to_map).astype(int) 
+
+    # tem tv por assinatura
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1}
+    df.loc[:, &#39;Q021&#39;] = df.loc[:, &#39;Q021&#39;].map(to_map).astype(int) 
+
+    # qtd telefone celular
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q022&#39;] = df.loc[:, &#39;Q022&#39;].map(to_map).astype(int) 
+
+    # qtd telefone fixo
+    to_map = {&#39;A&#39;:0, &#39;B&#39;:1}
+    df.loc[:, &#39;Q023&#39;] = df.loc[:, &#39;Q023&#39;].map(to_map).astype(int) 
+
+    # qtd computador
+    to_map =  {&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}
+    df.loc[:, &#39;Q024&#39;] = df.loc[:, &#39;Q024&#39;].map(to_map).astype(int) 
+
+    # tem acesso a internet
+    to_map =  {&#39;A&#39;:0, &#39;B&#39;:1}
+    df.loc[:, &#39;Q025&#39;] = df.loc[:, &#39;Q025&#39;].map(to_map).astype(int) 
+    
+    return(df)
+  
+def fe_questionario(df):
+  &#39;&#39;&#39;
+  Gerar novas features artificiais baseadas nos dados de questionario
+  &#39;&#39;&#39;
+    df.loc[:, &quot;Q021+Q006&quot;] = df[&quot;Q021&quot;] + df[&quot;Q006&quot;]
+    df.loc[:, &quot;Q018+Q006&quot;] = df[&quot;Q018&quot;] + df[&quot;Q006&quot;]
+    df.loc[:, &quot;Q018+Q008&quot;] = df[&quot;Q018&quot;] + df[&quot;Q008&quot;]
+    df.loc[:, &quot;Q010+Q018&quot;] = df[&quot;Q010&quot;] + df[&quot;Q018&quot;]
+    df.loc[:, &quot;Q018+Q024&quot;] = df[&quot;Q018&quot;] + df[&quot;Q024&quot;]
+    
+    df.loc[:, &quot;Q018*Q006&quot;] = df[&quot;Q018&quot;] * df[&quot;Q006&quot;]
+    df.loc[:, &quot;Q010*Q018&quot;] = df[&quot;Q010&quot;] * df[&quot;Q018&quot;]
+    
+    return df
+  
+def fe_mun(data):
+    &#39;&#39;&#39;
+    Gerar novas features a partir das localizacoes de municipio
+    &#39;&#39;&#39;
+    for c in list(data.columns[data.dtypes==&#39;category&#39;]):
+        data.loc[:, c] = data.loc[:, c].astype(&#39;object&#39;)
+    
+    data.loc[:, &#39;FE_MUNICIPIO_PROVA_x_MUNICIPIO_RESIDENCIA&#39;] = np.where(data.NO_MUNICIPIO_PROVA == data.NO_MUNICIPIO_RESIDENCIA , 1, 0)
+    data.loc[:, &#39;FE_MUNICIPIO_PROVA_x_MUNICIPIO_NASCIMENTO&#39;] = np.where(data.NO_MUNICIPIO_PROVA == data.NO_MUNICIPIO_NASCIMENTO , 1, 0)
+    data.loc[:, &#39;FE_MUNICIPIO_PROVA_x_MUNICIPIO_ESC&#39;] = np.where(data.NO_MUNICIPIO_PROVA == data.NO_MUNICIPIO_ESC , 1, 0)
+    data.loc[:, &#39;FE_MUNICIPIO_RESIDENCIA_x_MUNICIPIO_NASCIMENTO&#39;] = np.where(data.NO_MUNICIPIO_RESIDENCIA == data.NO_MUNICIPIO_NASCIMENTO , 1, 0)
+    data.loc[:, &#39;FE_MUNICIPIO_RESIDENCIA_x_MUNICIPIO_ESC&#39;] = np.where(data.NO_MUNICIPIO_RESIDENCIA == data.NO_MUNICIPIO_ESC , 1, 0)
+    data.loc[:, &#39;FE_MUNICIPIO_NASCIMENTO_x_MUNICIPIO_ESC&#39;] = np.where(data.NO_MUNICIPIO_RESIDENCIA == data.NO_MUNICIPIO_ESC , 1, 0)
+    
+    for c in list(data.columns[data.dtypes==&#39;object&#39;]):
+        data.loc[:, c] = data.loc[:, c].astype(&#39;category&#39;)
+    
+    return data
+  
+def fe_in(df):
+    &#39;&#39;&#39;
+    Gerar features a partir das indicadoras
+    &#39;&#39;&#39;
+    df.loc[:, &#39;IN_DEFICIT_ATENCAO+IN_TEMPO_ADICIONAL&#39;] = df[&quot;IN_DEFICIT_ATENCAO&quot;] + df[&quot;IN_TEMPO_ADICIONAL&quot;]
+    df.loc[:, &#39;IN_LEDOR+IN_TRANSCRICAO&#39;] = df[&quot;IN_LEDOR&quot;] + df[&quot;IN_TRANSCRICAO&quot;]
+
+    return df
+  
+def prep_co_escola(df):
+    &#39;&#39;&#39;
+    Converter codigo da escola para categorico
+    &#39;&#39;&#39;
+    df.loc[:, &#39;CO_ESCOLA&#39;] = [str(x) for x in df.CO_ESCOLA]
+    df.loc[:, &#39;CO_ESCOLA&#39;] = np.where(df[&#39;CO_ESCOLA&#39;]==&#39;nan&#39;, np.nan, df[&#39;CO_ESCOLA&#39;])
+    df.loc[:, &#39;CO_ESCOLA&#39;] = df.loc[:, &#39;CO_ESCOLA&#39;].astype(&#39;category&#39;)
+    
+    return df
+  
+def fe_extra(df):
+    &#39;&#39;&#39;
+    Gerar novas features 
+    &#39;&#39;&#39;
+    df.loc[:, &quot;FE_IDADE_DISCRETA&quot;] = pd.cut(df.NU_IDADE, (0, 15, 18, 23, 36, 60, 120), labels=[&#39;ADOLESCENTE&#39;,&#39;ADOLESCENTE_2&#39;, &#39;JOVEM&#39;,&#39;JOVEM_2&#39;, &#39;ADULTO&#39;, &#39;IDOSO&#39;]).astype(&#39;category&#39;)
+    df.loc[:, &#39;FE_OCUPACAO_PAIS&#39;] = df.Q003 + df.Q004
+    df.loc[:, &#39;FE_ESCOLARIDADE_PAIS&#39;] = df.Q001 + df.Q002
+    df.loc[:, &#39;FE_RENDA_POR_PESSOA&#39;] = df.Q006 / df.Q005
+    df.loc[:, &#39;FE_CELULAR_POR_PESSOA&#39;] = df.Q022 / df.Q005
+    df.loc[:, &#39;FE_COMPUTADOR_POR_PESSOA&#39;] = df.Q024 / df.Q005
+    df.loc[:, &#39;FE_VISAO_RUIM&#39;] = df[[&#39;IN_BAIXA_VISAO&#39;, &#39;IN_CEGUEIRA&#39;, &#39;IN_VISAO_MONOCULAR&#39;, &#39;IN_SURDO_CEGUEIRA&#39;]].max(axis=1)
+    df.loc[:, &#39;FE_AUDICAO_RUIM&#39;] = df[[&#39;IN_SURDEZ&#39;, &#39;IN_DEFICIENCIA_AUDITIVA&#39;, &#39;IN_SURDO_CEGUEIRA&#39;]].max(axis=1)
+    df.loc[:, &#39;FE_TDAH_MAIS_TEMPO&#39;] = df.IN_TEMPO_ADICIONAL + df.IN_DEFICIT_ATENCAO
+    df.loc[:, &#39;FE_TDAH_MEDICADO&#39;] = np.where((df.IN_DEFICIT_ATENCAO==1)&amp;(df.IN_MEDICAMENTOS==1), 1, 0)
+    df.loc[:, &#39;FE_RECURSO_VISAO&#39;] =  df[[&#39;IN_BRAILLE&#39;, &#39;IN_AMPLIADA_24&#39;, &#39;IN_AMPLIADA_18&#39;, &#39;IN_LEDOR&#39;, &#39;IN_MAQUINA_BRAILE&#39;, &#39;IN_LAMINA_OVERLAY&#39;]].max(axis=1)
+    df.loc[:, &#39;FE_RECURSO_SURDEZ&#39;] =  df[[&#39;IN_LIBRAS&#39;, &#39;IN_LEITURA_LABIAL&#39;, &#39;IN_TRANSCRICAO&#39;]].max(axis=1)
+    acess = [&#39;IN_ACESSO&#39;, &#39;IN_MESA_CADEIRA_RODAS&#39;, &#39;IN_MESA_CADEIRA_SEPARADA&#39;, &#39;IN_APOIO_PERNA&#39;, &#39;IN_CADEIRA_ESPECIAL&#39;, &#39;IN_CADEIRA_CANHOTO&#39;, &#39;IN_CADEIRA_ACOLCHOADA&#39;, &#39;IN_MOBILIARIO_OBESO&#39;, &#39;IN_SALA_INDIVIDUAL&#39;, &#39;IN_SALA_ESPECIAL&#39;, &#39;IN_SALA_ACOMPANHANTE&#39;, &#39;IN_MOBILIARIO_ESPECIFICO&#39;, &#39;IN_MATERIAL_ESPECIFICO&#39;]
+    df.loc[:, &#39;FE_ACESSIBILIDADE&#39;] =  df[acess].max(axis=1)
+
+    return df</code></pre>
+</details>
+<p> </p>
+<p>Carregar features artificiais extraídas através de um modelo KNN. Não apresentarei o código aqui (talvez fique para um próximo post) mas a idéia é basicamente a seguinte:</p>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  🧪 Feature Extraction com KNN</p>
+<p>Ajuste um <code>KNeighborsRegressor</code> encontrando os K-vizinhos mais próximos de cada instância out-of-fold via validação cruzada (para evitar data leak) nos dados de treino e depois ajuste um modelo em todos os dados de treino para obter os K-vizinhos mais próximos nos dados de teste.</p>
+</div>
+<p>Quem sabe no futuro faço um post compartilhando esta estratégia com mais detalhes.</p>
+<pre class="python"><code>knn_train = pd.read_csv(&quot;../input/knn/KNN_feat_train_CH_LC.csv&quot;)
+knn_test = pd.read_csv(&quot;../input/knn/KNN_feat_test_CH_LC.csv&quot;)
+
+knn_train_cn_mt = pd.read_csv(&quot;../input/knn/KNN_feat_train_CN_MT.csv&quot;)
+knn_test_cn_mt = pd.read_csv(&quot;../input/knn/KNN_feat_test_CN_MT.csv&quot;)
+
+knn_train_rd = pd.read_csv(&quot;../input/knn/KNN_feat_train_RD.csv&quot;)
+knn_test_rd = pd.read_csv(&quot;../input/knn/KNN_feat_test_RD.csv&quot;)</code></pre>
+</div>
+<div id="carregar-dados" class="section level2">
+<h2>Carregar dados</h2>
+<p>Importar uma versão do dataset no formato <code>.parquet</code> que foi compactada com um truque para otimizar o consumo de memória disponibilizada pelos organizadores <a href="https://www.kaggle.com/code/caneiro/mlo-make-parquet">neste notebook</a>.</p>
+<pre class="python"><code>train = pd.read_parquet(&#39;train.parquet&#39;)
+test = pd.read_parquet(&#39;test.parquet&#39;)
+sub = pd.read_csv(&#39;../input/qualityeducation/sample_submission.csv&#39;)</code></pre>
+<p>Definir objetos com targets</p>
+<pre class="python"><code>targets = [&#39;NU_NOTA_LC&#39;, &#39;NU_NOTA_CH&#39;, &#39;NU_NOTA_CN&#39;,  &#39;NU_NOTA_MT&#39;, &#39;NU_NOTA_REDACAO&#39;]
+presencas = [&#39;TP_PRESENCA_LC&#39;, &#39;TP_PRESENCA_CH&#39;, &#39;TP_PRESENCA_CN&#39;, &#39;TP_PRESENCA_MT&#39;, &#39;TP_STATUS_REDACAO&#39;]</code></pre>
+<div class="w3-panel w3-pale-yellow w3-border">
+<p>  ⚠️ Atenção:</p>
+<p>A feature de presença é muito importante no pós-processamento para atribuir nota zero aos alunos que não foram realizar a prova mas não faz sentido mantê-la nos dados de treino pois será sempre constante.</p>
+</div>
+<div id="dados-externos" class="section level3">
+<h3>Dados externos</h3>
+<p>Dados Externos utilizados:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://basedosdados.org/dataset/mundo-onu-adh">Atlas do Desenvolvimento Humano (ADH)</a></li>
+</ol>
+<p>Esta base tinha muita informação legal mas sua cobertura temporal estava bastante defasada (1991 - 2010) o que pode adicionar algum ruído ao modelo.</p>
+<p>As features selecionadas (sem muito critério) desta base foram:</p>
+<pre class="python"><code>extra1 = pd.read_csv(&quot;municipio.csv&quot;)
+
+extra1 = extra1[extra1.ano==2010]
+
+features_extra1 = [&#39;expectativa_vida&#39;, &#39;razao_dependencia&#39;, &#39;expectativa_anos_estudo&#39;,
+&#39;taxa_analfabetismo_11_a_14&#39;, &#39;taxa_analfabetismo_15_a_17&#39;, &#39;taxa_analfabetismo_18_mais&#39;,
+&#39;taxa_atraso_0_basico&#39;, &#39;taxa_atraso_0_fundamental&#39;, &#39;taxa_atraso_0_medio&#39;,
+&#39;taxa_freq_bruta_medio&#39;, &#39;taxa_freq_liquida_medio&#39;,
+&#39;taxa_freq_medio_18_24&#39;, &#39;taxa_freq_medio_6_14&#39;, &#39;indice_gini&#39;,&#39;prop_pobreza_extrema&#39;, &#39;prop_pobreza&#39;,
+&#39;prop_renda_10_ricos&#39;, &#39;prop_renda_20_pobres&#39;, &#39;razao_10_ricos_40_pobres&#39;,&#39;renda_pc&#39; , &#39;renda_pc_quintil_1&#39;,
+&#39;indice_theil&#39;, &#39;prop_trabalhadores_conta_proria&#39;, 
+&#39;prop_empregadores&#39;, &#39;prop_ocupados_agropecuaria&#39;, &#39;prop_ocupados_comercio&#39;,
+&#39;prop_ocupados_construcao&#39;, &#39;prop_ocupados_formalizacao&#39;, &#39;prop_ocupados_medio&#39;,
+&#39;prop_ocupados_servicos&#39;, &#39;prop_ocupados_superior&#39;,
+&#39;prop_ocupados_renda_0&#39;, &#39;renda_media_ocupados&#39;, &#39;indice_treil_trabalho&#39;,
+&#39;taxa_ocupados_carteira&#39;, &#39;taxa_agua_encanada&#39;, 
+&#39;taxa_banheiro_agua_encanada&#39;, &#39;taxa_coleta_lixo&#39;, &#39;taxa_energia_eletrica&#39;,
+&#39;taxa_agua_esgoto_inadequados&#39;, &#39;taxa_criancas_dom_sem_fund&#39;,
+&#39;pea&#39;, &#39;indice_escolaridade&#39;, &#39;indice_frequencia_escolar&#39;, 
+&#39;idhm&#39;, &#39;idhm_e&#39;, &#39;idhm_l&#39;, &#39;idhm_r&#39;]
+extra1 = extra1[[&#39;id_municipio&#39;]+features_extra1]
+
+train = pd.merge(train, extra1, how=&#39;left&#39;, left_on=&#39;CO_MUNICIPIO_RESIDENCIA&#39;, right_on=&#39;id_municipio&#39;)
+test = pd.merge(test, extra1, how=&#39;left&#39;, left_on=&#39;CO_MUNICIPIO_RESIDENCIA&#39;, right_on=&#39;id_municipio&#39;)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><a href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-escolar">Microdados do Censo Escolar da Educacação Básica</a></li>
+</ol>
+<p>Base disponível no mesmo site dos dados da competição e que trás informações muito ricas das escolas do Brasil. Infelizmente quase 75% da informação da escola do aluno era missing então esta base não conseguiu alavancar os ganhos do modelo de maneira considerável.</p>
+<p>Nesta base foquei principalmente nas features utilizadas para calcular o IIE (Índice de Estrutura da Escola) que se baseia nos seguintes componentes:</p>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="24%" />
+<col width="42%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Componente 1: Pedagógica (IEE_Pedagógico):</th>
+<th>Componente 2: Básica (IEE_Básico):</th>
+<th>Componente 3: Tecnológica (IEE_Tecnológico):</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Qualificação do docente (formação acadêmica dos professores)</td>
+<td>Água filtrada (binária)</td>
+<td>Número de computadores por aluno (computadores disponíveis para uso dos alunos)</td>
+</tr>
+<tr class="even">
+<td>Número de alunos por sala</td>
+<td>Acesso à rede pública de energia (binária)</td>
+<td>Número de equipamentos multimídia por aluno</td>
+</tr>
+<tr class="odd">
+<td>Número de funcionários por aluno</td>
+<td>Acesso à rede pública de esgoto (binária)</td>
+<td>Acesso a internet (binária)</td>
+</tr>
+<tr class="even">
+<td>Quadra de esportes coberta (binária)</td>
+<td>Coleta periódica de lixo (binária)</td>
+<td>Laboratório de Ciências (binária)</td>
+</tr>
+<tr class="odd">
+<td>Biblioteca (binária)</td>
+<td>Banheiro dentro do prédio (binária)</td>
+<td>Laboratório de Informática (binária)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="https://leosalesblog.wordpress.com/2018/02/03/escola-ruim-aluno-ruim-entendendo-a-relacao-entre-estrutura-escolar-e-desempenho-no-enem/">Fonte</a></li>
+</ul>
+<pre class="python"><code># Importar dados
+extra2 = pd.read_csv(&#39;microdados_ed_basica_2021.csv&#39;, error_bad_lines=False, sep=&#39;;&#39;, encoding=&#39;latin1&#39;, dtype={&#39;CO_ORGAO_REGIONAL&#39;: &#39;str&#39;})
+extra2 = extra2[extra2.isnull().sum(axis=1) / extra2.shape[1] &lt; .9]
+
+# Tratamento nas features
+extra2.loc[:, &#39;QT_TOTAL_ALUNOS&#39;] = extra2[[&#39;QT_MAT_BAS_ND&#39;, &#39;QT_MAT_BAS_BRANCA&#39;, &#39;QT_MAT_BAS_PRETA&#39;, &#39;QT_MAT_BAS_PARDA&#39;, &#39;QT_MAT_BAS_AMARELA&#39;, &#39;QT_MAT_BAS_INDIGENA&#39;]].sum(axis=1).fillna(0)
+extra2.loc[:, &#39;QT_TOTAL_PROFESSORES&#39;] = (extra2.QT_DOC_BAS + extra2.QT_DOC_INF + extra2.QT_DOC_INF_CRE + extra2.QT_DOC_INF_PRE + extra2.QT_DOC_FUND + extra2.QT_DOC_FUND_AI + extra2.QT_DOC_FUND_AF + extra2.QT_DOC_MED + extra2.QT_DOC_PROF + extra2.QT_DOC_PROF_TEC + extra2.QT_DOC_EJA + extra2.QT_DOC_EJA_FUND + extra2.QT_DOC_EJA_MED + extra2.QT_DOC_ESP + extra2.QT_DOC_ESP_CC + extra2.QT_DOC_ESP_CE).fillna(0)
+extra2.loc[:, &#39;QT_SALAS_UTILIZADAS&#39;] = (extra2.loc[:, &#39;QT_TOTAL_ALUNOS&#39;] / extra2.QT_SALAS_UTILIZADAS).fillna(0)
+extra2.loc[:, &#39;QT_COMP_DISP_ALUNO&#39;] = extra2.QT_DESKTOP_ALUNO + extra2.QT_COMP_PORTATIL_ALUNO + extra2.QT_TABLET_ALUNO
+
+# Selecao de faetures importantes
+features_extra2 = [&#39;CO_ENTIDADE&#39;, &#39;QT_SALAS_UTILIZADAS&#39;, &#39;QT_TOTAL_PROFESSORES&#39;, &#39;IN_QUADRA_ESPORTES_COBERTA&#39;, &#39;IN_BIBLIOTECA&#39;,
+       &#39;IN_AGUA_POTAVEL&#39;, &#39;IN_ENERGIA_REDE_PUBLICA&#39;, &#39;IN_ESGOTO_REDE_PUBLICA&#39;, &#39;IN_LIXO_SERVICO_COLETA&#39;, &#39;IN_BANHEIRO&#39;,
+       &#39;QT_COMP_DISP_ALUNO&#39;, &#39;QT_EQUIP_MULTIMIDIA&#39;, &#39;IN_INTERNET&#39;, &#39;IN_LABORATORIO_CIENCIAS&#39;, &#39;IN_LABORATORIO_INFORMATICA&#39;]
+extra2 = extra2[features_extra2]
+
+# Remover outliers
+for c in list(extra2.iloc[:, 1:].columns):
+    trs = extra2.loc[extra2[c]!=88888, c].quantile(.99)
+    extra2.loc[(extra2[c]==88888)|(extra2[c]&gt;trs), c] = trs
+    
+#Normalizar para calcular IEE
+scaler = MinMaxScaler()
+to_iee = scaler.fit_transform(extra2.iloc[:, 1:])
+to_iee = pd.DataFrame(to_iee, columns=extra2.iloc[:, 1:].columns)
+
+# Calcular IEE e componentes
+extra2.loc[:, &#39;COMP1&#39;] = to_iee[[&#39;QT_SALAS_UTILIZADAS&#39;, &#39;QT_TOTAL_PROFESSORES&#39;, &#39;IN_QUADRA_ESPORTES_COBERTA&#39;, &#39;IN_BIBLIOTECA&#39;]].sum(axis=1)
+extra2.loc[:, &#39;COMP2&#39;] = to_iee[[&#39;IN_AGUA_POTAVEL&#39;, &#39;IN_ENERGIA_REDE_PUBLICA&#39;, &#39;IN_ESGOTO_REDE_PUBLICA&#39;, &#39;IN_LIXO_SERVICO_COLETA&#39;, &#39;IN_BANHEIRO&#39;]].sum(axis=1)
+extra2.loc[:, &#39;COMP3&#39;] = to_iee[[&#39;QT_COMP_DISP_ALUNO&#39;, &#39;QT_EQUIP_MULTIMIDIA&#39;, &#39;IN_INTERNET&#39;, &#39;IN_LABORATORIO_CIENCIAS&#39;, &#39;IN_LABORATORIO_INFORMATICA&#39;]].sum(axis=1)
+extra2.loc[:, &#39;IEE&#39;] = extra2.COMP1 + extra2.COMP2 + extra2.COMP3
+
+train = pd.merge(train, extra2, how=&#39;left&#39;, left_on=&#39;CO_ESCOLA&#39;, right_on=&#39;CO_ENTIDADE&#39;).drop(&#39;CO_ENTIDADE&#39;, axis=1)
+test = pd.merge(test, extra2, how=&#39;left&#39;, left_on=&#39;CO_ESCOLA&#39;, right_on=&#39;CO_ENTIDADE&#39;).drop(&#39;CO_ENTIDADE&#39;, axis=1)</code></pre>
+</div>
+</div>
+<div id="modelagem" class="section level2">
+<h2>Modelagem</h2>
+<p>Testei muitos modelos e muitas abordagens (inclusive com finalidade de estudo). Foram modelos estatísticos (GAM considerando a distribuição Beta(0,1)), redes neurais (TabNet) e árvores mas no final das contas os que tiveram melhor custo/benefício foram o LightGBM e o CatBoost.</p>
+<p>Sobre o tuning, tomei a decisão de não investir muito em otimização automática de hiperparâmetros pois o tempo era curto e os ganhos seriam pequenos comparados com o potencial ganho com a variedade de features que poderiam ser geradas, então fiz apenas alguns testes manuais conforme via necessidade.</p>
+<div id="pre-processing" class="section level4">
+<h4>Pre processing</h4>
+<p>A etapa que investi bastante tempo foi para criar novas variáveis. A seguir trago algumas features construídas que foram utilizadas em determinados modelos, a partir dos dados disponíveis:</p>
+<ul>
+<li>Renda somada dos pais;</li>
+<li>Nível de ocupação somado dos pais;</li>
+<li>Renda dividido pelo número de pessoas na casa;</li>
+<li>Quantidade de celulares por pessoa na casa;</li>
+<li>Quantidade de computadores por pessoa na casa;</li>
+<li>Se a pessoa possui visão ruim (se possui baixa visão, cegueira ou monocular);</li>
+<li>Se a pessoa possui audição ruim (Surdez, deficiência auditiva);</li>
+<li>Se o aluno possui TDAH e toma medicamento controlado;</li>
+<li>Se o aluno possui TDAH e teve mais tempo de prova;</li>
+<li>Se precisou de recurso de visão ou audição (libras, baile, etc);</li>
+<li>Se o município que nasceu é o mesmo da escola;</li>
+<li>Se o município que fez a prova é o mesmo da escola;</li>
+<li>Se o município da prova é o mesmo da residência;</li>
+<li>Nota média dos alunos da respectiva escola nas outras provas (*);</li>
+<li>Renda média dos alunos da respectiva escola (*).</li>
+</ul>
+<p>(*) Estas features precisaram ser calculadas de maneira muito cuidadosa para não causar algum tipo de data leak!</p>
+</div>
+<div id="post-processing" class="section level4">
+<h4>Post Processing</h4>
+<p>Essa base tinha uma pegadinha que fazia muita diferença no resultado final. Existem duas possibilidades de um aluno tirar zero em uma prova: errar tudo ou não comparecer.</p>
+<p>Como temos a informação da presença do aluno na prova (o que na prática seria meio estranho) bastava dar zero para os alunos faltantes na hora de prever nos dados de teste para submeter.</p>
+</div>
+<div id="linguagens-e-códigos" class="section level3">
+<h3>Linguagens e Códigos</h3>
+<p>Definir finalidade de algumas colunas:</p>
+<pre class="python"><code># colunas que serao dropadas
+to_drop = [&#39;IN_PROVA_DEITADO&#39;,
+            &#39;NU_INSCRICAO&#39;,
+            &#39;CO_MUNICIPIO_ESC&#39;,
+            &#39;CO_UF_NASCIMENTO&#39;,
+            &#39;CO_UF_RESIDENCIA&#39;,
+            &#39;CO_UF_ESC&#39;,
+            &#39;CO_UF_PROVA&#39;,
+            &#39;CO_MUNICIPIO_PROVA&#39;,
+            &#39;CO_MUNICIPIO_RESIDENCIA&#39;,
+            &#39;CO_MUNICIPIO_NASCIMENTO&#39;]
+
+# definir target e presenca
+target = &quot;NU_NOTA_LC&quot;
+presenca = &quot;TP_PRESENCA_LC&quot;
+
+# demais notas para dropar (menos ch)
+notas = list(set(targets)-set([target, &#39;NU_NOTA_CH&#39;]))</code></pre>
+<p>Pré-processamento nos dados de treino</p>
+<pre class="python"><code>X = train.copy()
+X.loc[:, &#39;knn_feature&#39;] = knn_train.knn_oof
+X = X.drop(to_drop, axis=1) 
+X = X[X[presenca]==1]
+X = X[~X[target].isnull()]
+
+X = X.loc[:, ~X.columns.isin([target]+[presenca]+notas)]
+X.loc[:, &#39;FE_RENDA&#39;] = X.loc[:, &#39;Q006&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1000, &#39;C&#39;:1500, &#39;D&#39;:2000,
+&#39;E&#39;:2500, &#39;F&#39;:3000, &#39;G&#39;:4000, &#39;H&#39;:5000, &#39;I&#39;:6000, &#39;J&#39;:7000,&#39;K&#39;:8000,&#39;L&#39;:9000,
+&#39;M&#39;:10000, &#39;N&#39;:12000, &#39;O&#39;:15000, &#39;P&#39;:20000, &#39;Q&#39;:30000}).astype(int) 
+X = prep_data_questionarios(X)
+X = fe_mun(X)
+X = fe_questionario(X)
+X = fe_in(X)
+X = prep_co_escola(X)
+X = fe_extra(X)
+
+y = train.loc[(train[presenca]==1)&amp;(~train[target].isnull()), target].astype(np.float64)</code></pre>
+<p>Pré-processamento nos dados de teste</p>
+<pre class="python"><code>X_test = test.copy()
+X_test.loc[:, &#39;knn_feature&#39;] = knn_test.knn_test
+X_test = X_test.drop(to_drop, axis=1) 
+
+X_test = X_test.loc[:, ~X_test.columns.isin([presenca])]
+X_test.loc[:, &#39;FE_RENDA&#39;] = X_test.loc[:, &#39;Q006&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1000, &#39;C&#39;:1500, &#39;D&#39;:2000,
+&#39;E&#39;:2500, &#39;F&#39;:3000, &#39;G&#39;:4000, &#39;H&#39;:5000, &#39;I&#39;:6000, &#39;J&#39;:7000, &#39;K&#39;:8000,&#39;L&#39;:9000,
+&#39;M&#39;:10000, &#39;N&#39;:12000, &#39;O&#39;:15000, &#39;P&#39;:20000, &#39;Q&#39;:30000}).astype(int) 
+X_test = prep_data_questionarios(X_test)
+X_test = fe_mun(X_test)
+X_test = fe_questionario(X_test)
+X_test = fe_in(X_test)
+X_test = prep_co_escola(X_test)
+X_test = fe_extra(X_test)</code></pre>
+<p>Feature engineering separada para evitar data leak:</p>
+<pre class="python"><code># calcular estatisticas nos dados de treino
+co_escola_renda_media = X.groupby(&#39;CO_ESCOLA&#39;).FE_RENDA.mean()
+co_escola_idade_media = X.groupby(&#39;CO_ESCOLA&#39;).NU_IDADE.mean()
+co_escola_nota_ch = X.groupby(&#39;CO_ESCOLA&#39;).NU_NOTA_CH.mean()
+X = X.drop(&#39;NU_NOTA_CH&#39;, axis=1)
+
+# instanciar objeto com as estatisticas por escola
+co_escola_aux = pd.DataFrame({
+    &#39;CO_ESCOLA&#39;: co_escola_renda_media.index,
+    &#39;FE_ESCOLA_RENDA_MEDIA&#39;: co_escola_renda_media,
+    &#39;FE_IDADE_MEDIA&#39;: co_escola_idade_media,
+    &#39;FE_NOTA_CH&#39;: co_escola_nota_ch
+}).reset_index(drop=True)
+
+# Concatenar estatisticas nas bases de treino e teste
+X = pd.merge(X, co_escola_aux, how=&#39;left&#39;, on=&#39;CO_ESCOLA&#39;)
+X_test = pd.merge(X_test, co_escola_aux, how=&#39;left&#39;, on=&#39;CO_ESCOLA&#39;)
+
+# Codigo da escola para categorico
+X.loc[:, &#39;CO_ESCOLA&#39;] = X.CO_ESCOLA.astype(&#39;object&#39;).astype(&#39;category&#39;)
+X_test.loc[:, &#39;CO_ESCOLA&#39;] = X_test.CO_ESCOLA.astype(&#39;object&#39;).astype(&#39;category&#39;)
+
+# Features de contagem
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_PROVA&#39;] = X.NO_MUNICIPIO_PROVA.map({x: y for x, y in zip(X.NO_MUNICIPIO_PROVA.value_counts().index.values, X.NO_MUNICIPIO_PROVA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_PROVA&#39;] = X_test.NO_MUNICIPIO_PROVA.map({x: y for x, y in zip(X.NO_MUNICIPIO_PROVA.value_counts().index.values, X.NO_MUNICIPIO_PROVA.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_RESIDENCIA&#39;] = X.NO_MUNICIPIO_RESIDENCIA.map({x: y for x, y in zip(X.NO_MUNICIPIO_RESIDENCIA.value_counts().index.values, X.NO_MUNICIPIO_RESIDENCIA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_RESIDENCIA&#39;] = X_test.NO_MUNICIPIO_RESIDENCIA.map({ x: y for x, y in zip(X.NO_MUNICIPIO_RESIDENCIA.value_counts().index.values, X.NO_MUNICIPIO_RESIDENCIA.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_NASCIMENTO&#39;] = X.NO_MUNICIPIO_NASCIMENTO.map({ x: y for x, y in zip(X.NO_MUNICIPIO_NASCIMENTO.value_counts().index.values, X.NO_MUNICIPIO_NASCIMENTO.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_NASCIMENTO&#39;] = X_test.NO_MUNICIPIO_NASCIMENTO.map({x: y for x, y in zip(X.NO_MUNICIPIO_NASCIMENTO.value_counts().index.values, X.NO_MUNICIPIO_NASCIMENTO.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_ESCOLA&#39;] = X.CO_ESCOLA.map({x: y for x, y in zip(X.CO_ESCOLA.value_counts().index.values, X.CO_ESCOLA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_ESCOLA&#39;] = X_test.CO_ESCOLA.map({x: y for x, y in zip(X.CO_ESCOLA.value_counts().index.values, X.CO_ESCOLA.value_counts().values)})</code></pre>
+<p>Ajustar modelo:</p>
+<pre class="python"><code>cat_feat = X.columns[X.dtypes==&#39;category&#39;]
+cat_indices = [X.columns.get_loc(x) for x in cat_feat]
+
+for c in list(cat_feat):
+    X.loc[:, c] = X.loc[:, c].astype(object).fillna(&quot;XXX&quot;).astype(&quot;category&quot;)
+    X_test.loc[:, c] = X_test.loc[:, c].astype(object).fillna(&quot;XXX&quot;).astype(&quot;category&quot;)
+
+X_train, X_eval, y_train, y_eval = train_test_split(X, y, test_size=0.1, random_state=SEED)
+    
+clf = CatBoostRegressor(random_state=314,
+                            cat_features=cat_indices,
+                            verbose=0,
+                            loss_function = &quot;RMSE&quot;,
+                            od_type = &quot;Iter&quot;,
+                            od_wait = 100,
+                            iterations=3000,
+                            use_best_model=True)
+
+clf.fit(X, y, eval_set = (X_eval, y_eval), verbose=False, plot=True)</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/lc_catboost.png" style="width:95.0%" />
+</center>
+<p>Salvar previsões:</p>
+<pre class="python"><code>sub.loc[:, &#39;NU_NOTA_LC&#39;] = clf.predict(X_test)
+# alunos que nao foram fazer a prova tiraram zero
+sub.loc[test.TP_PRESENCA_LC!=1, &#39;NU_NOTA_LC&#39;] = 0</code></pre>
+<p>Comparar distribuição da target nos dados de treino com relação às previsões do modelo:</p>
+<pre class="python"><code>sns.kdeplot(train.loc[:, target], shade=True, color=&#39;r&#39;, clip=[0,1000])
+sns.kdeplot(sub.loc[:, target], shade=True, color=&#39;b&#39;, clip=[0,1000])
+plt.legend(labels=[&#39;train&#39;, &#39;predict&#39;])
+plt.title(target)</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/lc_pred.png" style="width:50.0%" />
+</center>
+</div>
+<div id="ciências-humanas" class="section level3">
+<h3>Ciências Humanas</h3>
+<p>Novas features desenvolvidas especificamente para este modelo:</p>
+<pre class="python"><code>def fe_ch(df):
+    
+    df.loc[:, &#39;FE_RENDA&#39;] = df.loc[:, &#39;Q006&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1000,
+    &#39;C&#39;:1500, &#39;D&#39;:2000, &#39;E&#39;:2500, &#39;F&#39;:3000, &#39;G&#39;:4000, &#39;H&#39;:5000, &#39;I&#39;:6000,
+    &#39;J&#39;:7000, &#39;K&#39;:8000,&#39;L&#39;:9000, &#39;M&#39;:10000, &#39;N&#39;:12000, &#39;O&#39;:15000, 
+    &#39;P&#39;:20000, &#39;Q&#39;:30000}).astype(int) 
+    df.loc[:, &#39;FE_NU_IDADE*TP_ANO_CONCLUIU&#39;] = df.TP_ANO_CONCLUIU * df.NU_IDADE
+    df.loc[:, &#39;FE_Q002+Q024&#39;] = df.loc[:, &#39;Q002&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, 
+    &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;: 5, &#39;G&#39;: 6, &#39;H&#39;: -1}).astype(int) + 
+    df.loc[:, &#39;Q024&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}).astype(int) 
+    df.loc[:, &#39;FE_SCORE&#39;] = (1/df.TP_ANO_CONCLUIU) + np.sqrt(df.NU_IDADE) +
+    np.where(df.TP_ESCOLA==3, 1, 0)
+    
+    return df</code></pre>
+<p>Definir finalidade de algumas colunas:</p>
+<pre class="python"><code># colunas que serao dropadas
+to_drop = [&#39;IN_PROVA_DEITADO&#39;,
+           &#39;NU_INSCRICAO&#39;,
+           &#39;CO_MUNICIPIO_ESC&#39;,
+           &#39;CO_UF_NASCIMENTO&#39;,
+           &#39;CO_UF_RESIDENCIA&#39;,
+           &#39;CO_UF_ESC&#39;,
+           &#39;CO_UF_PROVA&#39;,
+           &#39;CO_MUNICIPIO_PROVA&#39;,
+           &#39;CO_MUNICIPIO_RESIDENCIA&#39;,
+          &#39;CO_MUNICIPIO_NASCIMENTO&#39;]
+
+# definir target e presenca
+target = &quot;NU_NOTA_CH&quot;
+presenca = &quot;TP_PRESENCA_CH&quot;
+
+# demais notas para dropar (menos lc)
+notas = list(set(targets)-set([target, &#39;NU_NOTA_LC&#39;]))</code></pre>
+<p>Pré-processamento nos dados de treino</p>
+<pre class="python"><code>X = train.copy()
+X.loc[:, &#39;knn_feature&#39;] = knn_train.knn_oof
+X = X.drop(to_drop, axis=1)
+X = X[X[presenca]==1]
+X = X[~X[target].isnull()]
+
+X = X.loc[:, ~X.columns.isin([target]+[presenca]+notas)]
+X = fe_ch(X)
+X = prep_data_questionarios(X)
+X = fe_mun(X)
+X = fe_questionario(X)
+#X = fe_in(X)
+X = prep_co_escola(X)
+X = fe_extra(X)
+
+y = train.loc[(train[presenca]==1)&amp;(~train[target].isnull()), target].astype(np.float64)</code></pre>
+<p>Pré-processamento nos dados de teste</p>
+<pre class="python"><code>X_test = test.copy()
+X_test.loc[:, &#39;knn_feature&#39;] = knn_test.knn_test
+X_test = X_test.drop(to_drop, axis=1) 
+
+X_test = X_test.loc[:, ~X_test.columns.isin([presenca])]
+X_test = fe_ch(X_test)
+X_test = prep_data_questionarios(X_test)
+X_test = fe_mun(X_test)
+X_test = fe_questionario(X_test)
+#X_test = fe_in(X_test)
+X_test = prep_co_escola(X_test)
+X_test = fe_extra(X_test)</code></pre>
+<p>Feature engineering separada para evitar data leak:</p>
+<pre class="python"><code># calcular estatisticas nos dados de treino
+co_escola_renda_media = X.groupby(&#39;CO_ESCOLA&#39;).FE_RENDA.mean()
+co_escola_idade_media = X.groupby(&#39;CO_ESCOLA&#39;).NU_IDADE.mean()
+co_escola_nota_lc = X.groupby(&#39;CO_ESCOLA&#39;).NU_NOTA_LC.mean()
+X = X.drop(&#39;NU_NOTA_LC&#39;, axis=1)
+
+# instanciar objeto com as estatisticas por escola
+co_escola_aux = pd.DataFrame({
+    &#39;CO_ESCOLA&#39;: co_escola_renda_media.index,
+    &#39;FE_ESCOLA_RENDA_MEDIA&#39;: co_escola_renda_media,
+    &#39;FE_IDADE_MEDIA&#39;: co_escola_idade_media,
+    &#39;FE_NOTA_LC&#39;: co_escola_nota_lc
+}).reset_index(drop=True)
+
+# Concatenar estatisticas nas bases de treino e teste
+X = pd.merge(X, co_escola_aux, how=&#39;left&#39;, on=&#39;CO_ESCOLA&#39;)
+X_test = pd.merge(X_test, co_escola_aux, how=&#39;left&#39;, on=&#39;CO_ESCOLA&#39;)
+
+# Codigo da escola para categorico
+X.loc[:, &#39;CO_ESCOLA&#39;] = X.CO_ESCOLA.astype(&#39;object&#39;).astype(&#39;category&#39;)
+X_test.loc[:, &#39;CO_ESCOLA&#39;] = X_test.CO_ESCOLA.astype(&#39;object&#39;).astype(&#39;category&#39;)
+
+# Features de contagem
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_PROVA&#39;] = X.NO_MUNICIPIO_PROVA.map({x: y for x, y in zip(X.NO_MUNICIPIO_PROVA.value_counts().index.values, X.NO_MUNICIPIO_PROVA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_PROVA&#39;] = X_test.NO_MUNICIPIO_PROVA.map({x: y for x, y in zip(X.NO_MUNICIPIO_PROVA.value_counts().index.values, X.NO_MUNICIPIO_PROVA.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_RESIDENCIA&#39;] = X.NO_MUNICIPIO_RESIDENCIA.map({x: y for x, y in zip(X.NO_MUNICIPIO_RESIDENCIA.value_counts().index.values, X.NO_MUNICIPIO_RESIDENCIA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_RESIDENCIA&#39;] = X_test.NO_MUNICIPIO_RESIDENCIA.map({ x: y for x, y in zip(X.NO_MUNICIPIO_RESIDENCIA.value_counts().index.values, X.NO_MUNICIPIO_RESIDENCIA.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_NASCIMENTO&#39;] = X.NO_MUNICIPIO_NASCIMENTO.map({ x: y for x, y in zip(X.NO_MUNICIPIO_NASCIMENTO.value_counts().index.values, X.NO_MUNICIPIO_NASCIMENTO.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_NASCIMENTO&#39;] = X_test.NO_MUNICIPIO_NASCIMENTO.map({x: y for x, y in zip(X.NO_MUNICIPIO_NASCIMENTO.value_counts().index.values, X.NO_MUNICIPIO_NASCIMENTO.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_ESCOLA&#39;] = X.CO_ESCOLA.map({x: y for x, y in zip(X.CO_ESCOLA.value_counts().index.values, X.CO_ESCOLA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_ESCOLA&#39;] = X_test.CO_ESCOLA.map({x: y for x, y in zip(X.CO_ESCOLA.value_counts().index.values, X.CO_ESCOLA.value_counts().values)})</code></pre>
+<p>Ajustar modelo:</p>
+<pre class="python"><code>%%time
+
+cat_feat = X.columns[X.dtypes==&#39;category&#39;]
+cat_indices = [X.columns.get_loc(x) for x in cat_feat]
+
+for c in list(cat_feat):
+    X.loc[:, c] = X.loc[:, c].astype(object).fillna(&quot;XXX&quot;).astype(&quot;category&quot;)
+    X_test.loc[:, c] = X_test.loc[:, c].astype(object).fillna(&quot;XXX&quot;).astype(&quot;category&quot;)
+
+X_train, X_eval, y_train, y_eval = train_test_split(X, y, test_size=0.1, random_state=SEED)
+
+clf = CatBoostRegressor(random_state=314,
+                            cat_features=cat_indices,
+                            verbose=0,
+                            loss_function = &quot;RMSE&quot;,
+                            od_type = &quot;Iter&quot;,
+                            od_wait = 100,iterations=3000,
+                            use_best_model=True)
+
+clf.fit(X, y, eval_set = (X_eval, y_eval), verbose=False, plot=True)</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/ch_catboost.png" style="width:95.0%" />
+</center>
+<p>Salvar previsões:</p>
+<pre class="python"><code>sub.loc[:, &#39;NU_NOTA_CH&#39;] = clf.predict(X_test)
+# alunos que nao foram fazer a prova tiraram zero
+sub.loc[test.TP_PRESENCA_CH!=1, &#39;NU_NOTA_CH&#39;] = 0</code></pre>
+<p>Comparar distribuição da target nos dados de treino com relação às previsões do modelo:</p>
+<pre class="python"><code>sns.kdeplot(train.loc[:, target], shade=True, color=&#39;r&#39;, clip=[0,1000])
+sns.kdeplot(sub.loc[:, target], shade=True, color=&#39;b&#39;, clip=[0,1000])
+plt.legend(labels=[&#39;train&#39;, &#39;predict&#39;])
+plt.title(target)</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/ch_pred.png" style="width:50.0%" />
+</center>
+</div>
+<div id="ciências-da-natureza" class="section level3">
+<h3>Ciências da Natureza</h3>
+<p>Novas features desenvolvidas especificamente para este modelo:</p>
+<pre class="python"><code>def fe_cn(df):
+    df.loc[:, &#39;FE_RENDA&#39;] = df.loc[:, &#39;Q006&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1000,
+    &#39;C&#39;:1500, &#39;D&#39;:2000, &#39;E&#39;:2500, &#39;F&#39;:3000, &#39;G&#39;:4000, &#39;H&#39;:5000, 
+    &#39;I&#39;:6000, &#39;J&#39;:7000, &#39;K&#39;:8000,&#39;L&#39;:9000, &#39;M&#39;:10000, &#39;N&#39;:12000, 
+    &#39;O&#39;:15000, &#39;P&#39;:20000, &#39;Q&#39;:30000}).astype(int) 
+    df.loc[:, &#39;FE_NU_IDADE*TP_ANO_CONCLUIU&#39;] = df.TP_ANO_CONCLUIU * df.NU_IDADE
+    df.loc[:, &#39;FE_Q002+Q024&#39;] = df.loc[:, &#39;Q002&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2,
+    &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;: 5, &#39;G&#39;: 6, &#39;H&#39;: -1}).astype(int) + 
+    df.loc[:, &#39;Q024&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}).astype(int) 
+    df.loc[:, &#39;FE_SCORE&#39;] = (1/df.TP_ANO_CONCLUIU) + np.sqrt(df.NU_IDADE) + np.where(df.TP_ESCOLA==3, 1, 0)
+    
+    df.loc[:, &#39;FE_UF_ESCOLA&#39;] = df.SG_UF_ESC.map({
+      &#39;AM&#39;:&#39;Norte&#39;, &#39;RR&#39;:&#39;Norte&#39;, &#39;AP&#39;:&#39;Norte&#39;, &#39;PA&#39;:&#39;Norte&#39;, &#39;TO&#39;:&#39;Norte&#39;, &#39;RO&#39;:&#39;Norte&#39;, &#39;AC&#39;:&#39;Norte&#39;,
+      &#39;MA&#39;:&#39;Nordeste&#39;, &#39;PI&#39;:&#39;Nordeste&#39;, &#39;CE&#39;:&#39;Nordeste&#39;, &#39;RN&#39;:&#39;Nordeste&#39;, &#39;PE&#39;:&#39;Nordeste&#39;, &#39;PB&#39;:&#39;Nordeste&#39;, &#39;SE&#39;:&#39;Nordeste&#39;, &#39;AL&#39;:&#39;Nordeste&#39;, &#39;BA&#39;:&#39;Nordeste&#39;,
+      &#39;MT&#39;: &#39;CentroOeste&#39;, &#39;MS&#39;: &#39;CentroOeste&#39;, &#39;GO&#39;: &#39;CentroOeste&#39;,
+      &#39;SP&#39;: &#39;Sudeste&#39;, &#39;RJ&#39;: &#39;Sudeste&#39;, &#39;ES&#39;: &#39;Sudeste&#39;, &#39;MG&#39;: &#39;Sudeste&#39;,
+      &#39;PR&#39;: &#39;Sul&#39;, &#39;RS&#39;: &#39;Sul&#39;, &#39;SC&#39;: &#39;Sul&#39;}).astype(&#39;category&#39;)
+    return df</code></pre>
+<p>Definir finalidade de algumas colunas:</p>
+<pre class="python"><code># colunas que serao dropadas
+to_drop = [&#39;IN_PROVA_DEITADO&#39;,
+           &#39;NU_INSCRICAO&#39;,
+           &#39;CO_MUNICIPIO_ESC&#39;,
+           &#39;CO_UF_NASCIMENTO&#39;,
+           &#39;CO_UF_RESIDENCIA&#39;,
+           &#39;CO_UF_ESC&#39;,
+           &#39;CO_UF_PROVA&#39;,
+           &#39;CO_MUNICIPIO_PROVA&#39;,
+           &#39;CO_MUNICIPIO_RESIDENCIA&#39;,
+          &#39;CO_MUNICIPIO_NASCIMENTO&#39;]
+
+# definir target e presenca
+target = &quot;NU_NOTA_CN&quot;
+presenca = &quot;TP_PRESENCA_CN&quot;
+
+# demais notas para dropar (menos mt)
+notas = list(set(targets)-set([target, &#39;NU_NOTA_MT&#39;]))</code></pre>
+<p>Pré-processamento nos dados de treino</p>
+<pre class="python"><code>X = train.copy()
+X = X.drop(to_drop, axis=1) 
+X = X[X[presenca]==1]
+X = X[~X[target].isnull()]
+
+X = X.loc[:, ~X.columns.isin([target]+[presenca]+notas)]
+X = fe_cn(X)
+X = prep_data_questionarios(X)
+X = fe_mun(X)
+X = fe_questionario(X)
+X = fe_in(X)
+X = prep_co_escola(X)
+X = fe_extra(X)
+
+y = train.loc[(train[presenca]==1)&amp;(~train[target].isnull()), target].astype(np.float64)</code></pre>
+<p>Pré-processamento nos dados de teste</p>
+<pre class="python"><code>X_test = test.copy()
+X_test = X_test.drop(to_drop, axis=1) 
+
+X_test = X_test.loc[:, ~X_test.columns.isin([presenca])]
+X_test = fe_cn(X_test)
+X_test = prep_data_questionarios(X_test)
+X_test = fe_mun(X_test)
+X_test = fe_questionario(X_test)
+X_test = fe_in(X_test)
+X_test = prep_co_escola(X_test)
+X_test = fe_extra(X_test)</code></pre>
+<p>Feature engineering separada para evitar data leak:</p>
+<pre class="python"><code># calcular estatisticas nos dados de treino
+co_escola_renda_media = X.groupby(&#39;CO_ESCOLA&#39;).FE_RENDA.mean()
+co_escola_idade_media = X.groupby(&#39;CO_ESCOLA&#39;).NU_IDADE.mean()
+co_escola_nota_mt = X.groupby(&#39;CO_ESCOLA&#39;).NU_NOTA_MT.mean()
+X = X.drop(&#39;NU_NOTA_MT&#39;, axis=1)
+
+# instanciar objeto com as estatisticas por escola
+co_escola_aux = pd.DataFrame({
+    &#39;CO_ESCOLA&#39;: co_escola_renda_media.index,
+    &#39;FE_ESCOLA_RENDA_MEDIA&#39;: co_escola_renda_media,
+    &#39;FE_IDADE_MEDIA&#39;: co_escola_idade_media,
+    &#39;FE_NOTA_MT&#39;: co_escola_nota_mt
+}).reset_index(drop=True)
+
+# Concatenar estatisticas nas bases de treino e teste
+X = pd.merge(X, co_escola_aux, how=&#39;left&#39;, on=&#39;CO_ESCOLA&#39;)
+X_test = pd.merge(X_test, co_escola_aux, how=&#39;left&#39;, on=&#39;CO_ESCOLA&#39;)
+
+# Codigo da escola para categorico
+X.loc[:, &#39;CO_ESCOLA&#39;] = X.CO_ESCOLA.astype(&#39;object&#39;).astype(&#39;category&#39;)
+X_test.loc[:, &#39;CO_ESCOLA&#39;] = X_test.CO_ESCOLA.astype(&#39;object&#39;).astype(&#39;category&#39;)
+
+# Features de contagem
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_PROVA&#39;] = X.NO_MUNICIPIO_PROVA.map({x: y for x, y in zip(X.NO_MUNICIPIO_PROVA.value_counts().index.values, X.NO_MUNICIPIO_PROVA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_PROVA&#39;] = X_test.NO_MUNICIPIO_PROVA.map({x: y for x, y in zip(X.NO_MUNICIPIO_PROVA.value_counts().index.values, X.NO_MUNICIPIO_PROVA.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_RESIDENCIA&#39;] = X.NO_MUNICIPIO_RESIDENCIA.map({x: y for x, y in zip(X.NO_MUNICIPIO_RESIDENCIA.value_counts().index.values, X.NO_MUNICIPIO_RESIDENCIA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_RESIDENCIA&#39;] = X_test.NO_MUNICIPIO_RESIDENCIA.map({ x: y for x, y in zip(X.NO_MUNICIPIO_RESIDENCIA.value_counts().index.values, X.NO_MUNICIPIO_RESIDENCIA.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_NASCIMENTO&#39;] = X.NO_MUNICIPIO_NASCIMENTO.map({ x: y for x, y in zip(X.NO_MUNICIPIO_NASCIMENTO.value_counts().index.values, X.NO_MUNICIPIO_NASCIMENTO.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_NASCIMENTO&#39;] = X_test.NO_MUNICIPIO_NASCIMENTO.map({x: y for x, y in zip(X.NO_MUNICIPIO_NASCIMENTO.value_counts().index.values, X.NO_MUNICIPIO_NASCIMENTO.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_ESCOLA&#39;] = X.CO_ESCOLA.map({x: y for x, y in zip(X.CO_ESCOLA.value_counts().index.values, X.CO_ESCOLA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_ESCOLA&#39;] = X_test.CO_ESCOLA.map({x: y for x, y in zip(X.CO_ESCOLA.value_counts().index.values, X.CO_ESCOLA.value_counts().values)})</code></pre>
+<p>Ajustar modelo:</p>
+<pre class="python"><code>%%time
+
+cat_feat = X.columns[X.dtypes==&#39;category&#39;]
+cat_indices = [X.columns.get_loc(x) for x in cat_feat]
+
+for c in list(cat_feat):
+    X.loc[:, c] = X.loc[:, c].astype(object).fillna(&quot;XXX&quot;).astype(&quot;category&quot;)
+    X_test.loc[:, c] = X_test.loc[:, c].astype(object).fillna(&quot;XXX&quot;).astype(&quot;category&quot;)
+
+X_train, X_eval, y_train, y_eval = train_test_split(X, y, test_size=0.1, random_state=SEED)
+
+clf = CatBoostRegressor(random_state=314,
+                            cat_features=cat_indices,
+                            verbose=0,
+                            loss_function = &quot;RMSE&quot;,
+                            od_type = &quot;Iter&quot;,
+                            od_wait = 100,iterations=3000,
+                            use_best_model=True)
+
+clf.fit(X, y, eval_set = (X_eval, y_eval), verbose=False, plot=True)</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/cn_catboost.png" style="width:95.0%" />
+</center>
+<p>Salvar previsões:</p>
+<pre class="python"><code>sub.loc[:, &#39;NU_NOTA_CN&#39;] = clf.predict(X_test)
+# alunos que nao foram fazer a prova tiraram zero
+sub.loc[test.TP_PRESENCA_CN!=1, &#39;NU_NOTA_CN&#39;] = 0</code></pre>
+<p>Comparar distribuição da target nos dados de treino com relação às previsões do modelo:</p>
+<pre class="python"><code>sns.kdeplot(train.loc[:, target], shade=True, color=&#39;r&#39;, clip=[0,1000])
+sns.kdeplot(sub.loc[:, target], shade=True, color=&#39;b&#39;, clip=[0,1000])
+plt.legend(labels=[&#39;train&#39;, &#39;predict&#39;])
+plt.title(target)</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/cn_pred.png" style="width:50.0%" />
+</center>
+</div>
+<div id="matemática" class="section level3">
+<h3>Matemática</h3>
+<p>Novas features desenvolvidas especificamente para este modelo:</p>
+<pre class="python"><code>def fe_mt(df):
+    
+    df.loc[:, &#39;FE_RENDA&#39;] = df.loc[:, &#39;Q006&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1000, &#39;C&#39;:1500, &#39;D&#39;:2000, &#39;E&#39;:2500, &#39;F&#39;:3000, &#39;G&#39;:4000, &#39;H&#39;:5000, &#39;I&#39;:6000, &#39;J&#39;:7000, &#39;K&#39;:8000,&#39;L&#39;:9000, &#39;M&#39;:10000, &#39;N&#39;:12000, &#39;O&#39;:15000, &#39;P&#39;:20000, &#39;Q&#39;:30000}).astype(int) 
+    df.loc[:, &#39;FE_NU_IDADE*TP_ANO_CONCLUIU&#39;] = df.TP_ANO_CONCLUIU * df.NU_IDADE
+    df.loc[:, &#39;FE_Q002+Q024&#39;] = df.loc[:, &#39;Q002&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;: 5, &#39;G&#39;: 6, &#39;H&#39;: -1}).astype(int) + df.loc[:, &#39;Q024&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}).astype(int) 
+    df.loc[:, &#39;FE_SCORE&#39;] = (1/df.TP_ANO_CONCLUIU) + np.sqrt(df.NU_IDADE) + np.where(df.TP_ESCOLA==3, 1, 0)
+    
+    df.loc[:, &#39;FE_UF_ESCOLA&#39;] = df.SG_UF_ESC.map({&#39;AM&#39;:&#39;Norte&#39;, &#39;RR&#39;:&#39;Norte&#39;, &#39;AP&#39;:&#39;Norte&#39;, &#39;PA&#39;:&#39;Norte&#39;, &#39;TO&#39;:&#39;Norte&#39;, &#39;RO&#39;:&#39;Norte&#39;, &#39;AC&#39;:&#39;Norte&#39;,
+                &#39;MA&#39;:&#39;Nordeste&#39;, &#39;PI&#39;:&#39;Nordeste&#39;, &#39;CE&#39;:&#39;Nordeste&#39;, &#39;RN&#39;:&#39;Nordeste&#39;, &#39;PE&#39;:&#39;Nordeste&#39;, &#39;PB&#39;:&#39;Nordeste&#39;, &#39;SE&#39;:&#39;Nordeste&#39;, &#39;AL&#39;:&#39;Nordeste&#39;, &#39;BA&#39;:&#39;Nordeste&#39;,
+                &#39;MT&#39;: &#39;CentroOeste&#39;, &#39;MS&#39;: &#39;CentroOeste&#39;, &#39;GO&#39;: &#39;CentroOeste&#39;,
+                &#39;SP&#39;: &#39;Sudeste&#39;, &#39;RJ&#39;: &#39;Sudeste&#39;, &#39;ES&#39;: &#39;Sudeste&#39;, &#39;MG&#39;: &#39;Sudeste&#39;,
+                &#39;PR&#39;: &#39;Sul&#39;, &#39;RS&#39;: &#39;Sul&#39;, &#39;SC&#39;: &#39;Sul&#39;}).astype(&#39;category&#39;)
+    
+    
+    return df</code></pre>
+<p>Definir finalidade de algumas colunas:</p>
+<pre class="python"><code># colunas que serao dropadas
+to_drop = [&#39;IN_PROVA_DEITADO&#39;,
+           &#39;NU_INSCRICAO&#39;,
+           &#39;CO_MUNICIPIO_ESC&#39;,
+           &#39;CO_UF_NASCIMENTO&#39;,
+           &#39;CO_UF_RESIDENCIA&#39;,
+           &#39;CO_UF_ESC&#39;,
+           &#39;CO_UF_PROVA&#39;,
+           &#39;CO_MUNICIPIO_PROVA&#39;,
+           &#39;CO_MUNICIPIO_RESIDENCIA&#39;,
+          &#39;CO_MUNICIPIO_NASCIMENTO&#39;]
+
+# definir target e presenca
+target = &quot;NU_NOTA_MT&quot;
+presenca = &quot;TP_PRESENCA_MT&quot;
+
+# demais notas para dropar (menos cn)
+notas = list(set(targets)-set([target, &#39;NU_NOTA_CN&#39;]))</code></pre>
+<p>Pré-processamento nos dados de treino</p>
+<pre class="python"><code>X = train.copy()
+X = X.drop(to_drop, axis=1) 
+X = X[X[presenca]==1]
+X = X[~X[target].isnull()]
+
+X = X.loc[:, ~X.columns.isin([target]+[presenca]+notas)]
+X = fe_mt(X)
+X = prep_data_questionarios(X)
+X = fe_mun(X)
+#X = fe_questionario(X)
+#X = fe_in(X)
+X = prep_co_escola(X)
+X = fe_extra(X)
+
+y = train.loc[(train[presenca]==1)&amp;(~train[target].isnull()), target].astype(np.float64)</code></pre>
+<p>Pré-processamento nos dados de teste</p>
+<pre class="python"><code>X_test = test.copy()
+X_test = X_test.drop(to_drop, axis=1) 
+
+X_test = X_test.loc[:, ~X_test.columns.isin([presenca])]
+X_test = fe_mt(X_test)
+X_test = prep_data_questionarios(X_test)
+X_test = fe_mun(X_test)
+#X_test = fe_questionario(X_test)
+#X_test = fe_in(X_test)
+X_test = prep_co_escola(X_test)
+X_test = fe_extra(X_test)</code></pre>
+<p>Feature engineering separada para evitar data leak:</p>
+<pre class="python"><code># calcular estatisticas nos dados de treino
+co_escola_renda_media = X.groupby(&#39;CO_ESCOLA&#39;).FE_RENDA.mean()
+co_escola_idade_media = X.groupby(&#39;CO_ESCOLA&#39;).NU_IDADE.mean()
+co_escola_nota_cn = X.groupby(&#39;CO_ESCOLA&#39;).NU_NOTA_CN.mean()
+X = X.drop(&#39;NU_NOTA_CN&#39;, axis=1)
+
+# instanciar objeto com as estatisticas por escola
+co_escola_aux = pd.DataFrame({
+    &#39;CO_ESCOLA&#39;: co_escola_renda_media.index,
+    &#39;FE_ESCOLA_RENDA_MEDIA&#39;: co_escola_renda_media,
+    &#39;FE_IDADE_MEDIA&#39;: co_escola_idade_media,
+    &#39;FE_NOTA_CN&#39;: co_escola_nota_cn
+}).reset_index(drop=True)
+
+# Concatenar estatisticas nas bases de treino e teste
+X = pd.merge(X, co_escola_aux, how=&#39;left&#39;, on=&#39;CO_ESCOLA&#39;)
+X_test = pd.merge(X_test, co_escola_aux, how=&#39;left&#39;, on=&#39;CO_ESCOLA&#39;)
+
+# Codigo da escola para categorico
+X.loc[:, &#39;CO_ESCOLA&#39;] = X.CO_ESCOLA.astype(&#39;object&#39;).astype(&#39;category&#39;)
+X_test.loc[:, &#39;CO_ESCOLA&#39;] = X_test.CO_ESCOLA.astype(&#39;object&#39;).astype(&#39;category&#39;)
+
+# Features de contagem
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_PROVA&#39;] = X.NO_MUNICIPIO_PROVA.map({x: y for x, y in zip(X.NO_MUNICIPIO_PROVA.value_counts().index.values, X.NO_MUNICIPIO_PROVA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_PROVA&#39;] = X_test.NO_MUNICIPIO_PROVA.map({x: y for x, y in zip(X.NO_MUNICIPIO_PROVA.value_counts().index.values, X.NO_MUNICIPIO_PROVA.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_RESIDENCIA&#39;] = X.NO_MUNICIPIO_RESIDENCIA.map({x: y for x, y in zip(X.NO_MUNICIPIO_RESIDENCIA.value_counts().index.values, X.NO_MUNICIPIO_RESIDENCIA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_RESIDENCIA&#39;] = X_test.NO_MUNICIPIO_RESIDENCIA.map({ x: y for x, y in zip(X.NO_MUNICIPIO_RESIDENCIA.value_counts().index.values, X.NO_MUNICIPIO_RESIDENCIA.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_NASCIMENTO&#39;] = X.NO_MUNICIPIO_NASCIMENTO.map({ x: y for x, y in zip(X.NO_MUNICIPIO_NASCIMENTO.value_counts().index.values, X.NO_MUNICIPIO_NASCIMENTO.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_NASCIMENTO&#39;] = X_test.NO_MUNICIPIO_NASCIMENTO.map({x: y for x, y in zip(X.NO_MUNICIPIO_NASCIMENTO.value_counts().index.values, X.NO_MUNICIPIO_NASCIMENTO.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_ESCOLA&#39;] = X.CO_ESCOLA.map({x: y for x, y in zip(X.CO_ESCOLA.value_counts().index.values, X.CO_ESCOLA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_ESCOLA&#39;] = X_test.CO_ESCOLA.map({x: y for x, y in zip(X.CO_ESCOLA.value_counts().index.values, X.CO_ESCOLA.value_counts().values)})</code></pre>
+<p>Ajustar modelo:</p>
+<pre class="python"><code>%%time
+
+cat_feat = X.columns[X.dtypes==&#39;category&#39;]
+cat_indices = [X.columns.get_loc(x) for x in cat_feat]
+
+for c in list(cat_feat):
+    X.loc[:, c] = X.loc[:, c].astype(object).fillna(&quot;XXX&quot;).astype(&quot;category&quot;)
+    X_test.loc[:, c] = X_test.loc[:, c].astype(object).fillna(&quot;XXX&quot;).astype(&quot;category&quot;)
+
+X_train, X_eval, y_train, y_eval = train_test_split(X, y, test_size=0.1, random_state=SEED)
+    
+clf = CatBoostRegressor(random_state=314,
+                            cat_features=cat_indices,
+                            verbose=0,
+                            loss_function = &quot;RMSE&quot;,
+                            od_type = &quot;Iter&quot;,
+                            od_wait = 100,iterations=3000,
+                            use_best_model=True)
+
+clf.fit(X, y, eval_set = (X_eval, y_eval), verbose=False, plot=True)</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/mt_catboost.png" style="width:95.0%" />
+</center>
+<p>Salvar previsões:</p>
+<pre class="python"><code>sub.loc[:, &#39;NU_NOTA_MT&#39;] = clf.predict(X_test)
+# alunos que nao foram fazer a prova tiraram zero
+sub.loc[test.TP_PRESENCA_CN!=1, &#39;NU_NOTA_MT&#39;] = 0</code></pre>
+<p>Comparar distribuição da target nos dados de treino com relação às previsões do modelo:</p>
+<pre class="python"><code>sns.kdeplot(train.loc[:, target], shade=True, color=&#39;r&#39;, clip=[0,1000])
+sns.kdeplot(sub.loc[:, target], shade=True, color=&#39;b&#39;, clip=[0,1000])
+plt.legend(labels=[&#39;train&#39;, &#39;predict&#39;])
+plt.title(target)</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/mt_pred.png" style="width:50.0%" />
+</center>
+</div>
+<div id="redação" class="section level3">
+<h3>Redação</h3>
+<p>Novas features desenvolvidas especificamente para este modelo:</p>
+<pre class="python"><code>def fe_rd(df):
+    
+    df.loc[:, &#39;FE_RENDA&#39;] = df.loc[:, &#39;Q006&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1000, &#39;C&#39;:1500, &#39;D&#39;:2000, &#39;E&#39;:2500, &#39;F&#39;:3000, &#39;G&#39;:4000, &#39;H&#39;:5000, &#39;I&#39;:6000, &#39;J&#39;:7000, &#39;K&#39;:8000,&#39;L&#39;:9000, &#39;M&#39;:10000, &#39;N&#39;:12000, &#39;O&#39;:15000, &#39;P&#39;:20000, &#39;Q&#39;:30000}).astype(int) 
+    df.loc[:, &#39;FE_NU_IDADE*TP_ANO_CONCLUIU&#39;] = df.TP_ANO_CONCLUIU * df.NU_IDADE
+    df.loc[:, &#39;FE_Q002+Q024&#39;] = df.loc[:, &#39;Q002&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;: 5, &#39;G&#39;: 6, &#39;H&#39;: -1}).astype(int) + df.loc[:, &#39;Q024&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4}).astype(int) 
+    df.loc[:, &#39;FE_SCORE&#39;] = (1/df.TP_ANO_CONCLUIU) + np.sqrt(df.NU_IDADE) + np.where(df.TP_ESCOLA==3, 1, 0)
+    
+    df.loc[:, &#39;FE_RENDA_FAMILIA_+_IDADE&#39;] = df.loc[:, &#39;Q006&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;:5, &#39;G&#39;:6, &#39;H&#39;:7, &#39;I&#39;:8, &#39;J&#39;:9, &#39;K&#39;:10,&#39;L&#39;:11, &#39;M&#39;:12, &#39;N&#39;:13, &#39;O&#39;:14, &#39;P&#39;:15, &#39;Q&#39;:16}).astype(int) + df.NU_IDADE        
+    df.loc[:, &#39;FE_RENDA_FAMILIA_+_ANO_CONCLUIU&#39;] = df.loc[:, &#39;Q006&#39;].map({&#39;A&#39;:0, &#39;B&#39;:1, &#39;C&#39;:2, &#39;D&#39;:3, &#39;E&#39;:4, &#39;F&#39;:5, &#39;G&#39;:6, &#39;H&#39;:7, &#39;I&#39;:8, &#39;J&#39;:9, &#39;K&#39;:10,&#39;L&#39;:11, &#39;M&#39;:12, &#39;N&#39;:13, &#39;O&#39;:14, &#39;P&#39;:15, &#39;Q&#39;:16}).astype(int)+ df.TP_ANO_CONCLUIU  
+    
+    return df</code></pre>
+<p>Definir finalidade de algumas colunas:</p>
+<pre class="python"><code># colunas que serao dropadas
+to_drop = [&#39;IN_PROVA_DEITADO&#39;,
+           &#39;NU_INSCRICAO&#39;,
+           &#39;CO_MUNICIPIO_ESC&#39;,
+           &#39;CO_UF_NASCIMENTO&#39;,
+           &#39;CO_UF_RESIDENCIA&#39;,
+           &#39;CO_UF_ESC&#39;,
+           &#39;CO_UF_PROVA&#39;,
+           &#39;CO_MUNICIPIO_PROVA&#39;,
+           &#39;CO_MUNICIPIO_RESIDENCIA&#39;,
+          &#39;CO_MUNICIPIO_NASCIMENTO&#39;]
+
+# definir target e presenca
+target = &quot;NU_NOTA_REDACAO&quot;
+presenca = &quot;TP_STATUS_REDACAO&quot;
+
+# demais notas para dropar 
+notas = list(set(targets)-set([target]))</code></pre>
+<p>Pré-processamento nos dados de treino</p>
+<pre class="python"><code>X = train.copy()
+X = X.drop(to_drop, axis=1) 
+X = X[X[presenca]==1]
+X = X[~X[target].isnull()]
+
+
+X = X.loc[:, ~X.columns.isin([target]+[presenca]+notas)]
+X = fe_rd(X)
+X = prep_data_questionarios(X)
+X = fe_mun(X)
+#X = fe_questionario(X)
+X = fe_in(X)
+X = prep_co_escola(X)
+X = fe_extra(X)
+
+y = train.loc[(train[presenca]==1)&amp;(~train[target].isnull()), target].astype(np.float64)</code></pre>
+<p>Pré-processamento nos dados de teste</p>
+<pre class="python"><code>X_test = test.copy()
+X_test = X_test.drop(to_drop, axis=1) 
+
+X_test = X_test.loc[:, ~X_test.columns.isin([presenca])]
+X_test = fe_rd(X_test)
+X_test = prep_data_questionarios(X_test)
+X_test = fe_mun(X_test)
+#X_test = fe_questionario(X_test)
+X_test = fe_in(X_test)
+X_test = prep_co_escola(X_test)
+X_test = fe_extra(X_test)</code></pre>
+<p>Feature engineering separada para evitar data leak:</p>
+<pre class="python"><code># calcular estatisticas nos dados de treino
+co_escola_renda_media = X.groupby(&#39;CO_ESCOLA&#39;).FE_RENDA.mean()
+co_escola_idade_media = X.groupby(&#39;CO_ESCOLA&#39;).NU_IDADE.mean()
+
+# instanciar objeto com as estatisticas por escola
+co_escola_aux = pd.DataFrame({
+    &#39;CO_ESCOLA&#39;: co_escola_renda_media.index,
+    &#39;FE_ESCOLA_RENDA_MEDIA&#39;: co_escola_renda_media,
+    &#39;FE_IDADE_MEDIA&#39;: co_escola_idade_media
+}).reset_index(drop=True)
+
+# Concatenar estatisticas nas bases de treino e teste
+X = pd.merge(X, co_escola_aux, how=&#39;left&#39;, on=&#39;CO_ESCOLA&#39;)
+X_test = pd.merge(X_test, co_escola_aux, how=&#39;left&#39;, on=&#39;CO_ESCOLA&#39;)
+
+# Codigo da escola para categorico
+X.loc[:, &#39;CO_ESCOLA&#39;] = X.CO_ESCOLA.astype(&#39;object&#39;).astype(&#39;category&#39;)
+X_test.loc[:, &#39;CO_ESCOLA&#39;] = X_test.CO_ESCOLA.astype(&#39;object&#39;).astype(&#39;category&#39;)
+
+# Features de contagem
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_PROVA&#39;] = X.NO_MUNICIPIO_PROVA.map({x: y for x, y in zip(X.NO_MUNICIPIO_PROVA.value_counts().index.values, X.NO_MUNICIPIO_PROVA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_PROVA&#39;] = X_test.NO_MUNICIPIO_PROVA.map({x: y for x, y in zip(X.NO_MUNICIPIO_PROVA.value_counts().index.values, X.NO_MUNICIPIO_PROVA.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_RESIDENCIA&#39;] = X.NO_MUNICIPIO_RESIDENCIA.map({x: y for x, y in zip(X.NO_MUNICIPIO_RESIDENCIA.value_counts().index.values, X.NO_MUNICIPIO_RESIDENCIA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_RESIDENCIA&#39;] = X_test.NO_MUNICIPIO_RESIDENCIA.map({ x: y for x, y in zip(X.NO_MUNICIPIO_RESIDENCIA.value_counts().index.values, X.NO_MUNICIPIO_RESIDENCIA.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_MUNICIPIO_NASCIMENTO&#39;] = X.NO_MUNICIPIO_NASCIMENTO.map({ x: y for x, y in zip(X.NO_MUNICIPIO_NASCIMENTO.value_counts().index.values, X.NO_MUNICIPIO_NASCIMENTO.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_MUNICIPIO_NASCIMENTO&#39;] = X_test.NO_MUNICIPIO_NASCIMENTO.map({x: y for x, y in zip(X.NO_MUNICIPIO_NASCIMENTO.value_counts().index.values, X.NO_MUNICIPIO_NASCIMENTO.value_counts().values)})
+
+X.loc[:, &#39;FE_COUNT_ESCOLA&#39;] = X.CO_ESCOLA.map({x: y for x, y in zip(X.CO_ESCOLA.value_counts().index.values, X.CO_ESCOLA.value_counts().values)})
+X_test.loc[:, &#39;FE_COUNT_ESCOLA&#39;] = X_test.CO_ESCOLA.map({x: y for x, y in zip(X.CO_ESCOLA.value_counts().index.values, X.CO_ESCOLA.value_counts().values)})</code></pre>
+<p>Ajustar modelo:</p>
+<pre class="python"><code>%%time
+
+cat_feat = X.columns[X.dtypes==&#39;category&#39;]
+cat_indices = [X.columns.get_loc(x) for x in cat_feat]
+
+for c in list(cat_feat):
+    X.loc[:, c] = X.loc[:, c].astype(object).fillna(&quot;XXX&quot;).astype(&quot;category&quot;)
+    X_test.loc[:, c] = X_test.loc[:, c].astype(object).fillna(&quot;XXX&quot;).astype(&quot;category&quot;)
+
+X_train, X_eval, y_train, y_eval = train_test_split(X, y, test_size=0.1, random_state=SEED)
+
+clf = CatBoostRegressor(random_state=314,
+                            cat_features=cat_indices,
+                            verbose=0,
+                            loss_function = &quot;RMSE&quot;,
+                            od_type = &quot;Iter&quot;,
+                            od_wait = 100,iterations=3000,
+                            use_best_model=True)
+
+clf.fit(X, y, eval_set = (X_eval, y_eval), verbose=False, plot=True)</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/redacao_catboost.png" style="width:95.0%" />
+</center>
+<p>Salvar previsões:</p>
+<pre class="python"><code>sub.loc[:, &#39;NU_NOTA_REDACAO&#39;] = clf.predict(X_test)
+# alunos que nao foram fazer a prova tiraram zero
+sub.loc[test.TP_STATUS_REDACAO!=1, &#39;NU_NOTA_REDACAO&#39;] = 0</code></pre>
+<p>Comparar distribuição da target nos dados de treino com relação às previsões do modelo:</p>
+<pre class="python"><code>sns.kdeplot(train.loc[:, target], shade=True, color=&#39;r&#39;, clip=[0,1000])
+sns.kdeplot(sub.loc[:, target], shade=True, color=&#39;b&#39;, clip=[0,1000])
+plt.legend(labels=[&#39;train&#39;, &#39;predict&#39;])
+plt.title(target)</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/redacao_pred.png" style="width:50.0%" />
+</center>
+</div>
+</div>
+</div>
+<div id="submissão" class="section level1">
+<h1>Submissão</h1>
+<p>Veja a seguir como ficou a distribuição das previsões comparada à distribuição da target nos dados de treino:</p>
+<pre class="python"><code>plt.figure(figsize=(16, 5))
+
+notas = [&#39;NU_NOTA_CH&#39;, &#39;NU_NOTA_CN&#39;, &#39;NU_NOTA_MT&#39;, &#39;NU_NOTA_LC&#39;, &#39;NU_NOTA_REDACAO&#39;]
+
+for i in range(len(notas)):
+
+    plt.subplot(1, 5, i+1)
+    sns.kdeplot(train.loc[:, notas[i]], shade=True, color=&#39;r&#39;, clip=[0,1000])
+    sns.kdeplot(sub.loc[:, notas[i]], shade=True, color=&#39;b&#39;, clip=[0,1000])
+    plt.legend(labels=[&#39;train&#39;, &#39;predict&#39;])
+    plt.title(notas[i])
+plt.tight_layout()
+plt.show()</code></pre>
+<center>
+<img src="/post/2022-04-20-solucao-final-education-quality-kaggle-competition/all_pred.png" style="width:95.0%" />
+</center>
+<p>Acredito que talvez um tuning do modelo poderia trazer mais qualidade às previsões mas com o tempo limitado não pude investir muito nesta etapa.</p>
+</div>
+<div id="considerações-finais" class="section level1">
+<h1>Considerações Finais</h1>
+<p>Em resumo, essas foram as principais idéias para a solução da competição e acredito que um dos segredos era focar em feature engineering por 2 motivos:</p>
+<ul>
+<li>A base era muito grande e o processo de tuning seria muito custoso (a não ser que tenha um ótimo computador a disposição);</li>
+<li>Os atributos não eram anônimos, o que dá muita informação de contexto.</li>
+</ul>
+<p>Agradeço aos organizadores e à todos os participantes que tornaram esta competição tão divertida! Por mais competições como esta, que valorizam a comunidade brasileira de Data Science!</p>
+<p>Espero que tenham gostado e até logo!</p>
+<p>Abraços!</p>
+<p>Fellipe Gomes</p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/">Solução Final - ML Olympiad [2º lugar]</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">catboost</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">data-science</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">machine-learning</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">regressao</category>
+    </item>
+    <item>
+      <title>Como automatizar relatórios longos e repetitivos com RMarkdown</title>
+      <link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/relatorios-automaticos-com-rmarkdown/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/relatorios-automaticos-com-rmarkdown/</guid>
+      <description>Veja como fazer um relatório estatístico &#34;extenso e repetitivo&#34; sem utilizar copiar e colar nenhuma vez</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<div id="problema-de-negócio" class="section level1">
+<h1>Problema de negócio</h1>
+<p>Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passsar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.</p>
+<p>Com a linguagem R, escrever relatórios estatísticos utilizando <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.</p>
+<p>Assim, combinando conceitos de programação, como o <a href="https://pt.wikipedia.org/wiki/Loop_(programa%C3%A7%C3%A3o)">Loop</a> no R e a linguagem <a href="https://pt.wikipedia.org/wiki/Markdown">Markdown</a> para produção de relatórios, temos uma poderosa ferramenta para <a href="https://pt.wikipedia.org/wiki/Automa%C3%A7%C3%A3o">Automação</a> de relatórios.</p>
+<div id="entendendo-o-problema" class="section level2">
+<h2>Entendendo o problema</h2>
+<p>Suponha que o seguinte gráfico seja apresentado à você:</p>
+<center>
+<img src="/post/2019-09-13-relatorios-automaticos-com-rmarkdown/figure-html/unnamed-chunk-1-1.gif" style="width:80.0%" />
+</center>
+<p>Este gráfico animado apresenta a evolução da esperança de vida ao nascer (em anos) em relação ao PIB per capita (em US$, ajustado pela inflação) de 141 países dos 5 continentes durante o período de 1952 até 2007, a cada 5 anos.</p>
+<p>Entraremos em mais detalhes sobre as informações dete gráfico a seguir.</p>
+</div>
+</div>
+<div id="fonte-dos-dados" class="section level1">
+<h1>Fonte dos dados</h1>
+<p>Os dados utilizados neste problema foram importados através do pacote <a href="https://cran.r-project.org/web/packages/gapminder/index.html">gapminder</a> que é um projeto que utiliza dados do site <a href="https://www.gapminder.org/">Gapminder.org</a>.</p>
+<p>Segundo sua <a href="https://www.gapminder.org/about-gapminder/">descrição no site</a>:</p>
+<blockquote>
+<p>“Gapminder é uma fundação independente sueca sem afiliações políticas, religiosas ou econômicas. (…)”</p>
+</blockquote>
+<p>No site é possível obter dados gratuitos para se obter estatísticas confiáveis e além dos disso a Fundação Gapminder apresenta alguns outros projetos como o <a href="https://www.gapminder.org/dollar-street/matrix">Dollar Street</a> que apresenta 30.000 fotos de 264 famílias em 50 países classificados por renda.</p>
+<p>Na página do projeto é possível ver e comparar os mais variados aspectos da população ao redor do mundo que vão desde casas, itens mais amados, carros até banheiros, comida de pets e bebidas alcoólicas.</p>
+<p>O pacote fornece dados da Fundação Gapminder como: valores de expectativa de vida, PIB per capta e população, a cada cinco anos, de 1952 a 2007 (total de 12 anos). Veja as primeiras 5 linhas da base de dados contidos no pacote:</p>
+<pre class="r"><code># Base de dados utilizada
+head(gapminder)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   country     continent  year lifeExp      pop gdpPercap
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+## 1 Afghanistan Asia       1952    28.8  8425333      779.
+## 2 Afghanistan Asia       1957    30.3  9240934      821.
+## 3 Afghanistan Asia       1962    32.0 10267083      853.
+## 4 Afghanistan Asia       1967    34.0 11537966      836.
+## 5 Afghanistan Asia       1972    36.1 13079460      740.
+## 6 Afghanistan Asia       1977    38.4 14880372      786.</code></pre>
+<p>Essa base de dados possui 1705 linhas de 6 variáveis, onde:</p>
+<ul>
+<li><code>country</code>: factor com 142 levels</li>
+<li><code>continent</code>: factor com 5 levels</li>
+<li><code>year</code>: sequencia de 1952 até 2007 a cada 5 anos</li>
+<li><code>lifeExp</code>: esperança de vida ao nascer, em anos</li>
+<li><code>pop</code>: população</li>
+<li><code>gdpPercap</code>: PIB per capita (em US$, ajustado pela inflação)</li>
+</ul>
+</div>
+<div id="comportamento-geral-dos-dados" class="section level1">
+<h1>Comportamento geral dos dados</h1>
+<p>Antes de começar a fazer os relatórios para cada ano, vamos reproduzir a animação apresentada para nós com o comportamento temporal utilizando o pacote <a href="https://github.com/thomasp85/gganimate">gganimate</a>:</p>
+<pre class="r"><code># Carregar pacotes
+library(ggplot2)
+library(dplyr)
+library(gapminder)
+library(scales)
+library(gganimate)
+
+# Definir tema:
+theme_set(theme_bw())
+
+# Funcao para customizar legendas:
+custom_legend &lt;- function(x){comma(x, big.mark = &quot;.&quot;,decimal.mark = &quot;,&quot;)}
+
+# Comportamento geral:
+gapminder %&gt;% 
+  filter(country!=&quot;Kuwait&quot;) %&gt;% # remover 1 pais outlier
+  ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, 
+             label = country, color = continent, alpha= log(gdpPercap))) %+%
+  geom_point(show.legend = F) %+%
+  geom_text(show.legend = F, size = 3, nudge_y = -0.7) %+%
+  scale_size_continuous(labels = custom_legend) %+%
+  scale_x_continuous(labels = custom_legend) %+%
+  geom_smooth(se=F, color = &quot;black&quot;, show.legend = F, method = &quot;lm&quot;) %+% 
+  transition_time(year) %+%
+  scale_color_brewer(palette = &quot;Dark2&quot;) %+%
+  labs(title = &quot;Year: {frame_time}&quot;)</code></pre>
+<center>
+<img src="/post/2019-09-13-relatorios-automaticos-com-rmarkdown/unnamed-chunk-1-1.gif" style="width:80.0%" />
+</center>
+<p>Analisando esta animação é possível notar:</p>
+<ul>
+<li>Japão é o país que possui a maior expectativa de vida ao longo de todos os anos;</li>
+<li>Os países do contínente africano são os que apresentam expectativa de vida mais baixa e pior <code>gdpPercap</code>.</li>
+<li>A Arábia Saudita teve sua <code>gdpPercap</code> aumentada até 1978 porém a partir daí diminiu bastante.</li>
+<li>O país com maior <code>gdpPercap</code> e expectativa de vida na América é o Estados Unidos;</li>
+<li>A Noroega foi o país que mais se descatou com os valores mais elevados e estáveis ao longo destes 55 anos.</li>
+</ul>
+<p>Obs[1]: <a href="https://www.google.com/search?q=Kuwait&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwj53ZXJ4bPjAhVAD7kGHQvwCWgQ_AUIESgC&amp;biw=1574&amp;bih=943">Kuwait</a> foi removida para este gráfico animado pois é um país outlier. Segundo o <a href="https://pt.wikipedia.org/wiki/Kuwait">Wikipédia</a>:</p>
+<blockquote>
+<p>“O Kuwait tem um PIB (PPC) de US$ 167,9 bilhões[96] e uma renda per capita de US$ 81 800,[96] o que o torna o quinto país mais rico do mundo.[52] O índice de desenvolvimento humano (IDH) do Kuwait é de 0,816, um dos mais elevados do Oriente Médio e do mundo árabe. Com uma taxa de crescimento do PIB de 5,7%, o Kuwait tem uma das economias que mais crescem na região.[96]”</p>
+</blockquote>
+<p>Para quem tiver curiosidade, os dados de <code>Kuwait</code> podem ser obtidos da seguinte forma:</p>
+<pre class="r"><code>gapminder %&gt;% filter(country == &quot;Kuwait&quot;)</code></pre>
+<pre><code>## # A tibble: 12 x 6
+##    country continent  year lifeExp     pop gdpPercap
+##    &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
+##  1 Kuwait  Asia       1952    55.6  160000   108382.
+##  2 Kuwait  Asia       1957    58.0  212846   113523.
+##  3 Kuwait  Asia       1962    60.5  358266    95458.
+##  4 Kuwait  Asia       1967    64.6  575003    80895.
+##  5 Kuwait  Asia       1972    67.7  841934   109348.
+##  6 Kuwait  Asia       1977    69.3 1140357    59265.
+##  7 Kuwait  Asia       1982    71.3 1497494    31354.
+##  8 Kuwait  Asia       1987    74.2 1891487    28118.
+##  9 Kuwait  Asia       1992    75.2 1418095    34933.
+## 10 Kuwait  Asia       1997    76.2 1765345    40301.
+## 11 Kuwait  Asia       2002    76.9 2111561    35110.
+## 12 Kuwait  Asia       2007    77.6 2505559    47307.</code></pre>
+</div>
+<div id="resolvendo-o-problema-de-negócio" class="section level1">
+<h1>Resolvendo o problema de negócio</h1>
+<p>Para resolver o problema de se fazer uma análise sobre a expectativa de vida, PIB per capta e população, para cada continente, para cada ano disponível, (ou seja, analisar de 1952 a 2007 a cada cinco anos) faremos um total de 12 relatórios.</p>
+<p>Isso é muito para se arriscar usar <code>ctrl+c</code> e <code>ctrl+v</code> 12 vezes e depois caso precise de alguma mudança, alterar o relatório 12 vezes.</p>
+<p>Portanto utilizaremos uma estratégia parecida com a que apresentei no último post sobre como <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/">Hackear o R com a estratécia Split-Appy-Combine</a>.</p>
+<p>Primeiramente vamos separar nosso dataset por ano utilizando a função <code>tidyr::nest()</code>:</p>
+<pre class="r"><code>library(tidyr) # funcao nest
+
+# separar por ano:
+nested_gapminder &lt;- gapminder %&gt;% nest(-year)</code></pre>
+<p>Selecionei um dos anos como exemplo e utilizei os objetos <code>nested_gapminder$year[1]</code> e <code>nested_gapminder$data[[1]]</code> para desenvolver uma função que realizasse todas as análises que eu precisasse.</p>
+<p>Essa função foi salva em um script separado chamado <code>analise.R</code> e pode ser encontrada <a href="">neste link</a>. Para caregar a função localmente basta utilizar a função <code>source()</code>, veja;</p>
+<pre class="r"><code>source(&quot;analise_gapminder.R&quot;)</code></pre>
+<p>Veja nas seções a seguir os outputs da função antes de encapsulá-la em um arquivo RMarkdown (.Rmd) para fazer o looping:</p>
+<div id="resultados-para-o-ano-2007" class="section level2">
+<h2>Resultados para o ano 2007</h2>
+<p>A seguir vamos criar o objeto <code>x</code> que será o data set referente ao ano <code>title</code>. Em seguida vamos aplicar a função carregada anteriormente para obter os resultados das análises e salvar no objeto <code>resutls</code></p>
+<pre class="r"><code>library(magrittr) # pipe %$%
+
+# Obter resultados
+x       &lt;- nested_gapminder %&gt;% filter(year == 2007) %&gt;% unnest()
+title   &lt;- nested_gapminder %&gt;% filter(year == 2007) %$% year
+results &lt;- analise_gapminder(x, title)</code></pre>
+<p>Vejamos como o Brasil esta em relação aos outros países com um gráfico que resume os resultados do modelo ajustado:</p>
+<pre class="r"><code>results$grafico_geral_regressao</code></pre>
+<center>
+<img src="/post/2019-09-13-relatorios-automaticos-com-rmarkdown/unnamed-chunk-9-1.png" style="width:80.0%" />
+</center>
+<p>Comportamento dos dados por Continente</p>
+<pre class="r"><code>results$grafico_por_continente</code></pre>
+<center>
+<img src="/post/2019-09-13-relatorios-automaticos-com-rmarkdown/unnamed-chunk-10-1.png" style="width:80.0%" />
+</center>
+<p>Após ajustar o modelo de regressão, vamos obter algumas estatísticas descritivas com mais gráficos informativos!</p>
+<p>O gráfico abaixo apresenta uma <a href="http://www.leg.ufpr.br/lib/exe/fetch.php/projetos:saudavel:loess.pdf">Regressão Local (LOESS)</a> com destaque nos países que tiveram <code>gdpPercap</code> e <code>lifeExp</code> acima da média</p>
+<pre class="r"><code>results$grafico_zoom_acima_media</code></pre>
+<center>
+<img src="/post/2019-09-13-relatorios-automaticos-com-rmarkdown/unnamed-chunk-11-1.png" style="width:80.0%" />
+</center>
+<p>E agora podemos conferir um gráfico que apresenta uma <a href="http://www.leg.ufpr.br/lib/exe/fetch.php/projetos:saudavel:loess.pdf">Regressão Local (LOESS)</a> com destaque nos países que tiveram <code>gdpPercap</code> e <code>lifeExp</code> acima da média</p>
+<pre class="r"><code>results$grafico_zoom_abaixo_media</code></pre>
+<center>
+<img src="/post/2019-09-13-relatorios-automaticos-com-rmarkdown/unnamed-chunk-12-1.png" style="width:80.0%" />
+</center>
+<p>Maravilha! Muitas informações interessantes mas não resolvemos o problema por inteiro. Resta aplicar as mesmas análises para os demais anos do nosso dataset.</p>
+</div>
+</div>
+<div id="automatizar-as-analises-para-os-próximos-anos" class="section level1">
+<h1>Automatizar as analises para os próximos anos</h1>
+<p>A linha a seguir é a que realiza toda a mágica!</p>
+<p>A função <code>knit_child()</code> compila o código R e retorna uma saída pura (Latex, html ou word sem código R), então se fizermos um looping da seguinte maneira teremos replicado nossas análises para todos os demais anos:</p>
+<pre><code>rmarkdown::render(&quot;gapminder_automatico_master.Rmd&quot;)</code></pre>
+<p>Veja o conteúdo do script <code>gapminder_automatico_master.Rmd</code>:</p>
+<script src="https://gist.github.com/gomesfellipe/86af044b4e8a874756a2f4c379cfc01b.js"></script>
+<p>Note que este script chama outro arquivo <code>.Rmd</code> chamado <code>gapminder_automatico_child.Rmd</code>, que tem o seguinte conteúdo:</p>
+<script src="https://gist.github.com/gomesfellipe/2a9d666e041907ca88dd2188cbc72924.js"></script>
+<p>Veja os resultados do looping:</p>
+<iframe src="/post/2019-09-13-relatorios-automaticos-com-rmarkdown/gapminder_automatico_master.pdf" width="600" height="827" style="border: none;">
+</iframe>
+</div>
+<div id="conclusão" class="section level1">
+<h1>Conclusão</h1>
+<p>A Abordagem para criar chunks <em>filhos</em> de RMarkdown com a função <code>knit_child()</code> abre muitas portas para análises de dados! Neste post fizemos um exemplo simples de automação de relatórios porém esses resultados podem ser cada vez mais customizáveis e utilizados em RPA - <a href="https://en.wikipedia.org/wiki/Robotic_process_automation">Robotic Process Automation</a> - de forma que seja possível automatizar processos que antes só poderiam ser executados por humanos!</p>
+</div>
+<div id="referencias" class="section level1">
+<h1>Referencias</h1>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/gganimate/vignettes/gganimate.html" class="uri">https://cran.r-project.org/web/packages/gganimate/vignettes/gganimate.html</a></li>
+<li><a href="https://cran.r-project.org/web/packages/ggforce/vignettes/Visual_Guide.html" class="uri">https://cran.r-project.org/web/packages/ggforce/vignettes/Visual_Guide.html</a></li>
+<li><a href="https://cran.r-project.org/web/packages/ggExtra/vignettes/ggExtra.html" class="uri">https://cran.r-project.org/web/packages/ggExtra/vignettes/ggExtra.html</a></li>
+<li><a href="https://cran.r-project.org/web/packages/gapminder/gapminder.pdf" class="uri">https://cran.r-project.org/web/packages/gapminder/gapminder.pdf</a></li>
+<li><a href="https://www.gapminder.org/data/" class="uri">https://www.gapminder.org/data/</a></li>
+<li><a href="https://stackoverflow.com/questions/43873345/knit-child-in-a-loop-variable-as-title" class="uri">https://stackoverflow.com/questions/43873345/knit-child-in-a-loop-variable-as-title</a></li>
+</ul>
+</div>
+<div id="apendice" class="section level1">
+<h1>Apendice</h1>
+<div id="função-analise.r" class="section level2">
+<h2>Função <code>analise.R</code></h2>
+<p>Veja o conteúdo da função <code>analise.R</code> preparada para esta analise:</p>
+<pre class="r"><code># Funcao para analise por ano:
+analise_gapminder &lt;- function(x, title){
+  
+  # Carregar dependencias:
+  require(broom)
+  require(ggforce)
+  require(ggpmisc)
+  require(ggExtra)
+  
+  # Funcao para customizar legendas:
+  custom_legend &lt;- function(x){comma(x, big.mark = &quot;.&quot;,decimal.mark = &quot;,&quot;)}
+  
+  # Obter dados do Brasil:
+  brazil &lt;- x %&gt;% filter(country == &quot;Brazil&quot;)
+  
+  # Resultados do ajuste de regressao ---------------------------------------
+  mytable &lt;- 
+    lm(lifeExp ~ gdpPercap, data = x) %&gt;% 
+    tidy() %&gt;% 
+    mutate_if(is.numeric, ~round(.x, 4)) %&gt;% 
+    `colnames&lt;-`(c(&quot;Termo&quot;, &quot;Estimativa&quot;, &quot;Desv.Pad.&quot;, &quot;Estatistica&quot;, &quot;Valor p&quot;))
+  
+  # r2:
+  r2 &lt;- round(summary(lm(lifeExp ~ gdpPercap, data = x))$r.squared,4)*100
+  
+  # residuos do modelo:
+  res &lt;- lm(lifeExp ~ gdpPercap, data = x)$residuals
+  
+  # resutado para teste de kolmogorov-smirnov
+  ks_test &lt;- ks.test(res, &quot;pnorm&quot;, mean(res), sd(res))$p.value %&gt;% round(5)
+  
+  # Grafico geral com regressao e boxplots ----------------------------------
+  grafico_geral_regressao &lt;- 
+    x %&gt;% 
+    ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, label = country, color = country)) %+%
+    geom_point(show.legend = F) %+%
+    geom_text(show.legend = F, size = 3, nudge_y = -0.5) %+%
+    scale_size_continuous(labels = custom_legend) %+%
+    scale_x_log10(labels = custom_legend) %+%
+    scale_color_manual(values = country_colors) %+%
+    geom_smooth(se=F, color = &quot;black&quot;, show.legend = F, method = &quot;lm&quot;) %+%
+    annotate(&quot;segment&quot;, color=&quot;blue&quot;, arrow=arrow(length=unit(0.05,&quot;npc&quot;)),
+             x=brazil$gdpPercap, xend=brazil$gdpPercap,
+             y=brazil$lifeExp-6, yend=brazil$lifeExp-1) %+%
+    annotate(&quot;text&quot;, color=&quot;blue&quot;, label = &quot;Brasil&quot;,
+             x=brazil$gdpPercap, y=brazil$lifeExp-7) %+%
+    labs(title = paste0(title, &quot;: lifeExp ~ gdpPercap&quot;),
+         subtitle = &quot;Regressão linear e destaque no Brasil&quot;,
+         caption = paste0(&quot;R² do modelo: &quot;, r2, &quot;\n&quot;,&quot;p valor para ks.test: &quot;, ks_test),
+         x = &quot;gdpPercap (Transformação log10)&quot;) %+%
+    annotate(geom = &quot;table&quot;, x = Inf, y = -Inf,
+             label = list(mytable), 
+             vjust = 0, hjust = 1) %&gt;%  
+    ggMarginal(type = &quot;boxplot&quot;, fill=&quot;transparent&quot;,size = 10)
+  
+  # Comportamento separado por continente -----------------------------------
+  grafico_por_continente &lt;- 
+    x %&gt;% 
+    filter(continent != &quot;Oceania&quot;) %&gt;% 
+    ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, label = country, color = country)) %+%
+    geom_point(show.legend = F) %+%
+    geom_text(show.legend = F, size = 3, nudge_y = -0.5) %+%
+    facet_wrap(~continent, scales = &quot;free&quot;) %+%
+    scale_x_continuous(labels = custom_legend) %+%
+    scale_color_manual(values = country_colors) %+% 
+    geom_smooth(method = &quot;lm&quot;, color = &quot;black&quot;, se=F, show.legend = F) %+%
+    labs(title = paste0(title, &quot;: lifeExp ~ gdpPercap, por continente&quot;))
+  
+  # Acima da media ----------------------------------------------------------
+  grafico_zoom_acima_media &lt;- 
+    x %&gt;% 
+    ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, label = country, color = country)) %+%
+    geom_point(show.legend = F) %+% 
+    geom_text(show.legend = F, size = 3, nudge_y = -0.5) %+%
+    scale_size_continuous(labels = custom_legend) %+%
+    scale_x_continuous(labels = custom_legend) %+%
+    scale_color_manual(values = country_colors) %+%
+    facet_zoom(y = lifeExp   &gt; median(x$lifeExp),
+               x = gdpPercap &gt; median(x$gdpPercap), split = T) %+%
+    geom_smooth(se=F, color = &quot;red&quot;, show.legend = F, method = &quot;loess&quot;)  %+%
+    labs(title = paste0(title, &quot;: lifeExp ~ gdpPercap com zoom nos países acima da mediana&quot;))
+  
+  # Abaixo da media ---------------------------------------------------------
+  grafico_zoom_abaixo_media &lt;- 
+    x %&gt;% 
+    ggplot(aes(x = gdpPercap, y = lifeExp, size = pop, label = country, color = country)) %+%
+    geom_point(show.legend = F) %+%
+    geom_text(show.legend = F, size = 3, nudge_y = -0.5) %+%
+    scale_size_continuous(labels = custom_legend) %+%
+    scale_x_continuous(labels = custom_legend) %+%
+    scale_color_manual(values = country_colors) %+%
+    facet_zoom(y = lifeExp   &lt; median(x$lifeExp),
+               x = gdpPercap &lt; median(x$gdpPercap), split = T) %+%
+    geom_smooth(se=F, color = &quot;red&quot;, show.legend = F, method = &quot;loess&quot;)   %+%
+    labs(title = paste0(title, &quot;: lifeExp ~ gdpPercap com zoom nos países abaixo da mediana&quot;))
+  
+  # Output ------------------------------------------------------------------
+  list(
+    brazil  = brazil,
+    mytable = mytable,
+    r2      = r2,
+    grafico_geral_regressao   = grafico_geral_regressao,
+    grafico_por_continente    = grafico_por_continente,
+    grafico_zoom_acima_media  = grafico_zoom_acima_media,
+    grafico_zoom_abaixo_media = grafico_zoom_abaixo_media,
+    ks_test = ks_test
+  )
+}</code></pre>
+</div>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/relatorios-automaticos-com-rmarkdown/">Como automatizar relatórios longos e repetitivos com RMarkdown</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">otimizacao</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">regressao</category>
+      <category domain="tag">relatorios</category>
+      <category domain="tag">reports</category>
+      <category domain="tag">rmarkdown</category>
+      <category domain="tag">rstudio</category>
+    </item>
+  </channel>
+</rss>

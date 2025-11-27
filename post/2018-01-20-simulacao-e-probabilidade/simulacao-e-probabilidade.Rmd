@@ -4,44 +4,42 @@ author: Fellipe Gomes
 date: '2018-01-20'
 slug: []
 categories:
-  - Estatistica
-  - Modelagem Estatistica
-  - Analise Exploratória
-  - Teoria
-  - Simulação
-  - Probabilidade
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
 tags:
-  - gomesfellipe
-  - Estatistica
-  - Teoria
-  - analise multivariada
-  - modelagem
-  - modelagem estatistica
-  - simulacao
-  - probabilidade
-description: 'Quanto você acha que é a probabiliddade num grupo de 23 pessoas escolhidas aleatoriamente que duas delas farão aniversário no mesmo dia? Acreditaria se eu te dissesse que essa chance é maior do que 50%? A probabilidade é contra intuitiva e neste post vamos demonstrar de forma analitica e atraves de simulação esse e outros resultados além de dissertar um pouco sobre a história e conceitos importantes de probabilidade'
-featured: 'modelagem-probabilidade2.png'
-featuredalt: 'Pic 10'
-featuredpath: 'date'
-linktitle: ''
-references: 
+- analise-multivariada
+- estatistica
+- modelagem
+- modelagem-estatistica
+- probabilidade
+- simulacao
+- teoria
+description: Quanto você acha que é a probabiliddade num grupo de 23 pessoas escolhidas
+  aleatoriamente que duas delas farão aniversário no mesmo dia? Acreditaria se eu
+  te dissesse que essa chance é maior do que 50%? A probabilidade é contra intuitiva
+  e neste post vamos demonstrar de forma analitica e atraves de simulação esse e outros
+  resultados além de dissertar um pouco sobre a história e conceitos importantes de
+  probabilidade
+featured: modelagem-probabilidade2.png
+featuredalt: Ilustração sobre o paradoxo dos aniversários com simulação e probabilidade
+featuredpath: date
+references:
 - id: DeGroot
   title: Probability and Statistics
   author:
   - family: DeGroot
-    given: Morris H. 
+    given: Morris H.
   volume: 4
   page: 1
   type: book
-
 - id: Magalhaes
   title: Probabilidade e Variáveis aleatóriasa
   author:
   - family: Magalhães
-    given: Mascos N. 
+    given: Mascos N.
   volume: 1
   type: book
-  
 - id: Feller
   title: An Introduction to Probability Theory and its Applications
   author:
@@ -51,8 +49,24 @@ references:
   page: 10-11
   type: book
 type: post
+image_preview: modelagem-probabilidade2.png
+schema_type: TechArticle
+educational_level: Beginner
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png
+keywords: analise-multivariada, estatistica, modelagem, modelagem-estatistica, probabilidade,
+  simulacao, teoria, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-  
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = F, warning = F) 
 ```

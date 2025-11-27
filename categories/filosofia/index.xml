@@ -1,24 +1,106 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>filosofia on Fellipe Gomes</title>
+    <title>filosofia on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/categories/filosofia/</link>
-    <description>Recent content in filosofia on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/filosofia/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/categories/filosofia/" rel="self" type="application/rss+xml" />
     <item>
       <title>Sobre ombros de gigantes</title>
-      <link>https://gomesfellipe.github.io/itemized/item1/</link>
+      <link>https://gomesfellipe.github.io/recommendations/item1/</link>
       <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/itemized/item1/</guid>
-      <description>Essas são algumas das frases que me impactaram de alguma forma e que eu carrego para a minha vida:
-&amp;ldquo;Com organização e tempo, acha-se o segredo de fazer tudo e bem feito.&amp;rdquo; - Pitágoras
-&amp;ldquo;A imaginação é mais importante que o conhecimento.&amp;rdquo; - Albert Einstein
-&amp;ldquo;Na vida, não existe nada a temer, mas a entender.&amp;rdquo; - Marie Curie
-&amp;ldquo;A matemática foi o alfabeto com o qual Deus escreveu o universo.&amp;rdquo;- Galileu Galilei</description>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/recommendations/item1/</guid>
+      <description>Algumas frases de pensadores que me inspiram</description>
+      <content:encoded>&lt;![CDATA[
+        <p>Essas são algumas das frases que me impactaram de alguma forma e que eu carrego para a minha vida:</p>
+<ul>
+<li>
+<p>&ldquo;<em>Com organização e tempo, acha-se o segredo de fazer tudo e bem feito.</em>&rdquo; - Pitágoras</p>
+</li>
+<li>
+<p>&ldquo;<em>A imaginação é mais importante que o conhecimento.</em>&rdquo; - Albert Einstein</p>
+</li>
+<li>
+<p>&ldquo;<em>Na vida, não existe nada a temer, mas a entender.</em>&rdquo; - Marie Curie</p>
+</li>
+<li>
+<p>&ldquo;<em>A matemática foi o alfabeto com o qual Deus escreveu o universo.</em>&rdquo;- Galileu Galilei</p>
+</li>
+<li>
+<p>&ldquo;<em>Quem sou eu? Ora, é impossível responder porque o tempo todo e preciso tornar-se quem se é!</em>&rdquo; - Friedrich Nietzsche</p>
+</li>
+<li>
+<p>&ldquo;<em>Há verdadeiramente duas coisas diferentes: saber e crer que se sabe. A ciência consiste em saber; em crer que se sabe reside a ignorância.</em>&rdquo; - Hipócrates</p>
+</li>
+<li>
+<p>&ldquo;<em>Faça as coisas o mais simples que você puder, porém não restrinja às mais simples.</em>&rdquo; - Albert Einstein</p>
+</li>
+<li>
+<p>&ldquo;<em>Pouco conhecimento faz com que as pessoas se sintam orgulhosas. Muito conhecimento, com que se sintam humildes.</em>&rdquo; - Lonardo da Vinci</p>
+</li>
+<li>
+<p>&ldquo;<em>De todos os animais selvagens, o homem jovem é o mais difícil de domar.</em>&rdquo; - Platão</p>
+</li>
+<li>
+<p>&ldquo;<em>Ajuda o teu semelhante a levantar a carga, mas não a levá-la.</em>&rdquo; - Pitágoras</p>
+</li>
+<li>
+<p>&ldquo;<em>É preciso cuidar do que é permanente, não só com o corpo mas também com a mente</em>&rdquo; - Vinícius de Moraes</p>
+</li>
+<li>
+<p>“<em>A melhor maneira de ser feliz é contribuir para a felicidade dos outros.</em>” - Robert Baden-Powell</p>
+</li>
+<li>
+<p>&ldquo;<em>Você não pode ensinar nada a ninguem, mas pode ajudar as pessoas a descobrirem por si mesmas.</em>&rdquo; - Galileu Galilei</p>
+</li>
+<li>
+<p>&ldquo;<em>Conhece-te a ti mesmo.</em>&rdquo; - Sócrates</p>
+</li>
+<li>
+<p>&ldquo;<em>Aquele que ousa perder uma hora de seu tempo não sabe o valor da vida.</em>&rdquo; - Charles Darwin</p>
+</li>
+<li>
+<p>&ldquo;<em>Em algum lugar, alguma coisa incrível está esperando para ser descoberta.</em>&rdquo; - Carl Sagan</p>
+</li>
+<li>
+<p>&ldquo;<em>Ninguém que é curioso é idiota. As pessoas que não perguntam permanecem ignorantes para o resto de suas vidas.</em>&rdquo; - Neil DeGrasse Tyson</p>
+</li>
+<li>
+<p>&ldquo;<em>Muitas pessoas devem a grandeza de suas vidas aos problemas que tiveram de vencer.</em>&rdquo; ― Robert Baden-Powell</p>
+</li>
+<li>
+<p>&ldquo;<em>Construímos muros demais e pontes de menos.</em>&rdquo; - Issac Newton</p>
+</li>
+<li>
+<p>&ldquo;<em>É muito comum que as pessoas trabalhem duro na coisa errada. Trabalhar na coisa certa é, provavelmente, mais importante do que trabalhar duro</em>&rdquo; - Caterina Fake</p>
+</li>
+<li>
+<p>&ldquo;<em>Deixe o mundo um pouco melhor do que encontrou.</em>&rdquo; - Robert Baden-Powell</p>
+</li>
+<li>
+<p>&quot; <em>Daria tudo que sei em troca da metade do que ignoro</em> &quot; - Descartes</p>
+</li>
+<li>
+<p>&ldquo;<em>Podemos julgar o coração de um homem pela forma como ele trata os animais.</em>&rdquo; - Immanuel Kant</p>
+</li>
+<li>
+<p>&ldquo;<em>A melhor maneira de prever o futuro é criá-lo</em>&rdquo; - Peter Drucker</p>
+</li>
+<li>
+<p>&ldquo;<em>O talento nos é dado, mas é o trabalho que o transforma em genialidade</em>&rdquo; - Anna Pavlova</p>
+</li>
+</ul>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/recommendations/item1/">Sobre ombros de gigantes</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>filosofia</category>
     </item>
-    
   </channel>
 </rss>

@@ -4,47 +4,52 @@ author: Fellipe Gomes
 date: '2025-05-04'
 slug: []
 categories:
-  - Python
-  - Prática
-  - LLM
-  - IA
-  - Agentes
-  - LangChain
-  - LangGraph
-  - LangSmith
-  - Bitcoin
-  - Análise de Dados
-  - Mercado Financeiro
-  - OpenAI
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Programação e Ferramentas
 tags:
-  - LLM
-  - LangChain
-  - LangGraph
-  - LangSmith
-  - Python
-  - AI
-  - Bitcoin
-  - Crypto
-  - AgentAI
-  - AnaliseDeDados
-  - MercadoFinanceiro
-  - gomesfellipe
-  - OpenAI
-description: 'Neste post, exploramos a criação de uma equipe de agentes de IA usando Python, LangChain, LangGraph e LangSmith para automatizar e monitorar a análise do mercado de Bitcoin, desde a coleta de dados até a geração de relatórios automatizados.'
-featured: 'img3.jpg'
-featuredalt: 'Equipe de agentes IA analisando dados do Bitcoin em interface holográfica'
-featuredpath: 'date'
-linktitle: ''
-type: "post"
-output: 
+- agent-ai
+- analise-dados
+- bitcoin
+- crypto
+- inteligencia-artificial
+- langchain
+- langgraph
+- langsmith
+- llm
+- mercado-financeiro
+description: Neste post, exploramos a criação de uma equipe de agentes de IA usando
+  Python, LangChain, LangGraph e LangSmith para automatizar e monitorar a análise
+  do mercado de Bitcoin, desde a coleta de dados até a geração de relatórios automatizados.
+featured: img.jpg
+featuredalt: Equipe de agentes IA analisando dados do Bitcoin em interface holográfica
+featuredpath: date
+type: post
+output:
   blogdown::html_page:
     toc: true
-    toc_depth: 1 
-image_preview: 'img2.jpg' 
+    toc_depth: 1
+image_preview: img.jpg
+schema_type: TechArticle
+educational_level: Beginner
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2025/05/img.jpg
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2025/05/img.jpg
+keywords: agent-ai, analise-dados, bitcoin, crypto, inteligencia-artificial, langchain,
+  langgraph, langsmith, llm, mercado-financeiro, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE)
+knitr::opts_chunk$set(python.reticulate = FALSE, eval = FALSE)
 ```
 
 <!-- Neste post, vamos mergulhar na criação de uma equipe de agentes de Inteligência Artificial (IA) que trabalham juntos para coletar dados, analisar tendências e decidir se é hora de alertar sobre oportunidades de investimento no Bitcoin. Utilizaremos Python, o framework LangChain e sua extensão LangGraph para orquestrar esses agentes, além de técnicas de Prompt Engineering para garantir que cada "membro" da equipe execute sua função com precisão.  -->
@@ -52,7 +57,7 @@ knitr::opts_chunk$set(eval = FALSE)
 <!-- Você já se perguntou como acompanhar o volátil mercado de Bitcoin sem passar horas analisando gráficos e indicadores complexos?  -->
 
 <!-- Prepare-se para descobrir como a IA generativa pode se tornar sua aliada na análise de criptomoedas! -->
-
+ 
 ## Por que Analisar o Mercado Bitcoin com Agentes de IA?
 
 O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, **nunca revelou sua identidade**. Além disso o bitcoin foi a [primeira e ainda é a mais conhecida aplicação da tecnologia **Blockchain**](https://www.mgcholding.com.br/blog/blockchain-bitcoin-e-ativos-virtuais-entenda-a-relacao/#:~:text=O%20blockchain%2C%20em%20sua%20ess%C3%AAncia,conhecida%20aplica%C3%A7%C3%A3o%20da%20tecnologia%20blockchain.), que revolucionou a forma como lidamos com registros digitais e segurança dos dados. Sua **natureza descentralizada** e sua notória **volatilidade** o tornam um ativo único. 
@@ -180,8 +185,8 @@ def market_strategist(state: State): ...
 @task
 def client_manager(state: State): ...
 
-def plot_btc_analysis(message_body): ...
-def send_telegram_photo(message_body): ...
+def plot_btc_analysis(): ...
+def send_telegram_photo(fig): ...
 def send_telegram_message(message_body): ...
 
 # Exemplo conceitual com abordagem funcional (usando decoradores)

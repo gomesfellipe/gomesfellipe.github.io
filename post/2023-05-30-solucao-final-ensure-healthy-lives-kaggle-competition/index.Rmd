@@ -3,43 +3,50 @@ title: Solução Final - ML Olympiad [1º lugar]
 author: Fellipe Gomes
 date: '2023-05-30'
 slug: []
-categories:  
-  - R
-  - Python
-  - Prática
-  - Classificação
-  - modelo baseado em arvores
-  - Machine Learning
-  - kaggle
-  - catboost
-  - Ciencia de dados
-  - Aprendizado Supervisionado
-  - Analise Exploratória
+categories:
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - classification
-  - R
-  - Prática
-  - modelagem
-  - machine learning
-  - kaggle
-  - gomesfellipe
-  - Data Mining
-  - ciencia de dados
-  - catboost 
-description: 'Confira a estratégia aplicada para esta competição'
-featured: 'img1.png'
-featuredalt: 'Pic 35'
-featuredpath: 'date'
-linktitle: ''
-type: "post" 
-output: 
+- catboost
+- classification
+- data-mining
+- data-science
+- kaggle
+- machine-learning
+- modelagem
+- pratica
+- r
+description: Confira a estratégia aplicada para esta competição
+featured: img.png
+featuredalt: Ilustração sobre solução final  ml olympiad 1º lugar
+featuredpath: date
+type: post
+output:
   blogdown::html_page:
     toc: true
-    toc_depth: 2 
+    toc_depth: 2
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Advanced
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2023/05/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2023/05/img.png
+keywords: catboost, classification, data-mining, data-science, kaggle, machine-learning,
+  modelagem, pratica, r, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-  
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T, warning = F, error = F, message = F)
+knitr::opts_chunk$set(python.reticulate = FALSE, echo = TRUE, eval = T, warning = F, error = F, message = F)
 ```
 
 ```{r, include=F}
@@ -81,9 +88,13 @@ Ambas soluções (minha e do Kaike) foram compartilhadas no Kaggle:
 
 Disponibilizamos também a solução em formato de vídeo, gravado em um meetup com duração de 1 hora e meia para o canal do [TensorFlow UGSP](https://www.youtube.com/@tensorflowugsp) no Youtube no link: <https://youtu.be/6HPJn38NF3w>
 
+<center>
+
 ```{r, echo = F, fig.align="center"}
 embed_url("https://youtu.be/6HPJn38NF3w")
 ```
+
+</center>
 
 # Estratégia analítica
 

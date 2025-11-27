@@ -4,29 +4,40 @@ author: Fellipe Gomes
 date: '2017-12-18'
 slug: []
 categories:
-  - Estatistica
-  - R
-  - Teoria
-  - Bayes
-  - Inferência Bayesiana
-  - Modelagem Estatistica
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - Estatistica
-  - gomesfellipe
-  - R
-  - jags
-  - bayes
-  - modelagem
-  - modelagem estatistica
-description: ''
-featured: 'bayes-R-jags.jpg'
-featuredalt: 'Pic 5'
-featuredpath: 'date'
-linktitle: ''
+- bayes
+- estatistica
+- jags
+- modelagem
+- modelagem-estatistica
+- r
+description: '[Imagem da Internet](https://www.flickr.com/photos/mattbuck007/3676624894/in/photolist-6ATEuo-9TK3TW)'
+featured: bayes-R-jags.jpg
+featuredalt: Ilustração sobre ajustando modelos bayesianos com jags
+featuredpath: date
 type: post
+image_preview: bayes-R-jags.jpg
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg
+keywords: bayes, estatistica, jags, modelagem, modelagem-estatistica, r, data science,
+  machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
 ```

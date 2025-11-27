@@ -4,24 +4,36 @@ author: Fellipe Gomes
 date: '2017-12-17'
 slug: []
 categories:
-  - R
-  - Prática
-  - Text Mining
+- Programação e Ferramentas
+- Texto e NLP
 tags:
-  - gomesfellipe
-  - R
-  - RStudio
-  - text mining
-  - strings
-description: 'Algumas dicas e truques úteis de pacotes especiais para a manipulação e tratamento de strings'
-featured: 'imagem2.png'
-featuredalt: 'Pic 01'
-featuredpath: 'date'
-linktitle: ''
-type: "post" 
+- r
+- rstudio
+- strings
+- text-mining
+description: Algumas dicas e truques úteis de pacotes especiais para a manipulação
+  e tratamento de strings
+featured: imagem2.png
+featuredalt: Ilustração sobre manipulação de strings e text mining
+featuredpath: date
+type: post
+image_preview: imagem2.png
+schema_type: BlogPosting
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2017/12/imagem2.png
+og_type: article
+article_section: Programming
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2017/12/imagem2.png
+keywords: r, rstudio, strings, text-mining, data science, machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, error = F, warning = F)
 ```

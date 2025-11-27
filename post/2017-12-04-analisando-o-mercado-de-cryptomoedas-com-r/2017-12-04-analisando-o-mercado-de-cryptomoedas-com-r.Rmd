@@ -2,29 +2,41 @@
 title: Analisando o mercado de cryptomoedas com R
 author: Fellipe Gomes
 date: '2017-12-04'
-slug: analisando-o-mercado-de-cryptomoedas-com-r
+slug: []
 categories:
-  - R
-  - Prática
-  - Bitcoin
-  - Séries Temporais
+- Inteligência Artificial
+- Programação e Ferramentas
 tags:
-  - Correlacoes
-  - gomesfellipe
-  - bitcoin
-  - cryptomoedas
-  - R
-  - RStudio
-  - Séries Temporais
-description: ''
-featured: 'cryptomoedas-R.png'
-featuredalt: 'Pic 7'
-featuredpath: 'date'
-linktitle: ''
+- bitcoin
+- correlacao
+- cryptomoedas
+- r
+- rstudio
+- series-temporais
+description: Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas
+  vêm crescendo rapidamente. Grandes canais de informação já abordam o assunt...
+featured: cryptomoedas-R.png
+featuredalt: Ilustração sobre analisando o mercado de cryptomoedas com r
+featuredpath: date
 type: post
+image_preview: cryptomoedas-R.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png
+keywords: bitcoin, correlacao, cryptomoedas, r, rstudio, series-temporais, data science,
+  machine learning, analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
-
-
 ```{r setup, include=FALSE}
 library(ggplot2)
 ```

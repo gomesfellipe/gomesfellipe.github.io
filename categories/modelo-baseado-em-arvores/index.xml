@@ -1,67 +1,1081 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>modelo baseado em arvores on Fellipe Gomes</title>
+    <title>modelo baseado em arvores on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/</link>
-    <description>Recent content in modelo baseado em arvores on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Solução Final - ML Olympiad [1º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
-      <description>Introdução Definição do problema de negócio Soluções Estratégia analítica Decisões sobre a target Processamento dos Dados Dados Externos Feature Engineering Modelos Ensemble Post Processing Considerações Finais Sobre o Autor Introdução O TFUG - TensorFlow Users Group de São Paulo lançou uma nova competição no Kaggle onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Boa saúde e bem-estar.</description>
-    </item>
-    
-    <item>
-      <title>Solução Final - ML Olympiad [2º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Estrutura da base Ano da base de dados Target Machine Learning (em Python) Importar dependencias Carregar dados Modelagem Submissão Considerações Finais Introdução No final de Janeiro desde ano (2022) o TFUG - TensorFlow Users Group de São Paulo lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - Educação de Qualidade.</description>
-    </item>
-    
-    <item>
-      <title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
-      <description>Introdução Definição do problema de negócio Análise Exploratória (em R) Machine Learning (em Python) Importar dependências Stage 0: Feature Extraction com KNN Stage 1: Tuning XGBoost com Optuna Stage 2: Calcular Out-Of-Fold SHAP values Stage 3: Modelo Final com AutoGluon Conclusão Referências Introdução Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:</description>
-    </item>
-    
-    <item>
-      <title>Otimizando pipelines que envolvem dados desbalanceados</title>
-      <link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link>
-      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
-      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem Baselines Preparar Pipeline de dados com workflowsets Benchmark Conclusão Referências O problema envolvendo dados desbalanceados A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:
-Detecção de fraude; Previsão de inadimplência; Identificador de spam; Busca por anomalias/outliers; Detecção de possíveis roubos/furtos/vulnerabilidades; Previsão de churn; etc Este tipo de tarefa representa um enorme desafio para modelagem preditiva pois a maioria dos algoritmos de machine learning foram projetados sob suposição de haver um número igual de exemplos para cada classe de interesse.</description>
-    </item>
-    
-    <item>
-      <title>Prevendo a qualidade do sono utilizando Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</link>
-      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/qualidade-do-sono-machine-learning/</guid>
-      <description>Qualidade de sono? 🤨 Como funciona aplicativo Sleep Cycle? Objetivo 🎯 Explorar dados 🔎 Limpeza e preparação dos dados Imputar dados de fontes externas Insights Reter dados Modelagem 🚀 Amostragem Engenharia de recursos Modelo Nulo (Baseline) Árvore de decisões Random Forest LightGBM Seleção do modelo 🤔 Previsão em dados novos 💫 Conclusão 🍻 Referências 🧳 Qualidade de sono? 🤨 Sim, exatamente! Neste post analisaremos dados de um tracking que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.</description>
-    </item>
-    
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Fri, 31 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/categories/modelo-baseado-em-arvores/" rel="self" type="application/rss+xml" />
     <item>
       <title>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</title>
       <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</link>
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/</guid>
-      <description>Kaggle Segundo o Wikipédia: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.
-O Kaggle trabalha com a ideia de gamificação, que é um assunto do qual já escrevi em um post sobre gamificação e porque aprender R é tão divertido e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</description>
+      <description>Um estudo aplicado de modelos de aprendizagem baseados em árvores utilizando a base de dados do Kaggle para prever o preço final de casas residenciais em Ames, Iowa, utilizando uma variedade de aspectos</description>
+      <content:encoded>&lt;![CDATA[
+        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="kaggle" class="section level1">
+<h1>Kaggle</h1>
+<p>Segundo o <a href="https://en.wikipedia.org/wiki/Kaggle">Wikipédia</a>: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.</p>
+<p>O Kaggle trabalha com a ideia de <a href="https://en.wikipedia.org/wiki/Gamification">gamificação</a>, que é um assunto do qual já escrevi em um post sobre <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">gamificação e porque aprender R é tão divertido</a> e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.</p>
+<p>A plataforma é focada em competições que envolvem modelagem preditiva, que julgam apenas o seu desempenho preditivo, embora a inteligibilidade não deixe de ser importante. Neste post farei também a modelagem descritiva com modelos de aprendizagem baseados em árvores, na qual o principal objetivo será obter informações sobre os dados para o ajuste dos modelos preditivos que iremos submeter à competição do Kaggle <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/">House Prices: Advanced Regression Techniques</a>.</p>
+<p>A diferença entre modelos preditivos e descritivos não é tão rigorosa assim pois algumas das técnicas podem ser utilizadas para ambos e geralmente um modelo pode servir para ambos os propósitos (mesmo que de de forma insuficiente).</p>
+<p>Além dos modelos de machine learning baseados em árvores, também será ajustado um modelo de regressão linear multivariado para compararmos os resultados dos ajustes e submeter nossas previsões no site do <a href="https://kaggle.com">kaggle</a>.</p>
+<p>Os pacotes que serão utilizados serão os seguintes:</p>
+<pre class="r"><code>library(purrr)       # Programacao funciona
+library(broom)       # Arrumar outputs
+library(dplyr)       # Manipulacao de dados
+library(magrittr)    # pipes
+library(funModeling) # df_status()
+library(plyr)        # revalue()
+library(gridExtra)   # Juntar ggplots
+library(reshape)     # funcao melt()
+library(rpart)       # Arvore de Decisoes
+library(rpart.plot)  # Plot da Arvore de Decisoes
+library(data.table)  # aux na manipulacao do heatmap
+library(readr)       # Leitura da base de dados
+library(stringr)     # Manipulacao de strings
+library(ggplot2)     # Graficos elegantes
+library(caret)       # Machine Learning 
+library(GGally)      # up ggplot
+library(ggfortify)   # autoplot()</code></pre>
+<div id="base-de-dados" class="section level2">
+<h2>Base de dados</h2>
+<p>A base de dados deste post vem de uma competição ótima para estudantes de ciência de dados de dados com alguma experiência com R ou Python e noções básicas de machine learning e estatística.</p>
+<p>Pode ser útil para aqueles que desejam expandir seu conjunto de habilidades em uma tarefa de regressão, quando a variável <span class="math inline">\(y\)</span> que desejamos estimar é do tipo numérico (contínuo ou discreto).</p>
+<p>Trata-se do <a href="https://ww2.amstat.org/publications/jse/v19n3/decock.pdf">conjunto de dados Ames Housing</a> que foi compilado por Dean De Cock para uso em educação de ciência de dados.</p>
+<pre class="r"><code>train &lt;- read_csv(&quot;train.csv&quot;)
+test  &lt;- read_csv(&quot;test.csv&quot;)
+full  &lt;- bind_rows(train, test)
+
+id    &lt;- test$Id
+full %&lt;&gt;% select(-Id)</code></pre>
+<div id="descrição-da-competição" class="section level3">
+<h3>Descrição da Competição</h3>
+<p>Traduzido do site oficial do kaggle:</p>
+<p>"Peça a um comprador que descreva a casa dos seus sonhos, e eles provavelmente não começarão com a altura do teto do porão ou a proximidade de uma ferrovia leste-oeste. Mas o conjunto de dados desta competição de playground prova que muito mais influencia as negociações de preço do que o número de quartos ou uma cerca branca.</p>
+<p>Com 79 variáveis explicativas descrevendo (quase) todos os aspectos de casas residenciais em Ames, Iowa, esta competição desafia você a prever o preço final de cada casa."</p>
+<p>Portanto, primeiramente vamos entender o comportamento da variável resposta, depois buscar quais dessas 79 variáveis explicativas são mais importantes para representar a variação do preço de venda das casas através dos métodos baseados em árvores e por fim ajustar os modelos propostos e submeter nossas estimativas no site!</p>
+</div>
+</div>
+</div>
+<div id="análise-exploratória-dos-dados" class="section level1">
+<h1>Análise exploratória dos dados</h1>
+<p>Antes de pensar em ajustar algum modelo é extremamente necessário entender como se comportam os dados, portanto, tanto a variável resposta quanto as variáveis explicativas serão avaliadas.</p>
+<div id="variável-resposta" class="section level2">
+<h2>Variável resposta:</h2>
+<p><code>SalePrice</code> - o preço de venda da propriedade em dólares. Essa é a variável de destino que estamos tentando prever.</p>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Note que a distribuição dos dados referentes ao preço de venda se distribui de maneira assimétrica e não possuem evidências de normalidade dos dados. Apesar dos métodos baseados em árvore se tratarem de técnicas não paramétricas essa transformação será feita pois ao final deste post desejo comparar os resultados com um modelo de regressão linear múltipla.</p>
+</div>
+</div>
+<div id="árvore-de-decisão" class="section level1">
+<h1>Árvore de decisão</h1>
+<p>Uma técnica muito popular que é mais comumente usada para resolver tarefas de classificação de dados porém a árvore conhecida como <a href="https://tinyurl.com/ybhlsgom">CART (Classification and Regression Trees)(Breiman, 1986)</a> lida com todos os tipos de atributos (incluindo atributos numéricos que são tratados a partir da criação de intervalos). Para seu ajuste é possível realizar podas e produzir árvores binárias.</p>
+<p>A construção da árvore é realizada por meio do algoritmo que iterativamente analisa os atributos descritivos de um conjunto de dados previamente rotulado. Sua popularidade como apoio para a tomada de decisão se deve principalmente ao fato da fácil visualização do conhecimento gerado e o fácil entendimento.</p>
+<p>Outra característica legal da árvore de decisões é que ela permite ajustar um modelo sem um pré-processamento detalhado, pois é fácil de ajustar, aceita valores faltantes e é de fácil interpretação, veja:</p>
+<pre class="r"><code>library(rpart)
+
+control &lt;- rpart.control(minsplit =10, # o número mínimo de observações em um nó
+                         cp = 0.006    # parametro de complexidade q controla o tamanho da arvore
+)
+rpartFit &lt;- rpart(exp(SalePrice) ~ . , train, method = &quot;anova&quot;, control = control) 
+
+rpart.plot::rpart.plot(rpartFit,cex = 0.6)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-5-1.png" width="1200" /></p>
+<p>No topo, vemos o primeiro nó com 100% das observações, que representa o total da base (100%). Em seguida, vemos que a primeira variável que determina o preço de venda das casas <code>SalePrice</code> é a variável <code>OverallQual</code>. As casas que apresentaram <code>OverallQual</code> &lt; 7.5 ocorrem em maior proporção do que as que tiveram <code>OverallQual</code>&gt;7.5. A interpretação pode continuar dessa forma recursivamente.</p>
+<p>É possível notar que as variáveis <code>OverallQual</code>,<code>Neighborhood</code>,<code>1stFlrSF</code>,<code>2ndFlrSF</code>,<code>GrLivArea</code>, <code>BsmtFinSF1</code> foram as que melhor representaram os dados de acordo com os parâmetros que determinamos para ajustar esta árvore, vejamos com mais detalhes se existe relação linear e intensidade e direção dessa relação com o <a href="https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_Pearson">coeficiente de correlação de Pearson</a> entre estas variáveis dois a dois e em relação à variável resposta:</p>
+<pre class="r"><code>devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/correlations_for_ggpairs.R&quot;)
+
+train %&gt;% 
+  select(SalePrice,OverallQual,`1stFlrSF`,`2ndFlrSF`,GrLivArea,BsmtFinSF1) %&gt;% 
+  ggpairs(lower = list(continuous = my_fn))+
+  theme_bw()</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Com esta figura temos muitas informações, destaca-se que todas essas variáveis possuem algum tipo de relação linear com a variável resposta, a menor correlação observada foi com o <code>BsmtFinSF1</code> e a variável que apresentou a maior correlação foi a <code>OverallQual</code>. Atenção para a correlação entre <code>SalePrice</code> e <code>OverallQual</code>, pois <code>Overallqual</code> parece ser uma variável ordinal e uma outra medida de correlação que melhor representaria esta relação é o <a href="https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_postos_de_Spearman">coeficiente de correlação de Spearman</a>, veja:</p>
+<pre class="r"><code>cor(full$SalePrice, full$OverallQual, method = &quot;spearman&quot;, use = &quot;complete.obs&quot;)</code></pre>
+<pre><code>## [1] 0.8098286</code></pre>
+<p>Um pouco diferente do resultado da correlação de Pearson pois avalia relações lineares, já a correlação de Spearman avalia relações monótonas, sejam elas lineares ou não.</p>
+<div id="análise-exploratória-e-input-de-nas" class="section level2 tabset">
+<h2>Análise exploratória e input de <code>NA</code>s</h2>
+<p>Arrumar a base de dados é uma tarefa longa e que geralmente consome grande parte no tempo em um projeto de ciência de dados. Não adianta usar o algorítimo mais poderoso de machine learning se a base de dados não estiver arrumada de maneira que possibilite a análise dos dados.</p>
+<p>Para obter informações da amostra, confira no <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data">link do dataset da competição no Kaggle</a>. Na página é possível conferir <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/download/data_description.txt">a descrição da amostra</a> e nela nota-se que alguns dos valores faltantes possuem significado, então é necessário rotulá-los para que o R possa interpretar estes valores da maneira correta.</p>
+<div id="status-da-amostra" class="section level3">
+<h3>Status da amostra</h3>
+<p>Conferindo o status da amostra com a função <code>df_status()</code> do pacote <a href="https://cran.r-project.org/web/packages/funModeling/index.html"><code>funModeling</code></a>:</p>
+<pre class="r"><code>full %&gt;% 
+  df_status(print_results = F) %&gt;% 
+  as_tibble() %&gt;%
+  arrange(-p_na, -p_zeros)</code></pre>
+<pre><code>## # A tibble: 80 x 9
+##    variable     q_zeros p_zeros  q_na  p_na q_inf p_inf type      unique
+##    &lt;chr&gt;          &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt;
+##  1 PoolQC             0       0  2909 99.7      0     0 character      3
+##  2 MiscFeature        0       0  2814 96.4      0     0 character      4
+##  3 Alley              0       0  2721 93.2      0     0 character      2
+##  4 Fence              0       0  2348 80.4      0     0 character      4
+##  5 SalePrice          0       0  1459 50.0      0     0 numeric      663
+##  6 FireplaceQu        0       0  1420 48.6      0     0 character      5
+##  7 LotFrontage        0       0   486 16.6      0     0 numeric      128
+##  8 GarageYrBlt        0       0   159  5.45     0     0 numeric      103
+##  9 GarageFinish       0       0   159  5.45     0     0 character      3
+## 10 GarageQual         0       0   159  5.45     0     0 character      5
+## # … with 70 more rows</code></pre>
+<p>Note que as variáveis problemáticas foram ordenadas de forma decrescente (maior número de dados faltantes e zeros) vamos tratar uma de cada vez partindo da variável mais crítica</p>
+</div>
+<div id="pool" class="section level3">
+<h3>Pool</h3>
+<ul>
+<li><code>PoolQC</code> é a variável que possui mais <code>NA</code> e a descrição da base informa que:</li>
+</ul>
+<p><code>PoolQC</code>: qualidade da piscina</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Good</li>
+<li>TA Média / Típica</li>
+<li>Fa Pequena</li>
+<li>NA sem piscina</li>
+</ul>
+<p>É possível observar que se trata de uma variável ordinal, portanto vamos criar uma variável auxiliar (pois esta descrição se repete em outras variáveis):</p>
+<pre class="r"><code># Criando variável auxilar ordinal
+Qualidade &lt;- c(&#39;None&#39; = 0, &#39;Po&#39; = 1, &#39;Fa&#39; = 2, &#39;TA&#39; = 3, &#39;Gd&#39; = 4, &#39;Ex&#39; = 5)
+
+full %&lt;&gt;%
+  mutate(PoolQC =  ifelse(PoolQC %&gt;% is.na, &quot;None&quot;, PoolQC) %&gt;% as.factor() ) %&gt;% 
+  mutate(PoolQC = as.integer(revalue(PoolQC, Qualidade)))</code></pre>
+<p>Além disso, existe outra variável relacionada à piscina, veja:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Pool&quot;)]) %&gt;% 
+  table </code></pre>
+<pre><code>##         PoolQC
+## PoolArea    1    2    3    4
+##      0      0    0    0 2906
+##      144    1    0    0    0
+##      228    1    0    0    0
+##      368    0    0    0    1
+##      444    0    0    0    1
+##      480    0    0    1    0
+##      512    1    0    0    0
+##      519    0    1    0    0
+##      555    1    0    0    0
+##      561    0    0    0    1
+##      576    0    0    1    0
+##      648    0    1    0    0
+##      738    0    0    1    0
+##      800    0    0    1    0</code></pre>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Pool&quot;)]) %&gt;%
+  map(~sum(is.na(.x)))</code></pre>
+<pre><code>## $PoolArea
+## [1] 0
+## 
+## $PoolQC
+## [1] 0</code></pre>
+<pre class="r"><code># Arrumando inconsistëncias:
+full %&lt;&gt;% 
+  mutate(PoolQC = ifelse(PoolQC == 0 &amp; PoolArea !=0, 2, PoolQC))
+
+# Arrumando inconsistëncias:
+full %&lt;&gt;% 
+  mutate(Pool = ifelse(PoolQC == 0 &amp; PoolArea ==0, &quot;no&quot;, &quot;yes&quot;))</code></pre>
+</div>
+<div id="misc" class="section level3">
+<h3>Misc</h3>
+<p>Se referem aos recursos diversos</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Misc&quot;)],
+         SalePrice
+  ) %&gt;%
+  map(~sum(is.na(.x)))</code></pre>
+<pre><code>## $MiscFeature
+## [1] 2814
+## 
+## $MiscVal
+## [1] 0
+## 
+## $SalePrice
+## [1] 1459</code></pre>
+<p><code>MiscFeature</code>: recurso diverso não coberto em outras categorias</p>
+<ul>
+<li>Elevador elev</li>
+<li>Gar2 2nd Garage (se não for descrito na seção de garagem)</li>
+<li>Othr Outro</li>
+<li>Galpão derramado (mais de 100 SF)</li>
+<li>TenC Campo de ténis</li>
+<li>NA Nenhum</li>
+</ul>
+<p>Desta vez não se trata de uma variável ordinal, vejamos:</p>
+<pre class="r"><code>full %&lt;&gt;%
+  mutate(MiscFeature =  if_else(MiscFeature %&gt;% is.na, &quot;None&quot;, MiscFeature) %&gt;% as.factor) 
+
+# Breve resumo:
+g1 &lt;- 
+  full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Misc&quot;)], SalePrice) %&gt;% 
+  ggplot(aes(y=MiscVal,x= reorder(MiscFeature, -MiscVal,FUN = median) ,fill=MiscFeature))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;Recurso Diverso&quot;)
+
+g2 &lt;- 
+  full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Misc&quot;)], SalePrice) %&gt;% 
+  ggplot(aes(y=SalePrice,x= reorder(MiscFeature, -MiscVal,FUN = median) ,fill=MiscFeature))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;Preço de Venda&quot;)
+
+grid.arrange(g1, g2)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>rm(g1,g2)</code></pre>
+<p>Além disso, <code>MiscVal</code>: Valor do recurso variado</p>
+</div>
+<div id="alley" class="section level3">
+<h3>Alley</h3>
+<p><code>Alley</code>: Tipo de acesso ao beco para a propriedade</p>
+<ul>
+<li>Grvl Cascalho</li>
+<li>Pave pavimentado</li>
+<li>NA Nenhum acesso de beco</li>
+</ul>
+<p>Basta realizar o input:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(Alley = Alley %&gt;% str_replace_na(&quot;None&quot;)) %&gt;% 
+  mutate(Alley = as.factor(Alley))</code></pre>
+<pre class="r"><code>full[!is.na(full$SalePrice),] %&gt;% 
+  select(Alley, SalePrice) %&gt;% 
+  ggplot(aes(y=SalePrice,x= reorder(Alley, -SalePrice,FUN = median) ,fill=Alley))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;tipo de Acesso&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="fence" class="section level3">
+<h3>Fence</h3>
+<p><code>Fence</code>: qualidade da cerca</p>
+<ul>
+<li>GdPrv Boa privacidade</li>
+<li>MnPrv minima privacidade</li>
+<li>GdWo boa madeira</li>
+<li>MnWw Mínima Madeira / Fio</li>
+<li>NA Sem cerca</li>
+</ul>
+<p>Input será da seguinte forma:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(Fence = Fence %&gt;% str_replace_na(&quot;None&quot;))</code></pre>
+<pre class="r"><code>full[1:nrow(train),] %&gt;% 
+  select(Fence, SalePrice) %&gt;% 
+  ggplot(aes(y=SalePrice,x= reorder(Fence, -SalePrice, median) ,fill=Fence))+
+  geom_boxplot()+
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(x = &quot;tipo de Acesso&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="r"><code>full %&lt;&gt;% mutate(Fence = as.factor(Fence))</code></pre>
+<p>Aparentemente não parece existir uma relação ordinal sobre o tipo de cerca quanto ao pre;o de venda da casa, portanto foi convertida para fator</p>
+</div>
+<div id="fireplace" class="section level3">
+<h3>FirePlace</h3>
+<p>Variáveis relacionadas com lareira. Segundo a descrição, temos:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Fireplace&quot;)], SalePrice)</code></pre>
+<pre><code>## # A tibble: 2,919 x 3
+##    Fireplaces FireplaceQu SalePrice
+##         &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+##  1          0 &lt;NA&gt;             12.2
+##  2          1 TA               12.1
+##  3          1 TA               12.3
+##  4          1 Gd               11.8
+##  5          1 TA               12.4
+##  6          0 &lt;NA&gt;             11.9
+##  7          1 Gd               12.6
+##  8          2 TA               12.2
+##  9          2 TA               11.8
+## 10          2 TA               11.7
+## # … with 2,909 more rows</code></pre>
+<p><code>Fireplaces</code>: Numero de lareiras</p>
+<p><code>FireplaceQu</code>: Qualidade da lareira</p>
+<ul>
+<li>Ex Excellente - Excepcional Lareira de Alvenaria</li>
+<li>Gd Boa - Lareira de alvenaria no nível principal</li>
+<li>TA Média - lareira pré-fabricada na sala principal ou Lareira de alvenaria no porão</li>
+<li>Fa Pequena - Lareira pré-fabricada no porão</li>
+<li>Po Pobre - Fogão Ben Franklin</li>
+<li>NA sem lareira</li>
+</ul>
+<p>Nota-se que se trata de uma variável ordinal de acordo com a qualidade, portanto:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(FireplaceQu =  if_else(FireplaceQu %&gt;% is.na, &quot;None&quot;, FireplaceQu) ) %&gt;% 
+  mutate(FireplaceQu = as.integer(revalue(FireplaceQu, Qualidade)))</code></pre>
+<p>Conferindo se existem inconsistências:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Fireplace&quot;)]) %&gt;% 
+  table </code></pre>
+<pre><code>##           FireplaceQu
+## Fireplaces    0    1    2    3    4    5
+##          0 1420    0    0    0    0    0
+##          1    0   46   63  495  627   37
+##          2    0    0   10   92  112    5
+##          3    0    0    1    4    5    1
+##          4    0    0    0    1    0    0</code></pre>
+</div>
+<div id="lot" class="section level3">
+<h3>Lot</h3>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Lot&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>## LotFrontage     LotArea    LotShape   LotConfig   SalePrice 
+##         486           0           0           0        1459</code></pre>
+<p>Segundo a descrição:</p>
+<p><code>LotFrontage</code>: Ruas linearmente conectadas à propriedade</p>
+<p><code>LotArea</code> : Tamanho do lote em pés quadrados</p>
+<p><code>LotShape</code>: forma geral da propriedade</p>
+<ul>
+<li>Regue Regular<br />
+</li>
+<li>IR1 ligeiramente irregular</li>
+<li>IR2 moderadamente irregular</li>
+<li>IR3 Irregular</li>
+</ul>
+<p><code>LotConfig</code>: configuração de lote</p>
+<ul>
+<li>Inside Lote muito para dentro</li>
+<li>Corner Canto de esquina</li>
+<li>CulDSac Cul-de-sac</li>
+<li>FR2 Frente em 2 lados da propriedade</li>
+<li>FR3 Frente em 3 lados da propriedade</li>
+</ul>
+<p>Input para o <code>LotFrontage</code> será feito considerando a configuração do lote, veja:</p>
+<pre class="r"><code>inputsLot &lt;- full %&gt;% 
+  select(LotFrontage, LotConfig) %&gt;% 
+  group_by(LotConfig) %&gt;%
+  dplyr::summarise(Media = mean(LotFrontage, na.rm = T),
+            Mediana = median(LotFrontage, na.rm = T))
+
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[1]] &lt;- inputsLot$Mediana[1] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[2]] &lt;- inputsLot$Mediana[2] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[3]] &lt;- inputsLot$Mediana[3] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[4]] &lt;- inputsLot$Mediana[4] 
+full$LotFrontage[is.na(full$LotFrontage) &amp; full$LotConfig == inputsLot$LotConfig[5]] &lt;- inputsLot$Mediana[5] </code></pre>
+<p>Arrumando variáveis nominais e ordinais:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(LotShape = as.integer(revalue(full$LotShape, c(&#39;IR3&#39;=0, &#39;IR2&#39;=1, &#39;IR1&#39;=2, &#39;Reg&#39;=3))))</code></pre>
+</div>
+<div id="garages" class="section level3">
+<h3>Garages</h3>
+<p>Variáveis relacionadas, segundo a descrição, temos:</p>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Garage&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>##   GarageType  GarageYrBlt GarageFinish   GarageCars   GarageArea   GarageQual 
+##          157          159          159            1            1          159 
+##   GarageCond    SalePrice 
+##          159         1459</code></pre>
+<p><code>GarageType</code>: localização da garagem</p>
+<ul>
+<li>2Types Mais de um tipo de garagem</li>
+<li>Attchd anexa a casa</li>
+<li>Basement tipo porao</li>
+<li>BuiltIn (garagem parte da casa - normalmente tem sala acima da garagem)</li>
+<li>CarPort Porta do carro</li>
+<li>Detchd nao anexa a casa</li>
+<li>NA Sem Garagem</li>
+</ul>
+<p><code>GarageYrBlt</code>: garagem do ano foi construída</p>
+<p><code>GarageFinish</code>: acabamento interior da garagem</p>
+<ul>
+<li>Fin Finished</li>
+<li>RFn Áspero Finalizado<br />
+</li>
+<li>Unf inacabado</li>
+<li>NA Sem Garagem</li>
+</ul>
+<p><code>GarageCars</code>: Tamanho da garagem na capacidade do carro</p>
+<p><code>GarageArea</code>: Tamanho da garagem em pés quadrados</p>
+<p><code>GarageQual</code>: GarageQuality</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Good</li>
+<li>TA Típico / Médio</li>
+<li>FA Justo</li>
+<li>Po Poor</li>
+<li>NA Sem Garagem</li>
+</ul>
+<p><code>GarageCond</code>: condição de garagem</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Good</li>
+<li>TA Típico / Médio</li>
+<li>Fa Justo</li>
+<li>Po Poor</li>
+<li>NA Sem Garagem</li>
+</ul>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(GarageType   =  if_else(GarageType %&gt;% is.na, &quot;None&quot;, GarageType) ) %&gt;% 
+  mutate(GarageYrBlt  = if_else(GarageYrBlt %&gt;% is.na,YearBuilt, GarageYrBlt) ) %&gt;% 
+  mutate(GarageFinish =  if_else(GarageFinish %&gt;% is.na, &quot;None&quot;, GarageFinish) ) %&gt;% 
+  mutate(GarageFinish = as.integer(revalue(GarageFinish, c(&#39;None&#39;=0, &#39;Unf&#39;=1, &#39;RFn&#39;=2, &#39;Fin&#39;=3)))) %&gt;% 
+  mutate(GarageCars   = ifelse(GarageCars %&gt;% is.na, 0, GarageCars) ) %&gt;% 
+  mutate(GarageArea   = ifelse(GarageArea %&gt;% is.na, 0, GarageArea)) %&gt;% 
+  mutate(GarageQual   = if_else(GarageQual %&gt;% is.na, &quot;None&quot;, GarageQual)) %&gt;% 
+  mutate(GarageQual   = as.integer(revalue(GarageQual, Qualidade))) %&gt;% 
+  mutate(GarageCond   = if_else(GarageCond %&gt;% is.na, &quot;None&quot;, GarageCond)) %&gt;% 
+  mutate(GarageCond   = as.integer(revalue(GarageCond, Qualidade))) 
+  
+table(full$GarageCond)</code></pre>
+<pre><code>## 
+##    0    1    2    3    4    5 
+##  159   14   74 2654   15    3</code></pre>
+</div>
+<div id="bsmt" class="section level3">
+<h3>Bsmt</h3>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>##     BsmtQual     BsmtCond BsmtExposure BsmtFinType1   BsmtFinSF1 BsmtFinType2 
+##           81           82           82           79            1           80 
+##   BsmtFinSF2    BsmtUnfSF  TotalBsmtSF BsmtFullBath BsmtHalfBath    SalePrice 
+##            1            1            1            2            2         1459</code></pre>
+<p><code>BsmtQual</code>: Avalia a altura do porão</p>
+<ul>
+<li>Ex Excelente (100+ polegadas)<br />
+</li>
+<li>Gd Bom (90-99 polegadas)</li>
+<li>TA Típica (80-89 polegadas)</li>
+<li>Fa Justo (70-79 polegadas)</li>
+<li>Po Pobre (&lt;70 polegadas</li>
+<li>NA Sem Porão</li>
+</ul>
+<p><code>BsmtCond</code>: Avalia o estado geral do porão</p>
+<ul>
+<li>Ex Excelente</li>
+<li>Gd Bom</li>
+<li>TA Típica - umidade ligeira permitida</li>
+<li>Fa Razoável - umidade ou alguma rachadura ou sedimentação</li>
+<li>Po Insuficiente - Craqueamento severo, sedimentação ou umidade</li>
+<li>NA Sem Porão</li>
+</ul>
+<p><code>BsmtExposure</code>: Refere-se a paralisações ou paredes no nível do jardim</p>
+<ul>
+<li>Gd Good Exposição</li>
+<li>Av Média Exposição (níveis divididos ou foyers normalmente pontuação média ou acima)<br />
+</li>
+<li>Mn Exposição Mínima</li>
+<li>No Não Exposição</li>
+<li>NA Sem porão</li>
+</ul>
+<p><code>BsmtFinType1</code>: Avaliação da área acabada do porão</p>
+<ul>
+<li>GLQ Bons Viver</li>
+<li>ALQ Média Living Quarters</li>
+<li>BLQ Abaixo da média Living Quarters<br />
+</li>
+<li>Rec Média Rec Room</li>
+<li>LwQ Baixa Qualidade</li>
+<li>Unf unfinshed</li>
+<li>NA nenhum porão</li>
+</ul>
+<p><code>BsmtFinSF1</code>: pes quadrados do tipo 1 terminado</p>
+<p><code>BsmtFinType2</code>: Avaliação do porão área terminado (se vários tipos)</p>
+<ul>
+<li>GLQ Bons aposentos</li>
+<li>ALQ Medianos</li>
+<li>BLQ abaixo da media</li>
+<li>Rec Aposentos média qualidade</li>
+<li>LwQ Baixa Qualidade</li>
+<li>Unf</li>
+<li>Não Sem Porão</li>
+</ul>
+<p><code>BsmtFinSF2</code>: Pés quadrados acabados do Tipo 2</p>
+<p><code>BsmtUnfSF</code>: Pés quadrados inacabados da área do porão</p>
+<p><code>TotalBsmtSF</code>: Total pés quadrados da área do porão</p>
+<p>Input das variáveis não numéricas com <code>None</code> e convertendo para ordinal as variáveis com relação de ordem. Para os faltantes das variáveis numéricas foram imputados o valor 0 (zeros).</p>
+<pre class="r"><code># Categóricos:
+full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] &lt;- 
+  full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] %&gt;%
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]) %&gt;%
+  mutate_if( ~ !is.numeric(.x) , ~ ifelse(is.na(.x), &quot;None&quot;, .x)) %&gt;% 
+  mutate(BsmtQual = as.integer(revalue(BsmtQual, Qualidade))) %&gt;% 
+  mutate(BsmtCond = as.integer(revalue(BsmtCond, Qualidade))) %&gt;% 
+  mutate(BsmtExposure = as.integer(revalue(BsmtExposure, c(&#39;None&#39;=0, &#39;No&#39;=1, &#39;Mn&#39;=2, &#39;Av&#39;=3, &#39;Gd&#39;=4)))) %&gt;% 
+  mutate(BsmtFinType1 = as.integer(revalue(BsmtFinType1,c(&#39;None&#39;=0, &#39;Unf&#39;=1, &#39;LwQ&#39;=2, &#39;Rec&#39;=3, &#39;BLQ&#39;=4, &#39;ALQ&#39;=5, &#39;GLQ&#39;=6)))) 
+
+# Numéricos:
+full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] &lt;- 
+  full[,names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]] %&gt;%
+  select(names(full)[names(full) %&gt;% str_detect(&quot;Bsmt&quot;)]) %&gt;%
+  mutate_if( ~ is.numeric(.x) , ~ ifelse(is.na(.x), 0, .x))</code></pre>
+</div>
+<div id="masvnr" class="section level3">
+<h3>MasVnr</h3>
+<pre class="r"><code>full %&gt;% 
+  select(names(full)[names(full) %&gt;% str_detect(&quot;MasVnr&quot;)], SalePrice) %&gt;% 
+  map_dbl(~sum(is.na(.x)))</code></pre>
+<pre><code>## MasVnrType MasVnrArea  SalePrice 
+##         24         23       1459</code></pre>
+<p><code>MasVnrType</code>: Alvenaria tipo de verniz</p>
+<ul>
+<li>BrkCmn Brick Common</li>
+<li>BrkFace Face de tijolos</li>
+<li>CBlock Bloco cinza</li>
+<li>None Nenhum</li>
+<li>Stone Pedra</li>
+</ul>
+<p><code>MasVnrArea</code>: Área de folheado de alvenaria em pés quadrados</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  mutate(MasVnrType = if_else(is.na(MasVnrType), &quot;None&quot;, MasVnrType)) %&gt;% 
+  mutate(MasVnrType = as.integer(revalue(MasVnrType, c(&#39;None&#39;=0, &#39;BrkCmn&#39;=0, &#39;BrkFace&#39;=1, &#39;Stone&#39;=2)))) %&gt;% 
+  mutate(MasVnrArea = if_else(is.na(MasVnrArea), 0, 1))</code></pre>
+</div>
+<div id="variáveis-restantes-com-poucos-na" class="section level3">
+<h3>Variáveis restantes com poucos <code>NA</code></h3>
+<p>A estratégia adotada para imputar estes dados será tomada de maneira arbitrária. Os valores faltantes serão preenchidos com o valor comum mais frequente daquela variável. As variáveis que restam são:</p>
+<pre class="r"><code>full %&gt;% 
+  df_status(print_results = F) %&gt;% 
+  as_tibble() %&gt;%
+  arrange(-p_na, -p_zeros)</code></pre>
+<pre><code>## # A tibble: 81 x 9
+##    variable    q_zeros p_zeros  q_na  p_na q_inf p_inf type      unique
+##    &lt;chr&gt;         &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt;
+##  1 SalePrice         0     0    1459 50.0      0     0 numeric      663
+##  2 MSZoning          0     0       4  0.14     0     0 character      5
+##  3 Utilities         0     0       2  0.07     0     0 character      2
+##  4 Functional        0     0       2  0.07     0     0 character      7
+##  5 Exterior1st       0     0       1  0.03     0     0 character     15
+##  6 Exterior2nd       0     0       1  0.03     0     0 character     16
+##  7 Electrical        0     0       1  0.03     0     0 character      5
+##  8 KitchenQual       0     0       1  0.03     0     0 character      4
+##  9 SaleType          0     0       1  0.03     0     0 character      9
+## 10 PoolArea       2906    99.6     0  0        0     0 numeric       14
+## # … with 71 more rows</code></pre>
+<p>Vejamos:</p>
+<p><code>MSZoning</code>: Identifica a classificação geral de zoneamento da venda.</p>
+<ul>
+<li>Será convertida para fator, variável nominal</li>
+</ul>
+<p><code>KitchenQual</code>: Qualidade da cozinha</p>
+<ul>
+<li>Será convertida para ordinal</li>
+</ul>
+<p><code>Utilities</code>: Tipo de utilidade disponível</p>
+<ul>
+<li>Será removida</li>
+</ul>
+<p><code>Functional</code>: Funcionalidade doméstica</p>
+<ul>
+<li>Será considerada como ordinal</li>
+</ul>
+<p><code>Exterior1st</code>: revestimento Exterior em casa</p>
+<ul>
+<li>Convertida para fator, variável nominal</li>
+</ul>
+<p><code>Electrical</code>: Sistema elétrico</p>
+<ul>
+<li>Convertida para fator, variável nominal</li>
+</ul>
+<p><code>SaleType</code>: Tipo de venda</p>
+<ul>
+<li>Convertida para fator, variável nominal</li>
+</ul>
+<pre class="r"><code>full &lt;- full %&gt;% 
+  mutate(MSZoning    = ifelse(is.na(MSZoning),
+                            full$MSZoning %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, MSZoning)) %&gt;% 
+  mutate(MSZoning    = as.factor(MSZoning)) %&gt;% 
+  mutate(KitchenQual = ifelse(is.na(KitchenQual),
+                            full$KitchenQual %&gt;% 
+                              table %&gt;% sort %&gt;% names %&gt;% last, KitchenQual)) %&gt;% 
+  mutate(KitchenQual = as.integer(revalue(as.character(full$KitchenQual), Qualidade))) %&gt;% 
+  select(-Utilities) %&gt;% 
+  mutate(Exterior1st = ifelse(is.na(Exterior1st),
+                            full$Exterior1st %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, Exterior1st)) %&gt;% 
+  mutate(Exterior1st = as.factor(Exterior1st)) %&gt;% 
+  mutate(Exterior2nd = ifelse(is.na(Exterior2nd),
+                            full$Exterior2nd %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, Exterior2nd)) %&gt;% 
+  mutate(Exterior2nd = as.factor(Exterior2nd)) %&gt;% 
+  mutate(Electrical  = ifelse(is.na(Electrical),
+                            full$Electrical %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, Electrical)) %&gt;% 
+  mutate(Electrical  = as.factor(Electrical)) %&gt;% 
+  mutate(SaleType    = ifelse(is.na(SaleType ),
+                            full$SaleType  %&gt;% table %&gt;% sort %&gt;% names %&gt;% last, SaleType )) %&gt;% 
+  mutate(SaleType    = as.factor(SaleType )) 
+
+
+full[is.na(full$Functional),&quot;Functional&quot;] &lt;- full$Functional %&gt;% table %&gt;% sort %&gt;% names %&gt;% last
+full$Functional = as.integer(revalue(full$Functional, c(&#39;Sal&#39;=0, &#39;Sev&#39;=1, &#39;Maj2&#39;=2, &#39;Maj1&#39;=3, &#39;Mod&#39;=4, &#39;Min2&#39;=5, &#39;Min1&#39;=6, &#39;Typ&#39;=7)))
+full[is.na(full$KitchenQual),&quot;KitchenQual&quot;] &lt;- full$KitchenQual %&gt;% table %&gt;% sort %&gt;% names %&gt;% last %&gt;% as.numeric()
+full$KitchenQual = as.integer(revalue(as.character(full$KitchenQual), Qualidade))
+# full[is.na(full$Electrical),&quot;Electrical&quot;] &lt;- 3
+
+to_remove &lt;- full %&gt;% map(~table(.x) %&gt;% length()) %&gt;% .[.== 1] %&gt;% names()
+full &lt;- full %&gt;% select(-one_of(to_remove))</code></pre>
+<p>Status da base no momento:</p>
+<pre class="r"><code>full %&gt;% 
+  df_status(print_results = F) %&gt;% 
+  as_tibble() %&gt;%
+  arrange(-p_na,-p_zeros, type)</code></pre>
+<pre><code>## # A tibble: 79 x 9
+##    variable      q_zeros p_zeros  q_na  p_na q_inf p_inf type    unique
+##    &lt;chr&gt;           &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;int&gt;
+##  1 SalePrice           0     0    1459  50.0     0     0 numeric    663
+##  2 PoolArea         2906    99.6     0   0       0     0 numeric     14
+##  3 3SsnPorch        2882    98.7     0   0       0     0 numeric     31
+##  4 LowQualFinSF     2879    98.6     0   0       0     0 numeric     36
+##  5 MiscVal          2816    96.5     0   0       0     0 numeric     38
+##  6 BsmtHalfBath     2744    94       0   0       0     0 numeric      3
+##  7 ScreenPorch      2663    91.2     0   0       0     0 numeric    121
+##  8 BsmtFinSF2       2572    88.1     0   0       0     0 numeric    272
+##  9 EnclosedPorch    2460    84.3     0   0       0     0 numeric    183
+## 10 HalfBath         1834    62.8     0   0       0     0 numeric      3
+## # … with 69 more rows</code></pre>
+<p>Transformando o <code>character</code> para <code>factor</code>:</p>
+<pre class="r"><code>full %&lt;&gt;% mutate_if(is.character, as.factor)</code></pre>
+<p>Transformando novamente nossa base de treino e de teste:</p>
+<pre class="r"><code>train &lt;- full[1:nrow(train),] %&gt;% as.data.frame() 
+test  &lt;- full[(nrow(train)+1):nrow(full),] %&gt;% select(-SalePrice) %&gt;% as.data.frame()
+
+# # Input Missing
+# train_miss_model = preProcess(train, &quot;knnImpute&quot;)
+# train = predict(train_miss_model, train)
+# test = predict(train_miss_model, test)
+# 
+# train$SalePrice &lt;- y</code></pre>
+</div>
+</div>
+</div>
+<div id="machine-learning-com-algorítmos-de-aprendizagem-baseados-em-árvores" class="section level1">
+<h1>Machine Learning com algorítmos de aprendizagem baseados em árvores</h1>
+<p>Os métodos baseados em árvores fornecem modelos preditivos de alta precisão, estabilidade e facilidade de interpretação. Ao contrário dos modelos lineares, eles são capazes de lidar bem com relações não-lineares além de poderem ser adaptados para resolver tanto problemas de classificação quanto problemas de regressão.</p>
+<p>Algoritmos como árvores de decisão, random forest e “gradient boosting” estão sendo muito usados em todos os tipos de problemas de data science e é notável o uso desses algorítimos para resolver os desafios do <a href="https://www.kaggle.com/">Kaggle</a>. Para resolver este problema utilizaremos estes três algoritmos e ao final, pegando carona na seleção de variáveis para os algoritmos de árvore, será ajustado um modelo de regressão linear para compararmos e conferirmos a significância estatística de cada uma das variáveis.</p>
+<div id="varimp-com-random-forest" class="section level2">
+<h2>VarImp com Random Forest</h2>
+<p>Um dos benefícios da floresta aleatória é o poder de lidar com grande conjunto de dados com maior dimensionalidade e identificar as variáveis a importância das variáveis, que pode ser uma característica muito útil porém deve ser feita com cautela.</p>
+<p>Veja uma reflexão (traduzida) da <a href="https://www.stat.berkeley.edu/~breiman/RandomForests/reg_philosophy.htm">nota de Leo Breiman (Universidade da Califórnia em Berkeley)</a></p>
+<blockquote>
+<p>“Uma nota filosófica: RF é um exemplo de uma ferramenta que é útil para fazer análises de dados científicos; Mas os algoritmos mais inteligentes não substituem a inteligência humana e o conhecimento dos dados do problema; Pegue a saída de florestas aleatórias não como verdade absoluta, mas como suposições geradas por um computador inteligente que podem ser úteis para levar a uma compreensão mais profunda do problema.”</p>
+</blockquote>
+<p>O ajuste da árvore será feito com o pacote <code>caret</code> e o estudo de estimativas de erro foi definido como o <a href="https://en.wikipedia.org/wiki/Out-of-bag_error">Out of bag</a> que remove a necessidade de um conjunto de teste pois é o erro médio de previsão em cada amostra de treinamento <span class="math inline">\(x_i\)</span> , usando apenas as árvores que não tinham <span class="math inline">\(x_i\)</span> em sua amostra de <a href="https://www.ime.usp.br/~chang/home/mae5704/aula-bootstrap.pdf">bootstrap</a>.</p>
+<pre class="r"><code>set.seed(1)
+control &lt;- trainControl(method = &quot;oob&quot;,verboseIter = F)
+
+rfFit1 &lt;- train(SalePrice ~. ,
+      data=train,
+      method=&quot;rf&quot;,
+      metric = &quot;Rsquared&quot;,
+      trControl = control,
+      preProcess = c(&quot;knnImpute&quot;)
+      )
+
+randomForest::varImpPlot(rfFit1$finalModel)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<pre class="r"><code>rfFit1$finalModel$importance %&gt;% 
+  as.data.frame %&gt;%
+  mutate(row = rownames(.)) %&gt;% 
+  arrange(desc(IncNodePurity)) %&gt;% 
+  as_tibble()</code></pre>
+<pre><code>## # A tibble: 217 x 2
+##    IncNodePurity row        
+##            &lt;dbl&gt; &lt;chr&gt;      
+##  1         77.9  OverallQual
+##  2         35.0  GrLivArea  
+##  3         14.8  YearBuilt  
+##  4         11.5  KitchenQual
+##  5          9.75 TotalBsmtSF
+##  6          9.29 GarageCars 
+##  7          6.74 `1stFlrSF` 
+##  8          6.33 GarageArea 
+##  9          5.02 ExterQualTA
+## 10          4.04 BsmtFinSF1 
+## # … with 207 more rows</code></pre>
+<p>Após inspecionar a importância das variáveis vamos selecionar as seguintes variáveis:</p>
+<pre class="r"><code>full %&lt;&gt;% 
+  select(
+    SalePrice  , Neighborhood, OverallQual , GrLivArea   , YearBuilt   ,  KitchenQual, 
+    GarageCars ,  GarageArea , `1stFlrSF`  , ExterQual   , BsmtFinSF1  , FireplaceQu, 
+    BsmtQual   , `2ndFlrSF`  , CentralAir  , GarageFinish, YearRemodAdd, FullBath, 
+    GarageYrBlt, Fireplaces  , LotFrontage , BsmtUnfSF   , TotalBsmtSF , BsmtFinType1,
+    OpenPorchSF, GarageType  , BsmtExposure, OverallCond , TotalBsmtSF , LotArea
+  )</code></pre>
+<p>Portanto, vamos definir novamente o conjunto de dados de treino e de teste:</p>
+<pre class="r"><code>train &lt;- full[1:nrow(train),] %&gt;% as.data.frame()
+test  &lt;- full[(nrow(train)+1):nrow(full),-1] %&gt;% as.data.frame()</code></pre>
+</div>
+<div id="variáveis-numéricas" class="section level2">
+<h2>Variáveis numéricas</h2>
+<p>Após a seleção dessas variáveis, vamos entender como elas estão correlacionadas dois a dois com o <a href="https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_Pearson">coeficiente de correlação de pearson</a>, exibindo a matrix em um <a href="https://en.wikipedia.org/wiki/Heat_map">Heatmap</a> (ou mapa de calor ), que é uma representação gráfica de dados em que os valores individuais contidos em uma matriz representados como cores.</p>
+<pre class="r"><code>cormat &lt;- 
+  full %&gt;% 
+  select(SalePrice, everything()) %&gt;% 
+  select_if(is.numeric) %&gt;% 
+  as.data.frame() %&gt;% 
+  cor(use = &quot;na.or.complete&quot;) %&gt;% 
+  melt
+
+cormat %&gt;%   
+  ggplot( aes(reorder(Var1,value), reorder(Var2,value), fill=value))+
+  geom_tile(color=&quot;white&quot;)+
+  scale_fill_gradient2(low=&quot;blue&quot;, high=&quot;red&quot;, mid=&quot;white&quot;, midpoint=0, limit=c(-1,1), space=&quot;Lab&quot;, name=&quot;Pearson\nCorrelation&quot;)+
+  theme_bw()+
+  theme(axis.text.x=element_text(angle=45, vjust=1, size=10, hjust=1))+
+  coord_fixed()+
+  labs(x=&quot;&quot;,y=&quot;&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-37-1.png" width="1152" /></p>
+<p>É possível notar que existem variáveis explicativas correlacionadas o que indica que a presença de algumas variáveis pode possivelmente interferir no ajuste final do modelo linear multivariado.</p>
+</div>
+<div id="variáveis-categóricas" class="section level2">
+<h2>Variáveis categóricas</h2>
+<p>Já a relação das varáveis categóricas não podem ser calculada com o coeficiente de correlação calculado anteriormente, para avaliar como elas estão associadas será calculado a medida de associação <a href="https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V">V de Cramér</a>. Novamente a matrix dos resultados serão novamente apresentados em um <a href="https://en.wikipedia.org/wiki/Heat_map">Heatmap</a> (ou mapa de calor ) que foi inspirado <a href="http://analysingstuffs.xyz/2017/12/01/visualizing-the-correlations-between-categorical-variables-with-r-a-cramers-v-heatmap/">neste post</a> (neste post também é apresentada uma função para o cálculo da matrix, adaptei de forma que se tornasse mais geral e disponibilizei no meu github <a href="https://github.com/gomesfellipe/functions/blob/master/interaction_all.R">neste link</a>).</p>
+<pre class="r"><code># Carrega funcao que calcula o V de Cramer:
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/cv_test.R&quot;)
+# Carrega a funcao que realiza as interações dos calculos dois a dois:
+devtools::source_url(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/interaction_all.R&quot;)</code></pre>
+<p>Veja:</p>
+<pre class="r"><code>cvmat &lt;- 
+train %&gt;%
+  select_if(~!is.numeric(.x)) %&gt;% 
+  as.data.table() %&gt;%
+  interaction_all(cv_test) %&gt;% 
+  as_tibble() 
+
+cvmat %&gt;% 
+  ggplot( aes(variable_x, variable_y, fill=v_cramer))+
+  geom_tile(color=&quot;white&quot;)+
+  scale_fill_gradient2(low=&quot;blue&quot;, high=&quot;red&quot;, mid=&quot;white&quot;, midpoint=0, limit=c(-1,1), space=&quot;Lab&quot;, name=&quot;Cramer&#39;s V&quot;)+
+  theme_bw()+
+  theme(axis.text.x=element_text(angle=45, vjust=1, size=10, hjust=1))+
+  coord_fixed()+
+  labs(x=&quot;&quot;,y=&quot;&quot;)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+</div>
+</div>
+<div id="ajustando-modelos" class="section level1">
+<h1>Ajustando modelos</h1>
+<div id="arvore-de-decisao" class="section level2">
+<h2>Arvore de decisao</h2>
+<p>O modelo de árvore de decisão já foi comentado e deixei algumas referências ao final do post portanto vejamos a seguir o ajusto no R. Segundo a <a href="https://cran.r-project.org/web/packages/rpart/rpart.pdf">documentação</a>:</p>
+<p><code>cp</code>: parâmetro de complexidade. No nosso caso isso significa que o <a href="https://pt.wikipedia.org/wiki/R%C2%B2"><span class="math inline">\(R^2\)</span></a> total deve aumentar em cp em cada etapa. O principal papel desse parâmetro é economizar tempo de computação removendo as divisões que obviamente não valem a pena. Essencialmente, informamos ao programa que qualquer divisão que não melhore o ajuste por <code>cp</code> provavelmente será eliminada por <a href="https://pt.wikipedia.org/wiki/Valida%C3%A7%C3%A3o_cruzada">validação cruzada</a>, e que, portanto, o programa não precisa buscá-la.</p>
+<p>Para pesquisa de grade existem duas maneiras de ajustar um algoritmo no pacote <code>caret</code>: permitir que o sistema faça isso automaticamente ou especificar o <code>tuneGride</code> manualmente onde cada parâmetro do algoritmo pode ser especificado como um vetor de valores possíveis. Confira o ajuste manual em R:</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+tunegrid &lt;- expand.grid(cp=seq(0.001, 0.01, 0.001))
+
+rpartFit2 &lt;- 
+  train(y=train$SalePrice, x=train[,-1],
+        method=&quot;rpart&quot;,
+        trControl=control,
+        tuneGrid=tunegrid,
+        metric = &quot;Rsquared&quot;
+  )
+rpartFit2</code></pre>
+<pre><code>## CART 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1169, 1168, 1168, 1166 
+## Resampling results across tuning parameters:
+## 
+##   cp     RMSE       Rsquared   MAE      
+##   0.001  0.1918932  0.7757730  0.1386651
+##   0.002  0.1943654  0.7690391  0.1410967
+##   0.003  0.2016485  0.7513005  0.1457213
+##   0.004  0.2029596  0.7462748  0.1457752
+##   0.005  0.2098812  0.7279462  0.1534384
+##   0.006  0.2090073  0.7291130  0.1539830
+##   0.007  0.2110066  0.7227211  0.1544402
+##   0.008  0.2120734  0.7198280  0.1555415
+##   0.009  0.2142488  0.7143975  0.1570535
+##   0.010  0.2148236  0.7126454  0.1575360
+## 
+## Rsquared was used to select the optimal model using the largest value.
+## The final value used for the model was cp = 0.001.</code></pre>
+<p>Podemos conferir os resultados novamente de maneira visual:</p>
+<pre class="r"><code>rpart.plot(rpartFit2$finalModel, cex = 0.5)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-41-1.png" width="1200" /></p>
+<p>Gerando arquivo para submissão no kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(rpartFit2, test) %&gt;% exp) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;rpartFit2.csv&quot;,row.names = F)</code></pre>
+</div>
+<div id="bagging" class="section level2">
+<h2>Bagging</h2>
+<p><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating">“Bagging”</a> é usado quando desejamos reduzir a variação de uma árvore de decisão. Ela combina o resultado de vários modelos onde todas as variáveis são considerados para divisão um nó. Em R:</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+treebagFit &lt;- train(y=train$SalePrice, 
+                    x=train[,-1], 
+                    method = &quot;treebag&quot;,
+                    metric = &quot;Rsquared&quot;,
+                    trControl=control
+)
+treebagFit</code></pre>
+<pre><code>## Bagged CART 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1169, 1168, 1168, 1166 
+## Resampling results:
+## 
+##   RMSE       Rsquared   MAE      
+##   0.1831872  0.7946059  0.1288626</code></pre>
+<p>Note que o <span class="math inline">\(R^2\)</span> aumentou e o <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation"><span class="math inline">\(RMSE\)</span></a> diminuiu após o uso desta técnica.</p>
+<p>Resultados para enviar para o Kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(treebagFit, test)%&gt;% exp) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;treebagFit.csv&quot;,row.names = F)</code></pre>
+</div>
+<div id="random-forest" class="section level2">
+<h2>Random Forest</h2>
+<p>A principal diferença entre “bagging” e o algoritmo Random Forest é que em <code>randomForest</code>, apenas um subconjunto de características é selecionado aleatoriamente em cada divisão em uma árvore de decisão enquanto que no bagging todos os recursos são usados.</p>
+<p>Para pesquisa de grade especificaremos um vetor com os possíveis valores, <a href="https://cran.r-project.org/web/packages/randomForest/randomForest.pdf">pois o default adotado para o parâmetro</a> <code>mtry</code> é <code>mtry</code> = p/3 (Número de variáveis amostradas aleatoriamente como candidatos em cada divisão), onde p é o número de variáveis e pode ser que o modelo se ajuste melhor aos dados ao utilizar outro valor.</p>
+<p>Veja:</p>
+<pre class="r"><code>set.seed(1)
+
+tunegrid &lt;- expand.grid(mtry = seq(4, ncol(train) * 0.8, 2))
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+rfFit &lt;- train(SalePrice ~. ,
+               data=train,
+               method=&quot;rf&quot;,
+               metric = &quot;Rsquared&quot;,
+               tuneGrid=tunegrid,
+               trControl=control
+)
+rfFit</code></pre>
+<pre><code>## Random Forest 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1169, 1168, 1168, 1166 
+## Resampling results across tuning parameters:
+## 
+##   mtry  RMSE       Rsquared   MAE       
+##    4    0.1455656  0.8781772  0.09755474
+##    6    0.1417368  0.8817193  0.09435674
+##    8    0.1405084  0.8826370  0.09350712
+##   10    0.1395367  0.8834153  0.09290816
+##   12    0.1385338  0.8845102  0.09181049
+##   14    0.1386865  0.8840165  0.09223527
+##   16    0.1381776  0.8846283  0.09155563
+##   18    0.1384532  0.8837305  0.09222536
+##   20    0.1380863  0.8840803  0.09173754
+##   22    0.1383788  0.8835938  0.09189772
+## 
+## Rsquared was used to select the optimal model using the largest value.
+## The final value used for the model was mtry = 16.</code></pre>
+<p>Note que o <span class="math inline">\(R^2\)</span> aumentou e o <span class="math inline">\(RMSE\)</span> apresentou resultados ainda mais satisfatórios.</p>
+<p>Veja visualmente a importância de ada variável:</p>
+<pre class="r"><code>randomForest::varImpPlot(rfFit$finalModel)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p>Resultados para enviar para o Kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(rfFit, test) %&gt;% exp) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;rfFit.csv&quot;,row.names = F) </code></pre>
+</div>
+<div id="gbm" class="section level2">
+<h2>GBM</h2>
+<p>Diferentemente do “bagging”, o “boosting” é uma técnica de ensemble (conjunto) na qual os preditores não são feitos independentemente, mas sequencialmente. Na imagem a seguir é possível ver uma representação visual dessa diferença:</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*PaXJ8HCYE9r2MgiZ32TQ2A.png" /></p>
+<p>A imagem foi obtida <a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d">neste artigo: Gradient Boosting from scratch</a>, recomendo a leitura pois da uma boa intuição de como o algoritmo funciona.</p>
+<p>Para a pesquisa de grade vamos permitir que o sistema faça isso automaticamente configurando apenas o <code>tuneLength</code> para indicar o número de valores diferentes para cada parâmetro do algoritmo.</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+gbmFit &lt;- train(SalePrice~.,data=train,
+                method = &quot;gbm&quot;,
+                trControl=control,
+                tuneLength=5,
+                metric = &quot;Rsquared&quot;,
+                verbose = FALSE
+)
+gbmFit</code></pre>
+<pre><code>## Stochastic Gradient Boosting 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1169, 1168, 1168, 1166 
+## Resampling results across tuning parameters:
+## 
+##   interaction.depth  n.trees  RMSE       Rsquared   MAE       
+##   1                   50      0.1736970  0.8346902  0.12145158
+##   1                  100      0.1474386  0.8663694  0.10371271
+##   1                  150      0.1400060  0.8775141  0.09804851
+##   1                  200      0.1381902  0.8803999  0.09607709
+##   1                  250      0.1375854  0.8817130  0.09502881
+##   2                   50      0.1511051  0.8640075  0.10557294
+##   2                  100      0.1379357  0.8815852  0.09546142
+##   2                  150      0.1360260  0.8846503  0.09326628
+##   2                  200      0.1355702  0.8852090  0.09248558
+##   2                  250      0.1362827  0.8841734  0.09254710
+##   3                   50      0.1434808  0.8743589  0.09910961
+##   3                  100      0.1363881  0.8838715  0.09355652
+##   3                  150      0.1346606  0.8868808  0.09163759
+##   3                  200      0.1339427  0.8880370  0.09062153
+##   3                  250      0.1336666  0.8886732  0.08979366
+##   4                   50      0.1376575  0.8824442  0.09516571
+##   4                  100      0.1334392  0.8884173  0.09192150
+##   4                  150      0.1330866  0.8890336  0.09156893
+##   4                  200      0.1334706  0.8886198  0.09096598
+##   4                  250      0.1335809  0.8884950  0.09101981
+##   5                   50      0.1384852  0.8813449  0.09535954
+##   5                  100      0.1350803  0.8863344  0.09231165
+##   5                  150      0.1340246  0.8878172  0.09112111
+##   5                  200      0.1342892  0.8874590  0.09088714
+##   5                  250      0.1349331  0.8867525  0.09104875
+## 
+## Tuning parameter &#39;shrinkage&#39; was held constant at a value of 0.1
+## 
+## Tuning parameter &#39;n.minobsinnode&#39; was held constant at a value of 10
+## Rsquared was used to select the optimal model using the largest value.
+## The final values used for the model were n.trees = 150, interaction.depth =
+##  4, shrinkage = 0.1 and n.minobsinnode = 10.</code></pre>
+<p>Note que este foi o modelo que apresentou os melhores resultados quanto só <span class="math inline">\(R^2\)</span> e ao <span class="math inline">\(RMSE\)</span> em comparação com os outros modelos.</p>
+<p>Submissão para Kaggle:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(gbmFit, test) %&gt;% exp) %&gt;%
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;gbmFit.csv&quot;, row.names = F)</code></pre>
+</div>
+<div id="regressão-linear" class="section level2">
+<h2>Regressão Linear</h2>
+<p>Por fim faremos o ajuste de um modelo de regressão linear multivariado utilizando o pacote caret.</p>
+<p>Utilizaremos validação cruzada separando nossa amostra em 5 e utilizaremos o método <code>lmStepAIC</code> que realiza a seleção do modelo escalonado pelo critério de informação de Akaike - <a href="https://en.wikipedia.org/wiki/Akaike_information_criterion">AIC</a>.</p>
+<pre class="r"><code>set.seed(1)
+
+control &lt;- trainControl(method = &quot;cv&quot;, number = 5,verboseIter = F)
+
+lmFit &lt;- train(SalePrice~.,data=train,
+               method = &quot;lmStepAIC&quot;,
+               trControl=control,
+               metric = &quot;Rsquared&quot;,trace=F
+)
+lmFit</code></pre>
+<pre><code>## Linear Regression with Stepwise Selection 
+## 
+## 1460 samples
+##   28 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 1169, 1169, 1168, 1168, 1166 
+## Resampling results:
+## 
+##   RMSE      Rsquared   MAE       
+##   0.147716  0.8632513  0.09574552</code></pre>
+<p>Note que o ajuste do modelo se apresenta de maneira satisfatória com <span class="math inline">\(R^2\)</span> e <span class="math inline">\(RMSE\)</span> semelhantes aos modelos de <code>bagging</code> e <code>boosting</code> e além disso, diferente dos modelos baseados em árvore, com este ajuste é possível notar a significância estatística de cada parâmetro ajustado, o que possibilita tanto o uso tanto como modelo preditivo quanto como modelo descritivo. Veja:</p>
+<pre class="r"><code>ggcoef(
+  lmFit$finalModel,                      #O modelo a ser conferido
+  vline_color = &quot;red&quot;,          #Reta em zero  
+  errorbar_color = &quot;blue&quot;,      #Cor da barra de erros
+  errorbar_height = .25,
+  shape = 18,                   #Altera o formato dos pontos centrais
+  size=2,                      #Altera o tamanho do ponto
+  color=&quot;black&quot;,
+  exclude_intercept = TRUE,                #Altera a cor do ponto
+  mapping = aes(x = estimate, y = term, size = p.value))+
+  scale_size_continuous(trans = &quot;reverse&quot;)+ #Essa linha faz com que inverta o tamanho
+  theme_bw()</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p>Note que o intercepto <span class="math inline">\(\beta_0\)</span> foi retirado da imagem pois é muito superior aos demais coeficientes. Note também que <span class="math inline">\(\beta_i\)</span> informa quão sensível é <span class="math inline">\(y\)</span>, no caso <code>log(SalePrice)</code> às variações de cara umas das <span class="math inline">\(x_{i,j}\)</span> variáveis explicativas. Mais concretamente, se <span class="math inline">\(x_{i,j}\)</span> aumenta em uma unidade, o valor de <span class="math inline">\(y\)</span> varia em <span class="math inline">\(\beta_1\)</span> unidades.</p>
+<p>Uma rápida <a href="http://www.portalaction.com.br/analise-de-regressao/analise-dos-residuos">Análise dos Resíduos</a>:</p>
+<pre class="r"><code>lmFit$finalModel %&gt;% 
+  autoplot(which = 1:2) + 
+  theme_bw()</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-52-1.png" width="1500" /></p>
+<p>É possível notar que parece haver alguns outliers em ambas as figuras. Na primeira é possível notar uma nuvem de pontos aleatórios em torno de zero porém na segunda figura nota-se que alguns valores não estão de acordo com os quantils teóricos de uma distribuição normal, o que pode prejudicar nossa interpretação dos coeficientes do modelo. Vamos encerrar o modelo por aqui mesmo e ver como ele se sai na competição do Kaggle, preparando a submissão:</p>
+<pre class="r"><code>id %&gt;% cbind(predict(lmFit, test) %&gt;% exp ) %&gt;% 
+  `colnames&lt;-`(c(&quot;Id&quot;, &quot;SalePrice&quot;)) %&gt;%
+  write.csv(&quot;lmFit.csv&quot;,row.names = F)</code></pre>
+<p>O score obtido com esta submissão no Kaggle foi muito próximo dos modelos baseados e árvore e o tempo computacional para este ajuste foi bem menor.</p>
+</div>
+<div id="comparando-ajustes" class="section level2">
+<h2>Comparando ajustes</h2>
+<p>Vejamos a seguir uma comparação entre estes modelos com as funções fornecidas pelo pacote `caret:.</p>
+<pre class="r"><code>resamps &lt;- resamples(list(rpart = rpartFit2,
+                          treebag = treebagFit,
+                          rf = rfFit,
+                          gbm = gbmFit,
+                          lm = lmFit 
+                          )) 
+bwplot(resamps)</code></pre>
+<p><img src="/post/2018-08-31-modelos-em-arvore/modelos-em-arvore_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<p>Com este gráfico é possível notar que o modelo de regressão linear múltipla apresentou resultados semelhantes aos de bagging e boosting.</p>
+<p>É importante frisar que a maneira como as variáveis foram selecionadas para o modelo de regressão linear múltipla através da importância das variáveis obtida com o modelo randomForest não é um padrão e existem diversos outros modos estatísticos de se de determinar a significância e a relação das variáveis para o modelo.</p>
+<p>Um possível problema neste método é que não detecta a multicolinearidade, que ocorre quando as variáveis explicativas estão fortemente correlacionadas entre si e a análise de regressão linear pode ficar confusa e desprovida de significado, pois há dificuldade em distinguir o efeito de uma ou outra variável explicativa sobre a variável resposta <span class="math inline">\(Y\)</span> devido à variâncias muito elevadas ou sinais inconsistentes.</p>
+<p>Essa proposta de aprender se divertindo e de maneira produtiva me deixa muito empolgado, espero que tenham se divertido como eu me diverti fazendo este post!</p>
+</div>
+</div>
+<div id="referências" class="section level1">
+<h1>Referências:</h1>
+<ul>
+<li><a href="https://www.datacamp.com/courses/machine-learning-with-tree-based-models-in-r">DataCamp Course:Machine Learning with Tree-Based Models in R</a></li>
+<li><a href="https://tinyurl.com/y796aa4t">Data Science <em>for</em> Business</a></li>
+<li><a href="https://lethalbrains.com/learn-ml-algorithms-by-coding-decision-trees-439ac503c9a4">Learn ML Algorithms by coding: Decision Trees</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/decision-trees-R">DataCamp Tutorials: Decision Trees in R</a></li>
+<li><a href="https://topepo.github.io/caret/">The caret Package - Max Kuhn</a></li>
+<li><a href="https://www.vooo.pro/insights/um-tutorial-completo-sobre-a-modelagem-baseada-em-tree-arvore-do-zero-em-r-python/">Um tutorial completo sobre modelagem baseada em árvores de decisão (códigos R e Python)</a></li>
+<li><a href="https://machinelearningmastery.com/tuning-machine-learning-models-using-the-caret-r-package/">Tuning Machine Learning Models Using the Caret R Package</a></li>
+<li><a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d">Gradient Boosting from scratch</a></li>
+<li><a href="https://machinelearningmastery.com/tune-machine-learning-algorithms-in-r/">Tune Machine Learning Algorithms in R (random forest case study)</a></li>
+<li><a href="https://www.stat.berkeley.edu/~breiman/RandomForests/cc_manual.htm">Random Forests - Leo Breiman and Adele Cutler</a></li>
+<li><a href="https://cran.r-project.org/web/packages/rpart/vignettes/longintro.pdf">An Introduction to Recursive Partitioning Using the RPART Routines - CRAN</a></li>
+</ul>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Analise Exploratória</category>
+      <category>Aprendizado Supervisionado</category>
+      <category>Data mining</category>
+      <category>Estatistica</category>
+      <category>Machine Learning</category>
+      <category>Prática</category>
+      <category>Probabilidade</category>
+      <category>R</category>
+      <category>modelo baseado em arvores</category>
+      <category>kaggle</category>
+      <category>Regressão</category>
+      <category domain="tag">Data Mining</category>
+      <category domain="tag">Estatistica</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">Correlacoes</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem estatistica</category>
+      <category domain="tag">Prática</category>
+      <category domain="tag">R</category>
+      <category domain="tag">regression</category>
+      <category domain="tag">caret</category>
+      <category domain="tag">xgboost</category>
+      <category domain="tag">random forest</category>
+      <category domain="tag">decisiontree</category>
     </item>
-    
   </channel>
 </rss>

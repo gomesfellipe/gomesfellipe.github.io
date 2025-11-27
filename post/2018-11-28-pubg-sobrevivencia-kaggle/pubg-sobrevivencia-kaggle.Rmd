@@ -4,40 +4,53 @@ author: Fellipe Gomes
 date: '2018-11-28'
 slug: []
 categories:
-  - Estatistica
-  - Gamification
-  - Analise Exploratória
-  - kaggle
-  - Prática
-  - Probabilidade
-  - Análise de Sobrevivência
-  - R
-  - Teoria
-  - Modelagem Estatistica
+- Fundamentos de Data Science
+- Inteligência Artificial
+- Machine Learning
+- Programação e Ferramentas
 tags:
-  - Data Mining
-  - Estatistica
-  - gamificacao
-  - gamification
-  - gomesfellipe
-  - kaggle
-  - modelagem
-  - modelagem estatistica
-  - R
-  - Teoria
-  - analise de sobrevivencia
-  - survivor
-description: 'O que interefere na probabilidade de um indivíduo sobreviver? Quais fatores apresentam efeito no risco de morte em um intervalo de tempo? Neste post buscaremos evidências estatísticas para responder estas perguntas em dados abertos do PUBG hospedados no Kaggle'
-featured: 'img1.png'
-featuredalt: 'Pic 20'
-featuredpath: 'date'
-linktitle: '' 
-type: "post"
+- analise-de-sobrevivencia
+- data-mining
+- estatistica
+- gamificacao
+- gamification
+- kaggle
+- modelagem
+- modelagem-estatistica
+- r
+- survivor
+description: O que interefere na probabilidade de um indivíduo sobreviver? Quais fatores
+  apresentam efeito no risco de morte em um intervalo de tempo? Neste post buscaremos
+  evidências estatísticas para responder estas perguntas em dados abertos do PUBG
+  hospedados no Kaggle
+featured: img.png
+featuredalt: Ilustração sobre análise de sobrevivência com dados do jogo pubg disponíveis
+  no kaggle
+featuredpath: date
+type: post
+image_preview: img.png
+schema_type: TechArticle
+educational_level: Intermediate
+learning_resource_type:
+- Tutorial
+- Code Example
+- Case Study
+og_image: https://gomesfellipe.github.io/img/2018/11/img.png
+og_type: article
+article_section: Artificial Intelligence
+twitter_card: summary_large_image
+twitter_image: https://gomesfellipe.github.io/img/2018/11/img.png
+keywords: analise-de-sobrevivencia, data-mining, estatistica, gamificacao, gamification,
+  kaggle, modelagem, modelagem-estatistica, r, survivor, data science, machine learning,
+  analytics
+robots: index, follow
+subject: Data Science and Machine Learning
+classification: Technology
 ---
 
 ```{r setup, include=FALSE}
 # Opcoes do RMarkdown
-knitr::opts_chunk$set(echo = TRUE, warning = F, message = F, fig.height = 5)
+knitr::opts_chunk$set(eval=F, echo = TRUE, warning = F, message = F, fig.height = 5)
 ```
 
 
@@ -182,12 +195,6 @@ Note que apenas um jogador de cada partida é selecionado na intenção de obter
 set.seed(1)
 pubg_tpp1 <- readRDS("pubg_tpp1.rds") %>% sample_n(200)%>% 
   select(-one_of(c("match_id", "player_name")))
-
-# Resumo dos dados:
-tibble(n = 1:nrow(pubg_tpp1)) %>% 
-  cbind(pubg_tpp1) %>%
-  inicio_e_fim_da_base() %>%
-  kable2()
 ```
 
 Veja a seguir de forma visual como as variáveis numéricas se correlacionam:
@@ -198,14 +205,11 @@ pubg_tpp1 %>%
   grafico_descritivo()
 ```
 
-Vejamos um resumo inicial da amostra:
+<center>
 
-```{r}
-pubg_tpp1 %>% 
-  select_if(~ is.numeric(.x) & length(table(.x))!=2) %>% 
-  sumario_custom_num() %>% 
-  kable2()
-```
+![](/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-4-1.png){width=80%}
+
+</center>
 
 ### Variável resposta
 
@@ -232,6 +236,12 @@ plot_grid(pubg_tpp1 %>%
           ncol = 1, nrow = 2, align = "v", rel_heights = c(3,1))
 ```
 
+<center>
+
+![](/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-6-1.png){width=80%}
+
+</center> 
+
 Note que possue uma [assimetria positiva](https://binged.it/2BAYX3s)
 
 ### Data Wrangling
@@ -245,6 +255,12 @@ pubg_tpp1 %>%
   cor() %>% 
   corrplot::corrplot(method = "number",type = "upper",diag = F, order = "hclust",number.cex = 0.7, title = "Correlation correlated numerics", mar=c(0,0,1,0))
 ```
+
+<center>
+
+![](/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-7-1.png){width=80%}
+
+</center> 
 
 É possível notar que apenas a variável `player_assists` não correlaciona-se com a variável resposta nem com as demais variáveis e `player_dmg` e `player_kills` são fortemente correlacionadas, isso indica que pode ser interessante remover uma delas ou juntar toda essa informação em uma única variável, veremos...
 
@@ -329,6 +345,12 @@ grid.arrange(
 
 ```
 
+<center>
+
+![](/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-9-1.png){width=80%}
+
+</center> 
+
 #### Transformações na base
 
 A seguir faremos as mudanças diretamente no dataset que estamos trabalhando:
@@ -408,14 +430,13 @@ grid.arrange(g1[[1]], g1[[2]], g1[[3]],g2[[1]], g2[[2]], g2[[3]], ncol=3, height
 
 ```
 
-Uma tabela com resumos de algumas estatísticas:
 
-```{r}
-pubg_tpp1 %>% 
-  select_if(~ is.numeric(.x) & length(table(.x))!=2) %>% 
-  sumario_custom_num() %>% 
-  kable2()
-```
+<center>
+
+![](/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-11-1.png){width=80%}
+
+</center> 
+
 
 <!-- A distribuição dos dados ordenada pela variável resposta `player_survive_time` : -->
 
@@ -436,6 +457,12 @@ grafico_descritivo(x = pubg_tpp1,
                    color='drive',
                    colors = c("grey", "#FCC14B"))
 ```
+
+<center>
+
+![](/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-13-1.png){width=80%}
+
+</center> 
 
 O fato do jogador ter dirigido ou não exibiu padrões interessantes, pode ser que seja significante no ajuste do modelo final.
 
@@ -521,6 +548,12 @@ survplot <- map2(resultado_km,
 grid.arrange(survplot[[1]], survplot[[2]] ,survplot[[3]], survplot[[4]], ncol=2)
 ```
 
+<center>
+
+![](/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-17-1.png){width=80%}
+
+</center> 
+
 O eixo horizontal (eixo x) representa o tempo em minutos, e o eixo vertical (eixo y) mostra a probabilidade de sobrevivência ou a proporção de jogadores que sobrevivem. As linhas representam curvas de sobrevivência dos dois grupos. 
 
 Uma queda vertical nas curvas indica um evento. No tempo zero, a probabilidade de sobrevivência é de 1,0 (ou 100% dos jogadores vivos). 
@@ -544,6 +577,12 @@ survplot <-
 arrange_ggsurvplots(survplot, print = TRUE,
                     ncol = 2, nrow = 2)
 ```
+
+<center>
+
+![](/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-18-1.png){width=80%}
+
+</center> 
 
 O risco cumulativo $H( t)$ pode ser interpretado como a força cumulativa da mortalidade.
 Em outras palavras, corresponde ao número de eventos que seriam esperados para cada indivíduo
@@ -602,13 +641,38 @@ final_model  <-
 summary(final_model)
 ```
 
+```
+## Call:
+## coxph(formula = Surv(player_survive_time) ~ player_performance + 
+##     player_dist + drive, data = pubg_tpp1, x = T, method = "breslow")
+## 
+##   n= 200, number of events= 200 
+## 
+##                       coef exp(coef) se(coef)       z Pr(>|z|)    
+## player_performance -0.7469    0.4738   0.1787  -4.179 2.92e-05 ***
+## player_dist        -1.7599    0.1721   0.1150 -15.307  < 2e-16 ***
+## driveyes            0.8832    2.4186   0.2091   4.225 2.39e-05 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##                    exp(coef) exp(-coef) lower .95 upper .95
+## player_performance    0.4738     2.1105    0.3338    0.6726
+## player_dist           0.1721     5.8117    0.1374    0.2156
+## driveyes              2.4186     0.4135    1.6055    3.6434
+## 
+## Concordance= 0.883  (se = 0.008 )
+## Likelihood ratio test= 362.7  on 3 df,   p=<2e-16
+## Wald test            = 274  on 3 df,   p=<2e-16
+## Score (logrank) test = 407.8  on 3 df,   p=<2e-16
+```
+
 No modelo ajustado note-se que existe uma associação negativa entre `player_performance` e mortalidade e entre `player_dist` e mortalidade (ou seja, o risco de morte diminui para jogadores que percorrem maiores distâncias e possuem melhor performance).
 
 As estimativas dos parâmetros representam o aumento no log esperado do risco relativo para cada aumento de uma unidade no preditor, mantendo os outros preditores constantes. 
 
-Para interpretabilidade, calcularemos as taxas de risco exponenciando das estimativas dos parâmetros. Para a `player_performance`, exp(`r final_model$coefficients[1]`)= `r exp(final_model$coefficients[1])`. Isso implica que diminui para `r percent(exp(final_model$coefficients[1]))` do valor original do risco esperado em relação a um aumento de uma unidade na performance, mantendo as demais variáveis constantes. A interpretação de `player_dist` em escala logarítimica é feita de maneira semelhante.`
+Para interpretabilidade, calcularemos as taxas de risco exponenciando das estimativas dos parâmetros. Para a `player_performance`, $exp(-0.7469196)= 0.4738239$. Isso implica que diminui para $47.38$ do valor original do risco esperado em relação a um aumento de uma unidade na performance, mantendo as demais variáveis constantes. A interpretação de `player_dist` em escala logarítimica é feita de maneira semelhante.`
 
-Já para os jogadores onde `drive` = 1 (que dirigiram durante a partida) existe uma relação positiva, como exp(`r final_model$coefficients[3]`)= `r exp(final_model$coefficients[3])`. O risco esperado corresponde à `r exp(final_model$coefficients[3])` do valor original nos que dirigiram em comparação aos que não dirigiram, mantendo as demais variáveis constantes.
+Já para os jogadores onde `drive` = 1 (que dirigiram durante a partida) existe uma relação positiva, como $exp(0.8831835)= 2.4185871$. O risco esperado corresponde à $2.4185871$ do valor original nos que dirigiram em comparação aos que não dirigiram, mantendo as demais variáveis constantes.
 
 ```{r, eval=F}
 map2_df(1:3,final_model$coefficients %>% names(),~
@@ -623,16 +687,13 @@ map2_df(1:3,final_model$coefficients %>% names(),~
 ) %>% kable2()
 ```
 
-<div class="col2">
 Em suma:
 
 * HR = 1: sem efeito
 * HR <1: Redução do risco
 * HR> 1: aumento do risco
 
----
 <iframe src="https://giphy.com/embed/2Us3iTghyffcfeI35h" width="100%" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-</div>
 
 ### Resíduos de Martingal e Deviance
 
@@ -673,6 +734,12 @@ grid.arrange(
 )
 ```
 
+<center>
+
+![](/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-22-1.png){width=80%}
+
+</center> 
+
 Interpretação:
 
 * **Martingal**: Parecido com deviance mais acentuado;
@@ -690,6 +757,12 @@ Para testar a suposição de riscos proporcionais:
 final_model %>% cox.zph %>% ggcoxzph
 ```
 
+<center>
+
+![](/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-23-1.png){width=80%}
+
+</center> 
+
 A partir da inspeção gráfica, não há padrão com o tempo.
 A suposição de riscos proporcionais parece ser suportada
 pelas covariáveis
@@ -704,17 +777,13 @@ Interessante notar que a curva de **sobrevivência** para os jogadores que dirig
 
 # Referências
 
-Carvalho,M.A., Andreozzi,V.L., Codec¸o,C.T., Campos,D.P., Barbosa,M.T.S., Shimakura,S.E., Análise de sobrevivência: Teoria e aplicações em saúde, Segunda Edição, Editora FIOCRUZ, Rio de Janeiro, 2011.
- 
-Colosimo,E.A., Giolo,S.R., Análise de sobrevivência aplicada, ABE-Projeto Fisher, São Paulo, 2010
+- Carvalho,M.A., Andreozzi,V.L., Codec¸o,C.T., Campos,D.P., Barbosa,M.T.S., Shimakura,S.E., Análise de sobrevivência: Teoria e aplicações em saúde, Segunda Edição, Editora FIOCRUZ, Rio de Janeiro, 2011.
+- Colosimo,E.A., Giolo,S.R., Análise de sobrevivência aplicada, ABE-Projeto Fisher, São Paulo, 2010
+- Lewis,E.E., Introduction to reliability engineering, John Wiley, New York, 1987
+- <http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Survival/BS704_Survival6.html>
+- <http://www.sthda.com/english/wiki/cox-model-assumptions>
 
-Lewis,E.E., Introduction to reliability engineering, John Wiley, New York, 1987
-
-<http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Survival/BS704_Survival6.html>
-
-<http://www.sthda.com/english/wiki/cox-model-assumptions>
-
-TODO - curiosidade - leituras futuras:
+Cuiriosidades / Leituras futuras:
 
 * Evaluating Random Forests for Survival Analysis Using Prediction Error Curves:  <https://www.jstatsoft.org/article/view/v050i11>
 * randomForestSRC: <https://cran.r-project.org/web/packages/randomForestSRC/index.html>
@@ -724,4 +793,4 @@ TODO - curiosidade - leituras futuras:
 * Continuous and Discrete Time Survival Analysis: Neural Network
 Approaches: <http://pcwww.liv.ac.uk/~afgt/eleuteri_lyon07.pdf>
 * Cox Proportional Hazards Model - h2O Documentation: <http://s3.amazonaws.com/h2o-release/h2o/master/1579/docs-website/datascience/coxph.html>
-* Introduction to H2OCoxPH: <https://www.slideshare.net/0xdata/introduction-to-h2ocoxph> 
+* Introduction to H2OCoxPH: <https://www.slideshare.net/0xdata/introduction-to-h2ocoxph>  

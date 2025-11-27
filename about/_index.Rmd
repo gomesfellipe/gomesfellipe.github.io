@@ -1,6 +1,9 @@
 ---
 title: "Curriculum Vitae"
 date: "1993-12-14"
+tags: []
+categories: ["sobre"]
+description: "Curriculum vitae completo de Fellipe Carvalho Gomes - Cientista de Dados especializado em Machine Learning e Inteligência Artificial"
 ---
 
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
@@ -12,7 +15,7 @@ date: "1993-12-14"
 <i class="fa fa-download"></i> Download da versão em pdf [aqui](https://www.dropbox.com/scl/fi/s7lfi4pl5hchctcq6hfyd/cv_fellipe_gomes.pdf?rlkey=mr70x6a6sdt5cbu4isztvzznh&dl=0)
 
 <!-- * <i class='fa fa-birthday-cake'></i>   14/12/1993  -->
-<!-- * <i class='fa fa-whatsapp'></i>  (21) 99209-9067 --> 
+<!-- * <i class='fa fa-whatsapp'></i>  (21) 99209-9067 -->
 <!-- * <i class='fa fa-google'></i>  <gomes.fellipe1@gmail.com> -->
 <!-- * <i class='fa fa-align-justify'></i>   <http://lattes.cnpq.br/2860433689709342> -->
 * <i class='fa fa-github-alt'></i> [github.com/gomesfellipe](github.com/gomesfellipe)
@@ -57,26 +60,26 @@ Python e R, Modelagem Estatística, Machine Learning, Deep Learning, GenAI, NLP,
 ---
 
 # <i class='fa fa-institution'></i> Formação Acadêmica
- 	
+
 * Curso de Graduação em Estatística– concluído em 2018 - UFF - Universidade Federal Fluminense
 * MBA em Data Science e Big Data – concluído em 2020 - FGV - Fundação Getúlio Vargas
 
 ---
 
-# <i class="fa fa-toggle-on"></i> Atual 
+# <i class="fa fa-toggle-on"></i> Atual
 
-## <span class="iconify" data-icon="simple-icons:accenture" data-inline="false"></span> Data Science Specialist - Accenture   
+## <span class="iconify" data-icon="simple-icons:accenture" data-inline="false"></span> Data Science Specialist - Accenture
 
 #### <span class="iconify" data-icon="clarity:date-line" data-inline="false"></span> 08 / 2020 - até o momento (Tempo Integral)
 
 -  Desenvolveu modelos de decisão para otimização de políticas de estoques e previsão de demanda em postos avançados, atuando como SME em projeto de Supply Chain no setor de bens de consumo.
--  Aplicou IA Generativa para capturar e estruturar dados não estruturados (ligações, mensagens), promovendo integração entre sistemas e qualidade de dados em projeto de transformação digital no setor de energia. -  Automatizou o cálculo e a visualização de KPIs comerciais, consolidando bases multi-origem e estruturando dados para torre de controle em BI no setor alimentício. 
--  Criou modelos de machine learning robustos para detecção de anomalias em dados de monitoramento geotécnico, gerando alertas e insights para estruturas críticas no setor de mineração. 
--  Desenvolveu modelo de risco para detecção precoce de lesões por pressão em pacientes hospitalizados, auxiliando na prevenção e na gestão clínica no setor de saúde. 
--  Lidou com dados em larga escala no Databricks e aplicou técnicas de NLP para identificar padrões de falhas em equipamentos similares, otimizando a gestão de ativos em projeto para Accenture LATAM. 
--  Criou modelos preditivos para antecipar falhas e anomalias em sistemas de produção no setor financeiro, melhorando a confiabilidade operacional. 
--  Desenvolveu modelos preditivos com análise geoespacial para previsão de pontos críticos de furtos em ferrovias e portos de mineração, reduzindo perdas operacionais e aumentando a segurança. 
-    
+-  Aplicou IA Generativa para capturar e estruturar dados não estruturados (ligações, mensagens), promovendo integração entre sistemas e qualidade de dados em projeto de transformação digital no setor de energia. -  Automatizou o cálculo e a visualização de KPIs comerciais, consolidando bases multi-origem e estruturando dados para torre de controle em BI no setor alimentício.
+-  Criou modelos de machine learning robustos para detecção de anomalias em dados de monitoramento geotécnico, gerando alertas e insights para estruturas críticas no setor de mineração.
+-  Desenvolveu modelo de risco para detecção precoce de lesões por pressão em pacientes hospitalizados, auxiliando na prevenção e na gestão clínica no setor de saúde.
+-  Lidou com dados em larga escala no Databricks e aplicou técnicas de NLP para identificar padrões de falhas em equipamentos similares, otimizando a gestão de ativos em projeto para Accenture LATAM.
+-  Criou modelos preditivos para antecipar falhas e anomalias em sistemas de produção no setor financeiro, melhorando a confiabilidade operacional.
+-  Desenvolveu modelos preditivos com análise geoespacial para previsão de pontos críticos de furtos em ferrovias e portos de mineração, reduzindo perdas operacionais e aumentando a segurança.
+
 ---
 
 <!-- # <i class='fa fa-certificate'></i> Experiência Profissional -->
@@ -180,12 +183,12 @@ Python e R, Modelagem Estatística, Machine Learning, Deep Learning, GenAI, NLP,
 # <i class="fa fa-paperclip"></i> Certificados
 
 Cursos de Verão:
-   
+
    * [Curso de Verão 2018 - UFRJ: Introdução à Probabilidade](https://www.dropbox.com/preview/Certificados/Certificado%20UFRJ%20Curso%20de%20Verao%20Probabilidade.pdf)
    * [Curso de Verão 2019 - FGV: Introdução à Análise Real na Reta](https://www.dropbox.com/preview/Certificados/Certificado%20UFRJ%20Curso%20de%20Verao%20Probabilidade.pdf)
    * [Curso de Verão 2020 - FGV: Introdução à Análise Real na Reta](https://www.dropbox.com/preview/Certificados/Certificado%20UFRJ%20Curso%20de%20Verao%20Probabilidade.pdf)
 
-[Coursera](https://www.coursera.org/): 
+[Coursera](https://www.coursera.org/):
 
 * [Generative AI for Everyone](https://www.deeplearning.ai/courses/generative-ai-for-everyone/)
 * [Understanding and Applying Text Embeddings](https://www.deeplearning.ai/short-courses/google-cloud-vertex-ai/)
@@ -202,11 +205,11 @@ Cursos de Verão:
    * [Introdução ao R com C++](https://www.dropbox.com/s/f2r40ewmst2c2i0/Certificado%20curso%20RCPP.png?dl=0)
    * [Deep Learning](https://www.dropbox.com/s/cubloe585jf3c2d/certificado%20deep%20learning%20curso%20r.png?dl=0)
    * [Séries Temporais](https://www.dropbox.com/s/b9n9gh9fnk9np43/certificado_cursor_series_temporais.pdf?dl=0)
-   
+
 Data Science Academy:
 
    * [Programa de mentoria em Data Science](https://www.dropbox.com/s/url9hgx2d785hzs/Certificado%20Mentorado%20Fellipe%20Carvalho%20Gomes.pdf?dl=0)
-   * [Formação Cientista de dados](https://www.dropbox.com/s/73uafvq71nglnw4/Certificado%20FCD%20Fellipe%20Carvalho%20Gomes.pdf?dl=0) 
+   * [Formação Cientista de dados](https://www.dropbox.com/s/73uafvq71nglnw4/Certificado%20FCD%20Fellipe%20Carvalho%20Gomes.pdf?dl=0)
       * [Big Data Analytics com R e Microsoft Azure Machine Learning](https://www.dropbox.com/s/rngqhg668m02dbn/certificate-big-data-analytics-com-r-e-microsoft-azure-machine-learning-57b1584047d7dd80cc8b4570.pdf?dl=0)
       * [Business Analytics](https://www.dropbox.com/s/48ofdzdj2xhonqa/certificate-business-analytics-58e9969d5e4cde52038b4570.pdf?dl=0)
       * [Visualização de dados e design de Dashboards](https://www.dropbox.com/s/rd61kwbu4fo2ae6/certificate-visualizacao-de-dados-e-design-de-dashboards-58e709435e4cdefbe18b4572.pdf?dl=0)
@@ -214,7 +217,7 @@ Data Science Academy:
       * [Big Data real time analytics com Python e Spark](https://www.dropbox.com/s/0czj5qddk5fqoyc/certificate-big-data-real-time-analytics-com-python-e-spark-57e4c3bd47d7dd281c8b4568.pdf?dl=0)
       * [Machine Learning](https://www.dropbox.com/s/t3ijls1lq55nth9/certificate-machine-learning-588c218f5e4cdee0af8b456d.pdf?dl=0)
       * [Big Data Analytics com R e Microsoft Azure Machine Learning](https://www.dropbox.com/s/rngqhg668m02dbn/certificate-big-data-analytics-com-r-e-microsoft-azure-machine-learning-57b1584047d7dd80cc8b4570.pdf?dl=0)
-   
+
 DataCamp:
 
    * [Kaggle Python Tutorial on Machine Learning Course](https://www.datacamp.com/statement-of-accomplishment/course/66df173370104b92f62ff831fa43e8415d32a465)
@@ -251,7 +254,7 @@ Udemy:
    * [Criando Páginas Web com o GitHub Pages - Udemy](https://www.udemy.com/certificate/UC-CNH02APP/?utm_campaign=email&utm_source=sendgrid.com&utm_medium=email)
    * [Formação Cientista de Dados - Udemy](https://www.udemy.com/certificate/UC-OCF4FMC6/)
    * [Super Formação Inteligência Artificial e Machine Learning - Udemy](https://www.udemy.com/certificate/UC-UREKLP27/)
-   
+
 Apresentações:
 
 * [Ciência de Dados - Uma Visão Geral](https://www.dropbox.com/s/svm5zwgzkkvadu8/certificado-apresentacao-o-que-e-ciencia-de-dados-ias-uff.pdf?dl=0)
@@ -260,7 +263,7 @@ Cursos Gerais:
 
 * [Splunk 7.x Fundamentals Part 1 (IOD)](https://www.dropbox.com/s/ad2n1b1zx1kaon5/splunk_1.pdf?dl=0)
 * [Splunk 7.x Fundamentals Part 2 (IOD)](https://www.dropbox.com/s/0u3qp8bifhtznbb/splunk_2.pdf?dl=0)
-   
+
 Desenvolvimento Pessoal:
 
    * [Inteligência Emocional - Conquer](https://www.dropbox.com/s/y9dttdfkdzn2yk0/conquer_inteligencia_emocional.pdf?dl=0)

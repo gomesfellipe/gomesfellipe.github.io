@@ -1,78 +1,166 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Automação on Fellipe Gomes</title>
+    <title>Automação on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/</link>
-    <description>Recent content in Automação on Fellipe Gomes</description>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 02 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Criando Audiobooks com Inteligência Artificial: book-to-audiobook</title>
-      <link>https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/</guid>
-      <description>Por que Audiobooks? O Que São Audiobooks Criados com IA? Como criar seu audiobook com IA Preparar o arquivo de texto Traduzir conteúdo para PT-BR (opcional) Convertendo o Texto em Áudio com IA FAQ Questões de Ética e Legalidade Conclusão Por que Audiobooks? Pela sua forma conveniente de consumir conhecimento e entretenimento, os audiobooks estão se tornando cada vez mais populares. Conforme a última pesquisa da Câmara Brasileira do Livro, os livros digitais cresceram 15% de 2021 para 2022.</description>
-    </item>
-    
-    <item>
-      <title>Extração de informações de imagens com IA Generativa</title>
-      <link>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</guid>
-      <description>Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava Preparando o Ambiente Carregar dados Carregar modelo Prompt Engineering Inferência Avaliar modelo Conclusão Referências Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava GenAI refere-se a modelos de inteligência artificial capazes de gerar conteúdo novo e criativo a partir de dados de entrada. Seu uso está revolucionando a maneira como processamos dados não estruturados, como imagens, áudios, textos, vídeos, etc.</description>
-    </item>
-    
-    <item>
-      <title>Vou te provar que da para fazer Grafos bonitos em R!</title>
-      <link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
-      <description>Introdução e contexto O que são Grafos? Como contruir um? Carregar dependências Fonte dos dados NER - Named Entity Recognition Preparar dados Bônus Conclusão Outras bibliotecas para construção de grafos Introdução e contexto Durante os anos de 2020 e 2021 fiz um MBA Executivo em Business Analytics e Big Data na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.</description>
-    </item>
-    
-    <item>
-      <title>Otimizando pipelines que envolvem dados desbalanceados</title>
-      <link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link>
-      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
-      <description>O problema envolvendo dados desbalanceados Objetivo Dependências Preparar dados Breve análise exploratória Modelagem Baselines Preparar Pipeline de dados com workflowsets Benchmark Conclusão Referências O problema envolvendo dados desbalanceados A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:
-Detecção de fraude; Previsão de inadimplência; Identificador de spam; Busca por anomalias/outliers; Detecção de possíveis roubos/furtos/vulnerabilidades; Previsão de churn; etc Este tipo de tarefa representa um enorme desafio para modelagem preditiva pois a maioria dos algoritmos de machine learning foram projetados sob suposição de haver um número igual de exemplos para cada classe de interesse.</description>
-    </item>
-    
-    <item>
-      <title>Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</title>
-      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/</guid>
-      <description>Por que investir? Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?
-Estamos no final do primeiro trimestre de 2020 e desde 2019 já liam-se notícias como esta abaixo que levam à reflexão sobre reeducação financeira pois alertam sobre a necessidade da busca por novas oportunidades de investimento.</description>
-    </item>
-    
-    <item>
-      <title>Como automatizar relatórios longos e repetitivos com RMarkdown</title>
-      <link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown.md/relatorios-automaticos-com-rmarkdown/</guid>
-      <description>Problema de negócio Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passsar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.
-Com a linguagem R, escrever relatórios estatísticos utilizando RMarkdown acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.</description>
-    </item>
-    
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Mon, 04 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/categories/automa%C3%A7%C3%A3o/" rel="self" type="application/rss+xml" />
     <item>
       <title>Gerenciando arquivos do Dropbox com R</title>
       <link>https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/</guid>
       <description>O Dropbox Armazenar arquivos na nuvem é uma prática muito comum nos dias de hoje. O Dropbox é um dos muitos exemplos de repositórios baseados no conceito de “computação em nuvem”, que oferece o serviço para compartilhar e armazenar arquivos.
 Não é novidade que a “computação em nuvem” tem impulsionado muitos projetos, em especial projetos de Big Data ocorrendo em diversos setores e existe um volume absurdo de dados sendo gerados.</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<div id="o-dropbox" class="section level1">
+<h1>O Dropbox</h1>
+<!-- ![](/img/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/imagem1.png) -->
+<p>Armazenar arquivos na nuvem é uma prática muito comum nos dias de hoje. O Dropbox é um dos muitos exemplos de repositórios baseados no conceito de “computação em nuvem”, que oferece o serviço para compartilhar e armazenar arquivos.</p>
+<p>Não é novidade que a “computação em nuvem” tem impulsionado muitos projetos, em especial projetos de Big Data ocorrendo em diversos setores e existe um volume absurdo de dados sendo gerados.</p>
+<p>Então essa habilidade de lidar com arquivos em nuvem parece bem razoável para um cientista de dados. Mesmo que nossos repositórios não sejam repositórios que se qualifiquem como “Big Data” é interessante como algumas práticas podem ser úteis de uma maneira geral.</p>
+<p>Já existem diversas opções de para extrair grandes volumes de dados que estão disponíveis gratuitamente, como o projeto da <a href="https://www.elastic.co/">elastic</a> com a <a href="https://www.elastic.co/webinars/introduction-elk-stack">stack ELK</a>.</p>
+<p>Mas quero abordar aqui sobre o pacote <a href="https://cran.r-project.org/web/packages/rdrop2/rdrop2.pdf">rdrop2</a>, ele apresenta funções muito úteis para gerenciar os arquivos armazenados na nuvem diretamente de dentro do RStudio.</p>
+</div>
+<div id="o-pacote-rdrop2" class="section level1">
+<h1>O pacote <code>rdrop2</code></h1>
+<p>Procurei pela internet alguma página que fornecesse as instruções do pacote em português mas não encontrei. Então trago aqui algumas das instruções e funções úteis que estão disponíveis no <a href="https://github.com/karthik/rdrop2">manual do pacote</a>.</p>
+<div id="configurando-o-serviço" class="section level2">
+<h2>Configurando o serviço:</h2>
+<p>Primeiramente é necessário instalar o pacote cado ainda não o tenha feito</p>
+<pre class="r"><code>install.packages(&quot;rdrop2&quot;)
+devtools::install_github(&quot;karthik/rdrop2&quot;) # ou a versão de desenvolvimento</code></pre>
+<p>Feito isso já podemos carregar o pacote:</p>
+<pre class="r"><code>library(rdrop2)</code></pre>
+<p>Para que o dropbox libere o uso dos arquivos é necessária a autenticação, que pode ser feita através deste comando:</p>
+<pre class="r"><code>drop_auth()</code></pre>
+<p>Isso irá iniciar o seu navegador e solicitar o acesso à sua conta Dropbox, ai é só fazer o login (caso ainda não esteja logado) e em seguida podemos retornar ao R.</p>
+<p>Podemos salvar o token para o do uso local ou remoto:</p>
+<pre class="r"><code>token &lt;- drop_auth()
+saveRDS(token, file = &quot;token.rds&quot;)</code></pre>
+</div>
+<div id="conferindo-as-informações-da-conta-dropbox" class="section level2">
+<h2>Conferindo as informações da conta Dropbox</h2>
+<p>Podemos ver quais arquivos estão presentes no nosso dropbox através dos comandos:</p>
+<pre class="r"><code>library(dplyr)       # Para facilitar a manipulação dos dados
+drop_acc() %&gt;%       # Selecionando o diretório
+  data.frame() %&gt;%   # Convertendo para data.frame
+  names()            # Solicitando informações da conta Dropbox</code></pre>
+</div>
+<div id="obtendo-listagem-de-diretório-dropbox" class="section level2">
+<h2>Obtendo listagem de diretório Dropbox</h2>
+<p>Para acessar as pastas ou arquivos em seu dropbox, podemos utilizar a função <code>drop_dir()</code>, veja:</p>
+<pre class="r"><code>#Listagem do diretório Dropbox
+diretorio=drop_dir()
+
+#Para ver os arquivos contidos no diretorio:
+diretorio$name
+
+#ou especificar um caminho
+drop_dir(&#39;RPubs/dplyr&#39;)$name
+
+#Listagem de diretório de filtro por tipo de objeto (arquivo / pasta)
+drop_dir() %&gt;% 
+  filter(.tag == &quot;folder&quot;)</code></pre>
+</div>
+<div id="criando-uma-pasta-no-dropbox" class="section level2">
+<h2>Criando uma pasta no Dropbox</h2>
+<p>Podemos criar pastas no Dropbox de maneira muito conveniente sem ter de de sair do RStudio de forma tão simples como utilizar um comando <code>drop_creat()</code>, veja:</p>
+<pre class="r"><code>#Nome da pasta que será criada será &quot;drop_test&quot; veja:
+drop_create(&#39;drop_test&#39;)
+
+#Para acessar a posição de onde a pasta foi salva:
+which(drop_dir()$name==&#39;drop_test&#39;)
+
+#Acessando a pasta pela posição:
+drop_dir()$name[86]
+
+#Também podemos fornecer o caminho completo onde ele precisa ser criado:
+drop_create(&#39;drop_test/drop_test&#39;)</code></pre>
+</div>
+<div id="carregando-um-arquivo-no-dropbox" class="section level2">
+<h2>Carregando um arquivo no Dropbox</h2>
+<p>Da mesma maneira que criar pastas no Dropbox, para salvar basta utilizar o comando <code>drop_upload()</code>, veja:</p>
+<pre class="r"><code>#escrevendo um arquivo csv:
+write.csv(trees, &#39;trees.csv&#39;)
+
+#carregando o arquivo para a pasta raiz:
+drop_upload(&#39;trees.csv&#39;)
+
+# ou carregar para uma pasta específica
+drop_upload(&#39;trees.csv&#39;, path = &quot;drop_test/drop_test&quot;)</code></pre>
+<p>Isso também pode ser fazer isso para qualquer outro tipo de arquivo e arquivos grandes são suportados independentemente da sua memória.</p>
+</div>
+<div id="baixando-um-arquivo" class="section level2">
+<h2>Baixando um arquivo:</h2>
+<p>Muito simples, veja:</p>
+<pre class="r"><code>#Baixe um arquivo
+drop_download(&#39;trees.csv&#39;)
+
+# ou adicionar caminho se o arquivo não estiver na raiz
+drop_download(&quot;drop_test/drop_test/trees.csv&quot;)
+
+#Se desejar subescrever o arquivo ja existente:
+drop_download(&quot;drop_test/drop_test/trees.csv&quot;, overwrite = T)</code></pre>
+</div>
+<div id="deletando-um-arquivo" class="section level2">
+<h2>Deletando um arquivo</h2>
+<p>Tão fácil quando apertar <code>DELETE</code>.</p>
+<pre class="r"><code>#Delete um arquivo:
+drop_delete(&#39;drop_test/drop_test/trees.csv&#39;)</code></pre>
+</div>
+<div id="movendo-um-arquivo" class="section level2">
+<h2>Movendo um arquivo</h2>
+<p>As vezes desejamos apenar mover um arquivo, continua sendo bastante simples:</p>
+<pre class="r"><code>#Criando um novo diretório
+drop_create(&quot;drop_test/new_folder&quot;)
+
+#Mova um arquivo:
+drop_move(&quot;drop_test/drop_test/trees.csv&quot;, &quot;drop_test/new_folder/trees.csv&quot;)</code></pre>
+</div>
+<div id="copiando-um-arquivo" class="section level2">
+<h2>Copiando um arquivo</h2>
+<pre class="r"><code>#Criando um novo repositorio novamente:
+drop_create(&quot;drop_test/new_folder2&quot;)
+
+#Copiando o arquivo para lá:
+drop_copy(&quot;drop_test/new_folder/trees.csv&quot;, &quot;drop_test/new_folder2/trees.csv&quot;)</code></pre>
+</div>
+<div id="lendo-arquivos-csv-diretamente-do-dropbox" class="section level2">
+<h2>Lendo arquivos csv diretamente do Dropbox</h2>
+<p>Essa é extremamente útil para não ter que ficar baixando os arquivos toda hora</p>
+<pre class="r"><code>#Escrevendo um arquivo csv
+write.csv(cars, file = &quot;cars.csv&quot;)
+
+#Enviando para o dropbox:
+drop_upload(&quot;cars.csv&quot;,&quot;drop_test/new_folder/&quot;)</code></pre>
+<p>Agora vamos ler isso de volta em uma sessão R com o comando <code>drop_read_csv()</code></p>
+<pre class="r"><code># Baixando o arquivo:
+new_cars &lt;- drop_read_csv(&quot;drop_test/new_folder/cars.csv&quot;)</code></pre>
+<p>Observe que há um download silencioso acontecendo com seu diretório temporário.</p>
+</div>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/">Gerenciando arquivos do Dropbox com R</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Automação</category>
+      <category>Prática</category>
+      <category>R</category>
+      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">Prática</category>
+      <category domain="tag">R</category>
+      <category domain="tag">rmarkdown</category>
+      <category domain="tag">dropbox</category>
     </item>
-    
   </channel>
 </rss>

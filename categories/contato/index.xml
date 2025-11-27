@@ -1,0 +1,28 @@
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>contato on Fellipe Gomes - Data Science Blog</title>
+    <link>https://gomesfellipe.github.io/categories/contato/</link>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/categories/contato/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Contato</title>
+      <link>https://gomesfellipe.github.io/contact/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/contact/</guid>
+      <description>Entre em contato comigo para discussões sobre Data Science, Machine Learning e projetos de IA</description>
+      <content:encoded>&lt;![CDATA[
+        
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/contact/">Contato</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>contato</category>
+    </item>
+  </channel>
+</rss>
