@@ -47,13 +47,13 @@ robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology
 ---
-
+ 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(python.reticulate = FALSE, eval = FALSE)
 ```
 
 <!-- Neste post, vamos mergulhar na criação de uma equipe de agentes de Inteligência Artificial (IA) que trabalham juntos para coletar dados, analisar tendências e decidir se é hora de alertar sobre oportunidades de investimento no Bitcoin. Utilizaremos Python, o framework LangChain e sua extensão LangGraph para orquestrar esses agentes, além de técnicas de Prompt Engineering para garantir que cada "membro" da equipe execute sua função com precisão.  -->
-
+ 
 <!-- Você já se perguntou como acompanhar o volátil mercado de Bitcoin sem passar horas analisando gráficos e indicadores complexos?  -->
 
 <!-- Prepare-se para descobrir como a IA generativa pode se tornar sua aliada na análise de criptomoedas! -->
