@@ -1,0 +1,288 @@
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>llama-cpp on Fellipe Gomes - Data Science Blog</title>
+    <link>https://gomesfellipe.github.io/tags/llama-cpp/</link>
+    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
+    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
+    <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gomesfellipe.github.io/tags/llama-cpp/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Como criar um agente com LLM local de graça e sem depender de APIs</title>
+      <link>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      <guid>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</guid>
+      <description>Neste post vamos rodar o modelo Qwen2.5 completamente offline em um Mac de uso pessoal, expô-lo como uma API OpenAI-compatible localmente e construir um agente com LangChain usando tools e saída estruturada sem gastar um centavo</description>
+      <content:encoded>&lt;![CDATA[
+        
+
+
+<div id="por-que-rodar-llms-localmente" class="section level1">
+<h1>POR QUE RODAR LLMs LOCALMENTE?</h1>
+<p>Nos últimos anos, o mundo dos modelos de linguagem de grande porte (LLMs) deixou de ser um território exclusivo das gigantes americanas. Uma leva de modelos open-weight de origem chinesa como o <a href="https://huggingface.co/Qwen">Qwen</a> (Alibaba), o <a href="https://huggingface.co/deepseek-ai">DeepSeek</a> e o <a href="https://huggingface.co/01-ai">Yi</a> chegaram com qualidade surpreendente e, mais importante, com pesos disponíveis publicamente. Li sobre alguns deles em <a href="https://elisaterumi.substack.com/p/5-modelos-chineses-que-voce-precisa">um post que apareceu no meu LinkedIn</a> e fiquei curioso para testar: será que dá para rodar um desses modelos localmente no meu Mac e ainda plugar ele num agente LangChain funcional?</p>
+<p>Mas <strong>porque</strong> alguém escolheria rodar um LLM localmente ao invés de simplesmente chamar uma API? A resposta vai depender da necessidade do usuário:</p>
+<ul>
+<li><strong>Privacidade de dados:</strong> nenhum token sai da sua máquina. Para dados sensíveis como contratos, código proprietário, prontuários e isso pode ser um requisito não negociável.</li>
+<li><strong>Custo zero de inferência:</strong> sem cobrança por token, sem surpresas no cartão de crédito no fim do mês.</li>
+<li><strong>Funcionamento offline:</strong> avião, servidor sem acesso externo, ambiente air-gapped. O modelo simplesmente roda.</li>
+<li><strong>Controle total:</strong> você decide qual versão do modelo usa, quando atualiza, como configura.</li>
+</ul>
+<p>Claro que esse caminho tem seus trade-offs. Hardware limitado significa que modelos maiores (70B+) estão fora de alcance sem uma GPU dedicada. A <strong>quantização</strong> (processo de reduzir a precisão dos pesos de 32 bits para 4 ou 8 bits) é o que torna possível rodar modelos de bilhões de parâmetros em <em>hardware consumer</em>, mas com alguma perda de qualidade e <strong>latência</strong>, que costuma ser maior do que a de uma API otimizada em data center. Mas para prototipagem, estudos e contextos onde privacidade importa, essa equação ainda faz muito sentido.</p>
+<p>📌 Em posts anteriores usei o <a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/">GPT-4o-mini via API da OpenAI</a> para construir agentes. Aqui vamos por um caminho diferente: zero API externa, zero custo, tudo rodando localmente.</p>
+</div>
+<div id="o-ecossistema-qwen2.5-gguf-e-llama.cpp" class="section level1">
+<h1>O ECOSSISTEMA: QWEN2.5, GGUF E LLAMA.CPP</h1>
+<div id="o-modelo-qwen2.5" class="section level2">
+<h2>O modelo: Qwen2.5</h2>
+<p>O <a href="https://huggingface.co/Qwen">Qwen2.5</a> é uma família de modelos desenvolvida pela Alibaba, disponível em múltiplos tamanhos (0.5B até 72B parâmetros) e com versões especializadas para código, matemática e visão computacional. Para este projeto, escolhi o <strong>Qwen2.5-4B-Instruct</strong> que tem um ponto de equilíbrio razoável entre capacidade e consumo de memória para um MacBook caseiro com Apple Silicon.</p>
+</div>
+<div id="o-formato-gguf" class="section level2">
+<h2>O formato: GGUF</h2>
+<p>O <a href="https://github.com/ggerganov/llama.cpp/blob/master/docs/gguf.md">GGUF</a> é o formato padrão para rodar modelos quantizados via <code>llama.cpp</code>. Ele empacota os pesos do modelo junto com os metadados necessários para inferência em um único arquivo portátil. A escolha da variante de quantização define o trade-off entre tamanho e qualidade:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variante</th>
+<th>Precisão</th>
+<th>Tamanho (4B)</th>
+<th>Qualidade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>q4_k_m</code></td>
+<td>4 bits</td>
+<td>~2.5 GB</td>
+<td>boa</td>
+</tr>
+<tr class="even">
+<td><code>q5_k_m</code></td>
+<td>5 bits</td>
+<td>~3.1 GB</td>
+<td>melhor</td>
+</tr>
+<tr class="odd">
+<td><code>q8_0</code></td>
+<td>8 bits</td>
+<td>~4.5 GB</td>
+<td>próxima do original</td>
+</tr>
+</tbody>
+</table>
+<p>Para este experimento usei <code>q4_k_m</code>, que cabe confortavelmente na memória unificada do M1 e ainda entrega respostas coesas.</p>
+</div>
+<div id="a-infraestrutura-llama.cpp-llama-server" class="section level2">
+<h2>A infraestrutura: llama.cpp + llama-server</h2>
+<p>O <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> é uma biblioteca de inferência em C++ otimizada para rodar LLMs em hardware commodity, incluindo suporte a aceleração via <strong>Metal</strong> no Apple Silicon. Um <code>setup_environment.sh</code> do projeto já automatiza toda a configuração:</p>
+<pre class="bash"><code># Instalar llama.cpp via Homebrew
+# (com suporte a Metal para Apple Silicon)
+brew install llama.cpp
+
+# Instalar dependências Python (versões pinadas no requirements.txt)
+pip install -r requirements.txt
+
+# Baixar o modelo do Hugging Face
+huggingface-cli download Qwen/Qwen2.5-4B-Instruct-GGUF \
+  qwen2.5-4b-instruct-q4_k_m.gguf \
+  --local-dir ~/.hf_cache/</code></pre>
+<p>O <code>requirements.txt</code> do repositório já traz as versões exatas utilizadas neste projeto:</p>
+<pre><code>langchain==1.2.10
+langchain_openai==1.1.10
+langchain-core==1.2.13
+langchain-community==0.4.1
+langgraph==1.0.8
+llama-cpp-python==0.3.16
+huggingface_hub==1.4.1
+pydantic==2.12.5</code></pre>
+<p>Com o modelo baixado, subir o servidor é uma única linha:</p>
+<pre class="bash"><code># Subir um servidor local com interface compatível com a API OpenAI
+llama-server \
+  -m ~/.hf_cache/qwen2.5-4b-instruct-q4_k_m.gguf \
+  --port 8000 \
+  -ngl 1</code></pre>
+<p>A flag <code>-ngl 1</code> ativa o offload de uma camada para a GPU via Metal, nesse caso suficiente para nosso teste aproveitar a aceleração do M1 sem saturar a memória (o usual é ngl -99 ou ngl-1 para usar todas as camadas). A partir daí, o servidor expõe um endpoint REST em <code>http://localhost:8000/v1</code> com a mesma interface da API da OpenAI. Esse detalhe é o que torna tudo o que vem a seguir possível.</p>
+</div>
+</div>
+<div id="conectando-ao-langchain-via-api-openai-compatible" class="section level1">
+<h1>CONECTANDO AO LANGCHAIN VIA API OPENAI-COMPATIBLE</h1>
+<p>O LangChain tem uma abstração chamada <code>ChatOpenAI</code> que, por padrão, aponta para os servidores da OpenAI, mas aceita uma <code>openai_api_base</code> customizada. Basta trocar a URL base e o ecossistema inteiro funciona sem alteração nenhuma:</p>
+<pre class="python"><code>from langchain_openai import ChatOpenAI
+
+model = ChatOpenAI(
+    model=&quot;qwen2.5-4b-instruct&quot;,
+    openai_api_base=&quot;http://localhost:8000/v1&quot;,
+    openai_api_key=&quot;not-needed&quot;,
+    temperature=0,
+)</code></pre>
+<p>Duas observações sobre esta configuração:</p>
+<ul>
+<li><strong><code>openai_api_key="not-needed"</code></strong>: o <code>llama-server</code> não implementa autenticação, então qualquer string serve. O campo apenas precisa estar preenchido para satisfazer a validação do cliente.</li>
+<li><strong><code>temperature=0</code></strong>: tecnicamente, determinismo total em LLMs envolve outros fatores (como seed e top_k), mas manter <code>temperature=0</code> elimina a amostragem aleatória e aproxima o modelo de uma resposta “mais racional” ou “menos criativa”.</li>
+</ul>
+</div>
+<div id="definindo-ferramentas-com-tool" class="section level1">
+<h1>DEFININDO FERRAMENTAS COM <code>@tool</code></h1>
+<p>A Anthropic publicou um <a href="https://www.anthropic.com/engineering/building-effective-agents?ref=aiappvn.com">guia sobre construção de agentes eficazes</a> em 2024 que eu acho uma das melhores referências práticas disponíveis. A definição deles é direta ao ponto: agentes são sistemas onde o LLM dirige dinamicamente o próprio fluxo de execução, escolhendo quais ações tomar e em que ordem e é exatamente o que vamos construir aqui.</p>
+<p>O mecanismo central é o <strong>Tool Calling</strong>: o LLM recebe uma lista de funções disponíveis (com nomes, parâmetros e descrições) e decide, a cada passo, qual chamar e com quais argumentos. O Python executa a função e devolve o resultado para o LLM, que então decide o próximo passo. Esse ciclo continua até o objetivo ser atingido.</p>
+<p>No LangChain, o decorator <code>@tool</code> transforma qualquer função Python em uma ferramenta que o LLM pode invocar. O ponto crítico são os <strong>docstrings</strong>: é a partir deles que o modelo entende para que serve cada função. Uma descrição ruim leva a chamadas erradas ou desnecessárias.</p>
+<pre class="python"><code>import math
+from langchain.tools import tool
+
+@tool
+def multiply(a: float, b: float) -&gt; float:
+    &quot;&quot;&quot;Multiplica dois números.&quot;&quot;&quot;
+    return a * b
+
+@tool
+def add(a: float, b: float) -&gt; float:
+    &quot;&quot;&quot;Soma dois números.&quot;&quot;&quot;
+    return a + b
+
+@tool
+def divide(a: float, b: float) -&gt; float:
+    &quot;&quot;&quot;Divide dois números.&quot;&quot;&quot;
+    return a / b
+
+@tool
+def sqrt(x: float) -&gt; float:
+    &quot;&quot;&quot;Calcula a raiz quadrada de um número.&quot;&quot;&quot;
+    return math.sqrt(x)
+
+@tool
+def power(base: float, exponent: float) -&gt; float:
+    &quot;&quot;&quot;Eleva um número à potência especificada.&quot;&quot;&quot;
+    return math.pow(base, exponent)
+
+@tool
+def absolute(x: float) -&gt; float:
+    &quot;&quot;&quot;Calcula o valor absoluto de um número.&quot;&quot;&quot;
+    return abs(x)
+
+@tool
+def round_number(x: float, digits: int = 0) -&gt; float:
+    &quot;&quot;&quot;Arredonda um número para o número especificado de casas decimais.&quot;&quot;&quot;
+    return round(x, digits)
+
+tools = [add, multiply, divide, sqrt, power, absolute, round_number]</code></pre>
+<p>As operações matemáticas são deliberadamente simples, mas o ponto aqui não é o problema em si, mas demonstrar o <strong>padrão arquitetural</strong>. Basta substituir <code>sqrt</code> por <code>buscar_dados_de_mercado</code> ou <code>absolute</code> por <code>consultar_base_de_conhecimento</code> e a lógica é exatamente a mesma.</p>
+<p>Outro elemento importante é o <code>system_prompt</code>. Aqui ele tem um papel muito específico: proibir explicitamente que o LLM calcule diretamente, forçando toda aritmética a passar pelas tools Python. Isso garante <strong>precisão computacional</strong> e <strong>auditabilidade</strong> enquanto cada operação tem uma entrada e saída rastreável.</p>
+<pre><code>You are a strict mathematical agent.
+- Respect parentheses.
+- Follow PEMDAS.
+- Use tools for ALL computations.
+- Never compute directly.
+- Return structured output only.</code></pre>
+<p>Essa separação entre <strong>raciocínio</strong> (responsabilidade do LLM) e <strong>execução</strong> (responsabilidade do Python) é uma das ideias centrais no design de agentes robustos.</p>
+</div>
+<div id="saída-estruturada-com-pydantic" class="section level1">
+<h1>SAÍDA ESTRUTURADA COM PYDANTIC</h1>
+<p>Por padrão, LLMs retornam texto livre. Em pipelines de produção isso pode ser um problema: difícil de parsear, inconsistente entre execuções, incompatível com sistemas downstream.</p>
+<p>O LangChain suporta <strong>structured output</strong> via Pydantic: você define um schema e passa via <code>response_format</code>. O modelo é instruído a produzir exatamente aquele formato:</p>
+<pre class="python"><code>from pydantic import BaseModel, Field
+
+class MathResult(BaseModel):
+    result: float = Field(..., description=&quot;Final numerical result&quot;)</code></pre>
+<p>O schema aqui é simples com um único campo <code>float</code>. Mas o padrão é o mesmo que usei no <a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/">post sobre análise de ligações de telemarketing</a>, onde o schema <code>RelatorioLigacao</code> tinha dezenas de campos aninhados (sentimento, tipo de ligação, resultado, respostas criativas). A lógica é idêntica; a complexidade do schema depende do problema.</p>
+</div>
+<div id="criando-e-executando-o-agente-com-streaming" class="section level1">
+<h1>CRIANDO E EXECUTANDO O AGENTE COM STREAMING</h1>
+<p>Com todas as peças prontas, a montagem do agente é direta:</p>
+<pre class="python"><code>from langchain.agents import create_agent
+
+agent = create_agent(
+    model=model,
+    tools=tools,
+    system_prompt=&quot;&quot;&quot;
+You are a strict mathematical agent.
+- Respect parentheses.
+- Follow PEMDAS.
+- Use tools for ALL computations.
+- Never compute directly.
+- Return structured output only.
+&quot;&quot;&quot;,
+    response_format=MathResult,
+)</code></pre>
+<p>Para executar, uso <code>agent.stream()</code> com <code>stream_mode="updates"</code>. Essa configuração expõe cada etapa do ciclo de raciocínio como um evento separado sendo uma forma de observabilidade nativa que dispensa ferramentas extras como o LangSmith para entender o que o agente está fazendo:</p>
+<pre class="python"><code>input_payload = {
+    &quot;messages&quot;: [
+        {
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;content&quot;: &quot;Calcule: (sqrt(16) + pow(2,3)) / abs(-4)&quot;
+        }
+    ]
+}
+
+final_result = None
+
+for event in agent.stream(input_payload, stream_mode=&quot;updates&quot;):
+    if &quot;model&quot; in event:
+        model_step = event[&quot;model&quot;]
+        for message in model_step.get(&quot;messages&quot;, []):
+            if message.tool_calls:
+                for call in message.tool_calls:
+                    print(f&quot;[MODEL → TOOL CALL] {call[&#39;name&#39;]} args={call[&#39;args&#39;]}&quot;)
+    if &quot;tools&quot; in event:
+        tool_step = event[&quot;tools&quot;]
+        for message in tool_step.get(&quot;messages&quot;, []):
+            print(f&quot;[TOOL RESULT] {message.content}&quot;)
+    if &quot;structured_response&quot; in event:
+        final_result = event[&quot;structured_response&quot;].result
+
+print(&quot;\nFinal Result:&quot;, final_result)</code></pre>
+<p>O loop distingue três tipos de evento:</p>
+<ul>
+<li><strong><code>"model"</code></strong>: o LLM tomou uma decisão e quer chamar uma tool.</li>
+<li><strong><code>"tools"</code></strong>: a tool foi executada e devolveu um resultado.</li>
+<li><strong><code>"structured_response"</code></strong>: o agente encerrou o ciclo e emitiu a resposta final tipada.</li>
+</ul>
+<p>Para a expressão <code>(sqrt(16) + pow(2,3)) / abs(-4)</code>, o agente resolve em 6 chamadas sequenciais, respeitando a ordem de precedência:</p>
+<pre><code>[MODEL → TOOL CALL] sqrt args={&#39;x&#39;: 16}
+[TOOL RESULT] 4.0
+[MODEL → TOOL CALL] power args={&#39;base&#39;: 2, &#39;exponent&#39;: 3}
+[TOOL RESULT] 8.0
+[MODEL → TOOL CALL] add args={&#39;a&#39;: 4.0, &#39;b&#39;: 8.0}
+[TOOL RESULT] 12.0
+[MODEL → TOOL CALL] absolute args={&#39;x&#39;: -4}
+[TOOL RESULT] 4.0
+[MODEL → TOOL CALL] divide args={&#39;a&#39;: 12.0, &#39;b&#39;: 4.0}
+[TOOL RESULT] 3.0
+[MODEL → TOOL CALL] round_number args={&#39;x&#39;: 3.0, &#39;digits&#39;: 2}
+[TOOL RESULT] 3.0
+
+Final Result: 3.0</code></pre>
+<p>O resultado <span class="math inline">\(\frac{\sqrt{16} + 2^3}{|-4|} = \frac{4 + 8}{4} = 3.0\)</span> está correto, e cada etapa do raciocínio é rastreável. Isso é o que torna esse padrão valioso: não apenas o resultado final, mas a cadeia de decisões que levou até ele.</p>
+</div>
+<div id="conclusão" class="section level1">
+<h1>CONCLUSÃO</h1>
+<p>O que começou como curiosidade depois de ler sobre modelos se transformou em uma stack que pode ser replicável sem necessidade de super máquinas. A combinação <code>llama.cpp + GGUF + API OpenAI-compatible</code> fornece um acesso a LLMs locais de um jeito que, há dois anos, seria impensável em hardware consumer.</p>
+<p>Dá para construir um agente funcional, auditável e com saída tipada <strong>sem pagar nada</strong>, sem enviar dados para terceiros e sem depender de conexão com a internet. Para cenários onde privacidade e custo são requisitos (e isso inclui boa parte dos projetos corporativos reais) essa stack passou de curiosidade para uma opção viável. Mesmo que a empresa forneça licença para APIs pagas, bastaria mudar o modelo que toda stack continua funcional.</p>
+<p>O agente matemático é só um exemplo, mas o padrão LLM local + tools Python + structured output + streaming observável é a estrutura que pode ser usada em outros contextos como ferramentas de acesso a APIs internas, consulta a bases de conhecimento privadas, processamento de documentos sensíveis.</p>
+</div>
+<div id="sobre-o-autor" class="section level1">
+<h1>Sobre o autor</h1>
+<p><em>Me chamo Fellipe Gomes, sou formado em estatística e atuo como cientista de dados desde 2018. Compartilho meus estudos e evolução por meio de artigos, tutoriais e projetos de código aberto. Se quiser saber mais sobre meu trabalho, sinta-se à vontade para entrar em contato através das minhas redes sociais <a href="https://www.linkedin.com/in/gomesfellipe/">LinkedIn</a>, <a href="https://github.com/gomesfellipe">GitHub</a> e <a href="https://www.kaggle.com/gomes555">Kaggle</a>.</em></p>
+<p><em>Gostou do conteúdo? Compartilhe e deixe suas dúvidas nos comentários. Sua experiência e feedback são fundamentais para continuar criando conteúdo de qualidade!</em></p>
+</div>
+
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/">Como criar um agente com LLM local de graça e sem depender de APIs</a></p>
+        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
+      ]]></content:encoded>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
+      <category domain="tag">llm</category>
+      <category domain="tag">langchain</category>
+      <category domain="tag">llama-cpp</category>
+      <category domain="tag">gguf</category>
+      <category domain="tag">qwen</category>
+      <category domain="tag">agent-ai</category>
+      <category domain="tag">python</category>
+      <category domain="tag">apple-silicon</category>
+      <category domain="tag">open-source</category>
+    </item>
+  </channel>
+</rss>
