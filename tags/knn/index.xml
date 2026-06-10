@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>knn on Fellipe Gomes - Data Science Blog</title>
+    <title>Knn on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/knn/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -774,10 +774,8 @@ print(&quot;Final LogLoss:&quot;, log_loss(y, y_oof))</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/">Solução Final - Porto Seguro Data Challenge [3º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">data-science</category>
       <category domain="tag">kaggle</category>

@@ -13,7 +13,7 @@ tags:
 description: Armazenar arquivos na nuvem é uma prática muito comum nos dias de hoje.
   O Dropbox é um dos muitos exemplos de repositórios baseados no conceito de "co...
 featured: dropbox-R.png
-featuredalt: Ilustração sobre gerenciando arquivos do dropbox com r
+featuredalt: "Logo do Dropbox integrado com o logo do R para gerenciamento de arquivos na nuvem"
 featuredpath: date
 type: post
 image_preview: dropbox-R.png
@@ -28,7 +28,7 @@ og_type: article
 article_section: Programming
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2017/12/dropbox-R.png
-keywords: dropbox, pratica, r, rmarkdown, data science, machine learning, analytics
+keywords: dropbox, pratica, r, rmarkdown
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

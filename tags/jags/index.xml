@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>jags on Fellipe Gomes - Data Science Blog</title>
+    <title>Jags on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/jags/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -11,7 +11,7 @@
     <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gomesfellipe.github.io/tags/jags/" rel="self" type="application/rss+xml" />
     <item>
-      <title>modelo bayesiano do zero</title>
+      <title>Modelo Bayesiano do Zero</title>
       <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
@@ -378,30 +378,21 @@ cbind(y, x) %&gt;%
 <h1>Referências</h1>
 </div>
 
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a></p>
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Modelo Bayesiano do Zero</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Aprendizado Não Supervisionado</category>
-      <category>Bayes</category>
-      <category>Inferência Bayesiana</category>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>Probabilidade</category>
-      <category>R</category>
-      <category>Simulação</category>
-      <category>Teoria</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">bayes</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">jags</category>
       <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">modelos generalizados</category>
-      <category domain="tag">modelos lineares</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">modelos-generalizados</category>
+      <category domain="tag">modelos-lineares</category>
       <category domain="tag">probabilidade</category>
-      <category domain="tag">R</category>
-      <category domain="tag">regression</category>
-      <category domain="tag">Teoria</category>
+      <category domain="tag">r</category>
+      <category domain="tag">regressao</category>
     </item>
     <item>
       <title>Ajustando Modelos Bayesianos com JAGS</title>
@@ -409,11 +400,7 @@ cbind(y, x) %&gt;%
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</guid>
-      <description>Inferência bayesiana Imagem da Internet
-Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.
-Para isso devemos utilizar toda informação disponível, seja ela objetiva ou subjetiva (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)
-Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao teorema de bayes.
-Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa “crença” será representada por uma distribuição de probabilidade (ou modelo probabilístico)</description>
+      <description>Introdução à inferência bayesiana com implementação prática em R usando JAGS e MCMC. Distribuições a priori, verossimilhança e amostragem de Gibbs.</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -902,19 +889,14 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category>Bayes</category>
-      <category>Inferência Bayesiana</category>
-      <category>Modelagem Estatistica</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">jags</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">bayes</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">jags</category>
       <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">r</category>
     </item>
   </channel>
 </rss>

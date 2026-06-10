@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>data-science on Fellipe Gomes - Data Science Blog</title>
+    <title>Data-Science on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/data-science/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -428,10 +428,8 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/">Extração de informações de imagens com IA Generativa</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
       <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
       <category domain="tag">chatgpt</category>
       <category domain="tag">data-science</category>
       <category domain="tag">genai</category>
@@ -734,10 +732,7 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
       <category>Inteligência Artificial</category>
-      <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
       <category>Texto e NLP</category>
       <category domain="tag">chatgpt</category>
       <category domain="tag">classification</category>
@@ -1578,10 +1573,7 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/">Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
       <category>Inteligência Artificial</category>
-      <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
       <category>Texto e NLP</category>
       <category domain="tag">chatgpt</category>
       <category domain="tag">data-science</category>
@@ -1599,7 +1591,7 @@ plt.show()</code></pre>
       <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
-      <description>Confira a estratégia aplicada para esta competição</description>
+      <description>Solução vencedora (1º lugar) da ML Olympiad do Kaggle: estratégia analítica completa com CatBoost e R para classificação em dados de saúde pública.</description>
       <content:encoded>&lt;![CDATA[
         
 <link href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/index_files/vembedr/css/vembedr.css" rel="stylesheet" />
@@ -1723,10 +1715,8 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/">Solução Final - ML Olympiad [1º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">classification</category>
       <category domain="tag">data-mining</category>
@@ -2080,7 +2070,7 @@ Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> uti
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>Confira a estratégia aplicada para esta competição</description>
+      <description>Solução que alcançou o 2º lugar na ML Olympiad do Kaggle: análise exploratória em R, feature engineering e modelagem com CatBoost para prever qualidade educacional.</description>
       <content:encoded>&lt;![CDATA[
         
 
@@ -3256,10 +3246,8 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/">Solução Final - ML Olympiad [2º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">data-science</category>
@@ -4034,10 +4022,8 @@ print(&quot;Final LogLoss:&quot;, log_loss(y, y_oof))</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/">Solução Final - Porto Seguro Data Challenge [3º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">data-science</category>
       <category domain="tag">kaggle</category>

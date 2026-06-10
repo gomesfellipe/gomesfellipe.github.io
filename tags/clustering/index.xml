@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>clustering on Fellipe Gomes - Data Science Blog</title>
+    <title>Clustering on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/clustering/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -16,8 +16,7 @@
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/</guid>
-      <description>Análise Multivariada Imagem do Wikpedia
-Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados</description>
+      <description>Tutorial completo de Análise Multivariada em R: Análise Fatorial, PCA e Clustering com K-means. Aprenda a reduzir dimensionalidade e agrupar dados.</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -519,21 +518,16 @@ Edition. Prentice-Hal</a></p>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/">Análise Multivariada com R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category>Analise Mutivariada</category>
-      <category>Nao supervisionado</category>
-      <category>Clustering</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">R</category>
-      <category domain="tag">Teoria</category>
-      <category domain="tag">pca</category>
-      <category domain="tag">kmeans</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Machine Learning</category>
+      <category domain="tag">analise-multivariada</category>
       <category domain="tag">clustering</category>
-      <category domain="tag">analise multivariada</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">kmeans</category>
+      <category domain="tag">pca</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rmarkdown</category>
+      <category domain="tag">teoria</category>
     </item>
   </channel>
 </rss>

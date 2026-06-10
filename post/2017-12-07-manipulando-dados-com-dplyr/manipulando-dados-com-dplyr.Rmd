@@ -14,8 +14,8 @@ tags:
 - pratica
 - r
 - tidyverse
-description: Manipular bases de dados nunca foi tão simples
-featuredalt: Ilustração sobre manipulando dados com dplyr
+description: "Tutorial completo do pacote dplyr para manipulação de dados em R: filtrar, selecionar, agrupar e transformar data frames com o tidyverse."
+featuredalt: "Logo do pacote dplyr do tidyverse para manipulação de dados em R"
 featured: dplyr.png
 featuredpath: date
 type: post
@@ -31,8 +31,7 @@ og_type: article
 article_section: Programming
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2017/12/dplyr.png
-keywords: data-mining, dplyr, estatistica, pratica, r, tidyverse, data science, machine
-  learning, analytics
+keywords: data-mining, dplyr, estatistica, pratica, r, tidyverse
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

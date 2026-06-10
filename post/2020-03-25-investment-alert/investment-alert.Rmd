@@ -5,8 +5,6 @@ author: Fellipe Gomes
 date: '2020-03-25'
 slug: []
 categories:
-- Fundamentos de Data Science
-- Inteligência Artificial
 - Machine Learning
 - Programação e Ferramentas
 tags:
@@ -24,8 +22,7 @@ description: Entenda a lógica de como montar uma carteira, coletar dados de fin
   em tempo real, treinar um modelo de Machine Learning com Prophet (Facebook Open
   Source) e receber análises automatizadas no Smartphone
 featured: img.png
-featuredalt: Ilustração sobre desenvolva um bot e receba resultados de machine learning
-  no seu smartphone para ajudar nos investimentos
+featuredalt: "Dashboard de alertas de investimento com previsões do modelo Prophet no smartphone"
 featuredpath: date
 type: post
 image_preview: img.png
@@ -41,7 +38,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2020/03/img.png
 keywords: bitcoin, bolsa-de-valores, correlacao, dplyr, estatistica, machine-learning,
-  modelagem, prophet, r, reports, data science, machine learning, analytics
+  modelagem, prophet, r, reports
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

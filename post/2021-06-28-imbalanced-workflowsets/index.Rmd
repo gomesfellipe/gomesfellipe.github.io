@@ -21,7 +21,7 @@ tags:
 description: Utilizaremos o framework tidymodels para machine learning em R com o
   auxílio do pacote workflowsets para otimizar pipelines de dados desbalanceados
 featured: img1.png
-featuredalt: Ilustração sobre otimizando pipelines que envolvem dados desbalanceados
+featuredalt: "Pipeline de workflowsets do tidymodels comparando modelos para dados desbalanceados"
 featuredpath: date
 type: post
 output:
@@ -41,7 +41,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2021/06/img1.png
 keywords: imbalanced, imbalanced-data, kaggle, machine-learning, pratica, r, random-forest,
-  tidymodels, tidyverse, tunning, data science, machine learning, analytics
+  tidymodels, tidyverse, tunning
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

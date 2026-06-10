@@ -16,7 +16,7 @@ tags:
 description: Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas
   vêm crescendo rapidamente. Grandes canais de informação já abordam o assunt...
 featured: cryptomoedas-R.png
-featuredalt: Ilustração sobre analisando o mercado de cryptomoedas com r
+featuredalt: "Gráfico de séries temporais do mercado de criptomoedas analisado com R"
 featuredpath: date
 type: post
 image_preview: cryptomoedas-R.png
@@ -31,8 +31,7 @@ og_type: article
 article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2017/12/cryptomoedas-R.png
-keywords: bitcoin, correlacao, cryptomoedas, r, rstudio, series-temporais, data science,
-  machine learning, analytics
+keywords: bitcoin, correlacao, cryptomoedas, r, rstudio, series-temporais
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

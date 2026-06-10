@@ -4,10 +4,8 @@ author: Fellipe Gomes
 date: '2021-11-01'
 slug: []
 categories:
-- Fundamentos de Data Science
-- Inteligência Artificial
 - Machine Learning
-- Programação e Ferramentas
+- Fundamentos de Data Science
 tags:
 - catboost
 - data-science
@@ -22,7 +20,7 @@ tags:
 description: Confira a estratégia aplicada para a competição de machine learning do
   Porto Seguro hospedada no Kaggle
 featured: img.png
-featuredalt: Ilustração sobre solução final  porto seguro data challenge 3º lugar
+featuredalt: "Resultado final do Porto Seguro Data Challenge no Kaggle com 3º lugar e análise SHAP"
 featuredpath: date
 type: post
 output:
@@ -42,7 +40,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2021/11/img.png
 keywords: catboost, data-science, kaggle, knn, machine-learning, optuna, pratica,
-  python, shap, threshold-movel, data science, machine learning, analytics
+  python, shap, threshold-movel
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

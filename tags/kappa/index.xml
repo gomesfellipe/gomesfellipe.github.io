@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>kappa on Fellipe Gomes - Data Science Blog</title>
+    <title>Kappa on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/kappa/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -11,12 +11,12 @@
     <lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gomesfellipe.github.io/tags/kappa/" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tipos de Correlacoes</title>
+      <title>Tipos de Correlações</title>
       <link>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</link>
       <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</guid>
-      <description>Correlações Tipos de Variáveis Tipos de Correlações Coeficiente de Correlação de Pearson Coeficiente de Correlação de Spearman \(\rho\) Coeficiente de Correlação de Kendall (\(\tau\) de kendall) Qui-quadrado de independencia Teste exato de fisher Medidas de associação \(\phi\) (phi) (é o R de pearson quando aplicado a tabelas 2x2) V de Crámer Coeficiente de contingência Kappa Mãos a obra Referências Correlações De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os coeficientes de associação ou correlação entre variáveis.</description>
+      <description>Aprenda os principais tipos de correlação e associação em R: Pearson, Spearman, Kendall, Qui-quadrado, teste de Fisher, V de Cramer e Kappa com exemplos práticos.</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -158,23 +158,19 @@ H_1: \text{Não são independentes (São associadas) }
 <p><a href="https://www.amazon.com.br/Estat%C3%ADstica-B%C3%A1sica-Pedro-Morettin/dp/8502207997">BUSSAB, W. de O. ;MORETTIN, P. A. Estatística básica. 5 ed.</a></p>
 </div>
 
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/">Tipos de Correlacoes</a></p>
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/">Tipos de Correlações</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>R</category>
-      <category>Estatística</category>
-      <category>Teoria</category>
-      <category domain="tag">R</category>
-      <category domain="tag">estatistica</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">correlacao</category>
       <category domain="tag">correlacoes</category>
-      <category domain="tag">pearson</category>
-      <category domain="tag">spearman</category>
-      <category domain="tag">kendall</category>
-      <category domain="tag">qui-quadrado</category>
-      <category domain="tag">teste exato defisher</category>
-      <category domain="tag">v de cramer</category>
+      <category domain="tag">cramer</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">kappa</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">qui-quadrado</category>
+      <category domain="tag">r</category>
+      <category domain="tag">teste-fisher</category>
     </item>
   </channel>
 </rss>

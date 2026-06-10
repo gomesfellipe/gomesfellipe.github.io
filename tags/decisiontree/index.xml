@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>decisiontree on Fellipe Gomes - Data Science Blog</title>
+    <title>Decisiontree on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/decisiontree/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -1051,31 +1051,18 @@ bwplot(resamps)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Aprendizado Supervisionado</category>
-      <category>Data mining</category>
-      <category>Estatistica</category>
       <category>Machine Learning</category>
-      <category>Prática</category>
-      <category>Probabilidade</category>
-      <category>R</category>
-      <category>modelo baseado em arvores</category>
-      <category>kaggle</category>
-      <category>Regressão</category>
-      <category domain="tag">Data Mining</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">kaggle</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">regression</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">caret</category>
-      <category domain="tag">xgboost</category>
-      <category domain="tag">random forest</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">data-mining</category>
       <category domain="tag">decisiontree</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
     </item>
   </channel>
 </rss>

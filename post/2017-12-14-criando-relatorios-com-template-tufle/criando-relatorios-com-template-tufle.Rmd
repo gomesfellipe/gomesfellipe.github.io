@@ -1,5 +1,5 @@
 ---
-title: Criando relatorios com template tufle
+title: Criando Relatórios com Template Tufte
 author: Fellipe Gomes
 date: '2017-12-14'
 slug: []
@@ -14,7 +14,7 @@ tags:
 description: Além da limpeza da base de dados, análises e aplicação de metodologias
   estatísticas para a solução de problemas, escrever relatórios também é uma tare...
 featured: ''
-featuredalt: Ilustração sobre criando relatorios com template tufle
+featuredalt: "Exemplo de relatório formatado com o template Tufte em RMarkdown"
 featuredpath: ''
 type: post
 schema_type: BlogPosting
@@ -28,7 +28,7 @@ og_type: article
 article_section: Programming
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/main/logo1.jpg
-keywords: pratica, r, rmarkdown, rstudio, tufle, data science, machine learning, analytics
+keywords: pratica, r, rmarkdown, rstudio, tufle
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

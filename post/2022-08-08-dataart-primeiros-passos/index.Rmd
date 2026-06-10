@@ -19,7 +19,7 @@ tags:
 description: Veja como usar, opções, dicas e truques de modelos de inteligência artificial
   para criar arte sem escrever uma linha de código (a não ser que você queira).
 featured: img.png
-featuredalt: Ilustração sobre gerando arte com inteligência artificial
+featuredalt: "Arte digital gerada por inteligência artificial com DALL-E 2 e VQGAN+CLIP"
 featuredpath: date
 type: post
 image_preview: img.png
@@ -39,7 +39,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2022/08/img.png
 keywords: dalle2, data-science, dataart, gan, inteligencia-artificial, python, redes-neurais,
-  vqgan+clip, data science, machine learning, analytics
+  vqgan+clip
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

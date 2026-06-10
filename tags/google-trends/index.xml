@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Google Trends on Fellipe Gomes - Data Science Blog</title>
+    <title>Google-Trends on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/google-trends/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -16,7 +16,7 @@
       <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/</guid>
-      <description>Utilizando a API do google trends direto no R possibilitando a análise de séries temporais</description>
+      <description>Como acessar a API do Google Trends em R com o pacote gtrendsR para coletar e analisar séries temporais de buscas populares.</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -12424,18 +12424,15 @@ plot(previsao_com_sazonalidade)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>R</category>
-      <category>Prática</category>
-      <category>Séries Temporais</category>
-      <category>Google</category>
-      <category>Google Trends</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">Séries Temporais</category>
-      <category domain="tag">Google</category>
-      <category domain="tag">Google Trends</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">google</category>
+      <category domain="tag">google-trends</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
+      <category domain="tag">series-temporais</category>
     </item>
   </channel>
 </rss>

@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>estatistica on Fellipe Gomes - Data Science Blog</title>
+    <title>Estatistica on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/estatistica/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -312,8 +312,6 @@ subt %&gt;%
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Programação e Ferramentas</category>
       <category>Texto e NLP</category>
       <category domain="tag">data-mining</category>
@@ -987,8 +985,6 @@ E assim obtemos um feedback através do nosso Smartphone ou Smartwatch em tempo 
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
       <category>Programação e Ferramentas</category>
       <category domain="tag">bitcoin</category>
@@ -1315,10 +1311,8 @@ analise_gapminder &lt;- function(x, title){
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/relatorios-automaticos-com-rmarkdown/">Como automatizar relatórios longos e repetitivos com RMarkdown</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
-      <category>Machine Learning</category>
       <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">estatistica</category>
       <category domain="tag">otimizacao</category>
@@ -1502,10 +1496,8 @@ walk2(paste0(&quot;tab&quot;,1:3,&quot;.png&quot;), tabela_list, ~save_flextable
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/">Hackeando o R: estratégia split-apply-combine</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Programação e Ferramentas</category>
-      <category>Texto e NLP</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">estatistica</category>
       <category domain="tag">flextable</category>
@@ -2390,10 +2382,8 @@ Approaches: <a href="http://pcwww.liv.ac.uk/~afgt/eleuteri_lyon07.pdf" class="ur
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">analise-de-sobrevivencia</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">estatistica</category>
@@ -3428,29 +3418,18 @@ fit_lm %&gt;%
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Data mining</category>
-      <category>Mapas</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Regressão</category>
-      <category>Tidyverse</category>
-      <category>Séries Temporais</category>
-      <category domain="tag">Tidyverse</category>
-      <category domain="tag">Tabelas</category>
-      <category domain="tag">Séries Temporais</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">R</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">Mapa</category>
-      <category domain="tag">ponte rio niteroi</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">acidentes</category>
-      <category domain="tag">transito</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Dplyr</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">dplyr</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">leaflet</category>
+      <category domain="tag">mapa</category>
+      <category domain="tag">ponte-rio-niteroi</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rmarkdown</category>
+      <category domain="tag">rstudio</category>
     </item>
     <item>
       <title>Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</title>
@@ -4493,34 +4472,21 @@ bwplot(resamps)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Aprendizado Supervisionado</category>
-      <category>Data mining</category>
-      <category>Estatistica</category>
       <category>Machine Learning</category>
-      <category>Prática</category>
-      <category>Probabilidade</category>
-      <category>R</category>
-      <category>modelo baseado em arvores</category>
-      <category>kaggle</category>
-      <category>Regressão</category>
-      <category domain="tag">Data Mining</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">kaggle</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">regression</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">caret</category>
-      <category domain="tag">xgboost</category>
-      <category domain="tag">random forest</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">data-mining</category>
       <category domain="tag">decisiontree</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
     </item>
     <item>
-      <title>modelo bayesiano do zero</title>
+      <title>Modelo Bayesiano do Zero</title>
       <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
@@ -4887,30 +4853,21 @@ cbind(y, x) %&gt;%
 <h1>Referências</h1>
 </div>
 
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a></p>
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Modelo Bayesiano do Zero</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Aprendizado Não Supervisionado</category>
-      <category>Bayes</category>
-      <category>Inferência Bayesiana</category>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>Probabilidade</category>
-      <category>R</category>
-      <category>Simulação</category>
-      <category>Teoria</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">bayes</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">jags</category>
       <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">modelos generalizados</category>
-      <category domain="tag">modelos lineares</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">modelos-generalizados</category>
+      <category domain="tag">modelos-lineares</category>
       <category domain="tag">probabilidade</category>
-      <category domain="tag">R</category>
-      <category domain="tag">regression</category>
-      <category domain="tag">Teoria</category>
+      <category domain="tag">r</category>
+      <category domain="tag">regressao</category>
     </item>
     <item>
       <title>Brasil x Argentina, tidytext e Machine Learning</title>
@@ -5931,24 +5888,15 @@ Silva; Peres; Boscarioli, Leandro Augusto; Sarajane Marques; Clodis. 2016. <em>I
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Aprendizado Não Supervisionado</category>
-      <category>Data mining</category>
-      <category>Estatistica</category>
+      <category>Texto e NLP</category>
       <category>Machine Learning</category>
-      <category>Modelagem Estatistica</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Text Mining</category>
-      <category>Análise de Sentimentos</category>
-      <category domain="tag">Data Mining</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">twitter</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">modelagem</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">text mining</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">text-mining</category>
+      <category domain="tag">twitter</category>
     </item>
     <item>
       <title>AED de forma rápida e um pouco de Machine Learning</title>
@@ -6756,27 +6704,17 @@ antes - Sys.time() # Para saber quanto tempo durou o ajuste</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Data mining</category>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Reports</category>
+      <category>Fundamentos de Data Science</category>
       <category>Machine Learning</category>
-      <category>Analise Mutivariada</category>
-      <category>Aprendizado Supervisionado</category>
-      <category>Aprendizado Não Supervisionado</category>
-      <category domain="tag">analise multivariada</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">Data Mining</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">analise-multivariada</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">kmeans</category>
       <category domain="tag">modelagem</category>
       <category domain="tag">pca</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
     </item>
     <item>
       <title>Produzindo e formatando um documento Word direto em R</title>
@@ -7106,20 +7044,15 @@ End Sub</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>R</category>
-      <category>Reports</category>
-      <category>Prática</category>
-      <category>RMarkdown</category>
-      <category domain="tag">Estatistica</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">gamificacao</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">word</category>
       <category domain="tag">macro</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
       <category domain="tag">rmarkdown</category>
+      <category domain="tag">word</category>
     </item>
     <item>
       <title>O que são CheatSheets, gamificação e por que aprender R é tão divertido?</title>
@@ -7327,20 +7260,17 @@ End Sub</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">cheatsheets</category>
-      <category domain="tag">kaggle</category>
       <category domain="tag">datacamp</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">gamification</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">gamificacao</category>
+      <category domain="tag">gamification</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
     </item>
     <item>
       <title>Carnaval e mapas interativos com R</title>
@@ -35394,20 +35324,16 @@ Bloco: Virilha de Minhoca - Bairro: Bangu - Regiao: Zona Norte 2Data: 2018-02-18
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>R</category>
-      <category>Prática</category>
-      <category>Google</category>
-      <category>Mapas</category>
-      <category>Analise Mutivariada</category>
-      <category>Reports</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Google</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">Mapa</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">google</category>
       <category domain="tag">leaflet</category>
+      <category domain="tag">mapa</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
     </item>
     <item>
       <title>O paradoxo dos aniversários com simulação e probabilidade</title>
@@ -35773,23 +35699,19 @@ Magalhães, Mascos N. n.d. <em>Probabilidade e Variáveis Aleatóriasa</em>. Vol
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>Analise Exploratória</category>
-      <category>Teoria</category>
-      <category>Simulação</category>
-      <category>Probabilidade</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Teoria</category>
-      <category domain="tag">analise multivariada</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Machine Learning</category>
+      <category domain="tag">analise-multivariada</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">simulacao</category>
+      <category domain="tag">modelagem-estatistica</category>
       <category domain="tag">probabilidade</category>
+      <category domain="tag">simulacao</category>
+      <category domain="tag">teoria</category>
     </item>
     <item>
-      <title>Tabelas incriveis com R</title>
+      <title>Tabelas Incríveis com R</title>
       <link>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/</link>
       <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
@@ -36634,21 +36556,18 @@ rhandsontable(mtcars, rowHeaderWidth = 200, width = 700, height = 550)</code></p
 <p>Com essas lindas tabelas seus relatórios serão irresistíveis, até quem não entende de estatística vai passar a gostar depois de ver tanta beleza com números! Espero que tenha gostado do conteúdo, caso queira acrescentar ou reportar algo basta entrar em contato.</p>
 </div>
 
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas incriveis com R</a></p>
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/tabelas-incriveis-com-r/">Tabelas Incríveis com R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Analise Mutivariada</category>
-      <category>Reports</category>
-      <category>Prática</category>
-      <category>Analise Exploratória</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Data Mining</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">analise multivariada</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">Tabelas</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">analise-multivariada</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">rmarkdown</category>
+      <category domain="tag">tabelas</category>
     </item>
     <item>
       <title>Análise Multivariada com R</title>
@@ -36656,8 +36575,7 @@ rhandsontable(mtcars, rowHeaderWidth = 200, width = 700, height = 550)</code></p
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/</guid>
-      <description>Análise Multivariada Imagem do Wikpedia
-Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados</description>
+      <description>Tutorial completo de Análise Multivariada em R: Análise Fatorial, PCA e Clustering com K-means. Aprenda a reduzir dimensionalidade e agrupar dados.</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -37159,21 +37077,16 @@ Edition. Prentice-Hal</a></p>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/analise-multivariada-em-r/">Análise Multivariada com R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category>Analise Mutivariada</category>
-      <category>Nao supervisionado</category>
-      <category>Clustering</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">R</category>
-      <category domain="tag">Teoria</category>
-      <category domain="tag">pca</category>
-      <category domain="tag">kmeans</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Machine Learning</category>
+      <category domain="tag">analise-multivariada</category>
       <category domain="tag">clustering</category>
-      <category domain="tag">analise multivariada</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">kmeans</category>
+      <category domain="tag">pca</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rmarkdown</category>
+      <category domain="tag">teoria</category>
     </item>
     <item>
       <title>Pacotes do R para avaliar o ajuste de modelos</title>
@@ -37458,24 +37371,19 @@ ggscatmat(flea, columns = 2:4, color=&quot;species&quot;, alpha=0.8)</code></pre
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category>Tidyverse</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">regression</category>
-      <category domain="tag">Teoria</category>
-      <category domain="tag">modelos lineares</category>
-      <category domain="tag">modelos generalizados</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">ggally</category>
       <category domain="tag">ggfortify</category>
-      <category domain="tag">GGally</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">modelos-generalizados</category>
+      <category domain="tag">modelos-lineares</category>
+      <category domain="tag">r</category>
+      <category domain="tag">regressao</category>
     </item>
   </channel>
 </rss>

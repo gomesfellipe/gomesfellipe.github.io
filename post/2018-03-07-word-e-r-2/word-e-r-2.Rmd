@@ -17,8 +17,7 @@ tags:
 description: As análises foram feitas em R e agora? Geralmente um bom PDF ou HTML
   são suficientes mas e se o destino da análise tiver que ser um documento Word?
 featured: Word-R.png
-featuredalt: Ilustração sobre produzindo e formatando um documento word direto em
-  r
+featuredalt: "Documento Word formatado e gerado automaticamente a partir do R com RMarkdown"
 featuredpath: date
 type: post
 image_preview: Word-R.png
@@ -33,8 +32,7 @@ og_type: article
 article_section: Programming
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2018/03/Word-R.png
-keywords: estatistica, gamificacao, macro, pratica, r, rmarkdown, word, data science,
-  machine learning, analytics
+keywords: estatistica, gamificacao, macro, pratica, r, rmarkdown, word
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

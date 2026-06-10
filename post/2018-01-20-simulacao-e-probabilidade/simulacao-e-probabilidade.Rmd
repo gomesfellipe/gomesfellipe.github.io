@@ -22,7 +22,7 @@ description: Quanto você acha que é a probabiliddade num grupo de 23 pessoas e
   resultados além de dissertar um pouco sobre a história e conceitos importantes de
   probabilidade
 featured: modelagem-probabilidade2.png
-featuredalt: Ilustração sobre o paradoxo dos aniversários com simulação e probabilidade
+featuredalt: "Simulação do paradoxo dos aniversários mostrando probabilidades e histogramas"
 featuredpath: date
 references:
 - id: DeGroot
@@ -51,7 +51,7 @@ references:
 type: post
 image_preview: modelagem-probabilidade2.png
 schema_type: TechArticle
-educational_level: Beginner
+educational_level: Intermediate
 learning_resource_type:
 - Tutorial
 - Code Example
@@ -62,7 +62,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2018/01/modelagem-probabilidade2.png
 keywords: analise-multivariada, estatistica, modelagem, modelagem-estatistica, probabilidade,
-  simulacao, teoria, data science, machine learning, analytics
+  simulacao, teoria
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

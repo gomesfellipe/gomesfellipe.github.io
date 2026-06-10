@@ -5,8 +5,6 @@ date: '2017-12-18'
 slug: []
 categories:
 - Fundamentos de Data Science
-- Inteligência Artificial
-- Machine Learning
 - Programação e Ferramentas
 tags:
 - bayes
@@ -15,9 +13,9 @@ tags:
 - modelagem
 - modelagem-estatistica
 - r
-description: '[Imagem da Internet](https://www.flickr.com/photos/mattbuck007/3676624894/in/photolist-6ATEuo-9TK3TW)'
+description: "Introdução à inferência bayesiana com implementação prática em R usando JAGS e MCMC. Distribuições a priori, verossimilhança e amostragem de Gibbs."
 featured: bayes-R-jags.jpg
-featuredalt: Ilustração sobre ajustando modelos bayesianos com jags
+featuredalt: "Gráfico de convergência de cadeias MCMC em modelo bayesiano com JAGS"
 featuredpath: date
 type: post
 image_preview: bayes-R-jags.jpg
@@ -32,8 +30,7 @@ og_type: article
 article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2017/12/bayes-R-jags.jpg
-keywords: bayes, estatistica, jags, modelagem, modelagem-estatistica, r, data science,
-  machine learning, analytics
+keywords: bayes, estatistica, jags, modelagem, modelagem-estatistica, r
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

@@ -30,7 +30,7 @@ output:
     toc_depth: 2
 image_preview: img.png
 schema_type: TechArticle
-educational_level: Advanced
+educational_level: Intermediate
 learning_resource_type:
 - Tutorial
 - Code Example
@@ -41,8 +41,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2025/02/img.png
 keywords: acessibilidade, aprendizado-de-máquina, audio, audiobook, audiobook-grátis,
-  audiobooks, automação, book, conversao-de-texto-em-áudio, deep-learning, data science,
-  machine learning, analytics
+  audiobooks, automação, book, conversao-de-texto-em-áudio, deep-learning
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>ggfortify on Fellipe Gomes - Data Science Blog</title>
+    <title>Ggfortify on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/ggfortify/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -293,24 +293,19 @@ ggscatmat(flea, columns = 2:4, color=&quot;species&quot;, alpha=0.8)</code></pre
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category>Tidyverse</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">regression</category>
-      <category domain="tag">Teoria</category>
-      <category domain="tag">modelos lineares</category>
-      <category domain="tag">modelos generalizados</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">ggally</category>
       <category domain="tag">ggfortify</category>
-      <category domain="tag">GGally</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">modelos-generalizados</category>
+      <category domain="tag">modelos-lineares</category>
+      <category domain="tag">r</category>
+      <category domain="tag">regressao</category>
     </item>
   </channel>
 </rss>

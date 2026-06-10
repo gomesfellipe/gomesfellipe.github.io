@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>ggplot2 on Fellipe Gomes - Data Science Blog</title>
+    <title>Ggplot2 on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/ggplot2/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -312,8 +312,6 @@ subt %&gt;%
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Programação e Ferramentas</category>
       <category>Texto e NLP</category>
       <category domain="tag">data-mining</category>
@@ -333,9 +331,7 @@ subt %&gt;%
       <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</guid>
-      <description>Tipos de relações Vimos no último post sobre quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis.
-Já sabemos que esses coeficientes variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.
-Porém o que fazer com tantas métricas? Qual o cálculo mais aconselhado para as relações dois a dois de cada tipo de variáveis (medidas, quantidades, nomes, classes com algum tipo de ordem ou hierarquia)?</description>
+      <description>Guia prático para escolher a medida de correlação correta para cada tipo de variável: numérica, categórica e ordinal. Exemplos visuais com ggplot2 em R.</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -848,14 +844,12 @@ data.frame(&quot;Sem correção&quot;=r^2, &quot;Com correção&quot;=rp^2)</cod
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/">Tipos de relações entre variáveis</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category domain="tag">correlacoes</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">correlacao</category>
+      <category domain="tag">correlacoes</category>
       <category domain="tag">ggplot2</category>
       <category domain="tag">r</category>
-      <category domain="tag">gomesfellipe</category>
     </item>
   </channel>
 </rss>

@@ -17,12 +17,12 @@ description: Nesta apresentação tive a oportunidade de falar um pouco sobre a 
   visão e cases relacionados a esta área tão extensa e incrível que é a ciência de
   dados!
 featured: img1.png
-featuredalt: Ilustração sobre ciência de dados  uma visão geral
+featuredalt: "Apresentação sobre Ciência de Dados com diagrama de Venn das competências do cientista de dados"
 featuredpath: date
 type: post
 image_preview: img1.png
 schema_type: TechArticle
-educational_level: Advanced
+educational_level: Beginner
 learning_resource_type:
 - Tutorial
 - Code Example
@@ -32,8 +32,7 @@ og_type: article
 article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2021/05/img1.png
-keywords: big-data, carreira, data-science, estatistica, machine-learning, data science,
-  machine learning, analytics
+keywords: big-data, carreira, data-science, estatistica, machine-learning
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

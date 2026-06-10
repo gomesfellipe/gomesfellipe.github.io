@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>gamificacao on Fellipe Gomes - Data Science Blog</title>
+    <title>Gamificacao on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/gamificacao/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -610,10 +610,8 @@ Approaches: <a href="http://pcwww.liv.ac.uk/~afgt/eleuteri_lyon07.pdf" class="ur
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">analise-de-sobrevivencia</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">estatistica</category>
@@ -953,20 +951,15 @@ End Sub</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/word-e-r-2/">Produzindo e formatando um documento Word direto em R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>R</category>
-      <category>Reports</category>
-      <category>Prática</category>
-      <category>RMarkdown</category>
-      <category domain="tag">Estatistica</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">gamificacao</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">word</category>
       <category domain="tag">macro</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
       <category domain="tag">rmarkdown</category>
+      <category domain="tag">word</category>
     </item>
     <item>
       <title>O que são CheatSheets, gamificação e por que aprender R é tão divertido?</title>
@@ -1174,20 +1167,17 @@ End Sub</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">cheatsheets</category>
-      <category domain="tag">kaggle</category>
       <category domain="tag">datacamp</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">gamification</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">gamificacao</category>
+      <category domain="tag">gamification</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
     </item>
   </channel>
 </rss>

@@ -301,10 +301,7 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
       <category>Inteligência Artificial</category>
-      <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
       <category>Texto e NLP</category>
       <category domain="tag">chatgpt</category>
       <category domain="tag">classification</category>
@@ -550,7 +547,7 @@ sudo rm index.html</code></pre>
       <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/</guid>
-      <description>Utilizando a API do google trends direto no R possibilitando a análise de séries temporais</description>
+      <description>Como acessar a API do Google Trends em R com o pacote gtrendsR para coletar e analisar séries temporais de buscas populares.</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -12958,18 +12955,15 @@ plot(previsao_com_sazonalidade)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>R</category>
-      <category>Prática</category>
-      <category>Séries Temporais</category>
-      <category>Google</category>
-      <category>Google Trends</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">Séries Temporais</category>
-      <category domain="tag">Google</category>
-      <category domain="tag">Google Trends</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">google</category>
+      <category domain="tag">google-trends</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
+      <category domain="tag">series-temporais</category>
     </item>
     <item>
       <title>Carnaval e mapas interativos com R</title>
@@ -41023,20 +41017,16 @@ Bloco: Virilha de Minhoca - Bairro: Bangu - Regiao: Zona Norte 2Data: 2018-02-18
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>R</category>
-      <category>Prática</category>
-      <category>Google</category>
-      <category>Mapas</category>
-      <category>Analise Mutivariada</category>
-      <category>Reports</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Google</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">Mapa</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">google</category>
       <category domain="tag">leaflet</category>
+      <category domain="tag">mapa</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
     </item>
   </channel>
 </rss>

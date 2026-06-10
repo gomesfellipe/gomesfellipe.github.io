@@ -14,10 +14,9 @@ tags:
 - r
 - rstudio
 - series-temporais
-description: Utilizando a API do google trends direto no R possibilitando a análise
-  de séries temporais
+description: "Como acessar a API do Google Trends em R com o pacote gtrendsR para coletar e analisar séries temporais de buscas populares."
 featured: gtrends-r.png
-featuredalt: Ilustração sobre séries temporais com google trends e r
+featuredalt: "Gráfico de tendências do Google Trends analisado como série temporal em R"
 featuredpath: date
 type: post
 image_preview: gtrends-r.png
@@ -32,8 +31,7 @@ og_type: article
 article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2018/04/gtrends-r.png
-keywords: google, google-trends, pratica, r, rstudio, series-temporais, data science,
-  machine learning, analytics
+keywords: google, google-trends, pratica, r, rstudio, series-temporais
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

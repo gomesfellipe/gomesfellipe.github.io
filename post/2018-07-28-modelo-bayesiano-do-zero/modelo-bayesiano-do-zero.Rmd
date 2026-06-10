@@ -1,12 +1,10 @@
 ---
-title: modelo bayesiano do zero
+title: Modelo Bayesiano do Zero
 author: Fellipe Gomes
 date: '2018-07-28'
 slug: []
 categories:
 - Fundamentos de Data Science
-- Inteligência Artificial
-- Machine Learning
 - Programação e Ferramentas
 tags:
 - bayes
@@ -22,7 +20,7 @@ tags:
 description: Um pouco sobre as duas grandes escolas de inferência, contas e implementação
   de um modelo linear bayesiano na mão para dados simulados e para dados reais
 featured: img1.png
-featuredalt: Ilustração sobre modelo bayesiano do zero
+featuredalt: "Comparação entre ajuste de modelo linear clássico e bayesiano com distribuições a posteriori"
 featuredpath: date
 type: post
 image_preview: img1.png
@@ -38,7 +36,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2018/07/img1.png
 keywords: bayes, estatistica, jags, modelagem, modelagem-estatistica, modelos-generalizados,
-  modelos-lineares, probabilidade, r, regressao, data science, machine learning, analytics
+  modelos-lineares, probabilidade, r, regressao
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

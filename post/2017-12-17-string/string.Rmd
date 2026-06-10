@@ -14,7 +14,7 @@ tags:
 description: Algumas dicas e truques úteis de pacotes especiais para a manipulação
   e tratamento de strings
 featured: imagem2.png
-featuredalt: Ilustração sobre manipulação de strings e text mining
+featuredalt: "Diagrama de funções para manipulação de strings e text mining em R"
 featuredpath: date
 type: post
 image_preview: imagem2.png
@@ -29,7 +29,7 @@ og_type: article
 article_section: Programming
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2017/12/imagem2.png
-keywords: r, rstudio, strings, text-mining, data science, machine learning, analytics
+keywords: r, rstudio, strings, text-mining
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

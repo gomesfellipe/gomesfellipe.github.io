@@ -8,6 +8,15 @@
 Codigo customizado -------------------------------------------------------------
 */
 
+#main {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.adsbygoogle,
+.adsbygoogle iframe {
+  max-width: 100%;
+}
 
 .col2 {
 columns: 2 200px;         /* number of columns and width in pixels*/

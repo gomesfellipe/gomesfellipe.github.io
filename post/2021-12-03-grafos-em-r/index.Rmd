@@ -4,8 +4,6 @@ author: Fellipe Gomes
 date: '2021-12-03'
 slug: []
 categories:
-- Fundamentos de Data Science
-- Inteligência Artificial
 - Programação e Ferramentas
 - Texto e NLP
 tags:
@@ -22,7 +20,7 @@ tags:
 description: Neste post vamos coletar notícias via web scrapping, detectar entidades
   dos textos e criar um grafo utilizando ggplot2
 featured: img.png
-featuredalt: Ilustração sobre vou te provar que da para fazer grafos bonitos em r
+featuredalt: "Grafo de rede de entidades extraídas de notícias visualizado com ggplot2 em R"
 featuredpath: date
 type: post
 output:
@@ -42,7 +40,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2021/12/img.png
 keywords: data-mining, estatistica, ggplot2, grafo, r, rstudio, strings, text-mining,
-  tidyverse, web-scrappnig, data science, machine learning, analytics
+  tidyverse, web-scrappnig
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

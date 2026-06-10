@@ -20,7 +20,7 @@ description: 'Carnaval esta começando e muita gente quer saber: "Onde tem bloco
   podemos obter referencias geograficas a partir de endereços e criar mapas interativos
   usando R!'
 featured: carnaval2.png
-featuredalt: Ilustração sobre carnaval e mapas interativos com r
+featuredalt: "Mapa interativo do Rio de Janeiro com localização de blocos de carnaval feito com Leaflet em R"
 featuredpath: date
 type: post
 image_preview: carnaval2.png
@@ -35,8 +35,7 @@ og_type: article
 article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2018/02/carnaval2.png
-keywords: estatistica, google, leaflet, mapa, pratica, r, rstudio, data science, machine
-  learning, analytics
+keywords: estatistica, google, leaflet, mapa, pratica, r, rstudio
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

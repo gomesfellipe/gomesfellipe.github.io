@@ -4,10 +4,8 @@ author: Fellipe Gomes
 date: '2024-09-27'
 slug: []
 categories:
-- Fundamentos de Data Science
 - Inteligência Artificial
 - Machine Learning
-- Programação e Ferramentas
 tags:
 - chatgpt
 - data-science
@@ -31,7 +29,7 @@ output:
     toc_depth: 1
 image_preview: img.png
 schema_type: TechArticle
-educational_level: Beginner
+educational_level: Intermediate
 learning_resource_type:
 - Tutorial
 - Code Example
@@ -42,7 +40,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2024/09/img.png
 keywords: chatgpt, data-science, genai, ia-generativa, inteligencia-artificial, llama,
-  llama2, llava, llm, lmm, data science, machine learning, analytics
+  llama2, llava, llm, lmm
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

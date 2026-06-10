@@ -22,7 +22,7 @@ description: Uma maneira prática de hospedar o app desenvolvido no post no Shin
   e ter seu próprio RStudio Server na nuvem do Google em uma máquina virtual Ubuntu
   16.04.
 featured: img1.png
-featuredalt: Ilustração sobre seu app rstudio e shiny server na nuvem do google
+featuredalt: "Arquitetura de deploy de Shiny Server e RStudio Server na Google Cloud Platform"
 featuredpath: date
 type: post
 image_preview: img1.png
@@ -38,7 +38,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2018/10/img1.png
 keywords: bitcoin, estatistica, google, google-cloud, pratica, r, rstudio, rstudio-server,
-  series-temporais, servidor, data science, machine learning, analytics
+  series-temporais, servidor
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

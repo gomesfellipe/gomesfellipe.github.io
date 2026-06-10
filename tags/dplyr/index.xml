@@ -620,8 +620,6 @@ E assim obtemos um feedback através do nosso Smartphone ou Smartwatch em tempo 
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
       <category>Programação e Ferramentas</category>
       <category domain="tag">bitcoin</category>
@@ -1431,29 +1429,18 @@ fit_lm %&gt;%
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Data mining</category>
-      <category>Mapas</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Regressão</category>
-      <category>Tidyverse</category>
-      <category>Séries Temporais</category>
-      <category domain="tag">Tidyverse</category>
-      <category domain="tag">Tabelas</category>
-      <category domain="tag">Séries Temporais</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">R</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">Mapa</category>
-      <category domain="tag">ponte rio niteroi</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">acidentes</category>
-      <category domain="tag">transito</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Dplyr</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">dplyr</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">leaflet</category>
+      <category domain="tag">mapa</category>
+      <category domain="tag">ponte-rio-niteroi</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rmarkdown</category>
+      <category domain="tag">rstudio</category>
     </item>
     <item>
       <title>Manipulando dados com dplyr</title>
@@ -1461,7 +1448,7 @@ fit_lm %&gt;%
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/</guid>
-      <description>Manipular bases de dados nunca foi tão simples</description>
+      <description>Tutorial completo do pacote dplyr para manipulação de dados em R: filtrar, selecionar, agrupar e transformar data frames com o tidyverse.</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -1699,18 +1686,15 @@ cbind(d3,d4)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/manipulando-dados-com-dplyr/">Manipulando dados com dplyr</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category>Tidyverse</category>
-      <category>Data mining</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">Dplyr</category>
-      <category domain="tag">Tidyverse</category>
-      <category domain="tag">Data Mining</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">dplyr</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">tidyverse</category>
     </item>
   </channel>
 </rss>

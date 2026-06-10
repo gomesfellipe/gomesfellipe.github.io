@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>kaggle on Fellipe Gomes - Data Science Blog</title>
+    <title>Kaggle on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/kaggle/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -301,10 +301,7 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
       <category>Inteligência Artificial</category>
-      <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
       <category>Texto e NLP</category>
       <category domain="tag">chatgpt</category>
       <category domain="tag">classification</category>
@@ -323,7 +320,7 @@ plt.show()</code></pre>
       <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
-      <description>Confira a estratégia aplicada para esta competição</description>
+      <description>Solução vencedora (1º lugar) da ML Olympiad do Kaggle: estratégia analítica completa com CatBoost e R para classificação em dados de saúde pública.</description>
       <content:encoded>&lt;![CDATA[
         
 <link href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/index_files/vembedr/css/vembedr.css" rel="stylesheet" />
@@ -447,10 +444,8 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/">Solução Final - ML Olympiad [1º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">classification</category>
       <category domain="tag">data-mining</category>
@@ -467,7 +462,7 @@ plt.show()</code></pre>
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>Confira a estratégia aplicada para esta competição</description>
+      <description>Solução que alcançou o 2º lugar na ML Olympiad do Kaggle: análise exploratória em R, feature engineering e modelagem com CatBoost para prever qualidade educacional.</description>
       <content:encoded>&lt;![CDATA[
         
 
@@ -1643,10 +1638,8 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/">Solução Final - ML Olympiad [2º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">data-science</category>
@@ -2421,10 +2414,8 @@ print(&quot;Final LogLoss:&quot;, log_loss(y, y_oof))</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/">Solução Final - Porto Seguro Data Challenge [3º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">data-science</category>
       <category domain="tag">kaggle</category>
@@ -3843,10 +3834,8 @@ Approaches: <a href="http://pcwww.liv.ac.uk/~afgt/eleuteri_lyon07.pdf" class="ur
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">analise-de-sobrevivencia</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">estatistica</category>
@@ -4899,31 +4888,18 @@ bwplot(resamps)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Aprendizado Supervisionado</category>
-      <category>Data mining</category>
-      <category>Estatistica</category>
       <category>Machine Learning</category>
-      <category>Prática</category>
-      <category>Probabilidade</category>
-      <category>R</category>
-      <category>modelo baseado em arvores</category>
-      <category>kaggle</category>
-      <category>Regressão</category>
-      <category domain="tag">Data Mining</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">kaggle</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">regression</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">caret</category>
-      <category domain="tag">xgboost</category>
-      <category domain="tag">random forest</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">data-mining</category>
       <category domain="tag">decisiontree</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
     </item>
     <item>
       <title>O que são CheatSheets, gamificação e por que aprender R é tão divertido?</title>
@@ -5131,20 +5107,17 @@ bwplot(resamps)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">cheatsheets</category>
-      <category domain="tag">kaggle</category>
       <category domain="tag">datacamp</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">gamification</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">gamificacao</category>
+      <category domain="tag">gamification</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
     </item>
   </channel>
 </rss>

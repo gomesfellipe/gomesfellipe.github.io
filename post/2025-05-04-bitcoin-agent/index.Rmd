@@ -31,7 +31,7 @@ output:
     toc_depth: 1
 image_preview: img.jpg
 schema_type: TechArticle
-educational_level: Beginner
+educational_level: Advanced
 learning_resource_type:
 - Tutorial
 - Code Example
@@ -42,7 +42,7 @@ article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2025/05/img.jpg
 keywords: agent-ai, analise-dados, bitcoin, crypto, inteligencia-artificial, langchain,
-  langgraph, langsmith, llm, mercado-financeiro, data science, machine learning, analytics
+  langgraph, langsmith, llm, mercado-financeiro
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

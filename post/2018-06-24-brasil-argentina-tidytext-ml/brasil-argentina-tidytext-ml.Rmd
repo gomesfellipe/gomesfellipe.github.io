@@ -4,11 +4,8 @@ author: Fellipe Gomes
 date: '2018-06-24'
 slug: []
 categories:
-- Fundamentos de Data Science
-- Inteligência Artificial
-- Machine Learning
-- Programação e Ferramentas
 - Texto e NLP
+- Machine Learning
 tags:
 - data-mining
 - estatistica
@@ -21,7 +18,7 @@ description: Aplicando técnincas de Text Mining como pacote tidy text para expl
   a rivalidade entre Brasil e Argentina! Veja também como a análise de sentimentos
   pode ser divertida além de possíveis aplicações de machine learning
 featured: img1.jpeg
-featuredalt: Ilustração sobre brasil x argentina tidytext e machine learning
+featuredalt: "Nuvem de palavras e análise de sentimentos sobre Brasil x Argentina com tidytext"
 featuredpath: date
 references:
 - id: miner

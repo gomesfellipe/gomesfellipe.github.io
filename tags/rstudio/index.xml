@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>RStudio on Fellipe Gomes - Data Science Blog</title>
+    <title>Rstudio on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/rstudio/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -312,8 +312,6 @@ subt %&gt;%
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Programação e Ferramentas</category>
       <category>Texto e NLP</category>
       <category domain="tag">data-mining</category>
@@ -640,10 +638,8 @@ analise_gapminder &lt;- function(x, title){
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/relatorios-automaticos-com-rmarkdown/">Como automatizar relatórios longos e repetitivos com RMarkdown</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
-      <category>Machine Learning</category>
       <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">estatistica</category>
       <category domain="tag">otimizacao</category>
@@ -827,10 +823,8 @@ walk2(paste0(&quot;tab&quot;,1:3,&quot;.png&quot;), tabela_list, ~save_flextable
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/">Hackeando o R: estratégia split-apply-combine</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Programação e Ferramentas</category>
-      <category>Texto e NLP</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">estatistica</category>
       <category domain="tag">flextable</category>
@@ -2138,29 +2132,18 @@ fit_lm %&gt;%
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/freq-acidente-ponte-rio-niteroi/">Com que frequência ocorrem acidentes na ponte Rio-Niterói?</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Data mining</category>
-      <category>Mapas</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Regressão</category>
-      <category>Tidyverse</category>
-      <category>Séries Temporais</category>
-      <category domain="tag">Tidyverse</category>
-      <category domain="tag">Tabelas</category>
-      <category domain="tag">Séries Temporais</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">R</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">Mapa</category>
-      <category domain="tag">ponte rio niteroi</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">acidentes</category>
-      <category domain="tag">transito</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Dplyr</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">dplyr</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">leaflet</category>
+      <category domain="tag">mapa</category>
+      <category domain="tag">ponte-rio-niteroi</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rmarkdown</category>
+      <category domain="tag">rstudio</category>
     </item>
     <item>
       <title>AED de forma rápida e um pouco de Machine Learning</title>
@@ -2968,27 +2951,17 @@ antes - Sys.time() # Para saber quanto tempo durou o ajuste</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Data mining</category>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Reports</category>
+      <category>Fundamentos de Data Science</category>
       <category>Machine Learning</category>
-      <category>Analise Mutivariada</category>
-      <category>Aprendizado Supervisionado</category>
-      <category>Aprendizado Não Supervisionado</category>
-      <category domain="tag">analise multivariada</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">Data Mining</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">analise-multivariada</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">kmeans</category>
       <category domain="tag">modelagem</category>
       <category domain="tag">pca</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
     </item>
     <item>
       <title>Séries temporais com Google Trends e R</title>
@@ -2996,7 +2969,7 @@ antes - Sys.time() # Para saber quanto tempo durou o ajuste</code></pre>
       <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/</guid>
-      <description>Utilizando a API do google trends direto no R possibilitando a análise de séries temporais</description>
+      <description>Como acessar a API do Google Trends em R com o pacote gtrendsR para coletar e analisar séries temporais de buscas populares.</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -15404,18 +15377,15 @@ plot(previsao_com_sazonalidade)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/google-trends-e-r/">Séries temporais com Google Trends e R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>R</category>
-      <category>Prática</category>
-      <category>Séries Temporais</category>
-      <category>Google</category>
-      <category>Google Trends</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">Séries Temporais</category>
-      <category domain="tag">Google</category>
-      <category domain="tag">Google Trends</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">google</category>
+      <category domain="tag">google-trends</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
+      <category domain="tag">series-temporais</category>
     </item>
     <item>
       <title>O que são CheatSheets, gamificação e por que aprender R é tão divertido?</title>
@@ -15623,20 +15593,17 @@ plot(previsao_com_sazonalidade)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/">O que são CheatSheets, gamificação e por que aprender R é tão divertido?</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">cheatsheets</category>
-      <category domain="tag">kaggle</category>
       <category domain="tag">datacamp</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">gamification</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">gamificacao</category>
+      <category domain="tag">gamification</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
     </item>
     <item>
       <title>Carnaval e mapas interativos com R</title>
@@ -43690,20 +43657,16 @@ Bloco: Virilha de Minhoca - Bairro: Bangu - Regiao: Zona Norte 2Data: 2018-02-18
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/leaflet-carnaval/">Carnaval e mapas interativos com R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>R</category>
-      <category>Prática</category>
-      <category>Google</category>
-      <category>Mapas</category>
-      <category>Analise Mutivariada</category>
-      <category>Reports</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Google</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">Mapa</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">google</category>
       <category domain="tag">leaflet</category>
+      <category domain="tag">mapa</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
     </item>
     <item>
       <title>Manipulação de Strings e Text Mining</title>
@@ -44029,24 +43992,20 @@ SnowballC::getStemLanguages()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-17-string/string/">Manipulação de Strings e Text Mining</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>R</category>
-      <category>Prática</category>
-      <category>Text Mining</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">text mining</category>
+      <category>Programação e Ferramentas</category>
+      <category>Texto e NLP</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
       <category domain="tag">strings</category>
+      <category domain="tag">text-mining</category>
     </item>
     <item>
-      <title>Criando relatorios com template tufle</title>
+      <title>Criando Relatórios com Template Tufte</title>
       <link>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/</link>
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/</guid>
-      <description>Focando no conteúdo Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tarefa indispensável e que ocupa bastante tempo do trabalho de um estatístico.
-Como disse Khalil Gibran; é preciso transformar em palavras aquilo que já conhecemos em pensamentos. Ninguém quer perder tempo precioso de análises em formatações de documentos.
-Elaborar templates de relatórios é uma tarefa comum entre programadores estatísticos.</description>
+      <description>Além da limpeza da base de dados, análises e aplicação de metodologias estatísticas para a solução de problemas, escrever relatórios também é uma tare...</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -44103,28 +44062,23 @@ link-citations: yes
 <p>O que sempre foi possível em latex agora já pode ser adapato para quem gosta de trabalhar diretamente no RStudio!</p>
 </div>
 
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/">Criando relatorios com template tufle</a></p>
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufle/criando-relatorios-com-template-tufle/">Criando Relatórios com Template Tufte</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>R</category>
-      <category>Prática</category>
-      <category>Reports</category>
-      <category domain="tag">R</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">Tufle</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rmarkdown</category>
+      <category domain="tag">rstudio</category>
+      <category domain="tag">tufle</category>
     </item>
     <item>
       <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</link>
+      <link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/</guid>
-      <description>As cryptomoedas Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunto. Uma breve pesquisa no Google já nos retorna notícia na globo, notícia no site da Forbes dentre muitos outros.
-Além disso sua cotação já pode ser acompanhada nos maiores sites de busca do mercado financeiro.
-Estamos diante de muitas novidades que vêm surgindo exponencialmente na humanidade, talvez seja interessante buscar entender e desfrutar como a programação pode nos ajudar nessa experiência relacionada a temas tão recentes.</description>
+      <guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
+      <description>Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vêm crescendo rapidamente. Grandes canais de informação já abordam o assunt...</description>
       <content:encoded>&lt;![CDATA[
         
 
@@ -44271,20 +44225,17 @@ save(historico, file = &quot;historico.RData&quot;)</code></pre>
 </div>
 </div>
 
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></p>
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/">Analisando o mercado de cryptomoedas com R</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>R</category>
-      <category>Prática</category>
-      <category>Bitcoin</category>
-      <category>Séries Temporais</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">gomesfellipe</category>
+      <category>Inteligência Artificial</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">bitcoin</category>
+      <category domain="tag">correlacao</category>
       <category domain="tag">cryptomoedas</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
-      <category domain="tag">Séries Temporais</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
+      <category domain="tag">series-temporais</category>
     </item>
   </channel>
 </rss>

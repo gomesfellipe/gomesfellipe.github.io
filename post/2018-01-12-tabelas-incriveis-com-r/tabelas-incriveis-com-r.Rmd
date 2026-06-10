@@ -1,5 +1,5 @@
 ---
-title: Tabelas incriveis com R
+title: Tabelas Incríveis com R
 author: Fellipe Gomes
 date: '2018-01-12'
 slug: []
@@ -17,7 +17,7 @@ tags:
 description: Alguns pacotes que serão bem úteis na hora de criar tabelas lindas e
   informativas!
 featured: tabelas-incriveis2.jpg
-featuredalt: Ilustração sobre tabelas incriveis com r
+featuredalt: "Exemplos de tabelas formatadas e coloridas criadas com pacotes R como kableExtra e formattable"
 featuredpath: date
 type: post
 image_preview: tabelas-incriveis2.jpg
@@ -32,8 +32,7 @@ og_type: article
 article_section: Artificial Intelligence
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/2018/01/tabelas-incriveis2.jpg
-keywords: analise-multivariada, data-mining, estatistica, pratica, rmarkdown, tabelas,
-  data science, machine learning, analytics
+keywords: analise-multivariada, data-mining, estatistica, pratica, rmarkdown, tabelas
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>flextable on Fellipe Gomes - Data Science Blog</title>
+    <title>Flextable on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/flextable/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -182,10 +182,8 @@ walk2(paste0(&quot;tab&quot;,1:3,&quot;.png&quot;), tabela_list, ~save_flextable
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/split-apply-combine/">Hackeando o R: estratégia split-apply-combine</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Programação e Ferramentas</category>
-      <category>Texto e NLP</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">estatistica</category>
       <category domain="tag">flextable</category>

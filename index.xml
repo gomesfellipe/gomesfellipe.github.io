@@ -1940,10 +1940,8 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/">Extração de informações de imagens com IA Generativa</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
       <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
       <category domain="tag">chatgpt</category>
       <category domain="tag">data-science</category>
       <category domain="tag">genai</category>
@@ -2246,10 +2244,7 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/">Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
       <category>Inteligência Artificial</category>
-      <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
       <category>Texto e NLP</category>
       <category domain="tag">chatgpt</category>
       <category domain="tag">classification</category>
@@ -3090,10 +3085,7 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/">Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
       <category>Inteligência Artificial</category>
-      <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
       <category>Texto e NLP</category>
       <category domain="tag">chatgpt</category>
       <category domain="tag">data-science</category>
@@ -3111,7 +3103,7 @@ plt.show()</code></pre>
       <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
-      <description>Confira a estratégia aplicada para esta competição</description>
+      <description>Solução vencedora (1º lugar) da ML Olympiad do Kaggle: estratégia analítica completa com CatBoost e R para classificação em dados de saúde pública.</description>
       <content:encoded>&lt;![CDATA[
         
 <link href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/index_files/vembedr/css/vembedr.css" rel="stylesheet" />
@@ -3235,10 +3227,8 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/">Solução Final - ML Olympiad [1º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">classification</category>
       <category domain="tag">data-mining</category>
@@ -3592,7 +3582,7 @@ Imagem gerada por <a href="https://gomesfellipe.github.io/">gomesfellipe</a> uti
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>Confira a estratégia aplicada para esta competição</description>
+      <description>Solução que alcançou o 2º lugar na ML Olympiad do Kaggle: análise exploratória em R, feature engineering e modelagem com CatBoost para prever qualidade educacional.</description>
       <content:encoded>&lt;![CDATA[
         
 
@@ -4768,10 +4758,8 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/">Solução Final - ML Olympiad [2º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">data-science</category>
@@ -5084,8 +5072,6 @@ subt %&gt;%
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/">Vou te provar que da para fazer Grafos bonitos em R!</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Programação e Ferramentas</category>
       <category>Texto e NLP</category>
       <category domain="tag">data-mining</category>
@@ -5863,10 +5849,8 @@ print(&quot;Final LogLoss:&quot;, log_loss(y, y_oof))</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/">Solução Final - Porto Seguro Data Challenge [3º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">data-science</category>
       <category domain="tag">kaggle</category>
@@ -8367,10 +8351,8 @@ umap_plot &lt;-
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/">Prevendo a qualidade do sono utilizando Machine Learning</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">imbalanced</category>
       <category domain="tag">imbalanced-data</category>
       <category domain="tag">lightgbm</category>
@@ -8399,7 +8381,7 @@ umap_plot &lt;-
 <ul>
 <li>R :</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>born  <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.Date</span>(<span style="color:#e6db74">&#34;1993-12-14&#34;</span>) 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>born  <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.Date</span>(<span style="color:#e6db74">&#34;1993-12-14&#34;</span>) 
 </span></span><span style="display:flex;"><span>today <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">Sys.Date</span>()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Quantos dias de vida</span>
@@ -8413,7 +8395,7 @@ umap_plot &lt;-
 </span></span></code></pre></div><ul>
 <li>Python:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timedelta
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timedelta
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>today <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>today()
 </span></span><span style="display:flex;"><span>born <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>strptime(<span style="color:#e6db74">&#39;1993-12-14&#39;</span>, <span style="color:#e6db74">&#39;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#39;</span>)
@@ -8448,70 +8430,70 @@ umap_plot &lt;-
 <p>Os dados são obtidos utilizando a função <code>quantmod::getQuote(&quot;&lt;stock&gt;&quot;)</code> para obter dados em tempo real (com defasagem de 15 minutos) e utilizando a função <code>quantmod::(&quot;&lt;stock&gt;&quot;, get = &quot;stock.prices&quot;, from = first_day_year)</code> intradiários fornecidos pela api do <a href="https://finance.yahoo.com/">Yahoo Finance</a> das cotações do dia anterior.</p>
 <h2 id="instalação">Instalação</h2>
 <p>Para instalar a versão de desenvolvimento do aplicativo execute o comando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;gomesfellipe/acompanhacoes&#34;</span>, INSTALL_opts <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;--no-lock&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;gomesfellipe/acompanhacoes&#34;</span>, INSTALL_opts <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;--no-lock&#39;</span>)
 </span></span></code></pre></div><p>Ou faça o download da pasta do repositório e execute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install</span>(<span style="color:#e6db74">&#34;/path_to/acompanhacoes&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install</span>(<span style="color:#e6db74">&#34;/path_to/acompanhacoes&#34;</span>)
 </span></span></code></pre></div><h2 id="uso">Uso</h2>
 <p>Após instalar o pacote, execute os comandos para executar o dashboard no R:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(acompanhacoes)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(acompanhacoes)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">run_app</span>()
 </span></span></code></pre></div><p>Veja como é a tela inicial do dashboard:</p>
 <p><img src="/apps/acompanhacoes_files/tela_inicial.png" alt=""></p>
 <p>Para acessar o dashboard no meu servidor consulte: <a href="https://gomes555.shinyapps.io/acompanhacoes/">https://gomes555.shinyapps.io/acompanhacoes/</a></p>
 <p>Assim que o dashboard for aberto, serão exibidos resultados para um portfólio <strong>arbitrário</strong> fornecido como exemplo, exibindo <strong>tabelas financeiras</strong> com as seguitnes informações:</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:right">Campo</th>
-<th style="text-align:left">Subcampo</th>
-<th style="text-align:left">Descrição</th>
-<th style="text-align:left">Medotologia</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">Montagem</td>
-<td style="text-align:left">Cotação inicio</td>
-<td style="text-align:left">Valor no momento da compra</td>
-<td style="text-align:left"><em>input</em></td>
-</tr>
-<tr>
-<td style="text-align:right">Montagem</td>
-<td style="text-align:left">Quantidade</td>
-<td style="text-align:left">Quantidade de lotes comprados</td>
-<td style="text-align:left"><em>input</em></td>
-</tr>
-<tr>
-<td style="text-align:right">Montagem</td>
-<td style="text-align:left">Volume Inicio</td>
-<td style="text-align:left">Volume total da compra</td>
-<td style="text-align:left"><code>cot_ini * qtd</code></td>
-</tr>
-<tr>
-<td style="text-align:right">Desmontagem</td>
-<td style="text-align:left">Cotacao Atual</td>
-<td style="text-align:left">Valor do ativo no momento atual</td>
-<td style="text-align:left"><em>real-time</em></td>
-</tr>
-<tr>
-<td style="text-align:right">Desmontagem</td>
-<td style="text-align:left">Volume Atual</td>
-<td style="text-align:left">Volume total atual</td>
-<td style="text-align:left"><code>cot_atual * qtd</code></td>
-</tr>
-<tr>
-<td style="text-align:right">Resultado</td>
-<td style="text-align:left">Ganho/Perda</td>
-<td style="text-align:left">Valor de ganho/perda caso venda hoje</td>
-<td style="text-align:left"><code>vol_atual - vol_ini</code></td>
-</tr>
-<tr>
-<td style="text-align:right">Resultado</td>
-<td style="text-align:left">Resultado Bruno</td>
-<td style="text-align:left">Porcentagem de lucro</td>
-<td style="text-align:left"><code>ganho_perda / vol_ini * 100</code></td>
-</tr>
-</tbody>
+	<thead>
+			<tr>
+					<th style="text-align: right">Campo</th>
+					<th style="text-align: left">Subcampo</th>
+					<th style="text-align: left">Descrição</th>
+					<th style="text-align: left">Medotologia</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: right">Montagem</td>
+					<td style="text-align: left">Cotação inicio</td>
+					<td style="text-align: left">Valor no momento da compra</td>
+					<td style="text-align: left"><em>input</em></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Montagem</td>
+					<td style="text-align: left">Quantidade</td>
+					<td style="text-align: left">Quantidade de lotes comprados</td>
+					<td style="text-align: left"><em>input</em></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Montagem</td>
+					<td style="text-align: left">Volume Inicio</td>
+					<td style="text-align: left">Volume total da compra</td>
+					<td style="text-align: left"><code>cot_ini * qtd</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Desmontagem</td>
+					<td style="text-align: left">Cotacao Atual</td>
+					<td style="text-align: left">Valor do ativo no momento atual</td>
+					<td style="text-align: left"><em>real-time</em></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Desmontagem</td>
+					<td style="text-align: left">Volume Atual</td>
+					<td style="text-align: left">Volume total atual</td>
+					<td style="text-align: left"><code>cot_atual * qtd</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Resultado</td>
+					<td style="text-align: left">Ganho/Perda</td>
+					<td style="text-align: left">Valor de ganho/perda caso venda hoje</td>
+					<td style="text-align: left"><code>vol_atual - vol_ini</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Resultado</td>
+					<td style="text-align: left">Resultado Bruno</td>
+					<td style="text-align: left">Porcentagem de lucro</td>
+					<td style="text-align: left"><code>ganho_perda / vol_ini * 100</code></td>
+			</tr>
+	</tbody>
 </table>
 <p>A próxima seção trará as informações necessárias para se realizar a carga no Dashboad.</p>
 <h2 id="input">Input</h2>
@@ -9201,8 +9183,6 @@ E assim obtemos um feedback através do nosso Smartphone ou Smartwatch em tempo 
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
       <category>Programação e Ferramentas</category>
       <category domain="tag">bitcoin</category>
@@ -9529,10 +9509,8 @@ analise_gapminder &lt;- function(x, title){
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/relatorios-automaticos-com-rmarkdown/">Como automatizar relatórios longos e repetitivos com RMarkdown</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
-      <category>Machine Learning</category>
       <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">estatistica</category>
       <category domain="tag">otimizacao</category>

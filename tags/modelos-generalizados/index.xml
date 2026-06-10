@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>modelos generalizados on Fellipe Gomes - Data Science Blog</title>
+    <title>Modelos-Generalizados on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/modelos-generalizados/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -11,7 +11,7 @@
     <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gomesfellipe.github.io/tags/modelos-generalizados/" rel="self" type="application/rss+xml" />
     <item>
-      <title>modelo bayesiano do zero</title>
+      <title>Modelo Bayesiano do Zero</title>
       <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
@@ -378,30 +378,21 @@ cbind(y, x) %&gt;%
 <h1>Referências</h1>
 </div>
 
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a></p>
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Modelo Bayesiano do Zero</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Aprendizado Não Supervisionado</category>
-      <category>Bayes</category>
-      <category>Inferência Bayesiana</category>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>Probabilidade</category>
-      <category>R</category>
-      <category>Simulação</category>
-      <category>Teoria</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">bayes</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">jags</category>
       <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">modelos generalizados</category>
-      <category domain="tag">modelos lineares</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">modelos-generalizados</category>
+      <category domain="tag">modelos-lineares</category>
       <category domain="tag">probabilidade</category>
-      <category domain="tag">R</category>
-      <category domain="tag">regression</category>
-      <category domain="tag">Teoria</category>
+      <category domain="tag">r</category>
+      <category domain="tag">regressao</category>
     </item>
     <item>
       <title>Pacotes do R para avaliar o ajuste de modelos</title>
@@ -686,24 +677,19 @@ ggscatmat(flea, columns = 2:4, color=&quot;species&quot;, alpha=0.8)</code></pre
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category>Tidyverse</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">regression</category>
-      <category domain="tag">Teoria</category>
-      <category domain="tag">modelos lineares</category>
-      <category domain="tag">modelos generalizados</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">ggally</category>
       <category domain="tag">ggfortify</category>
-      <category domain="tag">GGally</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">modelos-generalizados</category>
+      <category domain="tag">modelos-lineares</category>
+      <category domain="tag">r</category>
+      <category domain="tag">regressao</category>
     </item>
   </channel>
 </rss>

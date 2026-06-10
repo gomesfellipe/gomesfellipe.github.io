@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>dashboard on Fellipe Gomes - Data Science Blog</title>
+    <title>Dashboard on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/dashboard/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -26,70 +26,70 @@
 <p>Os dados são obtidos utilizando a função <code>quantmod::getQuote(&quot;&lt;stock&gt;&quot;)</code> para obter dados em tempo real (com defasagem de 15 minutos) e utilizando a função <code>quantmod::(&quot;&lt;stock&gt;&quot;, get = &quot;stock.prices&quot;, from = first_day_year)</code> intradiários fornecidos pela api do <a href="https://finance.yahoo.com/">Yahoo Finance</a> das cotações do dia anterior.</p>
 <h2 id="instalação">Instalação</h2>
 <p>Para instalar a versão de desenvolvimento do aplicativo execute o comando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;gomesfellipe/acompanhacoes&#34;</span>, INSTALL_opts <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;--no-lock&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;gomesfellipe/acompanhacoes&#34;</span>, INSTALL_opts <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;--no-lock&#39;</span>)
 </span></span></code></pre></div><p>Ou faça o download da pasta do repositório e execute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install</span>(<span style="color:#e6db74">&#34;/path_to/acompanhacoes&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install</span>(<span style="color:#e6db74">&#34;/path_to/acompanhacoes&#34;</span>)
 </span></span></code></pre></div><h2 id="uso">Uso</h2>
 <p>Após instalar o pacote, execute os comandos para executar o dashboard no R:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(acompanhacoes)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(acompanhacoes)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">run_app</span>()
 </span></span></code></pre></div><p>Veja como é a tela inicial do dashboard:</p>
 <p><img src="/apps/acompanhacoes_files/tela_inicial.png" alt=""></p>
 <p>Para acessar o dashboard no meu servidor consulte: <a href="https://gomes555.shinyapps.io/acompanhacoes/">https://gomes555.shinyapps.io/acompanhacoes/</a></p>
 <p>Assim que o dashboard for aberto, serão exibidos resultados para um portfólio <strong>arbitrário</strong> fornecido como exemplo, exibindo <strong>tabelas financeiras</strong> com as seguitnes informações:</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:right">Campo</th>
-<th style="text-align:left">Subcampo</th>
-<th style="text-align:left">Descrição</th>
-<th style="text-align:left">Medotologia</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">Montagem</td>
-<td style="text-align:left">Cotação inicio</td>
-<td style="text-align:left">Valor no momento da compra</td>
-<td style="text-align:left"><em>input</em></td>
-</tr>
-<tr>
-<td style="text-align:right">Montagem</td>
-<td style="text-align:left">Quantidade</td>
-<td style="text-align:left">Quantidade de lotes comprados</td>
-<td style="text-align:left"><em>input</em></td>
-</tr>
-<tr>
-<td style="text-align:right">Montagem</td>
-<td style="text-align:left">Volume Inicio</td>
-<td style="text-align:left">Volume total da compra</td>
-<td style="text-align:left"><code>cot_ini * qtd</code></td>
-</tr>
-<tr>
-<td style="text-align:right">Desmontagem</td>
-<td style="text-align:left">Cotacao Atual</td>
-<td style="text-align:left">Valor do ativo no momento atual</td>
-<td style="text-align:left"><em>real-time</em></td>
-</tr>
-<tr>
-<td style="text-align:right">Desmontagem</td>
-<td style="text-align:left">Volume Atual</td>
-<td style="text-align:left">Volume total atual</td>
-<td style="text-align:left"><code>cot_atual * qtd</code></td>
-</tr>
-<tr>
-<td style="text-align:right">Resultado</td>
-<td style="text-align:left">Ganho/Perda</td>
-<td style="text-align:left">Valor de ganho/perda caso venda hoje</td>
-<td style="text-align:left"><code>vol_atual - vol_ini</code></td>
-</tr>
-<tr>
-<td style="text-align:right">Resultado</td>
-<td style="text-align:left">Resultado Bruno</td>
-<td style="text-align:left">Porcentagem de lucro</td>
-<td style="text-align:left"><code>ganho_perda / vol_ini * 100</code></td>
-</tr>
-</tbody>
+	<thead>
+			<tr>
+					<th style="text-align: right">Campo</th>
+					<th style="text-align: left">Subcampo</th>
+					<th style="text-align: left">Descrição</th>
+					<th style="text-align: left">Medotologia</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: right">Montagem</td>
+					<td style="text-align: left">Cotação inicio</td>
+					<td style="text-align: left">Valor no momento da compra</td>
+					<td style="text-align: left"><em>input</em></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Montagem</td>
+					<td style="text-align: left">Quantidade</td>
+					<td style="text-align: left">Quantidade de lotes comprados</td>
+					<td style="text-align: left"><em>input</em></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Montagem</td>
+					<td style="text-align: left">Volume Inicio</td>
+					<td style="text-align: left">Volume total da compra</td>
+					<td style="text-align: left"><code>cot_ini * qtd</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Desmontagem</td>
+					<td style="text-align: left">Cotacao Atual</td>
+					<td style="text-align: left">Valor do ativo no momento atual</td>
+					<td style="text-align: left"><em>real-time</em></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Desmontagem</td>
+					<td style="text-align: left">Volume Atual</td>
+					<td style="text-align: left">Volume total atual</td>
+					<td style="text-align: left"><code>cot_atual * qtd</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Resultado</td>
+					<td style="text-align: left">Ganho/Perda</td>
+					<td style="text-align: left">Valor de ganho/perda caso venda hoje</td>
+					<td style="text-align: left"><code>vol_atual - vol_ini</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: right">Resultado</td>
+					<td style="text-align: left">Resultado Bruno</td>
+					<td style="text-align: left">Porcentagem de lucro</td>
+					<td style="text-align: left"><code>ganho_perda / vol_ini * 100</code></td>
+			</tr>
+	</tbody>
 </table>
 <p>A próxima seção trará as informações necessárias para se realizar a carga no Dashboad.</p>
 <h2 id="input">Input</h2>

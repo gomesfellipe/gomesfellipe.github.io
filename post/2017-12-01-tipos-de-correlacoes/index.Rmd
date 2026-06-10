@@ -1,5 +1,5 @@
 ---
-title: Tipos de Correlacoes
+title: Tipos de Correlações
 author: Fellipe Gomes
 date: '2017-12-01'
 slug: []
@@ -15,9 +15,9 @@ tags:
 - qui-quadrado
 - r
 - teste-fisher
-description: library(knitr)
+description: "Aprenda os principais tipos de correlação e associação em R: Pearson, Spearman, Kendall, Qui-quadrado, teste de Fisher, V de Cramer e Kappa com exemplos práticos."
 featured: ''
-featuredalt: Ilustração sobre tipos de correlacoes
+featuredalt: "Matriz de correlação com coeficientes de Pearson, Spearman e Kendall em R"
 featuredpath: ''
 type: post
 output:
@@ -34,8 +34,7 @@ og_type: article
 article_section: Programming
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/main/logo1.jpg
-keywords: correlacao, correlacoes, cramer, estatistica, kappa, qui-quadrado, r, teste-fisher,
-  data science, machine learning, analytics
+keywords: correlacao, correlacoes, cramer, estatistica, kappa, qui-quadrado, r, teste-fisher
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

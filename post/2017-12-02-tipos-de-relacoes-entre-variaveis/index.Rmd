@@ -11,9 +11,9 @@ tags:
 - correlacoes
 - ggplot2
 - r
-description: library(knitr)
+description: "Guia prático para escolher a medida de correlação correta para cada tipo de variável: numérica, categórica e ordinal. Exemplos visuais com ggplot2 em R."
 featured: ''
-featuredalt: Ilustração sobre tipos de relações entre variáveis
+featuredalt: "Gráficos de dispersão mostrando diferentes tipos de relações entre variáveis estatísticas"
 featuredpath: ''
 type: post
 schema_type: BlogPosting
@@ -27,7 +27,7 @@ og_type: article
 article_section: Programming
 twitter_card: summary_large_image
 twitter_image: https://gomesfellipe.github.io/img/main/logo1.jpg
-keywords: correlacao, correlacoes, ggplot2, r, data science, machine learning, analytics
+keywords: correlacao, correlacoes, ggplot2, r
 robots: index, follow
 subject: Data Science and Machine Learning
 classification: Technology

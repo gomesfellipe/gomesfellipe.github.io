@@ -1,7 +1,7 @@
 &lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>modelagem on Fellipe Gomes - Data Science Blog</title>
+    <title>Modelagem on Fellipe Gomes - Data Science Blog</title>
     <link>https://gomesfellipe.github.io/tags/modelagem/</link>
     <description>Últimos posts sobre Data Science, Machine Learning e R</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -16,7 +16,7 @@
       <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
-      <description>Confira a estratégia aplicada para esta competição</description>
+      <description>Solução vencedora (1º lugar) da ML Olympiad do Kaggle: estratégia analítica completa com CatBoost e R para classificação em dados de saúde pública.</description>
       <content:encoded>&lt;![CDATA[
         
 <link href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/index_files/vembedr/css/vembedr.css" rel="stylesheet" />
@@ -140,10 +140,8 @@
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/">Solução Final - ML Olympiad [1º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">classification</category>
       <category domain="tag">data-mining</category>
@@ -160,7 +158,7 @@
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>Confira a estratégia aplicada para esta competição</description>
+      <description>Solução que alcançou o 2º lugar na ML Olympiad do Kaggle: análise exploratória em R, feature engineering e modelagem com CatBoost para prever qualidade educacional.</description>
       <content:encoded>&lt;![CDATA[
         
 
@@ -1336,10 +1334,8 @@ plt.show()</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/">Solução Final - ML Olympiad [2º lugar]</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">catboost</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">data-science</category>
@@ -1960,8 +1956,6 @@ E assim obtemos um feedback através do nosso Smartphone ou Smartwatch em tempo 
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/">Desenvolva um bot e receba resultados de Machine Learning no seu Smartphone para ajudar nos investimentos</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
       <category>Programação e Ferramentas</category>
       <category domain="tag">bitcoin</category>
@@ -2575,10 +2569,8 @@ Approaches: <a href="http://pcwww.liv.ac.uk/~afgt/eleuteri_lyon07.pdf" class="ur
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/">Análise de sobrevivência com dados do jogo PUBG disponíveis no Kaggle</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Fundamentos de Data Science</category>
-      <category>Inteligência Artificial</category>
       <category>Machine Learning</category>
-      <category>Programação e Ferramentas</category>
+      <category>Fundamentos de Data Science</category>
       <category domain="tag">analise-de-sobrevivencia</category>
       <category domain="tag">data-mining</category>
       <category domain="tag">estatistica</category>
@@ -3631,34 +3623,21 @@ bwplot(resamps)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/modelos-em-arvore/">Um estudo sobre modelos de aprendizagem baseados em árvores com desafio do Kaggle</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Aprendizado Supervisionado</category>
-      <category>Data mining</category>
-      <category>Estatistica</category>
       <category>Machine Learning</category>
-      <category>Prática</category>
-      <category>Probabilidade</category>
-      <category>R</category>
-      <category>modelo baseado em arvores</category>
-      <category>kaggle</category>
-      <category>Regressão</category>
-      <category domain="tag">Data Mining</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">kaggle</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">regression</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">caret</category>
-      <category domain="tag">xgboost</category>
-      <category domain="tag">random forest</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">data-mining</category>
       <category domain="tag">decisiontree</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">kaggle</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
     </item>
     <item>
-      <title>modelo bayesiano do zero</title>
+      <title>Modelo Bayesiano do Zero</title>
       <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
@@ -4025,30 +4004,21 @@ cbind(y, x) %&gt;%
 <h1>Referências</h1>
 </div>
 
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">modelo bayesiano do zero</a></p>
+        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/modelo-bayesiano-do-zero/">Modelo Bayesiano do Zero</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Aprendizado Não Supervisionado</category>
-      <category>Bayes</category>
-      <category>Inferência Bayesiana</category>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>Probabilidade</category>
-      <category>R</category>
-      <category>Simulação</category>
-      <category>Teoria</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">bayes</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">jags</category>
       <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">modelos generalizados</category>
-      <category domain="tag">modelos lineares</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">modelos-generalizados</category>
+      <category domain="tag">modelos-lineares</category>
       <category domain="tag">probabilidade</category>
-      <category domain="tag">R</category>
-      <category domain="tag">regression</category>
-      <category domain="tag">Teoria</category>
+      <category domain="tag">r</category>
+      <category domain="tag">regressao</category>
     </item>
     <item>
       <title>Brasil x Argentina, tidytext e Machine Learning</title>
@@ -5069,24 +5039,15 @@ Silva; Peres; Boscarioli, Leandro Augusto; Sarajane Marques; Clodis. 2016. <em>I
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/brasil-argentina-tidytext-ml/">Brasil x Argentina, tidytext e Machine Learning</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Aprendizado Não Supervisionado</category>
-      <category>Data mining</category>
-      <category>Estatistica</category>
+      <category>Texto e NLP</category>
       <category>Machine Learning</category>
-      <category>Modelagem Estatistica</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Text Mining</category>
-      <category>Análise de Sentimentos</category>
-      <category domain="tag">Data Mining</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">twitter</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">modelagem</category>
-      <category domain="tag">Prática</category>
-      <category domain="tag">R</category>
-      <category domain="tag">text mining</category>
+      <category domain="tag">pratica</category>
+      <category domain="tag">r</category>
+      <category domain="tag">text-mining</category>
+      <category domain="tag">twitter</category>
     </item>
     <item>
       <title>AED de forma rápida e um pouco de Machine Learning</title>
@@ -5894,27 +5855,17 @@ antes - Sys.time() # Para saber quanto tempo durou o ajuste</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/smarteademachinelearning/">AED de forma rápida e um pouco de Machine Learning</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Analise Exploratória</category>
-      <category>Data mining</category>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>Prática</category>
-      <category>R</category>
-      <category>Reports</category>
+      <category>Fundamentos de Data Science</category>
       <category>Machine Learning</category>
-      <category>Analise Mutivariada</category>
-      <category>Aprendizado Supervisionado</category>
-      <category>Aprendizado Não Supervisionado</category>
-      <category domain="tag">analise multivariada</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">Data Mining</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
+      <category domain="tag">analise-multivariada</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">data-mining</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">kmeans</category>
       <category domain="tag">modelagem</category>
       <category domain="tag">pca</category>
-      <category domain="tag">R</category>
-      <category domain="tag">RStudio</category>
+      <category domain="tag">r</category>
+      <category domain="tag">rstudio</category>
     </item>
     <item>
       <title>O paradoxo dos aniversários com simulação e probabilidade</title>
@@ -6280,20 +6231,16 @@ Magalhães, Mascos N. n.d. <em>Probabilidade e Variáveis Aleatóriasa</em>. Vol
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/simulacao-e-probabilidade/">O paradoxo dos aniversários com simulação e probabilidade</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>Analise Exploratória</category>
-      <category>Teoria</category>
-      <category>Simulação</category>
-      <category>Probabilidade</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Teoria</category>
-      <category domain="tag">analise multivariada</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Inteligência Artificial</category>
+      <category>Machine Learning</category>
+      <category domain="tag">analise-multivariada</category>
+      <category domain="tag">estatistica</category>
       <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">simulacao</category>
+      <category domain="tag">modelagem-estatistica</category>
       <category domain="tag">probabilidade</category>
+      <category domain="tag">simulacao</category>
+      <category domain="tag">teoria</category>
     </item>
     <item>
       <title>Pacotes do R para avaliar o ajuste de modelos</title>
@@ -6578,24 +6525,19 @@ ggscatmat(flea, columns = 2:4, color=&quot;species&quot;, alpha=0.8)</code></pre
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/diagnostico-de-modelos/">Pacotes do R para avaliar o ajuste de modelos</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>Modelagem Estatistica</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category>Tidyverse</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">Correlacoes</category>
-      <category domain="tag">R Markdown</category>
-      <category domain="tag">regression</category>
-      <category domain="tag">Teoria</category>
-      <category domain="tag">modelos lineares</category>
-      <category domain="tag">modelos generalizados</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Machine Learning</category>
+      <category>Programação e Ferramentas</category>
+      <category domain="tag">correlacao</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">ggally</category>
       <category domain="tag">ggfortify</category>
-      <category domain="tag">GGally</category>
+      <category domain="tag">modelagem</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">modelos-generalizados</category>
+      <category domain="tag">modelos-lineares</category>
+      <category domain="tag">r</category>
+      <category domain="tag">regressao</category>
     </item>
     <item>
       <title>Ajustando Modelos Bayesianos com JAGS</title>
@@ -6603,11 +6545,7 @@ ggscatmat(flea, columns = 2:4, color=&quot;species&quot;, alpha=0.8)</code></pre
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
       <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
       <guid>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/</guid>
-      <description>Inferência bayesiana Imagem da Internet
-Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.
-Para isso devemos utilizar toda informação disponível, seja ela objetiva ou subjetiva (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)
-Segundo o ponto de vista Bayesiano essa informação subjetiva também será incorporada na análise graças ao teorema de bayes.
-Como no ponto de vista Bayesiano atribuímos aleatoriedade ao parâmetro, nossa “crença” será representada por uma distribuição de probabilidade (ou modelo probabilístico)</description>
+      <description>Introdução à inferência bayesiana com implementação prática em R usando JAGS e MCMC. Distribuições a priori, verossimilhança e amostragem de Gibbs.</description>
       <content:encoded>&lt;![CDATA[
         
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -7096,19 +7034,14 @@ bayes.mod.fit.upd &lt;- autojags(bayes.mod.fit)</code></pre>
         <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/bayesiana-jags-mcmcplot/">Ajustando Modelos Bayesianos com JAGS</a></p>
         <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
       ]]></content:encoded>
-      <category>Estatistica</category>
-      <category>R</category>
-      <category>Teoria</category>
-      <category>Bayes</category>
-      <category>Inferência Bayesiana</category>
-      <category>Modelagem Estatistica</category>
-      <category domain="tag">Estatistica</category>
-      <category domain="tag">gomesfellipe</category>
-      <category domain="tag">R</category>
-      <category domain="tag">jags</category>
+      <category>Fundamentos de Data Science</category>
+      <category>Programação e Ferramentas</category>
       <category domain="tag">bayes</category>
+      <category domain="tag">estatistica</category>
+      <category domain="tag">jags</category>
       <category domain="tag">modelagem</category>
-      <category domain="tag">modelagem estatistica</category>
+      <category domain="tag">modelagem-estatistica</category>
+      <category domain="tag">r</category>
     </item>
   </channel>
 </rss>
