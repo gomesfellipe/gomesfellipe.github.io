@@ -3937,6 +3937,67 @@
     <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
 
     
+    <div id="donation-btn" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: linear-gradient(45deg, #ff6b6b, #ff8e8e); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease; animation: heartbeat 2s infinite;" onclick="openDonationModal()">
+        <i class="fa fa-heart" style="font-size: 24px;"></i>
+    </div>
+
+    
+    <div id="donation-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1001;" onclick="closeDonationModal()">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 15px; text-align: center; max-width: 350px; width: 90%;" onclick="event.stopPropagation()">
+            <h3 style="margin-top: 0; color: #333;">&#9749; Apoie o blog</h3>
+
+            <p style="color: #666; margin: 15px 0; font-size: 14px;">
+                Gostou do conteúdo? <br>Considere fazer uma doação!
+            </p>
+
+            <img src="https://gomesfellipe.github.io/img/qrcode/qrcode-pix.png" alt="QR Code PIX" style="max-width: 180px; width: 100%; border-radius: 8px; margin: 15px 0;">
+            <p style="font-size: 13px; color: #777; margin: 8px 0;"><strong>Chave PIX:</strong> gomes.fellipe1@gmail.com</p>
+
+            <button onclick="closeDonationModal()" style="background: #ff6b6b; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">
+                &#10084;&#65039; Obrigado!
+            </button>
+        </div>
+    </div>
+
+    <style>
+        @keyframes heartbeat {
+            0%, 50%, 100% { transform: scale(1); }
+            25%, 75% { transform: scale(1.1); }
+        }
+        #donation-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+    </style>
+
+    <script>
+        function openDonationModal() {
+            document.getElementById('donation-modal').style.display = 'block';
+        }
+        function closeDonationModal() {
+            document.getElementById('donation-modal').style.display = 'none';
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDonationModal();
+            }
+        });
+
+        
+        window.addEventListener('scroll', function() {
+            const donationBtn = document.getElementById('donation-btn');
+            const backToTop = document.getElementById('back-to-top');
+
+            if (window.scrollY > 300) { 
+                donationBtn.style.right = '100px'; 
+            } else {
+                donationBtn.style.right = '20px'; 
+            }
+        });
+    </script>
+
+    
     <div style="text-align: center; padding: 10px 0; font-size: 12px; color: #666;">
         <a href="https://gomesfellipe.github.io/privacy/" style="color: #666; text-decoration: none; margin: 0 10px;">Politica de Privacidade</a>
         <span style="color: #ccc;">|</span>
