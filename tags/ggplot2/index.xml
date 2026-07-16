@@ -1,33 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Ggplot2 on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/ggplot2/</link>
-    <description>Recent content in Ggplot2 on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Vou te provar que da para fazer Grafos bonitos em R!</title>
-      <link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o-e-contexto&#34; id=&#34;toc-introdução-e-contexto&#34;&gt;Introdução e contexto&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#o-que-s%C3%A3o-grafos&#34; id=&#34;toc-o-que-são-grafos&#34;&gt;O que são Grafos?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#como-contruir-um&#34; id=&#34;toc-como-contruir-um&#34;&gt;Como contruir um?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#carregar-depend%C3%AAncias&#34; id=&#34;toc-carregar-dependências&#34;&gt;Carregar dependências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#fonte-dos-dados&#34; id=&#34;toc-fonte-dos-dados&#34;&gt;Fonte dos dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ner---named-entity-recognition&#34; id=&#34;toc-ner---named-entity-recognition&#34;&gt;NER - Named Entity Recognition&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#preparar-dados&#34; id=&#34;toc-preparar-dados&#34;&gt;Preparar dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#b%C3%B4nus&#34; id=&#34;toc-bônus&#34;&gt;Bônus&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#outras-bibliotecas-para-constru%C3%A7%C3%A3o-de-grafos&#34; id=&#34;toc-outras-bibliotecas-para-construção-de-grafos&#34;&gt;Outras bibliotecas para construção de grafos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;introdução-e-contexto&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Introdução e contexto&lt;/h1&gt;&#xA;&lt;p&gt;Durante os anos de 2020 e 2021 fiz um &lt;a href=&#34;https://educacao-executiva.fgv.br/df/brasilia/cursos/mba-pos-graduacao/mba-presencial/mba-executivo-em-business-analytics-e-big-data&#34;&gt;MBA Executivo em Business Analytics e Big Data&lt;/a&gt; na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/feature.png" />
-    </item>
-    
-    <item>
-      <title>Tipos de relações entre variáveis</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</link>
-      <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</guid>
-      <description>&lt;div id=&#34;tipos-de-relações&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Tipos de relações&lt;/h1&gt;&#xA;&lt;p&gt;Vimos no &lt;a href=&#34;https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/&#34;&gt;último post sobre tipos de correlações&lt;/a&gt; quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis. Um exemplo prático dessas técnicas aplicadas a dados reais pode ser visto na &lt;a href=&#34;https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/&#34;&gt;análise do mercado de criptomoedas com R&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Já sabemos que esses coeficientes variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/feature.jpeg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ggplot2 on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/ggplot2/</link><description>Recent content in Ggplot2 on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/ggplot2/index.xml" rel="self" type="application/rss+xml"/><item><title>Vou te provar que da para fazer Grafos bonitos em R!</title><link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link><pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o-e-contexto" id="toc-introdução-e-contexto"&gt;Introdução e contexto&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#o-que-s%C3%A3o-grafos" id="toc-o-que-são-grafos"&gt;O que são Grafos?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#como-contruir-um" id="toc-como-contruir-um"&gt;Como contruir um?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#carregar-depend%C3%AAncias" id="toc-carregar-dependências"&gt;Carregar dependências&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#fonte-dos-dados" id="toc-fonte-dos-dados"&gt;Fonte dos dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ner---named-entity-recognition" id="toc-ner---named-entity-recognition"&gt;NER - Named Entity Recognition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#preparar-dados" id="toc-preparar-dados"&gt;Preparar dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#b%C3%B4nus" id="toc-bônus"&gt;Bônus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#outras-bibliotecas-para-constru%C3%A7%C3%A3o-de-grafos" id="toc-outras-bibliotecas-para-construção-de-grafos"&gt;Outras bibliotecas para construção de grafos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="introdução-e-contexto" class="section level2"&gt;
+&lt;h1&gt;Introdução e contexto&lt;/h1&gt;
+&lt;p&gt;Durante os anos de 2020 e 2021 fiz um &lt;a href="https://educacao-executiva.fgv.br/df/brasilia/cursos/mba-pos-graduacao/mba-presencial/mba-executivo-em-business-analytics-e-big-data"&gt;MBA Executivo em Business Analytics e Big Data&lt;/a&gt; na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/feature.png"/></item><item><title>Tipos de relações entre variáveis</title><link>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</link><pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</guid><description>&lt;div id="tipos-de-relações" class="section level2"&gt;
+&lt;h1&gt;Tipos de relações&lt;/h1&gt;
+&lt;p&gt;Vimos no &lt;a href="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/"&gt;último post sobre tipos de correlações&lt;/a&gt; quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis. Um exemplo prático dessas técnicas aplicadas a dados reais pode ser visto na &lt;a href="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/"&gt;análise do mercado de criptomoedas com R&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Já sabemos que esses coeficientes variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/feature.jpeg"/></item></channel></rss>

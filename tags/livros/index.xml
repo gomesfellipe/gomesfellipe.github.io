@@ -1,23 +1,70 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Livros on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/livros/</link>
-    <description>Recent content in Livros on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Sat, 04 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/livros/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Livros que recomendo para cientistas de dados</title>
-      <link>https://gomesfellipe.github.io/books/</link>
-      <pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/books/</guid>
-      <description>&lt;div class=&#34;livros&#34;&gt;&#xA;  &lt;style&gt;&#xA;    .livros{&#xA;      --lv-accent:#e67a00; --lv-accent2:#ff9d2e;&#xA;      --lv-bg:#ffffff; --lv-bg2:#faf7f2; --lv-card:#ffffff;&#xA;      --lv-text:#1f2733; --lv-muted:#6b7583; --lv-line:rgba(0,0,0,.09);&#xA;      --lv-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.07);&#xA;      --lv-shadow-h:0 6px 14px rgba(230,122,0,.18),0 18px 40px rgba(0,0,0,.14);&#xA;      width:100%; max-width:1180px; margin-inline:auto;&#xA;      color:var(--lv-text); font-synthesis:none;&#xA;    }&#xA;    html.dark .livros{&#xA;      --lv-bg:#0f141b; --lv-bg2:#141b24; --lv-card:#1a2230;&#xA;      --lv-text:#e6ebf2; --lv-muted:#9aa6b4; --lv-line:rgba(255,255,255,.10);&#xA;      --lv-shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);&#xA;      --lv-shadow-h:0 6px 16px rgba(255,157,46,.22),0 22px 46px rgba(0,0,0,.6);&#xA;    }&#xA;    .livros *{box-sizing:border-box}&#xA;     &#xA;    .lv-sec{margin-top:clamp(2rem,5vw,3rem)}&#xA;    .lv-sec:first-child{margin-top:0}&#xA;    .lv-sec-head{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;&#xA;      margin-bottom:1.4rem}&#xA;    .lv-sec-head h1{margin:0;font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:800;letter-spacing:-.01em}&#xA;    .lv-sec-intro{flex-basis:100%;margin:.35rem 0 0;color:var(--lv-muted);font-size:.96rem;line-height:1.55}&#xA;     &#xA;    .lv-grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}&#xA;    .lv-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--lv-line);&#xA;      border-radius:16px;box-shadow:var(--lv-shadow);transition:transform .2s,box-shadow .2s,border-color .2s;&#xA;      background:radial-gradient(140% 160% at 100% 100%,rgba(230,122,0,.14),transparent 55%),var(--lv-card)}&#xA;    .lv-card:hover{transform:translateY(-6px);box-shadow:var(--lv-shadow-h);border-color:rgba(230,122,0,.4)}&#xA;    .lv-cover{position:relative;display:block;padding:1.3rem 1.3rem .4rem;text-align:center}&#xA;    .lv-cover img{height:210px;width:auto;max-width:100%;object-fit:contain;&#xA;      filter:drop-shadow(0 8px 16px rgba(0,0,0,.22));border-radius:4px}&#xA;    .lv-flag{position:absolute;top:.7rem;right:.7rem;font-size:.68rem;font-weight:700;letter-spacing:.02em;&#xA;      padding:.22rem .5rem;border-radius:999px;background:var(--lv-bg2);border:1px solid var(--lv-line);color:var(--lv-muted)}&#xA;    .lv-badge{position:absolute;top:.7rem;left:.7rem;z-index:1;font-size:.64rem;font-weight:800;&#xA;      letter-spacing:.03em;text-transform:uppercase;color:#fff;&#xA;      background:linear-gradient(120deg,var(--lv-accent),var(--lv-accent2));&#xA;      padding:.24rem .5rem;border-radius:999px;box-shadow:0 2px 8px rgba(230,122,0,.4)}&#xA;    .lv-body{display:flex;flex-direction:column;gap:.35rem;padding:.6rem 1.1rem 1.1rem;flex:1}&#xA;    .lv-title{font-size:1rem;font-weight:700;line-height:1.25;margin:0}&#xA;    .lv-author{font-size:.8rem;color:var(--lv-muted);margin:0}&#xA;    .lv-pitch{font-size:.9rem;line-height:1.5;color:var(--lv-text);opacity:.92;margin:.2rem 0 .8rem}&#xA;    .lv-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;&#xA;      font-size:.9rem;font-weight:700;text-decoration:none;color:#fff;&#xA;      background:linear-gradient(120deg,var(--lv-accent),var(--lv-accent2));&#xA;      padding:.6rem .9rem;border-radius:10px;transition:.18s;box-shadow:0 4px 12px rgba(230,122,0,.28)}&#xA;    .lv-cta:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 6px 18px rgba(230,122,0,.42)}&#xA;    .lv-cta svg{width:14px;height:14px}&#xA;    @media(max-width:520px){&#xA;      .lv-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.8rem}&#xA;      .lv-cover img{height:160px}&#xA;      .lv-cover{padding:1rem 1rem .3rem}&#xA;      .lv-body{padding:.5rem .8rem .9rem}&#xA;    }&#xA;    .lv-cover-ph{height:210px;width:140px;max-width:100%;margin:auto;border-radius:6px;&#xA;      background:linear-gradient(160deg,var(--lv-bg2),var(--lv-line));border:1px solid var(--lv-line)}&#xA;    @media(max-width:520px){.lv-cover-ph{height:160px;width:110px}}&#xA;    .lv-cta:focus-visible,.lv-cover:focus-visible{&#xA;      outline:2px solid var(--lv-accent);outline-offset:3px}&#xA;    @media (prefers-reduced-motion: reduce){&#xA;      .lv-card,.lv-cta{transition:none}&#xA;      .lv-card:hover,.lv-cta:hover{transform:none}&#xA;    }&#xA;  &lt;/style&gt;&#xA;  &lt;section class=&#34;lv-sec&#34; id=&#34;estat%C3%ADstica-e-fundamentos&#34;&gt;&#xA;    &lt;div class=&#34;lv-sec-head&#34;&gt;&#xA;      &lt;h1&gt;Estatística e fundamentos&lt;/h1&gt;&#xA;      &lt;p class=&#34;lv-sec-intro&#34;&gt;A base de tudo. Os livros que sustentam tudo que veio depois, de regressão a redes neurais.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/books/feature.jpg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Livros on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/livros/</link><description>Recent content in Livros on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sat, 04 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/livros/index.xml" rel="self" type="application/rss+xml"/><item><title>Livros que recomendo para cientistas de dados</title><link>https://gomesfellipe.github.io/books/</link><pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/books/</guid><description>&lt;div class="livros"&gt;
+ &lt;style&gt;
+ .livros{
+ --lv-accent:#e67a00; --lv-accent2:#ff9d2e;
+ --lv-bg:#ffffff; --lv-bg2:#faf7f2; --lv-card:#ffffff;
+ --lv-text:#1f2733; --lv-muted:#6b7583; --lv-line:rgba(0,0,0,.09);
+ --lv-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.07);
+ --lv-shadow-h:0 6px 14px rgba(230,122,0,.18),0 18px 40px rgba(0,0,0,.14);
+ width:100%; max-width:1180px; margin-inline:auto;
+ color:var(--lv-text); font-synthesis:none;
+ }
+ html.dark .livros{
+ --lv-bg:#0f141b; --lv-bg2:#141b24; --lv-card:#1a2230;
+ --lv-text:#e6ebf2; --lv-muted:#9aa6b4; --lv-line:rgba(255,255,255,.10);
+ --lv-shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);
+ --lv-shadow-h:0 6px 16px rgba(255,157,46,.22),0 22px 46px rgba(0,0,0,.6);
+ }
+ .livros *{box-sizing:border-box}
+ 
+ .lv-sec{margin-top:clamp(2rem,5vw,3rem)}
+ .lv-sec:first-child{margin-top:0}
+ .lv-sec-head{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;
+ margin-bottom:1.4rem}
+ .lv-sec-head h1{margin:0;font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:800;letter-spacing:-.01em}
+ .lv-sec-intro{flex-basis:100%;margin:.35rem 0 0;color:var(--lv-muted);font-size:.96rem;line-height:1.55}
+ 
+ .lv-grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+ .lv-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--lv-line);
+ border-radius:16px;box-shadow:var(--lv-shadow);transition:transform .2s,box-shadow .2s,border-color .2s;
+ background:radial-gradient(140% 160% at 100% 100%,rgba(230,122,0,.14),transparent 55%),var(--lv-card)}
+ .lv-card:hover{transform:translateY(-6px);box-shadow:var(--lv-shadow-h);border-color:rgba(230,122,0,.4)}
+ .lv-cover{position:relative;display:block;padding:1.3rem 1.3rem .4rem;text-align:center}
+ .lv-cover img{height:210px;width:auto;max-width:100%;object-fit:contain;
+ filter:drop-shadow(0 8px 16px rgba(0,0,0,.22));border-radius:4px}
+ .lv-flag{position:absolute;top:.7rem;right:.7rem;font-size:.68rem;font-weight:700;letter-spacing:.02em;
+ padding:.22rem .5rem;border-radius:999px;background:var(--lv-bg2);border:1px solid var(--lv-line);color:var(--lv-muted)}
+ .lv-badge{position:absolute;top:.7rem;left:.7rem;z-index:1;font-size:.64rem;font-weight:800;
+ letter-spacing:.03em;text-transform:uppercase;color:#fff;
+ background:linear-gradient(120deg,var(--lv-accent),var(--lv-accent2));
+ padding:.24rem .5rem;border-radius:999px;box-shadow:0 2px 8px rgba(230,122,0,.4)}
+ .lv-body{display:flex;flex-direction:column;gap:.35rem;padding:.6rem 1.1rem 1.1rem;flex:1}
+ .lv-title{font-size:1rem;font-weight:700;line-height:1.25;margin:0}
+ .lv-author{font-size:.8rem;color:var(--lv-muted);margin:0}
+ .lv-pitch{font-size:.9rem;line-height:1.5;color:var(--lv-text);opacity:.92;margin:.2rem 0 .8rem}
+ .lv-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+ font-size:.9rem;font-weight:700;text-decoration:none;color:#fff;
+ background:linear-gradient(120deg,var(--lv-accent),var(--lv-accent2));
+ padding:.6rem .9rem;border-radius:10px;transition:.18s;box-shadow:0 4px 12px rgba(230,122,0,.28)}
+ .lv-cta:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 6px 18px rgba(230,122,0,.42)}
+ .lv-cta svg{width:14px;height:14px}
+ @media(max-width:520px){
+ .lv-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.8rem}
+ .lv-cover img{height:160px}
+ .lv-cover{padding:1rem 1rem .3rem}
+ .lv-body{padding:.5rem .8rem .9rem}
+ }
+ .lv-cover-ph{height:210px;width:140px;max-width:100%;margin:auto;border-radius:6px;
+ background:linear-gradient(160deg,var(--lv-bg2),var(--lv-line));border:1px solid var(--lv-line)}
+ @media(max-width:520px){.lv-cover-ph{height:160px;width:110px}}
+ .lv-cta:focus-visible,.lv-cover:focus-visible{
+ outline:2px solid var(--lv-accent);outline-offset:3px}
+ @media (prefers-reduced-motion: reduce){
+ .lv-card,.lv-cta{transition:none}
+ .lv-card:hover,.lv-cta:hover{transform:none}
+ }
+ &lt;/style&gt;
+ &lt;section class="lv-sec" id="estat%C3%ADstica-e-fundamentos"&gt;
+ &lt;div class="lv-sec-head"&gt;
+ &lt;h1&gt;Estatística e fundamentos&lt;/h1&gt;
+ &lt;p class="lv-sec-intro"&gt;A base de tudo. Os livros que sustentam tudo que veio depois, de regressão a redes neurais.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/books/feature.jpg"/></item></channel></rss>

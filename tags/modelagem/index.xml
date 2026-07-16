@@ -1,123 +1,129 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Modelagem on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/modelagem/</link>
-    <description>Recent content in Modelagem on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/modelagem/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Solução Final - ML Olympiad [1º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
-      <description>&lt;link href=&#34;index_files/vembedr/css/vembedr.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xA;&#xA;&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio&#34; id=&#34;toc-definição-do-problema-de-negócio&#34;&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#solu%C3%A7%C3%B5es&#34; id=&#34;toc-soluções&#34;&gt;Soluções&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#estrat%C3%A9gia-anal%C3%ADtica&#34; id=&#34;toc-estratégia-analítica&#34;&gt;Estratégia analítica&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#decis%C3%B5es-sobre-a-target&#34; id=&#34;toc-decisões-sobre-a-target&#34;&gt;Decisões sobre a target&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#processamento-dos-dados&#34; id=&#34;toc-processamento-dos-dados&#34;&gt;Processamento dos Dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#dados-externos&#34; id=&#34;toc-dados-externos&#34;&gt;Dados Externos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#feature-engineering&#34; id=&#34;toc-feature-engineering&#34;&gt;Feature Engineering&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelos&#34; id=&#34;toc-modelos&#34;&gt;Modelos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ensemble&#34; id=&#34;toc-ensemble&#34;&gt;Ensemble&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#post-processing&#34; id=&#34;toc-post-processing&#34;&gt;Post Processing&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#considera%C3%A7%C3%B5es-finais&#34; id=&#34;toc-considerações-finais&#34;&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;p&gt;O &lt;a href=&#34;https://www.meetup.com/TensorFlowSP/events/284607061/&#34;&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma nova &lt;a href=&#34;https://www.kaggle.com/competitions/ml-olympiad-ensure-healthy-lives&#34;&gt;competição no Kaggle&lt;/a&gt; onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Boa saúde e bem-estar&lt;/em&gt;.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/feature.png" />
-    </item>
-    
-    <item>
-      <title>Solução Final - ML Olympiad [2º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio&#34; id=&#34;toc-definição-do-problema-de-negócio&#34;&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#an%C3%A1lise-explorat%C3%B3ria-em-r&#34; id=&#34;toc-análise-exploratória-em-r&#34;&gt;Análise Exploratória (em R)&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#estrutura-da-base&#34; id=&#34;toc-estrutura-da-base&#34;&gt;Estrutura da base&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ano-da-base-de-dados&#34; id=&#34;toc-ano-da-base-de-dados&#34;&gt;Ano da base de dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#target&#34; id=&#34;toc-target&#34;&gt;Target&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#machine-learning-em-python&#34; id=&#34;toc-machine-learning-em-python&#34;&gt;Machine Learning (em Python)&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#importar-dependencias&#34; id=&#34;toc-importar-dependencias&#34;&gt;Importar dependencias&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#carregar-dados&#34; id=&#34;toc-carregar-dados&#34;&gt;Carregar dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelagem&#34; id=&#34;toc-modelagem&#34;&gt;Modelagem&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#submiss%C3%A3o&#34; id=&#34;toc-submissão&#34;&gt;Submissão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#considera%C3%A7%C3%B5es-finais&#34; id=&#34;toc-considerações-finais&#34;&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;p&gt;No final de Janeiro desde ano (2022) o &lt;a href=&#34;https://www.meetup.com/TensorFlowSP/events/284607061/&#34;&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Educação de Qualidade&lt;/em&gt;.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/feature.png" />
-    </item>
-    
-    <item>
-      <title>Bot com Machine Learning para alertas de investimento</title>
-      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid>
-      <description>&lt;style&gt;&#xA;.column {&#xA;  float: left;&#xA;  width: 50%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;  float: left;&#xA;  width: 33%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;  float: left;&#xA;  width: 66%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;  content: &#34;&#34;;&#xA;  display: table; &#xA;  clear: both;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;por-que-investir&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Por que investir?&lt;/h1&gt;&#xA;&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png" />
-    </item>
-    
-    <item>
-      <title>Análise de sobrevivência com dados do PUBG no Kaggle</title>
-      <link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</guid>
-      <description>&lt;div id=&#34;análise-de-sobrevivência-e-pubg&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Análise de sobrevivência e PUBG&lt;/h1&gt;&#xA;&lt;p&gt;Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.&lt;/p&gt;&#xA;&lt;p&gt;Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.&lt;/p&gt;&#xA;&lt;p&gt;PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal &lt;strong&gt;sobreviver&lt;/strong&gt;, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png" />
-    </item>
-    
-    <item>
-      <title>Modelos baseados em árvore no R: desafio Ames Housing do Kaggle</title>
-      <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</guid>
-      <description>&lt;div id=&#34;kaggle&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Kaggle&lt;/h1&gt;&#xA;&lt;p&gt;Segundo o &lt;a href=&#34;https://en.wikipedia.org/wiki/Kaggle&#34;&gt;Wikipédia&lt;/a&gt;: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.&lt;/p&gt;&#xA;&lt;p&gt;O Kaggle trabalha com a ideia de &lt;a href=&#34;https://en.wikipedia.org/wiki/Gamification&#34;&gt;gamificação&lt;/a&gt;, que é um assunto do qual já escrevi em um post sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/&#34;&gt;gamificação e porque aprender R é tão divertido&lt;/a&gt; e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/feature.png" />
-    </item>
-    
-    <item>
-      <title>Modelo Bayesiano do Zero</title>
-      <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</guid>
-      <description>&lt;div id=&#34;modelagem-estatística-e-as-duas-grandes-escolas-de-inferência&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Modelagem estatística e as duas grandes escolas de inferência&lt;/h1&gt;&#xA;&lt;p&gt;Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.&lt;/p&gt;&#xA;&lt;p&gt;Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/feature.png" />
-    </item>
-    
-    <item>
-      <title>Brasil x Argentina, tidytext e Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</guid>
-      <description>&lt;div id=&#34;brasil-vs-argentina-e-text-mining&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Brasil vs Argentina e Text Mining&lt;/h1&gt;&#xA;&lt;p&gt;A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos &lt;a href=&#34;http://cio.com.br/noticias/2015/10/27/tome-nota-2-5-quintilhoes-de-bytes-sao-criados-todos-os-dias/&#34;&gt;quintilhões de bytes todos os dias&lt;/a&gt;, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/feature.jpeg" />
-    </item>
-    
-    <item>
-      <title>AED de forma rápida e um pouco de Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</guid>
-      <description>&lt;style&gt;&#xA;  .col2 {&#xA;    columns: 2 200px;         /* number of columns and width in pixels*/&#xA;    -webkit-columns: 2 200px; /* chrome, safari */&#xA;    -moz-columns: 2 200px;    /* firefox */&#xA;  }&#xA;  .col3 {&#xA;    columns: 3 100px;&#xA;    -webkit-columns: 3 100px;&#xA;    -moz-columns: 3 100px;&#xA;  }&#xA;&lt;/style&gt;&#xA;&lt;!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários--&gt;&#xA;&lt;div id=&#34;a-análise-exploratória-dos-dados&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;A análise exploratória dos dados&lt;/h1&gt;&#xA;&lt;p&gt;A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro &lt;a href=&#34;https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160?tag=gomesfellipe-20&#34; target=&#34;_blank&#34; rel=&#34;sponsored nofollow noopener&#34;&gt;Exploratory Data Analysis&lt;/a&gt; em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/feature.png" />
-    </item>
-    
-    <item>
-      <title>O paradoxo dos aniversários com simulação e probabilidade</title>
-      <link>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</link>
-      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</guid>
-      <description>&lt;div id=&#34;curiosidades-sobre-a-teoria-das-probabilidades&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Curiosidades sobre a teoria das probabilidades&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Num grupo de apenas 23 pessoas, a probabilidade de duas fazerem aniversário no mesmo dia já passa de 50%.&lt;/li&gt;&#xA;&lt;li&gt;O resultado é contraintuitivo; resolvemos de duas formas: analítica (abordagem clássica) e por simulação em R (abordagem frequentista).&lt;/li&gt;&#xA;&lt;li&gt;Uma simulação com 5000 turmas confirma a fórmula teórica.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/feature.png" />
-    </item>
-    
-    <item>
-      <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</link>
-      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</guid>
-      <description>&lt;div id=&#34;funções-do-r-para-avaliar-o-ajuste-de-modelos&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Funções do R para avaliar o ajuste de modelos&lt;/h1&gt;&#xA;&lt;p&gt;Traduzindo:&lt;/p&gt;&#xA;&lt;p&gt;“&lt;em&gt;Essencialmente, todos os modelos estão errados, mas alguns são úteis&lt;/em&gt;” - George E. P. Box&lt;/p&gt;&#xA;&lt;p&gt;Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!&lt;/p&gt;&#xA;&lt;p&gt;Lendo um &lt;a href=&#34;http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf&#34;&gt;artigo sobre a vida de Fisher&lt;/a&gt; um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>Ajustando Modelos Bayesianos com JAGS e MCMC no R</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/</link>
-      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/</guid>
-      <description>&lt;div id=&#34;inferência-bayesiana&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Inferência bayesiana&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/mattbuck007/3676624894/in/photolist-6ATEuo-9TK3TW&#34;&gt;Imagem da Internet&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.&lt;/p&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Na inferência bayesiana, o parâmetro é tratado como aleatório e sua &#34;crença&#34; é representada por uma distribuição de probabilidade.&lt;/li&gt;&#xA;&lt;li&gt;O pacote &lt;code&gt;R2jags&lt;/code&gt; ajusta modelos bayesianos no R chamando o JAGS (amostrador de Gibbs).&lt;/li&gt;&#xA;&lt;li&gt;O &lt;code&gt;mcmcplots&lt;/code&gt; e o &lt;code&gt;superdiag&lt;/code&gt; diagnosticam a convergência das cadeias MCMC.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Para isso devemos utilizar &lt;strong&gt;toda&lt;/strong&gt; informação disponível, seja ela &lt;strong&gt;objetiva&lt;/strong&gt; ou &lt;strong&gt;subjetiva&lt;/strong&gt; (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/feature.jpg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Modelagem on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/modelagem/</link><description>Recent content in Modelagem on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/modelagem/index.xml" rel="self" type="application/rss+xml"/><item><title>Solução Final - ML Olympiad [1º lugar]</title><link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link><pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid><description>&lt;link href="index_files/vembedr/css/vembedr.css" rel="stylesheet" /&gt;
+
+&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio"&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#solu%C3%A7%C3%B5es" id="toc-soluções"&gt;Soluções&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#estrat%C3%A9gia-anal%C3%ADtica" id="toc-estratégia-analítica"&gt;Estratégia analítica&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#decis%C3%B5es-sobre-a-target" id="toc-decisões-sobre-a-target"&gt;Decisões sobre a target&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#processamento-dos-dados" id="toc-processamento-dos-dados"&gt;Processamento dos Dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#dados-externos" id="toc-dados-externos"&gt;Dados Externos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#feature-engineering" id="toc-feature-engineering"&gt;Feature Engineering&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelos" id="toc-modelos"&gt;Modelos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ensemble" id="toc-ensemble"&gt;Ensemble&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#post-processing" id="toc-post-processing"&gt;Post Processing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#considera%C3%A7%C3%B5es-finais" id="toc-considerações-finais"&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="introdução" class="section level1"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;p&gt;O &lt;a href="https://www.meetup.com/TensorFlowSP/events/284607061/"&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma nova &lt;a href="https://www.kaggle.com/competitions/ml-olympiad-ensure-healthy-lives"&gt;competição no Kaggle&lt;/a&gt; onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Boa saúde e bem-estar&lt;/em&gt;.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/feature.png"/></item><item><title>Solução Final - ML Olympiad [2º lugar]</title><link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link><pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio"&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#an%C3%A1lise-explorat%C3%B3ria-em-r" id="toc-análise-exploratória-em-r"&gt;Análise Exploratória (em R)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#estrutura-da-base" id="toc-estrutura-da-base"&gt;Estrutura da base&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ano-da-base-de-dados" id="toc-ano-da-base-de-dados"&gt;Ano da base de dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#target" id="toc-target"&gt;Target&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#machine-learning-em-python" id="toc-machine-learning-em-python"&gt;Machine Learning (em Python)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#importar-dependencias" id="toc-importar-dependencias"&gt;Importar dependencias&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#carregar-dados" id="toc-carregar-dados"&gt;Carregar dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelagem" id="toc-modelagem"&gt;Modelagem&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#submiss%C3%A3o" id="toc-submissão"&gt;Submissão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#considera%C3%A7%C3%B5es-finais" id="toc-considerações-finais"&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="introdução" class="section level2"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;p&gt;No final de Janeiro desde ano (2022) o &lt;a href="https://www.meetup.com/TensorFlowSP/events/284607061/"&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Educação de Qualidade&lt;/em&gt;.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/feature.png"/></item><item><title>Bot com Machine Learning para alertas de investimento</title><link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link><pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid><description>&lt;style&gt;
+.column {
+ float: left;
+ width: 50%;
+ padding: 10px;
+}
+
+.column4 {
+ float: left;
+ width: 33%;
+ padding: 10px;
+}
+
+.column8 {
+ float: left;
+ width: 66%;
+ padding: 10px;
+}
+
+.row:after {
+ content: "";
+ display: table; 
+ clear: both;
+}
+&lt;/style&gt;
+&lt;div id="por-que-investir" class="section level2"&gt;
+&lt;h1&gt;Por que investir?&lt;/h1&gt;
+&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png"/></item><item><title>Análise de sobrevivência com dados do PUBG no Kaggle</title><link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</link><pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</guid><description>&lt;div id="análise-de-sobrevivência-e-pubg" class="section level1"&gt;
+&lt;h1&gt;Análise de sobrevivência e PUBG&lt;/h1&gt;
+&lt;p&gt;Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.&lt;/p&gt;
+&lt;p&gt;Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.&lt;/p&gt;
+&lt;p&gt;PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal &lt;strong&gt;sobreviver&lt;/strong&gt;, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png"/></item><item><title>Modelos baseados em árvore no R: desafio Ames Housing do Kaggle</title><link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</link><pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</guid><description>&lt;div id="kaggle" class="section level2"&gt;
+&lt;h1&gt;Kaggle&lt;/h1&gt;
+&lt;p&gt;Segundo o &lt;a href="https://en.wikipedia.org/wiki/Kaggle"&gt;Wikipédia&lt;/a&gt;: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.&lt;/p&gt;
+&lt;p&gt;O Kaggle trabalha com a ideia de &lt;a href="https://en.wikipedia.org/wiki/Gamification"&gt;gamificação&lt;/a&gt;, que é um assunto do qual já escrevi em um post sobre &lt;a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/"&gt;gamificação e porque aprender R é tão divertido&lt;/a&gt; e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/feature.png"/></item><item><title>Modelo Bayesiano do Zero</title><link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</link><pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</guid><description>&lt;div id="modelagem-estatística-e-as-duas-grandes-escolas-de-inferência" class="section level2"&gt;
+&lt;h1&gt;Modelagem estatística e as duas grandes escolas de inferência&lt;/h1&gt;
+&lt;p&gt;Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.&lt;/p&gt;
+&lt;p&gt;Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/feature.png"/></item><item><title>Brasil x Argentina, tidytext e Machine Learning</title><link>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</link><pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</guid><description>&lt;div id="brasil-vs-argentina-e-text-mining" class="section level2"&gt;
+&lt;h1&gt;Brasil vs Argentina e Text Mining&lt;/h1&gt;
+&lt;p&gt;A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos &lt;a href="http://cio.com.br/noticias/2015/10/27/tome-nota-2-5-quintilhoes-de-bytes-sao-criados-todos-os-dias/"&gt;quintilhões de bytes todos os dias&lt;/a&gt;, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/feature.jpeg"/></item><item><title>AED de forma rápida e um pouco de Machine Learning</title><link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</link><pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</guid><description>&lt;style&gt;
+ .col2 {
+ columns: 2 200px; /* number of columns and width in pixels*/
+ -webkit-columns: 2 200px; /* chrome, safari */
+ -moz-columns: 2 200px; /* firefox */
+ }
+ .col3 {
+ columns: 3 100px;
+ -webkit-columns: 3 100px;
+ -moz-columns: 3 100px;
+ }
+&lt;/style&gt;
+&lt;!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários--&gt;
+&lt;div id="a-análise-exploratória-dos-dados" class="section level2"&gt;
+&lt;h1&gt;A análise exploratória dos dados&lt;/h1&gt;
+&lt;p&gt;A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro &lt;a href="https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160?tag=gomesfellipe-20" target="_blank" rel="sponsored nofollow noopener"&gt;Exploratory Data Analysis&lt;/a&gt; em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/feature.png"/></item><item><title>O paradoxo dos aniversários com simulação e probabilidade</title><link>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</link><pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</guid><description>&lt;div id="curiosidades-sobre-a-teoria-das-probabilidades" class="section level1"&gt;
+&lt;h1&gt;Curiosidades sobre a teoria das probabilidades&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Num grupo de apenas 23 pessoas, a probabilidade de duas fazerem aniversário no mesmo dia já passa de 50%.&lt;/li&gt;
+&lt;li&gt;O resultado é contraintuitivo; resolvemos de duas formas: analítica (abordagem clássica) e por simulação em R (abordagem frequentista).&lt;/li&gt;
+&lt;li&gt;Uma simulação com 5000 turmas confirma a fórmula teórica.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/feature.png"/></item><item><title>Pacotes do R para avaliar o ajuste de modelos</title><link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</link><pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</guid><description>&lt;div id="funções-do-r-para-avaliar-o-ajuste-de-modelos" class="section level2"&gt;
+&lt;h1&gt;Funções do R para avaliar o ajuste de modelos&lt;/h1&gt;
+&lt;p&gt;Traduzindo:&lt;/p&gt;
+&lt;p&gt;“&lt;em&gt;Essencialmente, todos os modelos estão errados, mas alguns são úteis&lt;/em&gt;” - George E. P. Box&lt;/p&gt;
+&lt;p&gt;Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!&lt;/p&gt;
+&lt;p&gt;Lendo um &lt;a href="http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf"&gt;artigo sobre a vida de Fisher&lt;/a&gt; um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/feature.jpg"/></item><item><title>Ajustando Modelos Bayesianos com JAGS e MCMC no R</title><link>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/</link><pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/</guid><description>&lt;div id="inferência-bayesiana" class="section level1"&gt;
+&lt;h1&gt;Inferência bayesiana&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://www.flickr.com/photos/mattbuck007/3676624894/in/photolist-6ATEuo-9TK3TW"&gt;Imagem da Internet&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Na inferência bayesiana, o parâmetro é tratado como aleatório e sua "crença" é representada por uma distribuição de probabilidade.&lt;/li&gt;
+&lt;li&gt;O pacote &lt;code&gt;R2jags&lt;/code&gt; ajusta modelos bayesianos no R chamando o JAGS (amostrador de Gibbs).&lt;/li&gt;
+&lt;li&gt;O &lt;code&gt;mcmcplots&lt;/code&gt; e o &lt;code&gt;superdiag&lt;/code&gt; diagnosticam a convergência das cadeias MCMC.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Para isso devemos utilizar &lt;strong&gt;toda&lt;/strong&gt; informação disponível, seja ela &lt;strong&gt;objetiva&lt;/strong&gt; ou &lt;strong&gt;subjetiva&lt;/strong&gt; (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/feature.jpg"/></item></channel></rss>

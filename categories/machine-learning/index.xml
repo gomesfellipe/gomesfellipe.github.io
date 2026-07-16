@@ -1,163 +1,286 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Machine Learning on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/categories/machine-learning/</link>
-    <description>Recent content in Machine Learning on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Extração de informações de imagens com IA Generativa</title>
-      <link>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</link>
-      <pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</guid>
-      <description>&lt;div id=&#34;caso-de-uso-de-ia-generativa-extração-de-informações-de-imagens-com-o-modelo-llava&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava&lt;/h1&gt;&#xA;&lt;p&gt;GenAI refere-se a modelos de inteligência artificial capazes de gerar conteúdo novo e criativo a partir de dados de entrada. Seu uso está revolucionando a maneira como processamos dados não estruturados, como imagens, áudios, textos, vídeos, etc. Trabalhar com modelos pré-treinados (i.e., que já foram treinados com grandes conjuntos de dados) e adaptá-los para necessidades específicas tem sido um divisor de águas.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/feature.png" />
-    </item>
-    
-    <item>
-      <title>Solução Final - ML Olympiad [1º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
-      <description>&lt;link href=&#34;index_files/vembedr/css/vembedr.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xA;&#xA;&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio&#34; id=&#34;toc-definição-do-problema-de-negócio&#34;&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#solu%C3%A7%C3%B5es&#34; id=&#34;toc-soluções&#34;&gt;Soluções&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#estrat%C3%A9gia-anal%C3%ADtica&#34; id=&#34;toc-estratégia-analítica&#34;&gt;Estratégia analítica&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#decis%C3%B5es-sobre-a-target&#34; id=&#34;toc-decisões-sobre-a-target&#34;&gt;Decisões sobre a target&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#processamento-dos-dados&#34; id=&#34;toc-processamento-dos-dados&#34;&gt;Processamento dos Dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#dados-externos&#34; id=&#34;toc-dados-externos&#34;&gt;Dados Externos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#feature-engineering&#34; id=&#34;toc-feature-engineering&#34;&gt;Feature Engineering&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelos&#34; id=&#34;toc-modelos&#34;&gt;Modelos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ensemble&#34; id=&#34;toc-ensemble&#34;&gt;Ensemble&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#post-processing&#34; id=&#34;toc-post-processing&#34;&gt;Post Processing&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#considera%C3%A7%C3%B5es-finais&#34; id=&#34;toc-considerações-finais&#34;&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;p&gt;O &lt;a href=&#34;https://www.meetup.com/TensorFlowSP/events/284607061/&#34;&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma nova &lt;a href=&#34;https://www.kaggle.com/competitions/ml-olympiad-ensure-healthy-lives&#34;&gt;competição no Kaggle&lt;/a&gt; onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Boa saúde e bem-estar&lt;/em&gt;.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/feature.png" />
-    </item>
-    
-    <item>
-      <title>Solução Final - ML Olympiad [2º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio&#34; id=&#34;toc-definição-do-problema-de-negócio&#34;&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#an%C3%A1lise-explorat%C3%B3ria-em-r&#34; id=&#34;toc-análise-exploratória-em-r&#34;&gt;Análise Exploratória (em R)&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#estrutura-da-base&#34; id=&#34;toc-estrutura-da-base&#34;&gt;Estrutura da base&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ano-da-base-de-dados&#34; id=&#34;toc-ano-da-base-de-dados&#34;&gt;Ano da base de dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#target&#34; id=&#34;toc-target&#34;&gt;Target&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#machine-learning-em-python&#34; id=&#34;toc-machine-learning-em-python&#34;&gt;Machine Learning (em Python)&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#importar-dependencias&#34; id=&#34;toc-importar-dependencias&#34;&gt;Importar dependencias&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#carregar-dados&#34; id=&#34;toc-carregar-dados&#34;&gt;Carregar dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelagem&#34; id=&#34;toc-modelagem&#34;&gt;Modelagem&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#submiss%C3%A3o&#34; id=&#34;toc-submissão&#34;&gt;Submissão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#considera%C3%A7%C3%B5es-finais&#34; id=&#34;toc-considerações-finais&#34;&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;p&gt;No final de Janeiro desde ano (2022) o &lt;a href=&#34;https://www.meetup.com/TensorFlowSP/events/284607061/&#34;&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Educação de Qualidade&lt;/em&gt;.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/feature.png" />
-    </item>
-    
-    <item>
-      <title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio&#34; id=&#34;toc-definição-do-problema-de-negócio&#34;&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#an%C3%A1lise-explorat%C3%B3ria-em-r&#34; id=&#34;toc-análise-exploratória-em-r&#34;&gt;Análise Exploratória (em R)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#machine-learning-em-python&#34; id=&#34;toc-machine-learning-em-python&#34;&gt;Machine Learning (em Python)&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#importar-depend%C3%AAncias&#34; id=&#34;toc-importar-dependências&#34;&gt;Importar dependências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#stage-0-feature-extraction-com-knn&#34; id=&#34;toc-stage-0-feature-extraction-com-knn&#34;&gt;Stage 0: Feature Extraction com KNN&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#stage-1-tuning-xgboost-com-optuna&#34; id=&#34;toc-stage-1-tuning-xgboost-com-optuna&#34;&gt;Stage 1: Tuning XGBoost com Optuna&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#stage-2-calcular-out-of-fold-shap-values&#34; id=&#34;toc-stage-2-calcular-out-of-fold-shap-values&#34;&gt;Stage 2: Calcular Out-Of-Fold SHAP values&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#stage-3-modelo-final-com-autogluon&#34; id=&#34;toc-stage-3-modelo-final-com-autogluon&#34;&gt;Stage 3: Modelo Final com AutoGluon&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#refer%C3%AAncias&#34; id=&#34;toc-referências&#34;&gt;Referências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;style&gt;&#xA;.column {&#xA;float: left;&#xA;width: 50%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;float: left;&#xA;width: 20%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;float: left;&#xA;width: 80%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;content: &#34;&#34;;&#xA;display: table;&#xA;clear: both;&#xA;}&#xA;&#xA;.center {&#xA;display: flex;&#xA;justify-content: center;&#xA;align-items: center;&#xA;height: 200px;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;hr /&gt;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;div class=&#34;row&#34;&gt;&#xA;&lt;div class=&#34;column8&#34;&gt;&#xA;&lt;p&gt;Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/feature.png" />
-    </item>
-    
-    <item>
-      <title>Otimizando pipelines que envolvem dados desbalanceados</title>
-      <link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link>
-      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#o-problema-envolvendo-dados-desbalanceados&#34; id=&#34;toc-o-problema-envolvendo-dados-desbalanceados&#34;&gt;O problema envolvendo dados desbalanceados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#objetivo&#34; id=&#34;toc-objetivo&#34;&gt;Objetivo&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#depend%C3%AAncias&#34; id=&#34;toc-dependências&#34;&gt;Dependências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#preparar-dados&#34; id=&#34;toc-preparar-dados&#34;&gt;Preparar dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#breve-an%C3%A1lise-explorat%C3%B3ria&#34; id=&#34;toc-breve-análise-exploratória&#34;&gt;Breve análise exploratória&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelagem&#34; id=&#34;toc-modelagem&#34;&gt;Modelagem&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#baselines&#34; id=&#34;toc-baselines&#34;&gt;Baselines&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#preparar-pipeline-de-dados-com-workflowsets&#34; id=&#34;toc-preparar-pipeline-de-dados-com-workflowsets&#34;&gt;Preparar Pipeline de dados com &lt;code&gt;workflowsets&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#benchmark&#34; id=&#34;toc-benchmark&#34;&gt;Benchmark&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#refer%C3%AAncias&#34; id=&#34;toc-referências&#34;&gt;Referências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;style&gt;&#xA;.column {&#xA;float: left;&#xA;width: 50%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;float: left;&#xA;width: 33%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;float: left;&#xA;width: 66%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;content: &#34;&#34;;&#xA;display: table;&#xA;clear: both;&#xA;}&#xA;&#xA;.center {&#xA;display: flex;&#xA;justify-content: center;&#xA;align-items: center;&#xA;height: 200px;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;o-problema-envolvendo-dados-desbalanceados&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;O problema envolvendo dados desbalanceados&lt;/h1&gt;&#xA;&lt;p&gt;A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/feature.png" />
-    </item>
-    
-    <item>
-      <title>Ciência de Dados: Uma Visão Geral Para Quem Quer Começar</title>
-      <link>https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/</link>
-      <pubDate>Mon, 24 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/</guid>
-      <description>&lt;p&gt;Ciência de dados é a área que combina programação, matemática, estatística e conhecimento de contexto para extrair soluções escondidas em grandes massas de dados desorganizados. Com a quantidade de dados produzida a cada instante e o poder computacional cada vez mais barato, ela ganhou um espaço enorme no mercado. Para ter ideia da escala, projeta-se que, até 2025, o mundo gere cerca de &lt;strong&gt;175 zettabytes&lt;/strong&gt; de dados por ano (&lt;a href=&#34;https://www.networkworld.com/article/966746/idc-expect-175-zettabytes-of-data-worldwide-by-2025.html&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;IDC, Data Age 2025&lt;/a&gt;).&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/feature.png" />
-    </item>
-    
-    <item>
-      <title>Prevendo a qualidade do sono utilizando Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/</link>
-      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#qualidade-de-sono&#34; id=&#34;toc-qualidade-de-sono&#34;&gt;Qualidade de sono? 🤨&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#como-funciona-aplicativo-sleep-cycle&#34; id=&#34;toc-como-funciona-aplicativo-sleep-cycle&#34;&gt;Como funciona aplicativo Sleep Cycle? &lt;img src=&#34;https://www.sleepcycle.com/wp-content/uploads/2020/09/sleep_cycle_app_icon-480x480.png&#34; alt=&#34;Ícone do aplicativo Sleep Cycle&#34; style=&#34;width:3.0%&#34; /&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#objetivo&#34; id=&#34;toc-objetivo&#34;&gt;Objetivo 🎯&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#explorar-dados&#34; id=&#34;toc-explorar-dados&#34;&gt;Explorar dados 🔎&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#limpeza-e-prepara%C3%A7%C3%A3o-dos-dados&#34; id=&#34;toc-limpeza-e-preparação-dos-dados&#34;&gt;Limpeza e preparação dos dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#imputar-dados-de-fontes-externas&#34; id=&#34;toc-imputar-dados-de-fontes-externas&#34;&gt;Imputar dados de fontes externas&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#insights&#34; id=&#34;toc-insights&#34;&gt;Insights&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#reter-dados&#34; id=&#34;toc-reter-dados&#34;&gt;Reter dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelagem&#34; id=&#34;toc-modelagem&#34;&gt;Modelagem 🚀&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#amostragem&#34; id=&#34;toc-amostragem&#34;&gt;Amostragem&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#engenharia-de-recursos&#34; id=&#34;toc-engenharia-de-recursos&#34;&gt;Engenharia de recursos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelo-nulo-baseline&#34; id=&#34;toc-modelo-nulo-baseline&#34;&gt;Modelo Nulo (Baseline)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%C3%A1rvore-de-decis%C3%B5es&#34; id=&#34;toc-árvore-de-decisões&#34;&gt;Árvore de decisões&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#random-forest&#34; id=&#34;toc-random-forest&#34;&gt;Random Forest&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#lightgbm&#34; id=&#34;toc-lightgbm&#34;&gt;LightGBM&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#sele%C3%A7%C3%A3o-do-modelo&#34; id=&#34;toc-seleção-do-modelo&#34;&gt;Seleção do modelo 🤔&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#previs%C3%A3o-em-dados-novos&#34; id=&#34;toc-previsão-em-dados-novos&#34;&gt;Previsão em dados novos 💫&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão 🍻&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#refer%C3%AAncias&#34; id=&#34;toc-referências&#34;&gt;Referências 🧳&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;style&gt;&#xA;.column {&#xA;float: left;&#xA;width: 50%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;float: left;&#xA;width: 33%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;float: left;&#xA;width: 66%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;content: &#34;&#34;;&#xA;display: table;&#xA;clear: both;&#xA;}&#xA;&#xA;.center {&#xA;display: flex;&#xA;justify-content: center;&#xA;align-items: center;&#xA;height: 200px;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;qualidade-de-sono&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Qualidade de sono? 🤨&lt;/h1&gt;&#xA;&lt;p&gt;Sim, exatamente! Neste post analisaremos dados de um &lt;em&gt;tracking&lt;/em&gt; que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/feature.jpeg" />
-    </item>
-    
-    <item>
-      <title>Bot com Machine Learning para alertas de investimento</title>
-      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid>
-      <description>&lt;style&gt;&#xA;.column {&#xA;  float: left;&#xA;  width: 50%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;  float: left;&#xA;  width: 33%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;  float: left;&#xA;  width: 66%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;  content: &#34;&#34;;&#xA;  display: table; &#xA;  clear: both;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;por-que-investir&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Por que investir?&lt;/h1&gt;&#xA;&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png" />
-    </item>
-    
-    <item>
-      <title>Análise de sobrevivência com dados do PUBG no Kaggle</title>
-      <link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</guid>
-      <description>&lt;div id=&#34;análise-de-sobrevivência-e-pubg&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Análise de sobrevivência e PUBG&lt;/h1&gt;&#xA;&lt;p&gt;Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.&lt;/p&gt;&#xA;&lt;p&gt;Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.&lt;/p&gt;&#xA;&lt;p&gt;PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal &lt;strong&gt;sobreviver&lt;/strong&gt;, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png" />
-    </item>
-    
-    <item>
-      <title>Modelos baseados em árvore no R: desafio Ames Housing do Kaggle</title>
-      <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</guid>
-      <description>&lt;div id=&#34;kaggle&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Kaggle&lt;/h1&gt;&#xA;&lt;p&gt;Segundo o &lt;a href=&#34;https://en.wikipedia.org/wiki/Kaggle&#34;&gt;Wikipédia&lt;/a&gt;: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.&lt;/p&gt;&#xA;&lt;p&gt;O Kaggle trabalha com a ideia de &lt;a href=&#34;https://en.wikipedia.org/wiki/Gamification&#34;&gt;gamificação&lt;/a&gt;, que é um assunto do qual já escrevi em um post sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/&#34;&gt;gamificação e porque aprender R é tão divertido&lt;/a&gt; e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/feature.png" />
-    </item>
-    
-    <item>
-      <title>Brasil x Argentina, tidytext e Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</guid>
-      <description>&lt;div id=&#34;brasil-vs-argentina-e-text-mining&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Brasil vs Argentina e Text Mining&lt;/h1&gt;&#xA;&lt;p&gt;A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos &lt;a href=&#34;http://cio.com.br/noticias/2015/10/27/tome-nota-2-5-quintilhoes-de-bytes-sao-criados-todos-os-dias/&#34;&gt;quintilhões de bytes todos os dias&lt;/a&gt;, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/feature.jpeg" />
-    </item>
-    
-    <item>
-      <title>AED de forma rápida e um pouco de Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</guid>
-      <description>&lt;style&gt;&#xA;  .col2 {&#xA;    columns: 2 200px;         /* number of columns and width in pixels*/&#xA;    -webkit-columns: 2 200px; /* chrome, safari */&#xA;    -moz-columns: 2 200px;    /* firefox */&#xA;  }&#xA;  .col3 {&#xA;    columns: 3 100px;&#xA;    -webkit-columns: 3 100px;&#xA;    -moz-columns: 3 100px;&#xA;  }&#xA;&lt;/style&gt;&#xA;&lt;!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários--&gt;&#xA;&lt;div id=&#34;a-análise-exploratória-dos-dados&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;A análise exploratória dos dados&lt;/h1&gt;&#xA;&lt;p&gt;A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro &lt;a href=&#34;https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160?tag=gomesfellipe-20&#34; target=&#34;_blank&#34; rel=&#34;sponsored nofollow noopener&#34;&gt;Exploratory Data Analysis&lt;/a&gt; em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/feature.png" />
-    </item>
-    
-    <item>
-      <title>O paradoxo dos aniversários com simulação e probabilidade</title>
-      <link>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</link>
-      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</guid>
-      <description>&lt;div id=&#34;curiosidades-sobre-a-teoria-das-probabilidades&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Curiosidades sobre a teoria das probabilidades&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Num grupo de apenas 23 pessoas, a probabilidade de duas fazerem aniversário no mesmo dia já passa de 50%.&lt;/li&gt;&#xA;&lt;li&gt;O resultado é contraintuitivo; resolvemos de duas formas: analítica (abordagem clássica) e por simulação em R (abordagem frequentista).&lt;/li&gt;&#xA;&lt;li&gt;Uma simulação com 5000 turmas confirma a fórmula teórica.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/feature.png" />
-    </item>
-    
-    <item>
-      <title>Análise Multivariada com R</title>
-      <link>https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/</guid>
-      <description>&lt;div id=&#34;análise-multivariada&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Análise Multivariada&lt;/h1&gt;&#xA;&lt;p&gt;Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, &lt;a href=&#34;https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/&#34;&gt;identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends&lt;/a&gt; sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/feature.png" />
-    </item>
-    
-    <item>
-      <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</link>
-      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</guid>
-      <description>&lt;div id=&#34;funções-do-r-para-avaliar-o-ajuste-de-modelos&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Funções do R para avaliar o ajuste de modelos&lt;/h1&gt;&#xA;&lt;p&gt;Traduzindo:&lt;/p&gt;&#xA;&lt;p&gt;“&lt;em&gt;Essencialmente, todos os modelos estão errados, mas alguns são úteis&lt;/em&gt;” - George E. P. Box&lt;/p&gt;&#xA;&lt;p&gt;Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!&lt;/p&gt;&#xA;&lt;p&gt;Lendo um &lt;a href=&#34;http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf&#34;&gt;artigo sobre a vida de Fisher&lt;/a&gt; um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/feature.jpg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning on Fellipe Gomes</title><link>https://gomesfellipe.github.io/categories/machine-learning/</link><description>Recent content in Machine Learning on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Extração de informações de imagens com IA Generativa</title><link>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</link><pubDate>Fri, 27 Sep 2024 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/</guid><description>&lt;div id="caso-de-uso-de-ia-generativa-extração-de-informações-de-imagens-com-o-modelo-llava" class="section level2"&gt;
+&lt;h1&gt;Caso de Uso de IA Generativa: Extração de Informações de Imagens com o Modelo Llava&lt;/h1&gt;
+&lt;p&gt;GenAI refere-se a modelos de inteligência artificial capazes de gerar conteúdo novo e criativo a partir de dados de entrada. Seu uso está revolucionando a maneira como processamos dados não estruturados, como imagens, áudios, textos, vídeos, etc. Trabalhar com modelos pré-treinados (i.e., que já foram treinados com grandes conjuntos de dados) e adaptá-los para necessidades específicas tem sido um divisor de águas.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2024-09-27-image-text-to-text/feature.png"/></item><item><title>Solução Final - ML Olympiad [1º lugar]</title><link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link><pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid><description>&lt;link href="index_files/vembedr/css/vembedr.css" rel="stylesheet" /&gt;
+
+&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio"&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#solu%C3%A7%C3%B5es" id="toc-soluções"&gt;Soluções&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#estrat%C3%A9gia-anal%C3%ADtica" id="toc-estratégia-analítica"&gt;Estratégia analítica&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#decis%C3%B5es-sobre-a-target" id="toc-decisões-sobre-a-target"&gt;Decisões sobre a target&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#processamento-dos-dados" id="toc-processamento-dos-dados"&gt;Processamento dos Dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#dados-externos" id="toc-dados-externos"&gt;Dados Externos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#feature-engineering" id="toc-feature-engineering"&gt;Feature Engineering&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelos" id="toc-modelos"&gt;Modelos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ensemble" id="toc-ensemble"&gt;Ensemble&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#post-processing" id="toc-post-processing"&gt;Post Processing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#considera%C3%A7%C3%B5es-finais" id="toc-considerações-finais"&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="introdução" class="section level1"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;p&gt;O &lt;a href="https://www.meetup.com/TensorFlowSP/events/284607061/"&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma nova &lt;a href="https://www.kaggle.com/competitions/ml-olympiad-ensure-healthy-lives"&gt;competição no Kaggle&lt;/a&gt; onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Boa saúde e bem-estar&lt;/em&gt;.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/feature.png"/></item><item><title>Solução Final - ML Olympiad [2º lugar]</title><link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link><pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio"&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#an%C3%A1lise-explorat%C3%B3ria-em-r" id="toc-análise-exploratória-em-r"&gt;Análise Exploratória (em R)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#estrutura-da-base" id="toc-estrutura-da-base"&gt;Estrutura da base&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ano-da-base-de-dados" id="toc-ano-da-base-de-dados"&gt;Ano da base de dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#target" id="toc-target"&gt;Target&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#machine-learning-em-python" id="toc-machine-learning-em-python"&gt;Machine Learning (em Python)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#importar-dependencias" id="toc-importar-dependencias"&gt;Importar dependencias&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#carregar-dados" id="toc-carregar-dados"&gt;Carregar dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelagem" id="toc-modelagem"&gt;Modelagem&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#submiss%C3%A3o" id="toc-submissão"&gt;Submissão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#considera%C3%A7%C3%B5es-finais" id="toc-considerações-finais"&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="introdução" class="section level2"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;p&gt;No final de Janeiro desde ano (2022) o &lt;a href="https://www.meetup.com/TensorFlowSP/events/284607061/"&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Educação de Qualidade&lt;/em&gt;.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/feature.png"/></item><item><title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title><link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link><pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio"&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#an%C3%A1lise-explorat%C3%B3ria-em-r" id="toc-análise-exploratória-em-r"&gt;Análise Exploratória (em R)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#machine-learning-em-python" id="toc-machine-learning-em-python"&gt;Machine Learning (em Python)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#importar-depend%C3%AAncias" id="toc-importar-dependências"&gt;Importar dependências&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#stage-0-feature-extraction-com-knn" id="toc-stage-0-feature-extraction-com-knn"&gt;Stage 0: Feature Extraction com KNN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#stage-1-tuning-xgboost-com-optuna" id="toc-stage-1-tuning-xgboost-com-optuna"&gt;Stage 1: Tuning XGBoost com Optuna&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#stage-2-calcular-out-of-fold-shap-values" id="toc-stage-2-calcular-out-of-fold-shap-values"&gt;Stage 2: Calcular Out-Of-Fold SHAP values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#stage-3-modelo-final-com-autogluon" id="toc-stage-3-modelo-final-com-autogluon"&gt;Stage 3: Modelo Final com AutoGluon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#refer%C3%AAncias" id="toc-referências"&gt;Referências&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.column {
+float: left;
+width: 50%;
+padding: 10px;
+}
+
+.column4 {
+float: left;
+width: 20%;
+padding: 10px;
+}
+
+.column8 {
+float: left;
+width: 80%;
+padding: 10px;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 200px;
+}
+&lt;/style&gt;
+&lt;hr /&gt;
+&lt;div id="introdução" class="section level2"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;div class="row"&gt;
+&lt;div class="column8"&gt;
+&lt;p&gt;Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/feature.png"/></item><item><title>Otimizando pipelines que envolvem dados desbalanceados</title><link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link><pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#o-problema-envolvendo-dados-desbalanceados" id="toc-o-problema-envolvendo-dados-desbalanceados"&gt;O problema envolvendo dados desbalanceados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#objetivo" id="toc-objetivo"&gt;Objetivo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#depend%C3%AAncias" id="toc-dependências"&gt;Dependências&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#preparar-dados" id="toc-preparar-dados"&gt;Preparar dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#breve-an%C3%A1lise-explorat%C3%B3ria" id="toc-breve-análise-exploratória"&gt;Breve análise exploratória&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelagem" id="toc-modelagem"&gt;Modelagem&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#baselines" id="toc-baselines"&gt;Baselines&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#preparar-pipeline-de-dados-com-workflowsets" id="toc-preparar-pipeline-de-dados-com-workflowsets"&gt;Preparar Pipeline de dados com &lt;code&gt;workflowsets&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#benchmark" id="toc-benchmark"&gt;Benchmark&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#refer%C3%AAncias" id="toc-referências"&gt;Referências&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.column {
+float: left;
+width: 50%;
+padding: 10px;
+}
+
+.column4 {
+float: left;
+width: 33%;
+padding: 10px;
+}
+
+.column8 {
+float: left;
+width: 66%;
+padding: 10px;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 200px;
+}
+&lt;/style&gt;
+&lt;div id="o-problema-envolvendo-dados-desbalanceados" class="section level1"&gt;
+&lt;h1&gt;O problema envolvendo dados desbalanceados&lt;/h1&gt;
+&lt;p&gt;A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/feature.png"/></item><item><title>Ciência de Dados: Uma Visão Geral Para Quem Quer Começar</title><link>https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/</link><pubDate>Mon, 24 May 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/</guid><description>&lt;p&gt;Ciência de dados é a área que combina programação, matemática, estatística e conhecimento de contexto para extrair soluções escondidas em grandes massas de dados desorganizados. Com a quantidade de dados produzida a cada instante e o poder computacional cada vez mais barato, ela ganhou um espaço enorme no mercado. Para ter ideia da escala, projeta-se que, até 2025, o mundo gere cerca de &lt;strong&gt;175 zettabytes&lt;/strong&gt; de dados por ano (&lt;a href="https://www.networkworld.com/article/966746/idc-expect-175-zettabytes-of-data-worldwide-by-2025.html" rel="noopener" target="_blank"&gt;IDC, Data Age 2025&lt;/a&gt;).&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/feature.png"/></item><item><title>Prevendo a qualidade do sono utilizando Machine Learning</title><link>https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/</link><pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#qualidade-de-sono" id="toc-qualidade-de-sono"&gt;Qualidade de sono? 🤨&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#como-funciona-aplicativo-sleep-cycle" id="toc-como-funciona-aplicativo-sleep-cycle"&gt;Como funciona aplicativo Sleep Cycle? &lt;img src="https://www.sleepcycle.com/wp-content/uploads/2020/09/sleep_cycle_app_icon-480x480.png" alt="Ícone do aplicativo Sleep Cycle" style="width:3.0%" /&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#objetivo" id="toc-objetivo"&gt;Objetivo 🎯&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#explorar-dados" id="toc-explorar-dados"&gt;Explorar dados 🔎&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#limpeza-e-prepara%C3%A7%C3%A3o-dos-dados" id="toc-limpeza-e-preparação-dos-dados"&gt;Limpeza e preparação dos dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#imputar-dados-de-fontes-externas" id="toc-imputar-dados-de-fontes-externas"&gt;Imputar dados de fontes externas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#insights" id="toc-insights"&gt;Insights&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#reter-dados" id="toc-reter-dados"&gt;Reter dados&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelagem" id="toc-modelagem"&gt;Modelagem 🚀&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#amostragem" id="toc-amostragem"&gt;Amostragem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#engenharia-de-recursos" id="toc-engenharia-de-recursos"&gt;Engenharia de recursos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelo-nulo-baseline" id="toc-modelo-nulo-baseline"&gt;Modelo Nulo (Baseline)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#%C3%A1rvore-de-decis%C3%B5es" id="toc-árvore-de-decisões"&gt;Árvore de decisões&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#random-forest" id="toc-random-forest"&gt;Random Forest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#lightgbm" id="toc-lightgbm"&gt;LightGBM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#sele%C3%A7%C3%A3o-do-modelo" id="toc-seleção-do-modelo"&gt;Seleção do modelo 🤔&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#previs%C3%A3o-em-dados-novos" id="toc-previsão-em-dados-novos"&gt;Previsão em dados novos 💫&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão 🍻&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#refer%C3%AAncias" id="toc-referências"&gt;Referências 🧳&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.column {
+float: left;
+width: 50%;
+padding: 10px;
+}
+
+.column4 {
+float: left;
+width: 33%;
+padding: 10px;
+}
+
+.column8 {
+float: left;
+width: 66%;
+padding: 10px;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 200px;
+}
+&lt;/style&gt;
+&lt;div id="qualidade-de-sono" class="section level2"&gt;
+&lt;h1&gt;Qualidade de sono? 🤨&lt;/h1&gt;
+&lt;p&gt;Sim, exatamente! Neste post analisaremos dados de um &lt;em&gt;tracking&lt;/em&gt; que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/feature.jpeg"/></item><item><title>Bot com Machine Learning para alertas de investimento</title><link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link><pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid><description>&lt;style&gt;
+.column {
+ float: left;
+ width: 50%;
+ padding: 10px;
+}
+
+.column4 {
+ float: left;
+ width: 33%;
+ padding: 10px;
+}
+
+.column8 {
+ float: left;
+ width: 66%;
+ padding: 10px;
+}
+
+.row:after {
+ content: "";
+ display: table; 
+ clear: both;
+}
+&lt;/style&gt;
+&lt;div id="por-que-investir" class="section level2"&gt;
+&lt;h1&gt;Por que investir?&lt;/h1&gt;
+&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png"/></item><item><title>Análise de sobrevivência com dados do PUBG no Kaggle</title><link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</link><pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</guid><description>&lt;div id="análise-de-sobrevivência-e-pubg" class="section level1"&gt;
+&lt;h1&gt;Análise de sobrevivência e PUBG&lt;/h1&gt;
+&lt;p&gt;Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.&lt;/p&gt;
+&lt;p&gt;Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.&lt;/p&gt;
+&lt;p&gt;PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal &lt;strong&gt;sobreviver&lt;/strong&gt;, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png"/></item><item><title>Modelos baseados em árvore no R: desafio Ames Housing do Kaggle</title><link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</link><pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</guid><description>&lt;div id="kaggle" class="section level2"&gt;
+&lt;h1&gt;Kaggle&lt;/h1&gt;
+&lt;p&gt;Segundo o &lt;a href="https://en.wikipedia.org/wiki/Kaggle"&gt;Wikipédia&lt;/a&gt;: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.&lt;/p&gt;
+&lt;p&gt;O Kaggle trabalha com a ideia de &lt;a href="https://en.wikipedia.org/wiki/Gamification"&gt;gamificação&lt;/a&gt;, que é um assunto do qual já escrevi em um post sobre &lt;a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/"&gt;gamificação e porque aprender R é tão divertido&lt;/a&gt; e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/feature.png"/></item><item><title>Brasil x Argentina, tidytext e Machine Learning</title><link>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</link><pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</guid><description>&lt;div id="brasil-vs-argentina-e-text-mining" class="section level2"&gt;
+&lt;h1&gt;Brasil vs Argentina e Text Mining&lt;/h1&gt;
+&lt;p&gt;A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos &lt;a href="http://cio.com.br/noticias/2015/10/27/tome-nota-2-5-quintilhoes-de-bytes-sao-criados-todos-os-dias/"&gt;quintilhões de bytes todos os dias&lt;/a&gt;, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/feature.jpeg"/></item><item><title>AED de forma rápida e um pouco de Machine Learning</title><link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</link><pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</guid><description>&lt;style&gt;
+ .col2 {
+ columns: 2 200px; /* number of columns and width in pixels*/
+ -webkit-columns: 2 200px; /* chrome, safari */
+ -moz-columns: 2 200px; /* firefox */
+ }
+ .col3 {
+ columns: 3 100px;
+ -webkit-columns: 3 100px;
+ -moz-columns: 3 100px;
+ }
+&lt;/style&gt;
+&lt;!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários--&gt;
+&lt;div id="a-análise-exploratória-dos-dados" class="section level2"&gt;
+&lt;h1&gt;A análise exploratória dos dados&lt;/h1&gt;
+&lt;p&gt;A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro &lt;a href="https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160?tag=gomesfellipe-20" target="_blank" rel="sponsored nofollow noopener"&gt;Exploratory Data Analysis&lt;/a&gt; em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/feature.png"/></item><item><title>O paradoxo dos aniversários com simulação e probabilidade</title><link>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</link><pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</guid><description>&lt;div id="curiosidades-sobre-a-teoria-das-probabilidades" class="section level1"&gt;
+&lt;h1&gt;Curiosidades sobre a teoria das probabilidades&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Num grupo de apenas 23 pessoas, a probabilidade de duas fazerem aniversário no mesmo dia já passa de 50%.&lt;/li&gt;
+&lt;li&gt;O resultado é contraintuitivo; resolvemos de duas formas: analítica (abordagem clássica) e por simulação em R (abordagem frequentista).&lt;/li&gt;
+&lt;li&gt;Uma simulação com 5000 turmas confirma a fórmula teórica.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/feature.png"/></item><item><title>Análise Multivariada com R</title><link>https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/</link><pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/</guid><description>&lt;div id="análise-multivariada" class="section level2"&gt;
+&lt;h1&gt;Análise Multivariada&lt;/h1&gt;
+&lt;p&gt;Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, &lt;a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/"&gt;identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends&lt;/a&gt; sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/feature.png"/></item><item><title>Pacotes do R para avaliar o ajuste de modelos</title><link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</link><pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</guid><description>&lt;div id="funções-do-r-para-avaliar-o-ajuste-de-modelos" class="section level2"&gt;
+&lt;h1&gt;Funções do R para avaliar o ajuste de modelos&lt;/h1&gt;
+&lt;p&gt;Traduzindo:&lt;/p&gt;
+&lt;p&gt;“&lt;em&gt;Essencialmente, todos os modelos estão errados, mas alguns são úteis&lt;/em&gt;” - George E. P. Box&lt;/p&gt;
+&lt;p&gt;Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!&lt;/p&gt;
+&lt;p&gt;Lendo um &lt;a href="http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf"&gt;artigo sobre a vida de Fisher&lt;/a&gt; um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/feature.jpg"/></item></channel></rss>

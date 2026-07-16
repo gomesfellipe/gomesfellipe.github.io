@@ -1,33 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Classification on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/classification/</link>
-    <description>Recent content in Classification on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Sun, 26 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/classification/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</title>
-      <link>https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/</link>
-      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-amber w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href=&#34;https://gomesfellipe.github.io/resources/langchain-series/&#34;&gt;ver índice&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/&#34;&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;→ Detecção de Linguagem Tóxica com Gemma&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34;&gt;Equipe Multiagente para Bitcoin&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/&#34;&gt;Agente para Ligações de Telemarketing&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/&#34;&gt;LLM Local com Qwen sem APIs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;caso-de-uso-de-ia-generativa-detecção-de-linguagem-tóxica-em-mídias-sociais&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Caso de Uso de IA Generativa: Detecção de Linguagem Tóxica em Mídias Sociais&lt;/h1&gt;&#xA;&lt;p&gt;Neste post, realizaremos a tarefa de detecção de linguagem tóxica em mídias sociais usando o modelo &lt;a href=&#34;https://ai.google.dev/gemma?hl=pt-br&#34;&gt;Gemma&lt;/a&gt; de IA generativa do Google com o framework &lt;a href=&#34;https://www.langchain.com/&#34;&gt;LangChain&lt;/a&gt;. Vamos explorar como o texto de entrada afeta a saída do modelo e faremos alguma engenharia de prompts para direcioná-lo à tarefa necessária.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/feature.png" />
-    </item>
-    
-    <item>
-      <title>Solução Final - ML Olympiad [1º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
-      <description>&lt;link href=&#34;index_files/vembedr/css/vembedr.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xA;&#xA;&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio&#34; id=&#34;toc-definição-do-problema-de-negócio&#34;&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#solu%C3%A7%C3%B5es&#34; id=&#34;toc-soluções&#34;&gt;Soluções&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#estrat%C3%A9gia-anal%C3%ADtica&#34; id=&#34;toc-estratégia-analítica&#34;&gt;Estratégia analítica&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#decis%C3%B5es-sobre-a-target&#34; id=&#34;toc-decisões-sobre-a-target&#34;&gt;Decisões sobre a target&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#processamento-dos-dados&#34; id=&#34;toc-processamento-dos-dados&#34;&gt;Processamento dos Dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#dados-externos&#34; id=&#34;toc-dados-externos&#34;&gt;Dados Externos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#feature-engineering&#34; id=&#34;toc-feature-engineering&#34;&gt;Feature Engineering&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelos&#34; id=&#34;toc-modelos&#34;&gt;Modelos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ensemble&#34; id=&#34;toc-ensemble&#34;&gt;Ensemble&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#post-processing&#34; id=&#34;toc-post-processing&#34;&gt;Post Processing&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#considera%C3%A7%C3%B5es-finais&#34; id=&#34;toc-considerações-finais&#34;&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;p&gt;O &lt;a href=&#34;https://www.meetup.com/TensorFlowSP/events/284607061/&#34;&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma nova &lt;a href=&#34;https://www.kaggle.com/competitions/ml-olympiad-ensure-healthy-lives&#34;&gt;competição no Kaggle&lt;/a&gt; onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Boa saúde e bem-estar&lt;/em&gt;.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Classification on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/classification/</link><description>Recent content in Classification on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sun, 26 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/classification/index.xml" rel="self" type="application/rss+xml"/><item><title>Detecção de Linguagem Tóxica com o LLM Gemma e LangChain</title><link>https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/</link><pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/</guid><description>&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href="https://gomesfellipe.github.io/resources/langchain-series/"&gt;ver índice&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/"&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;→ Detecção de Linguagem Tóxica com Gemma&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/"&gt;Equipe Multiagente para Bitcoin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/"&gt;Agente para Ligações de Telemarketing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/"&gt;LLM Local com Qwen sem APIs&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;div id="caso-de-uso-de-ia-generativa-detecção-de-linguagem-tóxica-em-mídias-sociais" class="section level1"&gt;
+&lt;h1&gt;Caso de Uso de IA Generativa: Detecção de Linguagem Tóxica em Mídias Sociais&lt;/h1&gt;
+&lt;p&gt;Neste post, realizaremos a tarefa de detecção de linguagem tóxica em mídias sociais usando o modelo &lt;a href="https://ai.google.dev/gemma?hl=pt-br"&gt;Gemma&lt;/a&gt; de IA generativa do Google com o framework &lt;a href="https://www.langchain.com/"&gt;LangChain&lt;/a&gt;. Vamos explorar como o texto de entrada afeta a saída do modelo e faremos alguma engenharia de prompts para direcioná-lo à tarefa necessária.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/feature.png"/></item><item><title>Solução Final - ML Olympiad [1º lugar]</title><link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link><pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid><description>&lt;link href="index_files/vembedr/css/vembedr.css" rel="stylesheet" /&gt;
+
+&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio"&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#solu%C3%A7%C3%B5es" id="toc-soluções"&gt;Soluções&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#estrat%C3%A9gia-anal%C3%ADtica" id="toc-estratégia-analítica"&gt;Estratégia analítica&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#decis%C3%B5es-sobre-a-target" id="toc-decisões-sobre-a-target"&gt;Decisões sobre a target&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#processamento-dos-dados" id="toc-processamento-dos-dados"&gt;Processamento dos Dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#dados-externos" id="toc-dados-externos"&gt;Dados Externos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#feature-engineering" id="toc-feature-engineering"&gt;Feature Engineering&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelos" id="toc-modelos"&gt;Modelos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ensemble" id="toc-ensemble"&gt;Ensemble&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#post-processing" id="toc-post-processing"&gt;Post Processing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#considera%C3%A7%C3%B5es-finais" id="toc-considerações-finais"&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="introdução" class="section level1"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;p&gt;O &lt;a href="https://www.meetup.com/TensorFlowSP/events/284607061/"&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma nova &lt;a href="https://www.kaggle.com/competitions/ml-olympiad-ensure-healthy-lives"&gt;competição no Kaggle&lt;/a&gt; onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Boa saúde e bem-estar&lt;/em&gt;.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/feature.png"/></item></channel></rss>

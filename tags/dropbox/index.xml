@@ -1,23 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Dropbox on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/dropbox/</link>
-    <description>Recent content in Dropbox on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/dropbox/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Gerenciando arquivos do Dropbox com R e httr2: a abordagem moderna</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-yellow w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;⚠️ Nota (2026):&lt;/strong&gt; Este post foi reescrito. A versão original usava o pacote &lt;code&gt;rdrop2&lt;/code&gt;, que dependia da API v1 do Dropbox — descontinuada desde setembro de 2023. O conteúdo abaixo mostra a abordagem atual com &lt;code&gt;httr2&lt;/code&gt; + API v2. A versão original foi preservada em &lt;code&gt;index-old.html&lt;/code&gt; neste mesmo bundle para consulta.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Armazenar arquivos na nuvem é prática comum, e o Dropbox é um dos serviços mais usados para isso. Saber interagir com esses arquivos por código é uma habilidade valiosa para quem trabalha com dados: automatizar o vai e vem de arquivos economiza tempo, elimina erro manual e permite integrar fontes de dados externas em pipelines reprodutíveis.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dropbox on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/dropbox/</link><description>Recent content in Dropbox on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/dropbox/index.xml" rel="self" type="application/rss+xml"/><item><title>Gerenciando arquivos do Dropbox com R e httr2: a abordagem moderna</title><link>https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/</link><pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/</guid><description>&lt;div class="w3-panel w3-pale-yellow w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Nota (2026):&lt;/strong&gt; Este post foi reescrito. A versão original usava o pacote &lt;code&gt;rdrop2&lt;/code&gt;, que dependia da API v1 do Dropbox — descontinuada desde setembro de 2023. O conteúdo abaixo mostra a abordagem atual com &lt;code&gt;httr2&lt;/code&gt; + API v2. A versão original foi preservada em &lt;code&gt;index-old.html&lt;/code&gt; neste mesmo bundle para consulta.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Armazenar arquivos na nuvem é prática comum, e o Dropbox é um dos serviços mais usados para isso. Saber interagir com esses arquivos por código é uma habilidade valiosa para quem trabalha com dados: automatizar o vai e vem de arquivos economiza tempo, elimina erro manual e permite integrar fontes de dados externas em pipelines reprodutíveis.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/feature.png"/></item></channel></rss>

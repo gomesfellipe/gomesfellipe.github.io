@@ -1,43 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Gamificacao on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/gamificacao/</link>
-    <description>Recent content in Gamificacao on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/gamificacao/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Análise de sobrevivência com dados do PUBG no Kaggle</title>
-      <link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</guid>
-      <description>&lt;div id=&#34;análise-de-sobrevivência-e-pubg&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Análise de sobrevivência e PUBG&lt;/h1&gt;&#xA;&lt;p&gt;Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.&lt;/p&gt;&#xA;&lt;p&gt;Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.&lt;/p&gt;&#xA;&lt;p&gt;PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal &lt;strong&gt;sobreviver&lt;/strong&gt;, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png" />
-    </item>
-    
-    <item>
-      <title>Produzindo e formatando um documento Word direto em R</title>
-      <link>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</link>
-      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</guid>
-      <description>&lt;div id=&#34;relatórios-de-alta-qualidade-só-com-latex&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Relatórios de alta qualidade só com &lt;span class=&#34;math inline&#34;&gt;\(\LaTeX\)&lt;/span&gt;?&lt;/h1&gt;&#xA;&lt;p&gt;Como já mencionei no &lt;a href=&#34;https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/&#34;&gt;post sobre tabelas incríveis com R&lt;/a&gt;, a tarefa de um estatístico (ou Data Scientist, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem &lt;span class=&#34;math inline&#34;&gt;\(\LaTeX\)&lt;/span&gt;, mas será que ela é realmente a única opção?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/feature.png" />
-    </item>
-    
-    <item>
-      <title>CheatSheets e gamificação: aprender R de forma divertida</title>
-      <link>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/</link>
-      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/</guid>
-      <description>&lt;div id=&#34;você-costuma-ler-o-manual&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Você costuma ler o manual?&lt;/h1&gt;&#xA;&lt;p&gt;Quando éramos crianças, geralmente não tínhamos o costume de ler o manual das coisas, não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois. Adorava buscar entender como as coisas se encaixavam ao montar os brinquedinhos do kinder-ovo sem ler as instruções ou criar diferentes combinações com lego customizados, por exemplo. Acredito que isso seja da natureza de toda criança!&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gamificacao on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/gamificacao/</link><description>Recent content in Gamificacao on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/gamificacao/index.xml" rel="self" type="application/rss+xml"/><item><title>Análise de sobrevivência com dados do PUBG no Kaggle</title><link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</link><pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</guid><description>&lt;div id="análise-de-sobrevivência-e-pubg" class="section level1"&gt;
+&lt;h1&gt;Análise de sobrevivência e PUBG&lt;/h1&gt;
+&lt;p&gt;Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.&lt;/p&gt;
+&lt;p&gt;Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.&lt;/p&gt;
+&lt;p&gt;PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal &lt;strong&gt;sobreviver&lt;/strong&gt;, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png"/></item><item><title>Produzindo e formatando um documento Word direto em R</title><link>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</link><pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</guid><description>&lt;div id="relatórios-de-alta-qualidade-só-com-latex" class="section level1"&gt;
+&lt;h1&gt;Relatórios de alta qualidade só com &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;?&lt;/h1&gt;
+&lt;p&gt;Como já mencionei no &lt;a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/"&gt;post sobre tabelas incríveis com R&lt;/a&gt;, a tarefa de um estatístico (ou Data Scientist, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, mas será que ela é realmente a única opção?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/feature.png"/></item><item><title>CheatSheets e gamificação: aprender R de forma divertida</title><link>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/</link><pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/</guid><description>&lt;div id="você-costuma-ler-o-manual" class="section level1"&gt;
+&lt;h1&gt;Você costuma ler o manual?&lt;/h1&gt;
+&lt;p&gt;Quando éramos crianças, geralmente não tínhamos o costume de ler o manual das coisas, não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois. Adorava buscar entender como as coisas se encaixavam ao montar os brinquedinhos do kinder-ovo sem ler as instruções ou criar diferentes combinações com lego customizados, por exemplo. Acredito que isso seja da natureza de toda criança!&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/feature.png"/></item></channel></rss>

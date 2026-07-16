@@ -1,23 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Vqgan-Clip on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/vqgan-clip/</link>
-    <description>Recent content in Vqgan-Clip on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Mon, 08 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/vqgan-clip/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Gerando arte com Inteligência Artificial</title>
-      <link>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#dalle-2&#34; id=&#34;toc-dalle-2&#34;&gt;DALL·E 2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#instru%C3%A7%C3%B5es-de-uso&#34; id=&#34;toc-instruções-de-uso&#34;&gt;Instruções de Uso&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#par%C3%A2metros&#34; id=&#34;toc-parâmetros&#34;&gt;Parâmetros&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#exemplos&#34; id=&#34;toc-exemplos&#34;&gt;Exemplos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#dalle-mini-e-stable-diffusion&#34; id=&#34;toc-dalle-mini-e-stable-diffusion&#34;&gt;DALL·E Mini e Stable Diffusion&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#exemplos-1&#34; id=&#34;toc-exemplos-1&#34;&gt;Exemplos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#op%C3%A7%C3%B5es-alternativas&#34; id=&#34;toc-opções-alternativas&#34;&gt;Opções Alternativas&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#vqganclip&#34; id=&#34;toc-vqganclip&#34;&gt;VQGAN+CLIP&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mais-par%C3%A2metros&#34; id=&#34;toc-mais-parâmetros&#34;&gt;Mais Parâmetros&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mais-exemplos&#34; id=&#34;toc-mais-exemplos&#34;&gt;Mais Exemplos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#discuss%C3%A3o-filos%C3%B3fica&#34; id=&#34;toc-discussão-filosófica&#34;&gt;Discussão Filosófica&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#refer%C3%AAncias&#34; id=&#34;toc-referências&#34;&gt;Referências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;style&gt;&#xA;.column4 {&#xA;  float: left;&#xA;  width: 33%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;  float: left;&#xA;  width: 66%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column6 {&#xA;  float: left;&#xA;  width: 50%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;  content: &#34;&#34;;&#xA;  display: table;&#xA;  clear: both;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;p&gt;Você já deve ter ouvido falar sobre uma &lt;a href=&#34;https://canaltech.com.br/inteligencia-artificial/inteligencia-artificial-gera-artes-super-realistas-a-partir-de-textos-e-imagens-213520/#:~:text=A%20empresa%20norte%2Damericana%20de,que%20tinha%20a%20mesma%20fun%C3%A7%C3%A3o.&#34;&gt;inteligência artificial que gera artes super-realistas a partir de textos e imagens&lt;/a&gt;. Hoje em dia já existem algumas opções como &lt;a href=&#34;https://openai.com/DALL%C2%B7E-2/&#34;&gt;DALL·E 2&lt;/a&gt; (da OpenAI/Google) e a &lt;a href=&#34;https://arxiv.org/abs/2203.13131&#34;&gt;Make-A-Scene&lt;/a&gt; (da Meta), e essas ferramentas são capazes de gerar versões e estilos diferentes de uma dada imagem ou ainda criar uma imagem com apenas uma breve descrição do resultado desejado. As imagens podem ser tão aleatórias quanto um “gato de óculos e uma coroa” (em homenagem ao dia dos gatos):&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vqgan-Clip on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/vqgan-clip/</link><description>Recent content in Vqgan-Clip on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Mon, 08 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/vqgan-clip/index.xml" rel="self" type="application/rss+xml"/><item><title>Gerando arte com Inteligência Artificial</title><link>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</link><pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#dalle-2" id="toc-dalle-2"&gt;DALL·E 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#instru%C3%A7%C3%B5es-de-uso" id="toc-instruções-de-uso"&gt;Instruções de Uso&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#par%C3%A2metros" id="toc-parâmetros"&gt;Parâmetros&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#exemplos" id="toc-exemplos"&gt;Exemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#dalle-mini-e-stable-diffusion" id="toc-dalle-mini-e-stable-diffusion"&gt;DALL·E Mini e Stable Diffusion&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#exemplos-1" id="toc-exemplos-1"&gt;Exemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#op%C3%A7%C3%B5es-alternativas" id="toc-opções-alternativas"&gt;Opções Alternativas&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#vqganclip" id="toc-vqganclip"&gt;VQGAN+CLIP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#mais-par%C3%A2metros" id="toc-mais-parâmetros"&gt;Mais Parâmetros&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#mais-exemplos" id="toc-mais-exemplos"&gt;Mais Exemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#discuss%C3%A3o-filos%C3%B3fica" id="toc-discussão-filosófica"&gt;Discussão Filosófica&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#refer%C3%AAncias" id="toc-referências"&gt;Referências&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.column4 {
+ float: left;
+ width: 33%;
+ padding: 10px;
+}
+
+.column8 {
+ float: left;
+ width: 66%;
+ padding: 10px;
+}
+
+.column6 {
+ float: left;
+ width: 50%;
+ padding: 10px;
+}
+
+.row:after {
+ content: "";
+ display: table;
+ clear: both;
+}
+&lt;/style&gt;
+&lt;div id="introdução" class="section level2"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;p&gt;Você já deve ter ouvido falar sobre uma &lt;a href="https://canaltech.com.br/inteligencia-artificial/inteligencia-artificial-gera-artes-super-realistas-a-partir-de-textos-e-imagens-213520/#:~:text=A%20empresa%20norte%2Damericana%20de,que%20tinha%20a%20mesma%20fun%C3%A7%C3%A3o."&gt;inteligência artificial que gera artes super-realistas a partir de textos e imagens&lt;/a&gt;. Hoje em dia já existem algumas opções como &lt;a href="https://openai.com/DALL%C2%B7E-2/"&gt;DALL·E 2&lt;/a&gt; (da OpenAI/Google) e a &lt;a href="https://arxiv.org/abs/2203.13131"&gt;Make-A-Scene&lt;/a&gt; (da Meta), e essas ferramentas são capazes de gerar versões e estilos diferentes de uma dada imagem ou ainda criar uma imagem com apenas uma breve descrição do resultado desejado. As imagens podem ser tão aleatórias quanto um “gato de óculos e uma coroa” (em homenagem ao dia dos gatos):&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/feature.png"/></item></channel></rss>

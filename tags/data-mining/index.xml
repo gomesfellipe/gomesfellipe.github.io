@@ -1,123 +1,102 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Data-Mining on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/data-mining/</link>
-    <description>Recent content in Data-Mining on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/data-mining/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Solução Final - ML Olympiad [1º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link>
-      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid>
-      <description>&lt;link href=&#34;index_files/vembedr/css/vembedr.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xA;&#xA;&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio&#34; id=&#34;toc-definição-do-problema-de-negócio&#34;&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#solu%C3%A7%C3%B5es&#34; id=&#34;toc-soluções&#34;&gt;Soluções&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#estrat%C3%A9gia-anal%C3%ADtica&#34; id=&#34;toc-estratégia-analítica&#34;&gt;Estratégia analítica&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#decis%C3%B5es-sobre-a-target&#34; id=&#34;toc-decisões-sobre-a-target&#34;&gt;Decisões sobre a target&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#processamento-dos-dados&#34; id=&#34;toc-processamento-dos-dados&#34;&gt;Processamento dos Dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#dados-externos&#34; id=&#34;toc-dados-externos&#34;&gt;Dados Externos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#feature-engineering&#34; id=&#34;toc-feature-engineering&#34;&gt;Feature Engineering&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelos&#34; id=&#34;toc-modelos&#34;&gt;Modelos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ensemble&#34; id=&#34;toc-ensemble&#34;&gt;Ensemble&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#post-processing&#34; id=&#34;toc-post-processing&#34;&gt;Post Processing&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#considera%C3%A7%C3%B5es-finais&#34; id=&#34;toc-considerações-finais&#34;&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;p&gt;O &lt;a href=&#34;https://www.meetup.com/TensorFlowSP/events/284607061/&#34;&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma nova &lt;a href=&#34;https://www.kaggle.com/competitions/ml-olympiad-ensure-healthy-lives&#34;&gt;competição no Kaggle&lt;/a&gt; onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Boa saúde e bem-estar&lt;/em&gt;.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/feature.png" />
-    </item>
-    
-    <item>
-      <title>Solução Final - ML Olympiad [2º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio&#34; id=&#34;toc-definição-do-problema-de-negócio&#34;&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#an%C3%A1lise-explorat%C3%B3ria-em-r&#34; id=&#34;toc-análise-exploratória-em-r&#34;&gt;Análise Exploratória (em R)&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#estrutura-da-base&#34; id=&#34;toc-estrutura-da-base&#34;&gt;Estrutura da base&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ano-da-base-de-dados&#34; id=&#34;toc-ano-da-base-de-dados&#34;&gt;Ano da base de dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#target&#34; id=&#34;toc-target&#34;&gt;Target&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#machine-learning-em-python&#34; id=&#34;toc-machine-learning-em-python&#34;&gt;Machine Learning (em Python)&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#importar-dependencias&#34; id=&#34;toc-importar-dependencias&#34;&gt;Importar dependencias&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#carregar-dados&#34; id=&#34;toc-carregar-dados&#34;&gt;Carregar dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelagem&#34; id=&#34;toc-modelagem&#34;&gt;Modelagem&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#submiss%C3%A3o&#34; id=&#34;toc-submissão&#34;&gt;Submissão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#considera%C3%A7%C3%B5es-finais&#34; id=&#34;toc-considerações-finais&#34;&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;p&gt;No final de Janeiro desde ano (2022) o &lt;a href=&#34;https://www.meetup.com/TensorFlowSP/events/284607061/&#34;&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Educação de Qualidade&lt;/em&gt;.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/feature.png" />
-    </item>
-    
-    <item>
-      <title>Vou te provar que da para fazer Grafos bonitos em R!</title>
-      <link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o-e-contexto&#34; id=&#34;toc-introdução-e-contexto&#34;&gt;Introdução e contexto&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#o-que-s%C3%A3o-grafos&#34; id=&#34;toc-o-que-são-grafos&#34;&gt;O que são Grafos?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#como-contruir-um&#34; id=&#34;toc-como-contruir-um&#34;&gt;Como contruir um?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#carregar-depend%C3%AAncias&#34; id=&#34;toc-carregar-dependências&#34;&gt;Carregar dependências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#fonte-dos-dados&#34; id=&#34;toc-fonte-dos-dados&#34;&gt;Fonte dos dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ner---named-entity-recognition&#34; id=&#34;toc-ner---named-entity-recognition&#34;&gt;NER - Named Entity Recognition&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#preparar-dados&#34; id=&#34;toc-preparar-dados&#34;&gt;Preparar dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#b%C3%B4nus&#34; id=&#34;toc-bônus&#34;&gt;Bônus&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#outras-bibliotecas-para-constru%C3%A7%C3%A3o-de-grafos&#34; id=&#34;toc-outras-bibliotecas-para-construção-de-grafos&#34;&gt;Outras bibliotecas para construção de grafos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;introdução-e-contexto&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Introdução e contexto&lt;/h1&gt;&#xA;&lt;p&gt;Durante os anos de 2020 e 2021 fiz um &lt;a href=&#34;https://educacao-executiva.fgv.br/df/brasilia/cursos/mba-pos-graduacao/mba-presencial/mba-executivo-em-business-analytics-e-big-data&#34;&gt;MBA Executivo em Business Analytics e Big Data&lt;/a&gt; na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/feature.png" />
-    </item>
-    
-    <item>
-      <title>Como automatizar relatórios longos e repetitivos com RMarkdown</title>
-      <link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</guid>
-      <description>&lt;div id=&#34;problema-de-negócio&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Problema de negócio&lt;/h1&gt;&#xA;&lt;p&gt;Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.&lt;/p&gt;&#xA;&lt;p&gt;Com a linguagem R, escrever relatórios estatísticos utilizando &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;RMarkdown&lt;/a&gt; acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/feature.png" />
-    </item>
-    
-    <item>
-      <title>Hackeando o R: estratégia split-apply-combine</title>
-      <link>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</guid>
-      <description>&lt;div id=&#34;o-método-split-apply-combine&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;O método split-apply-combine&lt;/h1&gt;&#xA;&lt;p&gt;Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.&lt;/p&gt;&#xA;&lt;p&gt;No famoso paper &lt;a href=&#34;https://vita.had.co.nz/papers/plyr.pdf&#34;&gt;The Split-Apply-Combine Strategy for Data Analysis&lt;/a&gt;, &lt;a href=&#34;http://hadley.nz/&#34;&gt;Hadley Wickham&lt;/a&gt; descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/feature.png" />
-    </item>
-    
-    <item>
-      <title>Análise de sobrevivência com dados do PUBG no Kaggle</title>
-      <link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</guid>
-      <description>&lt;div id=&#34;análise-de-sobrevivência-e-pubg&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Análise de sobrevivência e PUBG&lt;/h1&gt;&#xA;&lt;p&gt;Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.&lt;/p&gt;&#xA;&lt;p&gt;Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.&lt;/p&gt;&#xA;&lt;p&gt;PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal &lt;strong&gt;sobreviver&lt;/strong&gt;, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png" />
-    </item>
-    
-    <item>
-      <title>Modelos baseados em árvore no R: desafio Ames Housing do Kaggle</title>
-      <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</guid>
-      <description>&lt;div id=&#34;kaggle&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Kaggle&lt;/h1&gt;&#xA;&lt;p&gt;Segundo o &lt;a href=&#34;https://en.wikipedia.org/wiki/Kaggle&#34;&gt;Wikipédia&lt;/a&gt;: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.&lt;/p&gt;&#xA;&lt;p&gt;O Kaggle trabalha com a ideia de &lt;a href=&#34;https://en.wikipedia.org/wiki/Gamification&#34;&gt;gamificação&lt;/a&gt;, que é um assunto do qual já escrevi em um post sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/&#34;&gt;gamificação e porque aprender R é tão divertido&lt;/a&gt; e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/feature.png" />
-    </item>
-    
-    <item>
-      <title>Brasil x Argentina, tidytext e Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</guid>
-      <description>&lt;div id=&#34;brasil-vs-argentina-e-text-mining&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Brasil vs Argentina e Text Mining&lt;/h1&gt;&#xA;&lt;p&gt;A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos &lt;a href=&#34;http://cio.com.br/noticias/2015/10/27/tome-nota-2-5-quintilhoes-de-bytes-sao-criados-todos-os-dias/&#34;&gt;quintilhões de bytes todos os dias&lt;/a&gt;, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/feature.jpeg" />
-    </item>
-    
-    <item>
-      <title>AED de forma rápida e um pouco de Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</guid>
-      <description>&lt;style&gt;&#xA;  .col2 {&#xA;    columns: 2 200px;         /* number of columns and width in pixels*/&#xA;    -webkit-columns: 2 200px; /* chrome, safari */&#xA;    -moz-columns: 2 200px;    /* firefox */&#xA;  }&#xA;  .col3 {&#xA;    columns: 3 100px;&#xA;    -webkit-columns: 3 100px;&#xA;    -moz-columns: 3 100px;&#xA;  }&#xA;&lt;/style&gt;&#xA;&lt;!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários--&gt;&#xA;&lt;div id=&#34;a-análise-exploratória-dos-dados&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;A análise exploratória dos dados&lt;/h1&gt;&#xA;&lt;p&gt;A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro &lt;a href=&#34;https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160?tag=gomesfellipe-20&#34; target=&#34;_blank&#34; rel=&#34;sponsored nofollow noopener&#34;&gt;Exploratory Data Analysis&lt;/a&gt; em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/feature.png" />
-    </item>
-    
-    <item>
-      <title>Tabelas Incríveis com R</title>
-      <link>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</link>
-      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</guid>
-      <description>&lt;div id=&#34;importâcia-da-apresentação-dos-dados&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Importância da apresentação dos dados&lt;/h1&gt;&#xA;&lt;p&gt;O trabalho de quem analisa dados vai muito além de planejar, resumir e interpretar observações: apresentar bem os resultados é parte essencial de qualquer projeto ou pesquisa. Não é à toa que já existe até uma área dentro da ciência de dados focada nisso, com o título de &#34;Data Artist&#34;.&lt;/p&gt;&#xA;&lt;p&gt;Além dos pacotes que ajudam a apresentar as figuras geradas nas análises (como mostrei nos posts sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/&#34;&gt;a qualidade do ajuste de modelos&lt;/a&gt; e sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/&#34;&gt;avaliar o ajuste pela abordagem bayesiana&lt;/a&gt;), contamos com pacotes que apresentam tabelas de forma elegante e até interativa.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>Manipulando dados com dplyr</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/</link>
-      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/</guid>
-      <description>&lt;div id=&#34;o-pacote-dplyr&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;O pacote dplyr&lt;/h1&gt;&#xA;&lt;p&gt;A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise é sempre muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do &lt;strong&gt;R&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;A manipulação de dados é uma das etapas que mais consomem tempo em qualquer projeto, como comento no &lt;a href=&#34;https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/&#34;&gt;panorama da ciência de dados&lt;/a&gt; que escrevi para quem está começando. Aqui o foco é numa das ferramentas centrais para essa tarefa.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Data-Mining on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/data-mining/</link><description>Recent content in Data-Mining on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/data-mining/index.xml" rel="self" type="application/rss+xml"/><item><title>Solução Final - ML Olympiad [1º lugar]</title><link>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</link><pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/</guid><description>&lt;link href="index_files/vembedr/css/vembedr.css" rel="stylesheet" /&gt;
+
+&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio"&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#solu%C3%A7%C3%B5es" id="toc-soluções"&gt;Soluções&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#estrat%C3%A9gia-anal%C3%ADtica" id="toc-estratégia-analítica"&gt;Estratégia analítica&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#decis%C3%B5es-sobre-a-target" id="toc-decisões-sobre-a-target"&gt;Decisões sobre a target&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#processamento-dos-dados" id="toc-processamento-dos-dados"&gt;Processamento dos Dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#dados-externos" id="toc-dados-externos"&gt;Dados Externos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#feature-engineering" id="toc-feature-engineering"&gt;Feature Engineering&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelos" id="toc-modelos"&gt;Modelos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ensemble" id="toc-ensemble"&gt;Ensemble&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#post-processing" id="toc-post-processing"&gt;Post Processing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#considera%C3%A7%C3%B5es-finais" id="toc-considerações-finais"&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="introdução" class="section level1"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;p&gt;O &lt;a href="https://www.meetup.com/TensorFlowSP/events/284607061/"&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma nova &lt;a href="https://www.kaggle.com/competitions/ml-olympiad-ensure-healthy-lives"&gt;competição no Kaggle&lt;/a&gt; onde o objetivo era desenvolver modelos para previsão de diagnóstico de síndromes respiratórias, que é um tema relacionado com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Boa saúde e bem-estar&lt;/em&gt;.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2023-05-30-solucao-final-ensure-healthy-lives-kaggle-competition/feature.png"/></item><item><title>Solução Final - ML Olympiad [2º lugar]</title><link>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</link><pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio"&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#an%C3%A1lise-explorat%C3%B3ria-em-r" id="toc-análise-exploratória-em-r"&gt;Análise Exploratória (em R)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#estrutura-da-base" id="toc-estrutura-da-base"&gt;Estrutura da base&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ano-da-base-de-dados" id="toc-ano-da-base-de-dados"&gt;Ano da base de dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#target" id="toc-target"&gt;Target&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#machine-learning-em-python" id="toc-machine-learning-em-python"&gt;Machine Learning (em Python)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#importar-dependencias" id="toc-importar-dependencias"&gt;Importar dependencias&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#carregar-dados" id="toc-carregar-dados"&gt;Carregar dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelagem" id="toc-modelagem"&gt;Modelagem&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#submiss%C3%A3o" id="toc-submissão"&gt;Submissão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#considera%C3%A7%C3%B5es-finais" id="toc-considerações-finais"&gt;Considerações Finais&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="introdução" class="section level2"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;p&gt;No final de Janeiro desde ano (2022) o &lt;a href="https://www.meetup.com/TensorFlowSP/events/284607061/"&gt;TFUG - TensorFlow Users Group de São Paulo&lt;/a&gt; lançou uma competição no Kaggle para prever as notas do enem que tem relação com um dos 17 tópicos de Desenvolvimento Sustentável das Nações Unidas - &lt;em&gt;Educação de Qualidade&lt;/em&gt;.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2022-04-20-solucao-final-education-quality-kaggle-competition/feature.png"/></item><item><title>Vou te provar que da para fazer Grafos bonitos em R!</title><link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link><pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o-e-contexto" id="toc-introdução-e-contexto"&gt;Introdução e contexto&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#o-que-s%C3%A3o-grafos" id="toc-o-que-são-grafos"&gt;O que são Grafos?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#como-contruir-um" id="toc-como-contruir-um"&gt;Como contruir um?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#carregar-depend%C3%AAncias" id="toc-carregar-dependências"&gt;Carregar dependências&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#fonte-dos-dados" id="toc-fonte-dos-dados"&gt;Fonte dos dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ner---named-entity-recognition" id="toc-ner---named-entity-recognition"&gt;NER - Named Entity Recognition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#preparar-dados" id="toc-preparar-dados"&gt;Preparar dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#b%C3%B4nus" id="toc-bônus"&gt;Bônus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#outras-bibliotecas-para-constru%C3%A7%C3%A3o-de-grafos" id="toc-outras-bibliotecas-para-construção-de-grafos"&gt;Outras bibliotecas para construção de grafos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="introdução-e-contexto" class="section level2"&gt;
+&lt;h1&gt;Introdução e contexto&lt;/h1&gt;
+&lt;p&gt;Durante os anos de 2020 e 2021 fiz um &lt;a href="https://educacao-executiva.fgv.br/df/brasilia/cursos/mba-pos-graduacao/mba-presencial/mba-executivo-em-business-analytics-e-big-data"&gt;MBA Executivo em Business Analytics e Big Data&lt;/a&gt; na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/feature.png"/></item><item><title>Como automatizar relatórios longos e repetitivos com RMarkdown</title><link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</link><pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</guid><description>&lt;div id="problema-de-negócio" class="section level1"&gt;
+&lt;h1&gt;Problema de negócio&lt;/h1&gt;
+&lt;p&gt;Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.&lt;/p&gt;
+&lt;p&gt;Com a linguagem R, escrever relatórios estatísticos utilizando &lt;a href="https://rmarkdown.rstudio.com/"&gt;RMarkdown&lt;/a&gt; acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/feature.png"/></item><item><title>Hackeando o R: estratégia split-apply-combine</title><link>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</link><pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</guid><description>&lt;div id="o-método-split-apply-combine" class="section level1"&gt;
+&lt;h1&gt;O método split-apply-combine&lt;/h1&gt;
+&lt;p&gt;Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.&lt;/p&gt;
+&lt;p&gt;No famoso paper &lt;a href="https://vita.had.co.nz/papers/plyr.pdf"&gt;The Split-Apply-Combine Strategy for Data Analysis&lt;/a&gt;, &lt;a href="http://hadley.nz/"&gt;Hadley Wickham&lt;/a&gt; descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/feature.png"/></item><item><title>Análise de sobrevivência com dados do PUBG no Kaggle</title><link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</link><pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</guid><description>&lt;div id="análise-de-sobrevivência-e-pubg" class="section level1"&gt;
+&lt;h1&gt;Análise de sobrevivência e PUBG&lt;/h1&gt;
+&lt;p&gt;Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.&lt;/p&gt;
+&lt;p&gt;Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.&lt;/p&gt;
+&lt;p&gt;PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal &lt;strong&gt;sobreviver&lt;/strong&gt;, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png"/></item><item><title>Modelos baseados em árvore no R: desafio Ames Housing do Kaggle</title><link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</link><pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</guid><description>&lt;div id="kaggle" class="section level2"&gt;
+&lt;h1&gt;Kaggle&lt;/h1&gt;
+&lt;p&gt;Segundo o &lt;a href="https://en.wikipedia.org/wiki/Kaggle"&gt;Wikipédia&lt;/a&gt;: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.&lt;/p&gt;
+&lt;p&gt;O Kaggle trabalha com a ideia de &lt;a href="https://en.wikipedia.org/wiki/Gamification"&gt;gamificação&lt;/a&gt;, que é um assunto do qual já escrevi em um post sobre &lt;a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/"&gt;gamificação e porque aprender R é tão divertido&lt;/a&gt; e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/feature.png"/></item><item><title>Brasil x Argentina, tidytext e Machine Learning</title><link>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</link><pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/</guid><description>&lt;div id="brasil-vs-argentina-e-text-mining" class="section level2"&gt;
+&lt;h1&gt;Brasil vs Argentina e Text Mining&lt;/h1&gt;
+&lt;p&gt;A copa do mundo esta ai novamente e como não poderia ser diferente, com ela surgem novos &lt;a href="http://cio.com.br/noticias/2015/10/27/tome-nota-2-5-quintilhoes-de-bytes-sao-criados-todos-os-dias/"&gt;quintilhões de bytes todos os dias&lt;/a&gt;, saber analisar esses dados é um grande desafio pois a maioria dessa informação se encontra de forma não estruturada e além do desafio de captar esses dados ainda existem mais desafios que podem ser ainda maiores, como o de processá-los e obter respostas deles.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-06-24-brasil-argentina-tidytext-ml/feature.jpeg"/></item><item><title>AED de forma rápida e um pouco de Machine Learning</title><link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</link><pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</guid><description>&lt;style&gt;
+ .col2 {
+ columns: 2 200px; /* number of columns and width in pixels*/
+ -webkit-columns: 2 200px; /* chrome, safari */
+ -moz-columns: 2 200px; /* firefox */
+ }
+ .col3 {
+ columns: 3 100px;
+ -webkit-columns: 3 100px;
+ -moz-columns: 3 100px;
+ }
+&lt;/style&gt;
+&lt;!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários--&gt;
+&lt;div id="a-análise-exploratória-dos-dados" class="section level2"&gt;
+&lt;h1&gt;A análise exploratória dos dados&lt;/h1&gt;
+&lt;p&gt;A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro &lt;a href="https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160?tag=gomesfellipe-20" target="_blank" rel="sponsored nofollow noopener"&gt;Exploratory Data Analysis&lt;/a&gt; em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/feature.png"/></item><item><title>Tabelas Incríveis com R</title><link>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</link><pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</guid><description>&lt;div id="importâcia-da-apresentação-dos-dados" class="section level1"&gt;
+&lt;h1&gt;Importância da apresentação dos dados&lt;/h1&gt;
+&lt;p&gt;O trabalho de quem analisa dados vai muito além de planejar, resumir e interpretar observações: apresentar bem os resultados é parte essencial de qualquer projeto ou pesquisa. Não é à toa que já existe até uma área dentro da ciência de dados focada nisso, com o título de "Data Artist".&lt;/p&gt;
+&lt;p&gt;Além dos pacotes que ajudam a apresentar as figuras geradas nas análises (como mostrei nos posts sobre &lt;a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/"&gt;a qualidade do ajuste de modelos&lt;/a&gt; e sobre &lt;a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/"&gt;avaliar o ajuste pela abordagem bayesiana&lt;/a&gt;), contamos com pacotes que apresentam tabelas de forma elegante e até interativa.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/feature.jpg"/></item><item><title>Manipulando dados com dplyr</title><link>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/</link><pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/</guid><description>&lt;div id="o-pacote-dplyr" class="section level1"&gt;
+&lt;h1&gt;O pacote dplyr&lt;/h1&gt;
+&lt;p&gt;A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise é sempre muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do &lt;strong&gt;R&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A manipulação de dados é uma das etapas que mais consomem tempo em qualquer projeto, como comento no &lt;a href="https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/"&gt;panorama da ciência de dados&lt;/a&gt; que escrevi para quem está começando. Aqui o foco é numa das ferramentas centrais para essa tarefa.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/feature.png"/></item></channel></rss>

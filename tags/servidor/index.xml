@@ -1,23 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Servidor on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/servidor/</link>
-    <description>Recent content in Servidor on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/servidor/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Seu app, RStudio e Shiny Server na nuvem do Google</title>
-      <link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-yellow w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;⚠️ Nota de atualização (2026):&lt;/strong&gt; Este post usa Ubuntu 16.04 LTS (EOL desde 2021), RStudio Server (renomeado para &lt;strong&gt;Posit Workbench&lt;/strong&gt;) e Shiny Server na instância &lt;code&gt;f1-micro&lt;/code&gt; do Google Cloud. Os passos gerais ainda funcionam, mas o Ubuntu mínimo recomendado hoje é o 22.04 LTS e os pacotes de instalação do RStudio/Posit mudaram de URL. Para instâncias novas, consulte a &lt;a href=&#34;https://posit.co/download/rstudio-server/&#34; rel=&#34;nofollow&#34;&gt;documentação atual do Posit Workbench&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;objetivo-do-post&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Objetivo do post &lt;i class=&#34;fa fa-rocket&#34;&gt;&lt;/i&gt;&lt;/h1&gt;&#xA;&lt;p&gt;Uma das várias maneiras de se implementar o &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download-server/&#34;&gt;RStudio Server&lt;/a&gt; e o &lt;a href=&#34;https://www.rstudio.com/products/shiny/download-server/&#34;&gt;Shiny Server&lt;/a&gt; é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Servidor on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/servidor/</link><description>Recent content in Servidor on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/servidor/index.xml" rel="self" type="application/rss+xml"/><item><title>Seu app, RStudio e Shiny Server na nuvem do Google</title><link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</link><pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</guid><description>&lt;div class="w3-panel w3-pale-yellow w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Nota de atualização (2026):&lt;/strong&gt; Este post usa Ubuntu 16.04 LTS (EOL desde 2021), RStudio Server (renomeado para &lt;strong&gt;Posit Workbench&lt;/strong&gt;) e Shiny Server na instância &lt;code&gt;f1-micro&lt;/code&gt; do Google Cloud. Os passos gerais ainda funcionam, mas o Ubuntu mínimo recomendado hoje é o 22.04 LTS e os pacotes de instalação do RStudio/Posit mudaram de URL. Para instâncias novas, consulte a &lt;a href="https://posit.co/download/rstudio-server/" rel="nofollow"&gt;documentação atual do Posit Workbench&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="objetivo-do-post" class="section level2"&gt;
+&lt;h1&gt;Objetivo do post &lt;i class="fa fa-rocket"&gt;&lt;/i&gt;&lt;/h1&gt;
+&lt;p&gt;Uma das várias maneiras de se implementar o &lt;a href="https://www.rstudio.com/products/rstudio/download-server/"&gt;RStudio Server&lt;/a&gt; e o &lt;a href="https://www.rstudio.com/products/shiny/download-server/"&gt;Shiny Server&lt;/a&gt; é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/feature.png"/></item></channel></rss>

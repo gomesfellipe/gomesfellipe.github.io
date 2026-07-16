@@ -1,73 +1,151 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Python on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/python/</link>
-    <description>Recent content in Python on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>LLM local com Qwen e LangChain: agente sem APIs externas</title>
-      <link>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</link>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-amber w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href=&#34;https://gomesfellipe.github.io/resources/langchain-series/&#34;&gt;ver índice&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/&#34;&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/&#34;&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34;&gt;Equipe Multiagente para Bitcoin&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/&#34;&gt;Agente para Ligações de Telemarketing&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;→ LLM Local com Qwen sem APIs&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;por-que-rodar-llms-localmente&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Por que rodar LLMs localmente?&lt;/h1&gt;&#xA;&lt;p&gt;Nos últimos anos, o mundo dos modelos de linguagem de grande porte (LLMs) deixou de ser um território exclusivo das gigantes americanas. Uma leva de modelos open-weight de origem chinesa como o &lt;a href=&#34;https://huggingface.co/Qwen&#34;&gt;Qwen&lt;/a&gt; (Alibaba), o &lt;a href=&#34;https://huggingface.co/deepseek-ai&#34;&gt;DeepSeek&lt;/a&gt; e o &lt;a href=&#34;https://huggingface.co/01-ai&#34;&gt;Yi&lt;/a&gt; chegaram com qualidade surpreendente e, mais importante, com pesos disponíveis publicamente. Li sobre alguns deles em &lt;a href=&#34;https://elisaterumi.substack.com/p/5-modelos-chineses-que-voce-precisa&#34;&gt;um post que apareceu no meu LinkedIn&lt;/a&gt; e fiquei curioso para testar: será que dá para rodar um desses modelos localmente no meu Mac e ainda plugar ele num agente LangChain funcional?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/feature.png" />
-    </item>
-    
-    <item>
-      <title>Análise de ligações de telemarketing com Whisper e LangChain</title>
-      <link>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-amber w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href=&#34;https://gomesfellipe.github.io/resources/langchain-series/&#34;&gt;ver índice&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/&#34;&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/&#34;&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34;&gt;Equipe Multiagente para Bitcoin&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;→ Agente para Ligações de Telemarketing&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/&#34;&gt;LLM Local com Qwen sem APIs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;por-que-analisar-ligações-de-telemarketing-com-ia&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Por que analisar ligações de telemarketing com IA?&lt;/h1&gt;&#xA;&lt;p&gt;Quem nunca recebeu aquela ligação de telemarketing no momento mais inoportuno? Seja oferecendo um cartão de crédito, cobrando uma dívida ou tentando vender internet, essas ligações fazem parte do nosso cotidiano. Mas você já parou para pensar na quantidade de informações valiosas que existem nessas conversas?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/feature.png" />
-    </item>
-    
-    <item>
-      <title>Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</title>
-      <link>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</link>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;O modelo Llama2-7b-chat-hf foi executado localmente via Hugging Face Transformers para classificar textos como positivos, negativos ou neutros, sem custo de API.&lt;/li&gt;&#xA;&lt;li&gt;A abordagem foi avaliada contra o VADER (léxico clássico de análise de sentimentos) em um conjunto de avaliações de filmes em inglês, usando acurácia como métrica.&lt;/li&gt;&#xA;&lt;li&gt;O Llama2 superou o VADER na captura de ironia e contexto, mas com latência significativamente maior — evidenciando o trade-off entre profundidade semântica e velocidade de inferência.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&#xA;&lt;div class=&#34;w3-panel w3-pale-amber w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href=&#34;https://gomesfellipe.github.io/resources/langchain-series/&#34;&gt;ver índice&lt;/a&gt;&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/feature.png" />
-    </item>
-    
-    <item>
-      <title>Série LangChain — Agentes com Python</title>
-      <link>https://gomesfellipe.github.io/resources/langchain-series/</link>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/resources/langchain-series/</guid>
-      <description>&lt;p&gt;Posts desta série, do mais básico ao mais avançado:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/&#34; &gt;Análise de Sentimentos com Llama2 de Código Aberto&lt;/a&gt; — fundamentos: LLM open source + análise de texto&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/&#34; &gt;Detecção de Linguagem Tóxica com Gemma e LangChain&lt;/a&gt; — classificação com prompt engineering&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34; &gt;Equipe Multiagente de IA para Análise do Bitcoin&lt;/a&gt; — LangGraph: múltiplos agentes orquestrados&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/&#34; &gt;Agente para Análise de Ligações de Telemarketing&lt;/a&gt; — produção: Whisper + Pyannote + LangChain&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/&#34; &gt;Agente com LLM Local sem APIs Externas&lt;/a&gt; — local: Qwen + llama.cpp + GGUF&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Gerando arte com Inteligência Artificial</title>
-      <link>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</link>
-      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#dalle-2&#34; id=&#34;toc-dalle-2&#34;&gt;DALL·E 2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#instru%C3%A7%C3%B5es-de-uso&#34; id=&#34;toc-instruções-de-uso&#34;&gt;Instruções de Uso&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#par%C3%A2metros&#34; id=&#34;toc-parâmetros&#34;&gt;Parâmetros&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#exemplos&#34; id=&#34;toc-exemplos&#34;&gt;Exemplos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#dalle-mini-e-stable-diffusion&#34; id=&#34;toc-dalle-mini-e-stable-diffusion&#34;&gt;DALL·E Mini e Stable Diffusion&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#exemplos-1&#34; id=&#34;toc-exemplos-1&#34;&gt;Exemplos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#op%C3%A7%C3%B5es-alternativas&#34; id=&#34;toc-opções-alternativas&#34;&gt;Opções Alternativas&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#vqganclip&#34; id=&#34;toc-vqganclip&#34;&gt;VQGAN+CLIP&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mais-par%C3%A2metros&#34; id=&#34;toc-mais-parâmetros&#34;&gt;Mais Parâmetros&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mais-exemplos&#34; id=&#34;toc-mais-exemplos&#34;&gt;Mais Exemplos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#discuss%C3%A3o-filos%C3%B3fica&#34; id=&#34;toc-discussão-filosófica&#34;&gt;Discussão Filosófica&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#refer%C3%AAncias&#34; id=&#34;toc-referências&#34;&gt;Referências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;style&gt;&#xA;.column4 {&#xA;  float: left;&#xA;  width: 33%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;  float: left;&#xA;  width: 66%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column6 {&#xA;  float: left;&#xA;  width: 50%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;  content: &#34;&#34;;&#xA;  display: table;&#xA;  clear: both;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;p&gt;Você já deve ter ouvido falar sobre uma &lt;a href=&#34;https://canaltech.com.br/inteligencia-artificial/inteligencia-artificial-gera-artes-super-realistas-a-partir-de-textos-e-imagens-213520/#:~:text=A%20empresa%20norte%2Damericana%20de,que%20tinha%20a%20mesma%20fun%C3%A7%C3%A3o.&#34;&gt;inteligência artificial que gera artes super-realistas a partir de textos e imagens&lt;/a&gt;. Hoje em dia já existem algumas opções como &lt;a href=&#34;https://openai.com/DALL%C2%B7E-2/&#34;&gt;DALL·E 2&lt;/a&gt; (da OpenAI/Google) e a &lt;a href=&#34;https://arxiv.org/abs/2203.13131&#34;&gt;Make-A-Scene&lt;/a&gt; (da Meta), e essas ferramentas são capazes de gerar versões e estilos diferentes de uma dada imagem ou ainda criar uma imagem com apenas uma breve descrição do resultado desejado. As imagens podem ser tão aleatórias quanto um “gato de óculos e uma coroa” (em homenagem ao dia dos gatos):&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/feature.png" />
-    </item>
-    
-    <item>
-      <title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title>
-      <link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o&#34; id=&#34;toc-introdução&#34;&gt;Introdução&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio&#34; id=&#34;toc-definição-do-problema-de-negócio&#34;&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#an%C3%A1lise-explorat%C3%B3ria-em-r&#34; id=&#34;toc-análise-exploratória-em-r&#34;&gt;Análise Exploratória (em R)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#machine-learning-em-python&#34; id=&#34;toc-machine-learning-em-python&#34;&gt;Machine Learning (em Python)&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#importar-depend%C3%AAncias&#34; id=&#34;toc-importar-dependências&#34;&gt;Importar dependências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#stage-0-feature-extraction-com-knn&#34; id=&#34;toc-stage-0-feature-extraction-com-knn&#34;&gt;Stage 0: Feature Extraction com KNN&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#stage-1-tuning-xgboost-com-optuna&#34; id=&#34;toc-stage-1-tuning-xgboost-com-optuna&#34;&gt;Stage 1: Tuning XGBoost com Optuna&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#stage-2-calcular-out-of-fold-shap-values&#34; id=&#34;toc-stage-2-calcular-out-of-fold-shap-values&#34;&gt;Stage 2: Calcular Out-Of-Fold SHAP values&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#stage-3-modelo-final-com-autogluon&#34; id=&#34;toc-stage-3-modelo-final-com-autogluon&#34;&gt;Stage 3: Modelo Final com AutoGluon&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#refer%C3%AAncias&#34; id=&#34;toc-referências&#34;&gt;Referências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;style&gt;&#xA;.column {&#xA;float: left;&#xA;width: 50%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;float: left;&#xA;width: 20%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;float: left;&#xA;width: 80%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;content: &#34;&#34;;&#xA;display: table;&#xA;clear: both;&#xA;}&#xA;&#xA;.center {&#xA;display: flex;&#xA;justify-content: center;&#xA;align-items: center;&#xA;height: 200px;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;hr /&gt;&#xA;&lt;div id=&#34;introdução&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Introdução&lt;/h1&gt;&#xA;&lt;div class=&#34;row&#34;&gt;&#xA;&lt;div class=&#34;column8&#34;&gt;&#xA;&lt;p&gt;Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/python/</link><description>Recent content in Python on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM local com Qwen e LangChain: agente sem APIs externas</title><link>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</link><pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</guid><description>&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href="https://gomesfellipe.github.io/resources/langchain-series/"&gt;ver índice&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/"&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/"&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/"&gt;Equipe Multiagente para Bitcoin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/"&gt;Agente para Ligações de Telemarketing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;→ LLM Local com Qwen sem APIs&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;div id="por-que-rodar-llms-localmente" class="section level1"&gt;
+&lt;h1&gt;Por que rodar LLMs localmente?&lt;/h1&gt;
+&lt;p&gt;Nos últimos anos, o mundo dos modelos de linguagem de grande porte (LLMs) deixou de ser um território exclusivo das gigantes americanas. Uma leva de modelos open-weight de origem chinesa como o &lt;a href="https://huggingface.co/Qwen"&gt;Qwen&lt;/a&gt; (Alibaba), o &lt;a href="https://huggingface.co/deepseek-ai"&gt;DeepSeek&lt;/a&gt; e o &lt;a href="https://huggingface.co/01-ai"&gt;Yi&lt;/a&gt; chegaram com qualidade surpreendente e, mais importante, com pesos disponíveis publicamente. Li sobre alguns deles em &lt;a href="https://elisaterumi.substack.com/p/5-modelos-chineses-que-voce-precisa"&gt;um post que apareceu no meu LinkedIn&lt;/a&gt; e fiquei curioso para testar: será que dá para rodar um desses modelos localmente no meu Mac e ainda plugar ele num agente LangChain funcional?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/feature.png"/></item><item><title>Análise de ligações de telemarketing com Whisper e LangChain</title><link>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</link><pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</guid><description>&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href="https://gomesfellipe.github.io/resources/langchain-series/"&gt;ver índice&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/"&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/"&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/"&gt;Equipe Multiagente para Bitcoin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;→ Agente para Ligações de Telemarketing&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/"&gt;LLM Local com Qwen sem APIs&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;div id="por-que-analisar-ligações-de-telemarketing-com-ia" class="section level2"&gt;
+&lt;h1&gt;Por que analisar ligações de telemarketing com IA?&lt;/h1&gt;
+&lt;p&gt;Quem nunca recebeu aquela ligação de telemarketing no momento mais inoportuno? Seja oferecendo um cartão de crédito, cobrando uma dívida ou tentando vender internet, essas ligações fazem parte do nosso cotidiano. Mas você já parou para pensar na quantidade de informações valiosas que existem nessas conversas?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/feature.png"/></item><item><title>Análise de Sentimentos com um "ChatGPT" de Código Aberto</title><link>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</link><pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O modelo Llama2-7b-chat-hf foi executado localmente via Hugging Face Transformers para classificar textos como positivos, negativos ou neutros, sem custo de API.&lt;/li&gt;
+&lt;li&gt;A abordagem foi avaliada contra o VADER (léxico clássico de análise de sentimentos) em um conjunto de avaliações de filmes em inglês, usando acurácia como métrica.&lt;/li&gt;
+&lt;li&gt;O Llama2 superou o VADER na captura de ironia e contexto, mas com latência significativamente maior — evidenciando o trade-off entre profundidade semântica e velocidade de inferência.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href="https://gomesfellipe.github.io/resources/langchain-series/"&gt;ver índice&lt;/a&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/feature.png"/></item><item><title>Série LangChain — Agentes com Python</title><link>https://gomesfellipe.github.io/resources/langchain-series/</link><pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/langchain-series/</guid><description>&lt;p&gt;Posts desta série, do mais básico ao mais avançado:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/" &gt;Análise de Sentimentos com Llama2 de Código Aberto&lt;/a&gt; — fundamentos: LLM open source + análise de texto&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/" &gt;Detecção de Linguagem Tóxica com Gemma e LangChain&lt;/a&gt; — classificação com prompt engineering&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/" &gt;Equipe Multiagente de IA para Análise do Bitcoin&lt;/a&gt; — LangGraph: múltiplos agentes orquestrados&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/" &gt;Agente para Análise de Ligações de Telemarketing&lt;/a&gt; — produção: Whisper + Pyannote + LangChain&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/" &gt;Agente com LLM Local sem APIs Externas&lt;/a&gt; — local: Qwen + llama.cpp + GGUF&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>Gerando arte com Inteligência Artificial</title><link>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</link><pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#dalle-2" id="toc-dalle-2"&gt;DALL·E 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#instru%C3%A7%C3%B5es-de-uso" id="toc-instruções-de-uso"&gt;Instruções de Uso&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#par%C3%A2metros" id="toc-parâmetros"&gt;Parâmetros&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#exemplos" id="toc-exemplos"&gt;Exemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#dalle-mini-e-stable-diffusion" id="toc-dalle-mini-e-stable-diffusion"&gt;DALL·E Mini e Stable Diffusion&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#exemplos-1" id="toc-exemplos-1"&gt;Exemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#op%C3%A7%C3%B5es-alternativas" id="toc-opções-alternativas"&gt;Opções Alternativas&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#vqganclip" id="toc-vqganclip"&gt;VQGAN+CLIP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#mais-par%C3%A2metros" id="toc-mais-parâmetros"&gt;Mais Parâmetros&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#mais-exemplos" id="toc-mais-exemplos"&gt;Mais Exemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#discuss%C3%A3o-filos%C3%B3fica" id="toc-discussão-filosófica"&gt;Discussão Filosófica&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#refer%C3%AAncias" id="toc-referências"&gt;Referências&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.column4 {
+ float: left;
+ width: 33%;
+ padding: 10px;
+}
+
+.column8 {
+ float: left;
+ width: 66%;
+ padding: 10px;
+}
+
+.column6 {
+ float: left;
+ width: 50%;
+ padding: 10px;
+}
+
+.row:after {
+ content: "";
+ display: table;
+ clear: both;
+}
+&lt;/style&gt;
+&lt;div id="introdução" class="section level2"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;p&gt;Você já deve ter ouvido falar sobre uma &lt;a href="https://canaltech.com.br/inteligencia-artificial/inteligencia-artificial-gera-artes-super-realistas-a-partir-de-textos-e-imagens-213520/#:~:text=A%20empresa%20norte%2Damericana%20de,que%20tinha%20a%20mesma%20fun%C3%A7%C3%A3o."&gt;inteligência artificial que gera artes super-realistas a partir de textos e imagens&lt;/a&gt;. Hoje em dia já existem algumas opções como &lt;a href="https://openai.com/DALL%C2%B7E-2/"&gt;DALL·E 2&lt;/a&gt; (da OpenAI/Google) e a &lt;a href="https://arxiv.org/abs/2203.13131"&gt;Make-A-Scene&lt;/a&gt; (da Meta), e essas ferramentas são capazes de gerar versões e estilos diferentes de uma dada imagem ou ainda criar uma imagem com apenas uma breve descrição do resultado desejado. As imagens podem ser tão aleatórias quanto um “gato de óculos e uma coroa” (em homenagem ao dia dos gatos):&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2022-08-08-dataart-primeiros-passos/feature.png"/></item><item><title>Solução Final - Porto Seguro Data Challenge [3º lugar]</title><link>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</link><pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o" id="toc-introdução"&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#defini%C3%A7%C3%A3o-do-problema-de-neg%C3%B3cio" id="toc-definição-do-problema-de-negócio"&gt;Definição do problema de negócio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#an%C3%A1lise-explorat%C3%B3ria-em-r" id="toc-análise-exploratória-em-r"&gt;Análise Exploratória (em R)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#machine-learning-em-python" id="toc-machine-learning-em-python"&gt;Machine Learning (em Python)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#importar-depend%C3%AAncias" id="toc-importar-dependências"&gt;Importar dependências&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#stage-0-feature-extraction-com-knn" id="toc-stage-0-feature-extraction-com-knn"&gt;Stage 0: Feature Extraction com KNN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#stage-1-tuning-xgboost-com-optuna" id="toc-stage-1-tuning-xgboost-com-optuna"&gt;Stage 1: Tuning XGBoost com Optuna&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#stage-2-calcular-out-of-fold-shap-values" id="toc-stage-2-calcular-out-of-fold-shap-values"&gt;Stage 2: Calcular Out-Of-Fold SHAP values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#stage-3-modelo-final-com-autogluon" id="toc-stage-3-modelo-final-com-autogluon"&gt;Stage 3: Modelo Final com AutoGluon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#refer%C3%AAncias" id="toc-referências"&gt;Referências&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.column {
+float: left;
+width: 50%;
+padding: 10px;
+}
+
+.column4 {
+float: left;
+width: 20%;
+padding: 10px;
+}
+
+.column8 {
+float: left;
+width: 80%;
+padding: 10px;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 200px;
+}
+&lt;/style&gt;
+&lt;hr /&gt;
+&lt;div id="introdução" class="section level2"&gt;
+&lt;h1&gt;Introdução&lt;/h1&gt;
+&lt;div class="row"&gt;
+&lt;div class="column8"&gt;
+&lt;p&gt;Em Agosto e 2021 a Porto Seguro lançou um desafio no Kaggle que consistia em estimar a propensão de aquisição de novos produtos. Tratava-se de um problema de classificação e foi bem desafiador principalmente por 2 motivos:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-11-01-solucao-final-porto-seguro-data-challenge/feature.png"/></item></channel></rss>

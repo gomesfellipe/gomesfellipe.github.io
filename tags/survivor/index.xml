@@ -1,23 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Survivor on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/survivor/</link>
-    <description>Recent content in Survivor on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/survivor/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Análise de sobrevivência com dados do PUBG no Kaggle</title>
-      <link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</guid>
-      <description>&lt;div id=&#34;análise-de-sobrevivência-e-pubg&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Análise de sobrevivência e PUBG&lt;/h1&gt;&#xA;&lt;p&gt;Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.&lt;/p&gt;&#xA;&lt;p&gt;Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.&lt;/p&gt;&#xA;&lt;p&gt;PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal &lt;strong&gt;sobreviver&lt;/strong&gt;, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Survivor on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/survivor/</link><description>Recent content in Survivor on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/survivor/index.xml" rel="self" type="application/rss+xml"/><item><title>Análise de sobrevivência com dados do PUBG no Kaggle</title><link>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</link><pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/</guid><description>&lt;div id="análise-de-sobrevivência-e-pubg" class="section level1"&gt;
+&lt;h1&gt;Análise de sobrevivência e PUBG&lt;/h1&gt;
+&lt;p&gt;Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.&lt;/p&gt;
+&lt;p&gt;Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.&lt;/p&gt;
+&lt;p&gt;PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal &lt;strong&gt;sobreviver&lt;/strong&gt;, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png"/></item></channel></rss>

@@ -1,53 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Documentos e conhecimento on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/agentic/documentos-conhecimento/</link>
-    <description>Recent content in Documentos e conhecimento on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <atom:link href="https://gomesfellipe.github.io/agentic/documentos-conhecimento/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Graphify</title>
-      <link>https://gomesfellipe.github.io/agentic/documentos-conhecimento/graphify/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/documentos-conhecimento/graphify/</guid>
-      <description>&lt;p&gt;Em vez de alimentar o LLM com arquivos inteiros para ele entender a estrutura do projeto, o Graphify representa o codebase como um grafo de conhecimento — nós são arquivos, funções e módulos; arestas são dependências, chamadas e importações. O LLM consulta o grafo para localizar o contexto relevante sem ler código desnecessário, reduzindo drasticamente os tokens consumidos em tarefas de navegação e entendimento de código.&lt;/p&gt;&#xA;&lt;p&gt;Diferente do &lt;a href=&#34;https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/code-review-graph/&#34; &gt;Code Review Graph&lt;/a&gt; — que expõe o grafo via MCP para o LLM consultar durante revisões de código — o Graphify é uma ferramenta standalone: você o executa para gerar uma representação compacta do projeto que cabe no contexto, substituindo a leitura de arquivos brutos.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>MinerU</title>
-      <link>https://gomesfellipe.github.io/agentic/documentos-conhecimento/mineru/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/documentos-conhecimento/mineru/</guid>
-      <description>&lt;p&gt;Ferramenta open source de extração de documentos para uso em pipelines de IA. Converte PDFs complexos (com tabelas, fórmulas e layouts mistos) e arquivos do Office em markdown ou JSON limpo e estruturado. Muito útil como etapa de pré-processamento antes de indexar documentos em uma base vetorial ou alimentar um agente com conhecimento corporativo.&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href=&#34;https://gomesfellipe.github.io/agentic/documentos-conhecimento/wiki-llm/&#34; &gt;wiki-llm&lt;/a&gt; usa exatamente este tipo de output como entrada para montar uma wiki com RAG sobre os documentos convertidos.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Unlimited-OCR</title>
-      <link>https://gomesfellipe.github.io/agentic/documentos-conhecimento/unlimited-ocr/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/documentos-conhecimento/unlimited-ocr/</guid>
-      <description>&lt;p&gt;Solução de OCR (reconhecimento óptico de caracteres) baseada em modelos de visão e linguagem (VLM). Extrai texto de imagens, PDFs escaneados e documentos com layouts complexos com alta precisão e sem restrições de volume. Roda localmente, sem enviar documentos para serviços externos — ideal para documentos sensíveis ou fluxos com grande volume de páginas.&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; Para documentos digitais nativos (PDFs não escaneados, Word, Excel), o &lt;a href=&#34;https://gomesfellipe.github.io/agentic/documentos-conhecimento/mineru/&#34; &gt;MinerU&lt;/a&gt; oferece extração mais estruturada com suporte a tabelas e fórmulas.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>wiki-llm</title>
-      <link>https://gomesfellipe.github.io/agentic/documentos-conhecimento/wiki-llm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/documentos-conhecimento/wiki-llm/</guid>
-      <description>&lt;p&gt;Ferramenta de linha de comando que converte uma coleção de documentos locais em uma wiki navegável e consultável. O LLM resume cada página, organiza a taxonomia automaticamente e expõe um chat com RAG por cima. Ideal para equipes que querem criar uma base de conhecimento interna consultável por linguagem natural sem enviar dados para a nuvem.&lt;/p&gt;&#xA;&lt;p&gt;Veja como usar um LLM local como backend em &lt;a href=&#34;https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/&#34; &gt;LLM local com Qwen e LangChain&lt;/a&gt;.&lt;/p&gt;</description>
-      
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentos e conhecimento on Fellipe Gomes</title><link>https://gomesfellipe.github.io/agentic/documentos-conhecimento/</link><description>Recent content in Documentos e conhecimento on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><atom:link href="https://gomesfellipe.github.io/agentic/documentos-conhecimento/index.xml" rel="self" type="application/rss+xml"/><item><title>Graphify</title><link>https://gomesfellipe.github.io/agentic/documentos-conhecimento/graphify/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/documentos-conhecimento/graphify/</guid><description>&lt;p&gt;Em vez de alimentar o LLM com arquivos inteiros para ele entender a estrutura do projeto, o Graphify representa o codebase como um grafo de conhecimento — nós são arquivos, funções e módulos; arestas são dependências, chamadas e importações. O LLM consulta o grafo para localizar o contexto relevante sem ler código desnecessário, reduzindo drasticamente os tokens consumidos em tarefas de navegação e entendimento de código.&lt;/p&gt;
+&lt;p&gt;Diferente do &lt;a href="https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/code-review-graph/" &gt;Code Review Graph&lt;/a&gt; — que expõe o grafo via MCP para o LLM consultar durante revisões de código — o Graphify é uma ferramenta standalone: você o executa para gerar uma representação compacta do projeto que cabe no contexto, substituindo a leitura de arquivos brutos.&lt;/p&gt;</description></item><item><title>MinerU</title><link>https://gomesfellipe.github.io/agentic/documentos-conhecimento/mineru/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/documentos-conhecimento/mineru/</guid><description>&lt;p&gt;Ferramenta open source de extração de documentos para uso em pipelines de IA. Converte PDFs complexos (com tabelas, fórmulas e layouts mistos) e arquivos do Office em markdown ou JSON limpo e estruturado. Muito útil como etapa de pré-processamento antes de indexar documentos em uma base vetorial ou alimentar um agente com conhecimento corporativo.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href="https://gomesfellipe.github.io/agentic/documentos-conhecimento/wiki-llm/" &gt;wiki-llm&lt;/a&gt; usa exatamente este tipo de output como entrada para montar uma wiki com RAG sobre os documentos convertidos.&lt;/p&gt;</description></item><item><title>Unlimited-OCR</title><link>https://gomesfellipe.github.io/agentic/documentos-conhecimento/unlimited-ocr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/documentos-conhecimento/unlimited-ocr/</guid><description>&lt;p&gt;Solução de OCR (reconhecimento óptico de caracteres) baseada em modelos de visão e linguagem (VLM). Extrai texto de imagens, PDFs escaneados e documentos com layouts complexos com alta precisão e sem restrições de volume. Roda localmente, sem enviar documentos para serviços externos — ideal para documentos sensíveis ou fluxos com grande volume de páginas.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; Para documentos digitais nativos (PDFs não escaneados, Word, Excel), o &lt;a href="https://gomesfellipe.github.io/agentic/documentos-conhecimento/mineru/" &gt;MinerU&lt;/a&gt; oferece extração mais estruturada com suporte a tabelas e fórmulas.&lt;/p&gt;</description></item><item><title>wiki-llm</title><link>https://gomesfellipe.github.io/agentic/documentos-conhecimento/wiki-llm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/documentos-conhecimento/wiki-llm/</guid><description>&lt;p&gt;Ferramenta de linha de comando que converte uma coleção de documentos locais em uma wiki navegável e consultável. O LLM resume cada página, organiza a taxonomia automaticamente e expõe um chat com RAG por cima. Ideal para equipes que querem criar uma base de conhecimento interna consultável por linguagem natural sem enviar dados para a nuvem.&lt;/p&gt;
+&lt;p&gt;Veja como usar um LLM local como backend em &lt;a href="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/" &gt;LLM local com Qwen e LangChain&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>

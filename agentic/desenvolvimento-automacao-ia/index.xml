@@ -1,83 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Desenvolvimento e automação com IA on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/</link>
-    <description>Recent content in Desenvolvimento e automação com IA on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <atom:link href="https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Code Review Graph</title>
-      <link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/code-review-graph/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/code-review-graph/</guid>
-      <description>&lt;p&gt;Servidor MCP que analisa um repositório e constrói um grafo de dependências entre arquivos, funções e módulos. Disponibiliza esse contexto estrutural para o LLM durante revisões de código, permitindo sugestões mais fundamentadas e alinhadas à arquitetura real do projeto. Útil em codebases grandes onde o LLM precisa de contexto além do arquivo atual.&lt;/p&gt;&#xA;&lt;p&gt;Fundamentos de teoria dos grafos aplicados: &lt;a href=&#34;https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/&#34; &gt;Grafos bonitos em R&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href=&#34;https://gomesfellipe.github.io/agentic/documentos-conhecimento/graphify/&#34; &gt;Graphify&lt;/a&gt; resolve o mesmo problema de forma diferente — gera uma representação compacta standalone do codebase em vez de expor o grafo via MCP.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Context7</title>
-      <link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/context7/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/context7/</guid>
-      <description>&lt;p&gt;Servidor MCP mantido pela Upstash que resolve um dos problemas mais comuns com agentes de código: o LLM sugerir métodos removidos ou renomeados em versões recentes de uma biblioteca. O Context7 intercepta a chamada, busca a documentação oficial e versionada da lib em questão e a injeta diretamente no contexto — sem precisar colar docs no chat manualmente.&lt;/p&gt;&#xA;&lt;p&gt;Complementa o &lt;a href=&#34;https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/code-review-graph/&#34; &gt;Code Review Graph&lt;/a&gt; na cobertura de contexto: enquanto o Graph fornece a estrutura interna do projeto, o Context7 fornece o contrato externo das dependências.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Ponytail</title>
-      <link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/ponytail/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/ponytail/</guid>
-      <description>&lt;p&gt;Skill focada em simplificação radical de código. Aplica o princípio YAGNI de forma agressiva: remove abstrações prematuras, questiona cada nova dependência e refatora código existente para a solução mais simples que funciona. Complementa o honey-for-devs com um foco específico em redução de complexidade acumulada no codebase.&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href=&#34;https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/improve/&#34; &gt;Improve&lt;/a&gt; é o passo anterior natural: audita o codebase e gera um plano priorizado antes de qualquer refatoração.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>GitHub MCP</title>
-      <link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/github-mcp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/github-mcp/</guid>
-      <description>&lt;p&gt;Servidor MCP desenvolvido em parceria pela Anthropic e GitHub. Dá ao agente acesso completo à API do GitHub com escopo controlado por token pessoal: abre e revisa pull requests, cria e fecha issues, lê logs do GitHub Actions, busca código em repositórios e inspeciona o histórico de commits.&lt;/p&gt;&#xA;&lt;p&gt;Fecha o loop do workflow agêntico de desenvolvimento: o agente escreve o código, abre o PR, monitora a CI e corrige o que falhou — tudo sem sair do terminal.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Improve</title>
-      <link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/improve/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/improve/</guid>
-      <description>&lt;p&gt;Skill de planejamento que instrui o Claude Code a primeiro auditar o estado atual do codebase — identificando dívidas técnicas, inconsistências e oportunidades de simplificação — e só então propor um plano de ação priorizado. Evita que o agente comece a refatorar sem visão do conjunto, resultando em mudanças mais coesas e com maior impacto real.&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href=&#34;https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/ponytail/&#34; &gt;Ponytail&lt;/a&gt; complementa o Improve na execução: enquanto o Improve planeja o que melhorar, o Ponytail aplica YAGNI radical para remover o que não deveria existir.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Superpowers</title>
-      <link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/superpowers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/superpowers/</guid>
-      <description>&lt;p&gt;Skill que transforma o Claude Code em um parceiro de brainstorming estruturado. Dado um problema ou ideia, o agente gera múltiplas abordagens possíveis, avalia os trade-offs de cada uma e recomenda o caminho mais promissor com justificativa clara. Útil antes de iniciar qualquer implementação não trivial onde a direção ainda não está definida.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Playwright MCP</title>
-      <link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/playwright-mcp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/playwright-mcp/</guid>
-      <description>&lt;p&gt;Servidor MCP oficial da Microsoft que expõe o Playwright para agentes de IA via accessibility tree — não via seletores CSS ou XPath, que quebram a cada redesign. O agente enxerga a página como um leitor de tela: botões, campos, links e seus rótulos semânticos. Permite navegar, interagir com formulários, tirar screenshots e verificar se uma mudança de UI foi aplicada corretamente.&lt;/p&gt;&#xA;&lt;p&gt;Útil para agentes que precisam validar deploys na ponta, preencher sistemas legados sem API ou executar testes de aceitação visual sem sair do terminal.&lt;/p&gt;</description>
-      
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Desenvolvimento e automação com IA on Fellipe Gomes</title><link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/</link><description>Recent content in Desenvolvimento e automação com IA on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><atom:link href="https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/index.xml" rel="self" type="application/rss+xml"/><item><title>Code Review Graph</title><link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/code-review-graph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/code-review-graph/</guid><description>&lt;p&gt;Servidor MCP que analisa um repositório e constrói um grafo de dependências entre arquivos, funções e módulos. Disponibiliza esse contexto estrutural para o LLM durante revisões de código, permitindo sugestões mais fundamentadas e alinhadas à arquitetura real do projeto. Útil em codebases grandes onde o LLM precisa de contexto além do arquivo atual.&lt;/p&gt;
+&lt;p&gt;Fundamentos de teoria dos grafos aplicados: &lt;a href="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/" &gt;Grafos bonitos em R&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href="https://gomesfellipe.github.io/agentic/documentos-conhecimento/graphify/" &gt;Graphify&lt;/a&gt; resolve o mesmo problema de forma diferente — gera uma representação compacta standalone do codebase em vez de expor o grafo via MCP.&lt;/p&gt;</description></item><item><title>Context7</title><link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/context7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/context7/</guid><description>&lt;p&gt;Servidor MCP mantido pela Upstash que resolve um dos problemas mais comuns com agentes de código: o LLM sugerir métodos removidos ou renomeados em versões recentes de uma biblioteca. O Context7 intercepta a chamada, busca a documentação oficial e versionada da lib em questão e a injeta diretamente no contexto — sem precisar colar docs no chat manualmente.&lt;/p&gt;
+&lt;p&gt;Complementa o &lt;a href="https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/code-review-graph/" &gt;Code Review Graph&lt;/a&gt; na cobertura de contexto: enquanto o Graph fornece a estrutura interna do projeto, o Context7 fornece o contrato externo das dependências.&lt;/p&gt;</description></item><item><title>Ponytail</title><link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/ponytail/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/ponytail/</guid><description>&lt;p&gt;Skill focada em simplificação radical de código. Aplica o princípio YAGNI de forma agressiva: remove abstrações prematuras, questiona cada nova dependência e refatora código existente para a solução mais simples que funciona. Complementa o honey-for-devs com um foco específico em redução de complexidade acumulada no codebase.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href="https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/improve/" &gt;Improve&lt;/a&gt; é o passo anterior natural: audita o codebase e gera um plano priorizado antes de qualquer refatoração.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>GitHub MCP</title><link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/github-mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/github-mcp/</guid><description>&lt;p&gt;Servidor MCP desenvolvido em parceria pela Anthropic e GitHub. Dá ao agente acesso completo à API do GitHub com escopo controlado por token pessoal: abre e revisa pull requests, cria e fecha issues, lê logs do GitHub Actions, busca código em repositórios e inspeciona o histórico de commits.&lt;/p&gt;
+&lt;p&gt;Fecha o loop do workflow agêntico de desenvolvimento: o agente escreve o código, abre o PR, monitora a CI e corrige o que falhou — tudo sem sair do terminal.&lt;/p&gt;</description></item><item><title>Improve</title><link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/improve/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/improve/</guid><description>&lt;p&gt;Skill de planejamento que instrui o Claude Code a primeiro auditar o estado atual do codebase — identificando dívidas técnicas, inconsistências e oportunidades de simplificação — e só então propor um plano de ação priorizado. Evita que o agente comece a refatorar sem visão do conjunto, resultando em mudanças mais coesas e com maior impacto real.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href="https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/ponytail/" &gt;Ponytail&lt;/a&gt; complementa o Improve na execução: enquanto o Improve planeja o que melhorar, o Ponytail aplica YAGNI radical para remover o que não deveria existir.&lt;/p&gt;</description></item><item><title>Superpowers</title><link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/superpowers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/superpowers/</guid><description>&lt;p&gt;Skill que transforma o Claude Code em um parceiro de brainstorming estruturado. Dado um problema ou ideia, o agente gera múltiplas abordagens possíveis, avalia os trade-offs de cada uma e recomenda o caminho mais promissor com justificativa clara. Útil antes de iniciar qualquer implementação não trivial onde a direção ainda não está definida.&lt;/p&gt;</description></item><item><title>Playwright MCP</title><link>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/playwright-mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/desenvolvimento-automacao-ia/playwright-mcp/</guid><description>&lt;p&gt;Servidor MCP oficial da Microsoft que expõe o Playwright para agentes de IA via accessibility tree — não via seletores CSS ou XPath, que quebram a cada redesign. O agente enxerga a página como um leitor de tela: botões, campos, links e seus rótulos semânticos. Permite navegar, interagir com formulários, tirar screenshots e verificar se uma mudança de UI foi aplicada corretamente.&lt;/p&gt;
+&lt;p&gt;Útil para agentes que precisam validar deploys na ponta, preencher sistemas legados sem API ou executar testes de aceitação visual sem sair do terminal.&lt;/p&gt;</description></item></channel></rss>

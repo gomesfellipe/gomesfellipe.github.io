@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Decisiontree on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/decisiontree/</link>
-    <description>Recent content in Decisiontree on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Fri, 31 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/decisiontree/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Modelos baseados em árvore no R: desafio Ames Housing do Kaggle</title>
-      <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</guid>
-      <description>&lt;div id=&#34;kaggle&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Kaggle&lt;/h1&gt;&#xA;&lt;p&gt;Segundo o &lt;a href=&#34;https://en.wikipedia.org/wiki/Kaggle&#34;&gt;Wikipédia&lt;/a&gt;: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.&lt;/p&gt;&#xA;&lt;p&gt;O Kaggle trabalha com a ideia de &lt;a href=&#34;https://en.wikipedia.org/wiki/Gamification&#34;&gt;gamificação&lt;/a&gt;, que é um assunto do qual já escrevi em um post sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/&#34;&gt;gamificação e porque aprender R é tão divertido&lt;/a&gt; e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Decisiontree on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/decisiontree/</link><description>Recent content in Decisiontree on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Fri, 31 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/decisiontree/index.xml" rel="self" type="application/rss+xml"/><item><title>Modelos baseados em árvore no R: desafio Ames Housing do Kaggle</title><link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</link><pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</guid><description>&lt;div id="kaggle" class="section level2"&gt;
+&lt;h1&gt;Kaggle&lt;/h1&gt;
+&lt;p&gt;Segundo o &lt;a href="https://en.wikipedia.org/wiki/Kaggle"&gt;Wikipédia&lt;/a&gt;: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.&lt;/p&gt;
+&lt;p&gt;O Kaggle trabalha com a ideia de &lt;a href="https://en.wikipedia.org/wiki/Gamification"&gt;gamificação&lt;/a&gt;, que é um assunto do qual já escrevi em um post sobre &lt;a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/"&gt;gamificação e porque aprender R é tão divertido&lt;/a&gt; e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/feature.png"/></item></channel></rss>

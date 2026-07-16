@@ -1,43 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Dplyr on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/dplyr/</link>
-    <description>Recent content in Dplyr on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Bot com Machine Learning para alertas de investimento</title>
-      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid>
-      <description>&lt;style&gt;&#xA;.column {&#xA;  float: left;&#xA;  width: 50%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;  float: left;&#xA;  width: 33%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;  float: left;&#xA;  width: 66%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;  content: &#34;&#34;;&#xA;  display: table; &#xA;  clear: both;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;por-que-investir&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Por que investir?&lt;/h1&gt;&#xA;&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png" />
-    </item>
-    
-    <item>
-      <title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title>
-      <link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css&#34; /&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js&#34;&gt;&lt;/script&gt;&#xA;&#xA;&#xA;&lt;div id=&#34;perguntas&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Perguntas&lt;/h1&gt;&#xA;&lt;p&gt;Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a &lt;strong&gt;criatividade&lt;/strong&gt;. Temos o cristo, todos aqueles grandes barcos, o Porto do Rio de Janeiro com todas aquelas obras de Engenharia, ou até mesmo a própria Ponte, que por si só já é intrigante.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>Manipulando dados com dplyr</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/</link>
-      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/</guid>
-      <description>&lt;div id=&#34;o-pacote-dplyr&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;O pacote dplyr&lt;/h1&gt;&#xA;&lt;p&gt;A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise é sempre muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do &lt;strong&gt;R&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;A manipulação de dados é uma das etapas que mais consomem tempo em qualquer projeto, como comento no &lt;a href=&#34;https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/&#34;&gt;panorama da ciência de dados&lt;/a&gt; que escrevi para quem está começando. Aqui o foco é numa das ferramentas centrais para essa tarefa.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dplyr on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/dplyr/</link><description>Recent content in Dplyr on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/dplyr/index.xml" rel="self" type="application/rss+xml"/><item><title>Bot com Machine Learning para alertas de investimento</title><link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link><pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid><description>&lt;style&gt;
+.column {
+ float: left;
+ width: 50%;
+ padding: 10px;
+}
+
+.column4 {
+ float: left;
+ width: 33%;
+ padding: 10px;
+}
+
+.column8 {
+ float: left;
+ width: 66%;
+ padding: 10px;
+}
+
+.row:after {
+ content: "";
+ display: table; 
+ clear: both;
+}
+&lt;/style&gt;
+&lt;div id="por-que-investir" class="section level2"&gt;
+&lt;h1&gt;Por que investir?&lt;/h1&gt;
+&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png"/></item><item><title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title><link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</link><pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</guid><description>&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/leaflet.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css" /&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js"&gt;&lt;/script&gt;
+
+
+&lt;div id="perguntas" class="section level2"&gt;
+&lt;h1&gt;Perguntas&lt;/h1&gt;
+&lt;p&gt;Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a &lt;strong&gt;criatividade&lt;/strong&gt;. Temos o cristo, todos aqueles grandes barcos, o Porto do Rio de Janeiro com todas aquelas obras de Engenharia, ou até mesmo a própria Ponte, que por si só já é intrigante.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/feature.jpg"/></item><item><title>Manipulando dados com dplyr</title><link>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/</link><pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/</guid><description>&lt;div id="o-pacote-dplyr" class="section level1"&gt;
+&lt;h1&gt;O pacote dplyr&lt;/h1&gt;
+&lt;p&gt;A análise exploratória dos dados é uma tarefa de bastante relevância para entendermos a natureza dos dados e o tempo de análise é sempre muito precioso. É necessária bastante curiosidade e criatividade para fazer uma boa análise exploratória dos dados pois é difícil receber aqueles dados bonitinhos igual aos nativos do banco de dados do &lt;strong&gt;R&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A manipulação de dados é uma das etapas que mais consomem tempo em qualquer projeto, como comento no &lt;a href="https://gomesfellipe.github.io/post/2021-05-24-ciencia-de-dados-uma-visao-geral/"&gt;panorama da ciência de dados&lt;/a&gt; que escrevi para quem está começando. Aqui o foco é numa das ferramentas centrais para essa tarefa.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-07-manipulando-dados-com-dplyr/feature.png"/></item></channel></rss>

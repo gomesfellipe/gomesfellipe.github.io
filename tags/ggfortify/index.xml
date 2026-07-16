@@ -1,23 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Ggfortify on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/ggfortify/</link>
-    <description>Recent content in Ggfortify on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Sun, 24 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/ggfortify/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</link>
-      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</guid>
-      <description>&lt;div id=&#34;funções-do-r-para-avaliar-o-ajuste-de-modelos&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Funções do R para avaliar o ajuste de modelos&lt;/h1&gt;&#xA;&lt;p&gt;Traduzindo:&lt;/p&gt;&#xA;&lt;p&gt;“&lt;em&gt;Essencialmente, todos os modelos estão errados, mas alguns são úteis&lt;/em&gt;” - George E. P. Box&lt;/p&gt;&#xA;&lt;p&gt;Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!&lt;/p&gt;&#xA;&lt;p&gt;Lendo um &lt;a href=&#34;http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf&#34;&gt;artigo sobre a vida de Fisher&lt;/a&gt; um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/feature.jpg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ggfortify on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/ggfortify/</link><description>Recent content in Ggfortify on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sun, 24 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/ggfortify/index.xml" rel="self" type="application/rss+xml"/><item><title>Pacotes do R para avaliar o ajuste de modelos</title><link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</link><pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</guid><description>&lt;div id="funções-do-r-para-avaliar-o-ajuste-de-modelos" class="section level2"&gt;
+&lt;h1&gt;Funções do R para avaliar o ajuste de modelos&lt;/h1&gt;
+&lt;p&gt;Traduzindo:&lt;/p&gt;
+&lt;p&gt;“&lt;em&gt;Essencialmente, todos os modelos estão errados, mas alguns são úteis&lt;/em&gt;” - George E. P. Box&lt;/p&gt;
+&lt;p&gt;Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!&lt;/p&gt;
+&lt;p&gt;Lendo um &lt;a href="http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf"&gt;artigo sobre a vida de Fisher&lt;/a&gt; um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/feature.jpg"/></item></channel></rss>

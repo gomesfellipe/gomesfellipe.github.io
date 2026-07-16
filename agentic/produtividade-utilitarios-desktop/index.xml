@@ -1,33 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Produtividade e utilitários desktop on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/</link>
-    <description>Recent content in Produtividade e utilitários desktop on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <atom:link href="https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>OnTopReplica</title>
-      <link>https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/ontopreplica/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/ontopreplica/</guid>
-      <description>&lt;p&gt;Utilitário Windows que cria um espelho em tempo real de qualquer janela do sistema em um painel flutuante e sempre visível (always-on-top). Não usa IA, mas é uma ferramenta de produtividade valiosa para quem monitora múltiplas saídas ao mesmo tempo — como terminais de agentes, dashboards e logs — sem precisar alternar entre janelas. Compatível com Windows 10/11.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Vantage</title>
-      <link>https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/vantage/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/vantage/</guid>
-      <description>&lt;p&gt;Menu bar do macOS que mostra, num relance, o status de várias sessões do Claude Code rodando em paralelo.&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href=&#34;https://gomesfellipe.github.io/agentic/contexto-tokens-custos/ccusage/&#34; &gt;ccusage&lt;/a&gt; complementa o Vantage mostrando o consumo de tokens e custo acumulado de cada sessão — juntos cobrem observabilidade completa do Claude Code.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
-      
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Produtividade e utilitários desktop on Fellipe Gomes</title><link>https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/</link><description>Recent content in Produtividade e utilitários desktop on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><atom:link href="https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/index.xml" rel="self" type="application/rss+xml"/><item><title>OnTopReplica</title><link>https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/ontopreplica/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/ontopreplica/</guid><description>&lt;p&gt;Utilitário Windows que cria um espelho em tempo real de qualquer janela do sistema em um painel flutuante e sempre visível (always-on-top). Não usa IA, mas é uma ferramenta de produtividade valiosa para quem monitora múltiplas saídas ao mesmo tempo — como terminais de agentes, dashboards e logs — sem precisar alternar entre janelas. Compatível com Windows 10/11.&lt;/p&gt;</description></item><item><title>Vantage</title><link>https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/vantage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/agentic/produtividade-utilitarios-desktop/vantage/</guid><description>&lt;p&gt;Menu bar do macOS que mostra, num relance, o status de várias sessões do Claude Code rodando em paralelo.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href="https://gomesfellipe.github.io/agentic/contexto-tokens-custos/ccusage/" &gt;ccusage&lt;/a&gt; complementa o Vantage mostrando o consumo de tokens e custo acumulado de cada sessão — juntos cobrem observabilidade completa do Claude Code.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item></channel></rss>

@@ -1,83 +1,94 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Correlacao on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/correlacao/</link>
-    <description>Recent content in Correlacao on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/correlacao/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Bot com Machine Learning para alertas de investimento</title>
-      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid>
-      <description>&lt;style&gt;&#xA;.column {&#xA;  float: left;&#xA;  width: 50%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;  float: left;&#xA;  width: 33%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;  float: left;&#xA;  width: 66%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;  content: &#34;&#34;;&#xA;  display: table; &#xA;  clear: both;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;por-que-investir&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Por que investir?&lt;/h1&gt;&#xA;&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png" />
-    </item>
-    
-    <item>
-      <title>Modelos baseados em árvore no R: desafio Ames Housing do Kaggle</title>
-      <link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</guid>
-      <description>&lt;div id=&#34;kaggle&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Kaggle&lt;/h1&gt;&#xA;&lt;p&gt;Segundo o &lt;a href=&#34;https://en.wikipedia.org/wiki/Kaggle&#34;&gt;Wikipédia&lt;/a&gt;: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.&lt;/p&gt;&#xA;&lt;p&gt;O Kaggle trabalha com a ideia de &lt;a href=&#34;https://en.wikipedia.org/wiki/Gamification&#34;&gt;gamificação&lt;/a&gt;, que é um assunto do qual já escrevi em um post sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/&#34;&gt;gamificação e porque aprender R é tão divertido&lt;/a&gt; e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/feature.png" />
-    </item>
-    
-    <item>
-      <title>AED de forma rápida e um pouco de Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</guid>
-      <description>&lt;style&gt;&#xA;  .col2 {&#xA;    columns: 2 200px;         /* number of columns and width in pixels*/&#xA;    -webkit-columns: 2 200px; /* chrome, safari */&#xA;    -moz-columns: 2 200px;    /* firefox */&#xA;  }&#xA;  .col3 {&#xA;    columns: 3 100px;&#xA;    -webkit-columns: 3 100px;&#xA;    -moz-columns: 3 100px;&#xA;  }&#xA;&lt;/style&gt;&#xA;&lt;!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários--&gt;&#xA;&lt;div id=&#34;a-análise-exploratória-dos-dados&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;A análise exploratória dos dados&lt;/h1&gt;&#xA;&lt;p&gt;A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro &lt;a href=&#34;https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160?tag=gomesfellipe-20&#34; target=&#34;_blank&#34; rel=&#34;sponsored nofollow noopener&#34;&gt;Exploratory Data Analysis&lt;/a&gt; em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/feature.png" />
-    </item>
-    
-    <item>
-      <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</link>
-      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</guid>
-      <description>&lt;div id=&#34;funções-do-r-para-avaliar-o-ajuste-de-modelos&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Funções do R para avaliar o ajuste de modelos&lt;/h1&gt;&#xA;&lt;p&gt;Traduzindo:&lt;/p&gt;&#xA;&lt;p&gt;“&lt;em&gt;Essencialmente, todos os modelos estão errados, mas alguns são úteis&lt;/em&gt;” - George E. P. Box&lt;/p&gt;&#xA;&lt;p&gt;Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!&lt;/p&gt;&#xA;&lt;p&gt;Lendo um &lt;a href=&#34;http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf&#34;&gt;artigo sobre a vida de Fisher&lt;/a&gt; um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-yellow w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;⚠️ Aviso (2026):&lt;/strong&gt; Os pacotes e APIs usados neste post são de 2017 e foram descontinuados: o &lt;code&gt;coinmarketcapr&lt;/code&gt; passou a exigir chave de API paga e a API da BlinkTrade foi encerrada. A lógica de extrair, tratar e monitorar dados no R ainda é válida — veja a versão moderna com agentes de IA em &lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34;&gt;Equipe Multiagente para Análise do Bitcoin&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;as-cryptomoedas&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;As cryptomoedas&lt;/h1&gt;&#xA;&lt;p&gt;Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vem crescendo rapidamente, e grandes canais de informação já cobrem o assunto. A cotação do Bitcoin já pode ser acompanhada nos maiores sites do mercado financeiro. Diante de tantas novidades, vale entender como a programação pode ajudar a explorar temas tão recentes.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/feature.png" />
-    </item>
-    
-    <item>
-      <title>Tipos de relações entre variáveis</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</link>
-      <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</guid>
-      <description>&lt;div id=&#34;tipos-de-relações&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Tipos de relações&lt;/h1&gt;&#xA;&lt;p&gt;Vimos no &lt;a href=&#34;https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/&#34;&gt;último post sobre tipos de correlações&lt;/a&gt; quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis. Um exemplo prático dessas técnicas aplicadas a dados reais pode ser visto na &lt;a href=&#34;https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/&#34;&gt;análise do mercado de criptomoedas com R&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Já sabemos que esses coeficientes variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/feature.jpeg" />
-    </item>
-    
-    <item>
-      <title>Tipos de Correlações em R</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</link>
-      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#correlações&#34;&gt;Correlações&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#tipos-de-variáveis&#34;&gt;Tipos de Variáveis&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#tipos-de-correlações&#34;&gt;Tipos de Correlações&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#coeficiente-de-correlação-de-pearson&#34;&gt;Coeficiente de Correlação de Pearson&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#coeficiente-de-correlação-de-spearman-rho&#34;&gt;Coeficiente de Correlação de Spearman &lt;span class=&#34;math inline&#34;&gt;\(\rho\)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#coeficiente-de-correlação-de-kendall-tau-de-kendall&#34;&gt;Coeficiente de Correlação de Kendall (&lt;span class=&#34;math inline&#34;&gt;\(\tau\)&lt;/span&gt; de kendall)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#qui-quadrado-de-independencia&#34;&gt;Qui-quadrado de independencia&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#teste-exato-de-fisher&#34;&gt;Teste exato de fisher&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#medidas-de-associação&#34;&gt;Medidas de associação&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#phi-phi-é-o-r-de-pearson-quando-aplicado-a-tabelas-2x2&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(\phi\)&lt;/span&gt; (phi) (é o R de pearson quando aplicado a tabelas 2x2)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#v-de-crámer&#34;&gt;V de Crámer&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#coeficiente-de-contingência&#34;&gt;Coeficiente de contingência&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#kappa&#34;&gt;Kappa&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mãos-a-obra&#34;&gt;Mãos a obra&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#referências&#34;&gt;Referências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;!-- # Base de dados:  --&gt;&#xA;&lt;!-- ```{r,echo=F} --&gt;&#xA;&lt;!-- dados &lt;- read_excel(&#34;contabilidade.xlsx&#34;) --&gt;&#xA;&lt;!-- kable(dados,&#34;html&#34;)%&gt;% --&gt;&#xA;&lt;!--   kable_styling()%&gt;% --&gt;&#xA;&lt;!--   scroll_box(width = &#34;700px&#34;, height = &#34;250px&#34;) --&gt;&#xA;&lt;!-- ```  --&gt;&#xA;&lt;!-- É possível notar que existem diversos tipos de variáveis --&gt;&#xA;&lt;div id=&#34;correlações&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Correlações&lt;/h1&gt;&#xA;&lt;p&gt;De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os &lt;em&gt;coeficientes de associação&lt;/em&gt; ou &lt;em&gt;correlação&lt;/em&gt; entre variáveis.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/feature.jpeg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Correlacao on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/correlacao/</link><description>Recent content in Correlacao on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/correlacao/index.xml" rel="self" type="application/rss+xml"/><item><title>Bot com Machine Learning para alertas de investimento</title><link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link><pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid><description>&lt;style&gt;
+.column {
+ float: left;
+ width: 50%;
+ padding: 10px;
+}
+
+.column4 {
+ float: left;
+ width: 33%;
+ padding: 10px;
+}
+
+.column8 {
+ float: left;
+ width: 66%;
+ padding: 10px;
+}
+
+.row:after {
+ content: "";
+ display: table; 
+ clear: both;
+}
+&lt;/style&gt;
+&lt;div id="por-que-investir" class="section level2"&gt;
+&lt;h1&gt;Por que investir?&lt;/h1&gt;
+&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png"/></item><item><title>Modelos baseados em árvore no R: desafio Ames Housing do Kaggle</title><link>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</link><pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/</guid><description>&lt;div id="kaggle" class="section level2"&gt;
+&lt;h1&gt;Kaggle&lt;/h1&gt;
+&lt;p&gt;Segundo o &lt;a href="https://en.wikipedia.org/wiki/Kaggle"&gt;Wikipédia&lt;/a&gt;: “Kaggle é a maior comunidade mundial de cientistas de dados e machine learning.” Aprendo muito estudando as resoluções de alguns competidores pois lá é possível conferir tanto as metodologias utilizadas pelos competidores quando os códigos e é notável o cuidado dos participantes para que seja possível a reprodutibilidade dos resultados, o que pode impulsionar o aprendizado.&lt;/p&gt;
+&lt;p&gt;O Kaggle trabalha com a ideia de &lt;a href="https://en.wikipedia.org/wiki/Gamification"&gt;gamificação&lt;/a&gt;, que é um assunto do qual já escrevi em um post sobre &lt;a href="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/cheatsheet-gamificacao-r/"&gt;gamificação e porque aprender R é tão divertido&lt;/a&gt; e gosto deste conceito de se criar jogos para motivar e engajar as pessoas em atividades profissionais e a ideia de se estar em um jogo possibilita doses de motivação especialmente a quem gosta de competir.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-08-31-modelos-em-arvore/feature.png"/></item><item><title>AED de forma rápida e um pouco de Machine Learning</title><link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</link><pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</guid><description>&lt;style&gt;
+ .col2 {
+ columns: 2 200px; /* number of columns and width in pixels*/
+ -webkit-columns: 2 200px; /* chrome, safari */
+ -moz-columns: 2 200px; /* firefox */
+ }
+ .col3 {
+ columns: 3 100px;
+ -webkit-columns: 3 100px;
+ -moz-columns: 3 100px;
+ }
+&lt;/style&gt;
+&lt;!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários--&gt;
+&lt;div id="a-análise-exploratória-dos-dados" class="section level2"&gt;
+&lt;h1&gt;A análise exploratória dos dados&lt;/h1&gt;
+&lt;p&gt;A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro &lt;a href="https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160?tag=gomesfellipe-20" target="_blank" rel="sponsored nofollow noopener"&gt;Exploratory Data Analysis&lt;/a&gt; em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/feature.png"/></item><item><title>Pacotes do R para avaliar o ajuste de modelos</title><link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</link><pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</guid><description>&lt;div id="funções-do-r-para-avaliar-o-ajuste-de-modelos" class="section level2"&gt;
+&lt;h1&gt;Funções do R para avaliar o ajuste de modelos&lt;/h1&gt;
+&lt;p&gt;Traduzindo:&lt;/p&gt;
+&lt;p&gt;“&lt;em&gt;Essencialmente, todos os modelos estão errados, mas alguns são úteis&lt;/em&gt;” - George E. P. Box&lt;/p&gt;
+&lt;p&gt;Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!&lt;/p&gt;
+&lt;p&gt;Lendo um &lt;a href="http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf"&gt;artigo sobre a vida de Fisher&lt;/a&gt; um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/feature.jpg"/></item><item><title>Analisando o mercado de cryptomoedas com R</title><link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link><pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid><description>&lt;div class="w3-panel w3-pale-yellow w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Aviso (2026):&lt;/strong&gt; Os pacotes e APIs usados neste post são de 2017 e foram descontinuados: o &lt;code&gt;coinmarketcapr&lt;/code&gt; passou a exigir chave de API paga e a API da BlinkTrade foi encerrada. A lógica de extrair, tratar e monitorar dados no R ainda é válida — veja a versão moderna com agentes de IA em &lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/"&gt;Equipe Multiagente para Análise do Bitcoin&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="as-cryptomoedas" class="section level1"&gt;
+&lt;h1&gt;As cryptomoedas&lt;/h1&gt;
+&lt;p&gt;Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vem crescendo rapidamente, e grandes canais de informação já cobrem o assunto. A cotação do Bitcoin já pode ser acompanhada nos maiores sites do mercado financeiro. Diante de tantas novidades, vale entender como a programação pode ajudar a explorar temas tão recentes.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/feature.png"/></item><item><title>Tipos de relações entre variáveis</title><link>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</link><pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/</guid><description>&lt;div id="tipos-de-relações" class="section level2"&gt;
+&lt;h1&gt;Tipos de relações&lt;/h1&gt;
+&lt;p&gt;Vimos no &lt;a href="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/"&gt;último post sobre tipos de correlações&lt;/a&gt; quais tipos de medidas de correlação e associação podem ser calculadas para identificar o grau de associação (ou dependência) entre as variáveis. Um exemplo prático dessas técnicas aplicadas a dados reais pode ser visto na &lt;a href="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/"&gt;análise do mercado de criptomoedas com R&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Já sabemos que esses coeficientes variam entre 0 e 1 ou entre -1 e +1, de maneira que a proximidade de zero indique a falta de associação entre elas.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-02-tipos-de-relacoes-entre-variaveis/feature.jpeg"/></item><item><title>Tipos de Correlações em R</title><link>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#correlações"&gt;Correlações&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#tipos-de-variáveis"&gt;Tipos de Variáveis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#tipos-de-correlações"&gt;Tipos de Correlações&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#coeficiente-de-correlação-de-pearson"&gt;Coeficiente de Correlação de Pearson&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#coeficiente-de-correlação-de-spearman-rho"&gt;Coeficiente de Correlação de Spearman &lt;span class="math inline"&gt;\(\rho\)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#coeficiente-de-correlação-de-kendall-tau-de-kendall"&gt;Coeficiente de Correlação de Kendall (&lt;span class="math inline"&gt;\(\tau\)&lt;/span&gt; de kendall)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#qui-quadrado-de-independencia"&gt;Qui-quadrado de independencia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#teste-exato-de-fisher"&gt;Teste exato de fisher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#medidas-de-associação"&gt;Medidas de associação&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#phi-phi-é-o-r-de-pearson-quando-aplicado-a-tabelas-2x2"&gt;&lt;span class="math inline"&gt;\(\phi\)&lt;/span&gt; (phi) (é o R de pearson quando aplicado a tabelas 2x2)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#v-de-crámer"&gt;V de Crámer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#coeficiente-de-contingência"&gt;Coeficiente de contingência&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#kappa"&gt;Kappa&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#mãos-a-obra"&gt;Mãos a obra&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#referências"&gt;Referências&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- # Base de dados: --&gt;
+&lt;!-- ```{r,echo=F} --&gt;
+&lt;!-- dados &lt;- read_excel("contabilidade.xlsx") --&gt;
+&lt;!-- kable(dados,"html")%&gt;% --&gt;
+&lt;!-- kable_styling()%&gt;% --&gt;
+&lt;!-- scroll_box(width = "700px", height = "250px") --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- É possível notar que existem diversos tipos de variáveis --&gt;
+&lt;div id="correlações" class="section level1"&gt;
+&lt;h1&gt;Correlações&lt;/h1&gt;
+&lt;p&gt;De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os &lt;em&gt;coeficientes de associação&lt;/em&gt; ou &lt;em&gt;correlação&lt;/em&gt; entre variáveis.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/feature.jpeg"/></item></channel></rss>

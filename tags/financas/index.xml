@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Financas on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/financas/</link>
-    <description>Recent content in Financas on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Fri, 17 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/financas/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>AcompanhAções</title>
-      <link>https://gomesfellipe.github.io/projects/acompanhacoes/</link>
-      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/projects/acompanhacoes/</guid>
-      <description>&lt;p&gt;Link do repositório no github: &lt;a href=&#34;https://github.com/gomesfellipe/acompanhacoes&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;https://github.com/gomesfellipe/acompanhacoes&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;O objetivo do pacote &lt;code&gt;acompanhacoes&lt;/code&gt; é permitir a portabilidade de um dashboard desenvolvido para o acompanhamento de ativos de diferentes naturezas de forma prática no dia a dia. A idéia deste shiny foi inspirada &lt;a href=&#34;https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;neste post&lt;/a&gt; do meu blog.&lt;/p&gt;&#xA;&lt;p&gt;O Dashboard é uma POC (&lt;a href=&#34;https://en.wikipedia.org/wiki/Proof_of_concept&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;proof of concept&lt;/a&gt;) de uma ferramenta que possibilita o acompanhamento automatizado da tabela financeira de um portifólio com a coleta de dados de cotações em tempo real, incluindo cálculo de Ganho/Perda (caso decida fazer a desmontagem no tempo atual) e análise automatizada do portifólio.&lt;/p&gt;</description>
-      
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Financas on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/financas/</link><description>Recent content in Financas on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Fri, 17 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/financas/index.xml" rel="self" type="application/rss+xml"/><item><title>AcompanhAções</title><link>https://gomesfellipe.github.io/projects/acompanhacoes/</link><pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/projects/acompanhacoes/</guid><description>&lt;p&gt;Link do repositório no github: &lt;a href="https://github.com/gomesfellipe/acompanhacoes" target="_blank" rel="noreferrer"&gt;https://github.com/gomesfellipe/acompanhacoes&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;O objetivo do pacote &lt;code&gt;acompanhacoes&lt;/code&gt; é permitir a portabilidade de um dashboard desenvolvido para o acompanhamento de ativos de diferentes naturezas de forma prática no dia a dia. A idéia deste shiny foi inspirada &lt;a href="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/investment-alert/" target="_blank" rel="noreferrer"&gt;neste post&lt;/a&gt; do meu blog.&lt;/p&gt;
+&lt;p&gt;O Dashboard é uma POC (&lt;a href="https://en.wikipedia.org/wiki/Proof_of_concept" target="_blank" rel="noreferrer"&gt;proof of concept&lt;/a&gt;) de uma ferramenta que possibilita o acompanhamento automatizado da tabela financeira de um portifólio com a coleta de dados de cotações em tempo real, incluindo cálculo de Ganho/Perda (caso decida fazer a desmontagem no tempo atual) e análise automatizada do portifólio.&lt;/p&gt;</description></item></channel></rss>

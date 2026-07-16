@@ -1,23 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Gam on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/gam/</link>
-    <description>Recent content in Gam on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/gam/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Análise de Sentimentos com um &#34;ChatGPT&#34; de Código Aberto</title>
-      <link>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</link>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;O modelo Llama2-7b-chat-hf foi executado localmente via Hugging Face Transformers para classificar textos como positivos, negativos ou neutros, sem custo de API.&lt;/li&gt;&#xA;&lt;li&gt;A abordagem foi avaliada contra o VADER (léxico clássico de análise de sentimentos) em um conjunto de avaliações de filmes em inglês, usando acurácia como métrica.&lt;/li&gt;&#xA;&lt;li&gt;O Llama2 superou o VADER na captura de ironia e contexto, mas com latência significativamente maior — evidenciando o trade-off entre profundidade semântica e velocidade de inferência.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&#xA;&lt;div class=&#34;w3-panel w3-pale-amber w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href=&#34;https://gomesfellipe.github.io/resources/langchain-series/&#34;&gt;ver índice&lt;/a&gt;&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gam on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/gam/</link><description>Recent content in Gam on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/gam/index.xml" rel="self" type="application/rss+xml"/><item><title>Análise de Sentimentos com um "ChatGPT" de Código Aberto</title><link>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</link><pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O modelo Llama2-7b-chat-hf foi executado localmente via Hugging Face Transformers para classificar textos como positivos, negativos ou neutros, sem custo de API.&lt;/li&gt;
+&lt;li&gt;A abordagem foi avaliada contra o VADER (léxico clássico de análise de sentimentos) em um conjunto de avaliações de filmes em inglês, usando acurácia como métrica.&lt;/li&gt;
+&lt;li&gt;O Llama2 superou o VADER na captura de ironia e contexto, mas com latência significativamente maior — evidenciando o trade-off entre profundidade semântica e velocidade de inferência.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href="https://gomesfellipe.github.io/resources/langchain-series/"&gt;ver índice&lt;/a&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/feature.png"/></item></channel></rss>

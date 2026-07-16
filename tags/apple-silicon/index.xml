@@ -1,23 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Apple-Silicon on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/apple-silicon/</link>
-    <description>Recent content in Apple-Silicon on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/apple-silicon/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>LLM local com Qwen e LangChain: agente sem APIs externas</title>
-      <link>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</link>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-amber w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href=&#34;https://gomesfellipe.github.io/resources/langchain-series/&#34;&gt;ver índice&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/&#34;&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/&#34;&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34;&gt;Equipe Multiagente para Bitcoin&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/&#34;&gt;Agente para Ligações de Telemarketing&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;→ LLM Local com Qwen sem APIs&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;por-que-rodar-llms-localmente&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Por que rodar LLMs localmente?&lt;/h1&gt;&#xA;&lt;p&gt;Nos últimos anos, o mundo dos modelos de linguagem de grande porte (LLMs) deixou de ser um território exclusivo das gigantes americanas. Uma leva de modelos open-weight de origem chinesa como o &lt;a href=&#34;https://huggingface.co/Qwen&#34;&gt;Qwen&lt;/a&gt; (Alibaba), o &lt;a href=&#34;https://huggingface.co/deepseek-ai&#34;&gt;DeepSeek&lt;/a&gt; e o &lt;a href=&#34;https://huggingface.co/01-ai&#34;&gt;Yi&lt;/a&gt; chegaram com qualidade surpreendente e, mais importante, com pesos disponíveis publicamente. Li sobre alguns deles em &lt;a href=&#34;https://elisaterumi.substack.com/p/5-modelos-chineses-que-voce-precisa&#34;&gt;um post que apareceu no meu LinkedIn&lt;/a&gt; e fiquei curioso para testar: será que dá para rodar um desses modelos localmente no meu Mac e ainda plugar ele num agente LangChain funcional?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Apple-Silicon on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/apple-silicon/</link><description>Recent content in Apple-Silicon on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/apple-silicon/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM local com Qwen e LangChain: agente sem APIs externas</title><link>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</link><pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</guid><description>&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href="https://gomesfellipe.github.io/resources/langchain-series/"&gt;ver índice&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/"&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/"&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/"&gt;Equipe Multiagente para Bitcoin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/"&gt;Agente para Ligações de Telemarketing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;→ LLM Local com Qwen sem APIs&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;div id="por-que-rodar-llms-localmente" class="section level1"&gt;
+&lt;h1&gt;Por que rodar LLMs localmente?&lt;/h1&gt;
+&lt;p&gt;Nos últimos anos, o mundo dos modelos de linguagem de grande porte (LLMs) deixou de ser um território exclusivo das gigantes americanas. Uma leva de modelos open-weight de origem chinesa como o &lt;a href="https://huggingface.co/Qwen"&gt;Qwen&lt;/a&gt; (Alibaba), o &lt;a href="https://huggingface.co/deepseek-ai"&gt;DeepSeek&lt;/a&gt; e o &lt;a href="https://huggingface.co/01-ai"&gt;Yi&lt;/a&gt; chegaram com qualidade surpreendente e, mais importante, com pesos disponíveis publicamente. Li sobre alguns deles em &lt;a href="https://elisaterumi.substack.com/p/5-modelos-chineses-que-voce-precisa"&gt;um post que apareceu no meu LinkedIn&lt;/a&gt; e fiquei curioso para testar: será que dá para rodar um desses modelos localmente no meu Mac e ainda plugar ele num agente LangChain funcional?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/feature.png"/></item></channel></rss>

@@ -1,33 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Bayes on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/bayes/</link>
-    <description>Recent content in Bayes on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/bayes/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Modelo Bayesiano do Zero</title>
-      <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</guid>
-      <description>&lt;div id=&#34;modelagem-estatística-e-as-duas-grandes-escolas-de-inferência&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Modelagem estatística e as duas grandes escolas de inferência&lt;/h1&gt;&#xA;&lt;p&gt;Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.&lt;/p&gt;&#xA;&lt;p&gt;Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/feature.png" />
-    </item>
-    
-    <item>
-      <title>Ajustando Modelos Bayesianos com JAGS e MCMC no R</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/</link>
-      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/</guid>
-      <description>&lt;div id=&#34;inferência-bayesiana&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Inferência bayesiana&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/mattbuck007/3676624894/in/photolist-6ATEuo-9TK3TW&#34;&gt;Imagem da Internet&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.&lt;/p&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Na inferência bayesiana, o parâmetro é tratado como aleatório e sua &#34;crença&#34; é representada por uma distribuição de probabilidade.&lt;/li&gt;&#xA;&lt;li&gt;O pacote &lt;code&gt;R2jags&lt;/code&gt; ajusta modelos bayesianos no R chamando o JAGS (amostrador de Gibbs).&lt;/li&gt;&#xA;&lt;li&gt;O &lt;code&gt;mcmcplots&lt;/code&gt; e o &lt;code&gt;superdiag&lt;/code&gt; diagnosticam a convergência das cadeias MCMC.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Para isso devemos utilizar &lt;strong&gt;toda&lt;/strong&gt; informação disponível, seja ela &lt;strong&gt;objetiva&lt;/strong&gt; ou &lt;strong&gt;subjetiva&lt;/strong&gt; (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/feature.jpg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bayes on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/bayes/</link><description>Recent content in Bayes on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/bayes/index.xml" rel="self" type="application/rss+xml"/><item><title>Modelo Bayesiano do Zero</title><link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</link><pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</guid><description>&lt;div id="modelagem-estatística-e-as-duas-grandes-escolas-de-inferência" class="section level2"&gt;
+&lt;h1&gt;Modelagem estatística e as duas grandes escolas de inferência&lt;/h1&gt;
+&lt;p&gt;Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.&lt;/p&gt;
+&lt;p&gt;Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/feature.png"/></item><item><title>Ajustando Modelos Bayesianos com JAGS e MCMC no R</title><link>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/</link><pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/</guid><description>&lt;div id="inferência-bayesiana" class="section level1"&gt;
+&lt;h1&gt;Inferência bayesiana&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://www.flickr.com/photos/mattbuck007/3676624894/in/photolist-6ATEuo-9TK3TW"&gt;Imagem da Internet&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Quando estamos falando de Inferência nosso objetivo normalmente é tentar verificar alguma informação sobre uma quantidade desconhecida.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Na inferência bayesiana, o parâmetro é tratado como aleatório e sua "crença" é representada por uma distribuição de probabilidade.&lt;/li&gt;
+&lt;li&gt;O pacote &lt;code&gt;R2jags&lt;/code&gt; ajusta modelos bayesianos no R chamando o JAGS (amostrador de Gibbs).&lt;/li&gt;
+&lt;li&gt;O &lt;code&gt;mcmcplots&lt;/code&gt; e o &lt;code&gt;superdiag&lt;/code&gt; diagnosticam a convergência das cadeias MCMC.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Para isso devemos utilizar &lt;strong&gt;toda&lt;/strong&gt; informação disponível, seja ela &lt;strong&gt;objetiva&lt;/strong&gt; ou &lt;strong&gt;subjetiva&lt;/strong&gt; (isto é, vinda de umam amostra ou de algum conhecimento préveo ou intuitivo)&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/feature.jpg"/></item></channel></rss>

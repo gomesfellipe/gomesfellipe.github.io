@@ -1,143 +1,144 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Rstudio on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/rstudio/</link>
-    <description>Recent content in Rstudio on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/rstudio/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Vou te provar que da para fazer Grafos bonitos em R!</title>
-      <link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introdu%C3%A7%C3%A3o-e-contexto&#34; id=&#34;toc-introdução-e-contexto&#34;&gt;Introdução e contexto&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#o-que-s%C3%A3o-grafos&#34; id=&#34;toc-o-que-são-grafos&#34;&gt;O que são Grafos?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#como-contruir-um&#34; id=&#34;toc-como-contruir-um&#34;&gt;Como contruir um?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#carregar-depend%C3%AAncias&#34; id=&#34;toc-carregar-dependências&#34;&gt;Carregar dependências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#fonte-dos-dados&#34; id=&#34;toc-fonte-dos-dados&#34;&gt;Fonte dos dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#ner---named-entity-recognition&#34; id=&#34;toc-ner---named-entity-recognition&#34;&gt;NER - Named Entity Recognition&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#preparar-dados&#34; id=&#34;toc-preparar-dados&#34;&gt;Preparar dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#b%C3%B4nus&#34; id=&#34;toc-bônus&#34;&gt;Bônus&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#outras-bibliotecas-para-constru%C3%A7%C3%A3o-de-grafos&#34; id=&#34;toc-outras-bibliotecas-para-construção-de-grafos&#34;&gt;Outras bibliotecas para construção de grafos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;introdução-e-contexto&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Introdução e contexto&lt;/h1&gt;&#xA;&lt;p&gt;Durante os anos de 2020 e 2021 fiz um &lt;a href=&#34;https://educacao-executiva.fgv.br/df/brasilia/cursos/mba-pos-graduacao/mba-presencial/mba-executivo-em-business-analytics-e-big-data&#34;&gt;MBA Executivo em Business Analytics e Big Data&lt;/a&gt; na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/feature.png" />
-    </item>
-    
-    <item>
-      <title>Como automatizar relatórios longos e repetitivos com RMarkdown</title>
-      <link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</guid>
-      <description>&lt;div id=&#34;problema-de-negócio&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Problema de negócio&lt;/h1&gt;&#xA;&lt;p&gt;Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.&lt;/p&gt;&#xA;&lt;p&gt;Com a linguagem R, escrever relatórios estatísticos utilizando &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;RMarkdown&lt;/a&gt; acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/feature.png" />
-    </item>
-    
-    <item>
-      <title>Hackeando o R: estratégia split-apply-combine</title>
-      <link>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</guid>
-      <description>&lt;div id=&#34;o-método-split-apply-combine&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;O método split-apply-combine&lt;/h1&gt;&#xA;&lt;p&gt;Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.&lt;/p&gt;&#xA;&lt;p&gt;No famoso paper &lt;a href=&#34;https://vita.had.co.nz/papers/plyr.pdf&#34;&gt;The Split-Apply-Combine Strategy for Data Analysis&lt;/a&gt;, &lt;a href=&#34;http://hadley.nz/&#34;&gt;Hadley Wickham&lt;/a&gt; descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/feature.png" />
-    </item>
-    
-    <item>
-      <title>Um ano de blog! Retrospectiva de 2018 em Data Science</title>
-      <link>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</guid>
-      <description>&lt;style type=&#34;text/css&#34;&gt;&#xA;.retro-row {&#xA;  display: grid;&#xA;  grid-template-columns: repeat(3, 1fr);&#xA;  gap: 1.25rem;&#xA;  margin-bottom: 1.5rem;&#xA;}&#xA;.retro-card {&#xA;  display: flex;&#xA;  flex-direction: column;&#xA;  border-radius: 0.5rem;&#xA;  overflow: hidden;&#xA;  border: 1px solid rgba(128,128,128,0.18);&#xA;  text-align: left;&#xA;}&#xA;.retro-card-thumb {&#xA;  aspect-ratio: 3/2;&#xA;  overflow: hidden;&#xA;  flex-shrink: 0;&#xA;}&#xA;.retro-card-thumb a { display: block; height: 100%; }&#xA;.retro-card-thumb img {&#xA;  width: 100% !important;&#xA;  height: 100%;&#xA;  object-fit: cover;&#xA;  display: block;&#xA;  transition: transform 0.22s ease;&#xA;}&#xA;.retro-card:hover .retro-card-thumb img { transform: scale(1.04); }&#xA;.retro-card-body { padding: 0.75rem; flex: 1; display: flex; flex-direction: column; }&#xA;.retro-card-title {&#xA;  font-size: 0.82rem;&#xA;  font-weight: 600;&#xA;  line-height: 1.4;&#xA;  margin: 0 0 0.5rem;&#xA;}&#xA;.retro-card-title a { text-decoration: none; }&#xA;.retro-card-desc { font-size: 0.78rem; line-height: 1.5; flex: 1; opacity: 0.85; }&#xA;@media (max-width: 640px) { .retro-row { grid-template-columns: 1fr; } }&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;até-que-um-dia..&#34; class=&#34;section level3&#34;&gt;&#xA;&lt;h1&gt;Até que um dia..&lt;/h1&gt;&#xA;&lt;p&gt;Agora em dezembro encerro um desafio pessoal de fazer pelo menos um post por mês durante o ano de 2018 e estou muito animado com o término deste ciclo! Espero ter contribuído um pouquinho com a comunidade de Estatística e Ciência de Dados que está maior a cada dia e cada vez mais importante.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/feature.png" />
-    </item>
-    
-    <item>
-      <title>Seu app, RStudio e Shiny Server na nuvem do Google</title>
-      <link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-yellow w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;⚠️ Nota de atualização (2026):&lt;/strong&gt; Este post usa Ubuntu 16.04 LTS (EOL desde 2021), RStudio Server (renomeado para &lt;strong&gt;Posit Workbench&lt;/strong&gt;) e Shiny Server na instância &lt;code&gt;f1-micro&lt;/code&gt; do Google Cloud. Os passos gerais ainda funcionam, mas o Ubuntu mínimo recomendado hoje é o 22.04 LTS e os pacotes de instalação do RStudio/Posit mudaram de URL. Para instâncias novas, consulte a &lt;a href=&#34;https://posit.co/download/rstudio-server/&#34; rel=&#34;nofollow&#34;&gt;documentação atual do Posit Workbench&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;objetivo-do-post&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Objetivo do post &lt;i class=&#34;fa fa-rocket&#34;&gt;&lt;/i&gt;&lt;/h1&gt;&#xA;&lt;p&gt;Uma das várias maneiras de se implementar o &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download-server/&#34;&gt;RStudio Server&lt;/a&gt; e o &lt;a href=&#34;https://www.rstudio.com/products/shiny/download-server/&#34;&gt;Shiny Server&lt;/a&gt; é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/feature.png" />
-    </item>
-    
-    <item>
-      <title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title>
-      <link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css&#34; /&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js&#34;&gt;&lt;/script&gt;&#xA;&#xA;&#xA;&lt;div id=&#34;perguntas&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Perguntas&lt;/h1&gt;&#xA;&lt;p&gt;Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a &lt;strong&gt;criatividade&lt;/strong&gt;. Temos o cristo, todos aqueles grandes barcos, o Porto do Rio de Janeiro com todas aquelas obras de Engenharia, ou até mesmo a própria Ponte, que por si só já é intrigante.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>AED de forma rápida e um pouco de Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</guid>
-      <description>&lt;style&gt;&#xA;  .col2 {&#xA;    columns: 2 200px;         /* number of columns and width in pixels*/&#xA;    -webkit-columns: 2 200px; /* chrome, safari */&#xA;    -moz-columns: 2 200px;    /* firefox */&#xA;  }&#xA;  .col3 {&#xA;    columns: 3 100px;&#xA;    -webkit-columns: 3 100px;&#xA;    -moz-columns: 3 100px;&#xA;  }&#xA;&lt;/style&gt;&#xA;&lt;!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários--&gt;&#xA;&lt;div id=&#34;a-análise-exploratória-dos-dados&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;A análise exploratória dos dados&lt;/h1&gt;&#xA;&lt;p&gt;A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro &lt;a href=&#34;https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160?tag=gomesfellipe-20&#34; target=&#34;_blank&#34; rel=&#34;sponsored nofollow noopener&#34;&gt;Exploratory Data Analysis&lt;/a&gt; em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/feature.png" />
-    </item>
-    
-    <item>
-      <title>Séries temporais com Google Trends e R</title>
-      <link>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/</link>
-      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/</guid>
-      <description>&lt;div id=&#34;google-trends&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Google Trends&lt;/h1&gt;&#xA;&lt;p&gt;O &lt;a href=&#34;https://trends.google.com.br/&#34;&gt;Google Trends&lt;/a&gt; é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.&lt;/p&gt;&#xA;&lt;p&gt;Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.&lt;/p&gt;&#xA;&lt;p&gt;Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/feature.png" />
-    </item>
-    
-    <item>
-      <title>CheatSheets e gamificação: aprender R de forma divertida</title>
-      <link>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/</link>
-      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/</guid>
-      <description>&lt;div id=&#34;você-costuma-ler-o-manual&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Você costuma ler o manual?&lt;/h1&gt;&#xA;&lt;p&gt;Quando éramos crianças, geralmente não tínhamos o costume de ler o manual das coisas, não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois. Adorava buscar entender como as coisas se encaixavam ao montar os brinquedinhos do kinder-ovo sem ler as instruções ou criar diferentes combinações com lego customizados, por exemplo. Acredito que isso seja da natureza de toda criança!&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/feature.png" />
-    </item>
-    
-    <item>
-      <title>Carnaval e mapas interativos com R</title>
-      <link>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/</link>
-      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css&#34; /&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js&#34;&gt;&lt;/script&gt;&#xA;&#xA;&#xA;&lt;div id=&#34;onde-estão-os-blocos&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Onde estão os blocos?&lt;/h1&gt;&#xA;&lt;p&gt;Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.&lt;/p&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Usamos &lt;code&gt;ggmap&lt;/code&gt; para geocodificar (transformar endereço em latitude/longitude) os blocos de carnaval.&lt;/li&gt;&#xA;&lt;li&gt;O pacote &lt;code&gt;leaflet&lt;/code&gt; (com &lt;code&gt;leaflet.extras&lt;/code&gt;) plota tudo num mapa interativo.&lt;/li&gt;&#xA;&lt;li&gt;A limpeza de texto usa a função &lt;code&gt;ajustar_nomes()&lt;/code&gt; do post sobre manipulação de strings.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes &lt;a href=&#34;https://cran.r-project.org/package=ggmap&#34;&gt;&lt;code&gt;ggmap&lt;/code&gt;&lt;/a&gt; e &lt;a href=&#34;https://cran.r-project.org/package=leaflet&#34;&gt;&lt;code&gt;leaflet&lt;/code&gt;&lt;/a&gt; para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/feature.png" />
-    </item>
-    
-    <item>
-      <title>Manipulação de Strings e Text Mining</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-17-string/</link>
-      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-17-string/</guid>
-      <description>&lt;div id=&#34;manipulação-de-strings-e-text-mining&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Manipulação de strings e Text mining&lt;/h1&gt;&#xA;&lt;!-- ![](/img/2017-12-17-string/imagem2.png) --&gt;&#xA;&lt;p&gt;Estudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo &lt;em&gt;string&lt;/em&gt;.&lt;/p&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;stringr:&lt;/strong&gt; sintaxe consistente para &lt;code&gt;str_replace()&lt;/code&gt;, &lt;code&gt;str_split()&lt;/code&gt;, &lt;code&gt;str_sub()&lt;/code&gt; e mais.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;tm:&lt;/strong&gt; cria e limpa um &lt;em&gt;corpus&lt;/em&gt; de texto, gera matriz de termos e TF-IDF.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;SnowballC:&lt;/strong&gt; extrai o radical das palavras (stemming) em português e outras línguas.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Uma variável do tipo &lt;em&gt;string&lt;/em&gt; é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-17-string/feature.png" />
-    </item>
-    
-    <item>
-      <title>Criando Relatórios com o Template Tufte no R (RMarkdown)</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/</link>
-      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/</guid>
-      <description>&lt;p&gt;Além da limpeza da base de dados, das análises e da aplicação de metodologias estatísticas, escrever relatórios é uma tarefa indispensável e que ocupa boa parte do tempo de quem trabalha com dados. Como disse Khalil Gibran, é preciso &lt;em&gt;transformar em palavras aquilo que já conhecemos em pensamentos&lt;/em&gt;. O problema é que ninguém quer gastar tempo precioso de análise brigando com a formatação do documento.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;É aí que entram os templates. O pacote &lt;code&gt;tufte&lt;/code&gt;, disponível no &lt;a href=&#34;https://cran.r-project.org&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;CRAN&lt;/a&gt;, resolve isso para quem escreve em RMarkdown: ele traz um layout pronto, elegante e focado no conteúdo, para você formatar menos e analisar mais. Este post mostra o que é esse estilo, como instalar e como usar os recursos que o tornam diferente.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/feature.png" />
-    </item>
-    
-    <item>
-      <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-yellow w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;⚠️ Aviso (2026):&lt;/strong&gt; Os pacotes e APIs usados neste post são de 2017 e foram descontinuados: o &lt;code&gt;coinmarketcapr&lt;/code&gt; passou a exigir chave de API paga e a API da BlinkTrade foi encerrada. A lógica de extrair, tratar e monitorar dados no R ainda é válida — veja a versão moderna com agentes de IA em &lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34;&gt;Equipe Multiagente para Análise do Bitcoin&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;as-cryptomoedas&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;As cryptomoedas&lt;/h1&gt;&#xA;&lt;p&gt;Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vem crescendo rapidamente, e grandes canais de informação já cobrem o assunto. A cotação do Bitcoin já pode ser acompanhada nos maiores sites do mercado financeiro. Diante de tantas novidades, vale entender como a programação pode ajudar a explorar temas tão recentes.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rstudio on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/rstudio/</link><description>Recent content in Rstudio on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/rstudio/index.xml" rel="self" type="application/rss+xml"/><item><title>Vou te provar que da para fazer Grafos bonitos em R!</title><link>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</link><pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introdu%C3%A7%C3%A3o-e-contexto" id="toc-introdução-e-contexto"&gt;Introdução e contexto&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#o-que-s%C3%A3o-grafos" id="toc-o-que-são-grafos"&gt;O que são Grafos?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#como-contruir-um" id="toc-como-contruir-um"&gt;Como contruir um?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#carregar-depend%C3%AAncias" id="toc-carregar-dependências"&gt;Carregar dependências&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#fonte-dos-dados" id="toc-fonte-dos-dados"&gt;Fonte dos dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ner---named-entity-recognition" id="toc-ner---named-entity-recognition"&gt;NER - Named Entity Recognition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#preparar-dados" id="toc-preparar-dados"&gt;Preparar dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#b%C3%B4nus" id="toc-bônus"&gt;Bônus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#outras-bibliotecas-para-constru%C3%A7%C3%A3o-de-grafos" id="toc-outras-bibliotecas-para-construção-de-grafos"&gt;Outras bibliotecas para construção de grafos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="introdução-e-contexto" class="section level2"&gt;
+&lt;h1&gt;Introdução e contexto&lt;/h1&gt;
+&lt;p&gt;Durante os anos de 2020 e 2021 fiz um &lt;a href="https://educacao-executiva.fgv.br/df/brasilia/cursos/mba-pos-graduacao/mba-presencial/mba-executivo-em-business-analytics-e-big-data"&gt;MBA Executivo em Business Analytics e Big Data&lt;/a&gt; na FGV e uma das disciplinas que gostei bastante abordou a análise de mídias sociais com técnicas de mineração de texto e processamento de linguagem natural.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-12-03-grafos-em-r/feature.png"/></item><item><title>Como automatizar relatórios longos e repetitivos com RMarkdown</title><link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</link><pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</guid><description>&lt;div id="problema-de-negócio" class="section level1"&gt;
+&lt;h1&gt;Problema de negócio&lt;/h1&gt;
+&lt;p&gt;Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.&lt;/p&gt;
+&lt;p&gt;Com a linguagem R, escrever relatórios estatísticos utilizando &lt;a href="https://rmarkdown.rstudio.com/"&gt;RMarkdown&lt;/a&gt; acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/feature.png"/></item><item><title>Hackeando o R: estratégia split-apply-combine</title><link>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</link><pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</guid><description>&lt;div id="o-método-split-apply-combine" class="section level1"&gt;
+&lt;h1&gt;O método split-apply-combine&lt;/h1&gt;
+&lt;p&gt;Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.&lt;/p&gt;
+&lt;p&gt;No famoso paper &lt;a href="https://vita.had.co.nz/papers/plyr.pdf"&gt;The Split-Apply-Combine Strategy for Data Analysis&lt;/a&gt;, &lt;a href="http://hadley.nz/"&gt;Hadley Wickham&lt;/a&gt; descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/feature.png"/></item><item><title>Um ano de blog! Retrospectiva de 2018 em Data Science</title><link>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</link><pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</guid><description>&lt;style type="text/css"&gt;
+.retro-row {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 1.25rem;
+ margin-bottom: 1.5rem;
+}
+.retro-card {
+ display: flex;
+ flex-direction: column;
+ border-radius: 0.5rem;
+ overflow: hidden;
+ border: 1px solid rgba(128,128,128,0.18);
+ text-align: left;
+}
+.retro-card-thumb {
+ aspect-ratio: 3/2;
+ overflow: hidden;
+ flex-shrink: 0;
+}
+.retro-card-thumb a { display: block; height: 100%; }
+.retro-card-thumb img {
+ width: 100% !important;
+ height: 100%;
+ object-fit: cover;
+ display: block;
+ transition: transform 0.22s ease;
+}
+.retro-card:hover .retro-card-thumb img { transform: scale(1.04); }
+.retro-card-body { padding: 0.75rem; flex: 1; display: flex; flex-direction: column; }
+.retro-card-title {
+ font-size: 0.82rem;
+ font-weight: 600;
+ line-height: 1.4;
+ margin: 0 0 0.5rem;
+}
+.retro-card-title a { text-decoration: none; }
+.retro-card-desc { font-size: 0.78rem; line-height: 1.5; flex: 1; opacity: 0.85; }
+@media (max-width: 640px) { .retro-row { grid-template-columns: 1fr; } }
+&lt;/style&gt;
+&lt;div id="até-que-um-dia.." class="section level3"&gt;
+&lt;h1&gt;Até que um dia..&lt;/h1&gt;
+&lt;p&gt;Agora em dezembro encerro um desafio pessoal de fazer pelo menos um post por mês durante o ano de 2018 e estou muito animado com o término deste ciclo! Espero ter contribuído um pouquinho com a comunidade de Estatística e Ciência de Dados que está maior a cada dia e cada vez mais importante.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/feature.png"/></item><item><title>Seu app, RStudio e Shiny Server na nuvem do Google</title><link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</link><pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</guid><description>&lt;div class="w3-panel w3-pale-yellow w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Nota de atualização (2026):&lt;/strong&gt; Este post usa Ubuntu 16.04 LTS (EOL desde 2021), RStudio Server (renomeado para &lt;strong&gt;Posit Workbench&lt;/strong&gt;) e Shiny Server na instância &lt;code&gt;f1-micro&lt;/code&gt; do Google Cloud. Os passos gerais ainda funcionam, mas o Ubuntu mínimo recomendado hoje é o 22.04 LTS e os pacotes de instalação do RStudio/Posit mudaram de URL. Para instâncias novas, consulte a &lt;a href="https://posit.co/download/rstudio-server/" rel="nofollow"&gt;documentação atual do Posit Workbench&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="objetivo-do-post" class="section level2"&gt;
+&lt;h1&gt;Objetivo do post &lt;i class="fa fa-rocket"&gt;&lt;/i&gt;&lt;/h1&gt;
+&lt;p&gt;Uma das várias maneiras de se implementar o &lt;a href="https://www.rstudio.com/products/rstudio/download-server/"&gt;RStudio Server&lt;/a&gt; e o &lt;a href="https://www.rstudio.com/products/shiny/download-server/"&gt;Shiny Server&lt;/a&gt; é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/feature.png"/></item><item><title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title><link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</link><pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</guid><description>&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/leaflet.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css" /&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js"&gt;&lt;/script&gt;
+
+
+&lt;div id="perguntas" class="section level2"&gt;
+&lt;h1&gt;Perguntas&lt;/h1&gt;
+&lt;p&gt;Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a &lt;strong&gt;criatividade&lt;/strong&gt;. Temos o cristo, todos aqueles grandes barcos, o Porto do Rio de Janeiro com todas aquelas obras de Engenharia, ou até mesmo a própria Ponte, que por si só já é intrigante.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/feature.jpg"/></item><item><title>AED de forma rápida e um pouco de Machine Learning</title><link>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</link><pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/</guid><description>&lt;style&gt;
+ .col2 {
+ columns: 2 200px; /* number of columns and width in pixels*/
+ -webkit-columns: 2 200px; /* chrome, safari */
+ -moz-columns: 2 200px; /* firefox */
+ }
+ .col3 {
+ columns: 3 100px;
+ -webkit-columns: 3 100px;
+ -moz-columns: 3 100px;
+ }
+&lt;/style&gt;
+&lt;!-- Resumo: Neste post mostro como é possível realizar a AED de forma muito rápida com o pacote SmartEAD, e aplico algumas técnicas de machine learning e estatística para ilustrar alguns possíveis cenários--&gt;
+&lt;div id="a-análise-exploratória-dos-dados" class="section level2"&gt;
+&lt;h1&gt;A análise exploratória dos dados&lt;/h1&gt;
+&lt;p&gt;A análise exploratória dos dados (AED) foi um termo que ganhou bastante popularidade quando Tukey publicou o livro &lt;a href="https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160?tag=gomesfellipe-20" target="_blank" rel="sponsored nofollow noopener"&gt;Exploratory Data Analysis&lt;/a&gt; em 1977 que tratava uma “busca por conhecimento antes da análise de dados de fato”. Ocorre quando busca-se obter informações ocultas sobre os dados, tais como: variação, anomalias, distribuição, tendências, padrões e relações&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-05-26-smarteademachinelearning/feature.png"/></item><item><title>Séries temporais com Google Trends e R</title><link>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/</link><pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/</guid><description>&lt;div id="google-trends" class="section level2"&gt;
+&lt;h1&gt;Google Trends&lt;/h1&gt;
+&lt;p&gt;O &lt;a href="https://trends.google.com.br/"&gt;Google Trends&lt;/a&gt; é uma ferramenta gratuita, muito poderosa e que pode ser implementada para ajudar em nossas estratégias de análises.&lt;/p&gt;
+&lt;p&gt;Através dele temos acesso a uma gigantesca base de dados que reúne os temas mais pesquisados na plataforma da Google possibilitando acessar dados de busca desde o ano de 2004.&lt;/p&gt;
+&lt;p&gt;Através de suas séries temporais podemos avaliar a presença de pedrões, obter noções de tendência, sazonalidade e até mesmo arriscar algumas previsões.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/feature.png"/></item><item><title>CheatSheets e gamificação: aprender R de forma divertida</title><link>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/</link><pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/</guid><description>&lt;div id="você-costuma-ler-o-manual" class="section level1"&gt;
+&lt;h1&gt;Você costuma ler o manual?&lt;/h1&gt;
+&lt;p&gt;Quando éramos crianças, geralmente não tínhamos o costume de ler o manual das coisas, não é mesmo? Particularmente eu sempre gostei de aprender como as coisas funcionavam diretamente com a prática para poder usá-las depois. Adorava buscar entender como as coisas se encaixavam ao montar os brinquedinhos do kinder-ovo sem ler as instruções ou criar diferentes combinações com lego customizados, por exemplo. Acredito que isso seja da natureza de toda criança!&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-02-17-cheatsheet-gamificacao-r/feature.png"/></item><item><title>Carnaval e mapas interativos com R</title><link>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/</link><pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/</guid><description>&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/leaflet.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css" /&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js"&gt;&lt;/script&gt;
+
+
+&lt;div id="onde-estão-os-blocos" class="section level1"&gt;
+&lt;h1&gt;Onde estão os blocos?&lt;/h1&gt;
+&lt;p&gt;Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Usamos &lt;code&gt;ggmap&lt;/code&gt; para geocodificar (transformar endereço em latitude/longitude) os blocos de carnaval.&lt;/li&gt;
+&lt;li&gt;O pacote &lt;code&gt;leaflet&lt;/code&gt; (com &lt;code&gt;leaflet.extras&lt;/code&gt;) plota tudo num mapa interativo.&lt;/li&gt;
+&lt;li&gt;A limpeza de texto usa a função &lt;code&gt;ajustar_nomes()&lt;/code&gt; do post sobre manipulação de strings.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes &lt;a href="https://cran.r-project.org/package=ggmap"&gt;&lt;code&gt;ggmap&lt;/code&gt;&lt;/a&gt; e &lt;a href="https://cran.r-project.org/package=leaflet"&gt;&lt;code&gt;leaflet&lt;/code&gt;&lt;/a&gt; para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/feature.png"/></item><item><title>Manipulação de Strings e Text Mining</title><link>https://gomesfellipe.github.io/post/2017-12-17-string/</link><pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-17-string/</guid><description>&lt;div id="manipulação-de-strings-e-text-mining" class="section level1"&gt;
+&lt;h1&gt;Manipulação de strings e Text mining&lt;/h1&gt;
+&lt;!-- ![](/img/2017-12-17-string/imagem2.png) --&gt;
+&lt;p&gt;Estudamos números e mais números na graduação de estatística (não sei nem se ainda consigo enxergar algarismos gregos como letras) e mesmo assim um problema frequente na vida de quem trabalha com dados é a manipulação de variáveis do tipo &lt;em&gt;string&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;stringr:&lt;/strong&gt; sintaxe consistente para &lt;code&gt;str_replace()&lt;/code&gt;, &lt;code&gt;str_split()&lt;/code&gt;, &lt;code&gt;str_sub()&lt;/code&gt; e mais.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tm:&lt;/strong&gt; cria e limpa um &lt;em&gt;corpus&lt;/em&gt; de texto, gera matriz de termos e TF-IDF.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SnowballC:&lt;/strong&gt; extrai o radical das palavras (stemming) em português e outras línguas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Uma variável do tipo &lt;em&gt;string&lt;/em&gt; é uma variável do tipo texto e esse tipo de objeto costuma causar alguns problemas na análise de dados se não forem devidamente tratados.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-17-string/feature.png"/></item><item><title>Criando Relatórios com o Template Tufte no R (RMarkdown)</title><link>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/</link><pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/</guid><description>&lt;p&gt;Além da limpeza da base de dados, das análises e da aplicação de metodologias estatísticas, escrever relatórios é uma tarefa indispensável e que ocupa boa parte do tempo de quem trabalha com dados. Como disse Khalil Gibran, é preciso &lt;em&gt;transformar em palavras aquilo que já conhecemos em pensamentos&lt;/em&gt;. O problema é que ninguém quer gastar tempo precioso de análise brigando com a formatação do documento.&lt;/p&gt;
+
+&lt;p&gt;É aí que entram os templates. O pacote &lt;code&gt;tufte&lt;/code&gt;, disponível no &lt;a href="https://cran.r-project.org" rel="noopener" target="_blank"&gt;CRAN&lt;/a&gt;, resolve isso para quem escreve em RMarkdown: ele traz um layout pronto, elegante e focado no conteúdo, para você formatar menos e analisar mais. Este post mostra o que é esse estilo, como instalar e como usar os recursos que o tornam diferente.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/feature.png"/></item><item><title>Analisando o mercado de cryptomoedas com R</title><link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link><pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid><description>&lt;div class="w3-panel w3-pale-yellow w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Aviso (2026):&lt;/strong&gt; Os pacotes e APIs usados neste post são de 2017 e foram descontinuados: o &lt;code&gt;coinmarketcapr&lt;/code&gt; passou a exigir chave de API paga e a API da BlinkTrade foi encerrada. A lógica de extrair, tratar e monitorar dados no R ainda é válida — veja a versão moderna com agentes de IA em &lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/"&gt;Equipe Multiagente para Análise do Bitcoin&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="as-cryptomoedas" class="section level1"&gt;
+&lt;h1&gt;As cryptomoedas&lt;/h1&gt;
+&lt;p&gt;Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vem crescendo rapidamente, e grandes canais de informação já cobrem o assunto. A cotação do Bitcoin já pode ser acompanhada nos maiores sites do mercado financeiro. Diante de tantas novidades, vale entender como a programação pode ajudar a explorar temas tão recentes.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/feature.png"/></item></channel></rss>

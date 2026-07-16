@@ -1,33 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tabelas on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/tabelas/</link>
-    <description>Recent content in Tabelas on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/tabelas/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Hackeando o R: estratégia split-apply-combine</title>
-      <link>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</guid>
-      <description>&lt;div id=&#34;o-método-split-apply-combine&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;O método split-apply-combine&lt;/h1&gt;&#xA;&lt;p&gt;Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.&lt;/p&gt;&#xA;&lt;p&gt;No famoso paper &lt;a href=&#34;https://vita.had.co.nz/papers/plyr.pdf&#34;&gt;The Split-Apply-Combine Strategy for Data Analysis&lt;/a&gt;, &lt;a href=&#34;http://hadley.nz/&#34;&gt;Hadley Wickham&lt;/a&gt; descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/feature.png" />
-    </item>
-    
-    <item>
-      <title>Tabelas Incríveis com R</title>
-      <link>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</link>
-      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</guid>
-      <description>&lt;div id=&#34;importâcia-da-apresentação-dos-dados&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Importância da apresentação dos dados&lt;/h1&gt;&#xA;&lt;p&gt;O trabalho de quem analisa dados vai muito além de planejar, resumir e interpretar observações: apresentar bem os resultados é parte essencial de qualquer projeto ou pesquisa. Não é à toa que já existe até uma área dentro da ciência de dados focada nisso, com o título de &#34;Data Artist&#34;.&lt;/p&gt;&#xA;&lt;p&gt;Além dos pacotes que ajudam a apresentar as figuras geradas nas análises (como mostrei nos posts sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/&#34;&gt;a qualidade do ajuste de modelos&lt;/a&gt; e sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/&#34;&gt;avaliar o ajuste pela abordagem bayesiana&lt;/a&gt;), contamos com pacotes que apresentam tabelas de forma elegante e até interativa.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/feature.jpg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tabelas on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/tabelas/</link><description>Recent content in Tabelas on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/tabelas/index.xml" rel="self" type="application/rss+xml"/><item><title>Hackeando o R: estratégia split-apply-combine</title><link>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</link><pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/</guid><description>&lt;div id="o-método-split-apply-combine" class="section level1"&gt;
+&lt;h1&gt;O método split-apply-combine&lt;/h1&gt;
+&lt;p&gt;Geralmente em uma análise de dados precisamos compreender, além do comportamento geral dos dados, o seu comportamento de acordo com alguns segmentos.&lt;/p&gt;
+&lt;p&gt;No famoso paper &lt;a href="https://vita.had.co.nz/papers/plyr.pdf"&gt;The Split-Apply-Combine Strategy for Data Analysis&lt;/a&gt;, &lt;a href="http://hadley.nz/"&gt;Hadley Wickham&lt;/a&gt; descreve a abordagem “split-apply-combine” (dividir-aplicar-combinar) como uma das mais comuns em uma análise de dados. Em R essa tarefa pode ser feita por diversos caminhos, veja alguns dos modos de se fazer utilizando funções base do R e abordagens mais antigas:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-04-05-split-apply-combine/feature.png"/></item><item><title>Tabelas Incríveis com R</title><link>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</link><pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</guid><description>&lt;div id="importâcia-da-apresentação-dos-dados" class="section level1"&gt;
+&lt;h1&gt;Importância da apresentação dos dados&lt;/h1&gt;
+&lt;p&gt;O trabalho de quem analisa dados vai muito além de planejar, resumir e interpretar observações: apresentar bem os resultados é parte essencial de qualquer projeto ou pesquisa. Não é à toa que já existe até uma área dentro da ciência de dados focada nisso, com o título de "Data Artist".&lt;/p&gt;
+&lt;p&gt;Além dos pacotes que ajudam a apresentar as figuras geradas nas análises (como mostrei nos posts sobre &lt;a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/"&gt;a qualidade do ajuste de modelos&lt;/a&gt; e sobre &lt;a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/"&gt;avaliar o ajuste pela abordagem bayesiana&lt;/a&gt;), contamos com pacotes que apresentam tabelas de forma elegante e até interativa.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/feature.jpg"/></item></channel></rss>

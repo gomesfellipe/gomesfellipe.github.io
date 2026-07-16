@@ -1,33 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Leaflet on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/leaflet/</link>
-    <description>Recent content in Leaflet on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Sat, 29 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/leaflet/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title>
-      <link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css&#34; /&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js&#34;&gt;&lt;/script&gt;&#xA;&#xA;&#xA;&lt;div id=&#34;perguntas&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Perguntas&lt;/h1&gt;&#xA;&lt;p&gt;Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a &lt;strong&gt;criatividade&lt;/strong&gt;. Temos o cristo, todos aqueles grandes barcos, o Porto do Rio de Janeiro com todas aquelas obras de Engenharia, ou até mesmo a própria Ponte, que por si só já é intrigante.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>Carnaval e mapas interativos com R</title>
-      <link>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/</link>
-      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css&#34; /&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js&#34;&gt;&lt;/script&gt;&#xA;&#xA;&#xA;&lt;div id=&#34;onde-estão-os-blocos&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Onde estão os blocos?&lt;/h1&gt;&#xA;&lt;p&gt;Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.&lt;/p&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Usamos &lt;code&gt;ggmap&lt;/code&gt; para geocodificar (transformar endereço em latitude/longitude) os blocos de carnaval.&lt;/li&gt;&#xA;&lt;li&gt;O pacote &lt;code&gt;leaflet&lt;/code&gt; (com &lt;code&gt;leaflet.extras&lt;/code&gt;) plota tudo num mapa interativo.&lt;/li&gt;&#xA;&lt;li&gt;A limpeza de texto usa a função &lt;code&gt;ajustar_nomes()&lt;/code&gt; do post sobre manipulação de strings.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes &lt;a href=&#34;https://cran.r-project.org/package=ggmap&#34;&gt;&lt;code&gt;ggmap&lt;/code&gt;&lt;/a&gt; e &lt;a href=&#34;https://cran.r-project.org/package=leaflet&#34;&gt;&lt;code&gt;leaflet&lt;/code&gt;&lt;/a&gt; para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leaflet on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/leaflet/</link><description>Recent content in Leaflet on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sat, 29 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/leaflet/index.xml" rel="self" type="application/rss+xml"/><item><title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title><link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</link><pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</guid><description>&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/leaflet.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css" /&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js"&gt;&lt;/script&gt;
+
+
+&lt;div id="perguntas" class="section level2"&gt;
+&lt;h1&gt;Perguntas&lt;/h1&gt;
+&lt;p&gt;Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a &lt;strong&gt;criatividade&lt;/strong&gt;. Temos o cristo, todos aqueles grandes barcos, o Porto do Rio de Janeiro com todas aquelas obras de Engenharia, ou até mesmo a própria Ponte, que por si só já é intrigante.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/feature.jpg"/></item><item><title>Carnaval e mapas interativos com R</title><link>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/</link><pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/</guid><description>&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/leaflet.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css" /&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js"&gt;&lt;/script&gt;
+
+
+&lt;div id="onde-estão-os-blocos" class="section level1"&gt;
+&lt;h1&gt;Onde estão os blocos?&lt;/h1&gt;
+&lt;p&gt;Fevereiro começando e o carnaval já está ai, especialmente se você mora no Rio de Janeiro já deve ter passado por algum bloco e a pergunta que todo mundo faz no carnaval pelo menos uma vez é: “Onde tem bloco?”.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Usamos &lt;code&gt;ggmap&lt;/code&gt; para geocodificar (transformar endereço em latitude/longitude) os blocos de carnaval.&lt;/li&gt;
+&lt;li&gt;O pacote &lt;code&gt;leaflet&lt;/code&gt; (com &lt;code&gt;leaflet.extras&lt;/code&gt;) plota tudo num mapa interativo.&lt;/li&gt;
+&lt;li&gt;A limpeza de texto usa a função &lt;code&gt;ajustar_nomes()&lt;/code&gt; do post sobre manipulação de strings.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Baseado nessa pergunta resolvi fazer esse post especial, vamos utilizar os pacotes &lt;a href="https://cran.r-project.org/package=ggmap"&gt;&lt;code&gt;ggmap&lt;/code&gt;&lt;/a&gt; e &lt;a href="https://cran.r-project.org/package=leaflet"&gt;&lt;code&gt;leaflet&lt;/code&gt;&lt;/a&gt; para buscar as coordenadas geográficas do endereço dos blocos e representa-los num mapa agradável de navegar&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-02-01-leaflet-carnaval/feature.png"/></item></channel></rss>

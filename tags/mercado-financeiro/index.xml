@@ -1,23 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Mercado-Financeiro on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/mercado-financeiro/</link>
-    <description>Recent content in Mercado-Financeiro on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/mercado-financeiro/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Equipe Multiagente com LangChain e LangGraph para Análise do Bitcoin</title>
-      <link>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-amber w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href=&#34;https://gomesfellipe.github.io/resources/langchain-series/&#34;&gt;ver índice&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/&#34;&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/&#34;&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;→ Equipe Multiagente para Bitcoin&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/&#34;&gt;Agente para Ligações de Telemarketing&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/&#34;&gt;LLM Local com Qwen sem APIs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;!-- Neste post, vamos mergulhar na criação de uma equipe de agentes de Inteligência Artificial (IA) que trabalham juntos para coletar dados, analisar tendências e decidir se é hora de alertar sobre oportunidades de investimento no Bitcoin. Utilizaremos Python, o framework LangChain e sua extensão LangGraph para orquestrar esses agentes, além de técnicas de Prompt Engineering para garantir que cada &#34;membro&#34; da equipe execute sua função com precisão.  --&gt;&#xA;&lt;!-- Você já se perguntou como acompanhar o volátil mercado de Bitcoin sem passar horas analisando gráficos e indicadores complexos?  --&gt;&#xA;&lt;!-- Prepare-se para descobrir como a IA generativa pode se tornar sua aliada na análise de criptomoedas! --&gt;&#xA;&lt;div id=&#34;por-que-analisar-o-mercado-bitcoin-com-agentes-de-ia&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Por que Analisar o Mercado Bitcoin com Agentes de IA?&lt;/h1&gt;&#xA;&lt;p&gt;O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, &lt;strong&gt;nunca revelou sua identidade&lt;/strong&gt;. Além disso o bitcoin foi a &lt;a href=&#34;https://www.mgcholding.com.br/blog/blockchain-bitcoin-e-ativos-virtuais-entenda-a-relacao/#:~:text=O%20blockchain%2C%20em%20sua%20ess%C3%AAncia,conhecida%20aplica%C3%A7%C3%A3o%20da%20tecnologia%20blockchain.&#34;&gt;primeira e ainda é a mais conhecida aplicação da tecnologia &lt;strong&gt;Blockchain&lt;/strong&gt;&lt;/a&gt;, que revolucionou a forma como lidamos com registros digitais e segurança dos dados. Sua &lt;strong&gt;natureza descentralizada&lt;/strong&gt; e sua notória &lt;strong&gt;volatilidade&lt;/strong&gt; o tornam um ativo único.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/feature.jpg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mercado-Financeiro on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/mercado-financeiro/</link><description>Recent content in Mercado-Financeiro on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/mercado-financeiro/index.xml" rel="self" type="application/rss+xml"/><item><title>Equipe Multiagente com LangChain e LangGraph para Análise do Bitcoin</title><link>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</link><pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</guid><description>&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href="https://gomesfellipe.github.io/resources/langchain-series/"&gt;ver índice&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/"&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/"&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;→ Equipe Multiagente para Bitcoin&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/"&gt;Agente para Ligações de Telemarketing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/"&gt;LLM Local com Qwen sem APIs&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;!-- Neste post, vamos mergulhar na criação de uma equipe de agentes de Inteligência Artificial (IA) que trabalham juntos para coletar dados, analisar tendências e decidir se é hora de alertar sobre oportunidades de investimento no Bitcoin. Utilizaremos Python, o framework LangChain e sua extensão LangGraph para orquestrar esses agentes, além de técnicas de Prompt Engineering para garantir que cada "membro" da equipe execute sua função com precisão. --&gt;
+&lt;!-- Você já se perguntou como acompanhar o volátil mercado de Bitcoin sem passar horas analisando gráficos e indicadores complexos? --&gt;
+&lt;!-- Prepare-se para descobrir como a IA generativa pode se tornar sua aliada na análise de criptomoedas! --&gt;
+&lt;div id="por-que-analisar-o-mercado-bitcoin-com-agentes-de-ia" class="section level2"&gt;
+&lt;h1&gt;Por que Analisar o Mercado Bitcoin com Agentes de IA?&lt;/h1&gt;
+&lt;p&gt;O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, &lt;strong&gt;nunca revelou sua identidade&lt;/strong&gt;. Além disso o bitcoin foi a &lt;a href="https://www.mgcholding.com.br/blog/blockchain-bitcoin-e-ativos-virtuais-entenda-a-relacao/#:~:text=O%20blockchain%2C%20em%20sua%20ess%C3%AAncia,conhecida%20aplica%C3%A7%C3%A3o%20da%20tecnologia%20blockchain."&gt;primeira e ainda é a mais conhecida aplicação da tecnologia &lt;strong&gt;Blockchain&lt;/strong&gt;&lt;/a&gt;, que revolucionou a forma como lidamos com registros digitais e segurança dos dados. Sua &lt;strong&gt;natureza descentralizada&lt;/strong&gt; e sua notória &lt;strong&gt;volatilidade&lt;/strong&gt; o tornam um ativo único.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/feature.jpg"/></item></channel></rss>

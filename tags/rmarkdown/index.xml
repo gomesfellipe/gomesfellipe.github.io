@@ -1,93 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Rmarkdown on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/rmarkdown/</link>
-    <description>Recent content in Rmarkdown on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Como automatizar relatórios longos e repetitivos com RMarkdown</title>
-      <link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</guid>
-      <description>&lt;div id=&#34;problema-de-negócio&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Problema de negócio&lt;/h1&gt;&#xA;&lt;p&gt;Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.&lt;/p&gt;&#xA;&lt;p&gt;Com a linguagem R, escrever relatórios estatísticos utilizando &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;RMarkdown&lt;/a&gt; acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/feature.png" />
-    </item>
-    
-    <item>
-      <title>Um ano de blog! Retrospectiva de 2018 em Data Science</title>
-      <link>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</guid>
-      <description>&lt;style type=&#34;text/css&#34;&gt;&#xA;.retro-row {&#xA;  display: grid;&#xA;  grid-template-columns: repeat(3, 1fr);&#xA;  gap: 1.25rem;&#xA;  margin-bottom: 1.5rem;&#xA;}&#xA;.retro-card {&#xA;  display: flex;&#xA;  flex-direction: column;&#xA;  border-radius: 0.5rem;&#xA;  overflow: hidden;&#xA;  border: 1px solid rgba(128,128,128,0.18);&#xA;  text-align: left;&#xA;}&#xA;.retro-card-thumb {&#xA;  aspect-ratio: 3/2;&#xA;  overflow: hidden;&#xA;  flex-shrink: 0;&#xA;}&#xA;.retro-card-thumb a { display: block; height: 100%; }&#xA;.retro-card-thumb img {&#xA;  width: 100% !important;&#xA;  height: 100%;&#xA;  object-fit: cover;&#xA;  display: block;&#xA;  transition: transform 0.22s ease;&#xA;}&#xA;.retro-card:hover .retro-card-thumb img { transform: scale(1.04); }&#xA;.retro-card-body { padding: 0.75rem; flex: 1; display: flex; flex-direction: column; }&#xA;.retro-card-title {&#xA;  font-size: 0.82rem;&#xA;  font-weight: 600;&#xA;  line-height: 1.4;&#xA;  margin: 0 0 0.5rem;&#xA;}&#xA;.retro-card-title a { text-decoration: none; }&#xA;.retro-card-desc { font-size: 0.78rem; line-height: 1.5; flex: 1; opacity: 0.85; }&#xA;@media (max-width: 640px) { .retro-row { grid-template-columns: 1fr; } }&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;até-que-um-dia..&#34; class=&#34;section level3&#34;&gt;&#xA;&lt;h1&gt;Até que um dia..&lt;/h1&gt;&#xA;&lt;p&gt;Agora em dezembro encerro um desafio pessoal de fazer pelo menos um post por mês durante o ano de 2018 e estou muito animado com o término deste ciclo! Espero ter contribuído um pouquinho com a comunidade de Estatística e Ciência de Dados que está maior a cada dia e cada vez mais importante.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/feature.png" />
-    </item>
-    
-    <item>
-      <title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title>
-      <link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css&#34; /&gt;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css&#34; /&gt;&#xA;&lt;script src=&#34;https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js&#34;&gt;&lt;/script&gt;&#xA;&#xA;&#xA;&lt;div id=&#34;perguntas&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Perguntas&lt;/h1&gt;&#xA;&lt;p&gt;Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a &lt;strong&gt;criatividade&lt;/strong&gt;. Temos o cristo, todos aqueles grandes barcos, o Porto do Rio de Janeiro com todas aquelas obras de Engenharia, ou até mesmo a própria Ponte, que por si só já é intrigante.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>Produzindo e formatando um documento Word direto em R</title>
-      <link>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</link>
-      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</guid>
-      <description>&lt;div id=&#34;relatórios-de-alta-qualidade-só-com-latex&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Relatórios de alta qualidade só com &lt;span class=&#34;math inline&#34;&gt;\(\LaTeX\)&lt;/span&gt;?&lt;/h1&gt;&#xA;&lt;p&gt;Como já mencionei no &lt;a href=&#34;https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/&#34;&gt;post sobre tabelas incríveis com R&lt;/a&gt;, a tarefa de um estatístico (ou Data Scientist, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem &lt;span class=&#34;math inline&#34;&gt;\(\LaTeX\)&lt;/span&gt;, mas será que ela é realmente a única opção?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/feature.png" />
-    </item>
-    
-    <item>
-      <title>Tabelas Incríveis com R</title>
-      <link>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</link>
-      <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</guid>
-      <description>&lt;div id=&#34;importâcia-da-apresentação-dos-dados&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Importância da apresentação dos dados&lt;/h1&gt;&#xA;&lt;p&gt;O trabalho de quem analisa dados vai muito além de planejar, resumir e interpretar observações: apresentar bem os resultados é parte essencial de qualquer projeto ou pesquisa. Não é à toa que já existe até uma área dentro da ciência de dados focada nisso, com o título de &#34;Data Artist&#34;.&lt;/p&gt;&#xA;&lt;p&gt;Além dos pacotes que ajudam a apresentar as figuras geradas nas análises (como mostrei nos posts sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/&#34;&gt;a qualidade do ajuste de modelos&lt;/a&gt; e sobre &lt;a href=&#34;https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/&#34;&gt;avaliar o ajuste pela abordagem bayesiana&lt;/a&gt;), contamos com pacotes que apresentam tabelas de forma elegante e até interativa.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>Análise Multivariada com R</title>
-      <link>https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/</guid>
-      <description>&lt;div id=&#34;análise-multivariada&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Análise Multivariada&lt;/h1&gt;&#xA;&lt;p&gt;Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, &lt;a href=&#34;https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/&#34;&gt;identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends&lt;/a&gt; sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/feature.png" />
-    </item>
-    
-    <item>
-      <title>Criando Relatórios com o Template Tufte no R (RMarkdown)</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/</link>
-      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/</guid>
-      <description>&lt;p&gt;Além da limpeza da base de dados, das análises e da aplicação de metodologias estatísticas, escrever relatórios é uma tarefa indispensável e que ocupa boa parte do tempo de quem trabalha com dados. Como disse Khalil Gibran, é preciso &lt;em&gt;transformar em palavras aquilo que já conhecemos em pensamentos&lt;/em&gt;. O problema é que ninguém quer gastar tempo precioso de análise brigando com a formatação do documento.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;É aí que entram os templates. O pacote &lt;code&gt;tufte&lt;/code&gt;, disponível no &lt;a href=&#34;https://cran.r-project.org&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;CRAN&lt;/a&gt;, resolve isso para quem escreve em RMarkdown: ele traz um layout pronto, elegante e focado no conteúdo, para você formatar menos e analisar mais. Este post mostra o que é esse estilo, como instalar e como usar os recursos que o tornam diferente.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/feature.png" />
-    </item>
-    
-    <item>
-      <title>Gerenciando arquivos do Dropbox com R e httr2: a abordagem moderna</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-yellow w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;⚠️ Nota (2026):&lt;/strong&gt; Este post foi reescrito. A versão original usava o pacote &lt;code&gt;rdrop2&lt;/code&gt;, que dependia da API v1 do Dropbox — descontinuada desde setembro de 2023. O conteúdo abaixo mostra a abordagem atual com &lt;code&gt;httr2&lt;/code&gt; + API v2. A versão original foi preservada em &lt;code&gt;index-old.html&lt;/code&gt; neste mesmo bundle para consulta.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Armazenar arquivos na nuvem é prática comum, e o Dropbox é um dos serviços mais usados para isso. Saber interagir com esses arquivos por código é uma habilidade valiosa para quem trabalha com dados: automatizar o vai e vem de arquivos economiza tempo, elimina erro manual e permite integrar fontes de dados externas em pipelines reprodutíveis.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rmarkdown on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/rmarkdown/</link><description>Recent content in Rmarkdown on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml"/><item><title>Como automatizar relatórios longos e repetitivos com RMarkdown</title><link>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</link><pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/</guid><description>&lt;div id="problema-de-negócio" class="section level1"&gt;
+&lt;h1&gt;Problema de negócio&lt;/h1&gt;
+&lt;p&gt;Uma tarefa comum no dia a dia de um estatístico (ou cientista de dados) é a elaboração de relatórios para passar ao restante da equipe e/ou tomadores de decisão os resultados encontrados e muitas vezes essa tarefa pode parecer desgastante quando os relatórios são muitos extensos e repetitivos.&lt;/p&gt;
+&lt;p&gt;Com a linguagem R, escrever relatórios estatísticos utilizando &lt;a href="https://rmarkdown.rstudio.com/"&gt;RMarkdown&lt;/a&gt; acaba sendo a escolha padrão por ser tão simples transformar as análises em documentos, apresentações e dashboards de alta qualidade com poucas linhas de código.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2019-09-13-relatorios-automaticos-com-rmarkdown/feature.png"/></item><item><title>Um ano de blog! Retrospectiva de 2018 em Data Science</title><link>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</link><pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</guid><description>&lt;style type="text/css"&gt;
+.retro-row {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 1.25rem;
+ margin-bottom: 1.5rem;
+}
+.retro-card {
+ display: flex;
+ flex-direction: column;
+ border-radius: 0.5rem;
+ overflow: hidden;
+ border: 1px solid rgba(128,128,128,0.18);
+ text-align: left;
+}
+.retro-card-thumb {
+ aspect-ratio: 3/2;
+ overflow: hidden;
+ flex-shrink: 0;
+}
+.retro-card-thumb a { display: block; height: 100%; }
+.retro-card-thumb img {
+ width: 100% !important;
+ height: 100%;
+ object-fit: cover;
+ display: block;
+ transition: transform 0.22s ease;
+}
+.retro-card:hover .retro-card-thumb img { transform: scale(1.04); }
+.retro-card-body { padding: 0.75rem; flex: 1; display: flex; flex-direction: column; }
+.retro-card-title {
+ font-size: 0.82rem;
+ font-weight: 600;
+ line-height: 1.4;
+ margin: 0 0 0.5rem;
+}
+.retro-card-title a { text-decoration: none; }
+.retro-card-desc { font-size: 0.78rem; line-height: 1.5; flex: 1; opacity: 0.85; }
+@media (max-width: 640px) { .retro-row { grid-template-columns: 1fr; } }
+&lt;/style&gt;
+&lt;div id="até-que-um-dia.." class="section level3"&gt;
+&lt;h1&gt;Até que um dia..&lt;/h1&gt;
+&lt;p&gt;Agora em dezembro encerro um desafio pessoal de fazer pelo menos um post por mês durante o ano de 2018 e estou muito animado com o término deste ciclo! Espero ter contribuído um pouquinho com a comunidade de Estatística e Ciência de Dados que está maior a cada dia e cada vez mais importante.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/feature.png"/></item><item><title>Com que frequência ocorrem acidentes na ponte Rio-Niterói?</title><link>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</link><pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/</guid><description>&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/leaflet.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.css" /&gt;
+&lt;link rel="stylesheet" href="https://gomesfellipe.github.io/lib/leaflet/MarkerCluster.Default.css" /&gt;
+&lt;script src="https://gomesfellipe.github.io/lib/leaflet/leaflet.markercluster.js"&gt;&lt;/script&gt;
+
+
+&lt;div id="perguntas" class="section level2"&gt;
+&lt;h1&gt;Perguntas&lt;/h1&gt;
+&lt;p&gt;Estudar em outra cidade têm suas vantagens e desvantagens, durante toda a graduação atravessei Baía de Guanabara pela Ponte Presidente Costa e Silva, (popularmente conhecida como Ponte Rio–Niterói) assim como todas as pessoas que fazem esse trajeto diariamente e diante de tanta beleza natural com a vista panorâmica da Baía como os espetáculos proporcionados pelo pôr do sol, os pássaros ou a beleza inegável do Pão de Açúcar também é notável a beleza fruto da maior habilidade humana: a &lt;strong&gt;criatividade&lt;/strong&gt;. Temos o cristo, todos aqueles grandes barcos, o Porto do Rio de Janeiro com todas aquelas obras de Engenharia, ou até mesmo a própria Ponte, que por si só já é intrigante.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-09-29-freq-acidente-ponte-rio-niteroi/feature.jpg"/></item><item><title>Produzindo e formatando um documento Word direto em R</title><link>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</link><pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</guid><description>&lt;div id="relatórios-de-alta-qualidade-só-com-latex" class="section level1"&gt;
+&lt;h1&gt;Relatórios de alta qualidade só com &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;?&lt;/h1&gt;
+&lt;p&gt;Como já mencionei no &lt;a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/"&gt;post sobre tabelas incríveis com R&lt;/a&gt;, a tarefa de um estatístico (ou Data Scientist, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, mas será que ela é realmente a única opção?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/feature.png"/></item><item><title>Tabelas Incríveis com R</title><link>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</link><pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/</guid><description>&lt;div id="importâcia-da-apresentação-dos-dados" class="section level1"&gt;
+&lt;h1&gt;Importância da apresentação dos dados&lt;/h1&gt;
+&lt;p&gt;O trabalho de quem analisa dados vai muito além de planejar, resumir e interpretar observações: apresentar bem os resultados é parte essencial de qualquer projeto ou pesquisa. Não é à toa que já existe até uma área dentro da ciência de dados focada nisso, com o título de "Data Artist".&lt;/p&gt;
+&lt;p&gt;Além dos pacotes que ajudam a apresentar as figuras geradas nas análises (como mostrei nos posts sobre &lt;a href="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/"&gt;a qualidade do ajuste de modelos&lt;/a&gt; e sobre &lt;a href="https://gomesfellipe.github.io/post/2017-12-18-bayesiana-jags-mcmcplot/"&gt;avaliar o ajuste pela abordagem bayesiana&lt;/a&gt;), contamos com pacotes que apresentam tabelas de forma elegante e até interativa.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/feature.jpg"/></item><item><title>Análise Multivariada com R</title><link>https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/</link><pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/</guid><description>&lt;div id="análise-multivariada" class="section level2"&gt;
+&lt;h1&gt;Análise Multivariada&lt;/h1&gt;
+&lt;p&gt;Esse é o primeiro post do ano e como no ano de 2017 falou-se tanto das maravilhas computacionais desta onda do Big Data e em contra partida, &lt;a href="https://gomesfellipe.github.io/post/2018-04-12-google-trends-e-r/"&gt;identificamos que deste 2004 a popularidade pelo termo “estatística” vem diminuindo como mostrei em uma breve pesquisa neste post sobre a API do googletrends&lt;/a&gt; sinto que existe uma necessidade de se ampliar também a divulgação dos métodos estatísticos pois o aprofundamento na teoria é fundamental (é muito fácil achar resultados sem fundamento apenas “apertando botão”), como as ferramentas da estatística multivariada que muitas vezes servem como soluções para essas grandes quantidades de dados&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-04-analise-multivariada-em-r/feature.png"/></item><item><title>Criando Relatórios com o Template Tufte no R (RMarkdown)</title><link>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/</link><pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/</guid><description>&lt;p&gt;Além da limpeza da base de dados, das análises e da aplicação de metodologias estatísticas, escrever relatórios é uma tarefa indispensável e que ocupa boa parte do tempo de quem trabalha com dados. Como disse Khalil Gibran, é preciso &lt;em&gt;transformar em palavras aquilo que já conhecemos em pensamentos&lt;/em&gt;. O problema é que ninguém quer gastar tempo precioso de análise brigando com a formatação do documento.&lt;/p&gt;
+
+&lt;p&gt;É aí que entram os templates. O pacote &lt;code&gt;tufte&lt;/code&gt;, disponível no &lt;a href="https://cran.r-project.org" rel="noopener" target="_blank"&gt;CRAN&lt;/a&gt;, resolve isso para quem escreve em RMarkdown: ele traz um layout pronto, elegante e focado no conteúdo, para você formatar menos e analisar mais. Este post mostra o que é esse estilo, como instalar e como usar os recursos que o tornam diferente.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/feature.png"/></item><item><title>Gerenciando arquivos do Dropbox com R e httr2: a abordagem moderna</title><link>https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/</link><pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/</guid><description>&lt;div class="w3-panel w3-pale-yellow w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Nota (2026):&lt;/strong&gt; Este post foi reescrito. A versão original usava o pacote &lt;code&gt;rdrop2&lt;/code&gt;, que dependia da API v1 do Dropbox — descontinuada desde setembro de 2023. O conteúdo abaixo mostra a abordagem atual com &lt;code&gt;httr2&lt;/code&gt; + API v2. A versão original foi preservada em &lt;code&gt;index-old.html&lt;/code&gt; neste mesmo bundle para consulta.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Armazenar arquivos na nuvem é prática comum, e o Dropbox é um dos serviços mais usados para isso. Saber interagir com esses arquivos por código é uma habilidade valiosa para quem trabalha com dados: automatizar o vai e vem de arquivos economiza tempo, elimina erro manual e permite integrar fontes de dados externas em pipelines reprodutíveis.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-gerenciando-arquivos-do-dropbox-com-r/feature.png"/></item></channel></rss>

@@ -1,33 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Audio on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/audio/</link>
-    <description>Recent content in Audio on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/audio/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Audiobooks com IA Gratuitamente: do PDF ao Áudio com edge-tts</title>
-      <link>https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#por-que-audiobooks&#34; id=&#34;toc-por-que-audiobooks&#34;&gt;Por que Audiobooks?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#o-que-s%C3%A3o-audiobooks-criados-com-ia&#34; id=&#34;toc-o-que-são-audiobooks-criados-com-ia&#34;&gt;O Que São Audiobooks Criados com IA?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#como-criar-seu-audiobook-com-ia&#34; id=&#34;toc-como-criar-seu-audiobook-com-ia&#34;&gt;Como criar seu audiobook com IA&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#preparar-o-arquivo-de-texto&#34; id=&#34;toc-preparar-o-arquivo-de-texto&#34;&gt;Preparar o arquivo de texto&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#traduzir-conte%C3%BAdo-para-pt-br-opcional&#34; id=&#34;toc-traduzir-conteúdo-para-pt-br-opcional&#34;&gt;Traduzir conteúdo para PT-BR (opcional)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#convertendo-o-texto-em-%C3%A1udio-com-ia&#34; id=&#34;toc-convertendo-o-texto-em-áudio-com-ia&#34;&gt;Convertendo o Texto em Áudio com IA&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#faq&#34; id=&#34;toc-faq&#34;&gt;FAQ&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#quest%C3%B5es-de-%C3%A9tica-e-legalidade&#34; id=&#34;toc-questões-de-ética-e-legalidade&#34;&gt;Questões de Ética e Legalidade&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;por-que-audiobooks&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Por que Audiobooks?&lt;/h1&gt;&#xA;&lt;p&gt;Pela sua forma conveniente de consumir conhecimento e entretenimento, os audiobooks estão se tornando cada vez mais populares. Conforme a última &lt;a href=&#34;https://g1.globo.com/pop-arte/noticia/2024/01/08/como-audiolivros-devem-crescer-ainda-mais-em-2024-e-podem-virar-prioridade-nas-editoras.ghtml&#34;&gt;pesquisa&lt;/a&gt; da Câmara Brasileira do Livro, os livros digitais cresceram 15% de 2021 para 2022. Dentre os 13 mil títulos digitais publicados em 2022, 12% eram audiolivros. Embora o livro físico sempre vá existir, nem sempre temos o tempo necessário para ler todas as obras de nossa lista.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/feature.png" />
-    </item>
-    
-    <item>
-      <title>spleeteR</title>
-      <link>https://gomesfellipe.github.io/projects/spleeter/</link>
-      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/projects/spleeter/</guid>
-      <description>&lt;p&gt;Link do repositório no github: &lt;a href=&#34;https://github.com/gomesfellipe/spleeteR&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;https://github.com/gomesfellipe/spleeteR&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Pacote em R que encapsula o &lt;a href=&#34;https://github.com/deezer/spleeter&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Spleeter&lt;/a&gt;, ferramenta da Deezer para separação de fontes de áudio, permitindo isolar vocais e instrumentais de uma música direto do R.&lt;/p&gt;&#xA;&#xA;&lt;h1 class=&#34;relative group&#34;&gt;O que faz&#xA;    &lt;div id=&#34;o-que-faz&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#o-que-faz&#34; aria-label=&#34;Âncora&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Separa uma faixa de áudio em componentes (2, 4 ou 5 stems), como vocais, baixo, bateria e outros instrumentos, usando modelos pré-treinados baseados em TensorFlow.&lt;/p&gt;</description>
-      
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Audio on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/audio/</link><description>Recent content in Audio on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/audio/index.xml" rel="self" type="application/rss+xml"/><item><title>Audiobooks com IA Gratuitamente: do PDF ao Áudio com edge-tts</title><link>https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/</link><pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#por-que-audiobooks" id="toc-por-que-audiobooks"&gt;Por que Audiobooks?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#o-que-s%C3%A3o-audiobooks-criados-com-ia" id="toc-o-que-são-audiobooks-criados-com-ia"&gt;O Que São Audiobooks Criados com IA?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#como-criar-seu-audiobook-com-ia" id="toc-como-criar-seu-audiobook-com-ia"&gt;Como criar seu audiobook com IA&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#preparar-o-arquivo-de-texto" id="toc-preparar-o-arquivo-de-texto"&gt;Preparar o arquivo de texto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#traduzir-conte%C3%BAdo-para-pt-br-opcional" id="toc-traduzir-conteúdo-para-pt-br-opcional"&gt;Traduzir conteúdo para PT-BR (opcional)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#convertendo-o-texto-em-%C3%A1udio-com-ia" id="toc-convertendo-o-texto-em-áudio-com-ia"&gt;Convertendo o Texto em Áudio com IA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#faq" id="toc-faq"&gt;FAQ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#quest%C3%B5es-de-%C3%A9tica-e-legalidade" id="toc-questões-de-ética-e-legalidade"&gt;Questões de Ética e Legalidade&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="por-que-audiobooks" class="section level1"&gt;
+&lt;h1&gt;Por que Audiobooks?&lt;/h1&gt;
+&lt;p&gt;Pela sua forma conveniente de consumir conhecimento e entretenimento, os audiobooks estão se tornando cada vez mais populares. Conforme a última &lt;a href="https://g1.globo.com/pop-arte/noticia/2024/01/08/como-audiolivros-devem-crescer-ainda-mais-em-2024-e-podem-virar-prioridade-nas-editoras.ghtml"&gt;pesquisa&lt;/a&gt; da Câmara Brasileira do Livro, os livros digitais cresceram 15% de 2021 para 2022. Dentre os 13 mil títulos digitais publicados em 2022, 12% eram audiolivros. Embora o livro físico sempre vá existir, nem sempre temos o tempo necessário para ler todas as obras de nossa lista.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/feature.png"/></item><item><title>spleeteR</title><link>https://gomesfellipe.github.io/projects/spleeter/</link><pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/projects/spleeter/</guid><description>&lt;p&gt;Link do repositório no github: &lt;a href="https://github.com/gomesfellipe/spleeteR" target="_blank" rel="noreferrer"&gt;https://github.com/gomesfellipe/spleeteR&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Pacote em R que encapsula o &lt;a href="https://github.com/deezer/spleeter" target="_blank" rel="noreferrer"&gt;Spleeter&lt;/a&gt;, ferramenta da Deezer para separação de fontes de áudio, permitindo isolar vocais e instrumentais de uma música direto do R.&lt;/p&gt;
+
+&lt;h1 class="relative group"&gt;O que faz
+ &lt;div id="o-que-faz" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#o-que-faz" aria-label="Âncora"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;Separa uma faixa de áudio em componentes (2, 4 ou 5 stems), como vocais, baixo, bateria e outros instrumentos, usando modelos pré-treinados baseados em TensorFlow.&lt;/p&gt;</description></item></channel></rss>

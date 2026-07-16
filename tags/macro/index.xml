@@ -1,23 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Macro on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/macro/</link>
-    <description>Recent content in Macro on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Wed, 07 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/macro/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Produzindo e formatando um documento Word direto em R</title>
-      <link>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</link>
-      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</guid>
-      <description>&lt;div id=&#34;relatórios-de-alta-qualidade-só-com-latex&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Relatórios de alta qualidade só com &lt;span class=&#34;math inline&#34;&gt;\(\LaTeX\)&lt;/span&gt;?&lt;/h1&gt;&#xA;&lt;p&gt;Como já mencionei no &lt;a href=&#34;https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/&#34;&gt;post sobre tabelas incríveis com R&lt;/a&gt;, a tarefa de um estatístico (ou Data Scientist, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem &lt;span class=&#34;math inline&#34;&gt;\(\LaTeX\)&lt;/span&gt;, mas será que ela é realmente a única opção?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Macro on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/macro/</link><description>Recent content in Macro on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Wed, 07 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/macro/index.xml" rel="self" type="application/rss+xml"/><item><title>Produzindo e formatando um documento Word direto em R</title><link>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</link><pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/</guid><description>&lt;div id="relatórios-de-alta-qualidade-só-com-latex" class="section level1"&gt;
+&lt;h1&gt;Relatórios de alta qualidade só com &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;?&lt;/h1&gt;
+&lt;p&gt;Como já mencionei no &lt;a href="https://gomesfellipe.github.io/post/2018-01-12-tabelas-incriveis-com-r/"&gt;post sobre tabelas incríveis com R&lt;/a&gt;, a tarefa de um estatístico (ou Data Scientist, em sua versão diluída e mais comercial) vai muito além do planejamento, análises, inferência, sumarização e interpretação de observações para fornecer a melhor informação possível a partir do dados disponíveis. A produção final dos relatórios é fundamental e na grande maioria das vezes utiliza-se a linguagem &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, mas será que ela é realmente a única opção?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-03-07-word-e-r-2/feature.png"/></item></channel></rss>

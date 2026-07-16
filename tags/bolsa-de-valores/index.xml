@@ -1,23 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Bolsa-De-Valores on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/bolsa-de-valores/</link>
-    <description>Recent content in Bolsa-De-Valores on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/bolsa-de-valores/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Bot com Machine Learning para alertas de investimento</title>
-      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid>
-      <description>&lt;style&gt;&#xA;.column {&#xA;  float: left;&#xA;  width: 50%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;  float: left;&#xA;  width: 33%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;  float: left;&#xA;  width: 66%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;  content: &#34;&#34;;&#xA;  display: table; &#xA;  clear: both;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;por-que-investir&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Por que investir?&lt;/h1&gt;&#xA;&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bolsa-De-Valores on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/bolsa-de-valores/</link><description>Recent content in Bolsa-De-Valores on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/bolsa-de-valores/index.xml" rel="self" type="application/rss+xml"/><item><title>Bot com Machine Learning para alertas de investimento</title><link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link><pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid><description>&lt;style&gt;
+.column {
+ float: left;
+ width: 50%;
+ padding: 10px;
+}
+
+.column4 {
+ float: left;
+ width: 33%;
+ padding: 10px;
+}
+
+.column8 {
+ float: left;
+ width: 66%;
+ padding: 10px;
+}
+
+.row:after {
+ content: "";
+ display: table; 
+ clear: both;
+}
+&lt;/style&gt;
+&lt;div id="por-que-investir" class="section level2"&gt;
+&lt;h1&gt;Por que investir?&lt;/h1&gt;
+&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png"/></item></channel></rss>

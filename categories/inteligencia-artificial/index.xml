@@ -1,23 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Inteligencia-Artificial on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/categories/inteligencia-artificial/</link>
-    <description>Recent content in Inteligencia-Artificial on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Sat, 20 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/inteligencia-artificial/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Série LangChain — Agentes com Python</title>
-      <link>https://gomesfellipe.github.io/resources/langchain-series/</link>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/resources/langchain-series/</guid>
-      <description>&lt;p&gt;Posts desta série, do mais básico ao mais avançado:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/&#34; &gt;Análise de Sentimentos com Llama2 de Código Aberto&lt;/a&gt; — fundamentos: LLM open source + análise de texto&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/&#34; &gt;Detecção de Linguagem Tóxica com Gemma e LangChain&lt;/a&gt; — classificação com prompt engineering&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34; &gt;Equipe Multiagente de IA para Análise do Bitcoin&lt;/a&gt; — LangGraph: múltiplos agentes orquestrados&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/&#34; &gt;Agente para Análise de Ligações de Telemarketing&lt;/a&gt; — produção: Whisper + Pyannote + LangChain&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/&#34; &gt;Agente com LLM Local sem APIs Externas&lt;/a&gt; — local: Qwen + llama.cpp + GGUF&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
-      
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Inteligencia-Artificial on Fellipe Gomes</title><link>https://gomesfellipe.github.io/categories/inteligencia-artificial/</link><description>Recent content in Inteligencia-Artificial on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sat, 20 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/inteligencia-artificial/index.xml" rel="self" type="application/rss+xml"/><item><title>Série LangChain — Agentes com Python</title><link>https://gomesfellipe.github.io/resources/langchain-series/</link><pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/langchain-series/</guid><description>&lt;p&gt;Posts desta série, do mais básico ao mais avançado:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/" &gt;Análise de Sentimentos com Llama2 de Código Aberto&lt;/a&gt; — fundamentos: LLM open source + análise de texto&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/" &gt;Detecção de Linguagem Tóxica com Gemma e LangChain&lt;/a&gt; — classificação com prompt engineering&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/" &gt;Equipe Multiagente de IA para Análise do Bitcoin&lt;/a&gt; — LangGraph: múltiplos agentes orquestrados&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/" &gt;Agente para Análise de Ligações de Telemarketing&lt;/a&gt; — produção: Whisper + Pyannote + LangChain&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/" &gt;Agente com LLM Local sem APIs Externas&lt;/a&gt; — local: Qwen + llama.cpp + GGUF&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>

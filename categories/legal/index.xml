@@ -1,33 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Legal on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/categories/legal/</link>
-    <description>Recent content in Legal on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Thu, 27 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/legal/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Termos de Uso</title>
-      <link>https://gomesfellipe.github.io/termos/</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/termos/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Última atualização:&lt;/strong&gt; 27 de novembro de 2025&lt;/p&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;1. Aceitação dos Termos&#xA;    &lt;div id=&#34;1-aceitação-dos-termos&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#1-aceita%c3%a7%c3%a3o-dos-termos&#34; aria-label=&#34;Âncora&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Ao acessar e usar este blog, você aceita automaticamente estes termos de uso. Se não concordar com algum dos termos, por favor, não use o site.&lt;/p&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;2. Uso Permitido&#xA;    &lt;div id=&#34;2-uso-permitido&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#2-uso-permitido&#34; aria-label=&#34;Âncora&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Este blog é destinado a:&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Política de Privacidade</title>
-      <link>https://gomesfellipe.github.io/privacy/</link>
-      <pubDate>Tue, 26 Nov 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/privacy/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Última atualização:&lt;/strong&gt; 26 de novembro de 2024&lt;/p&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;1. Informações Gerais&#xA;    &lt;div id=&#34;1-informações-gerais&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#1-informa%c3%a7%c3%b5es-gerais&#34; aria-label=&#34;Âncora&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Este site é operado por Fellipe Carvalho Gomes. Em todo o site, os termos &amp;ldquo;nós&amp;rdquo;, &amp;ldquo;nos&amp;rdquo; e &amp;ldquo;nosso&amp;rdquo; se referem ao Fellipe Carvalho Gomes. Este site oferece informações, tutoriais e conteúdo sobre Data Science, Machine Learning e Estatística.&lt;/p&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;2. Informações que Coletamos&#xA;    &lt;div id=&#34;2-informações-que-coletamos&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#2-informa%c3%a7%c3%b5es-que-coletamos&#34; aria-label=&#34;Âncora&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&#xA;&lt;h3 class=&#34;relative group&#34;&gt;2.1 Informações Coletadas Automaticamente&#xA;    &lt;div id=&#34;21-informações-coletadas-automaticamente&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#21-informa%c3%a7%c3%b5es-coletadas-automaticamente&#34; aria-label=&#34;Âncora&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Quando você visita nosso site, coletamos automaticamente certas informações sobre seu dispositivo, incluindo:&lt;/p&gt;</description>
-      
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Legal on Fellipe Gomes</title><link>https://gomesfellipe.github.io/categories/legal/</link><description>Recent content in Legal on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Thu, 27 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/categories/legal/index.xml" rel="self" type="application/rss+xml"/><item><title>Termos de Uso</title><link>https://gomesfellipe.github.io/termos/</link><pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/termos/</guid><description>&lt;p&gt;&lt;strong&gt;Última atualização:&lt;/strong&gt; 27 de novembro de 2025&lt;/p&gt;
+
+&lt;h2 class="relative group"&gt;1. Aceitação dos Termos
+ &lt;div id="1-aceitação-dos-termos" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-aceita%c3%a7%c3%a3o-dos-termos" aria-label="Âncora"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Ao acessar e usar este blog, você aceita automaticamente estes termos de uso. Se não concordar com algum dos termos, por favor, não use o site.&lt;/p&gt;
+
+&lt;h2 class="relative group"&gt;2. Uso Permitido
+ &lt;div id="2-uso-permitido" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-uso-permitido" aria-label="Âncora"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Este blog é destinado a:&lt;/p&gt;</description></item><item><title>Política de Privacidade</title><link>https://gomesfellipe.github.io/privacy/</link><pubDate>Tue, 26 Nov 2024 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/privacy/</guid><description>&lt;p&gt;&lt;strong&gt;Última atualização:&lt;/strong&gt; 26 de novembro de 2024&lt;/p&gt;
+
+&lt;h2 class="relative group"&gt;1. Informações Gerais
+ &lt;div id="1-informações-gerais" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-informa%c3%a7%c3%b5es-gerais" aria-label="Âncora"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Este site é operado por Fellipe Carvalho Gomes. Em todo o site, os termos &amp;ldquo;nós&amp;rdquo;, &amp;ldquo;nos&amp;rdquo; e &amp;ldquo;nosso&amp;rdquo; se referem ao Fellipe Carvalho Gomes. Este site oferece informações, tutoriais e conteúdo sobre Data Science, Machine Learning e Estatística.&lt;/p&gt;
+
+&lt;h2 class="relative group"&gt;2. Informações que Coletamos
+ &lt;div id="2-informações-que-coletamos" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-informa%c3%a7%c3%b5es-que-coletamos" aria-label="Âncora"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+
+&lt;h3 class="relative group"&gt;2.1 Informações Coletadas Automaticamente
+ &lt;div id="21-informações-coletadas-automaticamente" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#21-informa%c3%a7%c3%b5es-coletadas-automaticamente" aria-label="Âncora"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;Quando você visita nosso site, coletamos automaticamente certas informações sobre seu dispositivo, incluindo:&lt;/p&gt;</description></item></channel></rss>

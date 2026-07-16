@@ -1,33 +1,115 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tunning on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/tunning/</link>
-    <description>Recent content in Tunning on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Mon, 28 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/tunning/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Otimizando pipelines que envolvem dados desbalanceados</title>
-      <link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link>
-      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#o-problema-envolvendo-dados-desbalanceados&#34; id=&#34;toc-o-problema-envolvendo-dados-desbalanceados&#34;&gt;O problema envolvendo dados desbalanceados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#objetivo&#34; id=&#34;toc-objetivo&#34;&gt;Objetivo&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#depend%C3%AAncias&#34; id=&#34;toc-dependências&#34;&gt;Dependências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#preparar-dados&#34; id=&#34;toc-preparar-dados&#34;&gt;Preparar dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#breve-an%C3%A1lise-explorat%C3%B3ria&#34; id=&#34;toc-breve-análise-exploratória&#34;&gt;Breve análise exploratória&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelagem&#34; id=&#34;toc-modelagem&#34;&gt;Modelagem&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#baselines&#34; id=&#34;toc-baselines&#34;&gt;Baselines&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#preparar-pipeline-de-dados-com-workflowsets&#34; id=&#34;toc-preparar-pipeline-de-dados-com-workflowsets&#34;&gt;Preparar Pipeline de dados com &lt;code&gt;workflowsets&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#benchmark&#34; id=&#34;toc-benchmark&#34;&gt;Benchmark&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#refer%C3%AAncias&#34; id=&#34;toc-referências&#34;&gt;Referências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;style&gt;&#xA;.column {&#xA;float: left;&#xA;width: 50%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;float: left;&#xA;width: 33%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;float: left;&#xA;width: 66%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;content: &#34;&#34;;&#xA;display: table;&#xA;clear: both;&#xA;}&#xA;&#xA;.center {&#xA;display: flex;&#xA;justify-content: center;&#xA;align-items: center;&#xA;height: 200px;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;o-problema-envolvendo-dados-desbalanceados&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;O problema envolvendo dados desbalanceados&lt;/h1&gt;&#xA;&lt;p&gt;A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/feature.png" />
-    </item>
-    
-    <item>
-      <title>Prevendo a qualidade do sono utilizando Machine Learning</title>
-      <link>https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/</link>
-      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#qualidade-de-sono&#34; id=&#34;toc-qualidade-de-sono&#34;&gt;Qualidade de sono? 🤨&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#como-funciona-aplicativo-sleep-cycle&#34; id=&#34;toc-como-funciona-aplicativo-sleep-cycle&#34;&gt;Como funciona aplicativo Sleep Cycle? &lt;img src=&#34;https://www.sleepcycle.com/wp-content/uploads/2020/09/sleep_cycle_app_icon-480x480.png&#34; alt=&#34;Ícone do aplicativo Sleep Cycle&#34; style=&#34;width:3.0%&#34; /&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#objetivo&#34; id=&#34;toc-objetivo&#34;&gt;Objetivo 🎯&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#explorar-dados&#34; id=&#34;toc-explorar-dados&#34;&gt;Explorar dados 🔎&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#limpeza-e-prepara%C3%A7%C3%A3o-dos-dados&#34; id=&#34;toc-limpeza-e-preparação-dos-dados&#34;&gt;Limpeza e preparação dos dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#imputar-dados-de-fontes-externas&#34; id=&#34;toc-imputar-dados-de-fontes-externas&#34;&gt;Imputar dados de fontes externas&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#insights&#34; id=&#34;toc-insights&#34;&gt;Insights&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#reter-dados&#34; id=&#34;toc-reter-dados&#34;&gt;Reter dados&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelagem&#34; id=&#34;toc-modelagem&#34;&gt;Modelagem 🚀&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#amostragem&#34; id=&#34;toc-amostragem&#34;&gt;Amostragem&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#engenharia-de-recursos&#34; id=&#34;toc-engenharia-de-recursos&#34;&gt;Engenharia de recursos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#modelo-nulo-baseline&#34; id=&#34;toc-modelo-nulo-baseline&#34;&gt;Modelo Nulo (Baseline)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%C3%A1rvore-de-decis%C3%B5es&#34; id=&#34;toc-árvore-de-decisões&#34;&gt;Árvore de decisões&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#random-forest&#34; id=&#34;toc-random-forest&#34;&gt;Random Forest&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#lightgbm&#34; id=&#34;toc-lightgbm&#34;&gt;LightGBM&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#sele%C3%A7%C3%A3o-do-modelo&#34; id=&#34;toc-seleção-do-modelo&#34;&gt;Seleção do modelo 🤔&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#previs%C3%A3o-em-dados-novos&#34; id=&#34;toc-previsão-em-dados-novos&#34;&gt;Previsão em dados novos 💫&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#conclus%C3%A3o&#34; id=&#34;toc-conclusão&#34;&gt;Conclusão 🍻&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#refer%C3%AAncias&#34; id=&#34;toc-referências&#34;&gt;Referências 🧳&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;style&gt;&#xA;.column {&#xA;float: left;&#xA;width: 50%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;float: left;&#xA;width: 33%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;float: left;&#xA;width: 66%;&#xA;padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;content: &#34;&#34;;&#xA;display: table;&#xA;clear: both;&#xA;}&#xA;&#xA;.center {&#xA;display: flex;&#xA;justify-content: center;&#xA;align-items: center;&#xA;height: 200px;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;qualidade-de-sono&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Qualidade de sono? 🤨&lt;/h1&gt;&#xA;&lt;p&gt;Sim, exatamente! Neste post analisaremos dados de um &lt;em&gt;tracking&lt;/em&gt; que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/feature.jpeg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tunning on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/tunning/</link><description>Recent content in Tunning on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Mon, 28 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/tunning/index.xml" rel="self" type="application/rss+xml"/><item><title>Otimizando pipelines que envolvem dados desbalanceados</title><link>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</link><pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#o-problema-envolvendo-dados-desbalanceados" id="toc-o-problema-envolvendo-dados-desbalanceados"&gt;O problema envolvendo dados desbalanceados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#objetivo" id="toc-objetivo"&gt;Objetivo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#depend%C3%AAncias" id="toc-dependências"&gt;Dependências&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#preparar-dados" id="toc-preparar-dados"&gt;Preparar dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#breve-an%C3%A1lise-explorat%C3%B3ria" id="toc-breve-análise-exploratória"&gt;Breve análise exploratória&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelagem" id="toc-modelagem"&gt;Modelagem&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#baselines" id="toc-baselines"&gt;Baselines&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#preparar-pipeline-de-dados-com-workflowsets" id="toc-preparar-pipeline-de-dados-com-workflowsets"&gt;Preparar Pipeline de dados com &lt;code&gt;workflowsets&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#benchmark" id="toc-benchmark"&gt;Benchmark&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#refer%C3%AAncias" id="toc-referências"&gt;Referências&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.column {
+float: left;
+width: 50%;
+padding: 10px;
+}
+
+.column4 {
+float: left;
+width: 33%;
+padding: 10px;
+}
+
+.column8 {
+float: left;
+width: 66%;
+padding: 10px;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 200px;
+}
+&lt;/style&gt;
+&lt;div id="o-problema-envolvendo-dados-desbalanceados" class="section level1"&gt;
+&lt;h1&gt;O problema envolvendo dados desbalanceados&lt;/h1&gt;
+&lt;p&gt;A tarefa de classificação com dados desbalanceados é muito comum na vida real podendo variar desde um leve viés até um enorme desequilíbrio na distribuição da classe de interesse. Problemas mais comuns envolvem:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-06-28-imbalanced-workflowsets/feature.png"/></item><item><title>Prevendo a qualidade do sono utilizando Machine Learning</title><link>https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/</link><pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#qualidade-de-sono" id="toc-qualidade-de-sono"&gt;Qualidade de sono? 🤨&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#como-funciona-aplicativo-sleep-cycle" id="toc-como-funciona-aplicativo-sleep-cycle"&gt;Como funciona aplicativo Sleep Cycle? &lt;img src="https://www.sleepcycle.com/wp-content/uploads/2020/09/sleep_cycle_app_icon-480x480.png" alt="Ícone do aplicativo Sleep Cycle" style="width:3.0%" /&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#objetivo" id="toc-objetivo"&gt;Objetivo 🎯&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#explorar-dados" id="toc-explorar-dados"&gt;Explorar dados 🔎&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#limpeza-e-prepara%C3%A7%C3%A3o-dos-dados" id="toc-limpeza-e-preparação-dos-dados"&gt;Limpeza e preparação dos dados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#imputar-dados-de-fontes-externas" id="toc-imputar-dados-de-fontes-externas"&gt;Imputar dados de fontes externas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#insights" id="toc-insights"&gt;Insights&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#reter-dados" id="toc-reter-dados"&gt;Reter dados&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelagem" id="toc-modelagem"&gt;Modelagem 🚀&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#amostragem" id="toc-amostragem"&gt;Amostragem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#engenharia-de-recursos" id="toc-engenharia-de-recursos"&gt;Engenharia de recursos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modelo-nulo-baseline" id="toc-modelo-nulo-baseline"&gt;Modelo Nulo (Baseline)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#%C3%A1rvore-de-decis%C3%B5es" id="toc-árvore-de-decisões"&gt;Árvore de decisões&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#random-forest" id="toc-random-forest"&gt;Random Forest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#lightgbm" id="toc-lightgbm"&gt;LightGBM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#sele%C3%A7%C3%A3o-do-modelo" id="toc-seleção-do-modelo"&gt;Seleção do modelo 🤔&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#previs%C3%A3o-em-dados-novos" id="toc-previsão-em-dados-novos"&gt;Previsão em dados novos 💫&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclus%C3%A3o" id="toc-conclusão"&gt;Conclusão 🍻&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#refer%C3%AAncias" id="toc-referências"&gt;Referências 🧳&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.column {
+float: left;
+width: 50%;
+padding: 10px;
+}
+
+.column4 {
+float: left;
+width: 33%;
+padding: 10px;
+}
+
+.column8 {
+float: left;
+width: 66%;
+padding: 10px;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 200px;
+}
+&lt;/style&gt;
+&lt;div id="qualidade-de-sono" class="section level2"&gt;
+&lt;h1&gt;Qualidade de sono? 🤨&lt;/h1&gt;
+&lt;p&gt;Sim, exatamente! Neste post analisaremos dados de um &lt;em&gt;tracking&lt;/em&gt; que venho fazendo desde 2017 com informações relacionadas à um sono de qualidade.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2021-02-28-qualidade-do-sono-machine-learning/feature.jpeg"/></item></channel></rss>

@@ -1,23 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Call-Center on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/call-center/</link>
-    <description>Recent content in Call-Center on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/call-center/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Análise de ligações de telemarketing com Whisper e LangChain</title>
-      <link>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-amber w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href=&#34;https://gomesfellipe.github.io/resources/langchain-series/&#34;&gt;ver índice&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/&#34;&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/&#34;&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34;&gt;Equipe Multiagente para Bitcoin&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;→ Agente para Ligações de Telemarketing&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/&#34;&gt;LLM Local com Qwen sem APIs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;por-que-analisar-ligações-de-telemarketing-com-ia&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Por que analisar ligações de telemarketing com IA?&lt;/h1&gt;&#xA;&lt;p&gt;Quem nunca recebeu aquela ligação de telemarketing no momento mais inoportuno? Seja oferecendo um cartão de crédito, cobrando uma dívida ou tentando vender internet, essas ligações fazem parte do nosso cotidiano. Mas você já parou para pensar na quantidade de informações valiosas que existem nessas conversas?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Call-Center on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/call-center/</link><description>Recent content in Call-Center on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/call-center/index.xml" rel="self" type="application/rss+xml"/><item><title>Análise de ligações de telemarketing com Whisper e LangChain</title><link>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</link><pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/</guid><description>&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href="https://gomesfellipe.github.io/resources/langchain-series/"&gt;ver índice&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/"&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/"&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/"&gt;Equipe Multiagente para Bitcoin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;→ Agente para Ligações de Telemarketing&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/"&gt;LLM Local com Qwen sem APIs&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;div id="por-que-analisar-ligações-de-telemarketing-com-ia" class="section level2"&gt;
+&lt;h1&gt;Por que analisar ligações de telemarketing com IA?&lt;/h1&gt;
+&lt;p&gt;Quem nunca recebeu aquela ligação de telemarketing no momento mais inoportuno? Seja oferecendo um cartão de crédito, cobrando uma dívida ou tentando vender internet, essas ligações fazem parte do nosso cotidiano. Mas você já parou para pensar na quantidade de informações valiosas que existem nessas conversas?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/feature.png"/></item></channel></rss>

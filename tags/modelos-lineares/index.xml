@@ -1,33 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Modelos-Lineares on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/modelos-lineares/</link>
-    <description>Recent content in Modelos-Lineares on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/modelos-lineares/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Modelo Bayesiano do Zero</title>
-      <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</guid>
-      <description>&lt;div id=&#34;modelagem-estatística-e-as-duas-grandes-escolas-de-inferência&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Modelagem estatística e as duas grandes escolas de inferência&lt;/h1&gt;&#xA;&lt;p&gt;Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.&lt;/p&gt;&#xA;&lt;p&gt;Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/feature.png" />
-    </item>
-    
-    <item>
-      <title>Pacotes do R para avaliar o ajuste de modelos</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</link>
-      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</guid>
-      <description>&lt;div id=&#34;funções-do-r-para-avaliar-o-ajuste-de-modelos&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Funções do R para avaliar o ajuste de modelos&lt;/h1&gt;&#xA;&lt;p&gt;Traduzindo:&lt;/p&gt;&#xA;&lt;p&gt;“&lt;em&gt;Essencialmente, todos os modelos estão errados, mas alguns são úteis&lt;/em&gt;” - George E. P. Box&lt;/p&gt;&#xA;&lt;p&gt;Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!&lt;/p&gt;&#xA;&lt;p&gt;Lendo um &lt;a href=&#34;http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf&#34;&gt;artigo sobre a vida de Fisher&lt;/a&gt; um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/feature.jpg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Modelos-Lineares on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/modelos-lineares/</link><description>Recent content in Modelos-Lineares on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/modelos-lineares/index.xml" rel="self" type="application/rss+xml"/><item><title>Modelo Bayesiano do Zero</title><link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</link><pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</guid><description>&lt;div id="modelagem-estatística-e-as-duas-grandes-escolas-de-inferência" class="section level2"&gt;
+&lt;h1&gt;Modelagem estatística e as duas grandes escolas de inferência&lt;/h1&gt;
+&lt;p&gt;Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.&lt;/p&gt;
+&lt;p&gt;Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/feature.png"/></item><item><title>Pacotes do R para avaliar o ajuste de modelos</title><link>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</link><pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/</guid><description>&lt;div id="funções-do-r-para-avaliar-o-ajuste-de-modelos" class="section level2"&gt;
+&lt;h1&gt;Funções do R para avaliar o ajuste de modelos&lt;/h1&gt;
+&lt;p&gt;Traduzindo:&lt;/p&gt;
+&lt;p&gt;“&lt;em&gt;Essencialmente, todos os modelos estão errados, mas alguns são úteis&lt;/em&gt;” - George E. P. Box&lt;/p&gt;
+&lt;p&gt;Se você estuda estatística provavelmente já deve saber quem é este simpático senhor. Box teve grande contribuição para a estatística. Foi aluno do Ronald Aylmer Fisher e ainda se casou com a filha dele!&lt;/p&gt;
+&lt;p&gt;Lendo um &lt;a href="http://jaguar.fcav.unesp.br/RME/fasciculos/v27/v27_n4/A10_Millor.pdf"&gt;artigo sobre a vida de Fisher&lt;/a&gt; um parágrafo me chamou atenção com uma fala de sua filha, que dizia o seguinte:&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-24-diagnostico-de-modelo/feature.jpg"/></item></channel></rss>

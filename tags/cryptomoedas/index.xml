@@ -1,23 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Cryptomoedas on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/cryptomoedas/</link>
-    <description>Recent content in Cryptomoedas on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Mon, 04 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/cryptomoedas/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-yellow w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;⚠️ Aviso (2026):&lt;/strong&gt; Os pacotes e APIs usados neste post são de 2017 e foram descontinuados: o &lt;code&gt;coinmarketcapr&lt;/code&gt; passou a exigir chave de API paga e a API da BlinkTrade foi encerrada. A lógica de extrair, tratar e monitorar dados no R ainda é válida — veja a versão moderna com agentes de IA em &lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34;&gt;Equipe Multiagente para Análise do Bitcoin&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;as-cryptomoedas&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;As cryptomoedas&lt;/h1&gt;&#xA;&lt;p&gt;Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vem crescendo rapidamente, e grandes canais de informação já cobrem o assunto. A cotação do Bitcoin já pode ser acompanhada nos maiores sites do mercado financeiro. Diante de tantas novidades, vale entender como a programação pode ajudar a explorar temas tão recentes.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cryptomoedas on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/cryptomoedas/</link><description>Recent content in Cryptomoedas on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Mon, 04 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/cryptomoedas/index.xml" rel="self" type="application/rss+xml"/><item><title>Analisando o mercado de cryptomoedas com R</title><link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link><pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid><description>&lt;div class="w3-panel w3-pale-yellow w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Aviso (2026):&lt;/strong&gt; Os pacotes e APIs usados neste post são de 2017 e foram descontinuados: o &lt;code&gt;coinmarketcapr&lt;/code&gt; passou a exigir chave de API paga e a API da BlinkTrade foi encerrada. A lógica de extrair, tratar e monitorar dados no R ainda é válida — veja a versão moderna com agentes de IA em &lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/"&gt;Equipe Multiagente para Análise do Bitcoin&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="as-cryptomoedas" class="section level1"&gt;
+&lt;h1&gt;As cryptomoedas&lt;/h1&gt;
+&lt;p&gt;Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vem crescendo rapidamente, e grandes canais de informação já cobrem o assunto. A cotação do Bitcoin já pode ser acompanhada nos maiores sites do mercado financeiro. Diante de tantas novidades, vale entender como a programação pode ajudar a explorar temas tão recentes.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/feature.png"/></item></channel></rss>

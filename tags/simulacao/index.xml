@@ -1,23 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Simulacao on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/simulacao/</link>
-    <description>Recent content in Simulacao on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Sat, 20 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/simulacao/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>O paradoxo dos aniversários com simulação e probabilidade</title>
-      <link>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</link>
-      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</guid>
-      <description>&lt;div id=&#34;curiosidades-sobre-a-teoria-das-probabilidades&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Curiosidades sobre a teoria das probabilidades&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Num grupo de apenas 23 pessoas, a probabilidade de duas fazerem aniversário no mesmo dia já passa de 50%.&lt;/li&gt;&#xA;&lt;li&gt;O resultado é contraintuitivo; resolvemos de duas formas: analítica (abordagem clássica) e por simulação em R (abordagem frequentista).&lt;/li&gt;&#xA;&lt;li&gt;Uma simulação com 5000 turmas confirma a fórmula teórica.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Simulacao on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/simulacao/</link><description>Recent content in Simulacao on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sat, 20 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/simulacao/index.xml" rel="self" type="application/rss+xml"/><item><title>O paradoxo dos aniversários com simulação e probabilidade</title><link>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</link><pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</guid><description>&lt;div id="curiosidades-sobre-a-teoria-das-probabilidades" class="section level1"&gt;
+&lt;h1&gt;Curiosidades sobre a teoria das probabilidades&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Num grupo de apenas 23 pessoas, a probabilidade de duas fazerem aniversário no mesmo dia já passa de 50%.&lt;/li&gt;
+&lt;li&gt;O resultado é contraintuitivo; resolvemos de duas formas: analítica (abordagem clássica) e por simulação em R (abordagem frequentista).&lt;/li&gt;
+&lt;li&gt;Uma simulação com 5000 turmas confirma a fórmula teórica.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/feature.png"/></item></channel></rss>

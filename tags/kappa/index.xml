@@ -1,23 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Kappa on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/kappa/</link>
-    <description>Recent content in Kappa on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/kappa/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Tipos de Correlações em R</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</link>
-      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#correlações&#34;&gt;Correlações&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#tipos-de-variáveis&#34;&gt;Tipos de Variáveis&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#tipos-de-correlações&#34;&gt;Tipos de Correlações&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#coeficiente-de-correlação-de-pearson&#34;&gt;Coeficiente de Correlação de Pearson&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#coeficiente-de-correlação-de-spearman-rho&#34;&gt;Coeficiente de Correlação de Spearman &lt;span class=&#34;math inline&#34;&gt;\(\rho\)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#coeficiente-de-correlação-de-kendall-tau-de-kendall&#34;&gt;Coeficiente de Correlação de Kendall (&lt;span class=&#34;math inline&#34;&gt;\(\tau\)&lt;/span&gt; de kendall)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#qui-quadrado-de-independencia&#34;&gt;Qui-quadrado de independencia&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#teste-exato-de-fisher&#34;&gt;Teste exato de fisher&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#medidas-de-associação&#34;&gt;Medidas de associação&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#phi-phi-é-o-r-de-pearson-quando-aplicado-a-tabelas-2x2&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(\phi\)&lt;/span&gt; (phi) (é o R de pearson quando aplicado a tabelas 2x2)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#v-de-crámer&#34;&gt;V de Crámer&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#coeficiente-de-contingência&#34;&gt;Coeficiente de contingência&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#kappa&#34;&gt;Kappa&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mãos-a-obra&#34;&gt;Mãos a obra&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#referências&#34;&gt;Referências&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;!-- # Base de dados:  --&gt;&#xA;&lt;!-- ```{r,echo=F} --&gt;&#xA;&lt;!-- dados &lt;- read_excel(&#34;contabilidade.xlsx&#34;) --&gt;&#xA;&lt;!-- kable(dados,&#34;html&#34;)%&gt;% --&gt;&#xA;&lt;!--   kable_styling()%&gt;% --&gt;&#xA;&lt;!--   scroll_box(width = &#34;700px&#34;, height = &#34;250px&#34;) --&gt;&#xA;&lt;!-- ```  --&gt;&#xA;&lt;!-- É possível notar que existem diversos tipos de variáveis --&gt;&#xA;&lt;div id=&#34;correlações&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Correlações&lt;/h1&gt;&#xA;&lt;p&gt;De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os &lt;em&gt;coeficientes de associação&lt;/em&gt; ou &lt;em&gt;correlação&lt;/em&gt; entre variáveis.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/feature.jpeg" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kappa on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/kappa/</link><description>Recent content in Kappa on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/kappa/index.xml" rel="self" type="application/rss+xml"/><item><title>Tipos de Correlações em R</title><link>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/</guid><description>&lt;div id="TOC"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#correlações"&gt;Correlações&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#tipos-de-variáveis"&gt;Tipos de Variáveis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#tipos-de-correlações"&gt;Tipos de Correlações&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#coeficiente-de-correlação-de-pearson"&gt;Coeficiente de Correlação de Pearson&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#coeficiente-de-correlação-de-spearman-rho"&gt;Coeficiente de Correlação de Spearman &lt;span class="math inline"&gt;\(\rho\)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#coeficiente-de-correlação-de-kendall-tau-de-kendall"&gt;Coeficiente de Correlação de Kendall (&lt;span class="math inline"&gt;\(\tau\)&lt;/span&gt; de kendall)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#qui-quadrado-de-independencia"&gt;Qui-quadrado de independencia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#teste-exato-de-fisher"&gt;Teste exato de fisher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#medidas-de-associação"&gt;Medidas de associação&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#phi-phi-é-o-r-de-pearson-quando-aplicado-a-tabelas-2x2"&gt;&lt;span class="math inline"&gt;\(\phi\)&lt;/span&gt; (phi) (é o R de pearson quando aplicado a tabelas 2x2)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#v-de-crámer"&gt;V de Crámer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#coeficiente-de-contingência"&gt;Coeficiente de contingência&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#kappa"&gt;Kappa&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#mãos-a-obra"&gt;Mãos a obra&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#referências"&gt;Referências&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- # Base de dados: --&gt;
+&lt;!-- ```{r,echo=F} --&gt;
+&lt;!-- dados &lt;- read_excel("contabilidade.xlsx") --&gt;
+&lt;!-- kable(dados,"html")%&gt;% --&gt;
+&lt;!-- kable_styling()%&gt;% --&gt;
+&lt;!-- scroll_box(width = "700px", height = "250px") --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- É possível notar que existem diversos tipos de variáveis --&gt;
+&lt;div id="correlações" class="section level1"&gt;
+&lt;h1&gt;Correlações&lt;/h1&gt;
+&lt;p&gt;De maneira geral, quando estamos interessados em avaliar o grau de associação entre duas variáveis calculamos os &lt;em&gt;coeficientes de associação&lt;/em&gt; ou &lt;em&gt;correlação&lt;/em&gt; entre variáveis.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-01-tipos-de-correlacoes/feature.jpeg"/></item></channel></rss>

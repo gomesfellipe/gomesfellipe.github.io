@@ -1,33 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Probabilidade on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/probabilidade/</link>
-    <description>Recent content in Probabilidade on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/probabilidade/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Modelo Bayesiano do Zero</title>
-      <link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</guid>
-      <description>&lt;div id=&#34;modelagem-estatística-e-as-duas-grandes-escolas-de-inferência&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Modelagem estatística e as duas grandes escolas de inferência&lt;/h1&gt;&#xA;&lt;p&gt;Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.&lt;/p&gt;&#xA;&lt;p&gt;Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/feature.png" />
-    </item>
-    
-    <item>
-      <title>O paradoxo dos aniversários com simulação e probabilidade</title>
-      <link>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</link>
-      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</guid>
-      <description>&lt;div id=&#34;curiosidades-sobre-a-teoria-das-probabilidades&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;Curiosidades sobre a teoria das probabilidades&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Num grupo de apenas 23 pessoas, a probabilidade de duas fazerem aniversário no mesmo dia já passa de 50%.&lt;/li&gt;&#xA;&lt;li&gt;O resultado é contraintuitivo; resolvemos de duas formas: analítica (abordagem clássica) e por simulação em R (abordagem frequentista).&lt;/li&gt;&#xA;&lt;li&gt;Uma simulação com 5000 turmas confirma a fórmula teórica.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Probabilidade on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/probabilidade/</link><description>Recent content in Probabilidade on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/probabilidade/index.xml" rel="self" type="application/rss+xml"/><item><title>Modelo Bayesiano do Zero</title><link>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</link><pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/</guid><description>&lt;div id="modelagem-estatística-e-as-duas-grandes-escolas-de-inferência" class="section level2"&gt;
+&lt;h1&gt;Modelagem estatística e as duas grandes escolas de inferência&lt;/h1&gt;
+&lt;p&gt;Através da modelagem estatística é possível tomar decisões sobre diversos assuntos de interesse como por exemplo na análise de risco de crédito, previsões de quantidade de chuva em um dado local, estimativas de erros ou falhas de um novo produto ou serviço além de diversas áreas como na Educação, Economia, nas Ciências Sociais, Saúde etc.&lt;/p&gt;
+&lt;p&gt;Muitas vezes os parâmetros das distribuições em estudo podem ser desconhecidos e existe o desejo de se inferir sobre eles. Existem duas grandes escolas de inferência: a clássica e a bayesiana. A clássica trata esses parâmetros como quantidades fixas e não atribui distribuição a eles, a estimação desses parâmetros é dada através da função de verossimilhança, enquanto que na escola bayesiana atribui-se uma distribuição, chamada de distribuição a priori, ao conjunto de parâmetros desconhecidos quantificando a sua crença sobre esse conjunto e a estimação dos parâmetros é dada através da distribuição à posteriori, que é proporcional ao produto da função de verossimilhança com a distribuição a priori.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-07-28-modelo-bayesiano-do-zero/feature.png"/></item><item><title>O paradoxo dos aniversários com simulação e probabilidade</title><link>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</link><pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/</guid><description>&lt;div id="curiosidades-sobre-a-teoria-das-probabilidades" class="section level1"&gt;
+&lt;h1&gt;Curiosidades sobre a teoria das probabilidades&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Num grupo de apenas 23 pessoas, a probabilidade de duas fazerem aniversário no mesmo dia já passa de 50%.&lt;/li&gt;
+&lt;li&gt;O resultado é contraintuitivo; resolvemos de duas formas: analítica (abordagem clássica) e por simulação em R (abordagem frequentista).&lt;/li&gt;
+&lt;li&gt;Uma simulação com 5000 turmas confirma a fórmula teórica.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O uso de cálculo de probabilidades para avaliar incertezas já é utilizado a centenas de anos. Foram tantas áreas que se encontraram aplicações (como na medicina, jogos de azar, previsão do tempo…) que hoje não restam dúvidas de que os dados são onipresentes, ainda mais em plena era da informação.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-01-20-simulacao-e-probabilidade/feature.png"/></item></channel></rss>

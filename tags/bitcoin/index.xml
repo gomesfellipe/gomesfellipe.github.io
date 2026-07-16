@@ -1,63 +1,86 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Bitcoin on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/bitcoin/</link>
-    <description>Recent content in Bitcoin on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/bitcoin/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Bitcoin Debrief</title>
-      <link>https://gomesfellipe.github.io/projects/bitcoindebrief/</link>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/projects/bitcoindebrief/</guid>
-      <description>&lt;p&gt;Link do app: &lt;a href=&#34;https://bitcoindebrief.com/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;https://bitcoindebrief.com/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Newsletter diária automatizada que resume tudo sobre Bitcoin em 3 minutos, todo dia de manhã (6h, horário de Brasília).&lt;/p&gt;&#xA;&#xA;&lt;h1 class=&#34;relative group&#34;&gt;O que traz&#xA;    &lt;div id=&#34;o-que-traz&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#o-que-traz&#34; aria-label=&#34;Âncora&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Preço em tempo real e variação em 24h/7 dias&lt;/li&gt;&#xA;&lt;li&gt;Indicadores técnicos (RSI, Bandas de Bollinger, médias móveis) traduzidos em português simples&lt;/li&gt;&#xA;&lt;li&gt;Indicadores macroeconômicos (CPI, PIB, desemprego) que afetam o preço do Bitcoin&lt;/li&gt;&#xA;&lt;li&gt;Sentimento de mercado (Fear &amp;amp; Greed Index, dominância do Bitcoin)&lt;/li&gt;&#xA;&lt;li&gt;5 notícias curadas das principais fontes de cripto do dia&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;&lt;h1 class=&#34;relative group&#34;&gt;Fontes de dados&#xA;    &lt;div id=&#34;fontes-de-dados&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#fontes-de-dados&#34; aria-label=&#34;Âncora&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Coleta automatizada via API: Binance, CoinGecko, FRED (Federal Reserve Economic Data), Glassnode e CoinDesk.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Equipe Multiagente com LangChain e LangGraph para Análise do Bitcoin</title>
-      <link>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-amber w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href=&#34;https://gomesfellipe.github.io/resources/langchain-series/&#34;&gt;ver índice&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/&#34;&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/&#34;&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;→ Equipe Multiagente para Bitcoin&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/&#34;&gt;Agente para Ligações de Telemarketing&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/&#34;&gt;LLM Local com Qwen sem APIs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;!-- Neste post, vamos mergulhar na criação de uma equipe de agentes de Inteligência Artificial (IA) que trabalham juntos para coletar dados, analisar tendências e decidir se é hora de alertar sobre oportunidades de investimento no Bitcoin. Utilizaremos Python, o framework LangChain e sua extensão LangGraph para orquestrar esses agentes, além de técnicas de Prompt Engineering para garantir que cada &#34;membro&#34; da equipe execute sua função com precisão.  --&gt;&#xA;&lt;!-- Você já se perguntou como acompanhar o volátil mercado de Bitcoin sem passar horas analisando gráficos e indicadores complexos?  --&gt;&#xA;&lt;!-- Prepare-se para descobrir como a IA generativa pode se tornar sua aliada na análise de criptomoedas! --&gt;&#xA;&lt;div id=&#34;por-que-analisar-o-mercado-bitcoin-com-agentes-de-ia&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Por que Analisar o Mercado Bitcoin com Agentes de IA?&lt;/h1&gt;&#xA;&lt;p&gt;O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, &lt;strong&gt;nunca revelou sua identidade&lt;/strong&gt;. Além disso o bitcoin foi a &lt;a href=&#34;https://www.mgcholding.com.br/blog/blockchain-bitcoin-e-ativos-virtuais-entenda-a-relacao/#:~:text=O%20blockchain%2C%20em%20sua%20ess%C3%AAncia,conhecida%20aplica%C3%A7%C3%A3o%20da%20tecnologia%20blockchain.&#34;&gt;primeira e ainda é a mais conhecida aplicação da tecnologia &lt;strong&gt;Blockchain&lt;/strong&gt;&lt;/a&gt;, que revolucionou a forma como lidamos com registros digitais e segurança dos dados. Sua &lt;strong&gt;natureza descentralizada&lt;/strong&gt; e sua notória &lt;strong&gt;volatilidade&lt;/strong&gt; o tornam um ativo único.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>Bot com Machine Learning para alertas de investimento</title>
-      <link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid>
-      <description>&lt;style&gt;&#xA;.column {&#xA;  float: left;&#xA;  width: 50%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column4 {&#xA;  float: left;&#xA;  width: 33%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.column8 {&#xA;  float: left;&#xA;  width: 66%;&#xA;  padding: 10px;&#xA;}&#xA;&#xA;.row:after {&#xA;  content: &#34;&#34;;&#xA;  display: table; &#xA;  clear: both;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;por-que-investir&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Por que investir?&lt;/h1&gt;&#xA;&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png" />
-    </item>
-    
-    <item>
-      <title>Seu app, RStudio e Shiny Server na nuvem do Google</title>
-      <link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-yellow w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;⚠️ Nota de atualização (2026):&lt;/strong&gt; Este post usa Ubuntu 16.04 LTS (EOL desde 2021), RStudio Server (renomeado para &lt;strong&gt;Posit Workbench&lt;/strong&gt;) e Shiny Server na instância &lt;code&gt;f1-micro&lt;/code&gt; do Google Cloud. Os passos gerais ainda funcionam, mas o Ubuntu mínimo recomendado hoje é o 22.04 LTS e os pacotes de instalação do RStudio/Posit mudaram de URL. Para instâncias novas, consulte a &lt;a href=&#34;https://posit.co/download/rstudio-server/&#34; rel=&#34;nofollow&#34;&gt;documentação atual do Posit Workbench&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;objetivo-do-post&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h1&gt;Objetivo do post &lt;i class=&#34;fa fa-rocket&#34;&gt;&lt;/i&gt;&lt;/h1&gt;&#xA;&lt;p&gt;Uma das várias maneiras de se implementar o &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download-server/&#34;&gt;RStudio Server&lt;/a&gt; e o &lt;a href=&#34;https://www.rstudio.com/products/shiny/download-server/&#34;&gt;Shiny Server&lt;/a&gt; é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/feature.png" />
-    </item>
-    
-    <item>
-      <title>Analisando o mercado de cryptomoedas com R</title>
-      <link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid>
-      <description>&lt;div class=&#34;w3-panel w3-pale-yellow w3-border&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;⚠️ Aviso (2026):&lt;/strong&gt; Os pacotes e APIs usados neste post são de 2017 e foram descontinuados: o &lt;code&gt;coinmarketcapr&lt;/code&gt; passou a exigir chave de API paga e a API da BlinkTrade foi encerrada. A lógica de extrair, tratar e monitorar dados no R ainda é válida — veja a versão moderna com agentes de IA em &lt;a href=&#34;https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/&#34;&gt;Equipe Multiagente para Análise do Bitcoin&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;as-cryptomoedas&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;As cryptomoedas&lt;/h1&gt;&#xA;&lt;p&gt;Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vem crescendo rapidamente, e grandes canais de informação já cobrem o assunto. A cotação do Bitcoin já pode ser acompanhada nos maiores sites do mercado financeiro. Diante de tantas novidades, vale entender como a programação pode ajudar a explorar temas tão recentes.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bitcoin on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/bitcoin/</link><description>Recent content in Bitcoin on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/bitcoin/index.xml" rel="self" type="application/rss+xml"/><item><title>Bitcoin Debrief</title><link>https://gomesfellipe.github.io/projects/bitcoindebrief/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/projects/bitcoindebrief/</guid><description>&lt;p&gt;Link do app: &lt;a href="https://bitcoindebrief.com/" target="_blank" rel="noreferrer"&gt;https://bitcoindebrief.com/&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Newsletter diária automatizada que resume tudo sobre Bitcoin em 3 minutos, todo dia de manhã (6h, horário de Brasília).&lt;/p&gt;
+
+&lt;h1 class="relative group"&gt;O que traz
+ &lt;div id="o-que-traz" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#o-que-traz" aria-label="Âncora"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Preço em tempo real e variação em 24h/7 dias&lt;/li&gt;
+&lt;li&gt;Indicadores técnicos (RSI, Bandas de Bollinger, médias móveis) traduzidos em português simples&lt;/li&gt;
+&lt;li&gt;Indicadores macroeconômicos (CPI, PIB, desemprego) que afetam o preço do Bitcoin&lt;/li&gt;
+&lt;li&gt;Sentimento de mercado (Fear &amp;amp; Greed Index, dominância do Bitcoin)&lt;/li&gt;
+&lt;li&gt;5 notícias curadas das principais fontes de cripto do dia&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 class="relative group"&gt;Fontes de dados
+ &lt;div id="fontes-de-dados" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#fontes-de-dados" aria-label="Âncora"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;Coleta automatizada via API: Binance, CoinGecko, FRED (Federal Reserve Economic Data), Glassnode e CoinDesk.&lt;/p&gt;</description></item><item><title>Equipe Multiagente com LangChain e LangGraph para Análise do Bitcoin</title><link>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</link><pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/</guid><description>&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href="https://gomesfellipe.github.io/resources/langchain-series/"&gt;ver índice&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/"&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/"&gt;Detecção de Linguagem Tóxica com Gemma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;→ Equipe Multiagente para Bitcoin&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/"&gt;Agente para Ligações de Telemarketing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/"&gt;LLM Local com Qwen sem APIs&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;!-- Neste post, vamos mergulhar na criação de uma equipe de agentes de Inteligência Artificial (IA) que trabalham juntos para coletar dados, analisar tendências e decidir se é hora de alertar sobre oportunidades de investimento no Bitcoin. Utilizaremos Python, o framework LangChain e sua extensão LangGraph para orquestrar esses agentes, além de técnicas de Prompt Engineering para garantir que cada "membro" da equipe execute sua função com precisão. --&gt;
+&lt;!-- Você já se perguntou como acompanhar o volátil mercado de Bitcoin sem passar horas analisando gráficos e indicadores complexos? --&gt;
+&lt;!-- Prepare-se para descobrir como a IA generativa pode se tornar sua aliada na análise de criptomoedas! --&gt;
+&lt;div id="por-que-analisar-o-mercado-bitcoin-com-agentes-de-ia" class="section level2"&gt;
+&lt;h1&gt;Por que Analisar o Mercado Bitcoin com Agentes de IA?&lt;/h1&gt;
+&lt;p&gt;O cenário do bitcoin sempre foi meio intrigante. Foi lançado há 16 anos mas até hoje ninguém sabe ao certo quem está por trás do projeto — o criador, conhecido apenas pelo pseudônimo Satoshi Nakamoto, &lt;strong&gt;nunca revelou sua identidade&lt;/strong&gt;. Além disso o bitcoin foi a &lt;a href="https://www.mgcholding.com.br/blog/blockchain-bitcoin-e-ativos-virtuais-entenda-a-relacao/#:~:text=O%20blockchain%2C%20em%20sua%20ess%C3%AAncia,conhecida%20aplica%C3%A7%C3%A3o%20da%20tecnologia%20blockchain."&gt;primeira e ainda é a mais conhecida aplicação da tecnologia &lt;strong&gt;Blockchain&lt;/strong&gt;&lt;/a&gt;, que revolucionou a forma como lidamos com registros digitais e segurança dos dados. Sua &lt;strong&gt;natureza descentralizada&lt;/strong&gt; e sua notória &lt;strong&gt;volatilidade&lt;/strong&gt; o tornam um ativo único.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/feature.jpg"/></item><item><title>Bot com Machine Learning para alertas de investimento</title><link>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</link><pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2020-03-25-investment-alert/</guid><description>&lt;style&gt;
+.column {
+ float: left;
+ width: 50%;
+ padding: 10px;
+}
+
+.column4 {
+ float: left;
+ width: 33%;
+ padding: 10px;
+}
+
+.column8 {
+ float: left;
+ width: 66%;
+ padding: 10px;
+}
+
+.row:after {
+ content: "";
+ display: table; 
+ clear: both;
+}
+&lt;/style&gt;
+&lt;div id="por-que-investir" class="section level2"&gt;
+&lt;h1&gt;Por que investir?&lt;/h1&gt;
+&lt;p&gt;Como esta sua situação financeira? Caso tenha alguma reserva pode ser interessante pensar em investimentos pois a poupança já não é mais garantia de lucro no longo prazo, não acredita?&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2020-03-25-investment-alert/feature.png"/></item><item><title>Seu app, RStudio e Shiny Server na nuvem do Google</title><link>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</link><pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-10-27-server-cloud/</guid><description>&lt;div class="w3-panel w3-pale-yellow w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Nota de atualização (2026):&lt;/strong&gt; Este post usa Ubuntu 16.04 LTS (EOL desde 2021), RStudio Server (renomeado para &lt;strong&gt;Posit Workbench&lt;/strong&gt;) e Shiny Server na instância &lt;code&gt;f1-micro&lt;/code&gt; do Google Cloud. Os passos gerais ainda funcionam, mas o Ubuntu mínimo recomendado hoje é o 22.04 LTS e os pacotes de instalação do RStudio/Posit mudaram de URL. Para instâncias novas, consulte a &lt;a href="https://posit.co/download/rstudio-server/" rel="nofollow"&gt;documentação atual do Posit Workbench&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="objetivo-do-post" class="section level2"&gt;
+&lt;h1&gt;Objetivo do post &lt;i class="fa fa-rocket"&gt;&lt;/i&gt;&lt;/h1&gt;
+&lt;p&gt;Uma das várias maneiras de se implementar o &lt;a href="https://www.rstudio.com/products/rstudio/download-server/"&gt;RStudio Server&lt;/a&gt; e o &lt;a href="https://www.rstudio.com/products/shiny/download-server/"&gt;Shiny Server&lt;/a&gt; é através de serviços de nuvem que fornecem máquinas virtuais. Empresas gigantes no mercado como Amazon Web Services (AWS), Microsoft, Google, IBM, Oracle etc têm investido pesado nestes serviços e a escolha de qual cloud utilizar deve ser feita de acordo com a necessidade do usuário pois cada uma delas oferecem diferentes preços com diferentes custos/benefícios.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-10-27-server-cloud/feature.png"/></item><item><title>Analisando o mercado de cryptomoedas com R</title><link>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</link><pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/</guid><description>&lt;div class="w3-panel w3-pale-yellow w3-border"&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Aviso (2026):&lt;/strong&gt; Os pacotes e APIs usados neste post são de 2017 e foram descontinuados: o &lt;code&gt;coinmarketcapr&lt;/code&gt; passou a exigir chave de API paga e a API da BlinkTrade foi encerrada. A lógica de extrair, tratar e monitorar dados no R ainda é válida — veja a versão moderna com agentes de IA em &lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/"&gt;Equipe Multiagente para Análise do Bitcoin&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="as-cryptomoedas" class="section level1"&gt;
+&lt;h1&gt;As cryptomoedas&lt;/h1&gt;
+&lt;p&gt;Quem acompanha os jornais já deve ter notado que o mercado de cryptomoedas vem crescendo rapidamente, e grandes canais de informação já cobrem o assunto. A cotação do Bitcoin já pode ser acompanhada nos maiores sites do mercado financeiro. Diante de tantas novidades, vale entender como a programação pode ajudar a explorar temas tão recentes.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-04-analisando-o-mercado-de-cryptomoedas-com-r/feature.png"/></item></channel></rss>

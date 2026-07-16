@@ -1,23 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Shiny on Fellipe Gomes</title>
-    <link>https://gomesfellipe.github.io/tags/shiny/</link>
-    <description>Recent content in Shiny on Fellipe Gomes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <copyright>© 2026 Fellipe Gomes</copyright>
-    <lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/shiny/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Um ano de blog! Retrospectiva de 2018 em Data Science</title>
-      <link>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</guid>
-      <description>&lt;style type=&#34;text/css&#34;&gt;&#xA;.retro-row {&#xA;  display: grid;&#xA;  grid-template-columns: repeat(3, 1fr);&#xA;  gap: 1.25rem;&#xA;  margin-bottom: 1.5rem;&#xA;}&#xA;.retro-card {&#xA;  display: flex;&#xA;  flex-direction: column;&#xA;  border-radius: 0.5rem;&#xA;  overflow: hidden;&#xA;  border: 1px solid rgba(128,128,128,0.18);&#xA;  text-align: left;&#xA;}&#xA;.retro-card-thumb {&#xA;  aspect-ratio: 3/2;&#xA;  overflow: hidden;&#xA;  flex-shrink: 0;&#xA;}&#xA;.retro-card-thumb a { display: block; height: 100%; }&#xA;.retro-card-thumb img {&#xA;  width: 100% !important;&#xA;  height: 100%;&#xA;  object-fit: cover;&#xA;  display: block;&#xA;  transition: transform 0.22s ease;&#xA;}&#xA;.retro-card:hover .retro-card-thumb img { transform: scale(1.04); }&#xA;.retro-card-body { padding: 0.75rem; flex: 1; display: flex; flex-direction: column; }&#xA;.retro-card-title {&#xA;  font-size: 0.82rem;&#xA;  font-weight: 600;&#xA;  line-height: 1.4;&#xA;  margin: 0 0 0.5rem;&#xA;}&#xA;.retro-card-title a { text-decoration: none; }&#xA;.retro-card-desc { font-size: 0.78rem; line-height: 1.5; flex: 1; opacity: 0.85; }&#xA;@media (max-width: 640px) { .retro-row { grid-template-columns: 1fr; } }&#xA;&lt;/style&gt;&#xA;&lt;div id=&#34;até-que-um-dia..&#34; class=&#34;section level3&#34;&gt;&#xA;&lt;h1&gt;Até que um dia..&lt;/h1&gt;&#xA;&lt;p&gt;Agora em dezembro encerro um desafio pessoal de fazer pelo menos um post por mês durante o ano de 2018 e estou muito animado com o término deste ciclo! Espero ter contribuído um pouquinho com a comunidade de Estatística e Ciência de Dados que está maior a cada dia e cada vez mais importante.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shiny on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/shiny/</link><description>Recent content in Shiny on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/shiny/index.xml" rel="self" type="application/rss+xml"/><item><title>Um ano de blog! Retrospectiva de 2018 em Data Science</title><link>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</link><pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/</guid><description>&lt;style type="text/css"&gt;
+.retro-row {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 1.25rem;
+ margin-bottom: 1.5rem;
+}
+.retro-card {
+ display: flex;
+ flex-direction: column;
+ border-radius: 0.5rem;
+ overflow: hidden;
+ border: 1px solid rgba(128,128,128,0.18);
+ text-align: left;
+}
+.retro-card-thumb {
+ aspect-ratio: 3/2;
+ overflow: hidden;
+ flex-shrink: 0;
+}
+.retro-card-thumb a { display: block; height: 100%; }
+.retro-card-thumb img {
+ width: 100% !important;
+ height: 100%;
+ object-fit: cover;
+ display: block;
+ transition: transform 0.22s ease;
+}
+.retro-card:hover .retro-card-thumb img { transform: scale(1.04); }
+.retro-card-body { padding: 0.75rem; flex: 1; display: flex; flex-direction: column; }
+.retro-card-title {
+ font-size: 0.82rem;
+ font-weight: 600;
+ line-height: 1.4;
+ margin: 0 0 0.5rem;
+}
+.retro-card-title a { text-decoration: none; }
+.retro-card-desc { font-size: 0.78rem; line-height: 1.5; flex: 1; opacity: 0.85; }
+@media (max-width: 640px) { .retro-row { grid-template-columns: 1fr; } }
+&lt;/style&gt;
+&lt;div id="até-que-um-dia.." class="section level3"&gt;
+&lt;h1&gt;Até que um dia..&lt;/h1&gt;
+&lt;p&gt;Agora em dezembro encerro um desafio pessoal de fazer pelo menos um post por mês durante o ano de 2018 e estou muito animado com o término deste ciclo! Espero ter contribuído um pouquinho com a comunidade de Estatística e Ciência de Dados que está maior a cada dia e cada vez mais importante.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2018-12-26-retrospectiva/feature.png"/></item></channel></rss>
