@@ -1,274 +1,213 @@
-&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Fellipe Gomes - Data Science Blog</title>
+    <title>Tags on Fellipe Gomes</title>
     <link>https://gomesfellipe.github.io/tags/</link>
-    <description>Últimos posts sobre Data Science, Machine Learning e R</description>
+    <description>Recent content in Tags on Fellipe Gomes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>pt-br</language>
-    <managingEditor>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</managingEditor>
-    <webMaster>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</webMaster>
-    <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://gomesfellipe.github.io/tags/" rel="self" type="application/rss+xml" />
+    <language>pt-BR</language>
+    <copyright>© 2026 Fellipe Gomes</copyright>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Aprendizado</title>
+      <link>https://gomesfellipe.github.io/tags/aprendizado/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/aprendizado/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Bitcoin</title>
+      <link>https://gomesfellipe.github.io/tags/bitcoin/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/bitcoin/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Carreira</title>
+      <link>https://gomesfellipe.github.io/tags/carreira/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/carreira/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Ciencia-De-Dados</title>
+      <link>https://gomesfellipe.github.io/tags/ciencia-de-dados/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/ciencia-de-dados/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Data-Science</title>
+      <link>https://gomesfellipe.github.io/tags/data-science/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/data-science/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Freelance</title>
+      <link>https://gomesfellipe.github.io/tags/freelance/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/freelance/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Ia</title>
+      <link>https://gomesfellipe.github.io/tags/ia/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/ia/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Machine-Learning</title>
+      <link>https://gomesfellipe.github.io/tags/machine-learning/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/machine-learning/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Programacao</title>
+      <link>https://gomesfellipe.github.io/tags/programacao/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/programacao/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Trabalho Remoto</title>
+      <link>https://gomesfellipe.github.io/tags/trabalho-remoto/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/trabalho-remoto/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Youtube</title>
+      <link>https://gomesfellipe.github.io/tags/youtube/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/youtube/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Estatistica</title>
+      <link>https://gomesfellipe.github.io/tags/estatistica/</link>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/estatistica/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Livros</title>
+      <link>https://gomesfellipe.github.io/tags/livros/</link>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/livros/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Agent-Ai</title>
       <link>https://gomesfellipe.github.io/tags/agent-ai/</link>
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      
       <guid>https://gomesfellipe.github.io/tags/agent-ai/</guid>
       <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/agent-ai/">Agent-Ai</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
+      
     </item>
+    
     <item>
       <title>Apple-Silicon</title>
       <link>https://gomesfellipe.github.io/tags/apple-silicon/</link>
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      
       <guid>https://gomesfellipe.github.io/tags/apple-silicon/</guid>
       <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/apple-silicon/">Apple-Silicon</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
+      
     </item>
+    
     <item>
       <title>Gguf</title>
       <link>https://gomesfellipe.github.io/tags/gguf/</link>
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      
       <guid>https://gomesfellipe.github.io/tags/gguf/</guid>
       <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/gguf/">Gguf</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
+      
     </item>
+    
     <item>
       <title>Langchain</title>
       <link>https://gomesfellipe.github.io/tags/langchain/</link>
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      
       <guid>https://gomesfellipe.github.io/tags/langchain/</guid>
       <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/langchain/">Langchain</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
+      
     </item>
+    
+    <item>
+      <title>Langchain-Series</title>
+      <link>https://gomesfellipe.github.io/tags/langchain-series/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/tags/langchain-series/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Llama-Cpp</title>
       <link>https://gomesfellipe.github.io/tags/llama-cpp/</link>
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      
       <guid>https://gomesfellipe.github.io/tags/llama-cpp/</guid>
       <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/llama-cpp/">Llama-Cpp</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
+      
     </item>
+    
     <item>
       <title>Llm</title>
       <link>https://gomesfellipe.github.io/tags/llm/</link>
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
+      
       <guid>https://gomesfellipe.github.io/tags/llm/</guid>
       <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/llm/">Llm</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
+      
     </item>
-    <item>
-      <title>Open-Source</title>
-      <link>https://gomesfellipe.github.io/tags/open-source/</link>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/open-source/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/open-source/">Open-Source</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>https://gomesfellipe.github.io/tags/python/</link>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/python/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/python/">Python</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Qwen</title>
-      <link>https://gomesfellipe.github.io/tags/qwen/</link>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/qwen/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/qwen/">Qwen</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Call-Center</title>
-      <link>https://gomesfellipe.github.io/tags/call-center/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/call-center/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/call-center/">Call-Center</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Gpt-4</title>
-      <link>https://gomesfellipe.github.io/tags/gpt-4/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/gpt-4/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/gpt-4/">Gpt-4</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Nlp</title>
-      <link>https://gomesfellipe.github.io/tags/nlp/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/nlp/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/nlp/">Nlp</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Sentiment-Analysis</title>
-      <link>https://gomesfellipe.github.io/tags/sentiment-analysis/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/sentiment-analysis/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/sentiment-analysis/">Sentiment-Analysis</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Speech-to-Text</title>
-      <link>https://gomesfellipe.github.io/tags/speech-to-text/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/speech-to-text/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/speech-to-text/">Speech-to-Text</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Telemarketing</title>
-      <link>https://gomesfellipe.github.io/tags/telemarketing/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/telemarketing/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/telemarketing/">Telemarketing</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Voice-Analytics</title>
-      <link>https://gomesfellipe.github.io/tags/voice-analytics/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/voice-analytics/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/voice-analytics/">Voice-Analytics</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Whisper</title>
-      <link>https://gomesfellipe.github.io/tags/whisper/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/whisper/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/whisper/">Whisper</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Datascience</title>
-      <link>https://gomesfellipe.github.io/tags/datascience/</link>
-      <pubDate>Sun, 08 Jun 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/datascience/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/datascience/">Datascience</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>Machinelearning</title>
-      <link>https://gomesfellipe.github.io/tags/machinelearning/</link>
-      <pubDate>Sun, 08 Jun 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/machinelearning/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/machinelearning/">Machinelearning</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
-    <item>
-      <title>R</title>
-      <link>https://gomesfellipe.github.io/tags/r/</link>
-      <pubDate>Sun, 08 Jun 2025 00:00:00 +0000</pubDate>
-      <author>gomes.fellipe1@gmail.com (Fellipe Carvalho Gomes)</author>
-      <guid>https://gomesfellipe.github.io/tags/r/</guid>
-      <description></description>
-      <content:encoded>&lt;![CDATA[
-        
-        <p><strong>Leia o post completo em:</strong> <a href="https://gomesfellipe.github.io/tags/r/">R</a></p>
-        <p><em>Este post foi originalmente publicado em <a href="https://gomesfellipe.github.io/">Fellipe Gomes - Data Science Blog</a></em></p>
-      ]]></content:encoded>
-    </item>
+    
   </channel>
 </rss>

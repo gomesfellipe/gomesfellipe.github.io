@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tufte on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/tags/tufte/</link>
+    <description>Recent content in Tufte on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <copyright>© 2026 Fellipe Gomes</copyright>
+    <lastBuildDate>Sat, 04 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/tufte/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Criando Relatórios com o Template Tufte no R (RMarkdown)</title>
+      <link>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/</guid>
+      <description>&lt;p&gt;Além da limpeza da base de dados, das análises e da aplicação de metodologias estatísticas, escrever relatórios é uma tarefa indispensável e que ocupa boa parte do tempo de quem trabalha com dados. Como disse Khalil Gibran, é preciso &lt;em&gt;transformar em palavras aquilo que já conhecemos em pensamentos&lt;/em&gt;. O problema é que ninguém quer gastar tempo precioso de análise brigando com a formatação do documento.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;É aí que entram os templates. O pacote &lt;code&gt;tufte&lt;/code&gt;, disponível no &lt;a href=&#34;https://cran.r-project.org&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;CRAN&lt;/a&gt;, resolve isso para quem escreve em RMarkdown: ele traz um layout pronto, elegante e focado no conteúdo, para você formatar menos e analisar mais. Este post mostra o que é esse estilo, como instalar e como usar os recursos que o tornam diferente.&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2017-12-14-criando-relatorios-com-template-tufte/feature.png" />
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,2776 @@
+<!doctype html>
+<html
+  lang="pt-BR"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="pt-BR">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Análise de sobrevivência com dados do PUBG no Kaggle &middot; Fellipe Gomes</title>
+    <meta name="title" content="Análise de sobrevivência com dados do PUBG no Kaggle &middot; Fellipe Gomes">
+  
+
+  
+  
+  
+  
+  
+    
+  
+    
+  
+    
+  
+  
+    <meta name="description" content="O que interfere na probabilidade de sobreviver no PUBG? Aplicamos Kaplan-Meier e regressão de Cox em dados abertos do jogo hospedados no Kaggle.">
+  
+  
+    <meta name="keywords" content="analise-de-sobrevivencia,data-mining,estatistica,gamificacao,kaggle,modelagem,modelagem-estatistica,r,survivor,">
+  
+  
+  
+  <link rel="canonical" href="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/">
+  
+  
+
+  
+  
+    <meta name="author" content="Fellipe Gomes">
+  
+  
+    
+      
+        
+          <link href="https://github.com/gomesfellipe" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://www.linkedin.com/in/gomesfellipe" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://medium.com/@gomesfellipe" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://stackoverflow.com/users/9756163" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://www.kaggle.com/gomes555" rel="me">
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <link href="/index.xml" rel="me">
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/">
+	<meta property="og:site_name" content="Fellipe Gomes">
+	<meta property="og:title" content="Análise de sobrevivência com dados do PUBG no Kaggle">
+	<meta property="og:description" content="O que interfere na probabilidade de sobreviver no PUBG? Aplicamos Kaplan-Meier e regressão de Cox em dados abertos do jogo hospedados no Kaggle.">
+	<meta property="og:locale" content="pt_BR">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="post">
+		<meta property="article:published_time" content="2018-11-28T00:00:00+00:00">
+		<meta property="article:modified_time" content="2018-11-28T00:00:00+00:00">
+		<meta property="article:tag" content="Analise-De-Sobrevivencia">
+		<meta property="article:tag" content="Data-Mining">
+		<meta property="article:tag" content="Estatistica">
+		<meta property="article:tag" content="Gamificacao">
+		<meta property="article:tag" content="Kaggle">
+		<meta property="article:tag" content="Modelagem">
+		<meta property="og:image" content="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png">
+
+  
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/feature.png">
+	<meta name="twitter:title" content="Análise de sobrevivência com dados do PUBG no Kaggle">
+	<meta name="twitter:description" content="O que interfere na probabilidade de sobreviver no PUBG? Aplicamos Kaplan-Meier e regressão de Cox em dados abertos do jogo hospedados no Kaggle.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+      
+      
+        
+      
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.aa0b5393414fec8bf7686939b886eb5dbb92e2ca45ecedb5da189fb79ee5d469e15e58545613670bcacd7ede9852f0112299315803649ecb6fdf562b89814851.css"
+    integrity="sha512-qgtTk0FP7Iv3aGk5uIbrXbuS4spF7O212hift57l1GnhXlhUVhNnC8rNft6YUvARIpkxWANknstv31YriYFIUQ==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.013b3cd56c20b123f9231798354a6d6ec1b3f60c33b8f83b6997d50082b79e3bc2869c56395d24b64a828313a07bfda38cfcba092baf6b9e3586122067e95164.js"
+    integrity="sha512-ATs81WwgsSP5IxeYNUptbsGz9gwzuPg7aZfVAIK3njvChpxWOV0ktkqCgxOge/2jjPy6CSuva541hhIgZ&#43;lRZA=="></script>
+  
+
+
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.fef019b6dbf2c8a5f03bde7b069135c4b35fd364d9960a16c6dfafbfbb52e8364310f4bfc6f2374575c0b6fb476219636a8b887a7a81a242326e7d1d33251be5.js"
+      integrity="sha512-/vAZttvyyKXwO957BpE1xLNf02TZlgoWxt&#43;vv7tS6DZDEPS/xvI3RXXAtvtHYhljaouIenqBokIybn0dMyUb5Q=="
+      data-copy="Copiar"
+      data-copied="Copiado"></script>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Análise de sobrevivência com dados do PUBG no Kaggle",
+    "headline": "Análise de sobrevivência com dados do PUBG no Kaggle",
+    "description": "O que interfere na probabilidade de sobreviver no PUBG? Aplicamos Kaplan-Meier e regressão de Cox em dados abertos do jogo hospedados no Kaggle.",
+    "inLanguage": "pt-BR",
+    "url" : "https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/",
+    "author" : {
+      "@type": "Person",
+      "name": "Fellipe Gomes",
+      "image": "https://gomesfellipe.github.io/img/main/peril.jpeg",
+      "sameAs": ["https://github.com/gomesfellipe", "https://www.linkedin.com/in/gomesfellipe", "https://medium.com/@gomesfellipe", "https://stackoverflow.com/users/9756163", "https://www.kaggle.com/gomes555", "/index.xml"]
+    },
+    "copyrightYear": "2018",
+    "dateCreated": "2018-11-28T00:00:00\u002b00:00",
+    "datePublished": "2018-11-28T00:00:00\u002b00:00",
+    
+    "dateModified": "2018-11-28T00:00:00\u002b00:00",
+    
+    "keywords": ["analise-de-sobrevivencia","data-mining","estatistica","gamificacao","kaggle","modelagem","modelagem-estatistica","r","survivor"],
+    
+    "mainEntityOfPage": "https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/",
+    "wordCount": "4256"
+  }]
+  </script>
+
+
+
+  
+  
+    
+
+  <script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-LS6R7SKJKK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LS6R7SKJKK');
+</script>
+
+
+
+
+
+  
+
+  
+  
+    
+<meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'">
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/hljs-theme.min.2ae94b4ec3f3f8ced907573ceedfe33cf38636e35c5cdde6c6fee565c162828d.css" integrity="sha256-KulLTsPz&#43;M7ZB1c87t/jPPOGNuNcXN3mxv7lZcFigo0=">
+<script defer src="/js/hljs-bundle.min.231a3e55c83032b8a5e1c74f310ea5069bcacc2c8a1ba8d8819859468a016ff0.js" integrity="sha256-Ixo&#43;VcgwMril4cdPMQ6lBpvKzCyKG6jYgZhZRooBb/A="></script>
+<script defer src="/js/codeblocks.min.a5ebd7a1d23d9700d3d5ec2996c554a38a6b5e9f95805f5850e2d5c1da4b6fe6.js" integrity="sha256-pevXodI9lwDT1ewplsVUo4prXp&#43;VgF9YUOLVwdpLb&#43;Y="></script>
+
+
+<script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] }, options: { ignoreHtmlClass: 'tex2jax_ignore' } };</script>
+<script id="MathJax-script" defer
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"
+  integrity="sha384-M5jmNxKC9EVnuqeMwRHvFuYUE8Hhp0TgBruj/GZRkYtiMrCRgH7yvv5KY+Owi7TW"
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+<style>
+  .post-hero-img { border-radius: .6rem; box-shadow: 0 4px 12px rgba(0,0,0,.18); transition: transform .3s ease, box-shadow .3s ease; will-change: transform; }
+  .post-hero-img:hover { transform: translateY(-6px); box-shadow: 0 22px 45px rgba(0,0,0,.40); }
+</style>
+
+
+<style>
+  @keyframes pix-pulse{0%,100%{box-shadow:0 6px 18px rgba(0,0,0,.3),0 0 0 0 rgba(251,191,36,.55)}60%{box-shadow:0 6px 18px rgba(0,0,0,.3),0 0 0 10px rgba(251,191,36,0)}}
+  #pix-btn{position:fixed;right:1.3rem;bottom:1.3rem;z-index:60;width:3.3rem;height:3.3rem;border-radius:9999px;background:#FBBF24;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;transition:transform .2s;animation:pix-pulse 2.4s ease-in-out infinite}
+  #pix-btn:hover{transform:translateY(-3px) scale(1.06);animation-play-state:paused}
+  #pix-pop{position:fixed;right:1.3rem;bottom:5.4rem;z-index:60;width:230px;padding:1rem;border-radius:.7rem;background:#fff;color:#111;box-shadow:0 12px 34px rgba(0,0,0,.4);text-align:center;display:none}
+  #pix-pop.open{display:block}
+  #pix-pop img{width:190px;height:190px;border-radius:.4rem}
+</style>
+
+
+<style>
+   
+  :root{--color-neutral:255,255,255;--color-neutral-50:250,250,249;--color-neutral-100:245,245,244;--color-neutral-200:231,229,228;--color-neutral-300:214,211,209;--color-neutral-400:168,162,158;--color-neutral-500:120,113,108;--color-neutral-600:87,83,78;--color-neutral-700:68,64,60;--color-neutral-800:41,37,36;--color-neutral-900:28,25,23}
+  .main-menu a.truncate{font-size:1.4rem;font-weight:700;letter-spacing:-.01em;max-width:none}
+   
+  #scroll-to-top{inset-inline-end:1.3rem!important;inset-inline-start:auto!important;bottom:5.4rem!important}
+</style>
+<script>
+addEventListener('DOMContentLoaded',function(){
+  var b=document.createElement('button');b.id='pix-btn';b.title='Apoie o Blog';b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5b3a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="1" y2="4"/><line x1="10" x2="10" y1="1" y2="4"/><line x1="14" x2="14" y1="1" y2="4"/></svg>';
+  var p=document.createElement('div');p.id='pix-pop';
+  p.innerHTML='<div style="font-weight:700;font-size:1.05rem;margin-bottom:.5rem">Apoie o Blog</div><div style="font-size:.92rem;margin-bottom:.15rem">Gostou do Conteúdo?</div><div style="font-size:.85rem;opacity:.7;margin-bottom:.7rem">Considere fazer uma doação</div><img src="/img/qrcode/qrcode-pix.png" alt="QR Pix">';
+  b.onclick=function(e){e.stopPropagation();p.classList.toggle('open')};
+  document.addEventListener('click',function(){p.classList.remove('open')});
+  document.body.appendChild(b);document.body.appendChild(p);
+});
+</script>
+
+
+<style>
+  .article-content #TOC{display:none}  
+  .auto-toc{font-size:.85rem;line-height:1.3}
+  .auto-toc a{display:block;padding:.2rem 0 .2rem .9rem;color:rgb(var(--color-neutral-500));text-decoration:none;border-inline-start:2px solid rgba(127,127,127,.2)}
+  .auto-toc a:hover{color:rgb(var(--color-primary-500))}
+  .auto-toc a.lvl3{padding-inline-start:1.8rem;font-size:.8rem;opacity:.85}
+  .auto-toc a.active{color:rgb(var(--color-primary-600));border-inline-start-color:rgb(var(--color-primary-500));font-weight:600}
+  .dark .auto-toc a{color:rgb(var(--color-neutral-400))}
+</style>
+<script>
+addEventListener('DOMContentLoaded',function(){
+  var slot=document.getElementById('auto-toc');if(!slot)return;
+  var art=document.querySelector('.article-content');if(!art)return;
+  var hs=[].slice.call(art.querySelectorAll('h1,h2'));
+  var wrap=document.getElementById('toc-wrap');
+  if(hs.length<2){if(wrap){wrap.style.display='none';}return;}
+  var used={};
+  function slug(t){var s=t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'sec';if(used[s]){s+='-'+(used[s]++);}else{used[s]=1;}return s;}
+  hs.forEach(function(h){if(!h.id){h.id=slug(h.textContent);}var a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;if(h.tagName==='H2'){a.className='lvl3';}a.dataset.t=h.id;slot.appendChild(a);});
+  var links=[].slice.call(slot.querySelectorAll('a'));
+  function spy(){var y=scrollY+innerHeight*0.2,cur=hs[0];for(var i=0;i<hs.length;i++){if(hs[i].getBoundingClientRect().top+scrollY<=y){cur=hs[i];}}links.forEach(function(a){a.classList.toggle('active',a.dataset.t===cur.id);});}
+  addEventListener('scroll',spy,{passive:true});spy();
+});
+</script>
+
+  
+
+  
+  
+    
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"\"Análise de sobrevivência com dados do PUBG no Kaggle\"","datePublished":"\"2018-11-28T00:00:00Z\"","dateModified":"\"2018-11-28T00:00:00Z\"","description":"\"O que interfere na probabilidade de sobreviver no PUBG? Aplicamos Kaplan-Meier e regressão de Cox em dados abertos do jogo hospedados no Kaggle.\"","url":"\"https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/\"","inLanguage":"\"pt-br\"","author":{"@type":"Person","name":"\"Fellipe Gomes\"","url":"https://gomesfellipe.github.io/about/"},"publisher":{"@type":"Person","name":"Fellipe Gomes","url":"https://gomesfellipe.github.io/"}}
+</script>
+
+
+  
+
+  
+  
+    <meta name="google-adsense-account" content="ca-pub-3747387295925434">
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3747387295925434"
+      crossorigin="anonymous"></script>
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Ir para o conteúdo principal
+      </a>
+    </div>
+    
+    
+      <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+    
+    
+      <div>
+        <a href="/" class="flex">
+          <span class="sr-only">Fellipe Gomes</span>
+          
+            <img
+              src="/img/main/logo1.jpg"
+              width="204"
+              height="229"
+              class="logo max-h-20 max-w-20 object-scale-down object-left nozoom"
+              alt="">
+          
+        </a>
+      </div>
+    
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      Fellipe Gomes
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/post/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Posts"
+      title="Posts">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Posts
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <div class="nested-menu">
+      <div class="cursor-pointer flex items-center">
+        <a
+          
+            href="/agentic/"
+            
+          
+          aria-label="Agentic AI"
+          class="flex items-center text-base font-medium bf-icon-color-hover"
+          title="Agentic AI">
+          
+          <span class="text-bg font-bg break-normal" title="Agentic AI">
+            Agentic AI
+          </span>
+          <span>
+            <span class="relative block icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+</span>
+          </span>
+        </a>
+      </div>
+      <div class="menuhide">
+        <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl bg-neutral/25 dark:bg-neutral-800/25">
+          <div class="flex flex-col space-y-3">
+            
+              <a
+                href="/agentic/criacao-conteudo-design/"
+                
+                aria-label="Criação e Design"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="Criação, conteúdo e design">
+                  Criação e Design
+                </span>
+              </a>
+            
+              <a
+                href="/agentic/documentos-conhecimento/"
+                
+                aria-label="Documentos"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="Documentos e conhecimento">
+                  Documentos
+                </span>
+              </a>
+            
+              <a
+                href="/agentic/desenvolvimento-automacao-ia/"
+                
+                aria-label="Desenvolvimento"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="Desenvolvimento e automação com IA">
+                  Desenvolvimento
+                </span>
+              </a>
+            
+              <a
+                href="/agentic/contexto-tokens-custos/"
+                
+                aria-label="Contexto e Tokens"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="Contexto, tokens e custos">
+                  Contexto e Tokens
+                </span>
+              </a>
+            
+              <a
+                href="/agentic/produtividade-utilitarios-desktop/"
+                
+                aria-label="Produtividade"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="Produtividade e utilitários desktop">
+                  Produtividade
+                </span>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    
+      
+  
+    <div class="nested-menu">
+      <div class="cursor-pointer flex items-center">
+        <a
+          
+            tabindex="0"
+          
+          aria-label="Recursos"
+          class="flex items-center text-base font-medium bf-icon-color-hover"
+          title="">
+          
+          <span class="text-bg font-bg break-normal" title="">
+            Recursos
+          </span>
+          <span>
+            <span class="relative block icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+</span>
+          </span>
+        </a>
+      </div>
+      <div class="menuhide">
+        <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl bg-neutral/25 dark:bg-neutral-800/25">
+          <div class="flex flex-col space-y-3">
+            
+              <a
+                href="/resources/remote-work/"
+                
+                aria-label="Trabalho Remoto"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="Trabalho remoto">
+                  Trabalho Remoto
+                </span>
+              </a>
+            
+              <a
+                href="/resources/public-datasets/"
+                
+                aria-label="Bases de Dados Públicas"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="Bancos de dados públicos">
+                  Bases de Dados Públicas
+                </span>
+              </a>
+            
+              <a
+                href="/resources/youtube-channels/"
+                
+                aria-label="Canais no YouTube"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="Canais do YouTube para Cientistas de Dados">
+                  Canais no YouTube
+                </span>
+              </a>
+            
+              <a
+                href="/resources/shoulders-of-giants/"
+                
+                aria-label="Ombros de Gigantes"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="Sobre ombros de gigantes">
+                  Ombros de Gigantes
+                </span>
+              </a>
+            
+              <a
+                href="/resources/langchain-series/"
+                
+                aria-label="Série LangChain"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="Série LangChain — Agentes com Python">
+                  Série LangChain
+                </span>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    
+      
+  
+    <a
+      href="/books/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Livros"
+      title="Livros que recomendo para cientistas de dados">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Livros
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/courses/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Cursos"
+      title="Cursos">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Cursos
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/projects/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Projetos"
+      title="Projetos">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Projetos
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/about/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Resume"
+      title="Sobre">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Resume
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Pesquisar (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Mudar para modo escuro"
+        type="button"
+        class="text-base bf-icon-color-hover"
+        title="Mudar para modo escuro">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Pesquisar (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Mudar para modo escuro"
+      title="Mudar para modo escuro"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/post/"
+        aria-label="Posts"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Posts" class="text-2xl font-bold tracking-tight">
+          Posts
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/agentic/"
+        aria-label="Agentic AI"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Agentic AI" class="text-2xl font-bold tracking-tight">
+          Agentic AI
+        </span>
+        
+          <label
+            for="fullscreen-submenu-agentic"
+            class="ms-auto flex items-center justify-center h-10 w-10 cursor-pointer rounded-lg bf-icon-color-hover border bf-border-color bf-border-color-hover">
+            <span class="relative block icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+</span>
+          </label>
+        
+      </a>
+
+      
+        <input checked type="checkbox" id="fullscreen-submenu-agentic" autocomplete="off" class="hidden peer/full">
+
+        <div
+          class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 peer-checked/full:grid-rows-[1fr]">
+          <div class="overflow-hidden">
+            <div class="ms-7 mt-4">
+              
+                <a
+                  href="/agentic/criacao-conteudo-design/"
+                  aria-label="Criação e Design"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="Criação, conteúdo e design" class="text-lg">
+                    Criação e Design
+                  </span>
+                </a>
+              
+                <a
+                  href="/agentic/documentos-conhecimento/"
+                  aria-label="Documentos"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="Documentos e conhecimento" class="text-lg">
+                    Documentos
+                  </span>
+                </a>
+              
+                <a
+                  href="/agentic/desenvolvimento-automacao-ia/"
+                  aria-label="Desenvolvimento"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="Desenvolvimento e automação com IA" class="text-lg">
+                    Desenvolvimento
+                  </span>
+                </a>
+              
+                <a
+                  href="/agentic/contexto-tokens-custos/"
+                  aria-label="Contexto e Tokens"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="Contexto, tokens e custos" class="text-lg">
+                    Contexto e Tokens
+                  </span>
+                </a>
+              
+                <a
+                  href="/agentic/produtividade-utilitarios-desktop/"
+                  aria-label="Produtividade"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="Produtividade e utilitários desktop" class="text-lg">
+                    Produtividade
+                  </span>
+                </a>
+              
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href=""
+        aria-label="Recursos"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          Recursos
+        </span>
+        
+          <label
+            for="fullscreen-submenu-resources"
+            class="ms-auto flex items-center justify-center h-10 w-10 cursor-pointer rounded-lg bf-icon-color-hover border bf-border-color bf-border-color-hover">
+            <span class="relative block icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+</span>
+          </label>
+        
+      </a>
+
+      
+        <input checked type="checkbox" id="fullscreen-submenu-resources" autocomplete="off" class="hidden peer/full">
+
+        <div
+          class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 peer-checked/full:grid-rows-[1fr]">
+          <div class="overflow-hidden">
+            <div class="ms-7 mt-4">
+              
+                <a
+                  href="/resources/remote-work/"
+                  aria-label="Trabalho Remoto"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="Trabalho remoto" class="text-lg">
+                    Trabalho Remoto
+                  </span>
+                </a>
+              
+                <a
+                  href="/resources/public-datasets/"
+                  aria-label="Bases de Dados Públicas"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="Bancos de dados públicos" class="text-lg">
+                    Bases de Dados Públicas
+                  </span>
+                </a>
+              
+                <a
+                  href="/resources/youtube-channels/"
+                  aria-label="Canais no YouTube"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="Canais do YouTube para Cientistas de Dados" class="text-lg">
+                    Canais no YouTube
+                  </span>
+                </a>
+              
+                <a
+                  href="/resources/shoulders-of-giants/"
+                  aria-label="Ombros de Gigantes"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="Sobre ombros de gigantes" class="text-lg">
+                    Ombros de Gigantes
+                  </span>
+                </a>
+              
+                <a
+                  href="/resources/langchain-series/"
+                  aria-label="Série LangChain"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="Série LangChain — Agentes com Python" class="text-lg">
+                    Série LangChain
+                  </span>
+                </a>
+              
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/books/"
+        aria-label="Livros"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Livros que recomendo para cientistas de dados" class="text-2xl font-bold tracking-tight">
+          Livros
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/courses/"
+        aria-label="Cursos"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Cursos" class="text-2xl font-bold tracking-tight">
+          Cursos
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/projects/"
+        aria-label="Projetos"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Projetos" class="text-2xl font-bold tracking-tight">
+          Projetos
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/about/"
+        aria-label="Resume"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Sobre" class="text-2xl font-bold tracking-tight">
+          Resume
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+    <div
+      class="flex flex-wrap items-center [&_span]:text-2xl [&_.translation_button_.icon]:text-4xl! [&_.translation_button_span]:text-base! [&_.translation_.menuhide_span]:text-sm! gap-x-6 ps-2 mt-8 pt-8 border-t bf-border-color">
+      
+
+
+      
+    </div>
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+  <script>
+    (function () {
+      var mainmenu = document.querySelector(".main-menu");
+      if (!mainmenu) return;
+
+      var path = window.location.pathname;
+      var links = mainmenu.querySelectorAll('a[href="' + path + '"]');
+
+      links.forEach(function (link) {
+        var targets = link.querySelectorAll("span");
+        targets.forEach(function (el) {
+          el.classList.add("active");
+        });
+      });
+    })();
+  </script>
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/post/2018-11-28-pubg-sobrevivencia-kaggle/feature_hu_b70a363ff68698d5.png"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/post/2018-11-28-pubg-sobrevivencia-kaggle/feature_hu_b70a363ff68698d5.png"></script>
+  
+      
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Análise de sobrevivência com dados do PUBG no Kaggle
+      </h1>
+      
+        <p class="mt-2 text-lg text-neutral-600 dark:text-neutral-300">O que interfere na probabilidade de sobreviver no PUBG? Aplicamos Kaplan-Meier e regressão de Cox em dados abertos do jogo hospedados no Kaggle.</p>
+      
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2018-11-28T00:00:00&#43;00:00">28 de novembro de 2018</time><span class="px-2 text-primary-500">&middot;</span><span title="Tempo de leitura">20 minutos</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/categories/machine-learning/">
+                  
+                  <span class="flex cursor-pointer">
+  
+  
+  
+    
+    
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Machine Learning
+  </span>
+</span>
+
+                </a>
+              
+            
+            
+              
+            
+          
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/categories/fundamentos-de-data-science/">
+                  
+                  <span class="flex cursor-pointer">
+  
+  
+  
+    
+    
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Fundamentos De Data Science
+  </span>
+</span>
+
+                </a>
+              
+            
+            
+              
+            
+          
+        
+      
+        
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/analise-de-sobrevivencia/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Analise-De-Sobrevivencia
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/data-mining/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Data-Mining
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/estatistica/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Estatistica
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/gamificacao/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Gamificacao
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/kaggle/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Kaggle
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/modelagem/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Modelagem
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/modelagem-estatistica/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Modelagem-Estatistica
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/r/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    R
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/survivor/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Survivor
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+        
+      
+    </div>
+  
+
+
+      </div>
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+      
+      
+      
+        <div id="toc-wrap" class="hidden lg:block lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            
+              <nav id="auto-toc" class="auto-toc"></nav>
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+
+<div id="análise-de-sobrevivência-e-pubg" class="section level1">
+<h1>Análise de sobrevivência e PUBG</h1>
+<p>Análise de sobrevivência é um termo que se refere a situações médicas e é caracterizada pela sua variável resposta, que pode ser apresentada de três formas: probabilidade de sobrevivência, taxa de incidêcia e taxa de incidência acumulada.</p>
+<p>Na engenharia este termo também é conhecido como confiabilidade, no entanto, condições parecidas podem ocorrer em (inusitadas) outras áreas.</p>
+<p>PUBG é um jogo online multiplayer de batalha em que 100 jogadores são lançados em uma ilha e tem como objetivo principal <strong>sobreviver</strong>, a área de jogo diminui progressivamente, confinando os sobreviventes a um espaço cada vez menor e forçando encontros e o vencedor é o último jogador (ou time) a permanecer vivo.</p>
+<p>Um único jogo dura aproximadamente de 30-35 minutos e neste tempo o jogador coleta itens (arma, cura, boost), abate outros jogadores, comete e leva dano de seus adversários, pode dirigir veículos dentre outras ações enquanto tentam sobrevier ao mesmo tempo.</p>
+<p>Assim como no <a href="/post/2018-02-17-cheatsheet-gamificacao-r/">post sobre gamificação e o ranking de competições do Kaggle</a>, a dinâmica de sobrevivência do PUBG também tem seu apelo de disputa entre os jogadores. Questões que surgiram em mente após um período de estudos de análise de sobrevivência e confiabilidade e ouvindo pessoas falarem sobre esta modalidade de jogo:</p>
+<ul>
+<li>O que interefere na probabilidade de um indivíduo sobreviver?</li>
+<li>O que tem efeito no risco de um jogador ser abatido em um intervalo de tempo?</li>
+</ul>
+<p>Faremos uma abordagem estatística aqui, após uma breve análise exploratória os dados serão avaliados utilizando o modelo de Kaplan-Meier, que é um estimador de forma não paramétrica para a função de sobrevivência e o modelo semiparamétrico de regressão de riscos proporcionais de Cox.</p>
+
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Tratamos cada morte no PUBG como um "evento" e o tempo de sobrevivência do jogador como a variável resposta.</li>
+<li><strong>Kaplan-Meier</strong> estima a curva de sobrevivência; o <strong>teste log-rank</strong> compara curvas entre grupos.</li>
+<li>O <strong>modelo de Cox</strong> ajustado mostra que performance e distância percorrida reduzem o risco de morte, enquanto dirigir aumenta.</li>
+</ul>
+</blockquote>
+</div>
+<div id="a-base-de-dados" class="section level1">
+<h1>A Base de dados</h1>
+<p>A base de dados utilizada foi obtida através do Kaggle em “PUBG Match Deaths and Statistics”: <a href="https://www.kaggle.com/skihikingkevin/pubg-match-deaths" class="uri">https://www.kaggle.com/skihikingkevin/pubg-match-deaths</a> que conta com mais de 65 milhões de registros de mortes no jogo PlayerUnknown Battleground’s matches - PUBG.</p>
+<p><a href="https://www.kaggle.com/gomes555/analise-de-sobrevivencia-km-e-cox/">Existe uma versão deste post no kaggle</a> e além desta base, existe uma competição em andamento que vai até o dia 30 de Janeiro no link:<a href="https://www.kaggle.com/c/pubg-finish-placement-prediction" class="uri">https://www.kaggle.com/c/pubg-finish-placement-prediction</a> que desafia os jogadores a prever o posicionamento do vencedor em percentil, onde 1 corresponde ao 1º lugar e 0 corresponde ao último lugar do jogo. Fiz uma participação com um <a href="https://www.kaggle.com/gomes555/xgboost-caret-for-fun">script testando os resultados do algorítmo xgboost com caret</a> e também testei uns <a href="https://www.kaggle.com/gomes555/tidyverse-machine-learning-for-fun">ajustes com random forest utilizando o tidyverse</a>, na mesma linha do <a href="/post/2018-08-31-modelos-em-arvore/">outro desafio do Kaggle que resolvi com modelos baseados em árvore</a>. Esses scripts são abertos e estão prontos para uso, <a href="https://www.kaggle.com/gomes555">não me renderam a melhor posição</a> mas a intensão aqui é, principalmente, aprender e testar os métodos pois São muitas possibilidade para aprender e praticar. Voltando a base de dados:</p>
+<p>Segundo a <a href="https://www.kaggle.com/skihikingkevin/pubg-match-deaths#aggregate.zip">descrição da base no kaggle</a>:</p>
+<p><code>agg_match_stats_x.csv</code> fornece informações de correspondência mais agregadas sobre os dados de mortes, como tamanho da fila, fpp/tpp, morte do jogador, etc.</p>
+<p>As colunas são as seguintes:</p>
+<div class="col2">
+<ul>
+<li><code>match_id</code> : O id único de correspondência gerado por pubg.op.gg. É possível fazer uma junção disso com os dados das mortes para ver todas as informações</li>
+<li><code>party_size</code> : o número máximo de jogadores por equipe. por exemplo, 2 implica que era um sistema de fila dupla</li>
+<li><code>player_dist_ride</code> : unidades de distancia total (metros?) que o jogador percorreu em um veículo</li>
+<li><code>player_dist_walk</code> : unidades de distancia total (metros?) percorrida pelo jogador a pé</li>
+<li><code>match_mode</code> : se o jogo foi jogado em primeira pessoa (fpp) ou em terceira pessoa (tpp)</li>
+<li><code>team_placement</code> : a classificação final da equipe dentro da partida</li>
+<li><code>player_dmg</code> : Total de pontos de vida que o jogador distribuiu</li>
+<li><code>player_assists</code> : Número de assistências que o jogador marcou</li>
+<li><code>game_size</code> : o número total de equipes que estavam no jogo</li>
+<li><code>player_dbno</code> : Número de knockdowns que o jogador marcou</li>
+<li><code>player_kills</code> : Número de mortes que o jogador marcou</li>
+<li><code>team_id</code> : o ID da equipe à qual o jogador pertencia</li>
+<li><code>date</code> : a data e a hora em que a partida ocorreu</li>
+<li><code>player_name</code> : nome do jogador</li>
+</ul>
+<hr />
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/img.png" alt="Ilustração do jogo PUBG, base do estudo de análise de sobrevivência" style="width:100%;" /></p>
+</div>
+<p>A rotinas abaixo carregam os pacotes, funções customizadas e salva em extensão <code>.rds</code>uma amostra da base de dados utilizadas ao longo do post:</p>
+<pre class="r"><code># Carregar pacotes --------------------------------------------------------
+packages &lt;- c(&quot;data.table&quot;, &quot;dplyr&quot;, &quot;purrr&quot;, &quot;survival&quot;  , &quot;survminer&quot;,
+              &quot;ggfortify&quot;,&quot;GGally&quot;, &quot;ggplot2&quot;,&quot;moments&quot;, &quot;gridExtra&quot;,&quot;ggExtra&quot;,
+              &quot;cowplot&quot;,&quot;lubridate&quot;, &quot;scales&quot;, &quot;knitr&quot;, &quot;kableExtra&quot;, &quot;grid&quot;,
+              &quot;broom&quot;, &quot;formattable&quot;, &quot;grid&quot;)
+purrr::walk(packages,library, character.only = TRUE, warn.conflicts = FALSE)
+rm(packages)
+
+# Funcoes customizadas do github ------------------------------------------
+source(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/inicio_e_fim_da_base.R&quot;)
+source(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/grafico_descritivo.R&quot;)
+source(&quot;https://raw.githubusercontent.com/gomesfellipe/functions/master/sumario_custom_num.R&quot;)
+
+# Opcoes do documento -----------------------------------------------------
+# options(scipen = 99999)
+
+# Tema dos graficos -------------------------------------------------------
+theme_set(theme_bw()+
+            theme(axis.text.x = element_text(size=17),
+                  axis.text.y = element_text(size=17),
+                  axis.title.y = element_text(size=20), legend.position = &quot;bottom&quot;))
+
+# Tema das tabelas kable --------------------------------------------------
+kable2 &lt;- function(x,linhas=NULL,colunas=NULL, ...){
+  k &lt;- 
+    kable(x,digits = 4,...) %&gt;%
+    kable_styling(bootstrap_options = &quot;striped&quot;, full_width = F) %&gt;%
+    kable_styling(c(&quot;striped&quot;, &quot;bordered&quot;)) 
+  
+  if (!is.null(linhas)) {
+    # destque na linha:
+    k &lt;-  k %&gt;% row_spec(linhas, bold = T, color = &quot;white&quot;, background = &quot;#FFE8BD&quot;)
+  }
+  
+  if (!is.null(colunas)) {
+    # destque na colunas:
+    k &lt;-  k %&gt;% column_spec(colunas,bold=T, color=&quot;white&quot;, background = &quot;#FFE8BD&quot;)
+  }
+  k %&gt;%
+    scroll_box(width = &quot;850px&quot;)
+}</code></pre>
+<p>Em uma análise de sobrevivência é comum a presença de observações censuradas, (isto é, quando ocorre a perda de informação decorrente de não se ter observado a data de ocorrência do desfecho). No caso dessa base de dados não existe uma variável que define a censura, pois apenas a morte do jogador é registrada e é possível que se os jogadores se desconectarem do jogo mesmo que não sejam mortos seja contado como morte de qualquer jeito. Os detalhes por trás da aquisição de dados não trazem essa informação portanto pode não ser possível distinguir a censura do desfecho e isso é um detalhe relevante que deve ser levado em conta.</p>
+<pre class="r"><code># Carregar base -----------------------------------------------------------
+set.seed(2)   # reprodutivel
+pubg_tpp1 &lt;-  # Informacoes dos criterios de selecao no corpo do texto
+  map_df(paste0(&quot;agg_match_stats_&quot;,0:4,&quot;.csv&quot;), 
+         ~ fread(.x, showProgress = T,
+                 data.table = T)[match_mode == &quot;tpp&quot; &amp; party_size == 1 &amp; year(date) == 2018 &amp; player_dist_walk&gt;10 &amp; player_dmg != 0 ][, !c(&quot;match_mode&quot;,&quot;party_size&quot;,&quot;game_size&quot;,&quot;date&quot;, &quot;team_id&quot;,&quot;player_dbno&quot;, &quot;team_placement&quot;), with=FALSE][,player_survive_time := player_survive_time/60] %&gt;% 
+           group_by(match_id) %&gt;%
+           do(sample_n(.,1)) %&gt;% 
+           ungroup() 
+  )
+
+# Salvar base coletada ----------------------------------------------------
+saveRDS(pubg_tpp1,&quot;pubg_tpp1.rds&quot;)</code></pre>
+<!-- <iframe src="https://giphy.com/embed/3oKIPmaM8aFolCcuI0" width="100%" height="270" frameBorder="0" class="giphy-embed" title="Gif ilustrativo" sandbox="allow-scripts allow-same-origin" allowFullScreen></iframe> -->
+<div class="col2">
+<p>Descrição da rotina acima e os critérios para a seleção da amostra:</p>
+<ol style="list-style-type: decimal">
+<li>percorre as 5 bases disponíveis: <code>paste0("agg_match_stats_",0:4,".csv")</code></li>
+<li>seleciona partidas em terceira pessoa: <code>match_mode == "tpp"</code></li>
+<li>com tamanho da equipe = 1 (individual): <code>party_size == 1</code></li>
+<li>do ano de 2018: <code>year(date) == 2018</code></li>
+<li>andaram mais que 10 unidades de distancia (metros?): <code>player_dist_walk&gt;10</code></li>
+<li>fizeram algum dano (evitar jogadores ausentes): <code>player_dmg != 0</code><br />
+</li>
+<li>remove colunas não utilizadas na analise</li>
+<li>converte do tempo para minutos: <code>player_survive_time := player_survive_time/60</code></li>
+<li>agrupa por partida: <code>group_by(match_id)</code></li>
+<li>seleciona um jogador de cada partida: <code>do(sample_n(.,1))</code></li>
+</ol>
+<iframe src="https://giphy.com/embed/g4OqNwXDrnfOcbaaUM" width="240" height="300" frameBorder="0" class="giphy-embed" title="Gif ilustrativo" sandbox="allow-scripts allow-same-origin" allowFullScreen>
+</iframe>
+</div>
+<p>Note que apenas um jogador de cada partida é selecionado na intenção de obter independência entre observações, isso reduziu drasticamente seu tamanho. Agora que a base já foi importada e filtrada, faremos a leitura de 200 linhas aleatórias com a finalidade de diminuir o tempo computacional das operações realizadas em seguida.</p>
+<pre class="r"><code>set.seed(1)
+pubg_tpp1 &lt;- readRDS(&quot;pubg_tpp1.rds&quot;) %&gt;% sample_n(200)%&gt;% 
+  select(-one_of(c(&quot;match_id&quot;, &quot;player_name&quot;)))</code></pre>
+<p>Veja a seguir de forma visual como as variáveis numéricas se correlacionam:</p>
+<pre class="r"><code>pubg_tpp1 %&gt;% 
+  rev %&gt;% 
+  grafico_descritivo()</code></pre>
+<center>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-4-1.png" alt="Gráficos de dispersão e densidade entre as variáveis numéricas da amostra PUBG" style="width:80.0%" /></p>
+</center>
+<div id="variável-resposta" class="section level3">
+<h2>Variável resposta</h2>
+<p>Vejamos o que acontece ao analisar o tempo de sobrevivência de cada jogador</p>
+<iframe src="https://giphy.com/embed/3oKIP5KxPss1gjwpG0" width="100%" height="270" frameBorder="0" class="giphy-embed" title="Gif ilustrativo" sandbox="allow-scripts allow-same-origin" allowFullScreen>
+</iframe>
+<p>A seguir, a distribuição da variável resposta <code>player_survive_time</code> :</p>
+<pre class="r"><code>plot_grid(pubg_tpp1 %&gt;% 
+            ggplot(aes(x=player_survive_time))+
+            geom_histogram(aes(y = ..density..), bins = 30, fill=&quot;white&quot;, color=&quot;black&quot;)+
+            geom_density(alpha=.2, fill=&quot;white&quot;)+
+            scale_x_continuous(labels = scales::comma, limits = c(0,40), breaks = seq(0,40,5))+
+            labs(x=&quot;&quot;,y=&quot;&quot;, title = &quot;Tempo de sobrevivência dos jogadores selecionados&quot;)
+          ,
+          pubg_tpp1 %&gt;% 
+            ggplot(aes(x=&quot; &quot;, y=player_survive_time))+
+            geom_boxplot()+
+            labs(x=&quot;&quot;)+
+            coord_flip()
+          ,
+          ncol = 1, nrow = 2, align = &quot;v&quot;, rel_heights = c(3,1))</code></pre>
+<center>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-6-1.png" alt="Histograma e boxplot do tempo de sobrevivência dos jogadores, com assimetria positiva" style="width:80.0%" /></p>
+</center>
+<p>Note que possue uma <a href="https://binged.it/2BAYX3s">assimetria positiva</a></p>
+</div>
+<div id="data-wrangling" class="section level3">
+<h2>Data Wrangling</h2>
+<p>Primeiramente, vejamos as variáveis se relacionam entre si e com a variável resposta com os coeficientes de correlação de Pearson:</p>
+<pre class="r"><code># Correlations
+pubg_tpp1 %&gt;% 
+  select_if(is.numeric) %&gt;% 
+  cor() %&gt;% 
+  corrplot::corrplot(method = &quot;number&quot;,type = &quot;upper&quot;,diag = F, order = &quot;hclust&quot;,number.cex = 0.7, title = &quot;Correlation correlated numerics&quot;, mar=c(0,0,1,0))</code></pre>
+<center>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-7-1.png" alt="Matriz de correlação de Pearson entre as variáveis numéricas do dataset PUBG" style="width:80.0%" /></p>
+</center>
+<p>É possível notar que apenas a variável <code>player_assists</code> não correlaciona-se com a variável resposta nem com as demais variáveis e <code>player_dmg</code> e <code>player_kills</code> são fortemente correlacionadas, isso indica que pode ser interessante remover uma delas ou juntar toda essa informação em uma única variável, veremos…</p>
+<p>Além disso nota-se que a distância percorrida a pé é fortemente correlacionada com a variável resposta enquanto que a distância de quem andou de carro não é tão correlacionada. Uma transformação na variável <code>player_dist_ride</code> para uma dummy <code>drive</code> indicando se o indivíduo dirigiu ou não pode representar melhor esta informação.</p>
+<p>Vejamos algumas características peculiares:</p>
+<pre class="r"><code>pubg_tpp1 %&gt;% 
+  select(player_kills, player_dist_ride, player_assists) %&gt;% 
+  map_dfr(~quantile(.x,  probs = seq(0,1,0.25)) %&gt;% round(2)) %&gt;% 
+  t  %&gt;% tidy() %&gt;% 
+  `colnames&lt;-`(c(&quot;variável&quot;,percent(seq(0,1,0.25)))) %&gt;% 
+  kable2()</code></pre>
+<p>Praticamente metade da amostra não registrou abates nem possui marcação de <code>player_dist_ride</code>. Como a variável <code>player_dmg</code> apresentou correlação com a variável resposta <code>player_survive_time</code>, vamos fazer algumas transformações:</p>
+<ol style="list-style-type: decimal">
+<li>Criar uma variável dummy <code>drive</code> se jogador usou carro</li>
+<li>Somar a <code>player_dist_ride</code> e <code>player_dist_walk</code> em uma única variável: <code>player_dist</code></li>
+<li>Juntar <code>player_kills</code>, <code>player_dmg</code> e <code>player_assists</code> em uma única variável: <code>player_performance</code></li>
+</ol>
+<div id="player-performance" class="section level4">
+<h3>Player performance</h3>
+<p>Como criar a variável <code>player_performance</code>?</p>
+<iframe src="https://giphy.com/embed/xT9IgnOQS8e8uKkflK" width="100%" height="270" frameBorder="0" class="giphy-embed" title="Gif ilustrativo" sandbox="allow-scripts allow-same-origin" allowFullScreen>
+</iframe>
+<p>Tentei inventar uma metodologia e com certeza devem existir maneiras mais eficientes de se fazer isso, porém, deixa eu explicar o que eu pensei, considere a formula:</p>
+<p><span class="math display">\[
+Playerperformance = log(WPlayerDmg + WPlayerAssists + WPlayerKills)
+\]</span></p>
+<p>onde:</p>
+<p><span class="math display">\[
+WPlayerKills = log(PlayerKills+0.5)\\
+WPlayerDmg = log(PlayerDmg)\\
+WPlayerAssists = PlayerAssists
+\]</span></p>
+<p>Note que:</p>
+<ul>
+<li><span class="math inline">\(WPlayerAssists\)</span>: Não é feita qualquer transformação;</li>
+<li><span class="math inline">\(WPlayerDmg\)</span>: A distribuição fica “quase simétrica” após a transformação log;</li>
+<li><span class="math inline">\(WPlayerKills\)</span>: adiciona-se 0.5 para poder tirar o log pois podem existir zeros nessa variável e além disso, quem não marcou abate será penalizado com <span class="math inline">\(-1\)</span> na soma final do score: <code>player_performance</code>.</li>
+</ul>
+<p>Veja a seguir de forma visual a distribuição das variáveis que farão parte da variável <code>player_performance</code> na parte de cima e na parte inferior o que acontece após sua soma, gerando a nova variável <code>player_performance</code> :</p>
+<pre class="r"><code>performance &lt;- tibble(w_player_kills = log(pubg_tpp1$player_kills+0.5),
+                      w_player_dmg = log(pubg_tpp1$player_dmg),
+                      w_player_assists = pubg_tpp1$player_assists) %&gt;% 
+  mutate(player_performance = log(w_player_dmg + w_player_assists + w_player_kills))
+
+grid.arrange(
+  performance %&gt;% 
+    select(-player_performance) %&gt;% 
+    tidyr::gather() %&gt;% 
+    ggplot(aes(x=value))+
+    geom_histogram(aes(y = ..density..), bins = 30, fill=&quot;white&quot;, color=&quot;black&quot;)+
+    geom_density(alpha=.2, fill=&quot;white&quot;)+
+    scale_x_continuous(labels = scales::comma, limits = c(-1.5,8), breaks = seq(-1,8,1))+
+    labs(x=&quot;&quot;, y=&quot;&quot;)+
+    theme(axis.title.x=element_blank(),
+          axis.text.x=element_blank(),
+          axis.ticks.x=element_blank())+
+    facet_wrap(~key, scales = &quot;free&quot;)
+  ,
+  performance %&gt;% 
+    select(player_performance) %&gt;% 
+    tidyr::gather() %&gt;% 
+    ggplot(aes(x=value))+
+    geom_histogram(aes(y = ..density..), fill=&quot;white&quot;, color=&quot;black&quot;,bins = 15)+
+    geom_density(alpha=.2, fill=&quot;white&quot;)+
+    scale_x_continuous(limits = c(-1.,2.5), breaks = seq(-1,3,0.5))+
+    labs(x=&quot;&quot;, y=&quot;&quot;, title = &quot;performance&quot;),
+  ncol=1
+)</code></pre>
+<center>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-9-1.png" alt="Distribuição das variáveis que compõem o índice player_performance antes e depois da soma" style="width:80.0%" /></p>
+</center>
+</div>
+<div id="transformações-na-base" class="section level4">
+<h3>Transformações na base</h3>
+<p>A seguir faremos as mudanças diretamente no dataset que estamos trabalhando:</p>
+<pre class="r"><code>pubg_tpp1 &lt;- 
+  pubg_tpp1 %&gt;% 
+  mutate(player_dist = log(player_dist_ride + player_dist_walk)) %&gt;%  
+  mutate(player_assists_d = if_else(player_assists ==0, 0, 1)) %&gt;% 
+  mutate(player_performance = performance$player_performance )%&gt;% 
+  mutate(drive = ifelse(player_dist_ride==0, &quot;no&quot;, &quot;yes&quot;) %&gt;% as.factor()) %&gt;% 
+  mutate(player_kills_d = ifelse(player_kills==0, &quot;no&quot;, &quot;yes&quot;) %&gt;% as.factor()) </code></pre>
+<p>A manipulação acima cria as seguintes variáveis:</p>
+<ol style="list-style-type: decimal">
+<li><code>player_dist</code> como o log da soma de <code>player_dist_ride</code> e <code>player_dist_walk</code></li>
+<li><code>player_assists_d</code> como uma dummy: 1 se o jogador deu assistência; 0 c.c.</li>
+<li><code>player_performaec</code> como a combinação de <code>player_dmg</code>, <code>player_assists</code> e <code>player_kills</code></li>
+<li><code>drive</code> como uma dummy: 1 se o jogador dirigiu; 0 c.c.</li>
+<li><code>player_kills_d</code> como uma dummy: 1 se jogador matou alguém; 0 c.c.</li>
+</ol>
+<p>Vejamos como ocorre a distribuição das variáveis numéricas após as transformações:</p>
+<pre class="r"><code>g1 &lt;- 
+  pubg_tpp1 %&gt;% 
+  # select_if(~ !length(table(.x))==2 &amp; is.numeric(.x)) %&gt;% colnames() %&gt;% 
+  select(player_survive_time,player_performance,player_dist) %&gt;% colnames() %&gt;% 
+  map2(c(&quot;Densidade&quot;, &quot;&quot;, &quot;&quot;),
+       ~ plot_grid(
+         pubg_tpp1 %&gt;% 
+           ggplot(aes_string(x=.x)) + 
+           geom_histogram(aes(y=..density..),colour=&quot;black&quot;, fill=&quot;white&quot;, bins = 15) +
+           geom_density(alpha=.2, fill=&quot;lightgrey&quot;) +
+           scale_x_continuous()+
+           ggtitle(.x)+
+           labs(x=&quot;&quot;, y=.y)+
+           theme(axis.title.x=element_blank(),
+                 axis.text.x=element_blank(),
+                 axis.ticks.x=element_blank())
+         ,
+         pubg_tpp1 %&gt;% 
+           ggplot(aes_string(, y=.x))+
+           geom_boxplot(aes(x=&quot; &quot;))+
+           labs(x=&quot;&quot;, y=&quot;&quot;)+
+           coord_flip()+
+           theme(axis.title.x=element_blank(),
+                 axis.text.x=element_blank(),
+                 axis.ticks.x=element_blank()),
+         
+         ncol = 1, nrow = 2, align = &quot;v&quot;, rel_heights = c(3,1)
+       )
+  )
+
+dat &lt;- 
+  pubg_tpp1 %&gt;% 
+  select_if(~.x %&gt;% table %&gt;% length == 2) %&gt;% 
+  mutate_at(2,~if_else(.x==0, &quot;no&quot;, &quot;yes&quot;)) %&gt;% 
+  .[,-1]
+
+g2 &lt;- map2(colnames(dat),
+           c( &quot;Porcentagem&quot;, &quot;&quot;,&quot;&quot;),
+           ~ dat[,.x] %&gt;% 
+             tidyr::gather() %&gt;% 
+             group_by(key, value) %&gt;% 
+             summarise(n = n()) %&gt;% 
+             mutate(prop = n/sum(n)) %&gt;% 
+             ggplot(aes(x = key, y = prop,fill = value)) + 
+             geom_bar(position = &quot;fill&quot;,stat = &quot;identity&quot;, alpha=0.7) +
+             scale_y_continuous(labels = percent_format())+
+             labs(x=&quot;&quot;, y = .y)+
+             scale_fill_manual(values = c(&quot;grey&quot;, &quot;#FCC14B&quot;), name = &quot;Legenda:&quot;)
+)
+
+grid.arrange(g1[[1]], g1[[2]], g1[[3]],g2[[1]], g2[[2]], g2[[3]], ncol=3, heights=c(3/5, 2/5))</code></pre>
+<center>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-11-1.png" alt="Distribuição das variáveis numéricas e categóricas após as transformações da base" style="width:80.0%" /></p>
+</center>
+<!-- A distribuição dos dados ordenada pela variável resposta `player_survive_time` : -->
+<!-- ```{r} -->
+<!-- # Sorted -->
+<!-- pubg_tpp1 %>%  -->
+<!--   select(player_survive_time, everything()) %>%  -->
+<!--   mutate_if(~length(unique(.x))==2, as.factor) %>%  -->
+<!--   tabplot::tableplot(sortCol = player_survive_time,decreasing = T) -->
+<!-- ``` -->
+<p>Apos a transformação a distribuição e demais informações dos dados, vejamos novamente a distribuição das variáveis da amostra com os gráficos de dispersão, densidade e correlações levando em conta se dirigiu ou não:</p>
+<pre class="r"><code>grafico_descritivo(x = pubg_tpp1,
+                   colNames = c(&#39;player_survive_time&#39;, &quot;player_performance&quot;, &#39;player_dist&#39;,
+                                &#39;player_assists_d&#39;,&quot;player_kills_d&quot;, &#39;drive&#39;),
+                   color=&#39;drive&#39;,
+                   colors = c(&quot;grey&quot;, &quot;#FCC14B&quot;))</code></pre>
+<center>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-13-1.png" alt="Gráficos descritivos da amostra segmentados por quem dirigiu ou não durante a partida" style="width:80.0%" /></p>
+</center>
+<p>O fato do jogador ter dirigido ou não exibiu padrões interessantes, pode ser que seja significante no ajuste do modelo final.</p>
+</div>
+</div>
+</div>
+<div id="análise-de-sobrevivencia" class="section level1">
+<h1>Análise de sobrevivencia</h1>
+<p>O passo inicial de qualquer análise estatística consiste em uma descrição dos dados e o principal componente da análise descritiva envolvendo dados de tempo de vida é a função de sobrevivência: <span class="math inline">\(S(t) = P(T&gt;t)\)</span>, que determina a probabilidade de um indivíduo sobreviver por mais do que um determinado tempo <span class="math inline">\(t\)</span>, ou por no mínimo um tempo igual a <span class="math inline">\(t\)</span>.</p>
+<p>A descrição dos dados já foi realizada, agora faremos a descrição envolvendo a função de sobrevivência.</p>
+<iframe src="https://giphy.com/embed/xT0xeMrCEGPiU5uw0w" width="100%" height="266" frameBorder="0" class="giphy-embed" title="Gif ilustrativo" sandbox="allow-scripts allow-same-origin" allowFullScreen>
+</iframe>
+<div id="kaplan-meier" class="section level2">
+<h2>Kaplan-Meier</h2>
+<p>Para isso existem algumas alternativas como o estimador de Kaplan-Meier, que utiliza os conceitos de independência e de probabilidade condicional para deduzir a probabilidade de sobreviver até o tempo <span class="math inline">\(t\)</span>.</p>
+<p>Pra quem quer ir além do básico de Kaplan-Meier e regressão de Cox, o <a href="https://link.amazon/B0hUo5Es9" target="_blank" rel="sponsored nofollow noopener">An Introduction to Statistical Learning</a> tem um capítulo bem didático sobre análise de sobrevivência que ajuda a fechar essa base teórica.</p>
+<p>Veja a seguir são ajustados os modelos univariados de Kaplan-Meier para cada uma das coivaráveis da amostra:</p>
+<pre class="r"><code>surv &lt;- Surv(pubg_tpp1$player_survive_time)
+resultado_km &lt;-
+  list(geral            = survfit(surv ~ 1 ,data = pubg_tpp1),
+       player_assists_d = survfit(surv ~ player_assists_d ,data = pubg_tpp1),
+       drive            = survfit(surv ~ drive,data = pubg_tpp1 ),
+       player_kills_d   = survfit(surv ~ player_kills_d,data = pubg_tpp1))</code></pre>
+<p>Veja os resultados da função de sobrevivência sem levar em consideração nenhuma das coivaráveis:</p>
+<pre class="r"><code>surv_summary(resultado_km[[1]], pubg_tpp1) %&gt;% .[1:5,-ncol(.)] %&gt;% cbind(variable = &quot;Geral&quot;) %&gt;% 
+  select(variable, everything())%&gt;%
+  kable2()</code></pre>
+<p>A função <code>surv_summary()</code> retorna um quadro de dados com as seguintes colunas:</p>
+<ul>
+<li>time: o tempo em que a curva tem um passo.</li>
+<li>n.risk: o número de sujeitos em risco em t.</li>
+<li>n.evento: o número de eventos que ocorrem no tempo t.</li>
+<li>n.censor: número de eventos censurados.</li>
+<li>surv: estimativa da probabilidade de sobrevivência.</li>
+<li>std.err: erro padrão de sobrevivência.</li>
+<li>superior: extremidade superior do intervalo de confiança</li>
+<li>inferior: extremidade inferior do intervalo de confiança</li>
+<li>estratos: indica a estratificação da estimativa de curvas. Os níveis de estratos (um fator) são os rótulos das curvas (se houver).</li>
+</ul>
+<div id="log-rank" class="section level3">
+<h3>Log-rank</h3>
+<p>Além da análise visual das estimativas é importante comparar as curvas de sobrevivência com testes de hipóteses para obter-se significância estatística para nossas afirmações.</p>
+<p>O teste log rank é um teste não paramétrico, que não faz suposições sobre as distribuições de sobrevivência. Essencialmente, o teste log rank compara o número observado de eventos em cada grupo com o que seria esperado se a hipótese nula fosse verdadeira. Considere então <span class="math inline">\(H_0: S_1(t)=S_2(t)\)</span> para todo <span class="math inline">\(t\)</span> no período de acompanhamento (ou seja, se as curvas de sobrevivência fossem idênticas). A estatística utilizada no teste é um <span class="math inline">\(T\)</span> com distribuição aproximadamente <span class="math inline">\(\chi^2\)</span> com 1 grau de liberdade.</p>
+<p>O objeto criado abaixo guarda o valor p para o teste de log-rank de cada em cada um dos modelos:</p>
+<pre class="r"><code>resultado_log_rank &lt;- 
+  c(geral = &quot;&quot;,
+    player_assists_d=round(1-pchisq(survdiff(surv~player_assists_d,data = pubg_tpp1)$chisq,1),5),
+    drive=round(1-pchisq(survdiff(surv~drive,data=pubg_tpp1)$chisq,1),5),
+    player_kills_d=round(1-pchisq(survdiff(surv~player_kills_d,data=pubg_tpp1)$chisq,1),5)
+  )</code></pre>
+<p>Os gráficos gerados a partir dos modelos ajustados acima bem como o resultado dos testes de log-rank são exibidos na imagem a seguir:</p>
+<pre class="r"><code>survplot &lt;- map2(resultado_km,
+                 case_when(resultado_log_rank == &#39;0&#39; ~ &quot;log-rank: \n p &lt; 0,00001&quot;,
+                           resultado_log_rank == &quot;&quot; ~ &quot;log-rank não se aplica&quot;,
+                           resultado_log_rank != &#39;0&#39; | resultado_log_rank != &#39;&#39; ~ 
+                             paste0(&quot;log-rank: \n p =&quot;,as.numeric(resultado_log_rank))),
+                 ~ autoplot(.x)+
+                   ggtitle(stringr::str_remove_all(names(.x$strata)[1],&quot;(=no|=yes)&quot;))+
+                   annotate(&quot;label&quot;,y = 0.20, x = 5,
+                            label = .y,
+                            size = 4, colour = &quot;red&quot;,hjust=0.1)+ 
+                   scale_fill_manual(values = c(&quot;grey&quot;, &quot;#FCC14B&quot;))+
+                   scale_color_manual(values = c(&quot;grey&quot;, &quot;#FCC14B&quot;))+
+                   theme(legend.position = c(0.85,0.7))+
+                   scale_x_continuous(limits = c(0,30), breaks = seq(0,30,5))
+                 
+)
+grid.arrange(survplot[[1]], survplot[[2]] ,survplot[[3]], survplot[[4]], ncol=2)</code></pre>
+<center>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-17-1.png" alt="Curvas de sobrevivência de Kaplan-Meier com teste log-rank para cada covariável" style="width:80.0%" /></p>
+</center>
+<p>O eixo horizontal (eixo x) representa o tempo em minutos, e o eixo vertical (eixo y) mostra a probabilidade de sobrevivência ou a proporção de jogadores que sobrevivem. As linhas representam curvas de sobrevivência dos dois grupos.</p>
+<p>Uma queda vertical nas curvas indica um evento. No tempo zero, a probabilidade de sobrevivência é de 1,0 (ou 100% dos jogadores vivos).</p>
+<p>Interpretação: Pelo gráfico, aparentemente não existe diferença no tempo de sobrevivência com estratificação dos dados de acordo com quem deu assistência ou não, já para o teste que compara igualdade de funções de sobrevivência das demais variáveis, existem evidencias estatísticas para rejeitar a hipótese de que não há diferença na sobrevida entre os dois grupos</p>
+</div>
+</div>
+<div id="função-de-risco-hazard-ou-taxa-de-falha" class="section level2">
+<h2>Função de risco (hazard) ou taxa de falha</h2>
+<p>Função de risco (hazard) ou taxa de falha é o risco “instantâneo” denotada por <span class="math inline">\(\lambda(t)\)</span> é uma taxa, não uma probabilidade e pode assumir qualquer valor real maior que zero.</p>
+<p>No exemplo representa a taxa de incidência ou risco acumulado para um indivíduo morrer até o momento <span class="math inline">\(t\)</span>, dado que sobreviveu até este momento. É muito informativa quando comparada com a função de sobrevivência pois diferentes <span class="math inline">\(S(t)\)</span> podem ter formas semelhantes, enquanto que respectivas <span class="math inline">\(\lambda(t)\)</span> podem diferir drasticamente.</p>
+<pre class="r"><code>survplot &lt;-
+  map(resultado_km  ,
+      ~ ggsurvplot(.x, conf.int = TRUE, 
+                   palette = c(&quot;grey&quot;, &quot;#FCC14B&quot;),
+                   risk.table = F,break.time.by = 5,
+                   fun = &quot;cumhaz&quot;,title = stringr::str_remove_all(names(.x$strata)[1],&quot;(=no|=yes)&quot;))
+  )
+arrange_ggsurvplots(survplot, print = TRUE,
+                    ncol = 2, nrow = 2)</code></pre>
+<center>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-18-1.png" alt="Curvas de risco acumulado (hazard) para cada covariável do modelo" style="width:80.0%" /></p>
+</center>
+<p>O risco cumulativo <span class="math inline">\(H( t)\)</span> pode ser interpretado como a força cumulativa da mortalidade.
+Em outras palavras, corresponde ao número de eventos que seriam esperados para cada indivíduo
+pelo tempo t se o evento fosse um processo repetitivo.</p>
+</div>
+<div id="modelo-de-cox" class="section level2">
+<h2>Modelo de cox</h2>
+<p>É caracterizado pela presença dos coeficientes <span class="math inline">\(\beta\)</span>s que medem os efeitos (semelhantes à análise de regressão logística múltipla e linear múltipla) das variáveis explicativas sobre a função de risco. Em um modelo de regressão de riscos proporcionais de Cox, a medida do efeito é a <em>taxa de risco</em>, que é o risco de falha, dado que o participante sobreviveu até um tempo específico.</p>
+<p>Algumas das suposições para o correto uso do modelo de regressão de riscos proporcionais de Co incluem:</p>
+<ul>
+<li>independência dos tempos de sobrevivência entre indivíduos distintos na amostra,</li>
+<li>relação multiplicativa entre os preditores e o risco,</li>
+<li>uma taxa de risco constante ao longo do tempo.</li>
+</ul>
+<p>O modelo de riscos proporcionais de Cox é chamado de modelo semi-paramétrico , porque não há suposições sobre o formato da função de risco de linha de base. No entanto, existem outras suposições, como observado acima.</p>
+<p>É possível utilizar as estatísticas de Wald, da razão de verossimilhança e escore para fazer inferências sobre os parâmetros do modelo</p>
+<p>Veja a seguir a significância dos coeficiente estimado em modelos univariados para cada variável candidata ao modelo:</p>
+<pre class="r"><code># Modelos univariados
+covariates    &lt;- c(&quot;player_kills&quot;,&quot;player_dist_ride&quot;,&quot;player_performance&quot;,
+                   &quot;player_dist_walk&quot;,&quot;player_dmg&quot;, &quot;player_dist&quot;, 
+                   &quot;player_assists_d&quot;,&quot;drive&quot;, &quot;player_kills_d&quot;)
+univ_formulas &lt;- map(covariates,~ as.formula(paste(&#39;Surv(player_survive_time) ~&#39;, .x)))
+univ_models   &lt;- map( univ_formulas, ~coxph(.x, data = pubg_tpp1))
+
+# estrair resultados 
+map2_df(univ_models,
+        covariates,
+        function(x,y){ 
+          x                = summary(x)
+          p.value          = signif(x$wald[&quot;pvalue&quot;], digits=2)
+          wald.test        = signif(x$wald[&quot;test&quot;], digits=2)
+          beta             = signif(x$coef[1], digits=2);#coeficient beta
+          HR               = signif(x$coef[2], digits=2);#exp(beta)
+          HR.confint.lower = signif(x$conf.int[,&quot;lower .95&quot;], 2)
+          HR.confint.upper = signif(x$conf.int[,&quot;upper .95&quot;],2)
+          HR               = paste0(HR, &quot; (&quot;, HR.confint.lower, &quot;-&quot;, HR.confint.upper, &quot;)&quot;)
+          res              = tibble(y,beta, HR, wald.test, p.value)
+          colnames(res)    = c(&quot;covariates&quot;,&quot;beta&quot;, &quot;HR (95% CI for HR)&quot;, &quot;wald.test&quot;, &quot;p.value&quot;)
+          res
+        }) %&gt;% 
+  kable2(linhas = 7)</code></pre>
+<p>Modelo de Cox usando uma variável categórica retorna uma razão de risco, que, acima de 1 indica uma covariável que está positivamente associada à probabilidade do evento e, portanto, negativamente associada ao tempo de sobrevida. O oposto vale para HR menor que um e HR = 1 indica que a covariável não tem efeito.</p>
+<pre class="r"><code>final_model  &lt;- 
+  coxph(Surv(player_survive_time) ~ player_performance+player_dist+drive,
+        data = pubg_tpp1,x=T,method=&quot;breslow&quot;)
+
+summary(final_model)</code></pre>
+<pre><code>## Call:
+## coxph(formula = Surv(player_survive_time) ~ player_performance + 
+##     player_dist + drive, data = pubg_tpp1, x = T, method = &quot;breslow&quot;)
+## 
+##   n= 200, number of events= 200 
+## 
+##                       coef exp(coef) se(coef)       z Pr(&gt;|z|)    
+## player_performance -0.7469    0.4738   0.1787  -4.179 2.92e-05 ***
+## player_dist        -1.7599    0.1721   0.1150 -15.307  &lt; 2e-16 ***
+## driveyes            0.8832    2.4186   0.2091   4.225 2.39e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##                    exp(coef) exp(-coef) lower .95 upper .95
+## player_performance    0.4738     2.1105    0.3338    0.6726
+## player_dist           0.1721     5.8117    0.1374    0.2156
+## driveyes              2.4186     0.4135    1.6055    3.6434
+## 
+## Concordance= 0.883  (se = 0.008 )
+## Likelihood ratio test= 362.7  on 3 df,   p=&lt;2e-16
+## Wald test            = 274  on 3 df,   p=&lt;2e-16
+## Score (logrank) test = 407.8  on 3 df,   p=&lt;2e-16</code></pre>
+<p>No modelo ajustado note-se que existe uma associação negativa entre <code>player_performance</code> e mortalidade e entre <code>player_dist</code> e mortalidade (ou seja, o risco de morte diminui para jogadores que percorrem maiores distâncias e possuem melhor performance).</p>
+<p>As estimativas dos parâmetros representam o aumento no log esperado do risco relativo para cada aumento de uma unidade no preditor, mantendo os outros preditores constantes.</p>
+<p>Para interpretabilidade, calcularemos as taxas de risco exponenciando das estimativas dos parâmetros. Para a <code>player_performance</code>, <span class="math inline">\(exp(-0.7469196)= 0.4738239\)</span>. Isso implica que diminui para <span class="math inline">\(47.38\)</span> do valor original do risco esperado em relação a um aumento de uma unidade na performance, mantendo as demais variáveis constantes. A interpretação de <code>player_dist</code> em escala logarítimica é feita de maneira semelhante.`</p>
+<p>Já para os jogadores onde <code>drive</code> = 1 (que dirigiram durante a partida) existe uma relação positiva, como <span class="math inline">\(exp(0.8831835)= 2.4185871\)</span>. O risco esperado corresponde à <span class="math inline">\(2.4185871\)</span> do valor original nos que dirigiram em comparação aos que não dirigiram, mantendo as demais variáveis constantes.</p>
+<pre class="r"><code>map2_df(1:3,final_model$coefficients %&gt;% names(),~
+          tibble(
+            variable = .y,
+            beta             = signif(summary(final_model)$coef[.x,1], digits=2), #coeficient beta
+            HR               = signif(summary(final_model)$coef[.x,2], digits=2), #exp(beta)
+            HR.confint.lower = signif(summary(final_model)$conf.int[.x,&quot;lower .95&quot;], 2),
+            HR.confint.upper = signif(summary(final_model)$conf.int[.x,&quot;upper .95&quot;],2)) %&gt;% 
+          mutate(HR= paste0(HR, &quot; (&quot;, HR.confint.lower, &quot;-&quot;, HR.confint.upper, &quot;)&quot;)
+          )
+) %&gt;% kable2()</code></pre>
+<p>Em suma:</p>
+<ul>
+<li>HR = 1: sem efeito</li>
+<li>HR &lt;1: Redução do risco</li>
+<li>HR&gt; 1: aumento do risco</li>
+</ul>
+<iframe src="https://giphy.com/embed/2Us3iTghyffcfeI35h" width="100%" height="200" frameBorder="0" class="giphy-embed" title="Gif ilustrativo" sandbox="allow-scripts allow-same-origin" allowFullScreen>
+</iframe>
+<div id="resíduos-de-martingal-e-deviance" class="section level3">
+<h3>Resíduos de Martingal e Deviance</h3>
+<p>Como foi visto, o modelo de regressão de riscos proporcionais de Cox faz diversas suposições que precisam ser conferidas após o ajuste do modelo para chegar a qualidade de seus resultados pois um modelo mais ajustado pode trazer resultados enganosos e que não façam sentido algum</p>
+<iframe src="https://giphy.com/embed/l0CLSXnSgbYma8EOA" width="100%" height="269" frameBorder="0" class="giphy-embed" title="Gif ilustrativo" sandbox="allow-scripts allow-same-origin" allowFullScreen>
+</iframe>
+<p>Gráficos dos resíduos Martingal ou deviance contra os tempos fornecem
+uma forma de verificar a adequação do modelo ajustado, bem como
+ajudar na detecção de observações atípicas.</p>
+<p><strong>Deviance</strong></p>
+<p>Esses resíduos, que são uma tentativa de tornar os resíduos
+Martingal mais simétricos em torno do zero, facilitam, em geral,
+a detecção de pontos atípicos (outliers).
+Se o modelo for apropriado, esses resíduos devem apresentar um
+comportamento aleatório em torno de zero.</p>
+<p><strong>Martingal</strong></p>
+<p>Esses resíduos são vistos como uma estimativa do numero de falhas em excesso
+observada nos dados mas não predito pelo modelo. Os mesmos são usados, em geral,
+para examinar a melhor forma funcional (linear, quadrática, etc.)
+para uma dada covariavel em um modelo de regressão assumido para os dados do estudo.</p>
+<pre class="r"><code>res &lt;- 
+  tibble(residuo_deviance = resid(final_model,type=&quot;deviance&quot;) ,
+         residuo_martingal = resid(final_model,type=&quot;martingal&quot;),
+         linear_predictors = final_model$linear.predictors)
+
+# Graficos:
+grid.arrange(
+  ggplot(res, aes(x=linear_predictors, y=residuo_martingal))+ geom_point()+geom_hline(yintercept=0, color=&#39;coral&#39;)+ylab(&quot;Resíduos Martingual&quot;),
+  ggplot(res, aes(x=linear_predictors, y=residuo_deviance))+ geom_point()+geom_hline(yintercept=0, color=&#39;coral&#39;)+ylab(&quot;Deviance&quot;),
+  ncol=2
+)</code></pre>
+<center>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-22-1.png" alt="Resíduos de Martingal e Deviance do modelo de Cox ajustado" style="width:80.0%" /></p>
+</center>
+<p>Interpretação:</p>
+<ul>
+<li><strong>Martingal</strong>: Parecido com deviance mais acentuado;</li>
+<li><strong>Deviance</strong>: Modelo não eh tao ruim assim, se fosse um modelo linear talvez deveríamos tomar cuidado.</li>
+</ul>
+<div id="residuos-de-schoenfeld" class="section level4">
+<h4>Residuos de Schoenfeld</h4>
+<p>Em princípio, os resíduos de Schoenfeld são independentes do tempo.
+Um gráfico que mostra um padrão não aleatório contra o tempo é
+evidência de violação da suposição de hipótese.</p>
+<p>Para testar a suposição de riscos proporcionais:</p>
+<pre class="r"><code>final_model %&gt;% cox.zph %&gt;% ggcoxzph</code></pre>
+<center>
+<p><img src="/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle_files/unnamed-chunk-23-1.png" alt="Gráfico de resíduos de Schoenfeld para testar a suposição de riscos proporcionais" style="width:80.0%" /></p>
+</center>
+<p>A partir da inspeção gráfica, não há padrão com o tempo.
+A suposição de riscos proporcionais parece ser suportada
+pelas covariáveis</p>
+</div>
+</div>
+</div>
+<div id="considerações-finais" class="section level2">
+<h2>Considerações finais</h2>
+<iframe src="https://giphy.com/embed/ZacieLN2WI2AedWrz9" width="100%" height="216" frameBorder="0" class="giphy-embed" title="Gif ilustrativo" sandbox="allow-scripts allow-same-origin" allowFullScreen>
+</iframe>
+<p>Como era de se esperar, o risco de ser abatido diminui para jogadores que possuem melhor performance e também para os jogadores que percorrem maiores distâncias (o que mostra que ficar parado no jogo em uma zona pode não ser a melhor ideia, já é quanto mais se movimenta maior a quantidade de itens que podem ser coletados).</p>
+<p>Interessante notar que a curva de <strong>sobrevivência</strong> para os jogadores que dirigiram apresenta resultado oposto ao <strong>risco</strong> esperado nos que dirigiram, isso ocorre pois esses dois modelos calculam medidas diferentes.</p>
+</div>
+</div>
+<h1>Perguntas frequentes</h1>
+<h2>O que a curva de Kaplan-Meier mostra exatamente?</h2>
+<p>Mostra a probabilidade estimada de "sobreviver" (não sofrer o evento) além de cada instante de tempo, sem exigir suposições sobre a forma da distribuição. No caso do PUBG, é a proporção de jogadores ainda vivos a cada minuto de partida.</p>
+<h2>Qual a diferença entre a curva de sobrevivência e a função de risco (hazard)?</h2>
+<p>A curva de sobrevivência mostra a probabilidade acumulada de não sofrer o evento até um tempo t. A função de risco mostra a taxa instantânea de o evento ocorrer naquele momento, dado que o indivíduo sobreviveu até ali. Duas curvas de sobrevivência parecidas podem ter funções de risco bem diferentes.</p>
+<h2>Por que usar o modelo de Cox em vez de uma regressão logística comum?</h2>
+<p>Porque o modelo de Cox incorpora diretamente o tempo até o evento, não apenas se o evento ocorreu ou não. Isso permite lidar com observações censuradas (quando o desfecho não foi observado até o fim do período) e estimar como cada variável afeta a taxa de risco ao longo do tempo, não só a chance final.</p>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"O que a curva de Kaplan-Meier mostra exatamente?","acceptedAnswer":{"@type":"Answer","text":"Mostra a probabilidade estimada de sobreviver além de cada instante de tempo, sem exigir suposições sobre a forma da distribuição. É a proporção de indivíduos ainda vivos (ou sem o evento) a cada momento."}},
+{"@type":"Question","name":"Qual a diferença entre a curva de sobrevivência e a função de risco?","acceptedAnswer":{"@type":"Answer","text":"A curva de sobrevivência mostra a probabilidade acumulada de não sofrer o evento até um tempo t. A função de risco mostra a taxa instantânea do evento naquele momento, dado que o indivíduo sobreviveu até ali."}},
+{"@type":"Question","name":"Por que usar o modelo de Cox em vez de uma regressão logística comum?","acceptedAnswer":{"@type":"Answer","text":"O modelo de Cox incorpora o tempo até o evento, lida com observações censuradas e estima como cada variável afeta a taxa de risco ao longo do tempo, não apenas a chance final."}}]}
+</script>
+
+<div id="referências" class="section level1">
+<h1>Referências</h1>
+<ul>
+<li>Carvalho,M.A., Andreozzi,V.L., Codec¸o,C.T., Campos,D.P., Barbosa,M.T.S., Shimakura,S.E., <a href="https://www.amazon.com.br/An%C3%A1lise-sobreviv%C3%AAncia-Teoria-aplica%C3%A7%C3%B5es-sa%C3%BAde/dp/8575412167?tag=gomesfellipe-20" target="_blank" rel="sponsored nofollow noopener">Análise de sobrevivência: Teoria e aplicações em saúde</a>, Segunda Edição, Editora FIOCRUZ, Rio de Janeiro, 2011.</li>
+<li>Colosimo,E.A., Giolo,S.R., <a href="https://www.amazon.com.br/An%C3%A1lise-Sobreviv%C3%AAncia-Aplicada-Ant%C3%B4nio-Colosimo/dp/8521221991?tag=gomesfellipe-20" target="_blank" rel="sponsored nofollow noopener">Análise de sobrevivência aplicada</a>, ABE-Projeto Fisher, São Paulo, 2010</li>
+<li>Lewis,E.E., <a href="https://www.amazon.com/Introduction-Reliability-Engineering-Lewis/dp/0471018333?tag=gomesfellipe-20" target="_blank" rel="sponsored nofollow noopener">Introduction to reliability engineering</a>, John Wiley, New York, 1987</li>
+<li><a href="http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Survival/BS704_Survival6.html" class="uri">http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Survival/BS704_Survival6.html</a></li>
+<li><a href="http://www.sthda.com/english/wiki/cox-model-assumptions" class="uri">http://www.sthda.com/english/wiki/cox-model-assumptions</a></li>
+</ul>
+<p>Cuiriosidades / Leituras futuras:</p>
+<ul>
+<li>Evaluating Random Forests for Survival Analysis Using Prediction Error Curves: <a href="https://www.jstatsoft.org/article/view/v050i11" class="uri">https://www.jstatsoft.org/article/view/v050i11</a></li>
+<li>randomForestSRC: <a href="https://cran.r-project.org/web/packages/randomForestSRC/index.html" class="uri">https://cran.r-project.org/web/packages/randomForestSRC/index.html</a></li>
+<li>WTTE-RNN - Less hacky churn prediction: <a href="https://ragulpr.github.io/2016/12/22/WTTE-RNN-Hackless-churn-modeling/" class="uri">https://ragulpr.github.io/2016/12/22/WTTE-RNN-Hackless-churn-modeling/</a></li>
+<li>Weibull Time To Event Recurrent Neural Network: <a href="https://github.com/ragulpr/wtte-rnn/" class="uri">https://github.com/ragulpr/wtte-rnn/</a></li>
+<li>Neural Networks as Statistical Methods in Survival Analysis: <a href="https://www.stats.ox.ac.uk/pub/bdr/NNSM.pdf" class="uri">https://www.stats.ox.ac.uk/pub/bdr/NNSM.pdf</a></li>
+<li>Continuous and Discrete Time Survival Analysis: Neural Network
+Approaches: <a href="http://pcwww.liv.ac.uk/~afgt/eleuteri_lyon07.pdf" class="uri">http://pcwww.liv.ac.uk/~afgt/eleuteri_lyon07.pdf</a></li>
+<li>Cox Proportional Hazards Model - h2O Documentation: <a href="http://s3.amazonaws.com/h2o-release/h2o/master/1579/docs-website/datascience/coxph.html" class="uri">http://s3.amazonaws.com/h2o-release/h2o/master/1579/docs-website/datascience/coxph.html</a></li>
+<li>Introduction to H2OCoxPH: <a href="https://www.slideshare.net/0xdata/introduction-to-h2ocoxph" class="uri">https://www.slideshare.net/0xdata/introduction-to-h2ocoxph</a></li>
+</ul>
+</div>
+
+          
+          
+          
+        </div>
+        
+          
+
+<div class="nl-box">
+  <h3>Recebe os próximos posts por email</h3>
+  <p>Data science, IA e agentes. Sem spam, cancela quando quiser.</p>
+  <form class="nl-form">
+    <input type="email" class="nl-email" placeholder="seu@email.com" required aria-label="Seu email">
+    <button class="nl-btn" type="submit">Inscrever</button>
+  </form>
+  <div class="nl-note"></div>
+</div>
+
+
+  
+  <script>
+  (function(){
+    var endpoint = "\"https://resed-blog-subscribe.gomes-fellipe1.workers.dev\"";
+    document.querySelectorAll('.nl-form').forEach(function(form) {
+      if (form.dataset.nlBound) return;
+      form.dataset.nlBound = "1";
+      var btn  = form.querySelector('.nl-btn');
+      var note = form.nextElementSibling;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (!endpoint) {
+          note.textContent = 'Newsletter em breve! Por enquanto, me manda um email.';
+          note.style.color = '';
+          return;
+        }
+        var email = form.querySelector('.nl-email').value;
+        btn.disabled = true;
+        btn.textContent = 'Enviando…';
+        note.textContent = '';
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        })
+        .then(function(r) {
+          if (r.ok) {
+            form.style.display = 'none';
+            note.textContent = 'Inscrito! Te aviso nos próximos posts.';
+            note.style.color = 'var(--color-primary-600, #16a34a)';
+          } else if (r.status === 429) {
+            note.textContent = 'Muitas tentativas. Tente de novo em alguns minutos.';
+            note.style.color = '#dc2626';
+            btn.disabled = false; btn.textContent = 'Inscrever';
+          } else {
+            throw new Error('server');
+          }
+        })
+        .catch(function() {
+          note.textContent = 'Algo deu errado. Tente de novo ou me manda um email.';
+          note.style.color = '#dc2626';
+          btn.disabled = false; btn.textContent = 'Inscrever';
+        });
+      });
+    });
+  })();
+  </script>
+
+
+        
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+
+<div class="flex items-start author">
+  
+    
+    
+      
+    
+    
+      
+      
+      
+        
+        
+        
+      
+      <img
+        class="!mt-0 !mb-0 h-24 w-24 rounded-full me-4"
+        width="96"
+        height="96"
+        alt="Fellipe Gomes"
+        src="/img/main/peril_hu_181c68f31c067d33.jpeg"
+        data-zoom-src="/img/main/peril_hu_2eb5d0d4c9fb74ec.jpeg">
+    
+  
+  <div class="place-self-start">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        Autor
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        Fellipe Gomes
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">Data Science Specialist @ Accenture | Kaggle Master</div>
+    
+    
+      
+        <p class="!mt-2 !mb-0 max-w-prose text-sm text-neutral-700 dark:text-neutral-400">Sou formado em estatística e atuo como cientista de dados desde 2017. Compartilho meus estudos e evolução por meio de artigos, tutoriais e projetos de código aberto. Se quiser saber mais sobre meu trabalho, sinta-se à vontade para entrar em contato através das minhas redes sociais.</p>
+      
+    
+    <div class="!mt-2 text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500 space-x-2">
+    
+      
+        
+        <a
+          class=" hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/gomesfellipe"
+          
+          target="_blank"
+          aria-label="Github"
+          title="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        
+        <a
+          class=" hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://www.linkedin.com/in/gomesfellipe"
+          
+          target="_blank"
+          aria-label="Linkedin"
+          title="Linkedin"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        
+        <a
+          class=" hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://medium.com/@gomesfellipe"
+          
+          target="_blank"
+          aria-label="Medium"
+          title="Medium"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        
+        <a
+          class=" hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://stackoverflow.com/users/9756163"
+          
+          target="_blank"
+          aria-label="Stack-Overflow"
+          title="Stack-Overflow"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M290.7 311L95 269.7 86.8 309l195.7 41zm51-87L188.2 95.7l-25.5 30.8 153.5 128.3zm-31.2 39.7L129.2 179l-16.7 36.5L293.7 300zM262 32l-32 24 119.3 160.3 32-24zm20.5 328h-200v39.7h200zm39.7 80H42.7V320h-40v160h359.5V320h-40z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        
+        <a
+          class=" hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://www.kaggle.com/gomes555"
+          
+          target="_blank"
+          aria-label="Kaggle"
+          title="Kaggle"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.235 0-.351-.117-.351-.352V.353c0-.233.116-.353.351-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.336"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        
+        <a
+          class="email-link hover:text-primary-700 dark:hover:text-primary-400"
+          href="#"
+          
+            data-email="bWFpbHRvOmdvbWVzLmZlbGxpcGUxQGdtYWlsLmNvbQ=="
+          
+          target="_blank"
+          aria-label="Email"
+          title="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        
+        <a
+          class=" hover:text-primary-700 dark:hover:text-primary-400"
+          href="/index.xml"
+          
+          target="_blank"
+          aria-label="Rss"
+          title="Rss"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM128 416c0 35.3-28.7 64-64 64s-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-10"></div>
+  
+
+        
+        
+
+        
+          
+
+        
+        
+
+      </div>
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="grid grid-cols-1 gap-3 pt-4 sm:grid-cols-2">
+        <div>
+          
+            <a class="group flex items-center gap-3 rounded-lg p-2 -m-2 hover:bg-neutral-100 dark:hover:bg-neutral-800" href="/post/2018-10-27-server-cloud/">
+              <span class="text-xl text-neutral-400 group-hover:text-primary-500 rtl:rotate-180">&larr;</span>
+              
+              <img loading="lazy" src="/post/2018-10-27-server-cloud/feature_hu_1f5fcbfdbe2cda0c.png" alt="" class="!my-0 h-12 w-20 shrink-0 rounded-md object-cover">
+              <span class="min-w-0">
+                <span class="block text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">Anterior</span>
+                <span class="block text-sm font-medium leading-5 text-neutral-700 group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400">Seu app, RStudio e Shiny Server na nuvem do Google</span>
+              </span>
+            </a>
+          
+        </div>
+        <div>
+          
+            <a class="group flex items-center justify-end gap-3 rounded-lg p-2 -m-2 text-right hover:bg-neutral-100 dark:hover:bg-neutral-800" href="/post/2018-12-26-retrospectiva/">
+              <span class="min-w-0">
+                <span class="block text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">Próximo</span>
+                <span class="block text-sm font-medium leading-5 text-neutral-700 group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400">Um ano de blog! Retrospectiva de 2018 em Data Science</span>
+              </span>
+              
+              <img loading="lazy" src="/post/2018-12-26-retrospectiva/feature_hu_cf0655c623ac1ec1.png" alt="" class="!my-0 h-12 w-20 shrink-0 rounded-md object-cover">
+              <span class="text-xl text-neutral-400 group-hover:text-primary-500 rtl:rotate-180">&rarr;</span>
+            </a>
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+      
+        
+          <div class="pt-3">
+            <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+            <div class="pt-3">
+              
+
+  
+  
+    
+    
+    <div id="disqus_thread"></div>
+    <script>
+      window.disqus_config = function () {
+        this.page.url = "https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/";
+        this.page.identifier = "https://gomesfellipe.github.io/post/2018-11-28-pubg-sobrevivencia-kaggle/pubg-sobrevivencia-kaggle/";
+      };
+      (function () {
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = 'https://' + "gomesfellipe" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Ative o JavaScript para ver os <a href="https://disqus.com/?ref_noscript">comentários powered by Disqus.</a></noscript>
+  
+
+
+            </div>
+          </div>
+        
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Ir para o topo"
+    title="Ir para o topo">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+      
+      
+        
+          
+          
+      
+      
+      
+      <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400 ">
+        <ul class="flex list-none flex-col sm:flex-row">
+          
+            <li class=" flex mb-1 text-end sm:mb-0 sm:me-7 sm:last:me-0 ">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center"
+                href="/tags/"
+                title="Tags">
+                
+                Tags
+              </a>
+            </li>
+          
+            <li class=" flex mb-1 text-end sm:mb-0 sm:me-7 sm:last:me-0 ">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center"
+                href="/categories/"
+                title="Categories">
+                
+                Categorias
+              </a>
+            </li>
+          
+            <li class=" flex mb-1 text-end sm:mb-0 sm:me-7 sm:last:me-0 ">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center"
+                href="/about/"
+                title="Sobre">
+                
+                Resume
+              </a>
+            </li>
+          
+            <li class=" flex mb-1 text-end sm:mb-0 sm:me-7 sm:last:me-0 ">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center"
+                href="/privacy/"
+                title="Política de Privacidade">
+                
+                Privacidade
+              </a>
+            </li>
+          
+            <li class=" flex mb-1 text-end sm:mb-0 sm:me-7 sm:last:me-0 ">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center"
+                href="/termos/"
+                title="Termos de Uso">
+                
+                Termos
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          Fellipe Gomes
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Pesquisar"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Fechar (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Criação, conteúdo e design on Fellipe Gomes</title>
+    <link>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/</link>
+    <description>Recent content in Criação, conteúdo e design on Fellipe Gomes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <copyright>© 2026 Fellipe Gomes</copyright>
+    <atom:link href="https://gomesfellipe.github.io/agentic/criacao-conteudo-design/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AI Website Cloner</title>
+      <link>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/ai-website-cloner/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/ai-website-cloner/</guid>
+      <description>&lt;p&gt;Agente que replica o design e a estrutura de qualquer site público em código HTML/CSS. Ideal para quem quer usar um layout existente como ponto de partida sem começar do zero. O agente analisa a página, extrai os componentes visuais e gera um template funcional e editável.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Claude Blog</title>
+      <link>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/claude-blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/claude-blog/</guid>
+      <description>&lt;p&gt;Skill que transforma o Claude Code em um assistente de blog completo. A partir de um briefing ou conjunto de notas, gera o rascunho do post, aplica a formatação do template do blog e organiza o frontmatter de SEO. Permite que o autor foque no conteúdo e na revisão, delegando a estruturação e a publicação inicial ao agente.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>OpenMontage</title>
+      <link>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/openmontage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/openmontage/</guid>
+      <description>&lt;p&gt;Ferramenta que automatiza a produção de vídeos curtos a partir de um roteiro em texto. O pipeline combina geração de imagens com IA, narração por text-to-speech e montagem automática de cenas. Ideal para criar vídeos explicativos, shorts e conteúdo de redes sociais sem precisar editar manualmente.&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href=&#34;https://gomesfellipe.github.io/agentic/criacao-conteudo-design/voicebox/&#34; &gt;Voicebox&lt;/a&gt; resolve a parte da narração de forma isolada: clona uma voz e gera o áudio que entra como narração em vídeo no pipeline do OpenMontage.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Draw.io</title>
+      <link>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/drawio-skill/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/drawio-skill/</guid>
+      <description>&lt;p&gt;Skill que permite ao Claude Code criar diagramas de arquitetura, fluxos e organogramas em formato Draw.io diretamente a partir de uma descrição textual. Gera o arquivo .drawio/.xml que pode ser aberto e editado na ferramenta normalmente. Ideal para documentar arquiteturas de sistemas, fluxos de dados e pipelines sem sair do terminal.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Humanize Writing</title>
+      <link>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/humanize-writing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/humanize-writing/</guid>
+      <description>&lt;p&gt;Skill que pós-processa textos gerados por LLMs para soar como escrita humana natural em inglês. Remove padrões típicos de AI-speak — listas excessivas, frases genéricas, tom corporativo — e substitui por construções mais diretas, variadas e com personalidade. Útil antes de publicar qualquer conteúdo gerado por IA em blog, email ou redes sociais.&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Versão em português:&lt;/strong&gt; O &lt;a href=&#34;https://gomesfellipe.github.io/agentic/criacao-conteudo-design/humanizer-pt-br/&#34; &gt;Humanizer PT-BR&lt;/a&gt; aplica o mesmo processo para textos em português do Brasil.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Voicebox</title>
+      <link>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/voicebox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/voicebox/</guid>
+      <description>&lt;p&gt;Estúdio de voz open source para geração e clonagem de áudio com IA. Permite clonar uma voz a partir de poucos segundos de áudio, ditar texto em voz natural e exportar narrações em alta qualidade. Útil para criadores de conteúdo, desenvolvedores de agentes de voz e quem quer produzir audiobooks ou tutoriais narrados sem depender de APIs pagas.&lt;/p&gt;&#xA;&lt;p&gt;Tutorial relacionado: &lt;a href=&#34;https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/&#34; &gt;Audiobooks com IA — de PDF ao áudio com edge-tts&lt;/a&gt;.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Humanizer PT-BR</title>
+      <link>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/humanizer-pt-br/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/humanizer-pt-br/</guid>
+      <description>&lt;p&gt;Versão em português brasileiro da skill de humanização de escrita. Reescreve textos gerados por LLMs para soar natural em pt-BR, eliminando padrões típicos de AI-speak como listas excessivas, tom genérico e formalidade artificial. Especialmente útil para posts de blog, redes sociais e comunicações profissionais que precisam soar autênticos.&lt;/p&gt;&#xA;&lt;p&gt;Tutorial sobre NLP em português com LLM: &lt;a href=&#34;https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/&#34; &gt;Detecção de Linguagem Tóxica com Gemma e LangChain&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Versão em inglês:&lt;/strong&gt; O &lt;a href=&#34;https://gomesfellipe.github.io/agentic/criacao-conteudo-design/humanize-writing/&#34; &gt;Humanize Writing&lt;/a&gt; aplica o mesmo processo para textos em inglês.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Taste Skill</title>
+      <link>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/taste-skill/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gomesfellipe.github.io/agentic/criacao-conteudo-design/taste-skill/</guid>
+      <description>&lt;p&gt;Skill que calibra o Claude Code para aplicar critérios subjetivos de qualidade de código — legibilidade, coerência com o estilo do projeto, ausência de over-engineering e naming consistente. Vai além da correção técnica: o objetivo é que o código gerado pareça escrito por um desenvolvedor experiente que conhece o projeto, não por um modelo genérico.&lt;/p&gt;&#xA;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ver também:&lt;/strong&gt; O &lt;a href=&#34;https://gomesfellipe.github.io/agentic/contexto-tokens-custos/honey-for-devs/&#34; &gt;Honey for Devs&lt;/a&gt; complementa o Taste Skill aplicando YAGNI e stdlib-first — critério de qualidade sobre o que se adiciona, não só sobre o que já existe.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
