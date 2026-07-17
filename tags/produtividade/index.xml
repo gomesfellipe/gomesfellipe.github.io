@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Produtividade on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/produtividade/</link><description>Recent content in Produtividade on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Fri, 17 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/produtividade/index.xml" rel="self" type="application/rss+xml"/><item><title>Extensões do VSCode que eu uso</title><link>https://gomesfellipe.github.io/resources/vscode-extensions/</link><pubDate>Fri, 17 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/vscode-extensions/</guid><description>&lt;div class="vsx"&gt;
+ &lt;style&gt;
+ .vsx{
+ --vsx-accent:#007acc; --vsx-accent2:#1f9cf0;
+ --vsx-bg:#ffffff; --vsx-bg2:#faf7f2; --vsx-card:#ffffff;
+ --vsx-text:#1f2733; --vsx-muted:#6b7583; --vsx-line:rgba(0,0,0,.09);
+ --vsx-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.07);
+ --vsx-shadow-h:0 6px 14px rgba(0,122,204,.18),0 18px 40px rgba(0,0,0,.14);
+ width:100%; max-width:1180px; margin-inline:auto;
+ color:var(--vsx-text); font-synthesis:none;
+ }
+ html.dark .vsx{
+ --vsx-bg:#0f141b; --vsx-bg2:#141b24; --vsx-card:#1a2230;
+ --vsx-text:#e6ebf2; --vsx-muted:#9aa6b4; --vsx-line:rgba(255,255,255,.10);
+ --vsx-shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);
+ --vsx-shadow-h:0 6px 16px rgba(31,156,240,.22),0 22px 46px rgba(0,0,0,.6);
+ }
+ .vsx *{box-sizing:border-box}
+ .vsx-sec{margin-top:clamp(2rem,5vw,3rem)}
+ .vsx-sec:first-child{margin-top:0}
+ .vsx-sec-head{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin-bottom:1.4rem}
+ .vsx-sec-head h1{margin:0;font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:800;letter-spacing:-.01em;border-bottom:none;padding-bottom:0}
+ .vsx-sec-intro{flex-basis:100%;margin:.35rem 0 0;color:var(--vsx-muted);font-size:.96rem;line-height:1.55}
+ .vsx-grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+ .vsx-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--vsx-line);
+ border-radius:16px;box-shadow:var(--vsx-shadow);transition:transform .2s,box-shadow .2s,border-color .2s;
+ background:radial-gradient(140% 160% at 100% 100%,rgba(0,122,204,.10),transparent 55%),var(--vsx-card)}
+ .vsx-card:hover{transform:translateY(-6px);box-shadow:var(--vsx-shadow-h);border-color:rgba(0,122,204,.4)}
+ .vsx-top{display:flex;align-items:center;gap:.85rem;padding:1.1rem 1.1rem .6rem;position:relative}
+ .vsx-icon{flex-shrink:0;width:52px;height:52px;border-radius:12px;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;background:var(--vsx-bg2);
+ border:1px solid var(--vsx-line)}
+ .vsx-icon img{width:100%;height:100%;object-fit:contain;padding:4px}
+ .vsx-meta{min-width:0}
+ .vsx-name{font-size:1rem;font-weight:700;line-height:1.2;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .vsx-publisher{font-size:.8rem;color:var(--vsx-muted);margin:.1rem 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .vsx-badge{position:absolute;top:.7rem;right:.7rem;font-size:.62rem;font-weight:800;
+ letter-spacing:.03em;text-transform:uppercase;color:#fff;
+ background:linear-gradient(120deg,var(--vsx-accent),var(--vsx-accent2));
+ padding:.22rem .5rem;border-radius:999px;box-shadow:0 2px 8px rgba(0,122,204,.4)}
+ .vsx-body{display:flex;flex-direction:column;gap:.35rem;padding:.2rem 1.1rem 1.1rem;flex:1}
+ .vsx-pitch{font-size:.9rem;line-height:1.5;color:var(--vsx-text);opacity:.92;margin:.1rem 0 .8rem;flex:1}
+ .vsx-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+ font-size:.9rem;font-weight:700;text-decoration:none;color:#fff;
+ background:linear-gradient(120deg,var(--vsx-accent),var(--vsx-accent2));
+ padding:.6rem .9rem;border-radius:10px;transition:.18s;box-shadow:0 4px 12px rgba(0,122,204,.28)}
+ .vsx-cta:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,122,204,.42)}
+ .vsx-cta svg{width:14px;height:14px;flex-shrink:0}
+ @media(max-width:520px){
+ .vsx-grid{grid-template-columns:1fr;gap:.8rem}
+ .vsx-top{padding:.9rem .9rem .5rem}
+ .vsx-body{padding:.2rem .9rem .9rem}
+ }
+ .vsx-cta:focus-visible{outline:2px solid var(--vsx-accent);outline-offset:3px}
+ @media(prefers-reduced-motion:reduce){
+ .vsx-card,.vsx-cta{transition:none}
+ .vsx-card:hover,.vsx-cta:hover{transform:none}
+ }
+ &lt;/style&gt;
+ &lt;section class="vsx-sec" id="ia-assistente-de-codigo"&gt;
+ &lt;div class="vsx-sec-head"&gt;
+ &lt;h1&gt;IA &amp;amp; Assistente de Código&lt;/h1&gt;
+ &lt;p class="vsx-sec-intro"&gt;Onde a IA entra de verdade no editor: assistente de código e controle do que eu gasto com ele.&lt;/p&gt;</description></item></channel></rss>
