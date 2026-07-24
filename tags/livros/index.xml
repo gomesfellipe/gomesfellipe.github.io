@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Livros on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/livros/</link><description>Recent content in Livros on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sat, 04 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/livros/index.xml" rel="self" type="application/rss+xml"/><item><title>Livros que recomendo para cientistas de dados</title><link>https://gomesfellipe.github.io/books/</link><pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/books/</guid><description>&lt;div class="livros"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Livros on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/livros/</link><description>Recent content in Livros on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Fri, 24 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/livros/index.xml" rel="self" type="application/rss+xml"/><item><title>Livros que recomendo para cientistas de dados</title><link>https://gomesfellipe.github.io/books/</link><pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/books/</guid><description>&lt;div class="livros"&gt;
  &lt;style&gt;
  .livros{
  --lv-accent:#e67a00; --lv-accent2:#ff9d2e;
@@ -32,7 +32,7 @@
  .lv-cover{position:relative;display:block;padding:1.3rem 1.3rem .4rem;text-align:center}
  .lv-cover img{height:210px;width:auto;max-width:100%;object-fit:contain;
  filter:drop-shadow(0 8px 16px rgba(0,0,0,.22));border-radius:4px}
- .lv-flag{position:absolute;top:.7rem;right:.7rem;font-size:.68rem;font-weight:700;letter-spacing:.02em;
+ .lv-flag{position:absolute;top:.7rem;right:.7rem;z-index:1;font-size:.68rem;font-weight:700;letter-spacing:.02em;
  padding:.22rem .5rem;border-radius:999px;background:var(--lv-bg2);border:1px solid var(--lv-line);color:var(--lv-muted)}
  .lv-badge{position:absolute;top:.7rem;left:.7rem;z-index:1;font-size:.64rem;font-weight:800;
  letter-spacing:.03em;text-transform:uppercase;color:#fff;

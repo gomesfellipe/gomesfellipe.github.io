@@ -16,17 +16,4 @@
 
 &lt;div id="por-que-audiobooks" class="section level1"&gt;
 &lt;h1&gt;Por que Audiobooks?&lt;/h1&gt;
-&lt;p&gt;Pela sua forma conveniente de consumir conhecimento e entretenimento, os audiobooks estão se tornando cada vez mais populares. Conforme a última &lt;a href="https://g1.globo.com/pop-arte/noticia/2024/01/08/como-audiolivros-devem-crescer-ainda-mais-em-2024-e-podem-virar-prioridade-nas-editoras.ghtml"&gt;pesquisa&lt;/a&gt; da Câmara Brasileira do Livro, os livros digitais cresceram 15% de 2021 para 2022. Dentre os 13 mil títulos digitais publicados em 2022, 12% eram audiolivros. Embora o livro físico sempre vá existir, nem sempre temos o tempo necessário para ler todas as obras de nossa lista.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/feature.png"/></item><item><title>spleeteR</title><link>https://gomesfellipe.github.io/projects/spleeter/</link><pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/projects/spleeter/</guid><description>&lt;p&gt;Link do repositório no github: &lt;a href="https://github.com/gomesfellipe/spleeteR" target="_blank" rel="noreferrer"&gt;https://github.com/gomesfellipe/spleeteR&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Pacote em R que encapsula o &lt;a href="https://github.com/deezer/spleeter" target="_blank" rel="noreferrer"&gt;Spleeter&lt;/a&gt;, ferramenta da Deezer para separação de fontes de áudio, permitindo isolar vocais e instrumentais de uma música direto do R.&lt;/p&gt;
-
-&lt;h1 class="relative group"&gt;O que faz
- &lt;div id="o-que-faz" class="anchor"&gt;&lt;/div&gt;
- 
- &lt;span
- class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#o-que-faz" aria-label="Âncora"&gt;#&lt;/a&gt;
- &lt;/span&gt;
- 
-&lt;/h1&gt;
-&lt;p&gt;Separa uma faixa de áudio em componentes (2, 4 ou 5 stems), como vocais, baixo, bateria e outros instrumentos, usando modelos pré-treinados baseados em TensorFlow.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Pela sua forma conveniente de consumir conhecimento e entretenimento, os audiobooks estão se tornando cada vez mais populares. Conforme a última &lt;a href="https://g1.globo.com/pop-arte/noticia/2024/01/08/como-audiolivros-devem-crescer-ainda-mais-em-2024-e-podem-virar-prioridade-nas-editoras.ghtml"&gt;pesquisa&lt;/a&gt; da Câmara Brasileira do Livro, os livros digitais cresceram 15% de 2021 para 2022. Dentre os 13 mil títulos digitais publicados em 2022, 12% eram audiolivros. Embora o livro físico sempre vá existir, nem sempre temos o tempo necessário para ler todas as obras de nossa lista.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/post/2025-02-02-book-to-audiobook/feature.png"/></item></channel></rss>

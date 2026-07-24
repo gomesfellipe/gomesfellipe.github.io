@@ -1,4 +1,154 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Llm on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/llm/</link><description>Recent content in Llm on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM local com Qwen e LangChain: agente sem APIs externas</title><link>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</link><pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</guid><description>&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Llm on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/llm/</link><description>Recent content in Llm on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Fri, 24 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Cursos que eu fiz e recomendo</title><link>https://gomesfellipe.github.io/courses/</link><pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/courses/</guid><description>&lt;div class="cursos"&gt;
+ &lt;style&gt;
+ 
+ .cursos{
+ --cs-r:10px;
+ --cs-accent:rgb(var(--color-primary-600));
+ --cs-card:#fff;
+ --cs-text:#18202b;
+ --cs-muted:#67707d;
+ --cs-line:rgba(15,23,42,.11);
+ width:100%;max-width:1180px;margin-inline:auto;
+ color:var(--cs-text);font-synthesis:none;
+ }
+ html.dark .cursos{
+ --cs-accent:rgb(var(--color-primary-400));
+ --cs-card:#161d27;
+ --cs-text:#e4e9f0;
+ --cs-muted:#95a0ae;
+ --cs-line:rgba(255,255,255,.11);
+ }
+ .cursos *{box-sizing:border-box}
+
+ 
+ .cs-sec{margin-top:clamp(2.25rem,5vw,3.25rem)}
+ .cs-sec:first-of-type{margin-top:0}
+ .cs-head{display:flex;align-items:baseline;gap:.7rem;
+ padding-bottom:.55rem;border-bottom:1px solid var(--cs-line);margin-bottom:.9rem}
+ 
+ .cursos .cs-head h1{margin:0;padding-bottom:0;border-bottom:0;
+ font-size:clamp(1.05rem,2vw,1.3rem);font-weight:700;
+ letter-spacing:-.015em;line-height:1.2}
+ .cs-count{margin-left:auto;font-size:.72rem;color:var(--cs-muted);
+ font-variant-numeric:tabular-nums;white-space:nowrap}
+ .cs-intro{max-width:62ch;margin:0 0 1.15rem;font-size:.86rem;
+ line-height:1.6;color:var(--cs-muted)}
+
+ 
+ .cs-grid{display:grid;gap:.7rem;
+ grid-template-columns:repeat(auto-fill,minmax(218px,1fr))}
+
+ 
+ .cs-card{position:relative;display:flex;flex-direction:column;gap:.3rem;
+ padding:.8rem .85rem .9rem;background:var(--cs-card);
+ border:1px solid var(--cs-line);border-radius:var(--cs-r);
+ transition:border-color .16s,box-shadow .16s,transform .16s}
+ .cs-card:hover{border-color:var(--cs-accent);transform:translateY(-2px);
+ box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 20px rgba(15,23,42,.07)}
+ html.dark .cs-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.45)}
+ .cs-card:has(.cs-link:focus-visible){outline:2px solid var(--cs-accent);
+ outline-offset:2px}
+
+ 
+ .cs-link{color:inherit;text-decoration:none}
+ .cs-link::after{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit}
+
+ 
+ .cs-meta{display:flex;align-items:center;gap:.4rem;margin-bottom:.15rem;
+ color:var(--pc)}
+ html.dark .cs-meta{color:var(--pcd,var(--pc))}
+ .cs-mark{flex:none;width:14px;height:14px;display:block}
+ 
+ .cursos .cs-img{flex:none;width:14px;height:14px;min-width:0;max-width:14px;
+ margin:0;object-fit:contain;border-radius:2px}
+ .cs-mono{flex:none;width:14px;height:14px;display:grid;place-items:center;
+ font-size:8px;font-weight:800;letter-spacing:-.02em;line-height:1;
+ border:1px solid currentColor;border-radius:3px}
+ .cs-plat{font-size:.72rem;color:var(--cs-muted);min-width:0;
+ overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+ .cs-tags{margin-left:auto;flex:none;display:flex;align-items:center;gap:.3rem}
+ 
+ .cs-cert{position:relative;z-index:2;display:grid;place-items:center;
+ width:17px;height:17px;margin:-2px;border-radius:4px;
+ color:var(--cs-muted);transition:color .16s,background-color .16s}
+ .cs-cert:hover{color:var(--cs-accent);background:var(--cs-line)}
+ .cs-cert:focus-visible{outline:2px solid var(--cs-accent);outline-offset:1px}
+ .cs-cert svg{width:13px;height:13px}
+ .cs-star{flex:none;display:block;width:12px;height:12px;color:var(--cs-accent)}
+
+ 
+ .cs-thumb{position:absolute;top:calc(100% + .4rem);right:-4px;z-index:6;
+ width:150px;aspect-ratio:320/230;border-radius:8px;overflow:hidden;
+ background:var(--thumb) center/cover no-repeat,var(--cs-card);
+ border:1px solid var(--cs-line);
+ box-shadow:0 4px 10px rgba(15,23,42,.10),0 14px 30px rgba(15,23,42,.16);
+ opacity:0;visibility:hidden;transform:translateY(-4px);
+ transition:opacity .15s,transform .15s,visibility 0s linear .15s}
+ html.dark .cs-thumb{box-shadow:0 16px 36px rgba(0,0,0,.6)}
+ .cs-cert:hover .cs-thumb,.cs-cert:focus-visible .cs-thumb{
+ opacity:1;visibility:visible;transform:none;transition-delay:0s}
+ .cs-thumb-x{display:grid;place-items:center;width:130px;aspect-ratio:auto;
+ padding:.55rem;text-align:center;background:var(--cs-card);
+ font-size:.65rem;line-height:1.45;color:var(--cs-muted)}
+ @media(hover:none){.cs-thumb{display:none}}
+
+ 
+ .cs-certs{position:relative;z-index:3}
+ .cs-certs&gt;summary{display:grid;grid-auto-flow:column;align-items:center;gap:.18rem;
+ width:max-content;padding:1px 3px;margin:-1px -3px;border-radius:4px;
+ list-style:none;cursor:pointer;color:var(--cs-muted);
+ transition:color .16s,background-color .16s}
+ .cs-certs&gt;summary::-webkit-details-marker{display:none}
+ .cs-certs&gt;summary:hover,.cs-certs[open]&gt;summary{color:var(--cs-accent);background:var(--cs-line)}
+ .cs-certs&gt;summary:focus-visible{outline:2px solid var(--cs-accent);outline-offset:1px}
+ .cs-certs&gt;summary svg{width:13px;height:13px}
+ .cs-certn{font-size:.62rem;font-weight:700;font-variant-numeric:tabular-nums}
+ .cs-certbox{position:absolute;top:calc(100% + .35rem);right:0;width:min(15rem,72vw);
+ padding:.5rem .6rem;background:var(--cs-card);border:1px solid var(--cs-line);
+ border-radius:var(--cs-r);box-shadow:0 4px 8px rgba(15,23,42,.07),0 12px 28px rgba(15,23,42,.13)}
+ html.dark .cs-certbox{box-shadow:0 12px 32px rgba(0,0,0,.6)}
+ .cs-certbox ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.1rem}
+ .cs-certbox a{display:block;padding:.24rem .3rem;border-radius:5px;
+ font-size:.73rem;line-height:1.35;color:var(--cs-text);text-decoration:none}
+ .cs-certbox a:hover{color:var(--cs-accent);background:var(--cs-line)}
+ .cs-certbox a:focus-visible{outline:2px solid var(--cs-accent);outline-offset:-1px}
+ 
+ .cs-card:has(.cs-certs[open]){z-index:4}
+
+ .cs-title{margin:0;font-size:.9rem;font-weight:650;line-height:1.35;
+ letter-spacing:-.005em}
+ .cs-author{margin:0;font-size:.74rem;color:var(--cs-muted)}
+ .cs-pitch{margin:.35rem 0 0;font-size:.79rem;line-height:1.55;color:var(--cs-muted)}
+ .cs-coupon{margin:.4rem 0 0;font-size:.7rem;font-weight:600;color:var(--cs-accent)}
+
+ .cs-go{position:absolute;bottom:.7rem;right:.7rem;width:11px;height:11px;
+ color:var(--cs-accent);opacity:0;transform:translate(-2px,2px);
+ transition:opacity .16s,transform .16s}
+ .cs-card:hover .cs-go{opacity:1;transform:none}
+
+ .cs-close{max-width:62ch;margin:clamp(2.5rem,6vw,3.5rem) 0 0;
+ padding-top:1.25rem;border-top:1px solid var(--cs-line);
+ font-size:.86rem;line-height:1.65;color:var(--cs-muted)}
+
+ .cs-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+ overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+ @media(max-width:560px){
+ .cs-grid{grid-template-columns:1fr}
+ .cs-count{display:none}
+ }
+ @media (prefers-reduced-motion: reduce){
+ .cs-card,.cs-go,.cs-cert{transition:none}
+ .cs-card:hover{transform:none}
+ }
+ &lt;/style&gt;
+ &lt;section class="cs-sec" id="comece-por-aqui"&gt;
+ &lt;div class="cs-head"&gt;
+ &lt;h1&gt;Comece por aqui&lt;/h1&gt;
+ &lt;span class="cs-count"&gt;3 cursos&lt;/span&gt;
+ &lt;/div&gt;
+ &lt;p class="cs-intro"&gt;Se você está começando do zero e quer uma trilha só, é essa. Os três cobrem o caminho inteiro: sintaxe, estatística aplicada e um primeiro modelo rodando.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/courses/feature.jpg"/></item><item><title>LLM local com Qwen e LangChain: agente sem APIs externas</title><link>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</link><pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/</guid><description>&lt;div class="w3-panel w3-pale-amber w3-border"&gt;
 &lt;p&gt;&lt;strong&gt;Série: LangChain — Agentes com Python&lt;/strong&gt; — &lt;a href="https://gomesfellipe.github.io/resources/langchain-series/"&gt;ver índice&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/"&gt;Análise de Sentimentos com Llama2&lt;/a&gt;&lt;/li&gt;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Recursos on Fellipe Gomes</title><link>https://gomesfellipe.github.io/resources/</link><description>Recent content in Recursos on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Fri, 17 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/resources/index.xml" rel="self" type="application/rss+xml"/><item><title>Extensões do VSCode que eu uso</title><link>https://gomesfellipe.github.io/resources/vscode-extensions/</link><pubDate>Fri, 17 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/vscode-extensions/</guid><description>&lt;div class="vsx"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Recursos on Fellipe Gomes</title><link>https://gomesfellipe.github.io/resources/</link><description>Recent content in Recursos on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Fri, 24 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/resources/index.xml" rel="self" type="application/rss+xml"/><item><title>Extensões do VSCode que uso</title><link>https://gomesfellipe.github.io/resources/vscode-extensions/</link><pubDate>Fri, 17 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/vscode-extensions/</guid><description>&lt;div class="vsx"&gt;
  &lt;style&gt;
  .vsx{
  --vsx-accent:#007acc; --vsx-accent2:#1f9cf0;
@@ -60,7 +60,7 @@
  &lt;section class="vsx-sec" id="ia-assistente-de-codigo"&gt;
  &lt;div class="vsx-sec-head"&gt;
  &lt;h1&gt;IA &amp;amp; Assistente de Código&lt;/h1&gt;
- &lt;p class="vsx-sec-intro"&gt;Onde a IA entra de verdade no editor: assistente de código e controle do que eu gasto com ele.&lt;/p&gt;</description></item><item><title>Canais do YouTube para Cientistas de Dados</title><link>https://gomesfellipe.github.io/resources/youtube-channels/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/youtube-channels/</guid><description>&lt;p&gt;O YouTube é um ótimo lugar para aprender isso na prática. Eu colecionei aqui canais que costumam valer a pena, desde os clássicos que explicam do zero até os que acompanham as novidades mais quentes do campo.&lt;/p&gt;
+ &lt;p class="vsx-sec-intro"&gt;Onde a IA entra de verdade no editor: assistente de código e controle do que eu gasto com ele.&lt;/p&gt;</description></item><item><title>Canais do YouTube para Cientistas de Dados</title><link>https://gomesfellipe.github.io/resources/youtube-channels/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/youtube-channels/</guid><description>&lt;p class="yt-intro-note"&gt;YouTube tem muito conteúdo bom de ciência de dados, mas também muito ruído. Aqui trouxe alguns canais que costumam valer a pena a inscrição, desde os clássicos que explicam do zero até os que acompanham as novidades mais recentes do campo.&lt;/p&gt;
 &lt;div class="cy"&gt;
  &lt;style&gt;
  .cy{
@@ -135,166 +135,14 @@
  &lt;section class="cy-sec" id="fundamentos-e-matematica"&gt;
  &lt;div class="cy-sec-head"&gt;
  &lt;h1&gt;Fundamentos e Matemática&lt;/h1&gt;
- &lt;p class="cy-sec-intro"&gt;Se você quer começar do zero, esses são os canais que mais ajudam a fazer a matemática fazer sentido.&lt;/p&gt;</description></item><item><title>Trabalho remoto</title><link>https://gomesfellipe.github.io/resources/remote-work/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/remote-work/</guid><description>&lt;h2 class="relative group"&gt;Onde eu procuraria hoje
- &lt;div id="onde-eu-procuraria-hoje" class="anchor"&gt;&lt;/div&gt;
- 
- &lt;span
- class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#onde-eu-procuraria-hoje" aria-label="Âncora"&gt;#&lt;/a&gt;
- &lt;/span&gt;
- 
-&lt;/h2&gt;
-&lt;p&gt;Trabalho remoto deixou de ser novidade. Agora o desafio é achar os lugares certos, sem perder tempo com listas improvisadas e plataformas que não fazem sentido para o seu perfil.&lt;/p&gt;
-
-&lt;h3 class="relative group"&gt;No Brasil
- &lt;div id="no-brasil" class="anchor"&gt;&lt;/div&gt;
- 
- &lt;span
- class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#no-brasil" aria-label="Âncora"&gt;#&lt;/a&gt;
- &lt;/span&gt;
- 
-&lt;/h3&gt;
-&lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Plataforma&lt;/th&gt;
-					&lt;th&gt;Para quê&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://remotar.com.br/" target="_blank" rel="noreferrer"&gt;Remotar&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Voltada para trabalho remoto no Brasil&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://trampos.co/" target="_blank" rel="noreferrer"&gt;Trampos&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Forte em tecnologia, direta para quem já sabe o que procura&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://vagas.com.br/" target="_blank" rel="noreferrer"&gt;Vagas.com&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Boa opção para home office e vagas híbridas&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 class="relative group"&gt;Freelancing internacional
- &lt;div id="freelancing-internacional" class="anchor"&gt;&lt;/div&gt;
- 
- &lt;span
- class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#freelancing-internacional" aria-label="Âncora"&gt;#&lt;/a&gt;
- &lt;/span&gt;
- 
-&lt;/h3&gt;
-&lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Plataforma&lt;/th&gt;
-					&lt;th&gt;Para quê&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://www.upwork.com/" target="_blank" rel="noreferrer"&gt;Upwork&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Porta de entrada mais ampla para clientes do mundo todo&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://www.toptal.com/" target="_blank" rel="noreferrer"&gt;Toptal&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Mais seletiva, projetos melhores e remuneração mais alta&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://br.fiverr.com/" target="_blank" rel="noreferrer"&gt;Fiverr&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Ótimo para serviços bem definidos e entregas curtas&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://www.workana.com/" target="_blank" rel="noreferrer"&gt;Workana&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Forte para clientes latam e projetos bem segmentados&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 class="relative group"&gt;Vagas CLT e contratos remotos
- &lt;div id="vagas-clt-e-contratos-remotos" class="anchor"&gt;&lt;/div&gt;
- 
- &lt;span
- class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#vagas-clt-e-contratos-remotos" aria-label="Âncora"&gt;#&lt;/a&gt;
- &lt;/span&gt;
- 
-&lt;/h3&gt;
-&lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Plataforma&lt;/th&gt;
-					&lt;th&gt;Para quê&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://remoteok.com/" target="_blank" rel="noreferrer"&gt;Remote OK&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Agregador com bastante movimento e boa leitura rápida&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://landing.jobs/" target="_blank" rel="noreferrer"&gt;Landing Jobs&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Tecnologia e empresas internacionais&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://weworkremotely.com/" target="_blank" rel="noreferrer"&gt;We Work Remotely&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Comunidade forte e muita cultura remota&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 class="relative group"&gt;Nichos específicos
- &lt;div id="nichos-específicos" class="anchor"&gt;&lt;/div&gt;
- 
- &lt;span
- class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#nichos-espec%c3%adficos" aria-label="Âncora"&gt;#&lt;/a&gt;
- &lt;/span&gt;
- 
-&lt;/h3&gt;
-&lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Plataforma&lt;/th&gt;
-					&lt;th&gt;Para quê&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://www.italki.com/pt" target="_blank" rel="noreferrer"&gt;italki&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Para ensinar idiomas online&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://www.utest.com/" target="_blank" rel="noreferrer"&gt;Utest&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Para quem quer entrar em QA e testes&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;a href="https://crossover.com/" target="_blank" rel="noreferrer"&gt;Crossover&lt;/a&gt;&lt;/td&gt;
-					&lt;td&gt;Vagas full-time remotas em empresas americanas&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 class="relative group"&gt;O que eu faria hoje
- &lt;div id="o-que-eu-faria-hoje" class="anchor"&gt;&lt;/div&gt;
- 
- &lt;span
- class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#o-que-eu-faria-hoje" aria-label="Âncora"&gt;#&lt;/a&gt;
- &lt;/span&gt;
- 
-&lt;/h2&gt;
-&lt;p&gt;Se eu estivesse começando agora, faria assim:&lt;/p&gt;</description></item><item><title>Série LangChain — Agentes com Python</title><link>https://gomesfellipe.github.io/resources/langchain-series/</link><pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/langchain-series/</guid><description>&lt;p&gt;Posts desta série, do mais básico ao mais avançado:&lt;/p&gt;
+ &lt;p class="cy-sec-intro"&gt;Para começar do zero, esses são os canais que mais ajudam a fazer a matemática fazer sentido.&lt;/p&gt;</description></item><item><title>Série LangChain — Agentes com Python</title><link>https://gomesfellipe.github.io/resources/langchain-series/</link><pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/langchain-series/</guid><description>&lt;p&gt;Posts desta série, do mais básico ao mais avançado:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-04-20-sentiment-analysis-llama2/" &gt;Análise de Sentimentos com Llama2 de Código Aberto&lt;/a&gt; — fundamentos: LLM open source + análise de texto&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2024-05-26-detec-o-de-linguagem-t-xica-com-o-llm-gemma-e-langchain/" &gt;Detecção de Linguagem Tóxica com Gemma e LangChain&lt;/a&gt; — classificação com prompt engineering&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-05-04-bitcoin-agent/" &gt;Equipe Multiagente de IA para Análise do Bitcoin&lt;/a&gt; — LangGraph: múltiplos agentes orquestrados&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2025-10-26-telemarketing-agent/" &gt;Agente para Análise de Ligações de Telemarketing&lt;/a&gt; — produção: Whisper + Pyannote + LangChain&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://gomesfellipe.github.io/post/2026-02-21-qwen-local-agent/" &gt;Agente com LLM Local sem APIs Externas&lt;/a&gt; — local: Qwen + llama.cpp + GGUF&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>Bancos de dados públicos</title><link>https://gomesfellipe.github.io/resources/public-datasets/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/public-datasets/</guid><description>&lt;p&gt;Encontrar dados confiáveis é metade do trabalho em qualquer projeto de análise, visualização ou aprendizado de máquina. A melhor forma de ganhar tempo é começar com fontes bem documentadas, com contexto claro e com exemplos práticos de uso.&lt;/p&gt;
+&lt;/ol&gt;</description></item><item><title>Bancos de dados públicos</title><link>https://gomesfellipe.github.io/resources/public-datasets/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/public-datasets/</guid><description>&lt;p&gt;Encontrar dados confiáveis pode consumir muitas horas de trabalho em qualquer projeto de análise, visualização ou aprendizado de máquina. A melhor forma de ganhar tempo é começar com fontes bem documentadas, com contexto claro e com exemplos práticos de uso.&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Key Takeaways&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Comece por fontes brasileiras e internacionais com boa documentação e metadados claros.&lt;/li&gt;
@@ -311,7 +159,7 @@
  &lt;/span&gt;
  
 &lt;/h2&gt;
-&lt;p&gt;Se eu estivesse escolhendo hoje, eu começaria por três tipos de fonte: repositórios governamentais, plataformas especializadas em datasets e bases voltadas para áreas específicas como saúde, economia ou visão computacional. Essa divisão costuma ser mais útil do que tentar guardar tudo em uma única lista.&lt;/p&gt;</description></item><item><title>Sobre ombros de gigantes</title><link>https://gomesfellipe.github.io/resources/shoulders-of-giants/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/shoulders-of-giants/</guid><description>&lt;p&gt;Essas são algumas das frases que me impactaram de alguma forma e que eu carrego para a minha vida:&lt;/p&gt;
+&lt;p&gt;Quando preciso escolher um dataset para estudar ou enriquecer bases de dados que estou trabalhando, eu costumo iniciar por três tipos de fonte: repositórios governamentais, plataformas especializadas em datasets e bases voltadas para áreas específicas como saúde, economia ou visão computacional.&lt;/p&gt;</description></item><item><title>Sobre ombros de gigantes</title><link>https://gomesfellipe.github.io/resources/shoulders-of-giants/</link><pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/resources/shoulders-of-giants/</guid><description>&lt;p&gt;Essas são algumas das frases que me impactaram de alguma forma e que eu carrego para a minha vida:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&amp;ldquo;&lt;em&gt;Com organização e tempo, acha-se o segredo de fazer tudo e bem feito.&lt;/em&gt;&amp;rdquo; - Pitágoras&lt;/p&gt;
