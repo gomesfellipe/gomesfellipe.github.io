@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cursos on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/cursos/</link><description>Recent content in Cursos on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Fri, 24 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/cursos/index.xml" rel="self" type="application/rss+xml"/><item><title>Cursos que eu fiz e recomendo</title><link>https://gomesfellipe.github.io/courses/</link><pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/courses/</guid><description>&lt;div class="cursos"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cursos on Fellipe Gomes</title><link>https://gomesfellipe.github.io/tags/cursos/</link><description>Recent content in Cursos on Fellipe Gomes</description><generator>Hugo -- gohugo.io</generator><language>pt-BR</language><copyright>© 2026 Fellipe Gomes</copyright><lastBuildDate>Sat, 25 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gomesfellipe.github.io/tags/cursos/index.xml" rel="self" type="application/rss+xml"/><item><title>Cursos que eu fiz e recomendo</title><link>https://gomesfellipe.github.io/courses/</link><pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate><guid>https://gomesfellipe.github.io/courses/</guid><description>&lt;div class="cursos"&gt;
  &lt;style&gt;
  
  .cursos{
@@ -134,12 +134,32 @@
  .cs-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
+ 
+ 
+ .cs-story-intro{max-width:62ch;margin:0 0 1.15rem;font-size:1rem;
+ line-height:1.65;color:var(--cs-text)}
+ .cs-story-list{list-style:disc;margin:0;padding-left:1.15rem;display:flex;
+ flex-direction:column;gap:.55rem;max-width:62ch}
+ .cs-story-list li{font-size:.86rem;line-height:1.6;color:var(--cs-text)}
+ 
+ .cs-pitch a,.cs-intro a,.cs-story-intro a{color:var(--cs-accent);
+ text-decoration:none;font-weight:500}
+ .cs-pitch a:hover,.cs-intro a:hover,.cs-story-intro a:hover{text-decoration:underline}
+ .cs-mini-cert{position:relative;display:inline-flex;vertical-align:-2px;
+ margin-left:.35rem;color:var(--cs-muted);transition:color .16s}
+ .cs-mini-cert:hover{color:var(--cs-accent)}
+ .cs-mini-cert svg{width:13px;height:13px}
+ 
+ .cs-mini-cert .cs-thumb{left:50%;right:auto;transform:translateX(-50%) translateY(-4px)}
+ .cs-mini-cert:hover .cs-thumb,.cs-mini-cert:focus-visible .cs-thumb{
+ opacity:1;visibility:visible;transform:translateX(-50%);transition-delay:0s}
+
  @media(max-width:560px){
  .cs-grid{grid-template-columns:1fr}
  .cs-count{display:none}
  }
  @media (prefers-reduced-motion: reduce){
- .cs-card,.cs-go,.cs-cert{transition:none}
+ .cs-card,.cs-go,.cs-cert,.cs-mini-cert{transition:none}
  .cs-card:hover{transform:none}
  }
  &lt;/style&gt;
@@ -148,4 +168,4 @@
  &lt;h1&gt;Comece por aqui&lt;/h1&gt;
  &lt;span class="cs-count"&gt;3 cursos&lt;/span&gt;
  &lt;/div&gt;
- &lt;p class="cs-intro"&gt;Se você está começando do zero e quer uma trilha só, é essa. Os três cobrem o caminho inteiro: sintaxe, estatística aplicada e um primeiro modelo rodando.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/courses/feature.jpg"/></item></channel></rss>
+ &lt;p class="cs-intro"&gt;Se você está começando do zero e quer uma trilha só, esses cursos podem ajudar. Os três cobrem uma boa introdução: visão geral, sintaxe, estatística aplicada e um primeiro modelo rodando.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gomesfellipe.github.io/courses/feature.jpg"/></item></channel></rss>
