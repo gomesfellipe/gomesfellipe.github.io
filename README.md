@@ -1,4 +1,4 @@
-# Fellipe Gomes — Blog de Data Science, Machine Learning e IA
+# Blog de Data Science, Machine Learning e IA
 
 [![Site no ar](https://img.shields.io/website?url=https%3A%2F%2Fgomesfellipe.github.io&label=site&up_message=online&down_message=fora%20do%20ar)](https://gomesfellipe.github.io)
 [![Último deploy](https://img.shields.io/github/last-commit/gomesfellipe/gomesfellipe.github.io?label=%C3%BAltimo%20deploy)](https://github.com/gomesfellipe/gomesfellipe.github.io/commits/master)
